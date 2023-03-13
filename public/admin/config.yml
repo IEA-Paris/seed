@@ -3,13 +3,19 @@ local_backend:
   url: http://192.168.0.37:3000/api/v1
   # when accessing the local site from
 backend:
-  name: git-gateway
+  name: github
   branch: main
-  repo: IEA-Paris/seed
-auth_endpoint: api/auth
-media_folder: public
- a host other than 'localhost' or '127.0.0.1'
-  allowed_hosts: ['192.168.0.37']
+  repo: ebouther/seed
+  base_url: http://localhost:3000/
+  auth_endpoint: '/dev/auth'
+
+# local_backend: true
+# local_backend:
+#   url: http://localhost:8081/api/v1
+
+publish_mode: editorial_workflow
+media_folder: "public"
+site_domain: cms.netlify.com
 collections:
   - name: "en_pages" # Used in routes, e.g., /admin/collections/blog
     label: "English pages" # Used in the UI
