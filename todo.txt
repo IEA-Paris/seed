@@ -14,7 +14,15 @@ Document collections:
 - digital projects
 
 Question:
+- Navigation 2 niveaux ou 2 clics?
 - Should we add a FAQ?
+- event > activity
+- institution as objects: no search
+- Extra content blocs
+- CMS et emplacement textes
+- Resources vs IEAthèque
+- 
+
 
 
 PPIAS & Proceedings

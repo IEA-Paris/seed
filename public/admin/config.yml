@@ -6,10 +6,18 @@ backend:
   name: github
   branch: main
   repo: IEA-Paris/seed
-  base_url: http://localhost:3000/
+  base_url: https://85o05b11ri.execute-api.eu-west-2.amazonaws.com/
   auth_endpoint: '/dev/auth'
+  cms_label_prefix: 'IEA-Paris-CMS '
 logo_url: "<%= ENV['url'] %><%= ENV['logo'] %>"
+extension: md
+format: yaml-frontmatter
+# show_preview_links: false
 locale: fr
+slug:
+  encoding: "unicode"
+  clean_accents: true
+  sanitize_replacement: "_"
 # local_backend: true
 # local_backend:
 #   url: http://localhost:8081/api/v1
@@ -33,13 +41,56 @@ collections:
     label: "pages" # Used in the UI
     folder: "content/pages" # The path to the folder where the documents are stored
     i18n: true
+    sortable_fields: ['commit_date', 'title', 'commit_author', 'language.en', 'language.fr']
     locales: [en, fr]
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
       - {label: "Title", name: "title", widget: "string", i18n: true}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image"}
-      - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
+      - {label: "Publish Date", name: "date", widget: "datetime", i18n: true}
+     # - {label: "Featured Image", name: "thumbnail", widget: "image", required: false, i18n: true}
+     # - {label: "Rating (scale of 1-5)", name: "rating", widget: "number", i18n: true}
+      - {label: "Body", name: "body", widget: "markdown", i18n: true}
+  - name: "ads" # Used in routes, e.g., /admin/collections/blog
+    label: "Ads" # Used in the UI
+    folder: "content/ads" # The path to the folder where the documents are stored
+    i18n: true
+    sortable_fields: ['commit_date', 'title', 'commit_author', 'language.en', 'language.fr']
+    locales: [en, fr]
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string", i18n: true}
+      - {label: "Publish Date", name: "date", widget: "datetime", i18n: true}
+      - {label: "Picture", name: "thumbnail", widget: "image", required: false, i18n: true}
+      - {label: "Body", name: "body", widget: "markdown", i18n: true}
+  - name: "carousel" # Used in routes, e.g., /admin/collections/blog
+    label: "Carousel" # Used in the UI
+    folder: "content/carousel" # The path to the folder where the documents are stored
+    i18n: true
+    sortable_fields: ['commit_date', 'title', 'commit_author', 'language.en', 'language.fr']
+    locales: [en, fr]
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string", i18n: true}
+      - {label: "Publish Date", name: "date", widget: "datetime", i18n: true}
+      - {label: "URL", name: "url", widget: "string", i18n: true, pattern: ['^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=\]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~', 'Please use a valid URL']}
+      - {label: "Picture", name: "Picture", widget: "image", required: false, i18n: true}
+      - {label: "Body", name: "body", widget: "markdown", i18n: true}
+  - name: "fellowships" # Used in routes, e.g., /admin/collections/blog
+    label: "Fellowships" # Used in the UI
+    folder: "content/fellowships" # The path to the folder where the documents are stored
+    i18n: true
+    sortable_fields: ['commit_date', 'title', 'commit_author', 'language.en', 'language.fr']
+    locales: [en, fr]
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string", i18n: true}
+      - {label: "Publish Date", name: "date", widget: "datetime", i18n: true}
+      - {label: "Application start", name: "application_start", hint: "When can I apply?",   widget: 'date',  default: '',  format: 'MMM Do YY'}
+      - {label: "Application end", name: "application_end", hint: "Until when can I apply?",    widget: 'date',  default: '',  format: 'MMM Do YY'}
+      - {label: "External URL", name: "url", widget: "string", i18n: true, pattern: ['^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=\]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~', 'Please use a valid URL']}
+      - {label: "Picture", name: "Picture", widget: "image", required: false, i18n: true}
       - {label: "Body", name: "body", widget: "markdown", i18n: true}

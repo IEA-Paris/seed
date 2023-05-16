@@ -7,7 +7,7 @@ const secrets = new Secrets({
   OAUTH_TOKEN_PATH: '/login/oauth/access_token',
   OAUTH_AUTHORIZE_PATH: '/login/oauth/authorize',
   OAUTH_CLIENT_ID: '159944e2f9389e9d10a4',
-  OAUTH_CLIENT_SECRET: 'XXXX',
+  OAUTH_CLIENT_SECRET: '77278a10ab2e1cf024e04448449e4d6c21a2a3fc',
   REDIRECT_URL: 'http://localhost:3000/dev/callback',
   OAUTH_SCOPES: 'repo,user',
 });

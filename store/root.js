@@ -32,8 +32,7 @@ export const useRootStore = defineStore('rootStore', {
       this.loading = value
     },
     setScrolled(value) {
-      console.log('value: ', value);
-        this.scrolled = value
+      this.scrolled = value
     },
   /* 
     loadRouteQuery(type) {

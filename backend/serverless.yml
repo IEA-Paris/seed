@@ -13,7 +13,7 @@ provider:
     #REDIRECT_URL: "/ctrl-alt-del/oauth/${opt:stage, self:provider.stage}/REDIRECT_URL"
     #OAUTH_SCOPES: "/ctrl-alt-del/oauth/${opt:stage, self:provider.stage}/OAUTH_SCOPES"
     OAUTH_CLIENT_ID: "159944e2f9389e9d10a4"
-    OAUTH_CLIENT_SECRET:  "XXXXX"
+    OAUTH_CLIENT_SECRET:  "77278a10ab2e1cf024e04448449e4d6c21a2a3fc"
     GIT_HOSTNAME: "https://github.com"
     REDIRECT_URL: "localhost:3000"
     OAUTH_TOKEN_PATH: "/login/oauth/access_token"
