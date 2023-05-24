@@ -8,8 +8,6 @@ backend:
   repo: IEA-Paris/seed
 auth_endpoint: api/auth
 media_folder: public
- a host other than 'localhost' or '127.0.0.1'
-  allowed_hosts: ['192.168.0.37']
 collections:
   - name: "en_pages" # Used in routes, e.g., /admin/collections/blog
     label: "English pages" # Used in the UI
