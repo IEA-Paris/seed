@@ -6,8 +6,11 @@ backend:
   name: github
   branch: main
   repo: IEA-Paris/seed
-auth_endpoint: api/auth
-media_folder: public
+  base_url: https://85o05b11ri.execute-api.eu-west-2.amazonaws.com/
+  auth_endpoint: '/dev/auth'
+publish_mode: editorial_workflow
+media_folder: "public"
+site_domain: cms.netlify.com
 collections:
   - name: "en_pages" # Used in routes, e.g., /admin/collections/blog
     label: "English pages" # Used in the UI
