@@ -1,0 +1,83 @@
+Collections:
+- people
+- events
+- resources
+
+Document collections:
+- fellowships
+- Carousel
+- Members
+- partners
+- sponsors
+- SAB
+- Ads
+- digital projects
+
+Question:
+- Should we add a FAQ?
+
+
+PPIAS & Proceedings
+- Corriger bugs
+- Produire france.pias.science
+- Rédiger doc Mounier
+- Préparer talk 30 mars Bouin
+
+Operas
+- Préparer réunion SIG 8 mars
+- Contacter 0SS watch avec Paul Walk dans la boucle
+- Réunion FR Barthonat, type liège
+- Réunion 1v1 De Santis
+
+Governu
+- GovernU.net dev > Prod
+- Déployer CMS GovernU
+- Relancer Marbot input UPC
+- Suivi convention relecture
+- MEP nomenclatures
+
+Socioscope
+- Relance PItch socioscope
+- Réunion Emmanuelle
+- Vérification création des boites
+- Relecture et préparation Helga 15 mars
+- Voir intégration mairie paris
+
+Site Web IEA
+- Organiser réunion validation sitemap
+- Déployer CMS
+- Mise en place CI et déploiement
+- Avancer contenu
+- Etat des lieux services Apex & API
+- Mise à plat schémas
+
+Apex
+- Service nomenclatures
+- service events
+- service auth
+- service translation
+- service micro-enrolment
+
+Positive Future
+- Réunion suivi planification édition 2023
+- MAJ dépendances et bump versions
+
+Welcome science
+- Recontacter fondation Fnak & Antony Mauvais
+- Boucler avec FMSH sur leur plan 2021-2024
+- 
+
+ASTR
+- Maj locale, état des lieux
+- déploiement POC sur aws ec2
+
+MITI
+- Relancer netboard? Voir avec CCSD?
+
+RnMSH
+- Standby -> conseil
+
+
+
+
+
