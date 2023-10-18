@@ -1,8 +1,8 @@
 ---
 title: Fellowship accommodations
-page: 'home'
+page: home
 ---
-## Statut et rémunération
+## Statut et rémunération 
 
 Selon le modèle de rémunération fréquemment adopté par les Instituts d'Etudes Avancées, l'IEA de Paris veille à garantir à chaque résident la prise en charge des coûts occasionnés par son séjour en France dont le montant est modulé selon sa situation personnelle. Les rémunérations proposées peuvent varient en fonction des types d'appels à candidatures.
 

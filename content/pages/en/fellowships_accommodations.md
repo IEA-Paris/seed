@@ -1,8 +1,8 @@
 ---
 title: Fellowship accommodations
-page: 'fellowships_details'
+page: fellowships_details
 ---
-## Status and remuneration
+## Status and remuneration 
 
 In accordance with the remuneration model frequently adopted by Instituts d'Etudes Avancées, the Paris IEA ensures that all residents cover the costs of their stay in France, the amount of which is adjusted according to their personal situation. The remuneration offered may vary depending on the type of call for applications.
 
@@ -29,7 +29,7 @@ Residents may receive financial and material support for their research work and
 
 ### Access to partner research libraries
 
-The agreements signed between the IEA and its partner institutions enable residents to benefit from privileged access and extended lending rights [in the main Paris libraries] as soon as they arrive (https://www.paris-iea.fr/fr/sejourner-a-l-iea/bibliotheque).
+The agreements signed between the IEA and its partner institutions enable residents to benefit from privileged access and extended lending rights \[in the main Paris libraries] as soon as they arrive (https://www.paris-iea.fr/fr/sejourner-a-l-iea/bibliotheque).
 
 ### Communication and promotion
 
