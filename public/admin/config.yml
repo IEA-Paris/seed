@@ -134,6 +134,7 @@ collections:
           name: picture,
           widget: image,
           i18n: true,
+          required: false,
           media_library:
             { allow_multiple: false, media_folder: "images/fellowships" },
         }
@@ -141,12 +142,14 @@ collections:
           label: Link,
           name: link,
           widget: string,
+          required: false,
           i18n: true,
           hint: "link to an external page if it is not a fellowship page hosted by us",
         }
       - {
           label: Action,
           name: action,
+          required: false,
           widget: string,
           i18n: true,
           hint: "URL of the application or action page",
@@ -171,66 +174,77 @@ collections:
           label: "Type",
           name: "type",
           widget: "text",
+          i18n: true,
         }
       - {
           hint: " Dates et détails temporels",
           label: "Funding period",
           name: "fundingPeriod",
           widget: "text",
+          i18n: true,
         }
       - {
           hint: " profile, CV, disciplines, expérience, origine",
           label: "Profile",
           name: "profile",
           widget: "text",
+          i18n: true,
         }
       - {
           hint: " obligations type conférences, publications, attendance -seminaire, bureau",
           label: "Tasks",
           name: "tasks",
           widget: "text",
+          i18n: true,
         }
       - {
           hint: " texte court sur l’emplacement IEA avec lien vers page dédiée",
           label: "Location",
           name: "location",
           widget: "text",
+          i18n: true,
         }
       - {
           hint: " texte sur la bourse, minimal",
           label: "Funding",
           name: "funding",
           widget: "text",
+          i18n: true,
         }
       - {
           hint: " texte court sur logement avec lien page dédiée CIUP",
           label: "Housing",
           name: "housing",
           widget: "text",
+          i18n: true,
         }
       - {
           hint: " texte court repas, forfait, annulations…",
           label: "Meals",
           name: "meals",
           widget: "text",
+          i18n: true,
         }
       - {
           hint: " liste des éléments à fournir",
           label: "Application Materials",
           name: "applicationMaterials",
           widget: "text",
+          i18n: true,
         }
       - {
           hint: " Dates, arbitrages, etc.",
           label: "Selection process",
           name: "selectionProcess",
           widget: "text",
+          i18n: true,
         }
       - {
           hint: " cf les moyens de la recherche",
           label: "Research support",
           name: "researchSupport",
           widget: "text",
+          i18n: true,
         }
 
   - name: "reports"
