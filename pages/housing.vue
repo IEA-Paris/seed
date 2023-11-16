@@ -1,14 +1,21 @@
 <template>
-  <div>
-    
-  </div>
+  <v-container>
+    <v-row>
+      <v-col cols="12">
+        <v-card
+          class="d-flex align-center justify-center"
+          color="grey-lighten-3"
+          height="424"
+        >
+          Housing</v-card
+        >
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
-<script setup>
-
+<script lang="ts" setup>
+import { useDisplay } from "vuetify"
+const { smAndUp } = useDisplay()
+const localePath = useLocalePath()
 </script>
-
-<style lang="scss" scoped>
-
-</style>
-
