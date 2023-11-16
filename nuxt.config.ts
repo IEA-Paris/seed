@@ -93,7 +93,6 @@ export default defineNuxtConfig({
     langDir: "translations/",
     locales: config.lang.locales,
     defaultLocale: config.lang.default,
-    strategy: "no_prefix",
     baseUrl: config.url,
     lazy: true,
     detectBrowserLanguage: {
@@ -102,7 +101,7 @@ export default defineNuxtConfig({
       fallbackLocale: "en",
       useCookie: true,
       cookieKey: "i18n_redirected",
-    },
+    } /* 
     customRoutes: "config",
     pages: {
       "/about/institute": {
@@ -129,7 +128,7 @@ export default defineNuxtConfig({
       "/people/scientific-advisory-board": {
         fr: "/conseil-scientifique",
       },
-    },
+    }, */,
     // https://v8.i18n.nuxtjs.org/options/vue-i18n
   },
   pwa: {

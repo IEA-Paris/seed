@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/__sitemap__/style.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://paris-iea.fr/fr</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/" />
+        <image:image>
+            <image:loc>https://www.paris-iea.fr/images/evenements/30395/_thumb3/vignette-generique-site-web-verticale.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://www.paris-iea.fr/images/evenements/30330/_thumb3/visuel-ipsp-rfiea.jpg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://www.paris-iea.fr/images/evenements/30331/_thumb3/postercomparative-health-humanities-symposium-in-paris1.png</image:loc>
+        </image:image>
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+        <loc>https://paris-iea.fr/fr/about</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/about" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/about" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/about" />
+    </url>
+    <url>
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+        <loc>https://paris-iea.fr/fr/activities</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/activities" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/activities" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/activities" />
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/contact</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/contact" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/contact" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/contact" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+        <loc>https://paris-iea.fr/fr/events</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/events" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/events" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/events" />
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/people</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/people" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/people" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/people" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/pressroom</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/pressroom" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/pressroom" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/pressroom" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/privacy_policy</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/privacy_policy" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/privacy_policy" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/privacy_policy" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/reports</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/reports" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/reports" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/reports" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/resources</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/resources" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/resources" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/resources" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/support</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/support" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/support" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/support" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/terms_of_service</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/terms_of_service" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/terms_of_service" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/terms_of_service" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/about/institute</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/about/institute" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/about/institute" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/about/institute" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/about/network</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/about/network" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/about/network" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/about/network" />
+        <image:image>
+            <image:loc>https://skuawk.com/skuawk-photos/school/alex-read.jpg</image:loc>
+        </image:image>
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/about/scientific_policy</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/about/scientific_policy" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/about/scientific_policy" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/about/scientific_policy" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/activities/events</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/activities/events" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/activities/events" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/activities/events" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/activities/fellowships</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/activities/fellowships" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/activities/fellowships" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/activities/fellowships" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+        <loc>https://paris-iea.fr/fr/activities/membership</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/activities/membership" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/activities/membership" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/activities/membership" />
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/activities/memberships</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/activities/memberships" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/activities/memberships" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/activities/memberships" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/activities/programs</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/activities/programs" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/activities/programs" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/activities/programs" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+        <loc>https://paris-iea.fr/fr/events/comparative-health-humanities</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/events/comparative-health-humanities" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/events/comparative-health-humanities" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/events/comparative-health-humanities" />
+    </url>
+    <url>
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+        <loc>https://paris-iea.fr/fr/events/international-panel-on-social-progress-collective-intelligence-in-action</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/events/international-panel-on-social-progress-collective-intelligence-in-action" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/events/international-panel-on-social-progress-collective-intelligence-in-action" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/events/international-panel-on-social-progress-collective-intelligence-in-action" />
+    </url>
+    <url>
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+        <loc>https://paris-iea.fr/fr/events/panel-international-sur-le-progres-social-lintelligence-collective-en-action</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/events/panel-international-sur-le-progres-social-lintelligence-collective-en-action" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/events/panel-international-sur-le-progres-social-lintelligence-collective-en-action" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/events/panel-international-sur-le-progres-social-lintelligence-collective-en-action" />
+    </url>
+    <url>
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+        <loc>https://paris-iea.fr/fr/events/paris-ias-ideas</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/events/paris-ias-ideas" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/events/paris-ias-ideas" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/events/paris-ias-ideas" />
+    </url>
+    <url>
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+        <loc>https://paris-iea.fr/fr/events/quelle-sociolinguistique-critique-il-y-a-20-ans-et-aujourdhui</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/events/quelle-sociolinguistique-critique-il-y-a-20-ans-et-aujourdhui" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/events/quelle-sociolinguistique-critique-il-y-a-20-ans-et-aujourdhui" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/events/quelle-sociolinguistique-critique-il-y-a-20-ans-et-aujourdhui" />
+    </url>
+    <url>
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+        <loc>https://paris-iea.fr/fr/fellowship/help</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/fellowship/help" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/fellowship/help" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/fellowship/help" />
+    </url>
+    <url>
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+        <loc>https://paris-iea.fr/fr/people/fellows</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/people/fellows" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/people/fellows" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/people/fellows" />
+    </url>
+    <url>
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+        <loc>https://paris-iea.fr/fr/people/sab</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/people/sab" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/people/sab" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/people/sab" />
+    </url>
+    <url>
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+        <loc>https://paris-iea.fr/fr/resources/browse</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/resources/browse" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/resources/browse" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/resources/browse" />
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/activities/fellowships/accommodations</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/activities/fellowships/accommodations" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/activities/fellowships/accommodations" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/activities/fellowships/accommodations" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/activities/fellowships/commitments</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/activities/fellowships/commitments" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/activities/fellowships/commitments" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/activities/fellowships/commitments" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/activities/fellowships/help</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/activities/fellowships/help" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/activities/fellowships/help" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/activities/fellowships/help" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/activities/memberships/help</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/activities/memberships/help" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/activities/memberships/help" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/activities/memberships/help" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/activities/memberships/hosting</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/activities/memberships/hosting" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/activities/memberships/hosting" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/activities/memberships/hosting" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://paris-iea.fr/fr/activities/programs/browse</loc>
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://paris-iea.fr/fr/activities/programs/browse" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://paris-iea.fr/activities/programs/browse" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://paris-iea.fr/activities/programs/browse" />
+        <lastmod>2023-10-26T06:32:48+00:00</lastmod>
+    </url>
+</urlset>
+<!-- XML Sitemap generated by Nuxt Simple Sitemap V3.3.3 -->

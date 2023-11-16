@@ -12,7 +12,7 @@ const route = useRoute()
 const crumbs = computed(() => {
   return route.path
     .split("/")
-    .filter((item) => item)
+    .filter((item) => item && item !== "fr")
     .map((item, index) => {
       return {
         title: item,

@@ -116,7 +116,19 @@ collections:
     i18n: true
     fields:
       - { label: title, name: title, widget: string, i18n: true }
-      - { label: Body, name: body, widget: markdown }
+      - {
+          label: Body,
+          name: body,
+          widget: markdown,
+          hint: "fellowship description",
+        }
+      - {
+          label: "Short description",
+          name: "shortDescription",
+          widget: "text",
+          hint: "Shown in the list item view",
+        }
+
       - {
           label: Picture,
           name: picture,
@@ -125,8 +137,102 @@ collections:
           media_library:
             { allow_multiple: false, media_folder: "images/fellowships" },
         }
-      - { label: URL, name: url, widget: string, i18n: true }
-      - { label: Color, name: color, widget: color, i18n: true }
+      - {
+          label: Link,
+          name: link,
+          widget: string,
+          i18n: true,
+          hint: "link to an external page if it is not a fellowship page hosted by us",
+        }
+      - {
+          label: Action,
+          name: action,
+          widget: string,
+          i18n: true,
+          hint: "URL of the application or action page",
+        }
+      - {
+          label: Contact,
+          hint: "Email or URL of a contact page",
+          name: contact,
+          widget: string,
+          i18n: true,
+        }
+      - {
+          label: "Publication date",
+          name: publicationDate,
+          widget: datetime,
+          i18n: true,
+        }
+      - { label: "Opening date", name: opening, widget: datetime, i18n: true }
+      - { label: "Closing date", name: closing, widget: datetime, i18n: true }
+      - {
+          hint: "en groupe, durée courte ou longue, etc.",
+          label: "Type",
+          name: "type",
+          widget: "text",
+        }
+      - {
+          hint: " Dates et détails temporels",
+          label: "Funding period",
+          name: "fundingPeriod",
+          widget: "text",
+        }
+      - {
+          hint: " profile, CV, disciplines, expérience, origine",
+          label: "Profile",
+          name: "profile",
+          widget: "text",
+        }
+      - {
+          hint: " obligations type conférences, publications, attendance -seminaire, bureau",
+          label: "Tasks",
+          name: "tasks",
+          widget: "text",
+        }
+      - {
+          hint: " texte court sur l’emplacement IEA avec lien vers page dédiée",
+          label: "Location",
+          name: "location",
+          widget: "text",
+        }
+      - {
+          hint: " texte sur la bourse, minimal",
+          label: "Funding",
+          name: "funding",
+          widget: "text",
+        }
+      - {
+          hint: " texte court sur logement avec lien page dédiée CIUP",
+          label: "Housing",
+          name: "housing",
+          widget: "text",
+        }
+      - {
+          hint: " texte court repas, forfait, annulations…",
+          label: "Meals",
+          name: "meals",
+          widget: "text",
+        }
+      - {
+          hint: " liste des éléments à fournir",
+          label: "Application Materials",
+          name: "applicationMaterials",
+          widget: "text",
+        }
+      - {
+          hint: " Dates, arbitrages, etc.",
+          label: "Selection process",
+          name: "selectionProcess",
+          widget: "text",
+        }
+      - {
+          hint: " cf les moyens de la recherche",
+          label: "Research support",
+          name: "researchSupport",
+          widget: "text",
+        }
+
   - name: "reports"
     label: "Reports" # Used in the UI
     folder: "content/reports" # The path to the folder where the documents are stored
