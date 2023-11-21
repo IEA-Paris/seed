@@ -121,12 +121,14 @@ collections:
           name: body,
           widget: markdown,
           hint: "fellowship description",
+          i18n: true,
         }
       - {
           label: "Short description",
           name: "shortDescription",
           widget: "text",
           hint: "Shown in the list item view",
+          i18n: true,
         }
 
       - {

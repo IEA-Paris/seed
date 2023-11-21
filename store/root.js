@@ -5,24 +5,26 @@ import createModule from "~/store/module"
 import config from "~/static.config"
 const modulesState = {}
 const types = []
+console.log("STARTING THE STORE")
 if (process.server) {
-/*   const fs = require('fs');
+  const fs = require("fs")
 
   console.log("opening directory")
-  const dir = fs.opendirSync("./data/organisms")
+  const dir = fs.opendirSync("./data")
   let file
   while ((file = dir.readSync()) !== null) {
     types.push(file.name.substring(0, file.name.length - 3))
   }
   dir.closeSync()
-    console.log('types: ', types); */
+  console.log("types: ", types)
+  await Promise.all(
+    ["people", "fellowships"].map(async (type) => {
+      console.log("type: ", type)
+      modulesState[type] = await createModule(type)
+      console.log("module created for ", modulesState[type])
+    })
+  )
 }
-/*   await Promise.all(
-  [].map(async (type) => {
-    console.log("type: ", type)
-    modulesState[type] = await createModule(type)
-  })
-) */
 /* const githubApi = new api(config.modules.github) */
 
 export const useRootStore = defineStore("rootStore", {
@@ -91,13 +93,13 @@ export const useRootStore = defineStore("rootStore", {
         })
       }
     },
-    updateForm({ key, value, type, level = null, store = null }) {
-      level = level ?? [this[type].form[key]]
-      store = store ?? this[type].form
+    updateForm({ key, value, category, level = null, store = null }) {
+      level = level ?? [this[category].form[key]]
+      store = store ?? this[category].form
       console.log(`updateForm 
       key: ${key}
       value: ${value} 
-      type: ${type} 
+      category: ${category} 
       level: ${level}
       store: ${Array.isArray(store) ? store.length : Object.keys(store)}`)
       if (level.length === 1) {
@@ -111,7 +113,7 @@ export const useRootStore = defineStore("rootStore", {
         //guard against undef keys
         if (store[level[0]] === undefined) {
           if (isArray) {
-            store[level[0]] = [this[type].schema[key]?.default]
+            store[level[0]] = [this[category].schema[key]?.default]
           } else {
             // if the key is not a number, it is an object (if it was a primitive, level.length would be 1)
             store[level[0]] = {}
@@ -121,48 +123,54 @@ export const useRootStore = defineStore("rootStore", {
           key,
           value,
           level: level.slice(1),
-          type,
+          category,
           store: store[level[0]],
         })
       }
     },
-    deleteFormItem({ key, type, level = null, store = null }) {
-      level = level ?? [this[type].form[key]]
-      store = store ?? this[type].form
+    deleteFormItem({ key, category, level = null, store = null }) {
+      level = level ?? [this[category].form[key]]
+      store = store ?? this[category].form
       console.log(`deleteFormItem 
       key: ${key}
-      type: ${type} 
+      category: ${category} 
       level: ${level}`)
-// if level = 1 this is a primitive
+      // if level = 1 this is a primitive
       if (level.length === 1) {
-        console.log('store: ', store.length);
-        const newStore =  store.filter((item, index) => index === level[0])
+        console.log("store: ", store.length)
+        const newStore = store.filter((item, index) => index === level[0])
         store = newStore
-        console.log('store: ', store.length);
+        console.log("store: ", store.length)
       } else if (level.length > 1) {
         const isArray = typeof level[0] === "number"
         return this.deleteFormItem({
           key,
           level: level.slice(1),
-          type,
+          category,
           store: store[level[0]],
         })
       }
     },
-    addFormItem({ key, type, level = null, store = null, defaults = null }) {
+    addFormItem({
+      key,
+      category,
+      level = null,
+      store = null,
+      defaults = null,
+    }) {
       try {
-        level = level ?? [this[type].form[key]]
-        store = store ?? this[type].form
-        if(!defaults) defaults = JSON.parse(this[type]._defaults)
-        console.log('defaults: ', defaults);
+        level = level ?? [this[category].form[key]]
+        store = store ?? this[category].form
+        if (!defaults) defaults = JSON.parse(this[category]._defaults)
+        console.log("defaults: ", defaults)
         console.log(`addFormItem 
         key: ${key}
-        type: ${type} 
+        category: ${category} 
         level: ${level}`)
-  // if level = 1 this is a primitive
+        // if level = 1 this is a primitive
         if (level.length === 1) {
           const defautlValue = defaults[level[0]][0]
-          console.log('defautlValue: ', defautlValue);
+          console.log("defautlValue: ", defautlValue)
           store[key].push(defautlValue)
         } else if (level.length > 1) {
           const isArray = typeof level[0] === "number"
@@ -178,16 +186,14 @@ export const useRootStore = defineStore("rootStore", {
           return this.addFormItem({
             key,
             level: level.slice(1),
-            type,
+            category,
             store: store[level[0]],
-            defaults: defaults[level[0]]
+            defaults: defaults[level[0]],
           })
         }
       } catch (error) {
-        console.log('error: ', error);
-        
+        console.log("error: ", error)
       }
-     
     },
     loadRouteQuery(type) {
       const { currentRoute } = useRouter()
@@ -515,7 +521,7 @@ export const useRootStore = defineStore("rootStore", {
           : {}
       )
 
-  /*     if (
+      /*     if (
         JSON.stringify(router.currentRoute.value.query) !==
         JSON.stringify(sortObject(query))
       ) {

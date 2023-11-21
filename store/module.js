@@ -1,26 +1,41 @@
+import completeSchema from "../utils/scripts/completeSchema"
+
 export default async (type) => {
   console.log("CREATING MODULE FOR: ", type)
-  const defaultState = (await import(`../data/${type}.ts`)).default
+  const baseType = (await import(`../data/${type}.ts`)).default
+  const baseSchema = baseType.schema
+  console.log("baseSchema: ", baseSchema.sort)
+  const defaultState = await completeSchema(baseSchema)
+  console.log("defaultState: ", defaultState)
 
-  const defaultView = defaultState.views.find((item) => item?.default === true)
-  const defaultSort = [
-    defaultState.sort[
-      Object.keys(defaultState.sort).find(
-        (item) => defaultState.sort[item].default === true
+  const defaultView =
+    baseType.views &&
+    Object.keys(baseType.views).find((item) => {
+      console.log(item)
+      return baseType.views[item]?.default === true
+    })
+  const defaultSort = baseType.sort && [
+    baseType.sort[
+      Object.keys(baseType.sort).find(
+        (item) => baseType.sort[item].default === true
       )
     ],
   ]
+
   const buildForm = async (schema) => {
     try {
       let form = {}
-console.log("building form");
       for await (const key of Object.keys(schema)) {
-        if (schema[key]?.template) {
-          const templateState = (
-            await import(`../data/${schema[key]?.template}.ts`)
-          ).default
+        console.log("key: ", key)
+        console.log("schema[key]: ", schema[key])
+        // if we deal with a template, import it dynamically
+        if (schema[key]?.type === 3) {
+          const templateState = (await import(`../data/${key}.ts`)).default
+          console.log("templateState: ", templateState)
           form[key] = await buildForm(templateState.schema)
+          // if it has items, it is either an object or a collection
         } else if (schema[key]?.items) {
+          // only collection have items with an array type
           if (Array.isArray(schema[key]?.items)) {
             if (!form[key]) form[key] = [{}]
             for await (const item of schema[key]?.items) {
@@ -29,6 +44,7 @@ console.log("building form");
                 ...(await buildForm({ [item.key]: item })),
               }
             }
+            // else it's an object
           } else {
             if (!form[key]) form[key] = {}
             for await (const subkey of Object.keys(schema[key].items)) {
@@ -47,14 +63,15 @@ console.log("building form");
       console.log("error building form: ", error)
     }
   }
-  const defaultForm = await buildForm(defaultState.schema)
+  const defaultForm = await buildForm(defaultState)
+  console.log("defaultForm: ", defaultForm)
 
   return {
     form: defaultForm,
     _defaults: defaultForm,
     items: [],
     current: null,
-    view: defaultView.name,
+    ...(defaultView?.name && { view: defaultView.name }),
     total: 0,
     filters: {
       years: [],
@@ -63,20 +80,27 @@ console.log("building form");
       thematic: [],
       discipline: [],
       type: [],
-      ...defaultState.defaultFilters,
+      ...baseType?.defaultFilters,
     },
     style: "APA",
     loading: [],
     skip: 0,
-    limit: defaultState.perPage.default,
+    numberOfPages: 0,
+    ...(baseType?.perPage?.default && {
+      limit: baseType.perPage.default,
+    }),
     search: "",
     page: 1,
-    sortBy: [defaultSort[0].value[0]],
-    sortDesc: defaultSort[0].value[1] === "desc",
+    sortBy: defaultSort && [defaultSort[0].value[0]],
+    sortDesc: defaultSort && defaultSort[0].value[1] === "desc",
+    schema: defaultState,
     numberOfPages: 0,
-    itemsPerPage: defaultState.perPage.default,
-    itemsPerPageArray: defaultState.perPage.options,
+    ...(baseType?.perPage?.default && {
+      itemsPerPage: baseType.perPage.default,
+    }),
+    ...(baseType?.perPage?.options && {
+      itemsPerPageArray: baseType.perPage.options,
+    }),
     filtersCount: 0,
-    ...defaultState,
   }
 }
