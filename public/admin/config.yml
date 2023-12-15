@@ -172,81 +172,90 @@ collections:
       - { label: "Opening date", name: opening, widget: datetime, i18n: true }
       - { label: "Closing date", name: closing, widget: datetime, i18n: true }
       - {
-          hint: "en groupe, durée courte ou longue, etc.",
-          label: "Type",
-          name: "type",
-          widget: "text",
-          i18n: true,
-        }
-      - {
-          hint: " Dates et détails temporels",
-          label: "Funding period",
-          name: "fundingPeriod",
-          widget: "text",
-          i18n: true,
-        }
-      - {
-          hint: " profile, CV, disciplines, expérience, origine",
-          label: "Profile",
-          name: "profile",
-          widget: "text",
-          i18n: true,
-        }
-      - {
-          hint: " obligations type conférences, publications, attendance -seminaire, bureau",
-          label: "Tasks",
-          name: "tasks",
-          widget: "text",
-          i18n: true,
-        }
-      - {
-          hint: " texte court sur l’emplacement IEA avec lien vers page dédiée",
-          label: "Location",
-          name: "location",
-          widget: "text",
-          i18n: true,
-        }
-      - {
-          hint: " texte sur la bourse, minimal",
-          label: "Funding",
-          name: "funding",
-          widget: "text",
-          i18n: true,
-        }
-      - {
-          hint: " texte court sur logement avec lien page dédiée CIUP",
-          label: "Housing",
-          name: "housing",
-          widget: "text",
-          i18n: true,
-        }
-      - {
-          hint: " texte court repas, forfait, annulations…",
-          label: "Meals",
-          name: "meals",
-          widget: "text",
-          i18n: true,
-        }
-      - {
-          hint: " liste des éléments à fournir",
-          label: "Application Materials",
-          name: "applicationMaterials",
-          widget: "text",
-          i18n: true,
-        }
-      - {
-          hint: " Dates, arbitrages, etc.",
-          label: "Selection process",
-          name: "selectionProcess",
-          widget: "text",
-          i18n: true,
-        }
-      - {
-          hint: " cf les moyens de la recherche",
-          label: "Research support",
-          name: "researchSupport",
-          widget: "text",
-          i18n: true,
+          label: Details,
+          name: "details",
+          widget: "object",
+          summary: "{{fields.label}}",
+          fields:
+            [
+              {
+                hint: "en groupe, durée courte ou longue, etc.",
+                label: "Type",
+                name: "type",
+                widget: "text",
+                i18n: true,
+              },
+              {
+                hint: " Dates et détails temporels",
+                label: "Funding period",
+                name: "fundingPeriod",
+                widget: "text",
+                i18n: true,
+              },
+              {
+                hint: " profile, CV, disciplines, expérience, origine",
+                label: "Profile",
+                name: "profile",
+                widget: "text",
+                i18n: true,
+              },
+              {
+                hint: " obligations type conférences, publications, attendance -seminaire, bureau",
+                label: "Tasks",
+                name: "tasks",
+                widget: "text",
+                i18n: true,
+              },
+              {
+                hint: " texte court sur l’emplacement IEA avec lien vers page dédiée",
+                label: "Location",
+                name: "location",
+                widget: "text",
+                i18n: true,
+              },
+              {
+                hint: " texte sur la bourse, minimal",
+                label: "Funding",
+                name: "funding",
+                widget: "text",
+                i18n: true,
+              },
+              {
+                hint: " texte court sur logement avec lien page dédiée CIUP",
+                label: "Housing",
+                name: "housing",
+                widget: "text",
+                i18n: true,
+              },
+              {
+                hint: " texte court repas, forfait, annulations…",
+                label: "Meals",
+                name: "meals",
+                widget: "text",
+                i18n: true,
+              },
+              {
+                hint: " liste des éléments à fournir",
+                label: "Application Materials",
+                name: "applicationMaterials",
+                widget: "text",
+                i18n: true,
+              },
+              {
+                hint: " Dates, arbitrages, etc.",
+                label: "Selection process",
+                name: "selectionProcess",
+                widget: "text",
+                i18n: true,
+              },
+              {
+                hint: " cf les moyens de la recherche",
+                label: "Research support",
+                name: "researchSupport",
+                widget: "text",
+                i18n: true,
+              },
+            ],
         }
 
   - name: "reports"

@@ -25,7 +25,7 @@
   "fellowships": "Résidences",
   "page-not-found": "Page introuvable",
   "network": "Réseau",
-  "programs": "Programmes",
+  "projects": "Projets",
   "proceedings": "Actes",
   "rules": {
     "at-least-0-characters": "{0} caractères minimum",
@@ -41,5 +41,21 @@
   "scientific_policy": "Politique scientifique",
   "team": "Équipe",
   "activities": "Activités",
-  "board": "Conseil d'administration"
+  "board": "Conseil d'administration",
+  "applicationMaterials": "Documents de candidature",
+  "funding": "Financement",
+  "housing": "Logement",
+  "check-this-out": "En voir plus",
+  "fundingPeriod": "Période de financement",
+  "learn-more": "En savoir plus",
+  "meals": "Repas",
+  "our-members": "Nos membres",
+  "location": "Emplacement",
+  "privacy-policy": "Politique de confidentialité",
+  "online": "En ligne",
+  "profile": "Profil",
+  "selectionProcess": "Processus de sélection",
+  "researchSupport": "Soutien à la recherche",
+  "type": "Taper",
+  "tasks": "Tâches"
 }

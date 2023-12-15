@@ -1,19 +1,33 @@
 <template>
   <v-container>
-      <SortMenu :type="type"></SortMenu>
-      <component :is="view">
-        <component v-for="(item, index) in items" :item="item" :key="index"  
-            :is="itemTemplate"></component>
-          </component>
-      <div class="text-center">
-        <ListMoleculesPagination v-if="numberOfPages > 1" :type="type" color="black" large :current-page="page"
-          :total-pages="numberOfPages" :page-padding="1" :page-gap="2" :hide-prev-next="false"></ListMoleculesPagination>
-      </div>
+    <ListMoleculesSortMenu :type="type"></ListMoleculesSortMenu>
+    <component :is="'ListViews' + view">
+      <component
+        v-for="(item, index) in items"
+        :item="item"
+        :key="index"
+        :is="itemTemplate"
+      ></component>
+    </component>
+    <div class="text-center">
+      <ListMoleculesPagination
+        v-if="numberOfPages > 1"
+        :type="type"
+        color="black"
+        large
+        :current-page="page"
+        :total-pages="numberOfPages"
+        :page-padding="1"
+        :page-gap="2"
+        :hide-prev-next="false"
+      ></ListMoleculesPagination>
+    </div>
   </v-container>
 </template>
 <script setup>
 import { useRootStore } from "~/store/root"
 import { useDisplay } from "vuetify"
+const { $i18n } = useNuxtApp()
 const {
   name: nameDisplay,
   xs: isXsDisplay,
@@ -23,7 +37,7 @@ const {
   smAndDown,
 } = useDisplay()
 const nuxtApp = useNuxtApp()
-const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1)
+const capitalize = (str) => str && str.charAt(0).toUpperCase() + str.slice(1)
 const rootStore = useRootStore()
 const props = defineProps({
   addBtn: {
@@ -61,10 +75,19 @@ const props = defineProps({
   items: [Object],
 })
 
-
 const show = ref(true)
-const view = computed(() =>  resolveComponent(capitalize(rootStore[props.type].view)))
-const itemTemplate = computed(() =>  resolveComponent((capitalize(props.type) + capitalize(rootStore[props.type].view)+ 'Item').toString()))
+const view = computed(() =>
+  resolveComponent(capitalize(rootStore[props.type].view))
+)
+const itemTemplate = computed(() =>
+  resolveComponent(
+    (
+      capitalize(props.type) +
+      capitalize(rootStore[props.type].view) +
+      "Item"
+    ).toString()
+  )
+)
 const route = useRoute()
 const total = computed(() => rootStore[props.type].total)
 const numberOfPages = computed(() => rootStore[props.type].numberOfPages)
@@ -114,6 +137,7 @@ onMounted(() => {
   const { type, source } = props
 
   rootStore.loadRouteQuery(type)
+  console.log("Mounted list")
 
   const hasFilters =
     rootStore[type].filtersCount > 0 ||
@@ -122,10 +146,10 @@ onMounted(() => {
   /* 
     filter.value = hasFilters */
 
-  rootStore.update(type, source)
+  rootStore.update(type, $i18n.locale.value, source)
 })
 
 useFetch(async () => {
-  rootStore.update(props.type)
+  rootStore.update(props.type, $i18n.locale.value)
 })
 </script>

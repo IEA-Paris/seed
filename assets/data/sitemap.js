@@ -14,7 +14,7 @@ export default {
       dropdown: true,
       children: [
         { text: "fellowships", path: "/activities/fellowships" },
-        { text: "programs", path: "/activities/programs" },
+        { text: "projects", path: "/activities/projects" },
         {
           text: "events",
           path: "/activities/events",
@@ -36,18 +36,8 @@ export default {
       ],
     },
     {
-      text: "resources",
-      path: "/resources",
-      openOnHover: true,
-      dropdown: true,
-      children: [
-        {
-          text: "publications",
-          path: '/resources?categories=["publications"]',
-        },
-        { text: "videos", path: '/resources?categories=["videos"]' },
-        { text: "browse", path: "/resources" },
-      ],
+      text: "news",
+      path: "/news",
     },
   ],
   footer: [

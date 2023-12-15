@@ -1,7 +1,7 @@
 <template>
   <v-menu offset-y open-on-hover bottom>
     <template v-slot:activator="{ props }">
-      <v-btn v-bind="props" class="" x-large>
+      <v-btn v-bind="props" class="h-100" x-large>
         {{ $i18n.locale.toUpperCase() }}
         <v-icon right>mdi-chevron-down</v-icon>
       </v-btn>

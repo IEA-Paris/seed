@@ -3,6 +3,7 @@ import lists from '~/assets/data/lists' */
 import createModule from "~/store/module"
 /* import api from "~/server/api/github" */
 import config from "~/static.config"
+
 const modulesState = {}
 const types = []
 console.log("STARTING THE STORE")
@@ -18,10 +19,10 @@ if (process.server) {
   dir.closeSync()
   console.log("types: ", types)
   await Promise.all(
-    ["people", "fellowships"].map(async (type) => {
+    ["people", "fellowship", "project"].map(async (type) => {
       console.log("type: ", type)
       modulesState[type] = await createModule(type)
-      console.log("module created for ", modulesState[type])
+      /* console.log("module created for ", modulesState[type]) */
     })
   )
 }
@@ -350,8 +351,9 @@ export const useRootStore = defineStore("rootStore", {
       this.setSearch({ search, type })
       this.update(type)
     },
-    async update(type, source = "md") {
-      console.log("type: ", type)
+    async update(type, lang, source = "md") {
+      console.log("type: ", type + "/" + lang)
+      const target = type + "/" + lang
       this.setLoading(true)
 
       const router = useRouter()
@@ -428,7 +430,8 @@ export const useRootStore = defineStore("rootStore", {
       }
       console.log("pipeline: ", pipeline)
 
-      const count = await queryContent(type).where(pipeline).only("[]").find()
+      const count = await queryContent(target).where(pipeline).only("[]").find()
+      console.log("count: ", count)
 
       const totalItems = count.length
       console.log("totalItems: ", totalItems)
@@ -461,12 +464,11 @@ export const useRootStore = defineStore("rootStore", {
               this[type].sortDesc ? 1 : -1,
             ]
           : [this[type].sortBy[0], this[type].sortDesc ? -1 : 1]
-      console.log("skipNumber(): ", skipNumber())
 
-      const items = await queryContent(type)
+      const items = await queryContent(target)
         .where(pipeline)
         .sort({ [sortArray[0]]: sortArray[1] })
-        .sort({ [sortArray[2]]: sortArray[3] })
+        /*  .sort({ [sortArray[2]]: sortArray[3] }) */
         .skip(skipNumber())
         .limit(itemsPerPage)
         .find()
@@ -481,7 +483,7 @@ export const useRootStore = defineStore("rootStore", {
       const defaultSort =
         this[type].sort[
           Object.keys(this[type].sort).find(
-            (item) => this[type].sort[item].default === true
+            (item) => this[type].sort[item]?.default === true
           )
         ]
 

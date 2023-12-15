@@ -4,9 +4,7 @@ export default async (type) => {
   console.log("CREATING MODULE FOR: ", type)
   const baseType = (await import(`../data/${type}.ts`)).default
   const baseSchema = baseType.schema
-  console.log("baseSchema: ", baseSchema.sort)
   const defaultState = await completeSchema(baseSchema)
-  console.log("defaultState: ", defaultState)
 
   const defaultView =
     baseType.views &&
@@ -26,12 +24,12 @@ export default async (type) => {
     try {
       let form = {}
       for await (const key of Object.keys(schema)) {
-        console.log("key: ", key)
-        console.log("schema[key]: ", schema[key])
+        /* console.log("key: ", key) */
+        /* console.log("schema[key]: ", schema[key]) */
         // if we deal with a template, import it dynamically
         if (schema[key]?.type === 3) {
           const templateState = (await import(`../data/${key}.ts`)).default
-          console.log("templateState: ", templateState)
+          /* console.log("templateState: ", templateState) */
           form[key] = await buildForm(templateState.schema)
           // if it has items, it is either an object or a collection
         } else if (schema[key]?.items) {
@@ -64,7 +62,6 @@ export default async (type) => {
     }
   }
   const defaultForm = await buildForm(defaultState)
-  console.log("defaultForm: ", defaultForm)
 
   return {
     form: defaultForm,
@@ -102,5 +99,12 @@ export default async (type) => {
       itemsPerPageArray: baseType.perPage.options,
     }),
     filtersCount: 0,
+    ...(baseType?.views && {
+      views: baseType.views,
+    }),
+    ...(baseType?.sort && {
+      sort: baseType.sort,
+    }),
+    view: defaultView,
   }
 }

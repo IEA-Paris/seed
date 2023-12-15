@@ -8,6 +8,9 @@
           height="424"
           link
         >
+          <FellowshipRowsItem
+            :item="{ title: 'fuck this motafuka' }"
+          ></FellowshipRowsItem>
           <HomeCarousel :featured="featured"></HomeCarousel
         ></v-card>
       </v-col>

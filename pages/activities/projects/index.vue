@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <ListOrganismsList type="fellowship"></ListOrganismsList> </v-col
+        <ListOrganismsList type="project"></ListOrganismsList> </v-col
     ></v-row>
   </v-container>
 </template>
@@ -15,7 +15,7 @@ const route = useRoute()
 const { smAndUp } = useDisplay()
 const { $i18n } = useNuxtApp()
 const localePath = useLocalePath()
-const item = store["fellowship"].items.find(
+const item = store["project"].items.find(
   (item) => item.slug === route.params.slug
 )
 </script>
