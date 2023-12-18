@@ -1,1 +1,0 @@
-import{v as l,o as e,d as t,b as c,F as r,e as m,R as p}from"./entry.0a92484f.js";const i=l({__name:"Table",props:{items:[Object],type:String},setup(a){return(n,u)=>(e(),t(r,null,[c(" GRID DISPLAY "),(e(!0),t(r,null,m(a.items,(s,o)=>p(n.$slots,"data",{key:o,item:s})),128))],64))}});export{i as default};

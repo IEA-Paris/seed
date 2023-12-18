@@ -1,1 +1,0 @@
-import{o as n,d as t,L as a}from"./entry.0a92484f.js";const r=a("div",{class:"dark:i-carbon-moon i-carbon-sun"},null,-1),c=[r],u={__name:"DarkToggle",setup(s){const o=useColorMode();function e(){o.preference=o.value==="dark"?"light":"dark"}return(l,_)=>(n(),t("button",{class:"!outline-none",onClick:e},c))}};export{u as default};

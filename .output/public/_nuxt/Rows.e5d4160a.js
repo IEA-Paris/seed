@@ -1,1 +1,0 @@
-import{v as s,N as t,r as a,o as n,d as r,a as l,w as c,R as _,b as d,F as u,L as m}from"./entry.0a92484f.js";const p=m("h1",null,"Rows VIEW",-1),v=s({__name:"Rows",setup(w){return t(()=>{console.log("loading rows")}),(e,i)=>{const o=a("v-row");return n(),r(u,null,[p,l(o,null,{default:c(()=>[_(e.$slots,"default",{},()=>[d(" Rows view ")])]),_:3})],64)}}});export{v as default};
