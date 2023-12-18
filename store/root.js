@@ -7,27 +7,29 @@ import config from "~/static.config"
 const modulesState = {}
 const types = []
 console.log("STARTING THE STORE")
-if (process.server) {
-  const fs = require("fs")
+const initStore = async () => {
+  if (process.server) {
+    const fs = require("fs")
 
-  console.log("opening directory")
-  const dir = fs.opendirSync("./data")
-  let file
-  while ((file = dir.readSync()) !== null) {
-    types.push(file.name.substring(0, file.name.length - 3))
+    console.log("opening directory")
+    const dir = fs.opendirSync("./data")
+    let file
+    while ((file = dir.readSync()) !== null) {
+      types.push(file.name.substring(0, file.name.length - 3))
+    }
+    dir.closeSync()
+    console.log("types: ", types)
+    await Promise.all(
+      ["people", "fellowship", "project"].map(async (type) => {
+        console.log("type: ", type)
+        modulesState[type] = await createModule(type)
+        /* console.log("module created for ", modulesState[type]) */
+      })
+    )
   }
-  dir.closeSync()
-  console.log("types: ", types)
-  await Promise.all(
-    ["people", "fellowship", "project"].map(async (type) => {
-      console.log("type: ", type)
-      modulesState[type] = await createModule(type)
-      /* console.log("module created for ", modulesState[type]) */
-    })
-  )
+  /* const githubApi = new api(config.modules.github) */
 }
-/* const githubApi = new api(config.modules.github) */
-
+initStore()
 export const useRootStore = defineStore("rootStore", {
   state: () => ({
     scrolled: process.browser ? window.scrollY > 0 : false,

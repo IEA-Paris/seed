@@ -1,1 +1,0 @@
-import{Z as i,A as r,g as s,_ as a,m as n,$ as c}from"./entry.0c58bb17.js";function p(e){const{route:t,router:o,i18n:u}=e||{};return i({route:t||r(),router:o||s(),i18n:u||a(n().$i18n)})}function $(e){const{route:t,router:o,i18n:u}=e||{};return c({route:t||r(),router:o||s(),i18n:u||a(n().$i18n)})}export{$ as a,p as u};

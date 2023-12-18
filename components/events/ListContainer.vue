@@ -4,7 +4,6 @@
       v-for="(event, i) in events"
       :key="i"
       :value="event"
-      color="primary"
       :to="localePath('/events/' + slugify(event.title))"
     >
       <template v-slot:prepend>

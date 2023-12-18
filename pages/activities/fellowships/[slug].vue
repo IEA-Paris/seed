@@ -10,7 +10,7 @@
       <v-row no-gutters>
         <v-col cols="12">
           <v-card class="d-flex flex-column justify-center" link>
-            <v-expansion-panels eager ripple>
+            <v-expansion-panels eager ripple accordion>
               <v-expansion-panel
                 v-for="item in Object.keys(data.details)"
                 :key="i"

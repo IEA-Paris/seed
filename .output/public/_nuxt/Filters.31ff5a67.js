@@ -1,0 +1,1 @@
+import{v as l,o as e,d as t,b as c,F as r,e as m,R as i}from"./entry.0a92484f.js";const d=l({__name:"Filters",props:{items:[Object],type:String},setup(s){return(a,p)=>(e(),t(r,null,[c(" FILTERS "),(e(!0),t(r,null,m(s.items,(n,o)=>i(a.$slots,"data",{key:o,item:n})),128))],64))}});export{d as default};

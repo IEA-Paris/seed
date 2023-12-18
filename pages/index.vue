@@ -4,13 +4,9 @@
       <v-col cols="12">
         <v-card
           class="d-flex align-center justify-center flex-column"
-          color="grey-lighten-3"
           height="424"
           link
         >
-          <FellowshipRowsItem
-            :item="{ title: 'fuck this motafuka' }"
-          ></FellowshipRowsItem>
           <HomeCarousel :featured="featured"></HomeCarousel
         ></v-card>
       </v-col>
@@ -20,6 +16,7 @@
           class="d-flex align-center justify-center pa-6"
           :to="localePath('/about/institute')"
           link
+          style="columns: 2 !important; column-gap: 2rem !important"
         >
           <ContentDoc
             :path="'/pages/' + $i18n.locale.value + '/institute_presentation'"
@@ -28,7 +25,6 @@
       <v-col cols="12" sm="8">
         <v-card
           class="d-flex align-center justify-center flex-column"
-          color="green-lighten-3"
           :to="localePath('events')"
           link
         >
@@ -39,21 +35,6 @@
         <ActionsSmallContainer :action="action"></ActionsSmallContainer>
       </v-col>
 
-      <v-col cols="4" v-if="smAndUp">
-        <v-card
-          class="d-flex align-center justify-center"
-          color="blue-lighten-3"
-          height="250"
-          >Twitter feed</v-card
-        ></v-col
-      ><v-col cols="12" sm="8">
-        <v-card
-          class="d-flex align-center justify-center"
-          color="yellow-lighten-3"
-          height="250"
-          >Featured resources</v-card
-        ></v-col
-      >
       <v-col cols="12">
         <v-card
           class="d-flex align-center justify-center"
