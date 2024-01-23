@@ -5,3 +5,4 @@ link: https://neatastic.com
 published: true
 color: #012b43
 ---
+PARIS IAS is launching its Proceedings website

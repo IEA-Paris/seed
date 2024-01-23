@@ -71,7 +71,6 @@ const defaultSort = ref(
 const current = computed(() => {
   try {
     return Object.keys(rootStore[props.type].sort).find((item) => {
-      console.log("item: ", item)
       return (
         rootStore[props.type].sort[item].value[0] ===
           rootStore[props.type].sortBy[0] &&

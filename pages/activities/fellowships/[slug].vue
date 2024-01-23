@@ -36,10 +36,11 @@ const { smAndUp } = useDisplay()
 const { $i18n } = useNuxtApp()
 const localePath = useLocalePath()
 console.log("route.params.slug: ", route.params.slug)
-const { data } = await useAsyncData("fellowship", () =>
-  queryContent(
-    "fellowship/" + $i18n.locale.value + "/" + route.params.slug
-  ).findOne()
+const { data } = await useAsyncData(
+  "fellowship",
+  async () =>
+    await queryContent(
+      "fellowship/" + $i18n.locale.value + "/" + route.params.slug
+    ).findOne()
 )
-console.log("data: ", data)
 </script>

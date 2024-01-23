@@ -1,15 +1,17 @@
 <template>
   <v-card
-    class="mx-auto h-100 d-flex align-center justify-center flex-column"
+    class="mx-auto d-flex align-center justify-center flex-column"
     :color="action[0].color || 'white'"
   >
-    <nuxt-img
+    <v-img
       class="w-100"
       v-if="action[0].picture"
       :src="action[0].picture"
-    ></nuxt-img>
-    <v-card-text>
-      <h4 class="text-h4 text--primary">{{ action[0].title }}</h4>
+      :aspect-ratio="1 / 1"
+      cover
+    ></v-img>
+    <v-card-text class="pa-6">
+      <div class="text-h6 text--primary">{{ action[0].title }}</div>
     </v-card-text>
     <v-card-actions>
       <v-btn :to="action[0].link" class="ml-auto">

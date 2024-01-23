@@ -1,7 +1,11 @@
 // variables not needed in this file, It's already imported in the project globally
 @import "transitions";
 @import "variables";
-
+$container-max-widths: (
+  "lg": 748px,
+  "xl": 1040px,
+  "xxl": 1240px,
+);
 html,
 body {
   padding: 0;
@@ -29,7 +33,6 @@ h6,
 // $font-size-root: 20px;
 $fortnightly-font-size: 16;
 $fortnightly-heading-font-style: italic;
-$fortnightly-primary-color: #6b38fb;
 // Preset variables
 $body-font-family: "Open sans", sans-serif;
 $border-radius-root: 0;

@@ -1,8 +1,7 @@
 ---
-title: presentation
+title: Activateur d'intelligence collective avec le meilleur de la recherche
 page: home
 ---
-# Activateur d'intelligence collective avec le meilleur de la recherche
 
 L’Institut d’études avancées de Paris est une institution de recherche internationale fortement ancrée dans les sciences humaines et sociales, partenaire des principaux établissements parisiens et franciliens d’enseignement supérieur et de recherche. 
 

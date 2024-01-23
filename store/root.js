@@ -3,14 +3,13 @@ import lists from '~/assets/data/lists' */
 import createModule from "~/store/module"
 /* import api from "~/server/api/github" */
 import config from "~/static.config"
+import fs from "fs"
 
 const modulesState = {}
 const types = []
 console.log("STARTING THE STORE")
 const initStore = async () => {
   if (process.server) {
-    const fs = require("fs")
-
     console.log("opening directory")
     const dir = fs.opendirSync("./data")
     let file
@@ -20,7 +19,7 @@ const initStore = async () => {
     dir.closeSync()
     console.log("types: ", types)
     await Promise.all(
-      ["people", "fellowship", "project"].map(async (type) => {
+      ["people", "fellowship", "project", "event"].map(async (type) => {
         console.log("type: ", type)
         modulesState[type] = await createModule(type)
         /* console.log("module created for ", modulesState[type]) */
@@ -355,7 +354,7 @@ export const useRootStore = defineStore("rootStore", {
     },
     async update(type, lang, source = "md") {
       console.log("type: ", type + "/" + lang)
-      const target = type + "/" + lang
+      const target = type + "/" + lang + "/"
       this.setLoading(true)
 
       const router = useRouter()
@@ -432,9 +431,11 @@ export const useRootStore = defineStore("rootStore", {
       }
       console.log("pipeline: ", pipeline)
 
-      const count = await queryContent(target).where(pipeline).only("[]").find()
-      console.log("count: ", count)
-
+      /*   const count = await useAsyncData("count", () =>
+        queryContent(target).where(pipeline).only("[]").find()
+      )
+      console.log("count: ", count.data.value) */
+      const count = [{}]
       const totalItems = count.length
       console.log("totalItems: ", totalItems)
 
@@ -466,6 +467,15 @@ export const useRootStore = defineStore("rootStore", {
               this[type].sortDesc ? 1 : -1,
             ]
           : [this[type].sortBy[0], this[type].sortDesc ? -1 : 1]
+      console.log("type1: ", type)
+      console.log("pipeline: ", pipeline)
+      console.log("queryContent: ", queryContent)
+      console.log("target: ", target)
+      console.log("{ [sortArray[0]]: sortArray[1] }: ", {
+        [sortArray[0]]: sortArray[1],
+      })
+      console.log("skipNumber(): ", skipNumber())
+      console.log("itemsPerPage: ", itemsPerPage)
 
       const items = await queryContent(target)
         .where(pipeline)
@@ -475,6 +485,7 @@ export const useRootStore = defineStore("rootStore", {
         .limit(itemsPerPage)
         .find()
 
+      console.log("done", items.length)
       const defaultView =
         this[type].views[
           Object.keys(this[type].views).find(
@@ -488,6 +499,7 @@ export const useRootStore = defineStore("rootStore", {
             (item) => this[type].sort[item]?.default === true
           )
         ]
+      console.log("type b4 route query: ", type)
 
       // update route
       const query = {
@@ -515,6 +527,7 @@ export const useRootStore = defineStore("rootStore", {
         }),
       }
       const sortObject = (obj) => Object.fromEntries(Object.entries(obj).sort())
+      console.log("type b4 sort obj: ", type)
 
       Object.keys(query).forEach((key) =>
         query[key] === undefined
@@ -539,7 +552,7 @@ export const useRootStore = defineStore("rootStore", {
 
       this.setFiltersCount(type)
       this.setBlankFilterLoad(type)
-      console.log("type: ", type)
+      console.log("type2: ", type)
       this.setItems({
         items,
         total: totalItems,

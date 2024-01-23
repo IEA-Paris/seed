@@ -5,3 +5,4 @@ link: https://paris-iea.fr
 published: true
 color: #012b43
 ---
+Cycle "Bien commun"

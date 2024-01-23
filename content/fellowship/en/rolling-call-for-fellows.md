@@ -1,6 +1,6 @@
 ---
-title: Rollign Call for Fellows
-shortDescription: Lorem ipsum tagadaLorem ipsum tagadaLorem ipsum tagadaLorem
+title: Rolling Call for Fellows
+summary: Lorem ipsum tagadaLorem ipsum tagadaLorem ipsum tagadaLorem
   ipsum tagadaLorem ipsum tagadaLorem ipsum tagada
 contact: antoine.cordelois@paris-iea.fr
 picture: "/android-chrome-512x512.png"

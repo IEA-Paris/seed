@@ -41,5 +41,4 @@ const { data } = await useAsyncData("fellowship", () =>
     "fellowship/" + $i18n.locale.value + "/" + route.params.slug
   ).findOne()
 )
-console.log("data: ", data)
 </script>

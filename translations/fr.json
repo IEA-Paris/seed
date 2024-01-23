@@ -57,5 +57,17 @@
   "selectionProcess": "Processus de sélection",
   "researchSupport": "Soutien à la recherche",
   "type": "Taper",
-  "tasks": "Tâches"
+  "tasks": "Tâches",
+  "date-and-time": "Date & Heure",
+  "fellow_presentation": "Présentation du résident",
+  "seminar": "Seminaire",
+  "conference": "Conférence",
+  "colloquium": "Colloque",
+  "registration-open": "Inscriptions ouvertes",
+  "by-the-numbers": "Par les chiffres",
+  "discover-our-0-fellows": "Découvrez nos résidents {0}",
+  "institute_life": "Vie de l'institut",
+  "more-info": "Plus d'informations",
+  "upcoming-events": "Évènements à venir",
+  "watch-the-replay": "Voir le replay"
 }

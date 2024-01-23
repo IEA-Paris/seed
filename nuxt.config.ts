@@ -91,7 +91,6 @@ export default defineNuxtConfig({
     global: true,
     dirs: ["~/components"],
   },
-
   i18n: {
     langDir: "translations/",
     locales: config.lang.locales,

@@ -1,5 +1,5 @@
 ---
-shortDescription: Lorem ipsum tagadaLorem ipsum tagadaLorem ipsum tagadaLorem
+summary: Lorem ipsum tagadaLorem ipsum tagadaLorem ipsum tagadaLorem
   ipsum tagadaLorem ipsum tagadaLorem ipsum tagada
 contact: antoine.cordelois@paris-iea.fr
 title: Appel annuel à candidatures chercheur

@@ -133,23 +133,22 @@ const display = computed({
   },
 })
 
-onMounted(() => {
+onMounted(async () => {
   const { type, source } = props
 
   rootStore.loadRouteQuery(type)
-  console.log("Mounted list")
 
   const hasFilters =
     rootStore[type].filtersCount > 0 ||
-    (route.query.filters && Object.keys(route.query.filters).length > 0) ||
+    (route.query?.filters && Object.keys(route.query.filters).length > 0) ||
     route.query?.search?.length > 0
-  /* 
+  /*
     filter.value = hasFilters */
 
-  rootStore.update(type, $i18n.locale.value, source)
+  await rootStore.update(type, $i18n.locale.value, source)
 })
 
 useFetch(async () => {
-  rootStore.update(props.type, $i18n.locale.value)
+  await rootStore.update(props.type, $i18n.locale.value)
 })
 </script>

@@ -57,5 +57,17 @@
   "meals": "Meals",
   "applicationMaterials": "Application materials",
   "selectionProcess": "Selection process",
-  "researchSupport": "Research Support"
+  "researchSupport": "Research Support",
+  "discover-our-0-fellows": "Discover our {0} fellows",
+  "registration-open": "Registration open",
+  "date-and-time": "Date & Time",
+  "by-the-numbers": "By the numbers",
+  "upcoming-events": "Upcoming events",
+  "fellow_presentation": "Fellow's presentation",
+  "seminar": "Seminar",
+  "conference": "Conference",
+  "colloquium": "Colloquium",
+  "more-info": "More info",
+  "watch-the-replay": "Watch the replay",
+  "proceedings": "Proceedings"
 }
