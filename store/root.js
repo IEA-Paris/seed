@@ -358,7 +358,7 @@ export const useRootStore = defineStore("rootStore", {
       this.setLoading(true)
 
       const router = useRouter()
-      const filters = this[type].filters
+      const filters = this[type]?.filters || {}
       const pipeline = {
         // default filters
         ...filters,

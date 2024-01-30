@@ -1,12 +1,12 @@
 <template>
+  <div>
   <div class="d-flex">
     <div class="d-flex flex-column justify-space-between right-panel">
-      <div class="text-right pt-6 mr-12" transition="slide-y-transition">
+      <v-btn text variant="flat" right size="large" append-icon="mdi-chevron-up" style="text-transform: none;" transition="slide-y-transition" @click="selected = selected >= 1 ? selected - 1 : featured.length - 1">
         {{ featured[selected >= 1 ? selected - 1 : featured.length - 1].title }}
-      </div>
-      <v-fade-transition>
-        <v-sheet class="d-flex justify-center align-end pa-6">
-          <div>
+      </v-btn>
+      <v-fade-transition appear>
+        <v-sheet class="d-flex justify-center align-end pa-6 flex-column">
             <div transition="fade-transition" class="carousel-title mb-6">
               {{ featured[selected].title }}
             </div>
@@ -15,26 +15,21 @@
               <br />
               <v-btn color="default" class="mt-6">Click here</v-btn>
             </div>
-          </div>
-          <v-radio-group v-model="selected" column class="ml-6">
-            <v-radio
-              v-for="(item, index) in featured"
-              :key="index"
-              :value="selected"
-            >
-            </v-radio>
-          </v-radio-group> </v-sheet
+      </v-sheet
       ></v-fade-transition>
-      <div class="text-right pb-6 mr-12" transition="slide-y-transition">
-        <br />
+      <v-btn size="large" variant="flat" right append-icon="mdi-chevron-down" style="text-transform: none;" transition="slide-y-transition" @click="selected = selected < featured.length - 1 ? selected + 1 : 0">
         {{ featured[selected < featured.length - 1 ? selected + 1 : 0].title }}
-      </div>
+      </v-btn>
     </div>
     <div class="left-panel">
-      <v-carousel class="h-100" v-model="selected" direction="vertical">
+      <v-carousel class="h-100" v-model="selected" direction="vertical"
+      :show-arrows="false"
+      :cycle="true"
+      vertical-delimiters
+      delimiter-icon="mdi-square">
         <template v-slot:prev="{ props }">
           <v-btn icon @click="props.onClick">
-            <v-icon>mdi-chevron-top</v-icon></v-btn
+            <v-icon>mdi-chevron-up</v-icon></v-btn
           >
         </template>
         <v-carousel-item
@@ -44,14 +39,23 @@
           :src="item.picture"
           :alt="item.title"
         ></v-carousel-item>
-        <template v-slot:prev="{ props }">
+        <template v-slot:next="{ props }">
           <v-btn icon @click="props.onClick">
             <v-icon>mdi-chevron-down</v-icon></v-btn
           >
         </template>
       </v-carousel>
+   
     </div>
   </div>
+    <div class="d-flex align-center justify-center mt-n-12">
+        <v-btn color="default" icon @click="$vuetify.goto('#about')">
+          
+          <v-icon>mdi-chevron-down</v-icon>
+        </v-btn>
+      </div>
+  </div>
+
 </template>
 <script setup>
 const selected = ref(0)
@@ -65,12 +69,12 @@ const props = defineProps({
 <style>
 .left-panel {
   width: 61.8%;
-  height: calc(100vh - 64px);
+  height: 90vh;
   background-color: #000;
 }
 .right-panel {
   width: 38.2%;
-  height: calc(100vh - 64px);
+  height: 90vh;
 }
 .carousel-title {
   font-size: 3.5rem;
