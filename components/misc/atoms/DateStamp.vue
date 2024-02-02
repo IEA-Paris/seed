@@ -40,7 +40,7 @@ import { useDisplay } from "vuetify"
 const { smAndUp, mdAndUp, name } = useDisplay()
 const props = defineProps({
   date: {
-    type: [Date],
+    type: Array,
     required: true,
   },
 })

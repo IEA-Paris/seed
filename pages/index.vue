@@ -1,7 +1,7 @@
 <template>
   <HomeCarousel :featured="featured"></HomeCarousel>
   <v-container>
-    <v-divider inset class="mt-3 mb-12"></v-divider>
+    <v-divider inset class="jumper mt-3 mb-12"></v-divider>
     <v-row>
       <v-col cols="12" md="4">
         <div class="text-h3 mt-9" :class="mdAndUp ? 'text-right' : 'text-left'">
@@ -35,7 +35,8 @@
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify"
+import { useDisplay, useGoTo } from "vuetify"
+import { debounce } from "~/composables/debounce"
 const { smAndUp, mdAndUp } = useDisplay()
 const localePath = useLocalePath()
 
@@ -64,4 +65,19 @@ const { data: presentation } = await useAsyncData("presentation", () =>
     .limit(1)
     .find()
 )
+onMounted(() => {
+  const handleDebouncedScroll = debounce(handleScroll, 100)
+  window.addEventListener("scroll", handleDebouncedScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleDebouncedScroll)
+})
+let isUserScrolling = ref(false)
+const handleScroll = (event) => {
+  // Any code to be executed when the window is scrolled
+  isUserScrolling = window.scrollY > 0
+  console.log("calling handleScroll")
+  useGoTo(".jumper", { offset: 0 })
+}
 </script>
