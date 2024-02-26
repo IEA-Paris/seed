@@ -1,88 +1,112 @@
 <template>
-  <v-container class="">
-    <div class="d-flex align-center flex-row">
-      <h1>{{ $t("discover-our-0-fellows", ["2023-2024"]) }}</h1>
-      <v-spacer></v-spacer>
-      <div class="d-flex align-center justify-end">
-        <!--  <div class="mr-8">{{ current + 1 }} / {{ items.length }}</div> -->
-        <v-btn
-          icon
-          :disabled="current === 0"
-          @click="myCarousel.prev()"
-          class="mr-2"
-          flat
-        >
-          <v-icon>mdi-chevron-left</v-icon>
-        </v-btn>
-        <v-btn
-          icon
-          :disabled="current === items.length - 1"
-          @click="myCarousel.next()"
-          flat
-        >
-          <v-icon>mdi-chevron-right</v-icon>
-        </v-btn>
+  <div class="d-flex align-center flex-row justify-space-between">
+    <div class="text-h2" v-motion-slide-visible-once-bottom>
+      {{ $t("discover-our-0-fellows", ["2023-2024"]) }}
+    </div>
+    <div class="d-flex align-center justify-end">
+      <!--  <div class="mr-8">{{ current + 1 }} / {{ items.length }}</div> -->
+      <v-btn icon :disabled="current === 0" @click="prev()" class="mr-2" flat>
+        <v-icon>mdi-chevron-left</v-icon>
+      </v-btn>
+      <v-btn icon :disabled="current === items.length - 1" @click="next()" flat>
+        <v-icon>mdi-chevron-right</v-icon>
+      </v-btn>
+    </div>
+  </div>
+  <div class="people-carousel">
+    <div class="inner" ref="inner" :style="innerStyles">
+      <div class="card" v-for="(item, index) in items" :key="index">
+        <PeopleSlidingItem :item="item"></PeopleSlidingItem>
       </div>
     </div>
-
-    <Carousel
-      class="people-carousel"
-      ref="myCarousel"
-      :items-to-show="getItemsPerLine"
-      :wrap-around="true"
-    >
-      <Slide v-for="(item, index) in items" :key="index">
-        <PeopleSlidingItem :item="item"></PeopleSlidingItem>
-      </Slide>
-    </Carousel>
-
-    <div class="d-flex align-center justify-end flex-row mt-6">
-      <v-btn
-        flat
-        prepend-icon="mdi-arrow-right"
-        style="text-transform: none"
-        :to="fellowsLink"
-        >See all 2023-2024 Fellows</v-btn
-      >
-    </div>
-  </v-container>
+  </div>
 </template>
 
 <script setup>
-import "vue3-carousel/dist/carousel.css"
-import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel"
-const myCarousel = ref(null)
-import { useDisplay } from "vuetify"
-const { xs, sm, md, lgAndUp, name } = useDisplay()
-const localePath = useLocalePath()
-const { $i18n } = useNuxtApp()
+const innerStyles = ref({})
+const step = ref("")
+const transitioning = ref(false)
+const inner = ref(null)
 const props = defineProps({
   items: [Object],
 })
-const getItemsPerLine = computed(() => {
-  switch (name.value) {
-    case "xs":
-      return 1
-    case "sm":
-      return 1.5
-    case "md":
-      return 2.5
-    case "lg":
-      return 3.5
-    case "xl":
-      return 4.5
-    case "xxl":
-      return 4.5
-  }
-
-  return undefined
+const current = ref(0)
+onMounted(() => {
+  setStep()
+  resetTranslate()
 })
-const current = ref(null)
-const fellowsLink = ref(localePath('/people?categories=["fellows"]'))
+const setStep = () => {
+  const innerWidth = inner.scrollWidth
+  const totalCards = props.items.length
+  step.value = `${innerWidth / totalCards}px`
+}
+const next = () => {
+  if (transitioning.value) return
+
+  transitioning.value = true
+
+  moveLeft()
+
+  afterTransition(() => {
+    const card = props.items.shift()
+    props.items.push(card)
+    resetTranslate()
+    transitioning.value = false
+  })
+}
+const prev = () => {
+  if (transitioning.value) return
+
+  transitioning.value = true
+
+  moveRight()
+
+  afterTransition(() => {
+    const card = props.items.pop()
+    props.items.unshift(card)
+    resetTranslate()
+    transitioning.value = false
+  })
+}
+const moveLeft = () => {
+  innerStyles.value = {
+    transform: `translateX(-${step.value})
+                translateX(-${step.value})`,
+  }
+}
+const moveRight = () => {
+  innerStyles.value = {
+    transform: `translateX(${step.value})
+                translateX(-${step.value})`,
+  }
+}
+const afterTransition = (callback) => {
+  console.log("inner: ", inner)
+  const listener = () => {
+    callback()
+    inner.removeEventListener("transitionend", listener)
+  }
+  inner.addEventListener("transitionend", listener)
+}
+const resetTranslate = () => {
+  innerStyles.value = {
+    transition: "none",
+    transform: `translateX(-${step.value})`,
+  }
+}
 </script>
 
-<style lang="scss">
-.people-carousel .carousel__viewport {
-  overflow: visible !important;
+<style>
+.people-carousel {
+  overflow: hidden;
+}
+
+.inner {
+  transition: transform 0.2s;
+  white-space: nowrap;
+}
+
+.card {
+  display: inline-flex;
 }
 </style>

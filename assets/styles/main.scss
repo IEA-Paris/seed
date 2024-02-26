@@ -200,13 +200,15 @@ h1 {
   margin-bottom: 1em;
   margin-top: 2rem;
 }
-h2 {
+h2,
+h2 a {
   font-weight: 500;
-  line-height: 2.4rem;
-  font-size: 30px;
+  line-height: 2.8rem;
+  font-size: 40px;
   padding-bottom: 0.2rem;
   margin-bottom: 0.8em;
   margin-top: 2rem;
+  color: black;
 }
 h3 {
   font-weight: 400;

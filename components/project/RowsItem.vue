@@ -1,5 +1,8 @@
 <template>
-  <v-card class="d-flex flex-row pa-6 align-start" :to="localePath(item.link)">
+  <v-card
+    class="d-flex flex-row pa-6 align-start"
+    :to="localePath('/activities/projects/' + slugify(item.title))"
+  >
     <MiscAtomsOptimizedImage :src="item.picture" class="align-start">
     </MiscAtomsOptimizedImage>
     <div>
@@ -10,6 +13,7 @@
 </template>
 
 <script setup>
+import slugify from "~/assets/utils/slugify"
 const localePath = useLocalePath()
 const props = defineProps({
   item: {

@@ -1,7 +1,7 @@
 <template>
   <div class="frame">
     <div class="overlay"></div>
-    <v-img v-if="src" :aspect-ratio="ratio" :src="src" v-bind="$attrs">
+    <v-img v-if="src" :aspectRatio="1 / 1" :src="src" v-bind="$attrs">
       <span id="caption-content">
         <slot name="caption"></slot>
         <br />

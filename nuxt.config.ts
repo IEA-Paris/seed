@@ -74,6 +74,7 @@ export default defineNuxtConfig({
     "nuxt-schema-org",
     "@vite-pwa/nuxt",
     "@nuxtjs/apollo",
+    "@vueuse/motion/nuxt",
   ],
   pinia: {
     autoImports: ["defineStore", ["defineStore", "definePiniaStore"]],

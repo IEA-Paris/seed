@@ -1,6 +1,7 @@
 ---
 title: moto
 page: institute
+description: "Catalyseur d’intelligence collective. Avec Le meilleur de la recherche. Pour Aujourd’hui et Demain."
 ---
 > ***"Favoriser la recherche, offrir aux chercheurs un accueil propice à la création, proposer des échanges de savoirs ouverts à tous : l'IEA de Paris est une agora ouverte aux échos du monde".*** 
 

@@ -2,6 +2,7 @@
   <v-card
     class="mx-auto d-flex align-center justify-center flex-column"
     :color="action[0].color || 'white'"
+    v-motion-slide-visible-once-right
   >
     <v-img
       class="w-100"

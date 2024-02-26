@@ -36,7 +36,7 @@ const crumbs = computed(() => {
 <template>
   <v-app>
     <NavigationTopBar />
-    <v-main>
+    <v-main class="scroller">
       <v-container v-if="crumbs && crumbs.length">
         <v-breadcrumbs :items="crumbs" class="pl-0" link>
           <template v-slot:prepend>
