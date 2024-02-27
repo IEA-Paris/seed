@@ -1,99 +1,101 @@
 <template>
-  <div class="scroller">
-    <HomeCarousel class="carousel" :featured="featured"></HomeCarousel>
-    <section>
-      <v-container>
-        <v-divider inset class="mt-3 mb-12"></v-divider>
-        <v-row justify-center align-center>
-          <v-col cols="12" md="5" lg="4">
-            <div
-              v-motion
-              :initial="{
-                opacity: 0,
-                x: -100,
-              }"
-              :enter="{
-                opacity: 1,
-                x: 0,
-                transition: {
-                  type: 'slide',
-                  stiffness: '100',
-                  delay: 500,
-                },
-              }"
-              class="text-h4 text-md-h2 mt-9 px-6"
-              :class="mdAndUp ? 'text-right' : 'text-left'"
-            >
-              {{ presentation[0].title }}
-            </div></v-col
+  <HomeCarousel class="carousel" :featured="featured"></HomeCarousel>
+  <section>
+    <v-container>
+      <v-divider inset class="mt-3 mb-12"></v-divider>
+      <v-row justify-center align-center>
+        <v-col cols="12" md="5" lg="4">
+          <div
+            v-motion
+            :initial="{
+              opacity: 0,
+              x: -100,
+            }"
+            :enter="{
+              opacity: 1,
+              x: 0,
+              transition: {
+                type: 'slide',
+                stiffness: '100',
+                delay: 500,
+              },
+            }"
+            class="text-h4 text-md-h2 mt-9 px-6"
+            :class="mdAndUp ? 'text-right' : 'text-left'"
           >
-          <v-col cols="12" md="7" lg="8">
-            <v-card
-              v-motion
-              :initial="{
-                opacity: 0,
-                x: 100,
-              }"
-              :enter="{
-                opacity: 1,
-                x: 0,
-                transition: {
-                  type: 'slide',
-                  stiffness: '100',
-                  delay: 1000,
-                },
-              }"
-              flat
-              class="d-flex align-center justify-center pa-6 presentation-pitch"
-            >
-              <ContentDoc
-                class="text-body-2"
-                :path="
-                  '/pages/' + $i18n.locale.value + '/institute_presentation'
-                "
-            /></v-card>
-          </v-col>
-          <v-divider class="mt-3 mb-12"></v-divider>
-        </v-row>
-      </v-container>
-    </section>
-    <section class="">
-      <v-container>
-        <v-row justify-center align-center>
-          <v-col cols="12">
-            <div class="text-h2 mb-12" v-motion-slide-visible-once-bottom>
-              {{ $t("upcoming-events") }}
-            </div>
-            <EventListContainer :events="events"></EventListContainer
-          ></v-col>
-          <!--   <v-col cols="4" v-if="smAndUp">
+            {{ presentation[0].title }}
+          </div></v-col
+        >
+        <v-col cols="12" md="7" lg="8">
+          <v-card
+            v-motion
+            :initial="{
+              opacity: 0,
+              x: 100,
+            }"
+            :enter="{
+              opacity: 1,
+              x: 0,
+              transition: {
+                type: 'slide',
+                stiffness: '100',
+                delay: 1000,
+              },
+            }"
+            flat
+            class="d-flex align-center justify-center pa-6 presentation-pitch"
+          >
+            <ContentDoc
+              class="text-body-2"
+              :path="
+                '/pages/' + $i18n.locale.value + '/institute_presentation'
+              "
+          /></v-card>
+        </v-col>
+        <v-divider class="mt-3 mb-12"></v-divider>
+      </v-row>
+    </v-container>
+  </section>
+  <section>
+    <v-container>
+      <v-row justify-center align-center>
+        <v-col cols="12">
+          <div class="text-h2 my-12" v-motion-slide-visible-once-bottom>
+            {{ $t("upcoming-events") }}
+          </div>
+          <EventListContainer :events="events"></EventListContainer
+        ></v-col>
+        <!--   <v-col cols="4" v-if="smAndUp">
             <ActionsSmallContainer :action="action"></ActionsSmallContainer>
           </v-col> -->
-          <v-divider class="mt-3 mb-12"></v-divider>
-        </v-row>
-      </v-container>
-    </section>
-    <section>
-      <v-container>
-        <v-row>
-          <v-col cols="12" class="mb-12">
-            <HomeCountUpStats></HomeCountUpStats>
-          </v-col>
-          <v-divider class="mt-3 mb-12"></v-divider>
-        </v-row>
-      </v-container>
-    </section>
-    <section>
-      <v-container>
-        <v-row>
-          <v-col cols="12" class="mb-12">
-            <PeopleSlidingGroup :items="fellows"></PeopleSlidingGroup>
-          </v-col>
-          <v-divider class="mt-3 mb-12"></v-divider>
-        </v-row>
-      </v-container>
-    </section>
-  </div>
+        <v-divider class="mt-3 mb-12"></v-divider>
+      </v-row>
+    </v-container>
+  </section>
+  <section>
+    <v-container>
+      <v-row>
+        <v-col cols="12" class="mb-12">
+          <HomeCountUpStats></HomeCountUpStats>
+        </v-col>
+        <v-divider class="mt-3 mb-12"></v-divider>
+      </v-row>
+    </v-container>
+  </section>
+  <section>
+    <v-container>
+      <v-row>
+        <v-col cols="12" class="mb-12">
+          <PeopleSlidingGroup :items="fellows">
+            <div class="text-h2" v-motion-slide-visible-once-bottom>
+              {{ $t("discover-our-0-fellows", ["2023-2024"]) }}
+            </div></PeopleSlidingGroup
+          >
+        </v-col>
+        <v-divider class="mt-3 mb-12"></v-divider>
+      </v-row>
+    </v-container>
+  </section>
 </template>
 
 <script setup>

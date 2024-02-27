@@ -1,8 +1,6 @@
 <template>
   <div class="d-flex align-center flex-row justify-space-between">
-    <div class="text-h2" v-motion-slide-visible-once-bottom>
-      {{ $t("discover-our-0-fellows", ["2023-2024"]) }}
-    </div>
+    <slot></slot>
     <div class="d-flex align-center justify-end">
       <!--  <div class="mr-8">{{ current + 1 }} / {{ items.length }}</div> -->
       <v-btn icon :disabled="current === 0" @click="prev()" class="mr-2" flat>

@@ -4,8 +4,8 @@
       <v-col cols="12" sm="6">
         <v-card flat>
           <v-img
-            :aspectRatio="1 / 1"
-            fit="cover"
+            :height="400"
+            aspect-ratio="1/1"
             src="/images/lahlou_saadi.jpg"
           ></v-img
         ></v-card>

@@ -60,7 +60,7 @@ const crumbs = computed(() => {
         <v-divider></v-divider>
       </v-container>
       <slot />
+      <NavigationFooter />
     </v-main>
-    <NavigationFooter />
   </v-app>
 </template>
