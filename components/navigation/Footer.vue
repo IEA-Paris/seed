@@ -1,5 +1,4 @@
 <template>
-  <section style="background-color: black">
     <v-footer dark color="black" class="d-flex justify-center align-center">
       <v-container class="fill-height">
         <v-row justify="center" no-gutters>
@@ -173,7 +172,6 @@
         </v-row>
       </v-container>
     </v-footer>
-  </section>
 </template>
 <script setup>
 import socials from "~/assets/data/social"

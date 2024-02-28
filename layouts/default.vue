@@ -8,8 +8,13 @@
 </style>
 <script setup>
 const ignoredRoutes = ["fr", "about", "activities"]
+
 const localePath = useLocalePath()
 const route = useRoute()
+const isSnapRoutes = () => {
+  return route.name.startsWith('about') || route.name.startsWith('index')
+}
+console.log('route: ', route.name);
 const crumbs = computed(() => {
   return route.path
     .split("/")
@@ -60,7 +65,10 @@ const crumbs = computed(() => {
         <v-divider></v-divider>
       </v-container>
       <slot />
-      <NavigationFooter />
+      <section v-if="isSnapRoutes()" style="background-color:black">
+        <NavigationFooter></NavigationFooter>
+      </section>
+      <NavigationFooter v-else />
     </v-main>
   </v-app>
 </template>

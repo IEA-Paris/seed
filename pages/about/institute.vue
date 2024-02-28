@@ -1,5 +1,6 @@
 <template>
   <section>
+    <v-container>
     <v-row class="d-flex align-center justify-center">
       <v-col cols="12" sm="6">
         <v-card flat>
@@ -17,20 +18,28 @@
         </v-sheet>
       </v-col>
     </v-row>
+  </v-container>
   </section>
   <section>
+    <v-container>
+      <v-row justify-center align-center>
     <v-col cols="12" class="justify-center">
       <v-sheet class="d-flex align-center justify-center flex-row pa-12">
         <ContentDoc
           :path="'/pages/' + $i18n.locale + '/institute_description'"
         />
       </v-sheet>
-    </v-col>
+    </v-col></v-row></v-container>
   </section>
   <section>
+
+    <v-container>
+      <v-row justify-center align-center>
     <v-col cols="4">
       <v-sheet class="d-flex align-center justify-center" flat>
-        <v-carousel cycle hide-delimiters show-arrows="hover">
+        <v-carousel cycle hide-delimiters show-arrows="hover"
+        aspect-ratio="1/1"
+        >
           <v-carousel-item
             v-for="i in 7"
             :key="i"
@@ -45,9 +54,11 @@
           :path="'/pages/' + $i18n.locale + '/institute_location_description'"
         />
       </v-sheet>
-    </v-col>
+    </v-col></v-row></v-container>
   </section>
   <section>
+    <v-container>
+      <v-row justify-center align-center>
     <v-col cols="8">
       <v-sheet class="d-flex align-center justify-center pa-12">
         <ContentDoc
@@ -62,9 +73,10 @@
       >
         Network overview</v-card
       >
-    </v-col>
+    </v-col></v-row></v-container>
   </section>
   <section>
+    <v-container>
     <v-row class="d-flex align-center justify-center">
       <v-col cols="4">
         <v-sheet class="d-flex align-center justify-center" flat>
@@ -82,7 +94,7 @@
           <ContentDoc :path="'/pages/' + $i18n.locale + '/institute_history'" />
         </v-sheet>
       </v-col>
-    </v-row>
+    </v-row></v-container>
   </section>
 </template>
 

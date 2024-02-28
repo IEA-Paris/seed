@@ -1,5 +1,6 @@
 <template>
   <section>
+    <v-container>
     <v-row class="d-flex align-center justify-center">
       <v-col cols="12" sm="3">
         <v-sheet
@@ -25,14 +26,14 @@
           <ContentDoc :path="'/pages/' + $i18n.locale.value + '/network'" />
         </v-sheet>
       </v-col>
-    </v-row>
+    </v-row></v-container>
   </section>
-  <section>
+  <section><v-container>
     <v-row class="d-flex align-center justify-center">
       <v-col cols="12" sm="8">
         <div class="d-flex align-center justify-center flex-column" link>
           <h3>{{ $t("our-members") }}</h3>
-          <v-img fit="contain" src="/images/partners/partners.jpg"></v-img>
+          <v-img fit="contain" src="/images/partners/partners.jpg" height="400"></v-img>
         </div>
       </v-col>
       <v-col cols="4" v-show="smAndUp">
@@ -44,9 +45,10 @@
           <ActionsSmallContainer
             :action="action"
           ></ActionsSmallContainer> </v-sheet></v-col
-    ></v-row>
+    ></v-row></v-container>
   </section>
   <section>
+    <v-container>
     <v-row class="d-flex align-center justify-center">
       <v-col cols="12" sm="6">
         <v-sheet
@@ -64,8 +66,10 @@
         >
       </v-col>
     </v-row>
+  </v-container>
   </section>
   <section>
+    <v-container>
     <v-row class="d-flex align-center justify-center">
       <v-col cols="12" sm="8">
         <v-sheet class="d-flex align-center justify-center">
@@ -82,7 +86,7 @@
             :action="action"
           ></ActionsSmallContainer></v-sheet
       ></v-col>
-    </v-row>
+    </v-row></v-container>
   </section>
 </template>
 
