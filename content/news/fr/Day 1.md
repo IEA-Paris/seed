@@ -10,7 +10,7 @@ tags:
 - Technology
 published: true
 pinned: false
-post_title: 'Day 1: "The future needs wisdom!”'
+title: 'Day 1: "The future needs wisdom!”'
 date: 2021-10-17T23:00:00Z
 authors:
 - name: Atrina Oraee

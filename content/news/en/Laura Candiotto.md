@@ -7,7 +7,7 @@ tags:
 - Robots
 published: true
 pinned: false
-post_title: All About Emotions with Laura Candiotto
+title: All About Emotions with Laura Candiotto
 date: 2021-10-15T22:00:00.000+00:00
 authors:
 - name: Atrina Oraee

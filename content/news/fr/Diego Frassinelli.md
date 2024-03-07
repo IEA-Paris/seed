@@ -6,7 +6,7 @@ tags:
 - Society
 published: true
 pinned: false
-post_title: Could our culture and society impact natural language models? Let's ask
+title: Could our culture and society impact natural language models? Let's ask
   Diego Frassinelli!
 date: 2021-10-15T22:00:00.000+00:00
 authors:

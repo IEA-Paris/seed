@@ -6,7 +6,7 @@ tags:
 - Neuroscience of Language
 published: true
 pinned: false
-post_title: An exploration of computational linguistics with Evandro Cunha
+title: An exploration of computational linguistics with Evandro Cunha
 date: 2021-10-15T22:00:00.000+00:00
 authors:
 - name: Atrina Oraee

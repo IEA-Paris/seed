@@ -8,7 +8,7 @@ tags:
 - Attention
 published: true
 pinned: false
-post_title: Henry Taylor speaks about the interface between cognitive science and
+title: Henry Taylor speaks about the interface between cognitive science and
   philosophy
 date: 2021-10-15T22:00:00.000+00:00
 authors:

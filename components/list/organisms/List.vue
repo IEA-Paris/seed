@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    {{ itemTemplate }}
     <ListMoleculesSortMenu :type="type"></ListMoleculesSortMenu>
     <component :is="'ListViews' + view">
       <component

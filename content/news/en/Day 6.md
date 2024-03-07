@@ -11,7 +11,7 @@ tags:
 - Learning
 published: true
 pinned: false
-post_title: 'Day 6: A trip to Sorbonne Center for Artificial Intelligence - SCAI'
+title: 'Day 6: A trip to Sorbonne Center for Artificial Intelligence - SCAI'
 date: 2021-10-24T23:00:00Z
 authors:
 - name: Atrina Oraee

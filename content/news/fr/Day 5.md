@@ -14,7 +14,7 @@ tags:
 - Social Issues
 published: true
 pinned: false
-post_title: 'Day 5: "an Argus with billions of eyes and ears, capacity for action,
+title: 'Day 5: "an Argus with billions of eyes and ears, capacity for action,
   and infinite memory!"'
 date: 2021-10-21T23:00:00Z
 authors:

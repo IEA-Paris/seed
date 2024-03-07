@@ -7,7 +7,7 @@ tags:
 - Vision Field
 published: true
 pinned: false
-post_title: Yasutomo Kawanishi's investigation of how human beings recognise, describe
+title: Yasutomo Kawanishi's investigation of how human beings recognise, describe
   and memorise the environment
 date: 2021-10-15T22:00:00.000+00:00
 authors:

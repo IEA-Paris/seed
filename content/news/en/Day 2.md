@@ -9,7 +9,7 @@ tags:
 - AI Apllications
 published: true
 pinned: false
-post_title: 'Day 2: "In AI we trust"...or not!'
+title: 'Day 2: "In AI we trust"...or not!'
 date: 2021-10-18T23:00:00Z
 authors:
 - name: Atrina Oraee

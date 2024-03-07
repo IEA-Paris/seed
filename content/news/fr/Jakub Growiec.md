@@ -6,7 +6,7 @@ tags:
 - Future Economy
 published: true
 pinned: false
-post_title: Jakub Growiec focuses on "New Mechanisms of Economic Growth in the Age
+title: Jakub Growiec focuses on "New Mechanisms of Economic Growth in the Age
   of Artificial Intelligence"
 date: 2021-10-15T22:00:00.000+00:00
 authors:

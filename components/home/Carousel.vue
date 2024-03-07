@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="d-flex align-center">
-      <div class="d-flex flex-column justify-space-between right-panel">
+      <div class="d-flex flex-column justify-space-between left-panel align-end">
         <v-btn
           text
           variant="flat"
@@ -42,7 +42,7 @@
           }}
         </v-btn>
       </div>
-      <div class="left-panel d-flex align-center">
+      <div class="right-panel d-flex align-center">
         <v-carousel
           v-model="selected"
           :show-arrows="false"
@@ -87,11 +87,11 @@ const props = defineProps({
 })
 </script>
 <style>
-.left-panel {
+.right-panel {
   width: 61.8%;
   height: calc(100vh - 64px);
 }
-.right-panel {
+.left-panel {
   width: 38.2%;
   height: 50vh;
 }

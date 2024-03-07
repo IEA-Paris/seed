@@ -6,7 +6,7 @@ tags:
 - Computer Science
 published: true
 pinned: false
-post_title: Exploring modelling and simulation based research with Tahina Ralitera
+title: Exploring modelling and simulation based research with Tahina Ralitera
 date: 2021-10-15T22:00:00.000+00:00
 authors:
 - name: Atrina Oraee

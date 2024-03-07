@@ -7,7 +7,7 @@ tags:
 - Movement
 published: true
 pinned: false
-post_title: '"From Movement to Cognition": An exploration of Alex Cayco Gajic''s Research'
+title: '"From Movement to Cognition": An exploration of Alex Cayco Gajic''s Research'
 date: 2021-10-14T22:00:00.000+00:00
 authors:
 - name: Atrina Oraee

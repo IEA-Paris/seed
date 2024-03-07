@@ -19,7 +19,7 @@ const initStore = async () => {
     dir.closeSync()
     console.log("types: ", types)
     await Promise.all(
-      ["people", "fellowship", "project", "event"].map(async (type) => {
+      ["people", "fellowship", "project", "event", "news"].map(async (type) => {
         console.log("type: ", type)
         modulesState[type] = await createModule(type)
         /* console.log("module created for ", modulesState[type]) */

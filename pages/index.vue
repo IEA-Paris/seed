@@ -20,7 +20,7 @@
                 delay: 500,
               },
             }"
-            class="text-h4 text-md-h2 mt-9 px-6"
+            class="text-h4 text-md-h2 mt-6 "
             :class="mdAndUp ? 'text-right' : 'text-left'"
           >
             {{ presentation[0].title }}
@@ -140,6 +140,7 @@ const { data: presentation } = await useAsyncData("presentation", () =>
 .scroller {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
+  overflow-x: hidden;
   height: 100vh;
   section,
   .carousel {

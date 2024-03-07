@@ -10,7 +10,7 @@ tags:
 - Computer Science
 published: true
 pinned: false
-post_title: 'Day 4: A visit to The University of Paris-Saclay'
+title: 'Day 4: A visit to The University of Paris-Saclay'
 date: 2021-10-20T23:00:00Z
 authors:
 - name: Atrina Oraee

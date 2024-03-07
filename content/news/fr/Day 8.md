@@ -10,7 +10,7 @@ tags:
 - Robots
 published: true
 pinned: false
-post_title: 'The Final Day: where we go from here...'
+title: 'The Final Day: where we go from here...'
 date: 2021-10-26T23:00:00Z
 authors:
 - name: Atrina Oraee

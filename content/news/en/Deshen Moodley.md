@@ -6,7 +6,7 @@ tags:
 - Artificial Intelligence
 published: true
 pinned: false
-post_title: Deshen Moodley on "Adaptive and Cognitive Systems"
+title: Deshen Moodley on "Adaptive and Cognitive Systems"
 date: 2021-10-14T22:00:00.000+00:00
 authors:
 - name: Atrina Oraee

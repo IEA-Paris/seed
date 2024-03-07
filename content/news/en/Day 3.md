@@ -10,7 +10,7 @@ tags:
 - Internet of Things
 published: true
 pinned: false
-post_title: 'Day 3: "What you do FOR  people, you do TO people, so do it WITH people!"'
+title: 'Day 3: "What you do FOR  people, you do TO people, so do it WITH people!"'
 date: 2021-10-19T23:00:00Z
 authors:
 - name: Atrina Oraee

@@ -12,7 +12,7 @@ tags:
 - Sustainable Growth
 published: true
 pinned: false
-post_title: 'Day 7: "We know everything, but we understand nothing!"'
+title: 'Day 7: "We know everything, but we understand nothing!"'
 date: 2021-10-25T23:00:00Z
 authors:
 - name: Atrina Oraee
