@@ -10,7 +10,7 @@ title: Deshen Moodley on "Adaptive and Cognitive Systems"
 date: 2021-10-14T22:00:00.000+00:00
 authors:
 - name: Atrina Oraee
-image: ''
+picture: '/images/location/3.jpg'
 youtube_video_id: ziT27xYdi6o
 audio:
 - '1122328105'

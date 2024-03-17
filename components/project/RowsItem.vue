@@ -1,9 +1,17 @@
 <template>
   <v-card
     class="d-flex flex-row pa-6 align-start"
-    :to="localePath('/activities/projects/' + slugify(item.title))"
+    :to="
+      localePath(
+        '/activities/projects/' + item._file.split('/').pop().slice(0, -3)
+      )
+    "
   >
-    <MiscAtomsOptimizedImage :src="item.picture" class="align-start">
+    <MiscAtomsOptimizedImage
+      :src="item.picture"
+      class="align-start"
+      max-height="250px"
+    >
     </MiscAtomsOptimizedImage>
     <div>
       <v-card-title>{{ item.title }}</v-card-title>

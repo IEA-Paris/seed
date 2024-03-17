@@ -16,11 +16,7 @@ title: 'Day 7: "We know everything, but we understand nothing!"'
 date: 2021-10-25T23:00:00Z
 authors:
 - name: Atrina Oraee
-images:
-- "/screenshot-2021-10-27-at-06-49-27.png"
-- "/img_5346.jpg"
-- "/snapseed-47.jpg"
-- "/screenshot-2021-10-27-at-06-48-00.png"
+picture: '/images/location/3.jpg'
 youtube_video_id: ''
 audio: []
 

@@ -14,17 +14,7 @@ title: 'The Final Day: where we go from here...'
 date: 2021-10-26T23:00:00Z
 authors:
 - name: Atrina Oraee
-images:
-- "/snapseed-58.jpg"
-- "/snapseed-49.jpg"
-- "/8.jpg"
-- "/fullsizerender-3.jpg"
-- "/snapseed-57.jpg"
-- "/snapseed-52.jpg"
-- "/snapseed-8.jpg"
-- "/1.jpg"
-- "/snapseed-51.jpg"
-- "/snapseed-54.jpg"
+picture: '/images/location/3.jpg'
 youtube_video_id: ''
 audio: []
 

@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="d-flex align-center">
-      <div class="d-flex flex-column justify-space-between left-panel align-end">
+      <div
+        class="d-flex flex-column justify-space-between left-panel align-end"
+      >
         <v-btn
           text
           variant="flat"
@@ -64,7 +66,7 @@
           ></v-carousel-item>
           <template v-slot:next="{ props }">
             <v-btn icon @click="props.onClick">
-              <v-icon>mdi-chevron-down</v-icon></v-btn
+              <v-icon>mdi-chevron-left</v-icon></v-btn
             >
           </template>
         </v-carousel>

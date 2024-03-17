@@ -15,13 +15,7 @@ title: 'Day 6: A trip to Sorbonne Center for Artificial Intelligence - SCAI'
 date: 2021-10-24T23:00:00Z
 authors:
 - name: Atrina Oraee
-images:
-- "/snapseed-39.jpg"
-- "/snapseed-11.png"
-- "/snapseed-40.jpg"
-- "/snapseed-38.jpg"
-- "/img_5265.png"
-- "/img_5203.jpg"
+picture: '/images/location/3.jpg'
 youtube_video_id: ''
 audio: []
 

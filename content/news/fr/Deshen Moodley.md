@@ -14,7 +14,8 @@ image: ''
 youtube_video_id: ziT27xYdi6o
 audio:
 - '1122328105'
-images: []
+picture: '/images/location/3.jpg'
+
 
 ---
 Ever wondered how **adaptive and cognitive systems** operate? This is precisely what [**Deshen**](/fellows#moodley "Deshen Moodley") is investigating and he explains all about his fascinating work in his research pitch!

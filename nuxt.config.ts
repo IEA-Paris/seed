@@ -65,6 +65,7 @@ export default defineNuxtConfig({
     /* "@nuxtjs/html-validator", */ // https://nuxt.com/modules/html-validator
     "nuxt-csurf", // Cross-Site Request Forgery (CSRF) prevention (https://nuxt.com/modules/csurf).
     "@nuxt/image",
+    "nuxt-swiper",
     "@nuxtjs/i18n",
     "@nuxtjs/device", // https://github.com/nuxt-community/device-module
     "@nuxtjs/robots", // https://github.com/nuxt-modules/robots

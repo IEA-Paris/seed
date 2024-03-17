@@ -8,7 +8,7 @@
         <v-col cols="12" sm="10" lg="9">
           <v-row no-gutters>
             <v-col cols="12" :order="smAndUp ? 'first' : 'last'"
-              ><a class="text-h6 text-black" :href="localePath(item.link)">
+              ><a class="text-h6 text-black" :href="localePath(item._path)">
                 {{ item.title }}
               </a></v-col
             >
@@ -37,7 +37,7 @@
           </div>
           <div class="text-body-1">
             {{
-              new Date(item.start).toLocaleString($i18n.locale, {
+              new Date(item.publicationDate).toLocaleString($i18n.locale, {
                 weekday: "long",
                 year: "numeric",
                 month: "long",

@@ -20,7 +20,7 @@
                 delay: 500,
               },
             }"
-            class="text-h4 text-md-h2 mt-6 "
+            class="text-h4 text-md-h2 mt-6"
             :class="mdAndUp ? 'text-right' : 'text-left'"
           >
             {{ presentation[0].title }}

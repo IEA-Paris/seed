@@ -14,15 +14,7 @@ title: 'Day 1: "The future needs wisdom!”'
 date: 2021-10-17T23:00:00Z
 authors:
 - name: Atrina Oraee
-images:
-- "/snapseed.jpg"
-- "/snapseed-24.jpg"
-- "/snapseed-5.jpg"
-- "/snapseed-2.jpg"
-- "/snapseed-7.jpg"
-- "/img_4286.jpg"
-- "/img_4044.jpg"
-- "/img_4211.jpg"
+picture: '/images/location/3.jpg'
 youtube_video_id: ''
 audio: []
 

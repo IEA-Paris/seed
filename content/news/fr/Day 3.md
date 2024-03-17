@@ -14,15 +14,8 @@ title: 'Day 3: "What you do FOR  people, you do TO people, so do it WITH people!
 date: 2021-10-19T23:00:00Z
 authors:
 - name: Atrina Oraee
-images:
-- "/snapseed-5.png"
-- "/snapseed-8.png"
-- "/snapseed-10.png"
-- "/snapseed-6.png"
-- "/snapseed-9.png"
-- "/fullsizerender-2.jpg"
-- "/snapseed-7.png"
-- "/img_4552.jpg"
+picture: '/images/location/3.jpg'
+
 youtube_video_id: ''
 audio: []
 

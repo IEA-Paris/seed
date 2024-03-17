@@ -19,14 +19,8 @@ title: 'Day 5: "an Argus with billions of eyes and ears, capacity for action,
 date: 2021-10-21T23:00:00Z
 authors:
 - name: Atrina Oraee
-images:
-- "/snapseed-22.jpg"
-- "/img_4284.jpg"
-- "/snapseed-20.jpg"
-- "/snapseed-23.jpg"
-- "/snapseed-24.jpg"
-- "/img_4949.jpg"
-- "/img_5081.jpg"
+picture: '/images/location/3.jpg'
+
 youtube_video_id: ''
 audio: []
 

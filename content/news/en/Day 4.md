@@ -14,15 +14,7 @@ title: 'Day 4: A visit to The University of Paris-Saclay'
 date: 2021-10-20T23:00:00Z
 authors:
 - name: Atrina Oraee
-images:
-- "/snapseed-28.jpg"
-- "/img_4858.jpg"
-- "/snapseed-26.jpg"
-- "/img_4785.jpg"
-- "/img_4696.jpg"
-- "/snapseed-25.jpg"
-- "/snapseed-27.jpg"
-- "/snapseed-19.jpg"
+picture: '/images/location/3.jpg'
 youtube_video_id: ''
 audio: []
 
