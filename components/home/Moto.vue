@@ -1,6 +1,7 @@
 <template>
-  <h1>
+  <h3 class="moto">
     <div
+      class="italic"
       v-for="(word, index) in moto.split('.')"
       :key="index"
       v-motion
@@ -17,7 +18,7 @@
     >
       {{ word + "." }}
     </div>
-  </h1>
+  </h3>
 </template>
 <script setup>
 // import { useDisplay } from "vuetify"
@@ -31,10 +32,10 @@ console.log("rst: ", rst.value)
 const moto = ref(rst.value.description)
 </script>
 <style lang="scss" scoped>
-h1 {
-  font-family: "Montserrat Medium";
+h3.moto {
   max-width: 40ch;
   text-align: center;
+  font-size: 2rem;
 }
 div {
   display: inline-block;
