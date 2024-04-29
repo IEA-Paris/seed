@@ -81,7 +81,7 @@ jobs:
         run: yarn
 
       - name: Generate
-        run: yarn run generate
+        run: git submodule update --init --remote && git submodule foreach git config pull.rebase true && git checkout main && git pull origin main --allow-unrelated-histories && yarn run generate
 
       #  - name: Run linter 👀
       #   run: yarn lint
