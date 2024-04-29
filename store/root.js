@@ -441,9 +441,9 @@ export const useRootStore = defineStore("rootStore", {
 
       const lastPage = Math.ceil(totalItems / this[type].itemsPerPage)
 
-      const lastPageCount = totalItems % this[type].itemsPerPage
+      const lastPageCount = totalItems % (this[type]?.itemsPerPage || 1)
 
-      const itemsPerPage = this[type].itemsPerPage
+      const itemsPerPage = this[type]?.itemsPerPage || 1
 
       const skipNumber = () => {
         if (+this[type].page === 1) {
@@ -533,9 +533,9 @@ export const useRootStore = defineStore("rootStore", {
         query[key] === undefined
           ? delete query[key]
           : // convert boolean to string
-          typeof query[key] === "boolean"
-          ? query[key] === query[key].toString()
-          : {}
+            typeof query[key] === "boolean"
+            ? query[key] === query[key].toString()
+            : {}
       )
 
       /*     if (
