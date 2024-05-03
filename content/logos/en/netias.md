@@ -1,5 +1,5 @@
 ---
 title: Network of european institutes for advanced study
 url: 'http://netias.science/'
-picture: 'netias-logo.jpg'
+picture: 'images/logos/netias-logo.jpg'
 ---

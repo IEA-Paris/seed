@@ -1,5 +1,5 @@
 ---
 title:  Paris Diderot University
 url: 'https://crl.u-paris.fr/'
-picture: 'paris-diderot-logo.jpg'
+picture: 'images/logos/paris-diderot-logo.jpg'
 ---

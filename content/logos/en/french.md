@@ -1,5 +1,5 @@
 ---
 title: French institute for advanced studies
 url: "https://www.fias-fp.eu/"
-picture: 'french-institute-logo.png'
+picture: 'images/logos/french-institute-logo.png'
 ---

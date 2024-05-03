@@ -1,5 +1,5 @@
 ---
 title: Sorbonne University
 url: 'https://www.sorbonne-universite.fr/'
-picture: 'sorbonne-logo.jpg'
+picture: 'images/logos/sorbonne-logo.jpg'
 ---

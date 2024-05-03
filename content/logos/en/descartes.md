@@ -1,5 +1,5 @@
 ---
 title: Paris-Descartes University
 url: 'https://u-paris.fr/'
-picture: 'paris-descartes-logo.jpg'
+picture: 'images/logos/paris-descartes-logo.jpg'
 ---

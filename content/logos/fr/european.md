@@ -1,5 +1,5 @@
 ---
 title: Commission européenne
 url: 'https://commission.europa.eu/'
-picture: 'european-commission-logo.png'
+picture: 'images/logos/european-commission-logo.png'
 ---
