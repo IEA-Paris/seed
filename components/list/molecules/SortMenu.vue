@@ -59,23 +59,23 @@ const props = defineProps({
     required: true,
   },
 })
-const items = ref(rootStore[props.type].sort)
+const items = ref(rootStore[props.type].list.sort)
 const defaultSort = ref(
-  rootStore[props.type].sort[
-    Object.keys(rootStore[props.type].sort).find(
-      (item) => rootStore[props.type].sort[item].default === true
+  rootStore[props.type].list.sort[
+    Object.keys(rootStore[props.type].list.sort).find(
+      (item) => rootStore[props.type].list.sort[item].default === true
     )
   ]
 )
 
 const current = computed(() => {
   try {
-    return Object.keys(rootStore[props.type].sort).find((item) => {
+    return Object.keys(rootStore[props.type].list.sort).find((item) => {
       return (
-        rootStore[props.type].sort[item].value[0] ===
-          rootStore[props.type].sortBy[0] &&
-        (!!rootStore[props.type].sort[item].value[1] === "-1") ===
-          rootStore[props.type].sortDesc
+        rootStore[props.type].list.sort[item].value[0] ===
+          rootStore[props.type].list.sortBy[0] &&
+        (!!rootStore[props.type].list.sort[item].value[1] === "-1") ===
+          rootStore[props.type].list.sortDesc
       )
     })
   } catch (error) {

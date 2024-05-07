@@ -78,36 +78,36 @@ const props = defineProps({
 
 const show = ref(true)
 const view = computed(() =>
-  resolveComponent(capitalize(rootStore[props.type].view))
+  resolveComponent(capitalize(rootStore[props.type].list.view))
 )
 const itemTemplate = computed(() =>
   resolveComponent(
     (
       capitalize(props.type) +
-      capitalize(rootStore[props.type].view) +
+      capitalize(rootStore[props.type].list.view) +
       "Item"
     ).toString()
   )
 )
 const route = useRoute()
-const total = computed(() => rootStore[props.type].total)
-const numberOfPages = computed(() => rootStore[props.type].numberOfPages)
+const total = computed(() => rootStore[props.type].list.total)
+const numberOfPages = computed(() => rootStore[props.type].list.numberOfPages)
 
-const page = computed(() => +rootStore[props.type].page)
+const page = computed(() => +rootStore[props.type].list.page)
 
-const sortBy = computed(() => rootStore[props.type].sortBy)
+const sortBy = computed(() => rootStore[props.type].list.sortBy)
 
 const sortDesc = computed(() =>
-  rootStore[props.type].sortDesc[0] !== "asc" ? [false] : [true]
+  rootStore[props.type].list.sortDesc[0] !== "asc" ? [false] : [true]
 )
 
-const filtersCount = computed(() => rootStore[props.type].filtersCount)
+const filtersCount = computed(() => rootStore[props.type].list.filtersCount)
 
-const items = computed(() => rootStore[props.type].items)
+const items = computed(() => rootStore[props.type].list.items)
 
 const itemsPerPage = computed({
   get() {
-    return rootStore[props.type].itemsPerPage
+    return rootStore[props.type].list.itemsPerPage
   },
   set(value) {
     rootStore.updateItemsPerPage({ itemsPerPage: value, type: props.type })
@@ -117,7 +117,7 @@ const itemsPerPage = computed({
 
 const search = computed({
   get() {
-    return rootStore[props.type].search
+    return rootStore[props.type].list.search
   },
   set(value) {
     debouncedSearch(value)
@@ -126,7 +126,7 @@ const search = computed({
 
 const display = computed({
   get() {
-    return rootStore[props.type].display
+    return rootStore[props.type].list.display
   },
   set(value) {
     rootStore.updateDisplay({ display: value, type: props.type })

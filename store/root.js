@@ -9,6 +9,7 @@ const modulesState = {}
 const types = []
 console.log("STARTING THE STORE")
 const initStore = async () => {
+  const modules = {}
   if (process.server) {
     console.log("opening directory")
     const dir = fs.opendirSync("./data")
@@ -18,17 +19,22 @@ const initStore = async () => {
     }
     dir.closeSync()
     console.log("types: ", types)
-    await Promise.all(
-      ["people", "fellowship", "project", "event", "news"].map(async (type) => {
+  }
+  await Promise.all(
+    [/* "people", "fellowship", "project", */ "event" /* , "news" */].map(
+      async (type) => {
         console.log("type: ", type)
         modulesState[type] = await createModule(type)
+        console.log("modulesState[type]: ", modulesState[type])
+
         /* console.log("module created for ", modulesState[type]) */
-      })
+      }
     )
-  }
+  )
+  console.log(modules)
   /* const githubApi = new api(config.modules.github) */
+  return modules
 }
-initStore()
 export const useRootStore = defineStore("rootStore", {
   state: () => ({
     scrolled: process.browser ? window.scrollY > 0 : false,
@@ -40,7 +46,6 @@ export const useRootStore = defineStore("rootStore", {
   actions: {
     save(type) {
       try {
-        $
         // save the related form from the store to the target
         if (this[type].source === "md") {
           //@eliot save on github
@@ -96,8 +101,8 @@ export const useRootStore = defineStore("rootStore", {
       }
     },
     updateForm({ key, value, category, level = null, store = null }) {
-      level = level ?? [this[category].form[key]]
-      store = store ?? this[category].form
+      level = level ?? [this[category].form.values[key]]
+      store = store ?? this[category].form.values
       console.log(`updateForm 
       key: ${key}
       value: ${value} 
@@ -115,7 +120,7 @@ export const useRootStore = defineStore("rootStore", {
         //guard against undef keys
         if (store[level[0]] === undefined) {
           if (isArray) {
-            store[level[0]] = [this[category].schema[key]?.default]
+            store[level[0]] = [this[category].form.schema[key]?.default]
           } else {
             // if the key is not a number, it is an object (if it was a primitive, level.length would be 1)
             store[level[0]] = {}
@@ -131,8 +136,8 @@ export const useRootStore = defineStore("rootStore", {
       }
     },
     deleteFormItem({ key, category, level = null, store = null }) {
-      level = level ?? [this[category].form[key]]
-      store = store ?? this[category].form
+      level = level ?? [this[category].form.values[key]]
+      store = store ?? this[category].form.values
       console.log(`deleteFormItem 
       key: ${key}
       category: ${category} 
@@ -161,9 +166,9 @@ export const useRootStore = defineStore("rootStore", {
       defaults = null,
     }) {
       try {
-        level = level ?? [this[category].form[key]]
-        store = store ?? this[category].form
-        if (!defaults) defaults = JSON.parse(this[category]._defaults)
+        level = level ?? [this[category].form.values[key]]
+        store = store ?? this[category].form.values
+        if (!defaults) defaults = JSON.parse(this[category].form._defaults)
         console.log("defaults: ", defaults)
         console.log(`addFormItem 
         key: ${key}
@@ -202,7 +207,7 @@ export const useRootStore = defineStore("rootStore", {
       const query = currentRoute.value.query
 
       if (query.search) {
-        this[type].search = query.search
+        this[type].list.search = query.search
       }
       if (query.filters) {
         const filters = JSON.parse(query.filters)
@@ -215,58 +220,58 @@ export const useRootStore = defineStore("rootStore", {
         this[type].view = query.view
       }
       if (query.page) {
-        this[type].page = +query.page
+        this[type].list.page = +query.page
       } else {
-        this[type].page = 1
+        this[type].list.page = 1
       }
 
       const defaultSort = [
-        this[type].sort[
-          Object.keys(this[type].sort).find(
-            (item) => this[type].sort[item].default === true
+        this[type].list.sort[
+          Object.keys(this[type].list.sort).find(
+            (item) => this[type].list.sort[item].default === true
           )
         ],
       ]
       if (query.sortBy) {
-        this[type].sortBy = [query.sortBy]
+        this[type].list.sortBy = [query.sortBy]
       }
 
       if (typeof query.sortDesc !== "undefined") {
-        this[type].sortDesc = !!(query.sortDesc === "true")
+        this[type].list.sortDesc = !!(query.sortDesc === "true")
       } else {
-        this[type].sortDesc = !!(defaultSort[0].value[1] === "desc")
+        this[type].list.sortDesc = !!(defaultSort[0].value[1] === "desc")
       }
     },
     setSearch({ search, type }) {
-      this[type].search = search
+      this[type].list.search = search
     },
     setItems({ type, ...values }) {
-      this[type].items = values.items
-      this[type].total = values.total
-      this[type].numberOfPages = values.numberOfPages
+      this[type].list.items = values.items
+      this[type].list.total = values.total
+      this[type].list.numberOfPages = values.numberOfPages
     },
     setItemsPerPage({ value, type }) {
-      this[type].itemsPerPage = value
+      this[type].list.itemsPerPage = value
     },
     setPage({ page, type }) {
-      this[type].page = page
+      this[type].list.page = page
     },
     setFilters({ filters, type }) {
       if (filters[Object.keys(filters)[0]].length)
         this[type].loading.push(Object.keys(filters)[0])
 
-      this[type].filters[Object.keys(filters)[0]] =
+      this[type].list.filters[Object.keys(filters)[0]] =
         filters[Object.keys(filters)[0]]
     },
     setSort({ value, type }) {
-      this[type].sortBy = [value[0]]
-      this[type].sortDesc = value[1] === "-1"
+      this[type].list.sortBy = [value[0]]
+      this[type].list.sortDesc = value[1] === "-1"
     },
     setView({ value, type }) {
-      this[type].view = value
+      this[type].list.view = value
     },
     setFiltersCount(type) {
-      const filters = this[type].filters
+      const filters = this[type].list.filters
       const filtersCount = Object.keys(filters)
         // remove empty values
         .filter(
@@ -278,26 +283,26 @@ export const useRootStore = defineStore("rootStore", {
             (typeof filters[filter] === "object" &&
               Object.keys(filters[filter]).length)
         ).length
-      this[type].filtersCount = filtersCount
+      this[type].list.filtersCount = filtersCount
     },
     setBlankState(type) {
       this.resetFilters = true
 
       const defaultView =
-        this[type].views[
-          Object.keys(this[type].views).find(
-            (item) => this[type].views[item].default === true
+        this[type].list.views[
+          Object.keys(this[type].list.views).find(
+            (item) => this[type].list.views[item].default === true
           )
         ]
       const defaultSort = [
-        this[type].sort[
-          Object.keys(this[type].sort).find(
-            (item) => this[type].sort[item].default === true
+        this[type].list.sort[
+          Object.keys(this[type].list.sort).find(
+            (item) => this[type].list.sort[item].default === true
           )
         ],
       ]
       // TODO make dynamic based on an ~/assets located file
-      this[type].filters = {
+      this[type].list.filters = {
         years: [],
         issue: [],
         tags: [],
@@ -306,10 +311,10 @@ export const useRootStore = defineStore("rootStore", {
         discipline: [],
         type: [],
       }
-      this[type].search = ""
-      this[type].view = defaultView.value
-      this[type].sortBy = defaultSort[0].value[0]
-      this[type].sortDesc = defaultSort[0].value[1] === "desc"
+      this[type].list.search = ""
+      this[type].list.view = defaultView.value
+      this[type].list.sortBy = defaultSort[0].value[0]
+      this[type].list.sortDesc = defaultSort[0].value[1] === "desc"
       this[type].resetFilters = false
     },
     setBlankFilterLoad(type) {
@@ -358,7 +363,7 @@ export const useRootStore = defineStore("rootStore", {
       this.setLoading(true)
 
       const router = useRouter()
-      const filters = this[type]?.filters || {}
+      const filters = this[type]?.list?.filters || {}
       const pipeline = {
         // default filters
         ...filters,
@@ -439,34 +444,34 @@ export const useRootStore = defineStore("rootStore", {
       const totalItems = count.length
       console.log("totalItems: ", totalItems)
 
-      const lastPage = Math.ceil(totalItems / this[type].itemsPerPage)
+      const lastPage = Math.ceil(totalItems / this[type]?.list.itemsPerPage)
 
-      const lastPageCount = totalItems % (this[type]?.itemsPerPage || 1)
+      const lastPageCount = totalItems % (this[type]?.list?.itemsPerPage || 1)
 
-      const itemsPerPage = this[type]?.itemsPerPage || 1
+      const itemsPerPage = this[type]?.list?.itemsPerPage || 1
 
       const skipNumber = () => {
-        if (+this[type].page === 1) {
+        if (+this[type].list.page === 1) {
           return 0
         }
-        if (+this[type].page === lastPage) {
+        if (+this[type].list.page === lastPage) {
           if (lastPageCount === 0) {
             return totalItems - itemsPerPage
           }
           return totalItems - lastPageCount
         }
-        return (+this[type].page - 1) * itemsPerPage
+        return (+this[type].list.page - 1) * itemsPerPage
       }
 
       const sortArray =
         this[type].view === "issues"
           ? [
               "issueIndex",
-              this[type].sortDesc ? 1 : -1,
+              this[type].list.sortDesc ? 1 : -1,
               "date",
-              this[type].sortDesc ? 1 : -1,
+              this[type].list.sortDesc ? 1 : -1,
             ]
-          : [this[type].sortBy[0], this[type].sortDesc ? -1 : 1]
+          : [this[type].list.sortBy[0], this[type].list.sortDesc ? -1 : 1]
       console.log("type1: ", type)
       console.log("pipeline: ", pipeline)
       console.log("queryContent: ", queryContent)
@@ -477,46 +482,48 @@ export const useRootStore = defineStore("rootStore", {
       console.log("skipNumber(): ", skipNumber())
       console.log("itemsPerPage: ", itemsPerPage)
 
-      const items = await queryContent(target)
-        .where(pipeline)
-        .sort({ [sortArray[0]]: sortArray[1] })
-        /*  .sort({ [sortArray[2]]: sortArray[3] }) */
-        .skip(skipNumber())
-        .limit(itemsPerPage)
-        .find()
-
-      console.log("done", items.length)
+      const { data: items } = await useAsyncData("items", () =>
+        queryContent(target)
+          .where(pipeline)
+          .sort({ [sortArray[0]]: sortArray[1] })
+          /*  .sort({ [sortArray[2]]: sortArray[3] }) */
+          .skip(skipNumber())
+          .limit(itemsPerPage)
+          .find()
+      )
+      console.log("done", items)
       const defaultView =
-        this[type].views[
-          Object.keys(this[type].views).find(
-            (item) => this[type].views[item].default === true
+        this[type].list.views[
+          Object.keys(this[type].list.views).find(
+            (item) => this[type].list.views[item].default === true
           )
         ]
 
       const defaultSort =
-        this[type].sort[
-          Object.keys(this[type].sort).find(
-            (item) => this[type].sort[item]?.default === true
+        this[type].list.sort[
+          Object.keys(this[type].list.sort).find(
+            (item) => this[type].list.sort[item]?.default === true
           )
         ]
       console.log("type b4 route query: ", type)
 
       // update route
       const query = {
-        ...(this[type].search &&
-          typeof this[type].search !== "undefined" && {
+        ...(this[type].list.search &&
+          typeof this[type].list.search !== "undefined" && {
             search: this[type].search,
           }),
-        ...(this[type].page > 1 && {
+        ...(this[type].list.page > 1 && {
           page: this[type].page.toString(),
         }),
-        ...(this[type].sortBy?.length &&
-          this[type].sortBy[0] !== defaultSort.value[0] && {
-            sortBy: this[type].sortBy[0],
+        ...(this[type].list.sortBy?.length &&
+          this[type].list.sortBy[0] !== defaultSort.value[0] && {
+            sortBy: this[type].list.sortBy[0],
           }),
-        ...(typeof this[type].sortDesc !== "undefined" &&
-          (this[type].sortDesc ? "desc" : "asc") !== defaultSort.value[1] && {
-            sortDesc: !!this[type].sortDesc,
+        ...(typeof this[type].list.sortDesc !== "undefined" &&
+          (this[type].list.sortDesc ? "desc" : "asc") !==
+            defaultSort.value[1] && {
+            sortDesc: !!this[type].list.sortDesc,
           }),
         ...(this[type].view &&
           this[type].view !== defaultView.name && {
@@ -528,6 +535,7 @@ export const useRootStore = defineStore("rootStore", {
       }
       const sortObject = (obj) => Object.fromEntries(Object.entries(obj).sort())
       console.log("type b4 sort obj: ", type)
+      console.log("query: ", query)
 
       Object.keys(query).forEach((key) =>
         query[key] === undefined
@@ -563,6 +571,8 @@ export const useRootStore = defineStore("rootStore", {
     },
   },
 })
+await initStore()
+
 // fetch the item categories
 /*    
            if (
@@ -587,8 +597,8 @@ export const useRootStore = defineStore("rootStore", {
           })
         )
       } */
-/*     const isDesc = this[type].sortDesc[0] || defaultSort.value[1]
-      const sorter = this[type].sortBy[0] || defaultSort.value[0]
+/*     const isDesc = this[type].list.sortDesc[0] || defaultSort.value[1]
+      const sorter = this[type].list.sortBy[0] || defaultSort.value[0]
       
       items = items.sort(
         (a, b) =>

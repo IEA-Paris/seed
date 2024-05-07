@@ -3,8 +3,7 @@ export default async (schema) => {
     console.log("key: ", key)
     // is it a template?
     if (schema[key] && schema[key]?.type === 3) {
-      const templateState = (await import(`../../data/${key}.ts`)).default
-        .schema
+      const templateState = (await import(`../../data/${key}.ts`)).default.form
       /* console.log("templateState for subtemplate: ", templateState) */
       schema[key].items = templateState
 

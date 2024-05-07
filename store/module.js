@@ -3,19 +3,19 @@ import completeSchema from "../utils/scripts/completeSchema"
 export default async (type) => {
   console.log("CREATING MODULE FOR: ", type)
   const baseType = (await import(`../data/${type}.ts`)).default
-  const baseSchema = baseType.schema
+  const baseSchema = baseType.form
   const defaultState = await completeSchema(baseSchema)
 
   const defaultView =
-    baseType.views &&
-    Object.keys(baseType.views).find((item) => {
+    baseType.list.views &&
+    Object.keys(baseType.list.views).find((item) => {
       console.log(item)
-      return baseType.views[item]?.default === true
+      return baseType.list.views[item]?.default === true
     })
-  const defaultSort = baseType.sort && [
-    baseType.sort[
-      Object.keys(baseType.sort).find(
-        (item) => baseType.sort[item].default === true
+  const defaultSort = baseType.list.sort && [
+    baseType.list.sort[
+      Object.keys(baseType.list.sort).find(
+        (item) => baseType.list.sort[item].default === true
       )
     ],
   ]
@@ -28,9 +28,9 @@ export default async (type) => {
         /* console.log("schema[key]: ", schema[key]) */
         // if we deal with a template, import it dynamically
         if (schema[key]?.type === 3) {
-          const templateState = (await import(`../data/${key}.ts`)).default
+          const templateForm = (await import(`../data/${key}.ts`)).default.form
           /* console.log("templateState: ", templateState) */
-          form[key] = await buildForm(templateState.schema)
+          form[key] = await buildForm(templateForm)
           // if it has items, it is either an object or a collection
         } else if (schema[key]?.items) {
           // only collection have items with an array type
@@ -64,47 +64,50 @@ export default async (type) => {
   const defaultForm = await buildForm(defaultState)
 
   return {
-    form: defaultForm,
-    _defaults: defaultForm,
-    items: [],
-    current: null,
-    ...(defaultView?.name && { view: defaultView.name }),
-    total: 0,
-    filters: {
-      years: [],
-      tags: [],
-      language: [],
-      thematic: [],
-      discipline: [],
-      type: [],
-      ...baseType?.defaultFilters,
+    form: {
+      values: defaultForm,
+      _defaults: defaultForm,
+      schema: defaultState,
     },
-    style: "APA",
+    list: {
+      items: [],
+      ...(baseType?.list?.perPage?.default && {
+        itemsPerPage: baseType.list?.perPage.default,
+      }),
+      ...(baseType?.list?.perPage?.options && {
+        itemsPerPageArray: baseType.list?.perPage.options,
+      }),
+      filtersCount: 0,
+      ...(baseType?.list?.views && {
+        views: baseType.list?.views,
+      }),
+      ...(baseType?.list?.sort && {
+        sort: baseType.list?.sort,
+      }),
+      view: defaultView,
+      ...(defaultView?.name && { view: defaultView.name }),
+      filters: {
+        years: [],
+        tags: [],
+        language: [],
+        thematic: [],
+        discipline: [],
+        type: [],
+        ...baseType?.list?.filters,
+      },
+      total: 0,
+      skip: 0,
+      numberOfPages: 0,
+      ...(baseType?.list?.perPage?.default && {
+        limit: baseType.list?.perPage.default,
+      }),
+      search: "",
+      page: 1,
+      sortBy: defaultSort && [defaultSort[0].value[0]],
+      sortDesc: defaultSort && defaultSort[0].value[1] === "desc",
+      numberOfPages: 0,
+    },
     loading: [],
-    skip: 0,
-    numberOfPages: 0,
-    ...(baseType?.perPage?.default && {
-      limit: baseType.perPage.default,
-    }),
-    search: "",
-    page: 1,
-    sortBy: defaultSort && [defaultSort[0].value[0]],
-    sortDesc: defaultSort && defaultSort[0].value[1] === "desc",
-    schema: defaultState,
-    numberOfPages: 0,
-    ...(baseType?.perPage?.default && {
-      itemsPerPage: baseType.perPage.default,
-    }),
-    ...(baseType?.perPage?.options && {
-      itemsPerPageArray: baseType.perPage.options,
-    }),
-    filtersCount: 0,
-    ...(baseType?.views && {
-      views: baseType.views,
-    }),
-    ...(baseType?.sort && {
-      sort: baseType.sort,
-    }),
-    view: defaultView,
+    current: null,
   }
 }
