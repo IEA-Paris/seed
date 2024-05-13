@@ -22,13 +22,14 @@ const initStore = async () => {
       ["people", "fellowship", "project", "event", "news"].map(async (type) => {
         console.log("type: ", type)
         modulesState[type] = await createModule(type)
-        /* console.log("module created for ", modulesState[type]) */
+        // console.log("module created for ", modulesState[type]);
       })
     )
   }
   /* const githubApi = new api(config.modules.github) */
 }
-initStore()
+await initStore()
+console.log("FINISH BUILD", modulesState)
 export const useRootStore = defineStore("rootStore", {
   state: () => ({
     scrolled: process.browser ? window.scrollY > 0 : false,
