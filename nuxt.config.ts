@@ -1,6 +1,10 @@
 import config from "./static.config"
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  sourcemap: {
+    server: true,
+    client: true,
+  },
   ssr: true,
   site: {
     url: "https://paris-iea.fr",
@@ -76,6 +80,7 @@ export default defineNuxtConfig({
     "@vite-pwa/nuxt",
     "@nuxtjs/apollo",
     "@vueuse/motion/nuxt",
+    "@nuxt/test-utils/module", //https://nuxt.com/docs/getting-started/testing
   ],
   pinia: {
     autoImports: ["defineStore", ["defineStore", "definePiniaStore"]],
@@ -178,5 +183,4 @@ export default defineNuxtConfig({
       },
     },
   },
-
 })

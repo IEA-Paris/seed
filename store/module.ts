@@ -1,41 +1,55 @@
+import { FormEvent, ConfigEvent } from "~/data/event"
 import completeSchema from "../utils/scripts/completeSchema"
 
-export default async (type) => {
+export default async (type: string) => {
   console.log("CREATING MODULE FOR: ", type)
-  const baseType = await import(`../data/${type}.ts`)
-  console.log("baseSchema: ", baseType)
-  const defaultState = await completeSchema(baseType.default)
+  const baseType: ConfigEvent = (await import(`../data/${type}.ts`)).default
+  const baseSchema: FormEvent = baseType.form
+  const defaultState: FormEvent = await completeSchema(baseSchema)
+  console.log("defaultState", defaultState)
 
-  const defaultView =
+  const defaultViewKey: string | undefined =
     baseType.list.views &&
     Object.keys(baseType.list.views).find((item) => {
-      console.log(item)
-      return baseType.list.views[item]?.default === true
+      baseType.list.views[item]?.default === true
     })
-  const defaultSort = baseType.list.sort && [
-    baseType.list.sort[
-      Object.keys(baseType.list.sort).find(
-        (item) => baseType.list.sort[item].default === true
-      )
-    ],
-  ]
+  const defaultView =
+    defaultViewKey !== undefined
+      ? baseType.list.views[defaultViewKey]
+      : undefined
 
-  const buildForm = async (schema) => {
+  const defaultSortKey: string | undefined =
+    baseType.list.sort &&
+    Object.keys(baseType.list.sort).find((item) => {
+      baseType.list.sort[item].default === true
+    })
+
+  const defaultSort =
+    defaultSortKey !== undefined
+      ? baseType.list.sort[defaultSortKey]
+      : undefined
+
+  const buildForm = async (schema: FormEvent): Promise<any> => {
     try {
-      let form = {}
+      // REFACTOR LATER
+      let form: { [key: string]: any } = {}
       for await (const key of Object.keys(schema)) {
         /* console.log("key: ", key) */
         /* console.log("schema[key]: ", schema[key]) */
         // if we deal with a template, import it dynamically
         if (schema[key]?.type === 3) {
-          const templateForm = (await import(`../data/${key}.ts`)).default.form
+          const templateForm: FormEvent = (await import(`../data/${key}.ts`))
+            .default.form
           /* console.log("templateState: ", templateState) */
           form[key] = await buildForm(templateForm)
           // if it has items, it is either an object or a collection
         } else if (schema[key]?.items) {
           // only collection have items with an array type
           if (Array.isArray(schema[key]?.items)) {
-            if (!form[key]) form[key] = [{}]
+            // if (!form[key]) form[key] = [{}];
+            if (!form[key]) {
+              form[key] = [{}]
+            }
             for await (const item of schema[key]?.items) {
               form[key][0] = {
                 ...form[key][0],
@@ -105,7 +119,7 @@ export default async (type) => {
       page: 1,
       sortBy: defaultSort && [defaultSort[0].value[0]],
       sortDesc: defaultSort && defaultSort[0].value[1] === "desc",
-      numberOfPages: 0,
+      // numberOfPages: 0,
     },
     loading: [],
     current: null,
