@@ -10,31 +10,28 @@ const types = []
 console.log("STARTING THE STORE")
 const initStore = async () => {
   const modules = {}
-  if (process.server) {
-    console.log("opening directory")
-    const dir = fs.opendirSync("./data")
-    let file
-    while ((file = dir.readSync()) !== null) {
-      types.push(file.name.substring(0, file.name.length - 3))
-    }
-    dir.closeSync()
-    console.log("types: ", types)
+  /* if (process.server) { */
+  console.log("opening directory")
+  const dir = fs.opendirSync("./data")
+  let file
+  while ((file = dir.readSync()) !== null) {
+    types.push(file.name.substring(0, file.name.length - 3))
   }
+  dir.closeSync()
+  console.log("types: ", types)
   await Promise.all(
-    [/* "people", "fellowship", "project", */ "event" /* , "news" */].map(
-      async (type) => {
-        console.log("type: ", type)
-        modulesState[type] = await createModule(type)
-        console.log("modulesState[type]: ", modulesState[type])
-
-        /* console.log("module created for ", modulesState[type]) */
-      }
-    )
+    ["people", "fellowship", "project", "event"].map(async (type) => {
+      console.log("type: ", type)
+      modulesState[type] = await createModule(type)
+      // console.log("module created for ", modulesState[type]);
+    })
   )
   console.log(modules)
   /* const githubApi = new api(config.modules.github) */
   return modules
+  /* } */
 }
+console.log("FINISH BUILD", modulesState)
 export const useRootStore = defineStore("rootStore", {
   state: () => ({
     scrolled: process.browser ? window.scrollY > 0 : false,

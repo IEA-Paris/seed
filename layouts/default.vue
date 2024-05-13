@@ -7,14 +7,14 @@
 }
 </style>
 <script setup>
-const ignoredRoutes = ["fr", "about", "activities"]
+const ignoredRoutes = ["fr", "about", "activities"];
 
-const localePath = useLocalePath()
-const route = useRoute()
+const localePath = useLocalePath();
+const route = useRoute();
 const isSnapRoutes = () => {
-  return route.name.startsWith("about") || route.name.startsWith("index")
-}
-console.log("route: ", route.name)
+  return route.name.startsWith("about") || route.name.startsWith("index");
+};
+console.log("route: ", route.name);
 const crumbs = computed(() => {
   return route.path
     .split("/")
@@ -33,9 +33,9 @@ const crumbs = computed(() => {
         }),
         disabled: false,
         exact: true,
-      }
-    })
-})
+      };
+    });
+});
 </script>
 
 <template>

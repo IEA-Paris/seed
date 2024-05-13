@@ -2,9 +2,9 @@ import completeSchema from "../utils/scripts/completeSchema"
 
 export default async (type) => {
   console.log("CREATING MODULE FOR: ", type)
-  const baseType = (await import(`../data/${type}.ts`)).default
-  const baseSchema = baseType.form
-  const defaultState = await completeSchema(baseSchema)
+  const baseType = await import(`../data/${type}.ts`)
+  console.log("baseSchema: ", baseType)
+  const defaultState = await completeSchema(baseType.default)
 
   const defaultView =
     baseType.list.views &&
