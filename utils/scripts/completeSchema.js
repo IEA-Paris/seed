@@ -1,4 +1,5 @@
 export default async (schema) => {
+  console.log("schema: ", schema)
   for await (const key of Object.keys(schema)) {
     console.log("key: ", key)
     // is it a template?

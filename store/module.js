@@ -3,8 +3,8 @@ import completeSchema from "../utils/scripts/completeSchema"
 export default async (type) => {
   console.log("CREATING MODULE FOR: ", type)
   const baseType = (await import(`../data/${type}.ts`)).default
-  const baseSchema = baseType.schema
-  const defaultState = await completeSchema(baseSchema)
+  console.log("baseSchema: ", baseType)
+  const defaultState = await completeSchema(baseType)
 
   const defaultView =
     baseType.views &&
