@@ -2,6 +2,7 @@ import { Form } from "~/data/form";
 import completeSchema from "../utils/scripts/completeSchema";
 import Model from "~/data/model";
 import { Sort, Views } from "~/data/list";
+import { testState } from "./test";
 
 interface List {
   items: any[];
@@ -51,7 +52,7 @@ const createModule = async (type: string): Promise<ModuleType> => {
   const baseSchema: Record<string, Form> = baseType.form;
   const defaultState: Record<string, Form> = await completeSchema(baseSchema);
 
-  console.log("defaultState: ", defaultState);
+  // console.log("defaultState: ", defaultState);
 
   const defaultViewKey: string | undefined =
     baseType.list.views &&
@@ -81,28 +82,34 @@ const createModule = async (type: string): Promise<ModuleType> => {
       for await (const key of Object.keys(schema)) {
         // if we deal with a template, import it dynamically
         if (schema[key]?.type === 3) {
+          // console.log("key_first", key);
           const template: Model = await getModelDefaultComponent(key);
           // is it an implementation of another template?
           if (template.aliases && template.aliases?.length) {
-            // console.log("template aliases found:", template.aliases);
-            // let aliasTemplatesForms = {};
-            // Promise.all(
-            //   template.aliases.map(async (alias) => {
-            //     console.log("alias: ", alias);
-            //     const aliasTemplate: Model = (
-            //       await import(`../data/${alias}.ts`)
-            //     ).default;
-            //     aliasTemplatesForms = {
-            //       ...aliasTemplatesForms,
-            //       ...aliasTemplate.form,
-            //     };
-            //     return aliasTemplatesForms;
-            //   })
-            // );
+            console.log("template aliases found:", template.aliases);
+            let aliasTemplatesForms = {};
+            Promise.all(
+              template.aliases.map(async (alias) => {
+                console.log("alias: ", alias);
+                const aliasTemplate: Model = (
+                  await import(`../data/${alias}.ts`)
+                ).default;
+                aliasTemplatesForms = {
+                  ...aliasTemplatesForms,
+                  ...aliasTemplate.form,
+                };
+
+                // console.log("aliasTemplatesForms;: ", aliasTemplatesForms);
+                return aliasTemplatesForms;
+              })
+            );
             // console.log("aliasTemplatesForms: ", aliasTemplatesForms);
-            // form[key] = await buildForm(aliasTemplatesForms); // DANGER
+            // console.log("TITI");
+            form[key] = await buildForm(aliasTemplatesForms); // DANGER
             // build based on aliases
           } else {
+            console.log(template.form);
+            console.log("Key_second", key);
             form[key] = await buildForm(template.form); // DANGER
           }
           // if it has items, it is either an object or a collection
@@ -140,6 +147,7 @@ const createModule = async (type: string): Promise<ModuleType> => {
     }
   };
   const defaultForm = await buildForm(defaultState);
+  // const defaultForm = await buildForm(testState);
 
   return {
     form: {
