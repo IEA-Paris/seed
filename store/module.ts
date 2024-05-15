@@ -2,7 +2,6 @@ import { Form } from "~/data/form";
 import completeSchema from "../utils/scripts/completeSchema";
 import Model from "~/data/model";
 import { Sort, Views } from "~/data/list";
-import { testState } from "./test";
 
 interface List {
   items: any[];
@@ -52,8 +51,6 @@ const createModule = async (type: string): Promise<ModuleType> => {
   const baseSchema: Record<string, Form> = baseType.form;
   const defaultState: Record<string, Form> = await completeSchema(baseSchema);
 
-  // console.log("defaultState: ", defaultState);
-
   const defaultViewKey: string | undefined =
     baseType.list.views &&
     Object.keys(baseType.list.views).find((item) => {
@@ -82,7 +79,6 @@ const createModule = async (type: string): Promise<ModuleType> => {
       for await (const key of Object.keys(schema)) {
         // if we deal with a template, import it dynamically
         if (schema[key]?.type === 3) {
-          // console.log("key_first", key);
           const template: Model = await getModelDefaultComponent(key);
           // is it an implementation of another template?
           if (template.aliases && template.aliases?.length) {
@@ -98,26 +94,19 @@ const createModule = async (type: string): Promise<ModuleType> => {
                   ...aliasTemplatesForms,
                   ...aliasTemplate.form,
                 };
-
-                // console.log("aliasTemplatesForms;: ", aliasTemplatesForms);
                 return aliasTemplatesForms;
               })
             );
-            // console.log("aliasTemplatesForms: ", aliasTemplatesForms);
-            // console.log("TITI");
-            form[key] = await buildForm(aliasTemplatesForms); // DANGER
+            form[key] = await buildForm(aliasTemplatesForms);
             // build based on aliases
           } else {
-            console.log(template.form);
-            console.log("Key_second", key);
-            form[key] = await buildForm(template.form); // DANGER
+            form[key] = await buildForm(template.form);
           }
           // if it has items, it is either an object or a collection
         } else if (schema[key]?.items) {
           // only collection have items with an array type
           if (Array.isArray(schema[key]?.items)) {
             // if (!form[key]) form[key] = [{}];
-            console.log("FOURTH_BLOCK");
             if (!form[key]) {
               form[key] = [{}];
             }
@@ -147,7 +136,6 @@ const createModule = async (type: string): Promise<ModuleType> => {
     }
   };
   const defaultForm = await buildForm(defaultState);
-  // const defaultForm = await buildForm(testState);
 
   return {
     form: {
