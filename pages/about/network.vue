@@ -32,7 +32,7 @@
     <v-container>
       <v-row class="d-flex align-center justify-center">
         <template v-for="item in logos" :key="item.title">
-          <v-col cols="12" sm="8">
+          <v-col cols="12" sm="4">
             <v-hover v-slot="{ props }">
               <v-sheet
                 :href="item.url"
@@ -47,18 +47,6 @@
                   width="290px"
                   fit="contain"
                 >
-                  <template v-slot:placeholder>
-                    <v-row
-                      align="center"
-                      class="fill-height ma-0"
-                      justify="center"
-                    >
-                      <v-progress-circular
-                        color="grey-lighten-5"
-                        indeterminate
-                      ></v-progress-circular>
-                    </v-row>
-                  </template>
                 </NuxtImg>
               </v-sheet>
             </v-hover>
@@ -133,6 +121,10 @@ import { useDisplay } from "vuetify";
 const { smAndUp } = useDisplay();
 const localePath = useLocalePath();
 const { $i18n } = useNuxtApp();
+
+definePageMeta({
+  layout: "about",
+});
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + $i18n.locale.value)
     .limit(1)
