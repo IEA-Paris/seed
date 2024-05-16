@@ -19,10 +19,10 @@
       </div>
 
       <slot />
-      <section>
-        <NavigationFooter />
-      </section>
     </v-main>
+    <section>
+      <NavigationFooter />
+    </section>
   </v-app>
 </template>
 
@@ -53,24 +53,24 @@ const crumbs = computed(() => {
 });
 </script>
 <style lang="scss">
-.myapp {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  section {
-    height: 100vh;
-  }
-  section,
-  header-section {
-    display: flex !important;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
-  div section {
-    height: 100vh;
-    display: flex !important;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
-}
+// .myapp {
+//   height: 100vh;
+//   overflow-y: scroll;
+//   scroll-snap-type: y mandatory;
+//   section {
+//     height: 100vh;
+//   }
+//   section,
+//   header-section {
+//     display: flex !important;
+//     scroll-snap-align: start;
+//     scroll-snap-stop: always;
+//   }
+//   div section {
+//     height: 100vh;
+//     display: flex !important;
+//     scroll-snap-align: start;
+//     scroll-snap-stop: always;
+//   }
+// }
 </style>

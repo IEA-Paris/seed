@@ -78,8 +78,14 @@
       </div>
 
       <div>
-        <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" md="2" v-for="item in logos" :key="item.title">
+        <v-row class="d-flex align-center justify-center main-container">
+          <v-col
+            cols="12"
+            md="2"
+            sm="3"
+            v-for="item in logos"
+            :key="item.title"
+          >
             <a :href="item.url">
               <nuxt-img
                 :src="item.picture"
@@ -90,7 +96,7 @@
               </nuxt-img>
             </a>
           </v-col>
-          <v-col cols="4" v-show="smAndUp">
+          <!-- <v-col cols="4" v-show="smAndUp">
             <v-sheet
               class="d-flex align-center justify-center"
               :to="localePath('activities/membership')"
@@ -98,8 +104,8 @@
             >
               <ActionsSmallContainer
                 :action="action"
-              ></ActionsSmallContainer> </v-sheet></v-col
-        ></v-row>
+              ></ActionsSmallContainer> </v-sheet></v-col -->
+        </v-row>
       </div>
     </v-container>
   </section>
@@ -128,18 +134,15 @@ const logos = !logosData || !logosData.value ? undefined : logosData.value;
 
 <style scoped>
 .fill-image {
-  width: 100%;
-  height: 100%;
-}
-
-.nuxt-img {
+  max-width: 100%;
+  min-height: 100%;
+  overflow: hidden;
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
   transition: filter 0.5s ease;
 }
 
-.nuxt-img:hover {
+.fill-image:hover {
   filter: none;
   -webkit-filter: grayscale(0);
 }
