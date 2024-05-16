@@ -28,51 +28,7 @@
         </v-col> </v-row
     ></v-container>
   </section>
-  <section>
-    <v-container>
-      <v-row class="d-flex align-center justify-center">
-        <template v-for="item in logos" :key="item.title">
-          <v-col cols="12" sm="4">
-            <v-hover v-slot="{ props }">
-              <v-sheet
-                :href="item.url"
-                class="mx-auto cursor-pointer"
-                target="_blank"
-                v-bind="props"
-              >
-                <NuxtImg
-                  :src="item.picture"
-                  :title="item.title"
-                  height="100px"
-                  width="290px"
-                  fit="contain"
-                >
-                </NuxtImg>
-              </v-sheet>
-            </v-hover>
 
-            <!-- <div class="d-flex align-center justify-center flex-column" link>
-            <h3>{{ $t("our-members") }}</h3>
-            <v-img
-              fit="contain"
-              src="/images/partners/partners.jpg"
-              height="400"
-            ></v-img>
-          </div> -->
-          </v-col>
-        </template>
-
-        <v-col cols="4" v-show="smAndUp">
-          <v-sheet
-            class="d-flex align-center justify-center"
-            :to="localePath('activities/membership')"
-            link
-          >
-            <ActionsSmallContainer
-              :action="action"
-            ></ActionsSmallContainer> </v-sheet></v-col></v-row
-    ></v-container>
-  </section>
   <section>
     <v-container>
       <v-row class="d-flex align-center justify-center">
@@ -114,17 +70,47 @@
         ></v-col> </v-row
     ></v-container>
   </section>
+
+  <section>
+    <v-container>
+      <div class="d-flex align-center justify-center flex-column">
+        <h3>{{ $t("our-members") }}</h3>
+      </div>
+
+      <div>
+        <v-row class="d-flex align-center justify-center">
+          <v-col cols="12" md="2" v-for="item in logos" :key="item.title">
+            <a :href="item.url">
+              <nuxt-img
+                :src="item.picture"
+                :title="item.title"
+                fit:contain
+                class="fill-image"
+              >
+              </nuxt-img>
+            </a>
+          </v-col>
+          <v-col cols="4" v-show="smAndUp">
+            <v-sheet
+              class="d-flex align-center justify-center"
+              :to="localePath('activities/membership')"
+              link
+            >
+              <ActionsSmallContainer
+                :action="action"
+              ></ActionsSmallContainer> </v-sheet></v-col
+        ></v-row>
+      </div>
+    </v-container>
+  </section>
 </template>
 
 <script lang="ts" setup>
 import { useDisplay } from "vuetify";
+definePageMeta({ layout: "about" });
 const { smAndUp } = useDisplay();
 const localePath = useLocalePath();
 const { $i18n } = useNuxtApp();
-
-definePageMeta({
-  layout: "about",
-});
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + $i18n.locale.value)
     .limit(1)
@@ -139,3 +125,22 @@ const { data: logosData } = await useAsyncData("logos", () =>
 
 const logos = !logosData || !logosData.value ? undefined : logosData.value;
 </script>
+
+<style scoped>
+.fill-image {
+  width: 100%;
+  height: 100%;
+}
+
+.nuxt-img {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+
+.nuxt-img:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
+}
+</style>
