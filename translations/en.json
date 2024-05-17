@@ -38,7 +38,8 @@
     "max-0-characters": "Max {0} characters",
     "invalid-url": "Invalid URL",
     "invalid-e-mail": "Invalid e-mail",
-    "invalid-youtube-url": "Invalid Youtube URL"
+    "invalid-youtube-url": "Invalid Youtube URL",
+    "only-digits-allowed": "Numbers only"
   },
   "activities": "Activities",
   "check-this-out": "Check this out!",
@@ -73,5 +74,10 @@
   "events-organized-at-paris-ias": "Events organized at Paris IAS",
   "fellowships-programs-and-research-projects-hosted-at-paris-ias": "Fellowships programs and research projects hosted at Paris IAS",
   "people-attending-our-events-since-2011": "People attending our events since 2011",
-  "scientific-advisory-board": "Scientific advisory board"
+  "scientific-advisory-board": "Scientific advisory board",
+  "invalid-color-code": "invalid color code",
+  "invalid-ror-code": "Invalid ROR identifier syntax",
+  "invalid-doi-code": "Invalid DOI",
+  "invalid-date": "The date format is invalid",
+  "invalid-orcid": "Your ORCID number is invalid"
 }

@@ -4,7 +4,7 @@
       <v-col cols="12">
         <v-form v-model="valid">
           <div id="container">
-            <template v-for="(input, key, index) in schema">
+            <template v-for="(input, key, index) in form">
               <FormOrganismsRecursiveFormblock
                 :input="input"
                 :type="type"
@@ -14,17 +14,17 @@
               ></FormOrganismsRecursiveFormblock>
             </template>
           </div>
-            <v-btn
-              :disabled="valid !== true || saving"
-              :loading="saving"
-              color="success"
-              class="d-flex ml-auto"
-              prepend-icon="mdi-content-save"
-              @click.stop="save"
-              v-if="!saving"
-            >
-              {{ $t("save") }}
-            </v-btn>
+          <v-btn
+            :disabled="valid !== true || saving"
+            :loading="saving"
+            color="success"
+            class="d-flex ml-auto"
+            prepend-icon="mdi-content-save"
+            @click.stop="save"
+            v-if="!saving"
+          >
+            {{ $t("save") }}
+          </v-btn>
         </v-form>
       </v-col>
     </v-row>
@@ -51,7 +51,7 @@ const save = async () => {
   }
 }
 
-const schema = (await import(`../../../data/${props.type}.ts`))?.default?.schema
+const form = (await import(`../../../data/${props.type}.ts`))?.default?.form
 
 onMounted(() => {})
 </script>

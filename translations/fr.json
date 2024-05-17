@@ -73,5 +73,8 @@
   "events-organized-at-paris-ias": "Événements organisés à l'IAS de Paris",
   "fellowships-programs-and-research-projects-hosted-at-paris-ias": "Programmes de bourses et projets de recherche hébergés à l'IAS de Paris",
   "scientific-advisory-board": "Conseil scientifique",
-  "people-attending-our-events-since-2011": "Personnes participant à nos événements depuis 2011"
+  "people-attending-our-events-since-2011": "Personnes participant à nos événements depuis 2011",
+  "invalid-doi-code": "DOI invalide",
+  "invalid-date": "Le format de date n'est pas valide",
+  "invalid-orcid": "Votre numéro ORCID n'est pas valide"
 }
