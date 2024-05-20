@@ -179,8 +179,10 @@
                 <v-card-item>
                   <div>
                     <span>
-                      <v-icon>mdi-television-play</v-icon>
-                      <span class="ml-3">Live stream available</span>
+                      <v-icon class="stream-item">mdi-television-play</v-icon>
+                      <span class="ml-3 stream-item"
+                        >Live stream available</span
+                      >
                     </span>
                   </div>
                 </v-card-item>
@@ -275,11 +277,10 @@ const logos = !logosData || !logosData.value ? undefined : logosData.value;
   text-align: right;
   color: #181818;
   font-family: "Lelo", helvetica, arial, sans-serif;
-  font-weight: 400;
 }
 
 .card-title {
-  font-size: 24px;
+  font-size: 16px;
 }
 
 .card-title-subtitle {
@@ -288,8 +289,7 @@ const logos = !logosData || !logosData.value ? undefined : logosData.value;
 .anchor-card-title {
   text-decoration: none;
   font-family: Rosart, serif;
-  font-weight: 400;
-  font-style: italic;
+  font-size: 16px;
   color: #181818;
 }
 .anchor-lecture {
@@ -314,6 +314,9 @@ const logos = !logosData || !logosData.value ? undefined : logosData.value;
   font-size: 8px;
 }
 .regi-item {
+  color: #767676;
+}
+.stream-item {
   color: #767676;
 }
 </style>
