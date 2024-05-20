@@ -158,7 +158,7 @@
                   >
                 </div>
               </v-card-item>
-              <v-card-text class="text-wrap content-item">
+              <v-card-text class="text-wrap content-item-event">
                 Alexis Pauline Gumbs will offer an ecofeminist exploration into
                 how the works of Black feminist poets Audre Lorde and June
                 Jordan can speak to our current climate crisis.
@@ -166,7 +166,7 @@
 
               <div class="d-flex flex-row align-center justify-start">
                 <v-card-item>
-                  <div>
+                  <div class="regi-main">
                     <span>
                       <v-icon color="#32c188" class="icon-fontsz"
                         >mdi-circle</v-icon
@@ -194,7 +194,7 @@
             <div>
               <v-card class="mx-auto" variant="text" color="#767676">
                 <v-card-item>
-                  <div>Date & Time</div>
+                  <div class="header-item">Date & Time</div>
                   <div class="text-wrap content-item">
                     Tuesday, April 30, 2024 4 PM ET
                   </div>
@@ -204,7 +204,7 @@
             <div>
               <v-card class="mx-auto" variant="text" color="#767676">
                 <v-card-item>
-                  <div>Location</div>
+                  <div class="header-item">Location</div>
                   <div class="text-wrap content-item">
                     Knafel Center OR Online on Zoom 10 Garden Street Cambridge,
                     MA 02138
@@ -280,7 +280,7 @@ const logos = !logosData || !logosData.value ? undefined : logosData.value;
 }
 
 .card-title {
-  font-size: 16px;
+  font-size: 42px;
 }
 
 .card-title-subtitle {
@@ -289,7 +289,7 @@ const logos = !logosData || !logosData.value ? undefined : logosData.value;
 .anchor-card-title {
   text-decoration: none;
   font-family: Rosart, serif;
-  font-size: 16px;
+  font-size: 28px;
   color: #181818;
 }
 .anchor-lecture {
@@ -297,13 +297,19 @@ const logos = !logosData || !logosData.value ? undefined : logosData.value;
   text-decoration: none;
   font-family: Lelo, helvetica, arial, sans-serif;
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: 14px;
   line-height: 130%;
 }
 
 .content-item {
   color: #181818;
   font-family: Lelo, helvetica, arial, sans-serif;
+  font-size: 16px;
+}
+
+.content-item-event {
+  font-family: Rosart, serif;
+  font-size: 18px;
 }
 
 .card-align-item {
@@ -314,9 +320,22 @@ const logos = !logosData || !logosData.value ? undefined : logosData.value;
   font-size: 8px;
 }
 .regi-item {
+  font-size: 14px;
   color: #767676;
+  font-family: Lelo, helvetica, arial, sans-serif;
+}
+.regi-main {
+  background-color: #f1f1f1;
+  padding: 11px 16px;
+  font-family: Lelo, helvetica, arial, sans-serif;
 }
 .stream-item {
   color: #767676;
+  font-family: Lelo, helvetica, arial, sans-serif;
+  font-size: 16px;
+}
+.header-item {
+  font-family: Lelo, helvetica, arial, sans-serif;
+  font-size: 14px;
 }
 </style>
