@@ -47,7 +47,7 @@ const getModelDefaultComponent = async (key: string): Promise<Model> => {
 
 const createModule = async (type: string): Promise<ModuleType> => {
   console.log("CREATING MODULE FOR: ", type);
-  const baseType: Model = (await import(`../data/${type}.ts`)).default;
+  const baseType: Model = await getModelDefaultComponent(type);
   const baseSchema: Record<string, Form> = baseType.form;
   const defaultState: Record<string, Form> = await completeSchema(baseSchema);
 
@@ -72,60 +72,80 @@ const createModule = async (type: string): Promise<ModuleType> => {
       ? baseType.list.sort[defaultSortKey]
       : undefined;
 
-  const buildForm = async (schema: any): Promise<any> => {
+  // Helper function to handle aliases
+  const processAliases = async (
+    aliases: string[]
+  ): Promise<Record<string, Form>> => {
+    let aliasTemplatesForms: Record<string, Form> = {};
+    await Promise.all(
+      aliases.map(async (alias) => {
+        const aliasTemplate: Model = await getModelDefaultComponent(alias);
+        aliasTemplatesForms = {
+          ...aliasTemplatesForms,
+          ...aliasTemplate.form,
+        };
+        return aliasTemplatesForms;
+      })
+    );
+    return aliasTemplatesForms;
+  };
+
+  // Helper function to handle template types
+  const processTemplate = async (key: string): Promise<any> => {
+    const template: Model = await getModelDefaultComponent(key);
+    // is it an implementation of another template?
+    if (template.aliases && template.aliases.length) {
+      console.log("template aliases found:", template.aliases);
+      const aliasTemplatesForms: Record<string, Form> = await processAliases(
+        template.aliases
+      );
+      return await buildForm(aliasTemplatesForms);
+      // build based on aliases
+    } else {
+      return await buildForm(template.form);
+    }
+  };
+
+  // Helper function to process items within the schema
+  const processItems = async (
+    key: string,
+    items: any[],
+    form: any
+  ): Promise<any> => {
+    // only collection have items with an array type
+    if (Array.isArray(items)) {
+      // if (!form[key]) form[key] = [{}];
+      if (!form[key]) {
+        form[key] = [{}];
+      }
+      for await (const item of items) {
+        form[key][0] = {
+          ...form[key][0],
+          ...(await buildForm({ [item.key]: item })),
+        };
+      }
+      // else it's an object
+    } else {
+      if (!form[key]) form[key] = {};
+      for await (const subkey of Object.keys(items)) {
+        form[key] = {
+          ...form[key],
+          ...(await buildForm({ [subkey]: items[subkey] })),
+        };
+      }
+    }
+  };
+
+  // Build the form
+  const buildForm = async (schema: Record<string, Form>): Promise<any> => {
     try {
-      // REFACTOR LATER
       let form: { [key: string]: any } = {};
       for await (const key of Object.keys(schema)) {
-        // if we deal with a template, import it dynamically
         if (schema[key]?.type === 3) {
-          const template: Model = await getModelDefaultComponent(key);
-          // is it an implementation of another template?
-          if (template.aliases && template.aliases?.length) {
-            console.log("template aliases found:", template.aliases);
-            let aliasTemplatesForms = {};
-            Promise.all(
-              template.aliases.map(async (alias) => {
-                console.log("alias: ", alias);
-                const aliasTemplate: Model = (
-                  await import(`../data/${alias}.ts`)
-                ).default;
-                aliasTemplatesForms = {
-                  ...aliasTemplatesForms,
-                  ...aliasTemplate.form,
-                };
-                return aliasTemplatesForms;
-              })
-            );
-            form[key] = await buildForm(aliasTemplatesForms);
-            // build based on aliases
-          } else {
-            form[key] = await buildForm(template.form);
-          }
+          form[key] = await processTemplate(key);
           // if it has items, it is either an object or a collection
         } else if (schema[key]?.items) {
-          // only collection have items with an array type
-          if (Array.isArray(schema[key]?.items)) {
-            // if (!form[key]) form[key] = [{}];
-            if (!form[key]) {
-              form[key] = [{}];
-            }
-            for await (const item of schema[key]?.items) {
-              form[key][0] = {
-                ...form[key][0],
-                ...(await buildForm({ [item.key]: item })),
-              };
-            }
-            // else it's an object
-          } else {
-            if (!form[key]) form[key] = {};
-            for await (const subkey of Object.keys(schema[key].items)) {
-              form[key] = {
-                ...form[key],
-                ...(await buildForm({ [subkey]: schema[key].items[subkey] })),
-              };
-            }
-          }
+          await processItems(key, schema[key].items, form);
         } else {
           form[key] = schema[key]?.default ?? "";
         }
@@ -135,6 +155,7 @@ const createModule = async (type: string): Promise<ModuleType> => {
       console.log("error building form: ", error);
     }
   };
+
   const defaultForm = await buildForm(defaultState);
 
   return {
