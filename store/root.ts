@@ -16,24 +16,17 @@ const initStore = async () => {
     const dir = fs.opendirSync("./data")
     let file
     while ((file = dir.readSync()) !== null) {
-      types.push(file.name.substring(0, file.name.length - 3))
+      !(file.name.startsWith(".") || file.name === "LICENCE") &&
+        types.push(file.name.substring(0, file.name.length - 3))
     }
     dir.closeSync()
   }
-  // keep only the types we need
-  types = types.filter(
-    (item) =>
-      item !== "." && item !== ".git" && item !== ".gitign" && item !== "LICE"
-  )
-  /*   console.log("types: ", types); */
-  await Promise.all(
-    [/* "people", "fellowship", "project", */ "event" /* , "news" */].map(
-      async (type) => {
-        console.log("type: ", type)
-        modulesState[type] = await createModule(type)
-        console.log("modulesState[type]: ", modulesState[type])
+  console.log("types: ", types)
 
-        /* console.log("module created for ", modulesState[type]) */
+  await Promise.all(
+    [/* "people", "fellowship", "project", */ "events" /* , "news" */].map(
+      async (type) => {
+        modulesState[type] = await createModule(type)
       }
     )
   )

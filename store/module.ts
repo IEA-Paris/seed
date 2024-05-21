@@ -1,110 +1,111 @@
-import { Form } from "~/data/form";
-import completeSchema from "../utils/scripts/completeSchema";
-import Model from "~/data/model";
-import { Sort, Views } from "~/data/list";
+import { Form } from "~/data/form"
+import completeSchema from "../utils/scripts/completeSchema"
+import Model from "~/data/model"
+import { Sort, Views } from "~/data/list"
 
 interface List {
-  items: any[];
-  itemsPerPage?: number;
-  itemsPerPageArray?: any[];
-  filtersCount: number;
-  views?: any;
-  sort?: any;
-  view: Views | string | undefined;
+  items: any[]
+  itemsPerPage?: number
+  itemsPerPageArray?: any[]
+  filtersCount: number
+  views?: any
+  sort?: any
+  view: Views | string | undefined
   filters: {
-    years: any[];
-    tags: any[];
-    language: any[];
-    thematic: any[];
-    discipline: any[];
-    type: any[];
-  };
-  total: number;
-  skip: number;
-  numberOfPages: number;
-  limit?: number;
-  search: string;
-  page: number;
-  sortBy?: Sort | undefined | number[];
-  sortDesc?: boolean[];
+    years: any[]
+    tags: any[]
+    language: any[]
+    thematic: any[]
+    discipline: any[]
+    type: any[]
+  }
+  total: number
+  skip: number
+  numberOfPages: number
+  limit?: number
+  search: string
+  page: number
+  sortBy?: Sort | undefined | number[]
+  sortDesc?: boolean[]
 }
 
 interface CustomForm {
-  values: Record<string, Form> | undefined;
-  _defaults: Record<string, Form> | undefined;
-  schema: Record<string, Form> | undefined;
+  values: Record<string, Form> | undefined
+  _defaults: Record<string, Form> | undefined
+  schema: Record<string, Form> | undefined
 }
 interface ModuleType {
-  form: CustomForm;
-  list: List;
-  loading: any[];
-  current: any;
+  form: CustomForm
+  list: List
+  loading: any[]
+  current: any
 }
 
 const getModelDefaultComponent = async (key: string): Promise<Model> => {
-  return (await import(`../data/${key}.ts`)).default;
-};
+  return (await import(`../data/${key}.ts`)).default
+}
 
 const createModule = async (type: string): Promise<ModuleType> => {
-  console.log("CREATING MODULE FOR: ", type);
-  const baseType: Model = await getModelDefaultComponent(type);
-  const baseSchema: Record<string, Form> = baseType.form;
-  const defaultState: Record<string, Form> = await completeSchema(baseSchema);
+  console.log("CREATING MODULE FOR: ", type)
+  const baseType: Model = await getModelDefaultComponent(type)
+  const baseSchema: Record<string, Form> = baseType.form
+  const defaultState: Record<string, Form> = await completeSchema(baseSchema)
 
   const defaultViewKey: string | undefined =
-    baseType.list.views &&
+    baseType?.list?.views &&
     Object.keys(baseType.list.views).find((item) => {
-      baseType.list.views[item]?.default === true;
-    });
+      baseType.list.views[item]?.default === true
+    })
   const defaultView =
     defaultViewKey !== undefined
-      ? baseType.list.views[defaultViewKey]
-      : undefined;
+      ? baseType?.list.views[defaultViewKey]
+      : undefined
 
   const defaultSortKey: string | undefined =
-    baseType.list.sort &&
+    baseType?.list.sort &&
     Object.keys(baseType.list.sort).find((item) => {
-      baseType.list.sort[item].default === true;
-    });
+      baseType.list.sort[item].default === true
+    })
 
   const defaultSort: Sort | undefined =
     defaultSortKey !== undefined
-      ? baseType.list.sort[defaultSortKey]
-      : undefined;
+      ? baseType?.list.sort[defaultSortKey]
+      : undefined
 
   // Helper function to handle aliases
   const processAliases = async (
     aliases: string[]
   ): Promise<Record<string, Form>> => {
-    let aliasTemplatesForms: Record<string, Form> = {};
+    let aliasTemplatesForms: Record<string, Form> = {}
     await Promise.all(
       aliases.map(async (alias) => {
-        const aliasTemplate: Model = await getModelDefaultComponent(alias);
+        const aliasTemplate: Model = await getModelDefaultComponent(alias)
         aliasTemplatesForms = {
           ...aliasTemplatesForms,
           ...aliasTemplate.form,
-        };
-        return aliasTemplatesForms;
+        }
+        return aliasTemplatesForms
       })
-    );
-    return aliasTemplatesForms;
-  };
+    )
+    return aliasTemplatesForms
+  }
 
   // Helper function to handle template types
   const processTemplate = async (key: string): Promise<any> => {
-    const template: Model = await getModelDefaultComponent(key);
+    const template: Model = await getModelDefaultComponent(key)
     // is it an implementation of another template?
-    if (template.aliases && template.aliases.length) {
-      console.log("template aliases found:", template.aliases);
+    if (template.aliases?.length) {
+      console.log("template aliases found:", template.aliases)
       const aliasTemplatesForms: Record<string, Form> = await processAliases(
         template.aliases
-      );
-      return await buildForm(aliasTemplatesForms);
+      )
+      return await buildForm(aliasTemplatesForms)
       // build based on aliases
     } else {
-      return await buildForm(template.form);
+      console.log("template found:", key)
+      return await buildForm(template.form)
     }
-  };
+  }
 
   // Helper function to process items within the schema
   const processItems = async (
@@ -116,47 +117,69 @@ const createModule = async (type: string): Promise<ModuleType> => {
     if (Array.isArray(items)) {
       // if (!form[key]) form[key] = [{}];
       if (!form[key]) {
-        form[key] = [{}];
+        form[key] = [{}]
       }
-      for await (const item of items) {
+      /*     for await (const item of items) {
         form[key][0] = {
           ...form[key][0],
           ...(await buildForm({ [item.key]: item })),
-        };
-      }
+        }
+      } */
       // else it's an object
     } else {
-      if (!form[key]) form[key] = {};
+      if (!form[key]) form[key] = {}
       for await (const subkey of Object.keys(items)) {
         form[key] = {
           ...form[key],
           ...(await buildForm({ [subkey]: items[subkey] })),
-        };
+        }
       }
     }
-  };
+  }
 
   // Build the form
   const buildForm = async (schema: Record<string, Form>): Promise<any> => {
     try {
-      let form: { [key: string]: any } = {};
+      let form: { [key: string]: any } = {}
       for await (const key of Object.keys(schema)) {
-        if (schema[key]?.type === 3) {
-          form[key] = await processTemplate(key);
-          // if it has items, it is either an object or a collection
-        } else if (schema[key]?.items) {
-          await processItems(key, schema[key].items, form);
-        } else {
-          form[key] = schema[key]?.default ?? "";
+        switch (schema[key]?.type) {
+          // document picker
+          case 4:
+            form[key] = schema[key]?.default ?? []
+            break
+
+          // template import
+          case 3:
+            form[key] = await processTemplate(key)
+            break
+
+          // object
+          case 2:
+            await processItems(key, schema[key].items, form)
+            break
+
+          // collection
+          case 1:
+            await processItems(key, schema[key].items, form)
+            break
+
+          // primitive
+          case 0:
+            form[key] = schema[key]?.default ?? ""
+            break
+
+          default:
+            console.log("missing type in form builder for key: ", key)
+            break
         }
       }
-      return form;
+      return form
     } catch (error) {
-      console.log("error building form: ", error);
+      console.log("error building form: ", error)
     }
-  };
+  }
 
-  const defaultForm = await buildForm(defaultState);
+  const defaultForm = await buildForm(defaultState)
 
   return {
     form: {
@@ -206,7 +229,7 @@ const createModule = async (type: string): Promise<ModuleType> => {
     },
     loading: [],
     current: null,
-  };
-};
+  }
+}
 
-export default createModule;
+export default createModule
