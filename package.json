@@ -34,6 +34,7 @@
     "vitest": "^1.6.0"
   },
   "dependencies": {
+    "@hamedbouare9/data": "^1.7.0",
     "@mdi/font": "^7.2.96",
     "@nuxt/image": "^1.0.0-rc.1",
     "@nuxtjs/robots": "^3.0.0",

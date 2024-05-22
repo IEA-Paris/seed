@@ -1708,6 +1708,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hamedbouare9/data@npm:^1.7.0":
+  version: 1.7.0
+  resolution: "@hamedbouare9/data@npm:1.7.0"
+  checksum: 10c0/6c2619bd0d5a11c13df94cff53fec99eafac2377196d641ae45b976618bfc778879dbb956761558b709841e88985617a99bdaf337da104debd16088dbf5d743c
+  languageName: node
+  linkType: hard
+
 "@html-validate/stylish@npm:^4.1.0":
   version: 4.2.0
   resolution: "@html-validate/stylish@npm:4.2.0"
@@ -11837,6 +11844,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@hamedbouare9/data": "npm:^1.7.0"
     "@mdi/font": "npm:^7.2.96"
     "@nuxt/content": "npm:^2.8.2"
     "@nuxt/devtools": "npm:^1.0.8"
