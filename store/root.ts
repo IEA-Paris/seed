@@ -298,17 +298,16 @@ export const useRootStore = defineStore("rootStore", {
         ).length;
       this[type].list.filtersCount = filtersCount;
     },
-    setBlankState(type) {
+    setBlankState(type: string) {
       this.resetFilters = true;
 
-      const defaultView =
-        this[type].list.views[
-          Object.keys(this[type].list.views).find(
-            (item) => this[type].list.views[item].default === true
-          )
-        ];
+      const defaultView = (this[type] as ModuleType).list.views[
+        Object.keys(this[type].list.views).find(
+          (item) => this[type].list.views[item].default === true
+        )
+      ];
       const defaultSort = [
-        this[type].list.sort[
+        (this[type] as ModuleType).list.sort[
           Object.keys(this[type].list.sort).find(
             (item) => this[type].list.sort[item].default === true
           )
@@ -324,14 +323,15 @@ export const useRootStore = defineStore("rootStore", {
         discipline: [],
         type: [],
       };
-      this[type].list.search = "";
-      this[type].list.view = defaultView.value;
-      this[type].list.sortBy = defaultSort[0].value[0];
-      this[type].list.sortDesc = defaultSort[0].value[1] === "desc";
-      this[type].resetFilters = false;
+      (this[type] as ModuleType).list.search = "";
+      (this[type] as ModuleType).list.view = defaultView.value;
+      (this[type] as ModuleType).list.sortBy = defaultSort[0].value[0];
+      (this[type] as ModuleType).list.sortDesc =
+        defaultSort[0].value[1] === "desc";
+      (this[type] as ModuleType).resetFilters = false;
     },
-    setBlankFilterLoad(type) {
-      this[type].loading = [];
+    setBlankFilterLoad(type: string) {
+      (this[type] as ModuleType).loading = [];
     },
     setStyle(style) {
       this.articles.style = style;
@@ -528,9 +528,9 @@ export const useRootStore = defineStore("rootStore", {
 
       // update route
       const query = {
-        ...(this[type].list.search &&
-          typeof this[type].list.search !== "undefined" && {
-            search: this[type].search,
+        ...((this[type] as ModuleType).list.search &&
+          typeof (this[type] as ModuleType).list.search !== "undefined" && {
+            search: (this[type] as ModuleType).list.search,
           }),
         ...(this[type].list.page > 1 && {
           page: this[type].page.toString(),

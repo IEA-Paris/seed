@@ -31,6 +31,7 @@ export interface ModuleType {
   list: List;
   loading: any[];
   current: any;
+  resetFilters: boolean;
 }
 
 const createModule = async (type: string): Promise<ModuleType> => {
@@ -218,6 +219,7 @@ const createModule = async (type: string): Promise<ModuleType> => {
     },
     loading: [],
     current: null,
+    resetFilters: true,
   };
 };
 
