@@ -77,26 +77,23 @@
         <h3>{{ $t("our-members") }}</h3>
       </div>
 
-      <div>
-        <v-row class="d-flex align-center justify-center">
-          <v-col
-            cols="12"
-            md="2"
-            sm="3"
-            v-for="item in logos"
-            :key="item.title"
-          >
-            <a :href="item.url">
-              <nuxt-img
-                :src="item.picture"
-                :title="item.title"
-                fit:contain
-                class="fill-image-item"
-              >
-              </nuxt-img>
-            </a>
-          </v-col>
-          <!-- <v-col cols="4" v-show="smAndUp">
+      <div class="d-lg-flex flex-wrap">
+        <v-sheet
+          class="base-fill-container"
+          v-for="item in logos"
+          :key="item.title"
+        >
+          <a :href="item.url">
+            <nuxt-img
+              :src="item.picture"
+              :title="item.title"
+              class="fill-image-item"
+            >
+            </nuxt-img>
+          </a>
+        </v-sheet>
+
+        <!-- <v-col cols="4" v-show="smAndUp">
             <v-sheet
               class="d-flex align-center justify-center"
               :to="localePath('activities/membership')"
@@ -105,31 +102,28 @@
               <ActionsSmallContainer
                 :action="action"
               ></ActionsSmallContainer> </v-sheet></v-col -->
-        </v-row>
       </div>
     </v-container>
   </section>
 
   <section>
-    <v-container> </v-container>
-  </section>
-
-  <section>
+    {{ name }}
     <v-container
-      class="d-lg-flex flex-lg-row d-md-flex flex-md-row d-sm-flex flex-sm-column align-sm-start"
+      class="d-flex flex-xxl-row flex-xl-row flex-lg-row flex-md-row flex-sm-column flex-column align-sm-start"
     >
       <div>
         <v-sheet
-          class="d-lg-flex flex-lg-column d-md-flex flex-md-column d-sm-flex flex-sm-row d-flex flex-row"
+          class="d-flex flex-md-column flex-sm-row flex-row"
           variant="text"
         >
           <div
-            class="card-title align-self-lg-end align-self-md-end align-self-sm-start align-self-start"
+            class="card-title align-self-lg-end align-self-md-end align-self-sm-start align-self-start mr-2 mr-sm-2 mr-md-0"
           >
             30
           </div>
           <div
-            class="card-title-subtitle align-self-lg-end align-self-md-end align-self-sm-center align-self-center"
+            class="card-title-subtitle align-self-sm-center align-self-center"
+            :class="mdAndUp ? 'text-right' : 'text-left'"
           >
             Apr <br />
             2024
@@ -137,10 +131,8 @@
         </v-sheet>
       </div>
 
-      <div
-        class="d-lg-flex flex-lg-row d-md-flex flex-md-row d-sm-flex flex-sm-column"
-      >
-        <div>
+      <div class="d-flex flex-md-row flex-sm-column">
+        <div class="ml-xl-40 ml-lg-5 ml-md-4">
           <v-sheet class="mx-auto" variant="text">
             <div class="text-wrap">
               <span>
@@ -152,7 +144,7 @@
                 </a>
               </span>
 
-              <div class="text-wrap">
+              <div class="text-wrap mt-3">
                 <span class="lecture">
                   Lectures •<a
                     href="https://www.radcliffe.harvard.edu/events-and-exhibitions/series/kim-and-judy-davis-deans-lecture-in-the-humanities"
@@ -172,7 +164,7 @@
             </p>
 
             <div
-              class="d-lg-flex flex-lg-row d-md-flex flex-md-row d-sm-flex flex-sm-row d-flex flex-row flex-wrap align-center justify-lg-start justify-md-start justify-sm-start justify-start"
+              class="d-flex flex-lg-row flex-md-row flex-sm-row flex-row flex-wrap align-center justify-lg-start justify-md-start justify-sm-start justify-start"
             >
               <div>
                 <div class="regi-main">
@@ -186,7 +178,7 @@
               </div>
 
               <div>
-                <div>
+                <div class="stream-main">
                   <span>
                     <v-icon class="stream-item">mdi-television-play</v-icon>
                     <span class="ml-3 stream-item">Live stream available</span>
@@ -197,7 +189,9 @@
           </v-sheet>
         </div>
 
-        <div class="d-md-flex flex-md-column d-sm-flex flex-sm-row hidden-xs">
+        <div
+          class="d-flex flex-md-column flex-sm-row flex-sm-row hidden-xs ml-xl-48 ml-lg-48 ml-md-12"
+        >
           <div>
             <v-card class="mx-auto" variant="text" color="#767676">
               <v-card-item>
@@ -223,7 +217,7 @@
       </div>
 
       <div>
-        <div>
+        <div class="ml-lg-20 ml-md-12 mt-lg-0 mt-md-0 mt-12 mt-sm-12 mt-12">
           <v-sheet class="mx-auto sheet-component">
             <nuxt-img
               src="https://radcliffe-harvard-edu.imgix.net/7a3318d8-16f7-437e-b8c3-fbf9bbe1f926/Alexis-Pauline-Gumbs_by-Sufia-Ikbal-Doucet.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C1584%2C1584"
@@ -241,7 +235,7 @@
 <script lang="ts" setup>
 import { useDisplay } from "vuetify";
 definePageMeta({ layout: "about" });
-const { smAndUp } = useDisplay();
+const { smAndUp, name, mdAndUp } = useDisplay();
 const localePath = useLocalePath();
 const { $i18n } = useNuxtApp();
 const { data: action } = await useAsyncData("actions", () =>
@@ -260,10 +254,14 @@ const logos = !logosData || !logosData.value ? undefined : logosData.value;
 </script>
 
 <style lang="scss" scoped>
+.base-fill-container {
+  width: 10px;
+  height: 10px;
+}
 /* logo component */
 .fill-image-item {
-  max-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
@@ -334,6 +332,8 @@ const logos = !logosData || !logosData.value ? undefined : logosData.value;
 .content-item-event {
   font-family: Rosart, serif;
   font-size: 18px;
+  margin-top: 24px;
+  margin-bottom: 0;
 }
 
 .card-align-item {
@@ -353,9 +353,15 @@ const logos = !logosData || !logosData.value ? undefined : logosData.value;
 .regi-main {
   background-color: #f1f1f1;
   padding: 11px 16px;
+  margin-right: 20px;
+  margin-top: 20px;
   font-family: Lelo, helvetica, arial, sans-serif;
 }
 
+.stream-main {
+  margin-top: 20px;
+  margin-right: 20px;
+}
 .stream-item {
   color: #767676;
   font-family: Lelo, helvetica, arial, sans-serif;
