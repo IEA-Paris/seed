@@ -9,22 +9,15 @@ interface List {
   views?: any;
   sort?: any;
   view: Views | string | undefined;
-  filters: {
-    years: any[];
-    tags: any[];
-    language: any[];
-    thematic: any[];
-    discipline: any[];
-    type: any[];
-  };
+  filters: Record<string, any[]>;
   total: number;
   skip: number;
   numberOfPages: number;
   limit?: number;
-  search: string;
+  search: string | any[];
   page: number;
   sortBy?: Sort | undefined | number[];
-  sortDesc?: boolean[];
+  sortDesc?: boolean[] | boolean;
 }
 
 interface CustomForm {
@@ -32,7 +25,7 @@ interface CustomForm {
   _defaults: Record<string, Form> | undefined;
   schema: Record<string, Form> | undefined;
 }
-interface ModuleType {
+export interface ModuleType {
   source?: string;
   form: CustomForm;
   list: List;

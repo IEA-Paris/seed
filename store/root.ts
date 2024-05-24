@@ -1,12 +1,18 @@
 /* import filtersRaw from '~/assets/data/filters'
 import lists from '~/assets/data/lists' */
-import createModule from "~/store/module";
+import createModule, { ModuleType } from "~/store/module";
 /* import api from "~/server/api/github" */
 import config from "~/static.config";
 import fs from "fs";
-import { Model } from "@paris-ias/data";
+import { Model, Sort, Views } from "@paris-ias/data";
 
-const modulesState: { [key: string]: any } = {};
+interface inputParams {
+  key: string;
+  level: any[];
+  store: any[];
+}
+
+const modulesState: Record<string, ModuleType> = {};
 let types: string[] = [];
 console.log("STARTING THE STORE");
 const initStore = async () => {
@@ -34,8 +40,9 @@ const initStore = async () => {
   /* const githubApi = new api(config.modules.github) */
   return modules;
 };
+
 export const useRootStore = defineStore("rootStore", {
-  state: () => ({
+  state: (): Record<string, boolean | ModuleType> => ({
     scrolled: process.browser ? window.scrollY > 0 : false,
     loading: true,
     resetFilters: false,
@@ -43,14 +50,14 @@ export const useRootStore = defineStore("rootStore", {
   }),
 
   actions: {
-    save(type): void {
+    save(type: string): boolean | undefined {
       try {
         // save the related form from the store to the target
-        if (this[type].source === "md") {
+        if ((this[type] as ModuleType).source === "md") {
           //@eliot save on github
           // githubApi.save(this[type].form)
         }
-        if (this[type].source === "gql") {
+        if ((this[type] as ModuleType).source === "gql") {
           // call appsync mutation
         }
         return true;
@@ -58,7 +65,7 @@ export const useRootStore = defineStore("rootStore", {
         console.log(`error while saving ${type}`, error);
       }
     },
-    setLogo(value) {
+    setLogo(_value: boolean): void {
       /*     this.logo = value */
     },
     setLoading(value: boolean) {
@@ -70,7 +77,7 @@ export const useRootStore = defineStore("rootStore", {
       }
     },
 
-    getKey({ key, level, store }) {
+    getKey({ key, level, store }: inputParams): any {
       console.log("key: ", key);
       console.log("level: ", level);
       console.log("store: ", store);
@@ -102,12 +109,12 @@ export const useRootStore = defineStore("rootStore", {
     updateForm({ key, value, category, level = null, store = null }) {
       level = level ?? [this[category].form.values[key]];
       store = store ?? this[category].form.values;
-      console.log(`updateForm 
-      key: ${key}
-      value: ${value} 
-      category: ${category} 
-      level: ${level}
-      store: ${Array.isArray(store) ? store.length : Object.keys(store)}`);
+      console.log(`updateForm
+        key: ${key}
+        value: ${value}
+        category: ${category}
+        level: ${level}
+        store: ${Array.isArray(store) ? store.length : Object.keys(store)}`);
       if (level.length === 1) {
         //guard against undef keys
         if (store[level[0]] === undefined) store[level[0]] = ""; // TODO make sure it works with othjer primitive types
@@ -137,10 +144,10 @@ export const useRootStore = defineStore("rootStore", {
     deleteFormItem({ key, category, level = null, store = null }) {
       level = level ?? [this[category].form.values[key]];
       store = store ?? this[category].form.values;
-      console.log(`deleteFormItem 
-      key: ${key}
-      category: ${category} 
-      level: ${level}`);
+      console.log(`deleteFormItem
+        key: ${key}
+        category: ${category}
+        level: ${level}`);
       // if level = 1 this is a primitive
       if (level.length === 1) {
         console.log("store: ", store.length);
@@ -169,10 +176,10 @@ export const useRootStore = defineStore("rootStore", {
         store = store ?? this[category].form.values;
         if (!defaults) defaults = JSON.parse(this[category].form._defaults);
         console.log("defaults: ", defaults);
-        console.log(`addFormItem 
-        key: ${key}
-        category: ${category} 
-        level: ${level}`);
+        console.log(`addFormItem
+          key: ${key}
+          category: ${category}
+          level: ${level}`);
         // if level = 1 this is a primitive
         if (level.length === 1) {
           const defautlValue = defaults[level[0]][0];
@@ -201,53 +208,60 @@ export const useRootStore = defineStore("rootStore", {
         console.log("error: ", error);
       }
     },
-    loadRouteQuery(type) {
+    loadRouteQuery(type: string) {
       const { currentRoute } = useRouter();
       const query = currentRoute.value.query;
 
       if (query.search) {
-        this[type].list.search = query.search;
+        (this[type] as ModuleType).list.search = query.search;
       }
       if (query.filters) {
-        const filters = JSON.parse(query.filters);
+        const filters = JSON.parse(query.filters as any);
         Object.keys(filters).forEach((filter) => {
-          this[type].filters[filter] = filters[filter];
+          (this[type] as ModuleType).list.filters[filter] = filters[filter];
         });
       }
 
       if (query.view) {
-        this[type].view = query.view;
+        (this[type] as ModuleType).list.view = query.view as
+          | string
+          | Views
+          | undefined;
       }
       if (query.page) {
-        this[type].list.page = +query.page;
+        (this[type] as ModuleType).list.page = +query.page;
       } else {
-        this[type].list.page = 1;
+        (this[type] as ModuleType).list.page = 1;
       }
 
       const defaultSort = [
-        this[type].list.sort[
+        (this[type] as ModuleType).list.sort[
           Object.keys(this[type].list.sort).find(
             (item) => this[type].list.sort[item].default === true
           )
         ],
       ];
       if (query.sortBy) {
-        this[type].list.sortBy = [query.sortBy];
+        (this[type] as ModuleType).list.sortBy = [query.sortBy] as any;
       }
 
       if (typeof query.sortDesc !== "undefined") {
-        this[type].list.sortDesc = !!(query.sortDesc === "true");
+        (this[type] as ModuleType).list.sortDesc = !!(
+          query.sortDesc === "true"
+        );
       } else {
-        this[type].list.sortDesc = !!(defaultSort[0].value[1] === "desc");
+        (this[type] as ModuleType).list.sortDesc = !!(
+          defaultSort[0].value[1] === "desc"
+        );
       }
     },
     setSearch({ search, type }) {
-      this[type].list.search = search;
+      (this[type] as ModuleType).list.search = search;
     },
     setItems({ type, ...values }) {
-      this[type].list.items = values.items;
-      this[type].list.total = values.total;
-      this[type].list.numberOfPages = values.numberOfPages;
+      (this[type] as ModuleType).list.items = values.items;
+      (this[type] as ModuleType).list.total = values.total;
+      (this[type] as ModuleType).list.numberOfPages = values.numberOfPages;
     },
     setItemsPerPage({ value, type }) {
       this[type].list.itemsPerPage = value;
@@ -436,41 +450,47 @@ export const useRootStore = defineStore("rootStore", {
       console.log("pipeline: ", pipeline);
 
       /*   const count = await useAsyncData("count", () =>
-        queryContent(target).where(pipeline).only("[]").find()
-      )
-      console.log("count: ", count.data.value) */
+          queryContent(target).where(pipeline).only("[]").find()
+        )
+        console.log("count: ", count.data.value) */
       const count = [{}];
       const totalItems = count.length;
       console.log("totalItems: ", totalItems);
 
-      const lastPage = Math.ceil(totalItems / this[type]?.list.itemsPerPage);
+      const itemsPerPageValue = (this[type] as ModuleType).list
+        ?.itemsPerPage as number;
+      const lastPage = Math.ceil(totalItems / itemsPerPageValue);
 
-      const lastPageCount = totalItems % (this[type]?.list?.itemsPerPage || 1);
+      const lastPageCount =
+        totalItems % ((this[type] as ModuleType)?.list?.itemsPerPage || 1);
 
-      const itemsPerPage = this[type]?.list?.itemsPerPage || 1;
+      const itemsPerPage = (this[type] as ModuleType)?.list?.itemsPerPage || 1;
 
       const skipNumber = () => {
-        if (+this[type].list.page === 1) {
+        if (+(this[type] as ModuleType).list.page === 1) {
           return 0;
         }
-        if (+this[type].list.page === lastPage) {
+        if (+(this[type] as ModuleType).list.page === lastPage) {
           if (lastPageCount === 0) {
             return totalItems - itemsPerPage;
           }
           return totalItems - lastPageCount;
         }
-        return (+this[type].list.page - 1) * itemsPerPage;
+        return (+(this[type] as ModuleType).list.page - 1) * itemsPerPage;
       };
 
       const sortArray =
         this[type].view === "issues"
           ? [
               "issueIndex",
-              this[type].list.sortDesc ? 1 : -1,
+              (this[type] as ModuleType).list.sortDesc ? 1 : -1,
               "date",
-              this[type].list.sortDesc ? 1 : -1,
+              (this[type] as ModuleType).list.sortDesc ? 1 : -1,
             ]
-          : [this[type].list.sortBy[0], this[type].list.sortDesc ? -1 : 1];
+          : [
+              (this[type] as ModuleType).list.sortBy[0],
+              (this[type] as ModuleType).list.sortDesc ? -1 : 1,
+            ];
       console.log("type1: ", type);
       console.log("pipeline: ", pipeline);
       console.log("queryContent: ", queryContent);
@@ -547,15 +567,15 @@ export const useRootStore = defineStore("rootStore", {
       );
 
       /*     if (
-        JSON.stringify(router.currentRoute.value.query) !==
-        JSON.stringify(sortObject(query))
-      ) {
-        // TODO fix these damn false positives (lead: see if pre-resolving the route before replacing it is possible/relevant or come up with another way to compare query & store)
-        router.replace({
-          query,
-        })
-      }
- */
+          JSON.stringify(router.currentRoute.value.query) !==
+          JSON.stringify(sortObject(query))
+        ) {
+          // TODO fix these damn false positives (lead: see if pre-resolving the route before replacing it is possible/relevant or come up with another way to compare query & store)
+          router.replace({
+            query,
+          })
+        }
+   */
       // fetch the item categories
 
       this.setFiltersCount(type);
@@ -573,6 +593,7 @@ export const useRootStore = defineStore("rootStore", {
 });
 await initStore();
 
+// -------------------------------------------------------------------------------
 // fetch the item categories
 /*    
            if (
