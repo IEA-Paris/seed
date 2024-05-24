@@ -59,9 +59,9 @@ export const useRootStore = defineStore("rootStore", {
       }
     },
     setLogo(value) {
-      this.logo = value
+      /*     this.logo = value */
     },
-    setLoading(value) {
+    setLoading(value: boolean) {
       this.loading = value
     },
     setScrolled() {

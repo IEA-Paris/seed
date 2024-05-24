@@ -57,6 +57,7 @@
           <v-sheet class="d-flex align-center justify-center">
             List of sponsors</v-sheet
           >
+          <HomeLogoGallery :items="logos"></HomeLogoGallery>
         </v-col>
         <v-col cols="4" v-show="smAndUp">
           <v-sheet
@@ -73,36 +74,14 @@
 
   <section>
     <v-container>
-      <div class="d-flex align-center justify-center flex-column">
-        <h3>{{ $t("our-members") }}</h3>
-      </div>
-
-      <div class="d-lg-flex flex-wrap">
-        <v-sheet
-          class="base-fill-container"
-          v-for="item in logos"
-          :key="item.title"
-        >
-          <a :href="item.url">
-            <nuxt-img
-              :src="item.picture"
-              :title="item.title"
-              class="fill-image-item"
-            >
-            </nuxt-img>
-          </a>
-        </v-sheet>
-
-        <!-- <v-col cols="4" v-show="smAndUp">
-            <v-sheet
-              class="d-flex align-center justify-center"
-              :to="localePath('activities/membership')"
-              link
-            >
-              <ActionsSmallContainer
-                :action="action"
-              ></ActionsSmallContainer> </v-sheet></v-col -->
-      </div>
+      <v-row>
+        <v-col cols="12">
+          <div class="d-flex align-center justify-center flex-column">
+            <h3>{{ $t("our-members") }}</h3>
+          </div>
+          <HomeLogoGallery :items="logos"></HomeLogoGallery
+        ></v-col>
+      </v-row>
     </v-container>
   </section>
 
@@ -131,91 +110,6 @@
         </v-sheet>
       </div>
 
-      <div class="d-flex flex-md-row flex-sm-column">
-        <div class="ml-xl-40 ml-lg-5 ml-md-4">
-          <v-sheet class="mx-auto" variant="text">
-            <div class="text-wrap">
-              <span>
-                <a
-                  href="https://www.radcliffe.harvard.edu/event/2024-alexis-pauline-gumbs-lecture"
-                  class="anchor-card-title"
-                >
-                  Audre Lorde, June Jordan, and a Homemade Field of Love
-                </a>
-              </span>
-
-              <div class="text-wrap mt-3">
-                <span class="lecture">
-                  Lectures •<a
-                    href="https://www.radcliffe.harvard.edu/events-and-exhibitions/series/kim-and-judy-davis-deans-lecture-in-the-humanities"
-                    title="Kim and Judy Davis Dean's Lecture in the Humanities"
-                    class="anchor-lecture"
-                  >
-                    Kim and Judy Davis Dean's Lecture in the Humanities</a
-                  ></span
-                >
-              </div>
-            </div>
-
-            <p class="text-wrap content-item-event">
-              Alexis Pauline Gumbs will offer an ecofeminist exploration into
-              how the works of Black feminist poets Audre Lorde and June Jordan
-              can speak to our current climate crisis.
-            </p>
-
-            <div
-              class="d-flex flex-lg-row flex-md-row flex-sm-row flex-row flex-wrap align-center justify-lg-start justify-md-start justify-sm-start justify-start"
-            >
-              <div>
-                <div class="regi-main">
-                  <span>
-                    <v-icon color="#32c188" class="icon-fontsz"
-                      >mdi-circle</v-icon
-                    >
-                    <span class="ml-3 regi-item">REGISTRATION OPEN</span>
-                  </span>
-                </div>
-              </div>
-
-              <div>
-                <div class="stream-main">
-                  <span>
-                    <v-icon class="stream-item">mdi-television-play</v-icon>
-                    <span class="ml-3 stream-item">Live stream available</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </v-sheet>
-        </div>
-
-        <div
-          class="d-flex flex-md-column flex-sm-row flex-sm-row hidden-xs ml-xl-48 ml-lg-48 ml-md-12"
-        >
-          <div>
-            <v-card class="mx-auto" variant="text" color="#767676">
-              <v-card-item>
-                <span class="header-item">Date & Time</span>
-                <div class="text-wrap content-item">
-                  Tuesday, April 30, 2024 4 PM ET
-                </div>
-              </v-card-item>
-            </v-card>
-          </div>
-          <div>
-            <v-card class="mx-auto" variant="text" color="#767676">
-              <v-card-item>
-                <span class="header-item">Location</span>
-                <div class="text-wrap content-item">
-                  Knafel Center OR Online on Zoom 10 Garden Street Cambridge, MA
-                  02138
-                </div>
-              </v-card-item>
-            </v-card>
-          </div>
-        </div>
-      </div>
-
       <div>
         <div class="ml-lg-20 ml-md-12 mt-lg-0 mt-md-0 mt-12 mt-sm-12 mt-12">
           <v-sheet class="mx-auto sheet-component">
@@ -233,44 +127,30 @@
 </template>
 
 <script lang="ts" setup>
-import { useDisplay } from "vuetify";
-definePageMeta({ layout: "about" });
-const { smAndUp, name, mdAndUp } = useDisplay();
-const localePath = useLocalePath();
-const { $i18n } = useNuxtApp();
+import { useDisplay } from "vuetify"
+definePageMeta({ layout: "about" })
+const { smAndUp, name, mdAndUp } = useDisplay()
+const localePath = useLocalePath()
+const { $i18n } = useNuxtApp()
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + $i18n.locale.value)
     .limit(1)
     .find()
-);
+)
 
 const { data: logosData } = await useAsyncData("logos", () =>
   queryContent("/logos/" + $i18n.locale.value)
     .only(["picture", "title", "url"])
     .find()
-);
+)
 
-const logos = !logosData || !logosData.value ? undefined : logosData.value;
+const logos = !logosData || !logosData.value ? undefined : logosData.value
 </script>
 
 <style lang="scss" scoped>
 .base-fill-container {
   width: 10px;
   height: 10px;
-}
-/* logo component */
-.fill-image-item {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
-  transition: filter 0.5s ease;
-
-  &:hover {
-    filter: none;
-    -webkit-filter: grayscale(0);
-  }
 }
 
 // event component

@@ -46,8 +46,6 @@
   </v-row>
 </template>
 
-<script setup>
-import CountUp from "vue-countup-v3"
-</script>
+<script setup></script>
 
 <style lang="scss" scoped></style>

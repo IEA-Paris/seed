@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <ListOrganismsList type="event"></ListOrganismsList> </v-col
+        <ListOrganismsList type="events"></ListOrganismsList> </v-col
     ></v-row>
   </v-container>
 </template>
