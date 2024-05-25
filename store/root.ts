@@ -4,12 +4,15 @@ import createModule, { ModuleType } from "~/store/module";
 /* import api from "~/server/api/github" */
 import config from "~/static.config";
 import fs from "fs";
-import { Model, Sort, Views } from "@paris-ias/data";
+import { Form, Model, Sort, Views } from "@paris-ias/data";
 
-interface inputParams {
-  key: string;
-  level: any[];
-  store: any[];
+interface InputParams {
+  key?: any | string;
+  level?: any[] | any | null;
+  store?: any[] | any | null;
+  category?: any | string;
+  defaults?: any | null;
+  value?: any;
 }
 
 const modulesState: Record<string, ModuleType> = {};
@@ -77,7 +80,7 @@ export const useRootStore = defineStore("rootStore", {
       }
     },
 
-    getKey({ key, level, store }: inputParams): any {
+    getKey({ key, level, store }: InputParams): any {
       console.log("key: ", key);
       console.log("level: ", level);
       console.log("store: ", store);
@@ -106,9 +109,9 @@ export const useRootStore = defineStore("rootStore", {
         });
       }
     },
-    updateForm({ key, value, category, level = null, store = null }) {
-      level = level ?? [this[category].form.values[key]];
-      store = store ?? this[category].form.values;
+    updateForm({ key, value, category, level, store }: InputParams): any {
+      level = level ?? [(this[category] as ModuleType)?.form?.values[key]];
+      store = store ?? (this[category] as ModuleType).form.values;
       console.log(`updateForm
         key: ${key}
         value: ${value}
@@ -126,7 +129,9 @@ export const useRootStore = defineStore("rootStore", {
         //guard against undef keys
         if (store[level[0]] === undefined) {
           if (isArray) {
-            store[level[0]] = [this[category].form.schema[key]?.default];
+            const itemValue = (this[category] as ModuleType).form.schema[key]
+              ?.default;
+            store[level[0]] = [itemValue];
           } else {
             // if the key is not a number, it is an object (if it was a primitive, level.length would be 1)
             store[level[0]] = {};
@@ -141,9 +146,14 @@ export const useRootStore = defineStore("rootStore", {
         });
       }
     },
-    deleteFormItem({ key, category, level = null, store = null }) {
-      level = level ?? [this[category].form.values[key]];
-      store = store ?? this[category].form.values;
+    deleteFormItem({
+      key,
+      category,
+      level = null,
+      store = null,
+    }: InputParams): any {
+      level = level ?? [(this[category] as ModuleType).form.values[key]];
+      store = store ?? (this[category] as ModuleType).form.values;
       console.log(`deleteFormItem
         key: ${key}
         category: ${category}
@@ -170,11 +180,13 @@ export const useRootStore = defineStore("rootStore", {
       level = null,
       store = null,
       defaults = null,
-    }) {
+    }: InputParams): any {
       try {
-        level = level ?? [this[category].form.values[key]];
-        store = store ?? this[category].form.values;
-        if (!defaults) defaults = JSON.parse(this[category].form._defaults);
+        level = level ?? [(this[category] as ModuleType).form.values[key]];
+        store = store ?? (this[category] as ModuleType).form.values;
+        const defaultForm = (this[category] as ModuleType).form
+          ._defaults as string;
+        if (!defaults) defaults = JSON.parse(defaultForm);
         console.log("defaults: ", defaults);
         console.log(`addFormItem
           key: ${key}
@@ -255,7 +267,7 @@ export const useRootStore = defineStore("rootStore", {
         );
       }
     },
-    setSearch({ search, type }) {
+    setSearch({ search, type }: { search: any; type: string }) {
       (this[type] as ModuleType).list.search = search;
     },
     setItems({ type, ...values }) {
@@ -263,28 +275,34 @@ export const useRootStore = defineStore("rootStore", {
       (this[type] as ModuleType).list.total = values.total;
       (this[type] as ModuleType).list.numberOfPages = values.numberOfPages;
     },
-    setItemsPerPage({ value, type }) {
-      this[type].list.itemsPerPage = value;
+    setItemsPerPage({ value, type }: { value: number; type: string }) {
+      (this[type] as ModuleType).list.itemsPerPage = value;
     },
-    setPage({ page, type }) {
-      this[type].list.page = page;
+    setPage({ page, type }: { page: number; type: string }) {
+      (this[type] as ModuleType).list.page = page;
     },
-    setFilters({ filters, type }) {
+    setFilters({
+      filters,
+      type,
+    }: {
+      filters: Record<string, any[]>;
+      type: string;
+    }) {
       if (filters[Object.keys(filters)[0]].length)
-        this[type].loading.push(Object.keys(filters)[0]);
+        (this[type] as ModuleType).loading.push(Object.keys(filters)[0]);
 
-      this[type].list.filters[Object.keys(filters)[0]] =
+      (this[type] as ModuleType).list.filters[Object.keys(filters)[0]] =
         filters[Object.keys(filters)[0]];
     },
-    setSort({ value, type }) {
-      this[type].list.sortBy = [value[0]];
-      this[type].list.sortDesc = value[1] === "-1";
+    setSort({ value, type }: { value: number[]; type: string }) {
+      (this[type] as ModuleType).list.sortBy = [value[0]];
+      ('this[type] as ModuleType).list.sortDesc = value[1] === "-1"');
     },
     setView({ value, type }) {
       this[type].list.view = value;
     },
-    setFiltersCount(type) {
-      const filters = this[type].list.filters;
+    setFiltersCount(type: string) {
+      const filters = (this[type] as ModuleType).list.filters;
       const filtersCount = Object.keys(filters)
         // remove empty values
         .filter(
@@ -296,7 +314,7 @@ export const useRootStore = defineStore("rootStore", {
             (typeof filters[filter] === "object" &&
               Object.keys(filters[filter]).length)
         ).length;
-      this[type].list.filtersCount = filtersCount;
+      (this[type] as ModuleType).list.filtersCount = filtersCount;
     },
     setBlankState(type: string) {
       this.resetFilters = true;
@@ -314,7 +332,7 @@ export const useRootStore = defineStore("rootStore", {
         ],
       ];
       // TODO make dynamic based on an ~/assets located file
-      this[type].list.filters = {
+      (this[type] as ModuleType).list.filters = {
         years: [],
         issue: [],
         tags: [],
@@ -333,11 +351,11 @@ export const useRootStore = defineStore("rootStore", {
     setBlankFilterLoad(type: string) {
       (this[type] as ModuleType).loading = [];
     },
-    setStyle(style) {
+    setStyle(style: string) {
       this.articles.style = style;
     },
 
-    resetState(type) {
+    resetState(type: string) {
       this.setBlankState(type);
       this.setPage({ page: 1, type });
       this.update(type);
@@ -376,7 +394,7 @@ export const useRootStore = defineStore("rootStore", {
       this.setLoading(true);
 
       const router = useRouter();
-      const filters = this[type]?.list?.filters || {};
+      const filters = (this[type] as ModuleType)?.list?.filters || {};
       const pipeline = {
         // default filters
         ...filters,
@@ -511,19 +529,17 @@ export const useRootStore = defineStore("rootStore", {
           .find()
       );
       console.log("done", items);
-      const defaultView =
-        this[type].list.views[
-          Object.keys(this[type].list.views).find(
-            (item) => this[type].list.views[item].default === true
-          )
-        ];
+      const defaultView = (this[type] as ModuleType).list.views[
+        Object.keys(this[type].list.views).find(
+          (item) => this[type].list.views[item].default === true
+        )
+      ];
 
-      const defaultSort =
-        this[type].list.sort[
-          Object.keys(this[type].list.sort).find(
-            (item) => this[type].list.sort[item]?.default === true
-          )
-        ];
+      const defaultSort = (this[type] as ModuleType).list.sort[
+        Object.keys(this[type].list.sort).find(
+          (item) => this[type].list.sort[item]?.default === true
+        )
+      ];
       console.log("type b4 route query: ", type);
 
       // update route
@@ -532,12 +548,13 @@ export const useRootStore = defineStore("rootStore", {
           typeof (this[type] as ModuleType).list.search !== "undefined" && {
             search: (this[type] as ModuleType).list.search,
           }),
-        ...(this[type].list.page > 1 && {
-          page: this[type].page.toString(),
+        ...((this[type] as ModuleType).list.page > 1 && {
+          page: (this[type] as ModuleType).list.page.toString(),
         }),
-        ...(this[type].list.sortBy?.length &&
-          this[type].list.sortBy[0] !== defaultSort.value[0] && {
-            sortBy: this[type].list.sortBy[0],
+        ...((this[type] as ModuleType).list.sortBy?.length &&
+          (this[type] as ModuleType).list.sortBy[0] !==
+            defaultSort.value[0] && {
+            sortBy: (this[type] as ModuleType).list.sortBy[0],
           }),
         ...(typeof this[type].list.sortDesc !== "undefined" &&
           (this[type].list.sortDesc ? "desc" : "asc") !==

@@ -16,14 +16,14 @@ interface List {
   limit?: number;
   search: string | any[];
   page: number;
-  sortBy?: Sort | undefined | number[];
+  sortBy?: Sort | number[];
   sortDesc?: boolean[] | boolean;
 }
 
 interface CustomForm {
-  values: Record<string, Form> | undefined;
-  _defaults: Record<string, Form> | undefined;
-  schema: Record<string, Form> | undefined;
+  values: Record<string, Form>;
+  _defaults: Record<string, Form> | string;
+  schema: Record<string, Form>;
 }
 export interface ModuleType {
   source?: string;
