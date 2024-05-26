@@ -16,7 +16,7 @@ interface List {
   limit?: number;
   search: string | any[];
   page: number;
-  sortBy?: Sort | number[] | string;
+  sortBy: Sort | number[] | string | undefined;
   sortDesc?: boolean[] | boolean;
 }
 
@@ -212,7 +212,6 @@ const createModule = async (type: string): Promise<ModuleType> => {
       }),
       search: "",
       page: 1,
-      // CHEICK TOMORROW
       sortBy: defaultSort && [defaultSort.value[1]],
       sortDesc: defaultSort && [defaultSort.value[0] === "desc"],
       // numberOfPages: 0,

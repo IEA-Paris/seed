@@ -14,7 +14,7 @@ interface InputParams {
   defaults?: any | null;
   value?: any;
 }
-
+type QueryValues = string | Views | boolean | number | string[] | undefined;
 const modulesState: Record<string, ModuleType> = {};
 let types: string[] = [];
 console.log("STARTING THE STORE");
@@ -437,7 +437,7 @@ export const useRootStore = defineStore("rootStore", {
         // convert filters into mongo-like loki query & push in the pipeline
         if (
           filters[filter] ||
-          (Array.isArray(filters[filter]) && filters[filter].length)
+          (Array.isArray(filters[filter]) && (filters[filter] as any).length)
         ) {
           switch (filter) {
             case "tag":
@@ -505,7 +505,8 @@ export const useRootStore = defineStore("rootStore", {
         return (+(this[type] as ModuleType).list.page - 1) * itemsPerPage;
       };
 
-      const sortby = (this[type] as ModuleType).list.sortBy[0];
+      const sortBy = (this[type] as ModuleType).list.sortBy;
+      const sortByItem = (sortBy as number[])[0];
 
       const sortArray =
         (this[type] as ModuleType).list.view === "issues"
@@ -515,7 +516,7 @@ export const useRootStore = defineStore("rootStore", {
               "date",
               (this[type] as ModuleType).list.sortDesc ? 1 : -1,
             ]
-          : [sortby, (this[type] as ModuleType).list.sortDesc ? -1 : 1];
+          : [sortByItem, (this[type] as ModuleType).list.sortDesc ? -1 : 1];
       console.log("type1: ", type);
       console.log("pipeline: ", pipeline);
       console.log("queryContent: ", queryContent);
@@ -552,7 +553,7 @@ export const useRootStore = defineStore("rootStore", {
       console.log("type b4 route query: ", type);
 
       // update route
-      const query = {
+      const query: Record<string, QueryValues> = {
         ...((this[type] as ModuleType).list.search &&
           typeof (this[type] as ModuleType).list.search !== "undefined" && {
             search: (this[type] as ModuleType).list.search,
@@ -561,13 +562,12 @@ export const useRootStore = defineStore("rootStore", {
           page: (this[type] as ModuleType).list.page.toString(),
         }),
         ...(((this[type] as ModuleType).list.sortBy as number[]).length &&
-          (this[type] as ModuleType).list.sortBy[0] !==
-            defaultSort.value[0] && {
-            sortBy: (this[type] as ModuleType).list.sortBy[0],
+          sortByItem !== defaultSort.value[1] && {
+            sortBy: sortByItem,
           }),
         ...(typeof (this[type] as ModuleType).list.sortDesc !== "undefined" &&
           ((this[type] as ModuleType).list.sortDesc ? "desc" : "asc") !==
-            defaultSort.value[1] && {
+            defaultSort.value[0] && {
             sortDesc: !!(this[type] as ModuleType).list.sortDesc,
           }),
         ...((this[type] as ModuleType).list.view &&
@@ -578,7 +578,7 @@ export const useRootStore = defineStore("rootStore", {
           filters: JSON.stringify(queryFilters),
         }),
       };
-      const sortObject = (obj) =>
+      const sortObject = (obj: any) =>
         Object.fromEntries(Object.entries(obj).sort());
       console.log("type b4 sort obj: ", type);
       console.log("query: ", query);
@@ -588,7 +588,7 @@ export const useRootStore = defineStore("rootStore", {
           ? delete query[key]
           : // convert boolean to string
             typeof query[key] === "boolean"
-            ? query[key] === query[key].toString()
+            ? query[key] === (query[key] as any).toString()
             : {}
       );
 
