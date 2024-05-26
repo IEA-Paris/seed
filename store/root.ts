@@ -609,9 +609,9 @@ export const useRootStore = defineStore("rootStore", {
       console.log("type2: ", type);
       this.setItems({
         items,
+        type,
         total: totalItems,
         numberOfPages: lastPage,
-        type,
       });
       this.setLoading(false);
     },

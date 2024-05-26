@@ -192,7 +192,6 @@ const createModule = async (type: string): Promise<ModuleType> => {
       ...(baseType?.list?.sort && {
         sort: baseType.list?.sort,
       }),
-      // CHEICK TOMORROW
       view: defaultView,
       ...(defaultView?.name && { view: defaultView.name }),
       filters: {
