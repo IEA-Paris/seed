@@ -161,7 +161,9 @@ export const useRootStore = defineStore("rootStore", {
       // if level = 1 this is a primitive
       if (level.length === 1) {
         console.log("store: ", store.length);
-        const newStore = store.filter((item, index) => index === level[0]);
+        const newStore = store.filter(
+          (item: any, index: any) => index === level[0]
+        );
         store = newStore;
         console.log("store: ", store.length);
       } else if (level.length > 1) {
@@ -246,31 +248,34 @@ export const useRootStore = defineStore("rootStore", {
         (this[type] as ModuleType).list.page = 1;
       }
 
-      const defaultSort = [
-        (this[type] as ModuleType).list.sort[
-          Object.keys(this[type].list.sort).find(
-            (item) => this[type].list.sort[item].default === true
-          )
-        ],
-      ];
+      const sortObj = (this[type] as ModuleType).list.sort;
+      const defaultSortKey = Object.keys(sortObj).find(
+        (item) => sortObj[item].default === true
+      );
+      const defaultSort = [sortObj[defaultSortKey as string]];
       if (query.sortBy) {
         (this[type] as ModuleType).list.sortBy = [query.sortBy] as any;
       }
-
       if (typeof query.sortDesc !== "undefined") {
         (this[type] as ModuleType).list.sortDesc = !!(
           query.sortDesc === "true"
         );
       } else {
         (this[type] as ModuleType).list.sortDesc = !!(
-          defaultSort[0].value[1] === "desc"
+          defaultSort[0].value[0] === "desc"
         );
       }
     },
     setSearch({ search, type }: { search: any; type: string }) {
       (this[type] as ModuleType).list.search = search;
     },
-    setItems({ type, ...values }) {
+    setItems({
+      type,
+      values,
+    }: {
+      type: string;
+      values: { items: any[]; total: number; numberOfPages: number };
+    }) {
       (this[type] as ModuleType).list.items = values.items;
       (this[type] as ModuleType).list.total = values.total;
       (this[type] as ModuleType).list.numberOfPages = values.numberOfPages;
@@ -298,8 +303,8 @@ export const useRootStore = defineStore("rootStore", {
       (this[type] as ModuleType).list.sortBy = [value[0]];
       ('this[type] as ModuleType).list.sortDesc = value[1] === "-1"');
     },
-    setView({ value, type }) {
-      this[type].list.view = value;
+    setView({ value, type }: { value: string; type: string }) {
+      (this[type] as ModuleType).list.view = value;
     },
     setFiltersCount(type: string) {
       const filters = (this[type] as ModuleType).list.filters;
@@ -319,18 +324,18 @@ export const useRootStore = defineStore("rootStore", {
     setBlankState(type: string) {
       this.resetFilters = true;
 
-      const defaultView = (this[type] as ModuleType).list.views[
-        Object.keys(this[type].list.views).find(
-          (item) => this[type].list.views[item].default === true
-        )
-      ];
-      const defaultSort = [
-        (this[type] as ModuleType).list.sort[
-          Object.keys(this[type].list.sort).find(
-            (item) => this[type].list.sort[item].default === true
-          )
-        ],
-      ];
+      const viewsObj = (this[type] as ModuleType).list.views;
+      const defaultViewsKey = Object.keys(viewsObj).find(
+        (item) => viewsObj[item].default === true
+      );
+      const defaultView = viewsObj[defaultViewsKey as string];
+
+      const sortObj = (this[type] as ModuleType).list.sort;
+      const defaultSortKey = Object.keys(sortObj).find(
+        (item) => sortObj[item].default === true
+      );
+      const defaultSort = [sortObj[defaultSortKey as string]];
+
       // TODO make dynamic based on an ~/assets located file
       (this[type] as ModuleType).list.filters = {
         years: [],
@@ -345,14 +350,14 @@ export const useRootStore = defineStore("rootStore", {
       (this[type] as ModuleType).list.view = defaultView.value;
       (this[type] as ModuleType).list.sortBy = defaultSort[0].value[0];
       (this[type] as ModuleType).list.sortDesc =
-        defaultSort[0].value[1] === "desc";
+        defaultSort[0].value[0] === "desc";
       (this[type] as ModuleType).resetFilters = false;
     },
     setBlankFilterLoad(type: string) {
       (this[type] as ModuleType).loading = [];
     },
-    setStyle(style: string) {
-      this.articles.style = style;
+    setStyle(_style: string) {
+      // this.articles.style = style;
     },
 
     resetState(type: string) {
@@ -360,35 +365,42 @@ export const useRootStore = defineStore("rootStore", {
       this.setPage({ page: 1, type });
       this.update(type);
     },
-    updateSort({ value, type }) {
+    updateSort({ value, type }: { value: number[]; type: string }) {
       this.setSort({ value, type });
       this.setPage({ page: 1, type });
       this.update(type);
     },
-    updateView({ value, type }) {
+    updateView({ value, type }: { value: string; type: string }) {
       this.setView({ value, type });
       this.update(type);
     },
-    updateFilters({ filters, type }) {
+    updateFilters({
+      filters,
+      type,
+    }: {
+      filters: Record<string, any[]>;
+      type: string;
+    }) {
       this.setFilters({ filters, type });
       this.setPage({ page: 1, type });
       this.update(type);
     },
-    updateItemsPerPage({ value, type }) {
+    updateItemsPerPage({ value, type }: { value: number; type: string }) {
       this.setPage({ page: 1, type });
       this.setItemsPerPage({ value, type });
       this.update(type);
     },
-    updatePage({ page, type }) {
+    updatePage({ page, type }: { page: number; type: string }) {
       this.setPage({ page, type });
       this.update(type);
     },
-    updateSearch({ search, type }) {
+    updateSearch({ search, type }: { search: any; type: string }) {
       this.setPage({ page: 1, type });
       this.setSearch({ search, type });
       this.update(type);
     },
-    async update(type, lang, source = "md") {
+    async update(type: string) {
+      const lang = null;
       console.log("type: ", type + "/" + lang);
       const target = type + "/" + lang + "/";
       this.setLoading(true);
@@ -399,7 +411,7 @@ export const useRootStore = defineStore("rootStore", {
         // default filters
         ...filters,
       };
-      const queryFilters = {};
+      const queryFilters: any = {};
 
       pipeline.$or = [];
 
@@ -467,10 +479,6 @@ export const useRootStore = defineStore("rootStore", {
       }
       console.log("pipeline: ", pipeline);
 
-      /*   const count = await useAsyncData("count", () =>
-          queryContent(target).where(pipeline).only("[]").find()
-        )
-        console.log("count: ", count.data.value) */
       const count = [{}];
       const totalItems = count.length;
       console.log("totalItems: ", totalItems);
@@ -497,18 +505,17 @@ export const useRootStore = defineStore("rootStore", {
         return (+(this[type] as ModuleType).list.page - 1) * itemsPerPage;
       };
 
+      const sortby = (this[type] as ModuleType).list.sortBy[0];
+
       const sortArray =
-        this[type].view === "issues"
+        (this[type] as ModuleType).list.view === "issues"
           ? [
               "issueIndex",
               (this[type] as ModuleType).list.sortDesc ? 1 : -1,
               "date",
               (this[type] as ModuleType).list.sortDesc ? 1 : -1,
             ]
-          : [
-              (this[type] as ModuleType).list.sortBy[0],
-              (this[type] as ModuleType).list.sortDesc ? -1 : 1,
-            ];
+          : [sortby, (this[type] as ModuleType).list.sortDesc ? -1 : 1];
       console.log("type1: ", type);
       console.log("pipeline: ", pipeline);
       console.log("queryContent: ", queryContent);
@@ -529,17 +536,19 @@ export const useRootStore = defineStore("rootStore", {
           .find()
       );
       console.log("done", items);
-      const defaultView = (this[type] as ModuleType).list.views[
-        Object.keys(this[type].list.views).find(
-          (item) => this[type].list.views[item].default === true
-        )
-      ];
 
-      const defaultSort = (this[type] as ModuleType).list.sort[
-        Object.keys(this[type].list.sort).find(
-          (item) => this[type].list.sort[item]?.default === true
-        )
-      ];
+      const viewsObj = (this[type] as ModuleType).list.views;
+      const defaultViewsKey = Object.keys(viewsObj).find(
+        (item) => viewsObj[item].default === true
+      );
+      const defaultView = viewsObj[defaultViewsKey as string];
+
+      const sortObj = (this[type] as ModuleType).list.sort;
+      const defaultSortKey = Object.keys(sortObj).find(
+        (item) => sortObj[item].default === true
+      );
+      const defaultSort = sortObj[defaultSortKey as string];
+
       console.log("type b4 route query: ", type);
 
       // update route
@@ -551,19 +560,19 @@ export const useRootStore = defineStore("rootStore", {
         ...((this[type] as ModuleType).list.page > 1 && {
           page: (this[type] as ModuleType).list.page.toString(),
         }),
-        ...((this[type] as ModuleType).list.sortBy?.length &&
+        ...(((this[type] as ModuleType).list.sortBy as number[]).length &&
           (this[type] as ModuleType).list.sortBy[0] !==
             defaultSort.value[0] && {
             sortBy: (this[type] as ModuleType).list.sortBy[0],
           }),
-        ...(typeof this[type].list.sortDesc !== "undefined" &&
-          (this[type].list.sortDesc ? "desc" : "asc") !==
+        ...(typeof (this[type] as ModuleType).list.sortDesc !== "undefined" &&
+          ((this[type] as ModuleType).list.sortDesc ? "desc" : "asc") !==
             defaultSort.value[1] && {
-            sortDesc: !!this[type].list.sortDesc,
+            sortDesc: !!(this[type] as ModuleType).list.sortDesc,
           }),
-        ...(this[type].view &&
-          this[type].view !== defaultView.name && {
-            view: this[type].view,
+        ...((this[type] as ModuleType).list.view &&
+          (this[type] as ModuleType).list.view !== defaultView.name && {
+            view: (this[type] as ModuleType).list.view,
           }),
         ...(Object.keys(filters)?.length && {
           filters: JSON.stringify(queryFilters),

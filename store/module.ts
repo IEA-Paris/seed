@@ -7,7 +7,7 @@ interface List {
   itemsPerPageArray?: any[];
   filtersCount: number;
   views?: any;
-  sort?: any;
+  sort: Record<string, Sort>;
   view: Views | string | undefined;
   filters: Record<string, any[]>;
   total: number;
@@ -16,7 +16,7 @@ interface List {
   limit?: number;
   search: string | any[];
   page: number;
-  sortBy?: Sort | number[];
+  sortBy?: Sort | number[] | string;
   sortDesc?: boolean[] | boolean;
 }
 
@@ -44,7 +44,7 @@ const createModule = async (type: string): Promise<ModuleType> => {
   const defaultViewKey: string | undefined =
     baseType?.list?.views &&
     Object.keys(baseType.list.views).find((item) => {
-      baseType.list.views[item]?.default === true;
+      return baseType.list.views[item]?.default === true;
     });
   const defaultView =
     defaultViewKey !== undefined
@@ -54,7 +54,7 @@ const createModule = async (type: string): Promise<ModuleType> => {
   const defaultSortKey: string | undefined =
     baseType?.list.sort &&
     Object.keys(baseType.list.sort).find((item) => {
-      baseType.list.sort[item].default === true;
+      return baseType.list.sort[item].default === true;
     });
 
   const defaultSort: Sort | undefined =
