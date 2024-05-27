@@ -57,11 +57,11 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@main
 
-      - name: 🛎 Checkout Types
-        uses: actions/checkout@v4
-        with:
-          submodules: true
-          token: ${{ secrets.TYPES_SUBMODULE_ACCESS }}
+      # - name: 🛎 Checkout Types
+      #   uses: actions/checkout@v4
+      #   with:
+      #     submodules: true
+      #     token: ${{ secrets.TYPES_SUBMODULE_ACCESS }}
       - name: Setup node env 🏗
         uses: actions/setup-node@v4
         with:
