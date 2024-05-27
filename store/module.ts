@@ -1,8 +1,5 @@
-import { Form } from "~/data/form"
 import completeSchema from "../utils/scripts/completeSchema"
-import Model from "~/data/model"
-import { Sort, Views } from "~/data/list"
-import { configData } from "@hamedbouare9/data"
+import { configData, Form, Model, Sort, Views } from "@paris-ias/data"
 
 interface List {
   items: any[]
@@ -10,46 +7,35 @@ interface List {
   itemsPerPageArray?: any[]
   filtersCount: number
   views?: any
-  sort?: any
+  sort: Record<string, Sort>
   view: Views | string | undefined
-  filters: {
-    years: any[]
-    tags: any[]
-    language: any[]
-    thematic: any[]
-    discipline: any[]
-    type: any[]
-  }
+  filters: Record<string, any[]>
   total: number
   skip: number
   numberOfPages: number
   limit?: number
-  search: string
+  search: string | any[]
   page: number
-  sortBy?: Sort | undefined | number[]
-  sortDesc?: boolean[]
+  sortBy: Sort | number[] | string | undefined
+  sortDesc?: boolean[] | boolean
 }
 
 interface CustomForm {
-  values: Record<string, Form> | undefined
-  _defaults: Record<string, Form> | undefined
-  schema: Record<string, Form> | undefined
+  values: Record<string, Form>
+  _defaults: Record<string, Form> | string
+  schema: Record<string, Form>
 }
-interface ModuleType {
+export interface ModuleType {
   source?: string
   form: CustomForm
   list: List
   loading: any[]
   current: any
+  resetFilters: boolean
 }
-
-// const getModelDefaultComponent = async (key: string): Promise<Model> => {
-//   return (await import(`../data/${key}.ts`)).default;
-// };
 
 const createModule = async (type: string): Promise<ModuleType> => {
   console.log("CREATING MODULE FOR: ", type)
-  // const baseType: Model = await getModelDefaultComponent(type);
   const baseType = configData[type] as Model
 
   const baseSchema: Record<string, Form> = baseType.form
@@ -58,23 +44,24 @@ const createModule = async (type: string): Promise<ModuleType> => {
   const defaultViewKey: string | undefined =
     baseType?.list?.views &&
     Object.keys(baseType.list.views).find((item) => {
-      baseType.list.views[item]?.default === true
+      return baseType.list.views[item]?.default === true
     })
   const defaultView =
     defaultViewKey !== undefined
-      ? baseType?.list.views[defaultViewKey]
+      ? { ...baseType?.list.views[defaultViewKey], name: defaultViewKey }
       : undefined
 
   const defaultSortKey: string | undefined =
     baseType?.list.sort &&
     Object.keys(baseType.list.sort).find((item) => {
-      baseType.list.sort[item].default === true
+      return baseType.list.sort[item].default === true
     })
 
   const defaultSort: Sort | undefined =
     defaultSortKey !== undefined
       ? baseType?.list.sort[defaultSortKey]
       : undefined
+  console.log("defaultView: ", defaultView)
 
   // Helper function to handle aliases
   const processAliases = async (
@@ -83,7 +70,6 @@ const createModule = async (type: string): Promise<ModuleType> => {
     let aliasTemplatesForms: Record<string, Form> = {}
     await Promise.all(
       aliases.map(async (alias) => {
-        // const aliasTemplate: Model = await getModelDefaultComponent(alias);
         const aliasTemplate = configData[alias]
         aliasTemplatesForms = {
           ...aliasTemplatesForms,
@@ -97,7 +83,6 @@ const createModule = async (type: string): Promise<ModuleType> => {
 
   // Helper function to handle template types
   const processTemplate = async (key: string): Promise<any> => {
-    // const template: Model = await getModelDefaultComponent(key);
     const template = configData[key] as Model
     // is it an implementation of another template?
     if (template.aliases?.length) {
@@ -208,9 +193,7 @@ const createModule = async (type: string): Promise<ModuleType> => {
       ...(baseType?.list?.sort && {
         sort: baseType.list?.sort,
       }),
-      // CHEICK TOMORROW
       view: defaultView,
-      ...(defaultView?.name && { view: defaultView.name }),
       filters: {
         years: [],
         tags: [],
@@ -228,13 +211,13 @@ const createModule = async (type: string): Promise<ModuleType> => {
       }),
       search: "",
       page: 1,
-      // CHEICK TOMORROW
       sortBy: defaultSort && [defaultSort.value[1]],
       sortDesc: defaultSort && [defaultSort.value[0] === "desc"],
       // numberOfPages: 0,
     },
     loading: [],
     current: null,
+    resetFilters: true,
   }
 }
 

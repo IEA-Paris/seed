@@ -62,6 +62,9 @@ export default defineNuxtConfig({
         },
       },
     },
+    build: {
+      target: "esnext", //browsers can handle the latest ES features
+    },
   },
   modules: [
     "@pinia/nuxt",

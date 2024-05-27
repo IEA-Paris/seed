@@ -95,6 +95,7 @@
           ></RecursiveFormblock>
         </component>
       </template>
+      <!-- // TODO document picker case (type === 4) -->
     </div>
     <v-spacer></v-spacer> <slot></slot>
   </teleport>
