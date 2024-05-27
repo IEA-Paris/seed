@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - main
-  # pull_request:
-  #branches:
-  #- main
+  pull_request:
+    branches:
+      - main
 
 # Allow one concurrent deployment
 concurrency:
@@ -83,8 +83,8 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: yarn
 
-      - name: Generate
-        run: yarn run generate
+      # - name: Generate
+      #   run: yarn run generate
 
       #  - name: Run linter 👀
       #   run: yarn lint
@@ -92,15 +92,15 @@ jobs:
       #      - name: Run tests 🧪
       #        run: yarn test
 
-      - name: 🤫 Setting up AWS credentials
-        uses: "aws-actions/configure-aws-credentials@v1"
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
-          aws-secret-access-key: ${{  secrets.AWS_SECRET_ACCESS_KEY_DEV }}
-          aws-region: eu-west-3
+      # - name: 🤫 Setting up AWS credentials
+      #   uses: "aws-actions/configure-aws-credentials@v1"
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
+      #     aws-secret-access-key: ${{  secrets.AWS_SECRET_ACCESS_KEY_DEV }}
+      #     aws-region: eu-west-3
 
-      - name: Deploy static site to S3 bucket
-        run: aws s3 sync $DIST_DIR $S3_BUCKET --delete  --exclude ".*" --size-only
-        env:
-          DIST_DIR: .output/public/
-          S3_BUCKET: s3://dev-website-iea-paris
+      # - name: Deploy static site to S3 bucket
+      #   run: aws s3 sync $DIST_DIR $S3_BUCKET --delete  --exclude ".*" --size-only
+      #   env:
+      #     DIST_DIR: .output/public/
+      #     S3_BUCKET: s3://dev-website-iea-paris
