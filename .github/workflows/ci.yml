@@ -24,13 +24,15 @@ jobs:
 
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@main
+        uses: actions/checkout@v4
+        with:
+          path: main
 
       - name: "Setup Terraform"
         if: github.event.inputs.forceInfraJob != '' || steps.skip-infra.outputs.skip != 'true'
-        uses: hashicorp/setup-terraform@v2
+        uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: 1.5.6
+          terraform_version: "1.1.7"
 
       - name: Setup AWS credentials [dev]
         run: |
@@ -55,7 +57,9 @@ jobs:
 
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@main
+        uses: actions/checkout@v4
+        with:
+          path: main
 
       - name: 🛎 Checkout Types
         uses: actions/checkout@v4
