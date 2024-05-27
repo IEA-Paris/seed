@@ -3,6 +3,7 @@
     {{ itemTemplate }}
     <ListMoleculesSortMenu :type="type"></ListMoleculesSortMenu>
     <component :is="'ListViews' + view">
+      {{ items }}
       <component
         v-for="(item, index) in items"
         :item="item"
@@ -78,13 +79,13 @@ const props = defineProps({
 
 const show = ref(true)
 const view = computed(() =>
-  resolveComponent(capitalize(rootStore[props.type].list.view))
+  resolveComponent(capitalize(rootStore[props.type].list.view.name))
 )
 const itemTemplate = computed(() =>
   resolveComponent(
     (
       capitalize(props.type) +
-      capitalize(rootStore[props.type].list.view) +
+      capitalize(rootStore[props.type].list.view.name) +
       "Item"
     ).toString()
   )
