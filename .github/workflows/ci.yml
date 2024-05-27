@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - main
-      - master
   pull_request:
     branches:
       - main
-      - master
 
 # Allow one concurrent deployment
 concurrency:
@@ -72,7 +70,6 @@ jobs:
 
       - name: Get yarn cache directory path 🛠
         id: yarn-cache-dir-path
-        # run: echo "::set-output name=dir::$(yarn cache dir)"
         run: echo "dir=$(yarn cache dir)">>$GITHUB_OUTPUT
 
       - name: Cache node_modules 📦
