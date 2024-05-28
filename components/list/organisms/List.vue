@@ -1,9 +1,8 @@
 <template>
   <v-container>
-    {{ itemTemplate }}
-    <ListMoleculesSortMenu :type="type"></ListMoleculesSortMenu>
+    {{ "ListViews" + view }}
+    <!--   <ListMoleculesSortMenu :type="type"></ListMoleculesSortMenu> -->
     <component :is="'ListViews' + view">
-      {{ items }}
       <component
         v-for="(item, index) in items"
         :item="item"
