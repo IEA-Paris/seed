@@ -6,6 +6,8 @@
     ></v-row>
   </v-container>
 
+  <EventsRowsItem2 :item="data"></EventsRowsItem2>
+
   <div v-for="item in data" :key="item.start">
     <EventsView :data="item" />
   </div>

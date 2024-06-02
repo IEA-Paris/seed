@@ -137,7 +137,7 @@
         </div>
 
         <div class="mt-xl-16 mt-lg-10 mt-md-7">
-          <div>{{ data.tag === null ? data.tag : "DOCUMENT(S)" }}</div>
+          <!-- <div>{{ data.tag === null ? data.tag : "DOCUMENT(S)" }}</div>
           <div class="d-flex mt-2">
             <v-icon> mdi-file-pdf-box</v-icon>
             <div class="ml-2">
@@ -149,9 +149,24 @@
             <div class="ml-2">
               {{ data.tag === null ? data.tag : "Resumés des présentations" }}
             </div>
-          </div>
+          </div> -->
+
+          <v-card flat>
+            <v-list>
+              <v-list-subheader>{{
+                data.tag === null ? data.tag : "DOCUMENT(S)"
+              }}</v-list-subheader>
+              <v-list-item v-for="(item, i) in items" :key="i" :value="item">
+                <template v-slot:prepend>
+                  <v-icon :icon="item.icon"></v-icon>
+                </template>
+                <v-list-item-title v-text="item.text"></v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-card>
         </div>
       </v-col>
+
       <v-col xl="6" lg="6" md="8">
         <div class="ml-md-2">
           <v-card flat>
@@ -196,6 +211,11 @@ const props = defineProps({
   },
 });
 const tab = props.data.items[0];
+
+const items = [
+  { text: "Le programme (PDF)", icon: "mdi-file-pdf-box" },
+  { text: "Resumés des présentations", icon: "mdi-file-pdf-box" },
+];
 </script>
 
 <style scoped>
