@@ -168,7 +168,7 @@
       </v-col>
 
       <v-col xl="6" lg="6" md="8">
-        <div class="ml-md-2">
+        <!-- <div class="ml-md-2">
           <v-card flat>
             <v-tabs v-model="tab" grow center-active>
               <v-tab
@@ -177,9 +177,9 @@
                 :text="item"
                 :value="item"
               ></v-tab>
-            </v-tabs>
+            </v-tabs> -->
 
-            <!-- <v-tabs-window v-model="tab">
+        <!-- <v-tabs-window v-model="tab">
               <v-tabs-window-item
                 v-for="item in data.items"
                 :key="item"
@@ -190,8 +190,8 @@
                 </v-card>
               </v-tabs-window-item>
             </v-tabs-window> -->
-          </v-card>
-        </div>
+        <!-- </v-card>
+        </div> -->
       </v-col>
       <v-col xl="3" lg="3" md="1"></v-col>
     </v-row>
@@ -210,7 +210,8 @@ const props = defineProps({
     required: true,
   },
 });
-const tab = props.data.items[0];
+
+const itemsValue = ["Presentation", "Programme"];
 
 const items = [
   { text: "Le programme (PDF)", icon: "mdi-file-pdf-box" },

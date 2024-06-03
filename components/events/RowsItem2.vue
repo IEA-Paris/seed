@@ -1,105 +1,140 @@
 <template>
   {{ name }}
-  <v-container>
-    <v-row no-gutters>
-      <v-col xl="1" lg="1" md="1" sm="1">
-        <div
-          class="d-flex flex-lg-column flex-md-column flex-sm-column text-center"
-        >
-          <span class="text-h4 text-black"> 04</span>
-          <span class="text-subtitle-1 text-black">
-            Jun <br />
-            2024</span
+
+  <v-container> </v-container>
+  <v-row no-gutters>
+    <v-col cols="12" md="1" lg="1" xl="1">
+      <v-card flat>
+        <v-card-item>
+          <v-card-title
+            class="d-flex flex-xl-column flex-lg-column flex-md-column text-md-right text-lg-right text-xl-right"
           >
-        </div>
-      </v-col>
+            <span
+              class="text-h3 text-black mr-2 mr-sm-2 mr-md-0 mr-lg-0 mr-xl-0"
+            >
+              04</span
+            >
+            <span class="text-subtitle-1 text-black">
+              Jun <br />
+              2024</span
+            >
+          </v-card-title>
+        </v-card-item>
+      </v-card>
+    </v-col>
 
-      <v-col xl="4" lg="5" md="8" sm="8">
-        <a
-          href="https://www.radcliffe.harvard.edu/event/2024-raising-our-ambitions-for-a-just-climate-future-virtual"
-          class="anchor-text"
-        >
-          <div class="text-h5 text-black">
-            Raising Our Ambitions for a Just Climate Future
-          </div>
-        </a>
-        <div class="mt-3 text-h6 text-brown-lighten-3">Lectures</div>
-        <div>
-          <p>
-            Join us for an interdisciplinary panel of Harvard Radcliffe
-            Institute fellows to explore how leading researchers and
-            policymakers are collaborating to raise our ambitions for climate
-            action and climate justice.
-          </p>
-        </div>
-        <div class="d-flex flex-wrap mt-xl-4 mt-lg-4 mt-md-4">
-          <v-card flat class="bg-green-lighten-5 text-green-darken-4 pa-2 mr-4">
-            <v-icon class="text-brown-lighten-3"> mdi-circle-medium </v-icon>
-            Registration open
-          </v-card>
+    <v-col cols="12" md="6" lg="5" xl="5">
+      <div class="ml-xl-15 ml-lg-10 ml-md-10">
+        <v-card flat class="mx-auto">
+          <v-card-item>
+            <v-card-title>
+              <nuxt-link to="/" class="text-h4 text-black text-wrap">
+                {{ item.title }}
+              </nuxt-link>
+            </v-card-title>
+            <v-card-subtitle class="mt-3 text-h6 text-brown-lighten">
+              Lectures
+            </v-card-subtitle>
+          </v-card-item>
+          <v-card-text class="text-h6 text-wrap">
+            {{ item.summary }}
+          </v-card-text>
+        </v-card>
 
-          <v-card flat class="text-brown-lighten-3 pa-2">
-            <v-icon class="text-brown-lighten-3"> mdi-television-play </v-icon>
-            Live stream available
-          </v-card>
-        </div>
+        <v-card flat class="d-flex flex-wrap">
+          <v-card-item>
+            <v-card-title
+              flat
+              class="bg-green-lighten-5 text-green-darken-4 pa-3"
+            >
+              <v-icon class="text-brown-lighten-3"> mdi-circle-medium </v-icon>
+              Registration open
+            </v-card-title>
+          </v-card-item>
 
-        <div class="d-none d-md-flex d-lg-none d-xl-none mt-md-4">
-          <div class="mr-md-10">
-            <span class="text-h6 text-brown-lighten-3"> Date & Time</span>
-            <div>
-              Wednesday, June 12, 2024 <br />
-              4 PM ET
-            </div>
-          </div>
+          <v-card-item>
+            <v-card-title flat class="text-brown-lighten-3">
+              <v-icon class="text-brown-lighten-3">
+                mdi-television-play
+              </v-icon>
+              Live stream available
+            </v-card-title>
+          </v-card-item>
+        </v-card>
 
-          <div>
-            <span class="text-h6 text-brown-lighten-3"> Location</span>
-            <div>Online on Zoom</div>
-          </div>
-        </div>
-      </v-col>
+        <v-row class="d-none d-md-flex d-lg-none">
+          <v-col cols="6">
+            <v-card flat>
+              <v-card-item>
+                <v-card-title class="text-h6 text-brown-lighten-3 text-wrap">
+                  Date & Time
+                </v-card-title>
+              </v-card-item>
+              <v-card-text class="text-h6">
+                {{ item.date_text }} <br />
+                {{ formatDate(item.start, "fr-FR") }}
+              </v-card-text>
+            </v-card>
+          </v-col>
 
-      <v-col> </v-col>
+          <v-col cols="6">
+            <v-card flat>
+              <v-card-item>
+                <v-card-title class="text-h6 text-brown-lighten-3 text-wrap">
+                  Location
+                </v-card-title>
+              </v-card-item>
+              <v-card-text class="text-h6 text-wrap">
+                {{ item.location }}</v-card-text
+              >
+            </v-card>
+          </v-col>
+        </v-row>
+      </div>
+    </v-col>
 
-      <v-col class="hidden-md hidden-sm hidden-xs" xl="2" lg="2" md="2">
-        <div>
-          <div>
-            <span class="text-h6 text-brown-lighten-3"> Date & Time</span>
-            <div>
-              Wednesday, June 12, 2024 <br />
-              4 PM ET
-            </div>
-          </div>
+    <v-col cols="12" md="1" lg="1" xl="1"> </v-col>
 
-          <div class="mt-xl-6 mt-lg-6 mt-md-6">
-            <span class="text-h6 text-brown-lighten-3"> Location</span>
-            <div>Online on Zoom</div>
-          </div>
-        </div>
-      </v-col>
+    <v-col cols="12" lg="2" xl="2" class="hidden-md hidden-sm hidden-xs">
+      <v-card flat class="mx-auto">
+        <v-card-item>
+          <v-card-title class="text-h6 text-brown-lighten-3">
+            Date & Time
+          </v-card-title>
+        </v-card-item>
+        <v-card-text class="text-h6">
+          {{ item.date_text }} <br />
+          {{ formatDate(item.start, "fr-FR") }}
+        </v-card-text>
+      </v-card>
 
-      <v-col> </v-col>
+      <v-card flat class="mx-auto">
+        <v-card-item>
+          <v-card-title class="text-h6 text-brown-lighten-3">
+            location
+          </v-card-title>
+        </v-card-item>
+        <v-card-text class="text-h6"> {{ item.location }}</v-card-text>
+      </v-card>
+    </v-col>
 
-      <v-col xl="3" lg="3" md="3">
-        <a
-          href="https://www.radcliffe.harvard.edu/event/2024-climate-justice-and-mass-incarceration-discussion-virtual"
-        >
-          <nuxt-img
-            src="https://radcliffe-harvard-edu.imgix.net/ec5f9088-c7ce-48ef-be6c-876028f54fb2/iStock-664514716.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=1390%2C0%2C3257%2C3256"
-            preload
-            fit="inside"
-            :width="
-              [200, 200, 200, 250, 350, 400][
-                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name)
-              ]
-            "
-          >
-          </nuxt-img>
-        </a>
-      </v-col>
-    </v-row>
-  </v-container>
+    <v-col cols="12" md="1" lg="1" xl="1"> </v-col>
+
+    <v-col cols="12" md="3" lg="2" xl="2">
+      <v-card flat class="mx-auto"> </v-card>
+      <v-card-item>
+        <v-card-title class="card-title">
+          <nuxt-link to="/">
+            <v-img
+              :src="item.picture"
+              :aspect-ratio="1 / 1"
+              cover
+              class="img-animation"
+            >
+            </v-img> </nuxt-link></v-card-title
+      ></v-card-item>
+    </v-col>
+  </v-row>
 </template>
 <script setup lang="ts">
 import { useDisplay } from "vuetify";
@@ -112,6 +147,22 @@ const props = defineProps({
     required: true,
   },
 });
+
+const formatDate = (dateStr: string, locale: string): string => {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString(locale);
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card-title {
+  overflow: hidden;
+}
+.img-animation {
+  transition: all 1.1s;
+}
+
+.img-animation:hover {
+  transform: scale(1.1);
+}
+</style>
