@@ -24,7 +24,7 @@
       class="d-flex justify-center flex-column"
       v-motion-slide-visible-once-bottom
     >
-      <div class="text-overline">{{ $t("events") }}</div>
+      <div class="text-overline">{{ $t("events.key") }}</div>
       <count-up class="text-h4 text-md-h2" :end-val="2628"></count-up>
       <div class="mt-3 text-h5">{{ $t("events-organized-at-paris-ias") }}</div>
     </v-col>

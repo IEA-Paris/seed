@@ -3,6 +3,7 @@ title: "Comparative Health Humanities "
 date_text: 05 - 06 October 2023
 start: 2023-10-05T00:00:00.000Z
 online: false
+category: 1
 summary: Symposium organized by Céline Lefève, director of the Institute "La personne en médecine", with the support of the Paris Institute for Advanced study
 location: Institut d'études avancées de Paris, 17 quai d'Anjou, 75004, Paris
 picture: https://www.paris-iea.fr/images/evenements/30331/_thumb3/postercomparative-health-humanities-symposium-in-paris1.png

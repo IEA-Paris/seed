@@ -16,7 +16,7 @@ export default {
         { text: "fellowships", path: "/activities/fellowships" },
         { text: "projects", path: "/activities/projects" },
         {
-          text: "events",
+          text: "events.key",
           path: "/activities/events",
         },
       ],

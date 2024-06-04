@@ -1,87 +1,45 @@
 <template>
-  <div class="d-flex align-center justify-center">
-    <div class="dateStamp">
-      <div class="text-h4 pt-0">
-        {{ date[0].getDay() }}
-      </div>
-
-      <div
-        class="text-overline font-weight-bold text-left"
-        style="line-height: 1rem"
-      >
-        {{ date[0].toLocaleString($i18n.locale, { month: "long" }) }}
-      </div>
-      <div
-        class="text-overline font-weight-bold text-left"
-        style="line-height: 1rem"
-      >
-        {{ date[0].getFullYear() }}
-      </div>
+  <v-col cols="12" md="1">
+    <div
+      class="date-stamp d-flex flex-md-column text-md-right align-center align-md-end"
+    >
+      <span class="day"> {{ detailedDate.day }}</span>
+      <span class="month-year">
+        {{ detailedDate.month }}<br />
+        {{ detailedDate.year }}
+      </span>
     </div>
-
-    <template v-if="isDouble">
-      <v-icon>mdi-chevron-right</v-icon>
-      <div class="dateStamp">
-        <div class="text-h4 pt-0">
-          {{ date[1].getDay() }}
-        </div>
-        <div
-          class="text-overline font-weight-bold text-right"
-          style="line-height: 1rem"
-        >
-          {{ date[1].toLocaleString($i18n.locale, { month: "long" }) }}
-        </div>
-        <div
-          class="text-overline font-weight-bold text-left"
-          style="line-height: 1rem"
-        >
-          {{ date[1].getFullYear() }}
-        </div>
-      </div>
-    </template>
-  </div>
+  </v-col>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
 const { smAndUp, mdAndUp, name } = useDisplay()
+import { getDetailedFormatedDate } from "~/composables/useUtils"
+
+const { $i18n } = useNuxtApp()
 const props = defineProps({
   date: {
-    type: Array,
+    type: String,
     required: true,
   },
 })
-const isDouble = computed(() => {
-  return (
-    props.date.length > 1 && props.date[1].getDay() !== props.date[0].getDay()
-  )
-})
+
+const detailedDate = ref(
+  getDetailedFormatedDate(props.date, $i18n.locale.value)
+)
 </script>
-<style lang="scss">
-.dateStamp {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  font-weight: 500;
-  text-align: center;
-  .text-h4 {
-    font-size: 2rem;
+<style lang="scss" scoped>
+.date-stamp {
+  font-family: "Open sans";
+  .day {
+    font-size: 2.6rem;
+    line-height: 2.6rem;
   }
-  .text-overline {
-    font-size: 0.75rem;
-  }
-  v-icon {
-    font-size: 2rem;
-  }
-  @media (max-width: 600px) {
-    .text-h4 {
-      font-size: 1.5rem;
-    }
-    .text-overline {
-      font-size: 0.5rem;
-    }
+  .month-year {
+    padding-left: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.2rem;
   }
 }
 </style>
