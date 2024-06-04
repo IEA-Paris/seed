@@ -1,95 +1,130 @@
 <template>
-  <v-row class="my-6">
-    <v-col cols="12" sm="1" :order="smAndUp ? 'first' : 'first'">
-      <MiscAtomsDateStamp
-        :date="[
-          new Date(item.start),
-          ...(item.stop ? [new Date(item.stop)] : []),
-        ]"
-      ></MiscAtomsDateStamp>
-    </v-col>
-    <v-col cols="12" sm="8" :order="smAndUp ? 'first' : 'last'">
+  <v-divider v-if="index > 0"></v-divider>
+  <v-row class="my-8 px-sm-12 px-4" no-gutters>
+    <MiscAtomsDateStamp :date="item.start" class="pr-6" />
+    <v-col cols="12" md="8" lg="9" class="px-md-6 mt-6 mt-md-0">
       <v-row no-gutters>
-        <v-col cols="12" sm="10" md="8">
-          <v-row no-gutters>
-            <v-col cols="12" :order="smAndUp ? 'first' : 'last'"
-              ><a
-                class="text-h6 text-black"
-                :href="localePath('/activities/events/' + slugify(item.title))"
-              >
-                {{ item.title }}
-              </a></v-col
+        <v-col cols="12" md="8">
+          <nuxt-link to="/" class="text-h5 text-black text-wrap">
+            {{ item.title }}
+          </nuxt-link>
+          <div class="mt-2 text-h6 text-overline font-weight-black">
+            {{ $t("events.categories." + item.category) }}
+          </div>
+          <p class="text-body-1 text-wrap">
+            {{ item.summary }}
+          </p>
+          <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">
+            <v-btn
+              color="grey-lighten-3"
+              flat
+              rounded="0"
+              prepend-icon="mdi-circle-medium"
             >
+              <template v-slot:prepend>
+                <v-icon size="large" color="success"></v-icon>
+              </template>
+              {{ $t("registration-open") }}</v-btn
+            >
+            <v-btn
+              color="grey-lighten-3"
+              flat
+              rounded="0"
+              prepend-icon="mdi-television-play"
+              class="ml-md-4"
+            >
+              {{ $t("live-stream-available") }}</v-btn
+            >
+          </div>
+        </v-col>
+
+        <v-col cols="12" lg="1" v-if="lgAndUp"> </v-col>
+
+        <v-col cols="12" md="4" lg="3" class="px-md-6">
+          <v-row no-gutters>
             <v-col cols="12">
               <div class="text-overline">
-                {{
-                  $t(
-                    [
-                      "fellow_presentation",
-                      "seminar",
-                      "conference",
-                      "colloquium",
-                    ][item.type]
-                  )
-                }}
-              </div></v-col
-            >
-            <v-col cols="12">
-              <div class="text-body-1" v-if="smAndUp">
-                {{ item.summary }}
-              </div></v-col
-            >
-            <v-col cols="12" class="d-flex flex-row mr-3 my-3" v-if="smAndUp">
-              <v-chip v-if="item.type === 1">
-                <template v-slot:prepend>
-                  <v-icon color="green" class="mr-3">mdi-circle</v-icon>
-                </template>
-                {{ $t("registration-open") }}
-              </v-chip>
+                {{ $t("date-and-time") }}
+              </div>
+              <div class="text-body-1">
+                {{ item.date_text }} <br />
+                {{ formatDate(item.start, "fr-FR") }}
+              </div>
+            </v-col>
+            <v-col cols="12" class="my-6" v-if="item.location">
+              <div class="text-overline">
+                {{ $t("location") }}
+              </div>
+              <div class="text-body-1">
+                {{ item.location }}
+              </div>
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="12" md="3" offset-lg="1" v-if="smAndUp">
-          <div class="text-overline text-medium-emphasis">
-            {{ $t("date-and-time") }}
-          </div>
-          <div class="text-body-1">
-            {{ item.date_text }}
-          </div>
-          <template v-if="item.location">
-            <div class="text-overline text-medium-emphasis mt-3">
-              {{ $t("location") }}
-            </div>
-            <div class="text-body-1">{{ item.location }}</div>
-          </template>
-        </v-col>
       </v-row>
+      <div class="d-flex flex-row align-center flex-wrap" v-if="mdAndDown">
+        <v-btn
+          color="grey-lighten-3"
+          flat
+          rounded="0"
+          prepend-icon="mdi-circle-medium"
+          size="small"
+          class="my-2"
+        >
+          <template v-slot:prepend>
+            <v-icon size="large" color="success"></v-icon>
+          </template>
+          {{ $t("registration-open") }}</v-btn
+        >
+        <v-divider vertical class="mx-3" v-if="smAndUp"></v-divider>
+        <v-btn
+          color="grey-lighten-3"
+          flat
+          rounded="0"
+          prepend-icon="mdi-television-play"
+          size="small"
+          class="my-xs-2"
+        >
+          {{ $t("live-stream-available") }}</v-btn
+        >
+      </div>
     </v-col>
-
-    <v-col cols="12" sm="3" :order="smAndUp ? 'last' : 'first'">
-      <v-img
-        :src="item.picture"
-        :alt="item.title"
-        :aspect-ratio="1 / 1"
-        :max-width="mdAndUp ? '250px' : '100%'"
-        cover
-        class="ml-auto"
-        :to="localePath('/activities/events/' + slugify(item.title))"
-      ></v-img> </v-col
-  ></v-row>
-  <v-divider></v-divider>
+    <v-col cols="12" md="3" lg="2" xl="2">
+      <div class="overflow-hidden">
+        <v-img
+          :src="item.picture"
+          :aspect-ratio="1 / 1"
+          cover
+          class="img-animation"
+        >
+        </v-img>
+      </div>
+    </v-col>
+  </v-row>
 </template>
 <script setup lang="ts">
-import slugify from "~/assets/utils/slugify"
-
 import { useDisplay } from "vuetify"
-const { smAndUp, mdAndUp, name } = useDisplay()
-const localePath = useLocalePath()
+const { name, smAndUp, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
+
 const props = defineProps({
   item: {
     type: Object,
     required: true,
   },
+  index: {
+    type: Number,
+    required: true,
+  },
 })
 </script>
-<style lang="scss"></style>
+
+<style lang="scss" scoped>
+// TODO: Add the following styles to the global styles
+.img-animation {
+  transition: all 2s ease-in-out;
+}
+
+.img-animation:hover {
+  transform: scale(1.1);
+}
+</style>

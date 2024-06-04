@@ -527,7 +527,6 @@ export const useRootStore = defineStore("rootStore", {
           .limit(itemsPerPage)
           .find()
       )
-      console.log("done", items)
 
       const viewsObj = (this[type] as ModuleType).list.views
       const defaultViewsKey = Object.keys(viewsObj).find(

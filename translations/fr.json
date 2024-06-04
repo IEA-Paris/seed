@@ -14,7 +14,6 @@
   "privacy": "Politique de confidentialité",
   "invalid-e-mail": "Email invalide",
   "about": "À propos",
-  "events": "Évènements",
   "people": "Personnes",
   "publications": "Publications",
   "videos": "Videos",
@@ -76,5 +75,16 @@
   "people-attending-our-events-since-2011": "Personnes participant à nos événements depuis 2011",
   "invalid-doi-code": "DOI invalide",
   "invalid-date": "Le format de date n'est pas valide",
-  "invalid-orcid": "Votre numéro ORCID n'est pas valide"
+  "invalid-orcid": "Votre numéro ORCID n'est pas valide",
+  "events": {
+    "key": "Évènements",
+    "categories": [
+      "Lecture",
+      "Seminar",
+      "Conference",
+      "Colloquium",
+      "Fellow's presentation"
+    ]
+  },
+  "live-stream-available": "Diffusion en direct disponible"
 }

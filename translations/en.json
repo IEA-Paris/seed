@@ -3,7 +3,6 @@
   "french": "French",
   "english": "English",
   "about": "About",
-  "events": "Events",
   "fellows": "Fellows",
   "institute": "Institute",
   "scientific_policy": "Scientific Policy",
@@ -79,5 +78,16 @@
   "invalid-ror-code": "Invalid ROR identifier syntax",
   "invalid-doi-code": "Invalid DOI",
   "invalid-date": "The date format is invalid",
-  "invalid-orcid": "Your ORCID number is invalid"
+  "invalid-orcid": "Your ORCID number is invalid",
+  "events": {
+    "key": "Events",
+    "categories": [
+      "Lecture",
+      "Seminar",
+      "Conference",
+      "Colloquium",
+      "Fellow's presentation"
+    ]
+  },
+  "live-stream-available": "Live stream available"
 }

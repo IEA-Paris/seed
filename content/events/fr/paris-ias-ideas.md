@@ -2,6 +2,7 @@
 title: Paris IAS Ideas
 date_text: 08 September 2023 - 07 July 2024
 start: 2023-09-08T00:00:00.000Z
+category: 0
 online: true
 summary: Cycle de conférences en ligne, avec la participation des chercheurs en résidence d'écriture
 location: null

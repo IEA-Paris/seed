@@ -1,29 +1,28 @@
 <template>
-  <v-container>
-    {{ "ListViews" + view }}
-    <!--   <ListMoleculesSortMenu :type="type"></ListMoleculesSortMenu> -->
-    <component :is="'ListViews' + view">
-      <component
-        v-for="(item, index) in items"
-        :item="item"
-        :key="index"
-        :is="itemTemplate"
-      ></component>
-    </component>
-    <div class="text-center">
-      <ListMoleculesPagination
-        v-if="numberOfPages > 1"
-        :type="type"
-        color="black"
-        large
-        :current-page="page"
-        :total-pages="numberOfPages"
-        :page-padding="1"
-        :page-gap="2"
-        :hide-prev-next="false"
-      ></ListMoleculesPagination>
-    </div>
-  </v-container>
+  {{ "ListViews" + view }}
+  <!--   <ListMoleculesSortMenu :type="type"></ListMoleculesSortMenu> -->
+  <component :is="'ListViews' + view">
+    <component
+      v-for="(item, index) in items"
+      :item="item"
+      :key="index"
+      :is="itemTemplate"
+      :index="index"
+    ></component>
+  </component>
+  <div class="text-center">
+    <ListMoleculesPagination
+      v-if="numberOfPages > 1"
+      :type="type"
+      color="black"
+      large
+      :current-page="page"
+      :total-pages="numberOfPages"
+      :page-padding="1"
+      :page-gap="2"
+      :hide-prev-next="false"
+    ></ListMoleculesPagination>
+  </div>
 </template>
 <script setup>
 import { useRootStore } from "~/store/root"
