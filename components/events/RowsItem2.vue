@@ -14,7 +14,9 @@
             >
               04</span
             >
-            <span class="text-subtitle-1 text-black">
+            <span
+              class="text-subtitle-2 pt-1 pt-sm-1 pt-md-0 pt-lg-0 pt-xl-0 text-black"
+            >
               Jun <br />
               2024</span
             >
@@ -95,7 +97,7 @@
 
     <v-col cols="12" md="1" lg="1" xl="1"> </v-col>
 
-    <v-col cols="12" lg="2" xl="2" class="hidden-md hidden-sm hidden-xs">
+    <v-col cols="12" lg="2" xl="2" class="hidden-md-and-down">
       <v-card flat class="mx-auto">
         <v-card-item>
           <v-card-title class="text-h6 text-brown-lighten-3">
@@ -138,7 +140,10 @@
 </template>
 <script setup lang="ts">
 import { useDisplay } from "vuetify";
+import { formatDate } from "~/composables/useUtils";
+
 const { smAndUp, mdAndUp, name } = useDisplay();
+
 const localePath = useLocalePath();
 
 const props = defineProps({
@@ -147,11 +152,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-const formatDate = (dateStr: string, locale: string): string => {
-  const date = new Date(dateStr);
-  return date.toLocaleDateString(locale);
-};
 </script>
 
 <style lang="scss" scoped>
