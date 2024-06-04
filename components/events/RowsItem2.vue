@@ -1,7 +1,6 @@
 <template>
   {{ name }}
 
-  <v-container> </v-container>
   <v-row no-gutters>
     <v-col cols="12" md="1" lg="1" xl="1">
       <v-card flat>
@@ -25,7 +24,7 @@
       </v-card>
     </v-col>
 
-    <v-col cols="12" md="6" lg="5" xl="5">
+    <v-col cols="12" md="7" lg="5" xl="5">
       <div class="ml-xl-15 ml-lg-10 ml-md-10">
         <v-card flat class="mx-auto">
           <v-card-item>
@@ -95,7 +94,7 @@
       </div>
     </v-col>
 
-    <v-col cols="12" md="1" lg="1" xl="1"> </v-col>
+    <v-col cols="12" lg="1" xl="1" class="hidden-md"> </v-col>
 
     <v-col cols="12" lg="2" xl="2" class="hidden-md-and-down">
       <v-card flat class="mx-auto">
@@ -142,11 +141,9 @@
 import { useDisplay } from "vuetify";
 import { formatDate } from "~/composables/useUtils";
 
-const { smAndUp, mdAndUp, name } = useDisplay();
+const { name } = useDisplay();
 
-const localePath = useLocalePath();
-
-const props = defineProps({
+defineProps({
   item: {
     type: Object,
     required: true,
