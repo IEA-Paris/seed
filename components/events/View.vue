@@ -1,38 +1,53 @@
 <template>
   {{ name }}
   <v-container>
-    <v-row no-gutters class="d-flex flex-wrap">
-      <v-col xl="3" lg="3" md="3">
-        <nuxt-img
-          :src="
-            data.picture !== null
-              ? data.picture
-              : 'https://www.paris-iea.fr/images/evenements/30395/_thumb3/vignette-generique-site-web-verticale.png'
-          "
-          preload
-          fit="inside"
-          :width="
-            [200, 200, 200, 250, 350, 400][
-              ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name)
-            ]
-          "
+    <v-row no-gutters>
+      <v-col cols="12" xl="3" lg="3" md="3">
+        <v-img
+          :src="data.picture"
+          :aspect-ratio="1 / 1"
+          cover
+          class="img-animation"
         >
-        </nuxt-img>
+        </v-img>
       </v-col>
-      <v-col xl="6" lg="6" md="8">
-        <div class="mt-xl-12 mt-lg-6 mt-md-2 ml-md-6">
-          <div class="text-body-2">
-            {{ data.date_text != null ? data.date_text : "Not defined" }}
-          </div>
-          <div class="font-weight-medium text-h4 mt-xl-12 mt-lg-6 mt-md-3">
-            {{ data.title }}
-          </div>
-          <div class="d-flex mt-xl-12 mt-lg-6 mt-md-3 text-caption">
-            {{ data.bookingState != null ? data.bookingState : "Not defined" }}
-          </div>
 
-          <div class="d-flex align-center mt-xl-12 mt-lg-6 mt-md-3">
-            <div>
+      <v-col
+        cols="12"
+        xl="6"
+        lg="6"
+        md="9"
+        class="d-flex flex-md-column justify-md-end flex-wrap ml-md-10 ml-md-12 ml-md-14"
+      >
+        <v-card flat>
+          <v-card-item>
+            <v-card-title class="text-wrap text-body-1">
+              {{ data.date_text != null ? data.date_text : "Not defined" }}
+            </v-card-title>
+          </v-card-item>
+        </v-card>
+
+        <v-card flat>
+          <v-card-item>
+            <v-card-title class="text-wrap text-h5">
+              {{ data.title }}
+            </v-card-title>
+          </v-card-item>
+        </v-card>
+
+        <v-card flat>
+          <v-card-item>
+            <v-card-title class="text-body-1">
+              {{
+                data.bookingState != null ? data.bookingState : "Not defined"
+              }}
+            </v-card-title>
+          </v-card-item>
+        </v-card>
+
+        <v-card flat class="d-flex">
+          <v-card-item>
+            <v-card-title>
               <v-btn
                 class="text-body-1"
                 rounded
@@ -46,82 +61,69 @@
                 </template>
                 {{ data.title ? "Inscription Ouverte" : "Inscription Ferme" }}
               </v-btn>
-            </div>
+            </v-card-title>
+          </v-card-item>
 
-            <div class="ml-xl-16 ml-lg-10 ml-md-10">
+          <v-card-item>
+            <v-card-title class="text-body-1">
               {{ data.category != null ? data.category : "Not defined" }}
-            </div>
-          </div>
-        </div>
+            </v-card-title>
+          </v-card-item>
+        </v-card>
       </v-col>
-      <v-col xl="3" lg="3" md="1"></v-col>
+      <v-col cols="12" xl="3" lg="3" md="1"></v-col>
     </v-row>
   </v-container>
-  <v-container class="mt-xl-16 mt-lg-4">
+
+  <v-container>
     <v-row no-gutters>
-      <v-col class="d-flex flex-column justify-center" xl="3" lg="3" md="3">
-        <div>
-          <v-sheet
-            class="d-flex flex-column flex-wrap"
-            color="grey-lighten-3"
-            :width="
-              [200, 200, 200, 250, 350, 400][
-                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name)
-              ]
-            "
-          >
-            <div class="pa-xl-8 pa-lg-6 pa-md-6">
+      <v-col
+        class="d-flex flex-column justify-center mt-lg-6"
+        cols="12"
+        xl="3"
+        lg="3"
+        md="3"
+      >
+        <v-img :aspect-ratio="1 / 2" class="bg-grey-lighten-3">
+          <div class="mt-lg-8 ml-lg-8 mt-xl-16 ml-xl-14">
+            <div class="text-body-1">Date et Heure</div>
+            <div>
+              <div>{{ data.start }}</div>
+              <div>{{ data.stop }}</div>
+            </div>
+
+            <div class="text-body-1 mt-lg-8 mt-xl-16">
+              {{ $t("location") }}
+            </div>
+            <div>
+              <div>{{ data.start }}</div>
+              <div>{{ data.location }}</div>
               <div>
-                <div>{{ data.tag === null ? data.tag : "Date et Heure" }}</div>
+                <v-icon class="text-blue-accent-4"
+                  >mdi-chevron-double-right
+                </v-icon>
+                <nuxt-link to="/"> Plus de details </nuxt-link>
+
+                <div>{{ data.stop }}</div>
+                <div>{{ data.location }}</div>
                 <div>
-                  <div>{{ data.start }}</div>
-                  <div>{{ data.stop }}</div>
+                  <v-icon class="text-blue-accent-4"
+                    >mdi-chevron-double-right
+                  </v-icon>
+                  <nuxt-link to="/">Plus de details </nuxt-link>
                 </div>
-              </div>
-
-              <div class="pt-xl-6 pt-lg-4 pt-md-2">
-                <div>{{ $t("location") }}</div>
-                <div>
-                  <div>{{ data.start }}</div>
-                  <div>{{ data.location }}</div>
-                  <div>
-                    <v-icon class="text-blue-accent-4"
-                      >mdi-chevron-double-right
-                    </v-icon>
-                    <a
-                      href="https://www.paris-iea.fr/fr/"
-                      class="text-blue-accent-4"
-                      >{{ data.url === null ? data.url : "Plus de details" }}</a
-                    >
-
-                    <div>{{ data.stop }}</div>
-                    <div>{{ data.location }}</div>
-                    <div>
-                      <v-icon class="text-blue-accent-4"
-                        >mdi-chevron-double-right
-                      </v-icon>
-                      <a
-                        href="https://www.paris-iea.fr/fr/"
-                        class="text-blue-accent-4"
-                        >{{
-                          data.url === null ? data.url : "Plus de details"
-                        }}</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="pt-xl-6 pt-lg-4 pt-md-2">
-                {{
-                  data.tag === null
-                    ? data.tag
-                    : "Inscription gratuite et obligatoire"
-                }}
               </div>
             </div>
-          </v-sheet>
-        </div>
+
+            <div class="mt-lg-8 mt-xl-16">
+              {{
+                data.tag === null
+                  ? data.tag
+                  : "Inscription gratuite et obligatoire"
+              }}
+            </div>
+          </div>
+        </v-img>
 
         <div class="mt-xl-16 mt-lg-12 mt-md-8">
           <v-btn
@@ -136,64 +138,23 @@
           </v-btn>
         </div>
 
-        <div class="mt-xl-16 mt-lg-10 mt-md-7">
-          <!-- <div>{{ data.tag === null ? data.tag : "DOCUMENT(S)" }}</div>
-          <div class="d-flex mt-2">
-            <v-icon> mdi-file-pdf-box</v-icon>
-            <div class="ml-2">
-              {{ data.tag === null ? data.tag : "Le programme (PDF)" }}
-            </div>
-          </div>
-          <div class="d-flex mt-2">
-            <v-icon> mdi-file-pdf-box</v-icon>
-            <div class="ml-2">
-              {{ data.tag === null ? data.tag : "Resumés des présentations" }}
-            </div>
-          </div> -->
-
-          <v-card flat>
-            <v-list>
-              <v-list-subheader>{{
-                data.tag === null ? data.tag : "DOCUMENT(S)"
-              }}</v-list-subheader>
-              <v-list-item v-for="(item, i) in items" :key="i" :value="item">
-                <template v-slot:prepend>
-                  <v-icon :icon="item.icon"></v-icon>
-                </template>
-                <v-list-item-title v-text="item.text"></v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-card>
-        </div>
+        <v-card flat>
+          <v-list>
+            <v-list-subheader>{{
+              data.tag === null ? data.tag : "DOCUMENT(S)"
+            }}</v-list-subheader>
+            <v-list-item v-for="(item, i) in items" :key="i" :value="item">
+              <template v-slot:prepend>
+                <v-icon :icon="item.icon"></v-icon>
+              </template>
+              <v-list-item-title v-text="item.text"></v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-card>
       </v-col>
 
-      <v-col xl="6" lg="6" md="8">
-        <!-- <div class="ml-md-2">
-          <v-card flat>
-            <v-tabs v-model="tab" grow center-active>
-              <v-tab
-                v-for="item in data.items"
-                :key="item"
-                :text="item"
-                :value="item"
-              ></v-tab>
-            </v-tabs> -->
-
-        <!-- <v-tabs-window v-model="tab">
-              <v-tabs-window-item
-                v-for="item in data.items"
-                :key="item"
-                :value="item"
-              >
-                <v-card flat>
-                  <v-card-text>{{ data.text }}</v-card-text>
-                </v-card>
-              </v-tabs-window-item>
-            </v-tabs-window> -->
-        <!-- </v-card>
-        </div> -->
-      </v-col>
-      <v-col xl="3" lg="3" md="1"></v-col>
+      <v-col cols="12" xl="6" lg="6" md="8"> </v-col>
+      <v-col cols="12" xl="3" lg="3" md="1"></v-col>
     </v-row>
   </v-container>
 </template>
@@ -219,9 +180,4 @@ const items = [
 ];
 </script>
 
-<style scoped>
-.custom-border {
-  border: 2px solid #e53935;
-  text-align: center;
-}
-</style>
+<style scoped></style>

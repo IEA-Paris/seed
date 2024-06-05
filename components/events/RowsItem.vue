@@ -5,8 +5,17 @@
     <v-col cols="12" md="8" lg="9" class="px-md-6 mt-6 mt-md-0">
       <v-row no-gutters>
         <v-col cols="12" md="8">
-          <nuxt-link to="/" class="text-h5 text-black text-wrap">
+          <nuxt-link
+            :to="
+              localePath({
+                name: 'activities-events-slug',
+                params: { slug: item._path.split('/').pop() },
+              })
+            "
+            class="text-h5 text-black text-wrap"
+          >
             {{ item.title }}
+            {{ item.slug }}
           </nuxt-link>
           <div class="mt-2 text-h6 text-overline font-weight-black">
             {{ $t("events.categories." + item.category) }}
@@ -103,9 +112,10 @@
   </v-row>
 </template>
 <script setup lang="ts">
-import { useDisplay } from "vuetify"
-const { name, smAndUp, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
+import { useDisplay } from "vuetify";
 
+const { name, smAndUp, mdAndDown, mdAndUp, lgAndUp } = useDisplay();
+const localePath = useLocalePath();
 const props = defineProps({
   item: {
     type: Object,
@@ -115,7 +125,7 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-})
+});
 </script>
 
 <style lang="scss" scoped>
