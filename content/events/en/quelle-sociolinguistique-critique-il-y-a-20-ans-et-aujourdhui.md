@@ -1,14 +1,16 @@
 ---
-title: "Comparative Health Humanities " 
+name: "Comparative Health Humanities" 
+subtitle: "En partenariat avec l’EPHE et le CNRS"
 date_text: 05 - 06 October 2023
 start: 2023-10-05T00:00:00.000Z
+stop: 2023-12-04T00:00:00.000Z
 online: false
 category: 1
-summary: Symposium organized by Céline Lefève, director of the Institute "La personne en médecine", with the support of the Paris Institute for Advanced study
+description: Symposium organized by Céline Lefève, director of the Institute "La personne en médecine", with the support of the Paris Institute for Advanced study
 location: Institut d'études avancées de Paris, 17 quai d'Anjou, 75004, Paris
-picture: https://www.paris-iea.fr/images/evenements/30331/_thumb3/postercomparative-health-humanities-symposium-in-paris1.png
+image: https://www.paris-iea.fr/images/evenements/30331/_thumb3/postercomparative-health-humanities-symposium-in-paris1.png
 type: 3
-
+outside: true
 ---
 
 ****Symposium organized by Céline Lefève**, **director of the Institute "La personne en médecine", sponsored by the Université Paris Cité, the Institute "La Personne en Médecine", the CNRS, the Laboratoire de Recherche sur les Cultures Anglophones, Northeastern University's Health, Humanities, and Society and Humanities Center, and the Critical Health Humanities seminar at Harvard University's Mahindra Humanities Center, with the support of the Paris Institute for Advanced Study.****

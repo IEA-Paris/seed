@@ -21,7 +21,7 @@
             {{ $t("events.categories." + item.category) }}
           </div>
           <p class="text-body-1 text-wrap">
-            {{ item.summary }}
+            {{ item.description }}
           </p>
           <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">
             <v-btn
@@ -101,7 +101,7 @@
     <v-col cols="12" md="3" lg="2" xl="2">
       <div class="overflow-hidden">
         <v-img
-          :src="item.picture"
+          :src="item.image"
           :aspect-ratio="1 / 1"
           cover
           class="img-animation"

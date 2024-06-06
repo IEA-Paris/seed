@@ -1,169 +1,211 @@
 <template>
   {{ name }}
-  <v-container>
-    <v-row no-gutters>
-      <v-col cols="12" xl="3" lg="3" md="3">
-        <v-img
-          :src="data.picture"
-          :aspect-ratio="1 / 1"
-          cover
-          class="img-animation"
-        >
-        </v-img>
-      </v-col>
-
-      <v-col
-        cols="12"
-        xl="6"
-        lg="6"
-        md="9"
-        class="d-flex flex-md-column justify-md-end flex-wrap ml-md-10 ml-md-12 ml-md-14"
+  <v-row>
+    <v-col cols="12" xl="3" lg="3" md="3">
+      <v-img
+        :src="data.image"
+        :aspect-ratio="1 / 1"
+        cover
+        class="img-animation"
       >
-        <v-card flat>
-          <v-card-item>
-            <v-card-title class="text-wrap text-body-1">
-              {{ data.date_text != null ? data.date_text : "Not defined" }}
-            </v-card-title>
-          </v-card-item>
-        </v-card>
+      </v-img>
+    </v-col>
 
-        <v-card flat>
-          <v-card-item>
-            <v-card-title class="text-wrap text-h5">
-              {{ data.title }}
-            </v-card-title>
-          </v-card-item>
-        </v-card>
+    <v-col
+      cols="12"
+      xl="6"
+      lg="6"
+      md="8"
+      class="d-flex flex-md-column justify-md-end flex-wrap"
+    >
+      <div class="text-wrap text-body-1 mb-md-4">
+        {{ data.date_text ?? "Not defined" }}
+      </div>
 
-        <v-card flat>
-          <v-card-item>
-            <v-card-title class="text-body-1">
-              {{
-                data.bookingState != null ? data.bookingState : "Not defined"
-              }}
-            </v-card-title>
-          </v-card-item>
-        </v-card>
+      <div class="text-wrap text-h5 mb-md-4">
+        {{ data.name ?? "Not defined" }}
+      </div>
 
-        <v-card flat class="d-flex">
-          <v-card-item>
-            <v-card-title>
-              <v-btn
-                class="text-body-1"
-                rounded
-                variant="tonal"
-                append-icon="mdi-circle-medium"
-              >
-                <template v-slot:append>
-                  <v-icon class="text-brown-lighten-3">
-                    mdi-circle-medium</v-icon
-                  >
-                </template>
-                {{ data.title ? "Inscription Ouverte" : "Inscription Ferme" }}
-              </v-btn>
-            </v-card-title>
-          </v-card-item>
+      <div class="text-body-1 mb-md-4">
+        {{ data.subtitle ?? "Not defined" }}
+      </div>
 
-          <v-card-item>
-            <v-card-title class="text-body-1">
-              {{ data.category != null ? data.category : "Not defined" }}
-            </v-card-title>
-          </v-card-item>
-        </v-card>
-      </v-col>
-      <v-col cols="12" xl="3" lg="3" md="1"></v-col>
-    </v-row>
-  </v-container>
+      <div class="d-flex">
+        <div class="mr-12">
+          <v-btn
+            class="text-body-1"
+            rounded
+            variant="tonal"
+            append-icon="mdi-circle-medium"
+          >
+            <template v-slot:append>
+              <v-icon class="text-brown-lighten-3"> mdi-circle-medium</v-icon>
+            </template>
+            Inscription Ouverte
+          </v-btn>
+        </div>
 
-  <v-container>
-    <v-row no-gutters>
-      <v-col
-        class="d-flex flex-column justify-center mt-lg-6"
-        cols="12"
-        xl="3"
-        lg="3"
-        md="3"
-      >
-        <v-img :aspect-ratio="1 / 2" class="bg-grey-lighten-3">
-          <div class="mt-lg-8 ml-lg-8 mt-xl-16 ml-xl-14">
-            <div class="text-body-1">Date et Heure</div>
+        <div class="text-body-1">
+          <v-btn variant="text" class="text-body-1">
+            {{ data.category ?? "Not defined" }}
+          </v-btn>
+        </div>
+      </div>
+    </v-col>
+    <v-col cols="12" xl="3" lg="3" md="1"></v-col>
+  </v-row>
+
+  <v-row>
+    <v-col class="d-flex flex-column" cols="12" xl="3" lg="3" md="3">
+      <v-responsive :aspect-ratio="1 / 2" class="bg-grey-lighten-2">
+        <div class="ma-md-4 ma-lg-8">
+          <div class="text-body-1">Date et Heure</div>
+          <div>
+            <div>{{ startDay }}</div>
+            <div>De {{ startTime }}H à {{ stopTime }}H</div>
+            <div>{{ stopDay }}</div>
+            <div>De {{ startTime }}H à {{ stopTime }}H</div>
+          </div>
+
+          <div class="text-body-1 mt-md-4">
+            {{ $t("location") }}
+          </div>
+          <div>
             <div>
-              <div>{{ data.start }}</div>
-              <div>{{ data.stop }}</div>
+              {{ startDay }}
             </div>
+            <div>IEA Paris</div>
+            <iframe
+              title="openstreetmap"
+              width="100%"
+              absolute
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=2.356580793857575%2C48.850586483414915%2C2.361644804477692%2C48.85278204589751&amp;layer=mapnik&amp;marker=48.851684276691216%2C2.359112799167633"
+              @click="
+                router.go(
+                  'https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911'
+                )
+              "
+              @keyup.enter="
+                router.go(
+                  'https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911'
+                )
+              "
+            ></iframe>
 
-            <div class="text-body-1 mt-lg-8 mt-xl-16">
-              {{ $t("location") }}
-            </div>
             <div>
-              <div>{{ data.start }}</div>
-              <div>{{ data.location }}</div>
+              <v-icon class="text-blue-accent-4"
+                >mdi-chevron-double-right
+              </v-icon>
+              <nuxt-link to="/"> Plus de details </nuxt-link>
+
+              <div>{{ stopDay }}</div>
+              <div>IEA Paris</div>
+
+              <iframe
+                title="openstreetmap"
+                width="100%"
+                absolute
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=2.356580793857575%2C48.850586483414915%2C2.361644804477692%2C48.85278204589751&amp;layer=mapnik&amp;marker=48.851684276691216%2C2.359112799167633"
+                @click="
+                  router.go(
+                    'https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911'
+                  )
+                "
+                @keyup.enter="
+                  router.go(
+                    'https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911'
+                  )
+                "
+              ></iframe>
+
               <div>
                 <v-icon class="text-blue-accent-4"
                   >mdi-chevron-double-right
                 </v-icon>
-                <nuxt-link to="/"> Plus de details </nuxt-link>
-
-                <div>{{ data.stop }}</div>
-                <div>{{ data.location }}</div>
-                <div>
-                  <v-icon class="text-blue-accent-4"
-                    >mdi-chevron-double-right
-                  </v-icon>
-                  <nuxt-link to="/">Plus de details </nuxt-link>
-                </div>
+                <nuxt-link to="/">Plus de details </nuxt-link>
               </div>
             </div>
-
-            <div class="mt-lg-8 mt-xl-16">
-              {{
-                data.tag === null
-                  ? data.tag
-                  : "Inscription gratuite et obligatoire"
-              }}
-            </div>
           </div>
-        </v-img>
 
-        <div class="mt-xl-16 mt-lg-12 mt-md-8">
-          <v-btn
-            :width="
-              [200, 200, 200, 250, 350, 400][
-                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name)
-              ]
-            "
-            class="rounded-pill bg-blue-accent-4 text-center"
-          >
-            {{ data.tag === null ? data.tag : "JE M'INSCRIS" }}
-          </v-btn>
+          <div class="mt-md-4">
+            {{ data.tag ?? "Inscription gratuite et obligatoire" }}
+          </div>
         </div>
+      </v-responsive>
 
-        <v-card flat>
-          <v-list>
-            <v-list-subheader>{{
-              data.tag === null ? data.tag : "DOCUMENT(S)"
-            }}</v-list-subheader>
-            <v-list-item v-for="(item, i) in items" :key="i" :value="item">
-              <template v-slot:prepend>
-                <v-icon :icon="item.icon"></v-icon>
-              </template>
-              <v-list-item-title v-text="item.text"></v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-card>
-      </v-col>
+      <!-- <div class="mx-auto mt-8">
+          <v-btn class="rounded-pill bg-blue-accent-4 text-center">
+            {{ data.tag ?? "JE M'INSCRIS" }}
+          </v-btn>
+        </div> -->
 
-      <v-col cols="12" xl="6" lg="6" md="8"> </v-col>
-      <v-col cols="12" xl="3" lg="3" md="1"></v-col>
-    </v-row>
-  </v-container>
+      <v-card flat class="mt-md-4 mt-lg-8 mt-xl-12">
+        <v-list>
+          <v-list-subheader>{{ data.tag ?? "DOCUMENT(S)" }}</v-list-subheader>
+
+          <v-list-item v-for="(item, i) in items" :key="i" :value="item">
+            <template v-slot:prepend>
+              <v-icon :icon="item.icon"></v-icon>
+            </template>
+            <v-list-item-title
+              class="text-wrap"
+              v-text="item.text"
+            ></v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-card>
+    </v-col>
+
+    <v-col cols="12" xl="6" lg="6" md="8">
+      <div>
+        <v-slide-group show-arrows>
+          <v-slide-group-item v-slot="{ isSelected, toggle }">
+            <v-btn
+              flat
+              @click="handleSelection('EventsPresentationItem', toggle)"
+              class="mr-md-8"
+              :color="isSelected ? 'grey-lighten-3' : undefined"
+            >
+              Presentation
+            </v-btn>
+          </v-slide-group-item>
+
+          <v-slide-group-item v-slot="{ isSelected, toggle }">
+            <v-btn
+              flat
+              @click="handleSelection('EventsProgramItem', toggle)"
+              :color="isSelected ? 'grey-lighten-3' : undefined"
+            >
+              Programme
+            </v-btn>
+          </v-slide-group-item>
+        </v-slide-group>
+        <div class="mt-md-4">
+          <component :is="activeComponent" />
+        </div>
+      </div>
+    </v-col>
+    <v-col cols="12" xl="3" lg="3" md="1"></v-col>
+  </v-row>
 </template>
 
 <script lang="ts" setup>
 import { useDisplay } from "vuetify";
+import { getDetailedFormatedDate } from "~/composables/useUtils";
 const { name } = useDisplay();
 const { smAndUp } = useDisplay();
 const localePath = useLocalePath();
+const { router } = useRouter();
+
+const { $i18n } = useNuxtApp();
 
 const props = defineProps({
   data: {
@@ -172,8 +214,32 @@ const props = defineProps({
   },
 });
 
-const itemsValue = ["Presentation", "Programme"];
+const detailedStart = getDetailedFormatedDate(
+  props.data.start,
+  $i18n.locale.value
+);
+const startDay = ref(
+  `${detailedStart.day} ${detailedStart.month} ${detailedStart.year}`
+);
+const startTime = ref(detailedStart.hours);
 
+const detailedStop = getDetailedFormatedDate(
+  props.data.stop,
+  $i18n.locale.value
+);
+const stopDay = ref(
+  `${detailedStop.day} ${detailedStop.month} ${detailedStop.year}`
+);
+const stopTime = ref(detailedStop.hours);
+
+const activeComponent = ref("EventsPresentationItem");
+
+function handleSelection(component: string, toggle: Function) {
+  activeComponent.value = component;
+  toggle();
+}
+
+console.log("detailedStart", detailedStart);
 const items = [
   { text: "Le programme (PDF)", icon: "mdi-file-pdf-box" },
   { text: "Resumés des présentations", icon: "mdi-file-pdf-box" },
