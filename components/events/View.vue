@@ -106,16 +106,8 @@
             marginheight="0"
             marginwidth="0"
             src="https://www.openstreetmap.org/export/embed.html?bbox=2.356580793857575%2C48.850586483414915%2C2.361644804477692%2C48.85278204589751&amp;layer=mapnik&amp;marker=48.851684276691216%2C2.359112799167633"
-            @click="
-              router.go(
-                'https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911'
-              )
-            "
-            @keyup.enter="
-              router.go(
-                'https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911'
-              )
-            "
+            @click="redirectToMap"
+            @keyup.enter="redirectToMap"
           ></iframe
         ></v-responsive>
       </v-responsive>
@@ -153,7 +145,7 @@
               <v-icon class="text-blue-accent-4"
                 >mdi-chevron-double-right
               </v-icon>
-              <nuxt-link to="/"> Plus de details </nuxt-link>
+              <nuxt-link to="/"> {{ $t("details") }}</nuxt-link>
             </div>
           </div>
         </v-col>
@@ -232,16 +224,13 @@ const { name, lgAndUp, mdAndUp, smAndDown } = useDisplay();
 
 const localePath = useLocalePath();
 const { router } = useRouter();
-
 const { $i18n } = useNuxtApp();
-
 const props = defineProps({
   data: {
     type: Object,
     required: true,
   },
 });
-
 const detailedStart = getDetailedFormatedDate(
   props.data.start,
   $i18n.locale.value
@@ -250,33 +239,32 @@ const startDay = ref(
   `${detailedStart.day} ${detailedStart.month} ${detailedStart.year}`
 );
 const startTime = ref(detailedStart.hours);
-
 const detailedStop = getDetailedFormatedDate(
   props.data.stop,
   $i18n.locale.value
 );
-
 const stopTime = ref(detailedStop.hours);
-
 const activeComponent = ref("EventsPresentationItem");
-
 const panel = ref([0, 1]);
-function handleSelection(component: string, toggle: Function) {
-  activeComponent.value = component;
-  toggle();
-}
-
-console.log("detailedStart", detailedStart);
 const items = [
   { text: "Le programme (PDF)", icon: "mdi-file-pdf-box" },
   { text: "Resumés des présentations", icon: "mdi-file-pdf-box" },
 ];
-
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + $i18n.locale.value)
     .limit(1)
     .find()
 );
+
+function redirectToMap() {
+  router.go(
+    "https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911"
+  );
+}
+function handleSelection(component: string, toggle: Function) {
+  activeComponent.value = component;
+  toggle();
+}
 </script>
 
 <style scoped>
