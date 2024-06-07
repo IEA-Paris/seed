@@ -100,6 +100,15 @@
     </v-col>
     <v-col cols="12" md="3" lg="2" xl="2">
       <div class="overflow-hidden">
+        <nuxt-link
+        :to="
+          localePath({
+            name: 'activities-events-slug',
+            params: { slug: item._path.split('/').pop() },
+          })
+        "
+        "
+      >
         <v-img
           :src="item.image"
           :aspect-ratio="1 / 1"
@@ -107,7 +116,9 @@
           class="img-animation"
         >
         </v-img>
+      </nuxt-link>
       </div>
+      
     </v-col>
   </v-row>
 </template>
@@ -126,6 +137,8 @@ const props = defineProps({
     required: true,
   },
 });
+
+console.log("PATH", props.item._path);
 </script>
 
 <style lang="scss" scoped>

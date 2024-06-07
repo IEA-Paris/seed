@@ -1,25 +1,27 @@
 <template>
-  <v-card
-    class="mx-auto d-flex align-center justify-center flex-column"
-    :color="action[0].color || 'white'"
-    v-motion-slide-visible-once-right
-  >
-    <v-img
-      class="w-100"
-      v-if="action[0].picture"
-      :src="action[0].picture"
-      :aspect-ratio="1 / 1"
-      cover
-    ></v-img>
-    <v-card-text class="pa-6">
-      <div class="text-h6 text--primary">{{ action[0].title }}</div>
-    </v-card-text>
-    <v-card-actions>
-      <v-btn :to="action[0].link" class="ml-auto">
-        {{ $t("learn-more") }}
-      </v-btn>
-    </v-card-actions>
-  </v-card>
+  <v-responsive :aspect-ratio="ratio">
+    <v-card
+      class="mx-auto d-flex align-center justify-center flex-column"
+      :color="action[0].color || 'white'"
+      v-motion-slide-visible-once-right
+    >
+      <v-img
+        class="w-100"
+        v-if="action[0].picture"
+        :src="action[0].picture"
+        :aspect-ratio="1 / 1"
+        cover
+      ></v-img>
+      <v-card-text class="pa-6">
+        <div class="text-h6 text--primary">{{ action[0].title }}</div>
+      </v-card-text>
+      <v-card-actions>
+        <v-btn :to="action[0].link" class="ml-auto">
+          {{ $t("learn-more") }}
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-responsive>
 </template>
 <script setup>
 // import { useDisplay } from "vuetify"
@@ -30,6 +32,10 @@ const props = defineProps({
     type: Array,
     required: true,
   },
-})
+  ratio: {
+    type: Number,
+    required: true,
+  },
+});
 </script>
 <style lang="scss"></style>

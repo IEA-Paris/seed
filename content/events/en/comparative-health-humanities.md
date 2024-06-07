@@ -12,14 +12,3 @@ image: null
 outside: true
 type: 2
 ---
-
-
-<!-- Revoir start and stop -->
-<!-- eventDate: [{
-    start: 2023-10-04T00:00:00.000Z
-    stop: 2023-12-04T00:00:00.000Z
-} { 
- start: 2023-10-04T00:00:00.000Z
-    stop: 2023-12-04T00:00:00.000Z
-
-}] -->
