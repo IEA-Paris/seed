@@ -1,5 +1,5 @@
 ---
-name: "Comparative Health Humanities" 
+name_event: "Comparative Health Humanities" 
 subtitle: "En partenariat avec l’EPHE et le CNRS"
 date_text: 05 - 06 October 2023
 start: 2023-10-05T00:00:00.000Z

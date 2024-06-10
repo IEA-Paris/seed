@@ -20,7 +20,7 @@ console.log("STARTING THE STORE");
 const initStore = async () => {
   const modules = {};
   if (process.server) {
-    console.log("opening directory");
+    // console.log("opening directory");
     const dir = fs.opendirSync("./data");
     let file;
     while ((file = dir.readSync()) !== null) {
@@ -29,7 +29,7 @@ const initStore = async () => {
     }
     dir.closeSync();
   }
-  console.log("types: ", types);
+  // console.log("types: ", types);
 
   await Promise.all(
     [/* "people", "fellowship", "project", */ "events" /* , "news" */].map(
@@ -392,7 +392,7 @@ export const useRootStore = defineStore("rootStore", {
     async update(type: string) {
       const lang =
         /* useNuxtApp().$i18n.locale || useNuxtApp().$i18n.fallbackLocale || */ "en";
-      console.log("type: ", type + "/" + lang);
+      // console.log("type: ", type + "/" + lang);
       const target = type + "/" + lang + "/";
       this.setLoading(true);
 
@@ -508,15 +508,15 @@ export const useRootStore = defineStore("rootStore", {
               (this[type] as ModuleType).list.sortDesc ? 1 : -1,
             ]
           : [sortByItem, (this[type] as ModuleType).list.sortDesc ? -1 : 1];
-      console.log("type1: ", type);
-      console.log("pipeline: ", pipeline);
-      console.log("queryContent: ", queryContent);
-      console.log("target: ", target);
-      console.log("{ [sortArray[0]]: sortArray[1] }: ", {
-        [sortArray[0]]: sortArray[1],
-      });
-      console.log("skipNumber(): ", skipNumber());
-      console.log("itemsPerPage: ", itemsPerPage);
+      // console.log("type1: ", type);
+      // console.log("pipeline: ", pipeline);
+      // console.log("queryContent: ", queryContent);
+      // console.log("target: ", target);
+      // console.log("{ [sortArray[0]]: sortArray[1] }: ", {
+      //   [sortArray[0]]: sortArray[1],
+      // });
+      // console.log("skipNumber(): ", skipNumber());
+      // console.log("itemsPerPage: ", itemsPerPage);
 
       const { data: items } = await useAsyncData("items", () =>
         queryContent(target)
@@ -540,7 +540,7 @@ export const useRootStore = defineStore("rootStore", {
       );
       const defaultSort = sortObj[defaultSortKey as string];
 
-      console.log("type b4 route query: ", type);
+      // console.log("type b4 route query: ", type);
 
       // update route
       const query: Record<string, QueryValues> = {
@@ -596,7 +596,7 @@ export const useRootStore = defineStore("rootStore", {
 
       this.setFiltersCount(type);
       this.setBlankFilterLoad(type);
-      console.log("type2: ", type);
+      // console.log("type2: ", type);
       this.setItems({
         type,
         values: { items, total: totalItems, numberOfPages: lastPage },

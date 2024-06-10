@@ -1,5 +1,5 @@
 ---
-name: Paris IAS Ideas
+name_event: Paris IAS Ideas
 date_text: 08 September 2023 - 07 July 2024
 subtitle: "En partenariat avec l’EPHE et le CNRS"
 start: 2023-09-08T00:00:00.000Z

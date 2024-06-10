@@ -1,5 +1,5 @@
 ---
-name: "International panel on social progress: collective intelligence in action" 
+name_event: "International panel on social progress: collective intelligence in action" 
 subtitle: "En partenariat avec l’EPHE et le CNRS"
 date_text: 27-29 September 2023
 start: 2023-09-27T00:00:00.000Z

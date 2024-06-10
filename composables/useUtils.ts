@@ -16,8 +16,6 @@ export const getDetailedFormatedDate = (
   hours: number;
   minutes: number;
 } => {
-  console.log("locale: ", locale);
-  console.log("dateStr: ", dateStr);
   const date = new Date(dateStr);
   return {
     day: date.getDay(),

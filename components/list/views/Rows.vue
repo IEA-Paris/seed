@@ -2,14 +2,14 @@
   <v-row>
     <slot>
       <!-- fallback content -->
-      Rows view
+      <!-- Rows view -->
     </slot>
   </v-row>
 </template>
 
 <script setup lang="ts">
 /* const { signIn } = useSession() */
-onMounted(() => {
-  console.log("loading rows")
-})
+// onMounted(() => {
+// console.log("loading rows");
+// });
 </script>

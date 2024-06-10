@@ -5,10 +5,13 @@ export default defineNuxtConfig({
     server: true,
     client: true,
   },
+
   ssr: true,
+
   site: {
     url: "https://paris-iea.fr",
   },
+
   app: {
     pageTransition: { name: "page", mode: "out-in" },
     head: {
@@ -43,14 +46,17 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   css: [
     "vuetify/lib/styles/main.sass",
     "@mdi/font/css/materialdesignicons.min.css",
     "@/assets/styles/main.scss",
   ],
+
   build: {
     transpile: ["vuetify"],
   },
+
   vite: {
     define: {
       "process.env.DEBUG": false,
@@ -66,6 +72,7 @@ export default defineNuxtConfig({
       target: "esnext", //browsers can handle the latest ES features
     },
   },
+
   modules: [
     "@pinia/nuxt",
     "@nuxt/content",
@@ -85,22 +92,27 @@ export default defineNuxtConfig({
     "@vueuse/motion/nuxt",
     "@nuxt/test-utils/module", //https://nuxt.com/docs/getting-started/testing
   ],
+
   pinia: {
     autoImports: ["defineStore", ["defineStore", "definePiniaStore"]],
   },
+
   content: {
     // https://content.nuxtjs.org/api/configuration
     experimental: {
       clientDB: true,
     },
   },
+
   image: {
     // https://image.nuxt.com/get-started/configuration
   },
+
   components: {
     global: true,
     dirs: ["~/components"],
   },
+
   i18n: {
     langDir: "translations/",
     locales: config.lang.locales,
@@ -143,13 +155,16 @@ export default defineNuxtConfig({
     }, */,
     // https://v8.i18n.nuxtjs.org/options/vue-i18n
   },
+
   pwa: {
     //https://vite-pwa-org.netlify.app/frameworks/nuxt.html
     /* PWA options */
   },
+
   robots: {
     // https://nuxt.com/modules/robots#options
   },
+
   googleFonts: {
     // https://google-fonts.nuxtjs.org/getting-started/options
     families: config.modules.fonts.families,
@@ -157,10 +172,12 @@ export default defineNuxtConfig({
     prefetch: true,
     display: "swap",
   },
+
   apollo: {
     // https://apollo.nuxtjs.org/getting-started/configuration
     clients: { default: { httpEndpoint: "https://api.spacex.land/graphql" } },
   },
+
   htmlValidator: {
     usePrettier: false,
     logLevel: "verbose",
@@ -185,5 +202,9 @@ export default defineNuxtConfig({
         "no-inline-style": "off",
       },
     },
+  },
+
+  devtools: {
+    enabled: true,
   },
 });

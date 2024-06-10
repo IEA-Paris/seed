@@ -217,13 +217,15 @@
   </v-row>
 </template>
 
-<script lang="ts" setup>
+<script setup>
+import { I18n} from 'vue-i18n';
 import { useDisplay } from "vuetify";
 import { getDetailedFormatedDate } from "~/composables/useUtils";
 const { name, lgAndUp, mdAndUp, smAndDown } = useDisplay();
-
 const localePath = useLocalePath();
+
 const { router } = useRouter();
+const { locale } = useI18n()
 const { $i18n } = useNuxtApp();
 const props = defineProps({
   data: {
@@ -231,10 +233,11 @@ const props = defineProps({
     required: true,
   },
 });
+
 const detailedStart = getDetailedFormatedDate(
-  props.data.start,
-  $i18n.locale.value
+  props.data.start, $i18n.locale.value
 );
+console.log("DETAILED START", detailedStart);
 const startDay = ref(
   `${detailedStart.day} ${detailedStart.month} ${detailedStart.year}`
 );
@@ -244,6 +247,7 @@ const detailedStop = getDetailedFormatedDate(
   $i18n.locale.value
 );
 const stopTime = ref(detailedStop.hours);
+
 const activeComponent = ref("EventsPresentationItem");
 const panel = ref([0, 1]);
 const items = [
@@ -256,12 +260,13 @@ const { data: action } = await useAsyncData("actions", () =>
     .find()
 );
 
+console.log('ACTION',action);
 function redirectToMap() {
-  router.go(
-    "https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911"
+  router.push(
+    `https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911`
   );
 }
-function handleSelection(component: string, toggle: Function) {
+function handleSelection(component, toggle) {
   activeComponent.value = component;
   toggle();
 }

@@ -1,5 +1,5 @@
 ---
-name: "Quelle sociolinguistique critique, il y a 20 ans et aujourd’hui?"
+name_event: "Quelle sociolinguistique critique, il y a 20 ans et aujourd’hui?"
 subtitle: "En partenariat avec l’EPHE et le CNRS"
 date_text: 04 October 2023
 start: 2023-10-04T00:00:00.000Z

@@ -57,7 +57,8 @@
               </div>
               <div class="text-body-1">
                 {{ item.date_text }} <br />
-                {{ formatDate(item.start, "fr-FR") }}
+                {{ startTime }}
+                
               </div>
             </v-col>
             <v-col cols="12" class="my-6" v-if="item.location">
@@ -122,11 +123,12 @@
     </v-col>
   </v-row>
 </template>
-<script setup lang="ts">
+<script setup>
 import { useDisplay } from "vuetify";
-
+import { getDetailedFormatedDate } from "~/composables/useUtils";
 const { name, smAndUp, mdAndDown, mdAndUp, lgAndUp } = useDisplay();
 const localePath = useLocalePath();
+const { $i18n } = useNuxtApp();
 const props = defineProps({
   item: {
     type: Object,
@@ -138,7 +140,14 @@ const props = defineProps({
   },
 });
 
-console.log("PATH", props.item._path);
+const detailedStart = getDetailedFormatedDate(
+  props.item.start,
+  $i18n.locale.value
+);
+
+const startTime = ref(detailedStart.hours);
+
+// console.log("PATH", props.item._path);
 </script>
 
 <style lang="scss" scoped>

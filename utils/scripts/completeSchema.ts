@@ -6,7 +6,7 @@ export default async (
   for await (const key of Object.keys(schema)) {
     // is it a template?
     if (schema[key] && schema[key]?.type === 3) {
-      console.log("importing template: ", key);
+      // console.log("importing template: ", key);
       const templateState = configData[key].form;
       configData;
       schema[key].items = templateState;

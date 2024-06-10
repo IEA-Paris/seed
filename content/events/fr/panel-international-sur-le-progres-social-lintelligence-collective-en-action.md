@@ -1,5 +1,5 @@
 ---
-name: "Panel international sur le progrès social : l'intelligence collective en action " 
+name_event: "Panel international sur le progrès social : l'intelligence collective en action " 
 date_text: 27-29 September 2023
 start: 2023-09-27T00:00:00.000Z
 stop: 2023-12-04T00:00:00.000Z

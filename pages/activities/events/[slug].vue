@@ -21,5 +21,5 @@ const { data } = await useAsyncData(
 );
 
 const value = data._rawValue;
-console.log("DATATA", value);
+// console.log("DATATA", value);
 </script>
