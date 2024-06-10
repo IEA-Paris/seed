@@ -150,7 +150,7 @@
           </div>
         </v-col>
         <v-col cols="6">
-          <v-responsive :aspect-ratio="1 / 1" class="bg-grey-lighten-2">
+          <v-responsive :aspect-ratio="1 / 1"">
             <v-img
               :src="data.image"
               :aspect-ratio="1 / 1"
