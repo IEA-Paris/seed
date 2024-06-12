@@ -6,12 +6,14 @@ stop: 2023-12-04T00:00:00.000Z
 online: false
 category: 1
 description: "Meeting organisé par la fondation RFIEA et l'IEA de Paris, avec le soutien de l'European Climate Foundation, du CNRS, de Paris School of Economics, de Cornell University, de la FMSH et du Laboratoire d'excellence RFIEA+"
-image: https://www.paris-iea.fr/images/evenements/30330/_thumb3/visuel-ipsp-rfiea.jpg
+image:  https://www.paris-iea.fr/images/videos/30410/_thumb3/siteverdun-image-alan-james.jpg
 location: Institut d'études avancées de Paris, 17 quai d'Anjou, 75004, Paris
 type: 1
 outside: true
 label: ["Presentation", Programme]
-presentation: "The Symposium gathers prominent scholars from the US and France to examine what we can learn about the field across political, social, cultural, and linguistic contexts. Speakers will translation/untranslatability, and health humanities and the health professions. We aim not only to surface differences but to develop a new model for thinking about the health humanities comparatively."
+presentation: "Le symposium réunit d'éminents chercheurs des États-Unis et de France pour examiner ce que nous pouvons apprendre sur ce domaine dans des contextes politiques, sociaux, culturels et linguistiques différents. Les orateurs parleront de la traduction et de l'intraduisibilité, des sciences humaines de la santé et des professions de la santé. Notre objectif n'est pas seulement de mettre en évidence les différences, mais aussi de développer un nouveau modèle de réflexion comparative sur les sciences humaines de la santé.
+
+Traduit avec DeepL.com (version gratuite)"
 programme: "**Septembre 2023**
 **vendredi 8 septembre
 **

@@ -10,7 +10,6 @@ description: Conférence de Monica Heller, organisée par James Costa, professeu
 image: null
 location: Institut d'études avancées de Paris, 17 quai d'Anjou, 75004, Paris
 type: 3
-label: ["Presentation", Programme]
 presentation: null
 programme: null
 ---

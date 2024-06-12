@@ -66,7 +66,7 @@
       md="3"
       v-if="mdAndUp"
     >
-      <v-responsive :aspect-ratio="1 / 2" class="bg-grey-lighten-2">
+      <div class="bg-grey-lighten-2">
         <div class="ma-md-4 ma-lg-8">
           <div class="text-body-1">{{ $t("date-et-heure") }}</div>
           <div>
@@ -110,13 +110,13 @@
             @keyup.enter="redirectToMap(2.35911, 48.85168)"
           ></iframe
         ></v-responsive>
-      </v-responsive>
+      </div>
 
       <v-card flat class="mt-md-4 mt-lg-8 mt-xl-12">
         <v-list>
           <v-list-subheader>{{ $t("document") }}</v-list-subheader>
 
-          <v-list-item v-for="(item, i) in items" :key="i" :value="item">
+          <v-list-item v-for="(item, i) in items1" :key="i" :value="item">
             <template v-slot:prepend>
               <v-icon :icon="item.icon"></v-icon>
             </template>
@@ -125,6 +125,16 @@
               v-text="item.text"
             ></v-list-item-title>
           </v-list-item>
+
+          <!-- <v-list-item>
+            <template v-slot:prepend>
+              <v-icon :icon="mdi - file - pdf - box"></v-icon>
+            </template>
+            <v-list-item-title
+              class="text-wrap"
+              v-text="$t('programme-pdf')"
+            ></v-list-item-title>
+          </v-list-item> -->
         </v-list>
       </v-card>
     </v-col>
@@ -196,29 +206,51 @@
       <div v-if="mdAndUp">
         <v-sheet>
           <v-tabs v-model="tab" bg-color="transparent" grow>
-            <v-tab
-              v-for="item in items"
-              :key="item.header"
-              :text="item.header"
-              :value="item.header"
-            ></v-tab>
+            <v-tab>
+              {{ $t("presentation") }}
+            </v-tab>
+
+            <v-tab>
+              {{ $t("programme") }}
+            </v-tab>
           </v-tabs>
 
           <v-tabs-window v-model="tab">
-            <v-tabs-window-item
-              v-for="item in items"
-              :key="item.header"
-              :value="item.header"
-            >
+            <v-tabs-window-item>
               <v-sheet mt-md-4>
-                {{ item.content }}
+                {{ items[0].content }}
+              </v-sheet>
+            </v-tabs-window-item>
+            <v-tabs-window-item>
+              <v-sheet mt-md-4>
+                {{ items[1].content }}
               </v-sheet>
             </v-tabs-window-item>
           </v-tabs-window>
         </v-sheet>
       </div>
 
-      <div v-if="smAndDown"></div>
+      <div v-if="smAndDown">
+        <v-expansion-panels>
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              {{ $t("presentation") }}</v-expansion-panel-title
+            >
+            <v-expansion-panel-text>
+              {{ items[0].content }}
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              {{ $t("programme") }}</v-expansion-panel-title
+            >
+            <v-expansion-panel-text>
+              {{ items[1].content }}</v-expansion-panel-text
+            >
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </div>
     </v-col>
     <v-col cols="12" xl="3" lg="3" v-if="lgAndUp" class="d-flex">
       <ActionsSmallContainer
@@ -257,10 +289,10 @@ const detailedStop = getDetailedFormatedDate(
 )
 const stopTime = ref(detailedStop.hours)
 
-// const items = [
-//   { text: "Le programme (PDF)", icon: "mdi-file-pdf-box" },
-//   { text: "Resumés des présentations", icon: "mdi-file-pdf-box" },
-// ]
+const items1 = [
+  { text: "Le programme (PDF)", icon: "mdi-file-pdf-box" },
+  { text: "Resumés des présentations", icon: "mdi-file-pdf-box" },
+]
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + $i18n.locale.value)
     .limit(1)
@@ -275,15 +307,13 @@ function redirectToMap(long, lat) {
 
 const dataValue = [
   {
-    header: props.data.label[0],
     content: props.data.presentation,
   },
   {
-    header: props.data.label[1],
     content: props.data.programme,
   },
 ]
-const tab = ref(dataValue[0].header)
+const tab = ref(null)
 const items = ref(dataValue)
 </script>
 

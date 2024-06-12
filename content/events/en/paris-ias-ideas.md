@@ -11,7 +11,6 @@ location: null
 image: https://www.paris-iea.fr/images/evenements/30395/_thumb3/vignette-generique-site-web-verticale.png
 outside: true
 type: 1
-label: ["Presentation", Programme]
 presentation: null
 programme: null
 ---

@@ -11,7 +11,6 @@ image: https://www.paris-iea.fr/images/videos/30410/_thumb3/siteverdun-image-ala
 location: Institut d'études avancées de Paris, 17 quai d'Anjou, 75004, Paris
 type: 1
 outside: true
-label: ["Presentation", Programme ] 
 presentation: "The Symposium gathers prominent scholars from the US and France to examine what we can learn about the field across political, social, cultural, and linguistic contexts. Speakers will translation/untranslatability, and health humanities and the health professions. We aim not only to surface differences but to develop a new model for thinking about the health humanities comparatively."
 programme: "**Septembre 2023**
 **vendredi 8 septembre

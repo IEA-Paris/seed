@@ -43,7 +43,7 @@
     "nuxt-csurf": "^1.3.1",
     "nuxt-swiper": "^1.2.2",
     "sass": "^1.58.0",
-    "vuetify": "3.6.8"
+    "vuetify": "3.6.9"
   },
   "resolutions": {
     "string-width": "4.2.3"

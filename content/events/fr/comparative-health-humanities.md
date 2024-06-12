@@ -11,7 +11,6 @@ location: Institut d'études avancées de Paris, 17 quai d'Anjou, 75004, Paris
 image: https://www.paris-iea.fr/images/evenements/30331/_thumb3/postercomparative-health-humanities-symposium-in-paris1.png
 type: 2
 outside: true
-label: ["Presentation", Programme]
 presentation: null
 programme: null
 ---
