@@ -122,7 +122,7 @@
     </v-col>
   </v-row>
 </template>
-<script setup lang="ts">
+<script setup>
 import { useDisplay } from "vuetify";
 
 const { name, smAndUp, mdAndDown, mdAndUp, lgAndUp } = useDisplay();

@@ -11811,7 +11811,7 @@ __metadata:
     playwright-core: "npm:^1.44.0"
     sass: "npm:^1.58.0"
     vitest: "npm:^1.6.0"
-    vuetify: "npm:3.3.15"
+    vuetify: "npm:3.6.8"
   languageName: unknown
   linkType: soft
 
@@ -14061,15 +14061,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuetify@npm:3.3.15":
-  version: 3.3.15
-  resolution: "vuetify@npm:3.3.15"
+"vuetify@npm:3.6.8":
+  version: 3.6.8
+  resolution: "vuetify@npm:3.6.8"
   peerDependencies:
     typescript: ">=4.7"
-    vite-plugin-vuetify: ^1.0.0-alpha.12
-    vue: ^3.2.0
+    vite-plugin-vuetify: ">=1.0.0"
+    vue: ^3.3.0
     vue-i18n: ^9.0.0
-    webpack-plugin-vuetify: ^2.0.0-alpha.11
+    webpack-plugin-vuetify: ">=2.0.0"
   peerDependenciesMeta:
     typescript:
       optional: true
@@ -14079,7 +14079,7 @@ __metadata:
       optional: true
     webpack-plugin-vuetify:
       optional: true
-  checksum: 10c0/2496aa7ec50eef050bc333587cbee5f6de044e8ee311de3a7f1324f00189e69187f92b1606031f4a42f50d71fbd6ac0db6bcf55e42569a3e4a035e3d2940f84a
+  checksum: 10c0/6e1bc96eb78bcee4beda38be34abacdd701148006b6014bc524ffc3996926ff9b05c7f69f198c3c8e6e8df5c0ef481ab9df48739d2fe094f4da273cdd6cb41a2
   languageName: node
   linkType: hard
 

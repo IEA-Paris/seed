@@ -11,4 +11,7 @@ location: Institut d'études avancées de Paris, 17 quai d'Anjou, 75004, Paris
 image: null
 outside: true
 type: 2
+label: ["Presentation", Programme]
+presentation: null
+programme: null
 ---
