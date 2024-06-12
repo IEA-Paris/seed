@@ -125,16 +125,6 @@
               v-text="item.text"
             ></v-list-item-title>
           </v-list-item>
-
-          <!-- <v-list-item>
-            <template v-slot:prepend>
-              <v-icon :icon="mdi - file - pdf - box"></v-icon>
-            </template>
-            <v-list-item-title
-              class="text-wrap"
-              v-text="$t('programme-pdf')"
-            ></v-list-item-title>
-          </v-list-item> -->
         </v-list>
       </v-card>
     </v-col>
@@ -262,6 +252,7 @@
 </template>
 
 <script setup>
+const { t } = useI18n()
 import { useDisplay } from "vuetify"
 import { getDetailedFormatedDate } from "~/composables/useUtils"
 const { name, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
@@ -290,8 +281,8 @@ const detailedStop = getDetailedFormatedDate(
 const stopTime = ref(detailedStop.hours)
 
 const items1 = [
-  { text: "Le programme (PDF)", icon: "mdi-file-pdf-box" },
-  { text: "Resumés des présentations", icon: "mdi-file-pdf-box" },
+  { text: t("programme-pdf"), icon: "mdi-file-pdf-box" },
+  { text: t("resumes-des-presentations"), icon: "mdi-file-pdf-box" },
 ]
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + $i18n.locale.value)
