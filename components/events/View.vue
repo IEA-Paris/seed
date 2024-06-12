@@ -20,44 +20,46 @@
       md="9"
       class="d-flex flex-sm-column flex-md-column justify-md-end flex-wrap"
     >
-      <div class="text-wrap text-body-1 mb-md-4 mb-sm-2 mb-xs-2">
-        {{ data.date_text }}
-      </div>
-
-      <div class="text-wrap text-h5 mb-xs-2 mb-sm-2 mb-md-4">
-        {{ data.name }}
-      </div>
-
-      <div class="text-body-1 mb-md-4 mb-sm-3 mb-xs-2">
-        {{ data.subtitle }}
-      </div>
-
-      <div class="d-flex">
-        <div class="mr-12">
-          <v-btn
-            class="text-body-1"
-            rounded
-            variant="tonal"
-            append-icon="mdi-circle-medium"
-          >
-            <template v-slot:append>
-              <v-icon class="text-brown-lighten-3"> mdi-circle-medium</v-icon>
-            </template>
-            {{ $t("inscription-ouverte") }}
-          </v-btn>
+      <div class="ml-2 ml-sm-4 ml-md-8 ml-lg-10 ml-xl-12">
+        <div class="text-wrap text-body-1 mb-2 mb-sm-2 mb-md-4">
+          {{ data.date_text }}
         </div>
 
-        <div class="text-body-1">
-          <v-btn variant="text" class="text-body-1">
-            {{ data.category }}
-          </v-btn>
+        <div class="text-wrap text-h5 mb-3 mb-sm-2 mb-md-4">
+          {{ data.name }}
+        </div>
+
+        <div class="text-body-1 mb-4 mb-sm-3 mb-md-4">
+          {{ data.subtitle }}
+        </div>
+
+        <div class="d-flex">
+          <div>
+            <v-btn
+              class="text-body-1"
+              rounded
+              variant="tonal"
+              append-icon="mdi-circle-medium"
+            >
+              <template v-slot:append>
+                <v-icon class="text-brown-lighten-3"> mdi-circle-medium</v-icon>
+              </template>
+              {{ $t("inscription-ouverte") }}
+            </v-btn>
+          </div>
+
+          <div class="text-body-1">
+            <v-btn variant="text" class="text-body-1">
+              {{ data.category }}
+            </v-btn>
+          </div>
         </div>
       </div>
     </v-col>
     <v-col cols="12" lg="3" v-if="lgAndUp"> </v-col>
   </v-row>
 
-  <v-row>
+  <v-row class="mt-md-8 mt-lg-10 mt-xl-12">
     <v-col
       class="d-flex flex-column"
       cols="12"
@@ -112,9 +114,11 @@
         ></v-responsive>
       </div>
 
-      <v-card flat class="mt-md-4 mt-lg-8 mt-xl-12">
+      <v-sheet class="mt-md-8 mt-lg-10 mt-xl-12">
         <v-list>
-          <v-list-subheader>{{ $t("document") }}</v-list-subheader>
+          <v-list-subheader class="text-body-1">{{
+            $t("document")
+          }}</v-list-subheader>
 
           <v-list-item v-for="(item, i) in items1" :key="i" :value="item">
             <template v-slot:prepend>
@@ -126,11 +130,11 @@
             ></v-list-item-title>
           </v-list-item>
         </v-list>
-      </v-card>
+      </v-sheet>
     </v-col>
 
     <v-col class="d-flex flex-row" cols="12" v-if="sm">
-      <v-row>
+      <v-row class="ml-sm-1">
         <v-col cols="6">
           <v-responsive :aspect-ratio="1 / 1" class="bg-grey-lighten-2">
             <v-img
@@ -163,7 +167,7 @@
       </v-row>
     </v-col>
 
-    <v-col cols="12" v-if="xs">
+    <v-col class="ml-2" cols="12" v-if="xs">
       <v-responsive :aspect-ratio="1 / 1" class="bg-grey-lighten-2">
         <v-img
           :src="data.image"
@@ -175,7 +179,7 @@
       </v-responsive>
     </v-col>
 
-    <v-col cols="12" v-if="xs">
+    <v-col class="ml-2" cols="12" v-if="xs">
       <div class="text-body-1">
         {{ $t("location") }}
       </div>
@@ -193,7 +197,7 @@
     </v-col>
 
     <v-col cols="12" xl="6" lg="6" md="8">
-      <div v-if="mdAndUp">
+      <div class="ml-md-8 ml-lg-10 ml-xl-12" v-if="mdAndUp">
         <v-sheet>
           <v-tabs v-model="tab" bg-color="transparent" grow>
             <v-tab>
@@ -220,7 +224,7 @@
         </v-sheet>
       </div>
 
-      <div v-if="smAndDown">
+      <div class="ml-2 ml-sm-4" v-if="smAndDown">
         <v-expansion-panels>
           <v-expansion-panel>
             <v-expansion-panel-title>
