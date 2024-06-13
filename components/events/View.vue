@@ -1,10 +1,10 @@
 <template>
   {{ name }}
   <v-row>
-    <v-col cols="12" xl="3" lg="3" md="3" v-if="mdAndUp">
+    <v-col cols="12" lg="3" md="3" v-if="mdAndUp">
       <div class="overflow-hidden">
         <v-img
-          :src="data.image"
+          :src="item.image"
           :aspect-ratio="1 / 1"
           cover
           class="img-animation"
@@ -15,44 +15,28 @@
 
     <v-col
       cols="12"
-      xl="6"
       lg="6"
       md="9"
       class="d-flex flex-sm-column flex-md-column justify-md-end flex-wrap"
     >
       <div class="ml-2 ml-sm-4 ml-md-8 ml-lg-10 ml-xl-12">
-        <div class="text-wrap text-body-1 mb-2 mb-sm-2 mb-md-4">
-          {{ data.date_text }}
+        <div
+          class="text-wrap text-body-1 mb-2 mb-sm-2 mb-md-4 font-weight-bold"
+        >
+          {{ item.date_text }} -
+          {{ $t("events.categories." + item.category) }}
         </div>
 
-        <div class="text-wrap text-h5 mb-3 mb-sm-2 mb-md-4">
-          {{ data.name }}
+        <div class="text-wrap text-h4 mb-3 mb-sm-2 mb-md-4">
+          {{ item.name }}
         </div>
 
         <div class="text-body-1 mb-4 mb-sm-3 mb-md-4">
-          {{ data.subtitle }}
+          {{ item.subtitle }}
         </div>
 
         <div class="d-flex">
-          <div>
-            <v-btn
-              class="text-body-1"
-              rounded
-              variant="tonal"
-              append-icon="mdi-circle-medium"
-            >
-              <template v-slot:append>
-                <v-icon class="text-brown-lighten-3"> mdi-circle-medium</v-icon>
-              </template>
-              {{ $t("inscription-ouverte") }}
-            </v-btn>
-          </div>
-
-          <div class="text-body-1">
-            <v-btn variant="text" class="text-body-1">
-              {{ data.category }}
-            </v-btn>
-          </div>
+          <EventsRegisterModal :item="item"></EventsRegisterModal>
         </div>
       </div>
     </v-col>
@@ -70,28 +54,7 @@
     >
       <div class="bg-grey-lighten-2">
         <div class="ma-md-4 ma-lg-8">
-          <div class="text-body-1">{{ $t("date-et-heure") }}</div>
-          <div>
-            <div>{{ startDay }}</div>
-            <div>{{ startTime }} - {{ stopTime }}</div>
-          </div>
-
-          <div class="text-body-1 mt-md-4">
-            {{ $t("location") }}
-          </div>
-          <div>
-            <div>
-              {{ startDay }}
-            </div>
-            <div>{{ data.location }}</div>
-
-            <div>
-              <v-icon class="text-blue-accent-4"
-                >mdi-chevron-double-right
-              </v-icon>
-              <nuxt-link to="/"> {{ $t("details") }} </nuxt-link>
-            </div>
-          </div>
+          <EventsDateTimePlace :item="item"></EventsDateTimePlace>
 
           <div class="mt-md-4">
             {{ $t("inscription-gratuite-et-obligatoire") }}
@@ -116,17 +79,22 @@
 
       <v-sheet class="mt-md-8 mt-lg-10 mt-xl-12">
         <v-list>
-          <v-list-subheader class="text-body-1">{{
+          <v-list-subheader class="text-overline font-weight-bold">{{
             $t("document")
           }}</v-list-subheader>
 
-          <v-list-item v-for="(item, i) in items1" :key="i" :value="item">
+          <v-list-item
+            v-for="(file, i) in item.files"
+            :key="i"
+            :value="file"
+            v-if="item.files && item.files.length"
+          >
             <template v-slot:prepend>
-              <v-icon :icon="item.icon"></v-icon>
+              <v-icon v-if="mdAndUp" :icon="getFileIcon(file.url)"></v-icon>
             </template>
             <v-list-item-title
               class="text-wrap"
-              v-text="item.text"
+              v-text="file.name"
             ></v-list-item-title>
           </v-list-item>
         </v-list>
@@ -138,7 +106,7 @@
         <v-col cols="6">
           <v-responsive :aspect-ratio="1 / 1" class="bg-grey-lighten-2">
             <v-img
-              :src="data.image"
+              :src="item.image"
               :aspect-ratio="1 / 1"
               cover
               class="img-animation"
@@ -147,22 +115,7 @@
           </v-responsive>
         </v-col>
         <v-col cols="6">
-          <div class="text-body-1">
-            {{ $t("location") }}
-          </div>
-          <div>
-            <div>
-              {{ startDay }}
-            </div>
-            <div>{{ data.location }}</div>
-
-            <div>
-              <v-icon class="text-blue-accent-4"
-                >mdi-chevron-double-right
-              </v-icon>
-              <nuxt-link to="/"> {{ $t("details") }}</nuxt-link>
-            </div>
-          </div>
+          <EventsDateTimePlace :item="item"></EventsDateTimePlace>
         </v-col>
       </v-row>
     </v-col>
@@ -170,7 +123,7 @@
     <v-col class="ml-2" cols="12" v-if="xs">
       <v-responsive :aspect-ratio="1 / 1" class="bg-grey-lighten-2">
         <v-img
-          :src="data.image"
+          :src="item.image"
           :aspect-ratio="1 / 1"
           cover
           class="img-animation"
@@ -180,26 +133,13 @@
     </v-col>
 
     <v-col class="ml-2" cols="12" v-if="xs">
-      <div class="text-body-1">
-        {{ $t("location") }}
-      </div>
-      <div>
-        <div>
-          {{ startDay }}
-        </div>
-        <div>{{ data.location }}</div>
-
-        <div>
-          <v-icon class="text-blue-accent-4">mdi-chevron-double-right </v-icon>
-          <nuxt-link to="/"> {{ $t("details") }}</nuxt-link>
-        </div>
-      </div>
+      <EventsDateTimePlace :item="item"></EventsDateTimePlace>
     </v-col>
 
     <v-col cols="12" xl="6" lg="6" md="8">
       <div class="ml-md-8 ml-lg-10 ml-xl-12" v-if="mdAndUp">
         <v-sheet>
-          <v-tabs v-model="tab" bg-color="transparent" grow>
+          <v-tabs v-model="panel" bg-color="transparent" grow>
             <v-tab>
               {{ $t("presentation") }}
             </v-tab>
@@ -209,39 +149,44 @@
             </v-tab>
           </v-tabs>
 
-          <v-tabs-window v-model="tab">
+          <v-tabs-window v-model="panel">
             <v-tabs-window-item>
-              <v-sheet mt-md-4>
-                {{ items[0].content }}
+              <v-sheet class="my-6">
+                {{ item.description }}
               </v-sheet>
             </v-tabs-window-item>
             <v-tabs-window-item>
-              <v-sheet mt-md-4>
-                {{ items[1].content }}
+              <v-sheet class="my-6">
+                <ContentRenderer
+                  ><ContentRendererMarkdown
+                    :value="item"
+                  ></ContentRendererMarkdown>
+                </ContentRenderer>
               </v-sheet>
             </v-tabs-window-item>
           </v-tabs-window>
         </v-sheet>
       </div>
 
-      <div class="ml-2 ml-sm-4" v-if="smAndDown">
-        <v-expansion-panels>
-          <v-expansion-panel>
-            <v-expansion-panel-title>
-              {{ $t("presentation") }}</v-expansion-panel-title
-            >
+      <div class="" v-if="smAndDown">
+        <v-expansion-panels v-model="panel" ripple elevation="0">
+          <v-expansion-panel
+            :text="item.description"
+            :title="$t('presentation')"
+            value="presentation"
+          ></v-expansion-panel>
+
+          <v-expansion-panel :title="$t('programme')" value="program">
             <v-expansion-panel-text>
-              {{ items[0].content }}
-            </v-expansion-panel-text>
+              <ContentRenderer
+                ><ContentRendererMarkdown
+                  :value="item"
+                ></ContentRendererMarkdown> </ContentRenderer
+            ></v-expansion-panel-text>
           </v-expansion-panel>
 
-          <v-expansion-panel>
-            <v-expansion-panel-title>
-              {{ $t("programme") }}</v-expansion-panel-title
-            >
-            <v-expansion-panel-text>
-              {{ items[1].content }}</v-expansion-panel-text
-            >
+          <v-expansion-panel :title="$t('details-0')" value="details">
+            <v-expansion-panel-text> Details content</v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
       </div>
@@ -256,38 +201,23 @@
 </template>
 
 <script setup>
-const { t } = useI18n()
 import { useDisplay } from "vuetify"
-import { getDetailedFormatedDate } from "~/composables/useUtils"
+import getFileIcon from "~/composables/useIcons"
 const { name, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
 
 const localePath = useLocalePath()
 const router = useRouter()
 const { $i18n } = useNuxtApp()
 const props = defineProps({
-  data: {
+  item: {
     type: Object,
     required: true,
   },
 })
-const detailedStart = getDetailedFormatedDate(
-  props.data.start,
-  $i18n.locale.value
-)
-const startDay = ref(
-  `${detailedStart.day} ${detailedStart.month} ${detailedStart.year}`
-)
-const startTime = ref(detailedStart.hours)
-const detailedStop = getDetailedFormatedDate(
-  props.data.stop,
-  $i18n.locale.value
-)
-const stopTime = ref(detailedStop.hours)
 
-const items1 = [
-  { text: t("programme-pdf"), icon: "mdi-file-pdf-box" },
-  { text: t("resumes-des-presentations"), icon: "mdi-file-pdf-box" },
-]
+// UI components models
+const panel = ref(["presentation"])
+
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + $i18n.locale.value)
     .limit(1)
@@ -299,17 +229,6 @@ function redirectToMap(long, lat) {
     `https://www.openstreetmap.org/?mlat=${lat}&amp;mlon=${long}#map=19/${lat}/${long}`
   )
 }
-
-const dataValue = [
-  {
-    content: props.data.presentation,
-  },
-  {
-    content: props.data.programme,
-  },
-]
-const tab = ref(null)
-const items = ref(dataValue)
 </script>
 
 <style scoped>

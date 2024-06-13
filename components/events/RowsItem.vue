@@ -57,7 +57,7 @@
               </div>
               <div class="text-body-1">
                 {{ item.date_text }} <br />
-                {{ formatDate(item.start, "fr-FR") }}
+                {{ formatDate(item.start, $i18n.locale) }}
               </div>
             </v-col>
             <v-col cols="12" class="my-6" v-if="item.location">
@@ -101,32 +101,30 @@
     <v-col cols="12" md="3" lg="2" xl="2">
       <div class="overflow-hidden">
         <nuxt-link
-        :to="
-          localePath({
-            name: 'activities-events-slug',
-            params: { slug: item._path.split('/').pop() },
-          })
-        "
-        "
-      >
-        <v-img
-          :src="item.image"
-          :aspect-ratio="1 / 1"
-          cover
-          class="img-animation"
+          :to="
+            localePath({
+              name: 'activities-events-slug',
+              params: { slug: item._path.split('/').pop() },
+            })
+          "
         >
-        </v-img>
-      </nuxt-link>
+          <v-img
+            :src="item.image"
+            :aspect-ratio="1 / 1"
+            cover
+            class="img-animation"
+          >
+          </v-img>
+        </nuxt-link>
       </div>
-      
     </v-col>
   </v-row>
 </template>
 <script setup>
-import { useDisplay } from "vuetify";
+import { useDisplay } from "vuetify"
 
-const { name, smAndUp, mdAndDown, mdAndUp, lgAndUp } = useDisplay();
-const localePath = useLocalePath();
+const { name, smAndUp, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
+const localePath = useLocalePath()
 const props = defineProps({
   item: {
     type: Object,
@@ -136,9 +134,7 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-});
-
-console.log("PATH", props.item._path);
+})
 </script>
 
 <style lang="scss" scoped>

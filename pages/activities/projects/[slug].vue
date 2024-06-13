@@ -25,5 +25,4 @@ const { data } = await useAsyncData("project", () =>
   ).findOne()
 )
 const item = data._value
-console.log("data: ", data._value)
 </script>

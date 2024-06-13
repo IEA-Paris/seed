@@ -77,6 +77,7 @@
   "invalid-date": "Le format de date n'est pas valide",
   "invalid-orcid": "Votre numéro ORCID n'est pas valide",
   "events": {
+    "register": "Inscrivez vous à cet évènement",
     "key": "Évènements",
     "categories": [
       "Lecture",

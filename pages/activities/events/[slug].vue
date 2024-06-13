@@ -1,9 +1,5 @@
 <template>
-  <v-container>
-    <!-- <EventsPage :item="data" /> -->
-  </v-container>
-
-  <v-container> <EventsView :data="value"></EventsView></v-container>
+  <v-container> <EventsView :item="value"></EventsView></v-container>
 </template>
 
 <script setup>
@@ -21,5 +17,4 @@ const { data } = await useAsyncData(
 )
 
 const value = data._rawValue
-console.log("data", data)
 </script>

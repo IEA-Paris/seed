@@ -63,7 +63,7 @@
           <div class="text-h2 my-12" v-motion-slide-visible-once-bottom>
             {{ $t("upcoming-events") }}
           </div>
-          <EventListContainer :events="events"></EventListContainer
+          <EventsListContainer :events="events"></EventsListContainer
         ></v-col>
         <!--   <v-col cols="4" v-if="smAndUp">
             <ActionsSmallContainer :action="action"></ActionsSmallContainer>
@@ -86,11 +86,11 @@
     <v-container>
       <v-row>
         <v-col cols="12" class="mb-12">
-          <PeopleSlidingGroup :items="fellows">
+          <!--      <PeopleSlidingGroup :items="fellows">
             <div class="text-h2" v-motion-slide-visible-once-bottom>
               {{ $t("discover-our-0-fellows", ["2023-2024"]) }}
             </div></PeopleSlidingGroup
-          >
+          > -->
         </v-col>
         <v-divider class="mt-3 mb-12"></v-divider>
       </v-row>
