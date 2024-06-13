@@ -67,6 +67,7 @@
           >
             <ActionsSmallContainer
               :action="action"
+              :ratio="1"
             ></ActionsSmallContainer></v-sheet
         ></v-col> </v-row
     ></v-container>
@@ -127,24 +128,24 @@
 </template>
 
 <script lang="ts" setup>
-import { useDisplay } from "vuetify"
-definePageMeta({ layout: "about" })
-const { smAndUp, name, mdAndUp } = useDisplay()
-const localePath = useLocalePath()
-const { $i18n } = useNuxtApp()
+import { useDisplay } from "vuetify";
+definePageMeta({ layout: "about" });
+const { smAndUp, name, mdAndUp } = useDisplay();
+const localePath = useLocalePath();
+const { $i18n } = useNuxtApp();
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + $i18n.locale.value)
     .limit(1)
     .find()
-)
+);
 
 const { data: logosData } = await useAsyncData("logos", () =>
   queryContent("/logos/" + $i18n.locale.value)
     .only(["picture", "title", "url"])
     .find()
-)
+);
 
-const logos = !logosData || !logosData.value ? undefined : logosData.value
+const logos = !logosData || !logosData.value ? undefined : logosData.value;
 </script>
 
 <style lang="scss" scoped>

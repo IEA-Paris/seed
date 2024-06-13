@@ -80,6 +80,8 @@
   "invalid-date": "The date format is invalid",
   "invalid-orcid": "Your ORCID number is invalid",
   "events": {
+    "register": "Register to this event",
+    "register-me": "Register",
     "key": "Events",
     "categories": [
       "Lecture",
@@ -89,5 +91,18 @@
       "Fellow's presentation"
     ]
   },
-  "live-stream-available": "Live stream available"
+  "live-stream-available": "Live stream available",
+  "date-et-heure": "Date and Time",
+  "details": "More details",
+  "plus-de-details": "Plus de details",
+  "document": "Documents",
+  "inscription-ouverte": "Registration Open",
+  "inscription-gratuite-et-obligatoire": " Free and mandatory registration",
+  "presentation": "Presentation",
+  "presentation-0": "presentation",
+  "presentation-1": "presentation",
+  "programme": "Programme",
+  "programme-pdf": "The Programm (PDF)",
+  "resumes-des-presentations": "Presentation summaries",
+  "details-0": "Details"
 }

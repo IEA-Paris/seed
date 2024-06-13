@@ -1,32 +1,30 @@
 ---
-title: Paris IAS Ideas
+name: Paris IAS Ideas
+subtitle: "En partenariat avec l’EPHE et le CNRS"
 date_text: 08 September 2023 - 07 July 2024
 start: 2023-09-08T00:00:00.000Z
 stop: 2024-03-08T00:00:00.000Z
 online: true
 category: 0
-summary: Online talk series, with the participation of the Paris IAS researchers in writing residencies
+description: Online talk series, with the participation of the Paris IAS researchers in writing residencies
 location: null
-picture: https://www.paris-iea.fr/images/evenements/30395/_thumb3/vignette-generique-site-web-verticale.png
+image: https://www.paris-iea.fr/images/evenements/30395/_thumb3/vignette-generique-site-web-verticale.png
+outside: true
 type: 1
+files: [{
+    name: "Programme PDF",
+  url: 'https://github.com/IEA-Paris/types/blob/main/src/files.ts',
+  size: 524566,
+  fileType: 'application/pdf',
+},{
+    name: "Presentations summaries",
+  url: 'https://github.com/IEA-Paris/types/blob/main/src/files.ts',
+  size: 524566,
+  fileType: 'application/pdf',
+},]
 ---
 
-Le cycle "Paris IAS Ideas" propose des présentations courtes de chercheurs de l'Institut d'études avancées de Paris suivies d'échanges avec le public. Ces séances marquent le début de résidences d'écriture d'un mois au cours desquelles ces chercheurs invités rédigeront un article présentant la version "définitive" d'une idée ou d'un concept sur lequel ils travaillent depuis des années.
-
-Ces courtes présentations de 20 minutes seront suivies de discussions interdisciplinaires avec des chercheurs en sciences sociales et humaines. Chacun est invité à participer et à contribuer aux débats qui alimenteront le travail de nos chercheurs-résidents pendant leur séjour.
-
-![logo paris ias ideas](https://www.paris-iea.fr/images/logo_paris_ias_ideas.png)
-
-### Informations pratiques
-
-Toutes les présentations seront en anglais et auront lieu :
-\- En ligne sur Zoom, avec une inscription préalable ici : [http://bit.ly/IASIdeas
-](http://bit.ly/IASIdeas)\- Le premier ou le deuxième vendredi de chaque mois à partir de 14h00 heure de Paris | 8h00 heure de New York | 13h00 heure de Londres | 17h30 heure de Delhi | 20h00 heure de Pékin | 21h00 heure de Tokyo
-
-### Programme détaillé
-
 **Septembre 2023**
-
 **vendredi 8 septembre
 **
 
@@ -98,4 +96,3 @@ Toutes les présentations seront en anglais et auront lieu :
 **
 
 -   **Robert Desjarlais** (Sarah Lawrence College, New York) -- *Phenomenological Approaches in Anthropology*-   **Raluca Grosescu** (National University of Political Science and Public Administration, Bucharest, Romania) -- *Corporate Accountability for Gross Human Rights Violations: A Fragmented Cause*-   **Alena Ledeneva** (University College London) -- *Informality: 50 years on*-   **Patrick Haggard** (University College London) -- *Review of the cognitive psychology and cognitive neuroscience of human voluntary action*
-

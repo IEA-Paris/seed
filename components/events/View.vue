@@ -1,227 +1,242 @@
 <template>
   {{ name }}
-  <v-container>
-    <v-row no-gutters class="d-flex flex-wrap">
-      <v-col xl="3" lg="3" md="3">
-        <nuxt-img
-          :src="
-            data.picture !== null
-              ? data.picture
-              : 'https://www.paris-iea.fr/images/evenements/30395/_thumb3/vignette-generique-site-web-verticale.png'
-          "
-          preload
-          fit="inside"
-          :width="
-            [200, 200, 200, 250, 350, 400][
-              ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name)
-            ]
-          "
+  <v-row>
+    <v-col cols="12" lg="3" md="3" v-if="mdAndUp">
+      <div class="overflow-hidden">
+        <v-img
+          :src="item.image"
+          :aspect-ratio="1 / 1"
+          cover
+          class="img-animation"
         >
-        </nuxt-img>
-      </v-col>
-      <v-col xl="6" lg="6" md="8">
-        <div class="mt-xl-12 mt-lg-6 mt-md-2 ml-md-6">
-          <div class="text-body-2">
-            {{ data.date_text != null ? data.date_text : "Not defined" }}
-          </div>
-          <div class="font-weight-medium text-h4 mt-xl-12 mt-lg-6 mt-md-3">
-            {{ data.title }}
-          </div>
-          <div class="d-flex mt-xl-12 mt-lg-6 mt-md-3 text-caption">
-            {{ data.bookingState != null ? data.bookingState : "Not defined" }}
-          </div>
+        </v-img>
+      </div>
+    </v-col>
 
-          <div class="d-flex align-center mt-xl-12 mt-lg-6 mt-md-3">
-            <div>
-              <v-btn
-                class="text-body-1"
-                rounded
-                variant="tonal"
-                append-icon="mdi-circle-medium"
-              >
-                <template v-slot:append>
-                  <v-icon class="text-brown-lighten-3">
-                    mdi-circle-medium</v-icon
-                  >
-                </template>
-                {{ data.title ? "Inscription Ouverte" : "Inscription Ferme" }}
-              </v-btn>
-            </div>
+    <v-col
+      cols="12"
+      lg="6"
+      md="9"
+      class="d-flex flex-sm-column flex-md-column justify-md-end flex-wrap"
+    >
+      <div class="ml-2 ml-sm-4 ml-md-8 ml-lg-10 ml-xl-12">
+        <div
+          class="text-wrap text-body-1 mb-2 mb-sm-2 mb-md-4 font-weight-bold"
+        >
+          {{ item.date_text }} -
+          {{ $t("events.categories." + item.category) }}
+        </div>
 
-            <div class="ml-xl-16 ml-lg-10 ml-md-10">
-              {{ data.category != null ? data.category : "Not defined" }}
-            </div>
+        <div class="text-wrap text-h4 mb-3 mb-sm-2 mb-md-4">
+          {{ item.name }}
+        </div>
+
+        <div class="text-body-1 mb-4 mb-sm-3 mb-md-4">
+          {{ item.subtitle }}
+        </div>
+
+        <div class="d-flex">
+          <EventsRegisterModal :item="item"></EventsRegisterModal>
+        </div>
+      </div>
+    </v-col>
+    <v-col cols="12" lg="3" v-if="lgAndUp"> </v-col>
+  </v-row>
+
+  <v-row class="mt-md-8 mt-lg-10 mt-xl-12">
+    <v-col
+      class="d-flex flex-column"
+      cols="12"
+      xl="3"
+      lg="3"
+      md="3"
+      v-if="mdAndUp"
+    >
+      <div class="bg-grey-lighten-2">
+        <div class="ma-md-4 ma-lg-8">
+          <EventsDateTimePlace :item="item"></EventsDateTimePlace>
+
+          <div class="mt-md-4">
+            {{ $t("inscription-gratuite-et-obligatoire") }}
           </div>
         </div>
-      </v-col>
-      <v-col xl="3" lg="3" md="1"></v-col>
-    </v-row>
-  </v-container>
-  <v-container class="mt-xl-16 mt-lg-4">
-    <v-row no-gutters>
-      <v-col class="d-flex flex-column justify-center" xl="3" lg="3" md="3">
-        <div>
-          <v-sheet
-            class="d-flex flex-column flex-wrap"
-            color="grey-lighten-3"
-            :width="
-              [200, 200, 200, 250, 350, 400][
-                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name)
-              ]
-            "
+        <v-responsive :aspect-ratio="1 / 1">
+          <iframe
+            title="openstreetmap"
+            width="100%"
+            height="100%"
+            absolute
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=2.356580793857575%2C48.850586483414915%2C2.361644804477692%2C48.85278204589751&amp;layer=mapnik&amp;marker=48.851684276691216%2C2.359112799167633"
+            @click="redirectToMap(2.35911, 48.85168)"
+            @keyup.enter="redirectToMap(2.35911, 48.85168)"
+          ></iframe
+        ></v-responsive>
+      </div>
+
+      <v-sheet class="mt-md-8 mt-lg-10 mt-xl-12">
+        <v-list>
+          <v-list-subheader class="text-overline font-weight-bold">{{
+            $t("document")
+          }}</v-list-subheader>
+
+          <v-list-item
+            v-for="(file, i) in item.files"
+            :key="i"
+            :value="file"
+            v-if="item.files && item.files.length"
           >
-            <div class="pa-xl-8 pa-lg-6 pa-md-6">
-              <div>
-                <div>{{ data.tag === null ? data.tag : "Date et Heure" }}</div>
-                <div>
-                  <div>{{ data.start }}</div>
-                  <div>{{ data.stop }}</div>
-                </div>
-              </div>
+            <template v-slot:prepend>
+              <v-icon v-if="mdAndUp" :icon="getFileIcon(file.url)"></v-icon>
+            </template>
+            <v-list-item-title
+              class="text-wrap"
+              v-text="file.name"
+            ></v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-sheet>
+    </v-col>
 
-              <div class="pt-xl-6 pt-lg-4 pt-md-2">
-                <div>{{ $t("location") }}</div>
-                <div>
-                  <div>{{ data.start }}</div>
-                  <div>{{ data.location }}</div>
-                  <div>
-                    <v-icon class="text-blue-accent-4"
-                      >mdi-chevron-double-right
-                    </v-icon>
-                    <a
-                      href="https://www.paris-iea.fr/fr/"
-                      class="text-blue-accent-4"
-                      >{{ data.url === null ? data.url : "Plus de details" }}</a
-                    >
+    <v-col class="d-flex flex-row" cols="12" v-if="sm">
+      <v-row class="ml-sm-1">
+        <v-col cols="6">
+          <v-responsive :aspect-ratio="1 / 1" class="bg-grey-lighten-2">
+            <v-img
+              :src="item.image"
+              :aspect-ratio="1 / 1"
+              cover
+              class="img-animation"
+            >
+            </v-img>
+          </v-responsive>
+        </v-col>
+        <v-col cols="6">
+          <EventsDateTimePlace :item="item"></EventsDateTimePlace>
+        </v-col>
+      </v-row>
+    </v-col>
 
-                    <div>{{ data.stop }}</div>
-                    <div>{{ data.location }}</div>
-                    <div>
-                      <v-icon class="text-blue-accent-4"
-                        >mdi-chevron-double-right
-                      </v-icon>
-                      <a
-                        href="https://www.paris-iea.fr/fr/"
-                        class="text-blue-accent-4"
-                        >{{
-                          data.url === null ? data.url : "Plus de details"
-                        }}</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <v-col class="ml-2" cols="12" v-if="xs">
+      <v-responsive :aspect-ratio="1 / 1" class="bg-grey-lighten-2">
+        <v-img
+          :src="item.image"
+          :aspect-ratio="1 / 1"
+          cover
+          class="img-animation"
+        >
+        </v-img>
+      </v-responsive>
+    </v-col>
 
-              <div class="pt-xl-6 pt-lg-4 pt-md-2">
-                {{
-                  data.tag === null
-                    ? data.tag
-                    : "Inscription gratuite et obligatoire"
-                }}
-              </div>
-            </div>
-          </v-sheet>
-        </div>
+    <v-col class="ml-2" cols="12" v-if="xs">
+      <EventsDateTimePlace :item="item"></EventsDateTimePlace>
+    </v-col>
 
-        <div class="mt-xl-16 mt-lg-12 mt-md-8">
-          <v-btn
-            :width="
-              [200, 200, 200, 250, 350, 400][
-                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name)
-              ]
-            "
-            class="rounded-pill bg-blue-accent-4 text-center"
-          >
-            {{ data.tag === null ? data.tag : "JE M'INSCRIS" }}
-          </v-btn>
-        </div>
+    <v-col cols="12" xl="6" lg="6" md="8" class="px-0">
+      <div class="ml-md-8 ml-lg-10 ml-xl-12" v-if="mdAndUp">
+        <v-sheet>
+          <v-tabs v-model="panel" bg-color="transparent" grow>
+            <v-tab class="font-weight-bold text-body-1">
+              {{ $t("presentation") }}
+            </v-tab>
 
-        <div class="mt-xl-16 mt-lg-10 mt-md-7">
-          <!-- <div>{{ data.tag === null ? data.tag : "DOCUMENT(S)" }}</div>
-          <div class="d-flex mt-2">
-            <v-icon> mdi-file-pdf-box</v-icon>
-            <div class="ml-2">
-              {{ data.tag === null ? data.tag : "Le programme (PDF)" }}
-            </div>
-          </div>
-          <div class="d-flex mt-2">
-            <v-icon> mdi-file-pdf-box</v-icon>
-            <div class="ml-2">
-              {{ data.tag === null ? data.tag : "Resumés des présentations" }}
-            </div>
-          </div> -->
+            <v-tab class="font-weight-bold text-body-1">
+              {{ $t("programme") }}
+            </v-tab>
+          </v-tabs>
 
-          <v-card flat>
-            <v-list>
-              <v-list-subheader>{{
-                data.tag === null ? data.tag : "DOCUMENT(S)"
-              }}</v-list-subheader>
-              <v-list-item v-for="(item, i) in items" :key="i" :value="item">
-                <template v-slot:prepend>
-                  <v-icon :icon="item.icon"></v-icon>
-                </template>
-                <v-list-item-title v-text="item.text"></v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-card>
-        </div>
-      </v-col>
+          <v-tabs-window v-model="panel">
+            <v-tabs-window-item>
+              <v-sheet class="my-6">
+                {{ item.description }}
+              </v-sheet>
+            </v-tabs-window-item>
+            <v-tabs-window-item>
+              <v-sheet class="my-6">
+                <ContentRenderer
+                  ><ContentRendererMarkdown
+                    :value="item"
+                  ></ContentRendererMarkdown>
+                </ContentRenderer>
+              </v-sheet>
+            </v-tabs-window-item>
+          </v-tabs-window>
+        </v-sheet>
+      </div>
 
-      <v-col xl="6" lg="6" md="8">
-        <!-- <div class="ml-md-2">
-          <v-card flat>
-            <v-tabs v-model="tab" grow center-active>
-              <v-tab
-                v-for="item in data.items"
-                :key="item"
-                :text="item"
-                :value="item"
-              ></v-tab>
-            </v-tabs> -->
+      <div class="" v-if="smAndDown">
+        <v-expansion-panels v-model="panel" ripple elevation="0" class="">
+          <v-expansion-panel
+            :text="item.description"
+            :title="$t('presentation')"
+            value="presentation"
+          ></v-expansion-panel>
 
-        <!-- <v-tabs-window v-model="tab">
-              <v-tabs-window-item
-                v-for="item in data.items"
-                :key="item"
-                :value="item"
-              >
-                <v-card flat>
-                  <v-card-text>{{ data.text }}</v-card-text>
-                </v-card>
-              </v-tabs-window-item>
-            </v-tabs-window> -->
-        <!-- </v-card>
-        </div> -->
-      </v-col>
-      <v-col xl="3" lg="3" md="1"></v-col>
-    </v-row>
-  </v-container>
+          <v-expansion-panel :title="$t('programme')" value="program">
+            <v-expansion-panel-text>
+              <ContentRenderer
+                ><ContentRendererMarkdown
+                  :value="item"
+                ></ContentRendererMarkdown> </ContentRenderer
+            ></v-expansion-panel-text>
+          </v-expansion-panel>
+
+          <v-expansion-panel :title="$t('details-0')" value="details">
+            <v-expansion-panel-text> Details content</v-expansion-panel-text>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </div>
+    </v-col>
+    <v-col cols="12" xl="3" lg="3" v-if="lgAndUp" class="d-flex">
+      <ActionsSmallContainer
+        :action="action"
+        :ratio="1 / 2"
+      ></ActionsSmallContainer>
+    </v-col>
+  </v-row>
 </template>
 
-<script lang="ts" setup>
-import { useDisplay } from "vuetify";
-const { name } = useDisplay();
-const { smAndUp } = useDisplay();
-const localePath = useLocalePath();
+<script setup>
+import { useDisplay } from "vuetify"
+import getFileIcon from "~/composables/useIcons"
+const { name, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
 
+const localePath = useLocalePath()
+const router = useRouter()
+const { $i18n } = useNuxtApp()
 const props = defineProps({
-  data: {
+  item: {
     type: Object,
     required: true,
   },
-});
+})
 
-const itemsValue = ["Presentation", "Programme"];
+// UI components models
+const panel = ref(["presentation"])
 
-const items = [
-  { text: "Le programme (PDF)", icon: "mdi-file-pdf-box" },
-  { text: "Resumés des présentations", icon: "mdi-file-pdf-box" },
-];
+const { data: action } = await useAsyncData("actions", () =>
+  queryContent("/actions/" + $i18n.locale.value)
+    .limit(1)
+    .find()
+)
+
+function redirectToMap(long, lat) {
+  router.push(
+    `https://www.openstreetmap.org/?mlat=${lat}&amp;mlon=${long}#map=19/${lat}/${long}`
+  )
+}
 </script>
 
 <style scoped>
-.custom-border {
-  border: 2px solid #e53935;
-  text-align: center;
+.img-animation {
+  transition: all 2s ease-in-out;
+}
+
+.img-animation:hover {
+  transform: scale(1.1);
 }
 </style>
