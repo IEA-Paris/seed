@@ -1,7 +1,7 @@
 <template>
   <v-responsive :aspect-ratio="ratio">
     <v-card
-      class="mx-auto d-flex align-center justify-center flex-column pa-6"
+      class="mx-auto d-flex align-center justify-center flex-column px-6"
       :color="action[0].color || 'default'"
       v-motion-slide-visible-once-right
       :variant="outlined"

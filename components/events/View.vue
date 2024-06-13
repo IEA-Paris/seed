@@ -136,15 +136,15 @@
       <EventsDateTimePlace :item="item"></EventsDateTimePlace>
     </v-col>
 
-    <v-col cols="12" xl="6" lg="6" md="8">
+    <v-col cols="12" xl="6" lg="6" md="8" class="px-0">
       <div class="ml-md-8 ml-lg-10 ml-xl-12" v-if="mdAndUp">
         <v-sheet>
           <v-tabs v-model="panel" bg-color="transparent" grow>
-            <v-tab>
+            <v-tab class="font-weight-bold text-body-1">
               {{ $t("presentation") }}
             </v-tab>
 
-            <v-tab>
+            <v-tab class="font-weight-bold text-body-1">
               {{ $t("programme") }}
             </v-tab>
           </v-tabs>
@@ -169,7 +169,7 @@
       </div>
 
       <div class="" v-if="smAndDown">
-        <v-expansion-panels v-model="panel" ripple elevation="0">
+        <v-expansion-panels v-model="panel" ripple elevation="0" class="">
           <v-expansion-panel
             :text="item.description"
             :title="$t('presentation')"
