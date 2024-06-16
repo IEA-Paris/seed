@@ -23,7 +23,7 @@ authors:
     biography: ""
     groups: ""
     lang: ""
-image: "/images/location/3.jpg"
+image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 url: ""
 audio: []
 ---
