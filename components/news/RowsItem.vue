@@ -1,10 +1,18 @@
 <template>
-  {{ name }}
+  <!-- {{ name }} -->
   <v-divider v-if="index > 0"></v-divider>
   <v-row>
     <v-col cols="12" md="3" lg="3" xl="3" v-if="mdAndUp">
-      <v-img :src="item.image" :aspect-ratio="1 / 1" cover> </v-img
-    ></v-col>
+      <div class="overflow-hidden">
+        <v-img
+          :src="item.image"
+          :aspect-ratio="1 / 1"
+          cover
+          class="img-animation"
+        >
+        </v-img>
+      </div>
+    </v-col>
 
     <v-col cols="12" md="9" lg="9" xl="9">
       <v-row v-if="mdAndUp">
@@ -79,8 +87,6 @@ const props = defineProps({
     required: true,
   },
 })
-
-console.log("ITEM_VALUES", props.item)
 </script>
 
 <style scoped>
