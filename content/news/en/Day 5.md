@@ -1,29 +1,36 @@
 ---
 tags:
-- Artificial Intelligence
-- Challenges
-- Future of AI
-- Ethics
-- Climate Change
-- Sustainability
-- Machine Learning
-- Environmental Issues
-- Perception
-- Action
-- Data Science
-- Social Issues
+  - Artificial Intelligence
+  - Challenges
+  - Future of AI
+  - Ethics
+  - Climate Change
+  - Sustainability
+  - Machine Learning
+  - Environmental Issues
+  - Perception
+  - Action
+  - Data Science
+  - Social Issues
 published: true
 pinned: false
 title: 'Day 5: "an Argus with billions of eyes and ears, capacity for action,
   and infinite memory!"'
 date: 2021-10-21T23:00:00Z
 authors:
-- name: Atrina Oraee
-picture: '/images/location/3.jpg'
-youtube_video_id: ''
+  - firstname: Atrina
+    lastname: Oraee
+    affiliations: ""
+    image: ""
+    socials: ""
+    biography: ""
+    groups: ""
+    lang: ""
+image: "/images/location/3.jpg"
+url: ""
 audio: []
-
 ---
+
 While impossible to precisely predict, the convoluted future of AI may be presented in terms of **some major challenges it will inevitably face within the upcoming decades**. The [ICA4 Mentors](/mentors "Mentors") shared their views and thoughts on this fascinating, and intellectually challenging, subject over **a roundtable discussion** in the halls of Paris IAS!<!--more-->
 
 [**Professor Saadi Lahlou**](https://www.intercontinental-academia.org/about/ica4#lahlou "Saadi Lahlou") described the progress of sensors and actuators as a massive transformation. He further explained that there are already billions of them connected to the network, but not interconnected yet. The “Internet of Things” may operate such an interconnection by connecting perception and action systems (which are precisely the before mentioned sensors and actuators) to the information processing systems. Consequently, this can create, on a colossal scale, the **perception-reasoning-action loop** that characterises an autonomous as well as an intelligent actor. By enabling these systems to perceive, measure and evaluate the consequences of their actions and the operational quality of their judgement, these perception-action-evaluation loops will transform them into responsible, learning agents. To design, direct and control such recently established entities is a gigantic scientific problem. It is no longer theoretical: the movement is underway, on a planetary scale of almost unimaginable complexity! It is first and foremost a challenge to the sciences of matter and engineering.

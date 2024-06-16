@@ -1,25 +1,32 @@
 ---
 tags:
-- Philosophy of Computation
-- Artificial Intelligence
-- Prefrontal Cortex
-- Machine Learning
-- Decision Making
-- Computational Indeterminacy
-- Philosophy
-- Cognition
-- Learning
+  - Philosophy of Computation
+  - Artificial Intelligence
+  - Prefrontal Cortex
+  - Machine Learning
+  - Decision Making
+  - Computational Indeterminacy
+  - Philosophy
+  - Cognition
+  - Learning
 published: true
 pinned: false
-title: 'Day 6: A trip to Sorbonne Center for Artificial Intelligence - SCAI'
+title: "Day 6: A trip to Sorbonne Center for Artificial Intelligence - SCAI"
 date: 2021-10-24T23:00:00Z
 authors:
-- name: Atrina Oraee
-picture: '/images/location/3.jpg'
-youtube_video_id: ''
+  - firstname: Atrina
+    lastname: Oraee
+    affiliations: ""
+    image: ""
+    socials: ""
+    biography: ""
+    groups: ""
+    lang: ""
+image: "/images/location/3.jpg"
+url: ""
 audio: []
-
 ---
+
 While at [**SCAI**](https://scai.sorbonne-universite.fr "SCAI"), The [ICA4 Fellows](/fellows "Fellows") plunged into **the** **philosophy of computation** with two [ICA4 mentors](/mentors "Mentors"), who are philosophers of cognitive science ([**_Jack Copeland _**](/mentors#copeland)and [**_Oron Shagrir_**](/mentors#shagrir "Oron Shagrir")). The day continued with a **presentation of SCAI** from the Director followed by **a tour from the robotics labs**. Finally, [**_Xiao-Jing Wang_**](/mentors#wang "Xiao-Jing Wang") explained why **Artificial Intelligence needs the prefrontal cortex**.<!--more-->
 
 **Computational indeterminacy: what is your computer doing?**

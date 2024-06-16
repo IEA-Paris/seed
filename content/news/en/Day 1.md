@@ -1,24 +1,31 @@
 ---
 tags:
-- Perception
-- Pleasure
-- Music
-- Day 1
-- Artificial Intelligence
-- Cognition
-- Neuroscience
-- Technology
+  - Perception
+  - Pleasure
+  - Music
+  - Day 1
+  - Artificial Intelligence
+  - Cognition
+  - Neuroscience
+  - Technology
 published: true
 pinned: false
 title: 'Day 1: "The future needs wisdom!”'
 date: 2021-10-17T23:00:00Z
 authors:
-- name: Atrina Oraee
-picture: '/images/location/3.jpg'
-youtube_video_id: ''
+  - firstname: Atrina
+    lastname: Oraee
+    affiliations: ""
+    image: ""
+    socials: ""
+    biography: ""
+    groups: ""
+    lang: ""
+image: "/images/location/3.jpg"
+url: ""
 audio: []
-
 ---
+
 Each day at the [Paris IAS](https://www.paris-iea.fr/en/ "Paris IAS"), [ICA4 Fellows](/fellows "Fellows") meet with their [Mentors](/mentors "Mentors") for **a closed 3-hour seminar**, during which two mentors launch the discussion with a presentation. Upon completion of the seminar, the Fellows then meet for 45 minutes to list the **key takeaways and ideas** that have emerged from the discussion, followed by a **collective brainstorming session**. This ensures that the output of collective intelligence is collected, formatted and capitalised.
 
 The other half of the day is left free for participants to **reflect on the scientific discussions** in small groups. Such discussions are occasionally complemented by **lectures from the** [**Chairs**](/about/ica4 "Chairs").

@@ -1,26 +1,32 @@
 ---
 tags:
-- Distributed Intelligence
-- Bhevaiour
-- Installation Theory
-- Social Cognition
-- Language
-- Robots
-- Agency
-- Internet of Things
+  - Distributed Intelligence
+  - Bhevaiour
+  - Installation Theory
+  - Social Cognition
+  - Language
+  - Robots
+  - Agency
+  - Internet of Things
 published: true
 pinned: false
 title: 'Day 3: "What you do FOR  people, you do TO people, so do it WITH people!"'
 date: 2021-10-19T23:00:00Z
 authors:
-- name: Atrina Oraee
-picture: '/images/location/3.jpg'
-
-youtube_video_id: ''
+  - firstname: Atrina
+    lastname: Oraee
+    affiliations: ""
+    image: ""
+    socials: ""
+    biography: ""
+    groups: ""
+    lang: ""
+image: "/images/location/3.jpg"
+url: ""
 audio: []
-
 ---
-Day 3 of the first session of ICA4 continued in Paris IAS, where the Fellows sat through three more scientific seminars, followed by discussions and brainstorming sessions.  
+
+Day 3 of the first session of ICA4 continued in Paris IAS, where the Fellows sat through three more scientific seminars, followed by discussions and brainstorming sessions.
 
 The day kicked off by a framework proposed by [_Saadi Lahlou_](/about/ica4#lahlou "Saadi Lahlou"), called **"Installation Theory"**, which enables scientists to **analyse and regulate human behaviour**. This was complemented by a new technique to **capture the subjective perception of action**, ultimately bringing psychological and behavioural sciences one step closer to what was once considered a technically impossible task: **introspection!**
 

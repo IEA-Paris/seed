@@ -32,7 +32,7 @@ const initStore = async () => {
   console.log("types: ", types)
 
   await Promise.all(
-    [/* "people", "fellowship", "project", */ "events" /* , "news" */].map(
+    [/* "people", "fellowship", "project", */ "events", "news" /* */].map(
       async (type) => {
         modulesState[type] = await createModule(type)
       }
