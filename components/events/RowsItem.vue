@@ -12,7 +12,7 @@
                 params: { slug: item._path.split('/').pop() },
               })
             "
-            class="text-h5 text-black text-wrap"
+            class="text-h4 text-black text-wrap"
           >
             {{ item.title }}
             {{ item.slug }}

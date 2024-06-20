@@ -5,6 +5,16 @@ tags:
     icon: null
     createdAt: null
     updatedAt: null
+  - name: "Artificial language"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Computer science super cool"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
   - name: "Artificial Intelligence"
     description: ""
     icon: null
