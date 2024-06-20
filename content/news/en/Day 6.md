@@ -1,14 +1,30 @@
 ---
 tags:
-  - Philosophy of Computation
-  - Artificial Intelligence
-  - Prefrontal Cortex
-  - Machine Learning
-  - Decision Making
-  - Computational Indeterminacy
-  - Philosophy
-  - Cognition
-  - Learning
+  - name: "Cognition"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial Intelligence"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Neuroscience"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Learning"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Movement"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
 published: true
 pinned: false
 title: "Day 6: A trip to Sorbonne Center for Artificial Intelligence - SCAI"

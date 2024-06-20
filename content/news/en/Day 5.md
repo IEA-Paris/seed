@@ -1,17 +1,30 @@
 ---
 tags:
-  - Artificial Intelligence
-  - Challenges
-  - Future of AI
-  - Ethics
-  - Climate Change
-  - Sustainability
-  - Machine Learning
-  - Environmental Issues
-  - Perception
-  - Action
-  - Data Science
-  - Social Issues
+  - name: "Cognition"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial Intelligence"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Neuroscience"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Learning"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Movement"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
 published: true
 pinned: false
 title: 'Day 5: "an Argus with billions of eyes and ears, capacity for action,

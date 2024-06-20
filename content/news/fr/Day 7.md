@@ -1,15 +1,30 @@
 ---
 tags:
-  - Neural Networks
-  - Economics
-  - Economic Growth
-  - Labour
-  - Innovation
-  - Industry
-  - Regulation
-  - Creative Destruction
-  - Data Science
-  - Sustainable Growth
+  - name: "Cognition"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial Intelligence"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Neuroscience"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Learning"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Movement"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
 published: true
 pinned: false
 title: 'Day 7: "We know everything, but we understand nothing!"'
