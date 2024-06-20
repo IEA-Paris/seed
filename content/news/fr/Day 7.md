@@ -1,27 +1,48 @@
 ---
 tags:
-- Neural Networks
-- Economics
-- Economic Growth
-- Labour
-- Innovation
-- Industry
-- Regulation
-- Creative Destruction
-- Data Science
-- Sustainable Growth
+  - name: "Cognition"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial Intelligence"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Neuroscience"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Learning"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Movement"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
 published: true
 pinned: false
 title: 'Day 7: "We know everything, but we understand nothing!"'
 date: 2021-10-25T23:00:00Z
 authors:
-- name: Atrina Oraee
-picture: '/images/location/3.jpg'
-
-youtube_video_id: ''
+  - firstname: Atrina
+    lastname: Oraee
+    affiliations: ""
+    image: ""
+    socials: ""
+    biography: ""
+    groups: ""
+    lang: ""
+image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+url: ""
 audio: []
-
 ---
+
 The [Fellows](/fellows "Fellows") and [Mentors](/mentors "Mentors") of [ICA4](/about/concept "Concept") embarked on their last **scientific trip to** [**The École Normale Supérieure of Paris**](https://www.ens.psl.eu/en "ENS"). Two back to back scientific sessions were held in the morning, both of which described **the current issues related to Artificial Intelligence and offers future perspectives**. The first lecture was given by the Director of the École Normale Supérieure (ENS), [**_Marc Mézard_**](/mentors#mezard "Marc Mezard"), who stressed that we need **a better understanding of AI**. This was followed by a talk from the famous economist, [**_Philippe Aghion_**](/mentors#aghion "Philippe Aghion")_._ He discussed **the impact of automation on the labour force**, and how AI can be used to boost innovation and growth through facilitating the process of **creative destruction**. Both mentors emphasised **a need for a global set of ethical rules and regulations**. The day continued with **a presentation of ENS** and concluded with a discussion session among the Fellows, as they began **preparing their presentations for the plenary seminar** on the Final Day of ICA4.<!--more-->
 
 **Recent Progress and Future Challenges in AI**
@@ -32,9 +53,9 @@ Mézard is a theoretical physicist with a personal interest in **the development
 
 Notwithstanding the impressive technological innovations in Deep Neural Networks, **Mézard raises three main issues**:
 
-* The **training of the networks** still requires vast amounts of data, which is unpractical and a sign that the networks do not mimic the human brain. Humans can already learn and generalize after being exposed to a small set of training material.
-* There is still **a clear lack of understanding of what is going on in neural networks**. The learning mechanism in networks is poorly understood. In other words, there is no way to explain how the machine makes decisions.
-* **Neural networks are not able to generate representations of the world**. Neural networks are extremely adept at making predictions, but they are not able to generate representations of the world. All in, we are still very far from reaching General AI.
+- The **training of the networks** still requires vast amounts of data, which is unpractical and a sign that the networks do not mimic the human brain. Humans can already learn and generalize after being exposed to a small set of training material.
+- There is still **a clear lack of understanding of what is going on in neural networks**. The learning mechanism in networks is poorly understood. In other words, there is no way to explain how the machine makes decisions.
+- **Neural networks are not able to generate representations of the world**. Neural networks are extremely adept at making predictions, but they are not able to generate representations of the world. All in, we are still very far from reaching General AI.
 
 Mézard stressed that we need **a better understanding of architecture, algorithms, and data structure,** which can improve the explainability of AI. In addition, there is a need for **a global set of ethical rules and regulations**. We need control mechanisms and **a global vision of the possible impacts of AI on our societies**.
 

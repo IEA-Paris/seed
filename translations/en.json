@@ -44,7 +44,7 @@
   "check-this-out": "Check this out!",
   "our-members": "Our members",
   "online": "Online",
-  "learn-more": "Learn More",
+  "learn-more": "read more",
   "board": "Board of Directors",
   "privacy-policy": "Privacy policy",
   "type": "Type",
@@ -104,5 +104,6 @@
   "programme": "Programme",
   "programme-pdf": "The Programm (PDF)",
   "resumes-des-presentations": "Presentation summaries",
-  "details-0": "Details"
+  "details-0": "Details",
+  "read-more": "Read more"
 }

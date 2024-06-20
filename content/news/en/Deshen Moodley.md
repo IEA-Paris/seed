@@ -1,22 +1,49 @@
 ---
 tags:
-- Deshen Moodley
-- Cognitive Systems
-- Adaptive Systems
-- Artificial Intelligence
+  - name: "Cognition"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial Intelligence"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Neuroscience"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Learning"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Movement"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
 published: true
 pinned: false
 title: Deshen Moodley on "Adaptive and Cognitive Systems"
 date: 2021-10-14T22:00:00.000+00:00
 authors:
-- name: Atrina Oraee
-picture: '/images/location/3.jpg'
-youtube_video_id: ziT27xYdi6o
+  - firstname: Atrina
+    lastname: Oraee
+    affiliations: ""
+    image: ""
+    socials: ""
+    biography: ""
+    groups: ""
+    lang: ""
+image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+url: ziT27xYdi6o
 audio:
-- '1122328105'
-images: []
-
+  - "1122328105"
 ---
+
 Ever wondered how **adaptive and cognitive systems** operate? This is precisely what [**Deshen**](/fellows#moodley "Deshen Moodley") is investigating and he explains all about his fascinating work in his research pitch!
 
 Curious about Deshen?

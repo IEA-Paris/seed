@@ -1,24 +1,58 @@
 ---
 tags:
-- Perception
-- Pleasure
-- Music
-- Day 1
-- Artificial Intelligence
-- Cognition
-- Neuroscience
-- Technology
+  - name: "Cognition"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial language"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Computer science super cool"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial Intelligence"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Neuroscience"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Learning"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Movement"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
 published: true
 pinned: false
 title: 'Day 1: "The future needs wisdom!”'
 date: 2021-10-17T23:00:00Z
 authors:
-- name: Atrina Oraee
-picture: '/images/location/3.jpg'
-youtube_video_id: ''
+  - firstname: Atrina
+    lastname: Oraee
+    affiliations: ""
+    image: ""
+    socials: ""
+    biography: ""
+    groups: ""
+    lang: ""
+image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+url: ""
 audio: []
-
 ---
+
 Each day at the [Paris IAS](https://www.paris-iea.fr/en/ "Paris IAS"), [ICA4 Fellows](/fellows "Fellows") meet with their [Mentors](/mentors "Mentors") for **a closed 3-hour seminar**, during which two mentors launch the discussion with a presentation. Upon completion of the seminar, the Fellows then meet for 45 minutes to list the **key takeaways and ideas** that have emerged from the discussion, followed by a **collective brainstorming session**. This ensures that the output of collective intelligence is collected, formatted and capitalised.
 
 The other half of the day is left free for participants to **reflect on the scientific discussions** in small groups. Such discussions are occasionally complemented by **lectures from the** [**Chairs**](/about/ica4 "Chairs").

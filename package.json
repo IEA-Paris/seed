@@ -24,7 +24,6 @@
     "@nuxtjs/i18n": "^8.0.0-rc.4",
     "@vite-pwa/nuxt": "^0.1.1",
     "@vue/test-utils": "^2.4.6",
-    "happy-dom": "^14.10.1",
     "nuxt": "^3.7.0",
     "nuxt-link-checker": "^2.1.8",
     "nuxt-schema-org": "^3.0.0-beta.1",

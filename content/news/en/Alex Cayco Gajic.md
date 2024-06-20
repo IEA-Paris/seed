@@ -1,23 +1,49 @@
 ---
 tags:
-- Cognition
-- Artificial Intelligence
-- Neuroscience
-- Learning
-- Movement
+  - name: "Cognition"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial Intelligence"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Neuroscience"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Learning"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Movement"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
 published: true
 pinned: false
 title: '"From Movement to Cognition": An exploration of Alex Cayco Gajic''s Research'
 date: 2021-10-14T22:00:00.000+00:00
 authors:
-- name: Atrina Oraee
-image: ''
-youtube_video_id: qhjTekJ2Nc0
+  - firstname: Atrina
+    lastname: Oraee
+    affiliations: ""
+    image: ""
+    socials: ""
+    biography: ""
+    groups: ""
+    lang: ""
+url: qhjTekJ2Nc0
 audio:
-- '1122330247'
-picture: '/images/location/3.jpg'
-
+  - "1122330247"
+image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 ---
+
 [**Alex**](/fellows#cayco-gajic "Alex Cayco-Gajic") is Junior Professor in the Département d’Etudes Cognitives at École Normale Supérieure in Paris. Let's hear all about her research from herself, as she explains **"From movement to cognition: Understanding cerebello-cortical coordination for flexible learning"** through a bite-sized video pitch.
 
 More about Alex:

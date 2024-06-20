@@ -1,25 +1,48 @@
 ---
 tags:
-- Visual Processing
-- Situational Knowledge
-- Cognitive Systems
-- Representations
-- Art
-- Society
-- Technology
-- Robots
+  - name: "Cognition"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial Intelligence"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Neuroscience"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Learning"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Movement"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
 published: true
 pinned: false
-title: 'The Final Day: where we go from here...'
+title: "The Final Day: where we go from here..."
 date: 2021-10-26T23:00:00Z
 authors:
-- name: Atrina Oraee
-picture: '/images/location/3.jpg'
-
-youtube_video_id: ''
+  - firstname: Atrina
+    lastname: Oraee
+    affiliations: ""
+    image: ""
+    socials: ""
+    biography: ""
+    groups: ""
+    lang: ""
+image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+url: ""
 audio: []
-
 ---
+
 The Final Day of ICA4 began with two thought-provoking lectures from [**Shimon Ullman **](/mentors#ullman "Shimon Ullman")and [**_Zaven Paré_**](/mentors#pare "Zaven Pare"), discussing **how humans extract information from complex scenes** and **the peculiar nature of the relationship between humans and robots**. Pare then revealed a provocative example of **an existing robot that is addressed to isolation in a contemporary urban environment**.
 
 [The Fellows](/fellows "Fellows") then took a break to explore the **3D virtual campus of the** [**Paris IAS**](https://www.paris-iea.fr/en/ "Paris IAS"), called **Teemew Campus Alpha**, in which **lounges**, **public seminar rooms**, **private meeting rooms** and **workshops** are accessible to ICA4 Fellows and Mentors. Each Academia member possesses an avatar, created from his/her own image, which is then used to navigate through the **IAS cyber campus**.

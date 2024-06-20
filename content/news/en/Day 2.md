@@ -1,23 +1,48 @@
 ---
 tags:
-- Consciousness
-- Responsibility
-- Ethics
-- Economics
-- Data Science
-- Human Rights
-- AI Apllications
+  - name: "Cognition"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial Intelligence"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Neuroscience"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Learning"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Movement"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
 published: true
 pinned: false
 title: 'Day 2: "In AI we trust"...or not!'
 date: 2021-10-18T23:00:00Z
 authors:
-- name: Atrina Oraee
-picture: '/images/location/3.jpg'
-youtube_video_id: ''
+  - firstname: Atrina
+    lastname: Oraee
+    affiliations: ""
+    image: ""
+    socials: ""
+    biography: ""
+    groups: ""
+    lang: ""
+image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+url: ""
 audio: []
-
 ---
+
 The ICA4 continued onto the second day, through which three seminars took place with mentors who had joined the first session in Paris from around the world!
 
 The first lecture was by [_Robert Aumann_](/mentors#aumann "Robert Aumann"), a Nobel prize laureate, who focused on the convoluted concept of **consciousness** and its counterparts.
@@ -32,10 +57,10 @@ Presented by [**_Robert Aumann_**](/mentors#aumann "Robert Aumann")
 
 Essentially, the seminar was focused on the purpose which consciousness serves. Consciousness was defined as the ability to do the following:
 
-* Perceive
-* Feel (emotions)
-* Think/intend
-* Carry out intentions (volition)
+- Perceive
+- Feel (emotions)
+- Think/intend
+- Carry out intentions (volition)
 
 Of all the above, perceiving, thinking/intending, and carrying out intentions may be done by machines. However, feelings and emotions belong exclusively to human beings. In such a context, it may be argued that the evolutionary function of consciousness is to enable the operation of emotions. This being said, we currently have no idea about how does consciousness work. Although considerable progress has been made in AI, Artificial Emotions (AE) has remained rather untouched.
 
@@ -50,16 +75,16 @@ The impacts produced by complex socio-technical systems using ML technologies ha
 
 In a nutshell, two dimensions of responsibility are required:
 
-* **Historic or retrospective responsibility:** responsibility for conduct and events that occurred in the past
-* **Prospective responsibility:** roles and tasks that look to the future
+- **Historic or retrospective responsibility:** responsibility for conduct and events that occurred in the past
+- **Prospective responsibility:** roles and tasks that look to the future
 
 Finally, five common **myths and misunderstandings** concerning responsibility for the unintended adverse impacts of AI were identified:
 
-* Need for effective and legitimate mechanisms to protect human rights from AI applications.
-* Identifications of the appropriate responsibility model for allocating, distributing and preventing the various threats and risks.
-* Responsibility of states to ensure that these policy choices are made in a transparent and democratic manner, in order to effectively protect human rights.
-* Need for more interdisciplinary research
-* Application of the fundamental principle of reciprocity so as not to allow those who develop and run our advanced digital technologies and systems to increase and exercise their power without responsibility.
+- Need for effective and legitimate mechanisms to protect human rights from AI applications.
+- Identifications of the appropriate responsibility model for allocating, distributing and preventing the various threats and risks.
+- Responsibility of states to ensure that these policy choices are made in a transparent and democratic manner, in order to effectively protect human rights.
+- Need for more interdisciplinary research
+- Application of the fundamental principle of reciprocity so as not to allow those who develop and run our advanced digital technologies and systems to increase and exercise their power without responsibility.
 
 **Data science and deep learning vs theory: two examples from economics and finance**
 

@@ -1,4 +1,4 @@
-import config from "./static.config";
+import config from "./static.config"
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   sourcemap: {
@@ -84,7 +84,7 @@ export default defineNuxtConfig({
     "@nuxtjs/device", // https://github.com/nuxt-community/device-module
     "@nuxtjs/robots", // https://github.com/nuxt-modules/robots
     "@nuxtjs/google-fonts", //
-    "nuxt-simple-sitemap",
+    /*  "nuxt-simple-sitemap", */
     "nuxt-link-checker",
     "nuxt-schema-org",
     "@vite-pwa/nuxt",
@@ -207,4 +207,4 @@ export default defineNuxtConfig({
   devtools: {
     enabled: false,
   },
-});
+})
