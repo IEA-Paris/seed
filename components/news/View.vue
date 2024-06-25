@@ -4,12 +4,12 @@
     <v-col
       cols="12"
       v-if="mdAndDown"
-      class="text-wrap text-h4 text-md-h5 text-black"
+      class="text-wrap text-h4 text-md-h5 text-black mx-sm-6"
     >
       {{ item.title }}
     </v-col>
     <v-col cols="12" md="3" lg="3" xl="3">
-      <div class="overflow-hidden">
+      <div class="overflow-hidden mx-sm-6">
         <v-img
           :src="item.image"
           :aspect-ratio="1 / 1"
@@ -21,7 +21,7 @@
     </v-col>
 
     <v-col cols="12" md="9" lg="9" xl="9">
-      <div class="ml-md-4">
+      <div class="ml-md-4 mx-sm-6">
         <div v-if="lgAndUp" class="text-wrap text-lg-h4 text-black">
           {{ item.title }}
         </div>
@@ -40,28 +40,17 @@
 
   <v-row>
     <v-col cols="12" lg="7" xl="7">
-      <ContentRenderer :value="item" />
+      <ContentRenderer :value="item" class="mx-sm-6" />
     </v-col>
 
     <v-col cols="12" lg="5" xl="5">
-      <div>
-        Related Project: Lorem ipsum, dolor sit amet consectetur adipisicing
-        elit. Voluptate nihil, dignissimos praesentium cum commodi rem beatae,
-        sunt impedit amet debitis laboriosam harum. Aliquid soluta illum
-        voluptatibus ut fuga asperiores. Expedita.
-      </div>
-      <div class="mt-2">
-        Related Events: Lorem, ipsum dolor sit amet consectetur adipisicing
-        elit. Omnis, odio! Officiis veritatis ex exercitationem. Iusto amet
-        minus ullam dolorem, officia adipisci. At nam odio asperiores dolores
-        voluptatum et, consectetur maxime.
-      </div>
-
-      <div class="mt-2">
-        Ads: Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, quis
-        illum! Fugiat, delectus est explicabo excepturi exercitationem sapiente
-        odio necessitatibus laboriosam voluptatibus? Tenetur, mollitia! Esse
-        animi qui inventore tempore ab!
+      <RelatedItems type="event" :item="item"></RelatedItems>
+      <RelatedItems type="project" :item="item"></RelatedItems>
+      <div class="mt-2 mx-n6 mx-sm-0">
+        <ActionsSmallContainer
+          :action="action"
+          :ratio="1 / 2"
+        ></ActionsSmallContainer>
       </div>
     </v-col>
   </v-row>
@@ -69,6 +58,8 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
+const router = useRouter()
+const { $i18n } = useNuxtApp()
 const { name, mdAndDown, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
 const props = defineProps({
   item: {
@@ -76,6 +67,12 @@ const props = defineProps({
     required: true,
   },
 })
+
+const { data: action } = await useAsyncData("actions", () =>
+  queryContent("/actions/" + $i18n.locale.value)
+    .limit(1)
+    .find()
+)
 </script>
 
 <style scoped>
