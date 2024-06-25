@@ -1,15 +1,15 @@
 <template>
-  <component :is="'NewsRelated' + view" />
+  <component :is="capitalizeFirstLetter(type) + 'RelatedItem'" :items="items" />
 </template>
 
-<script lang="ts" setup>
+<script setup>
 const props = defineProps({
   type: {
     type: String,
     required: true,
   },
-  item: {
-    type: Object,
+  items: {
+    type: Array,
     required: true,
   },
 })
@@ -17,7 +17,8 @@ const props = defineProps({
 const capitalizeFirstLetter = (string) =>
   string.charAt(0).toUpperCase() + string.slice(1)
 
-const view = ref(capitalizeFirstLetter(props.type))
+console.log("STRING", capitalizeFirstLetter(props.type))
+console.log("STRING", props.items)
 </script>
 
 <style></style>

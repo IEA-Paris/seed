@@ -44,8 +44,14 @@
     </v-col>
 
     <v-col cols="12" lg="5" xl="5">
-      <RelatedItems type="event" :item="item"></RelatedItems>
-      <RelatedItems type="project" :item="item"></RelatedItems>
+      <MiscMoleculesRelatedItems
+        type="events"
+        :items="item.relatedEvents"
+      ></MiscMoleculesRelatedItems>
+      <MiscMoleculesRelatedItems
+        type="project"
+        :items="item.relatedProjects"
+      ></MiscMoleculesRelatedItems>
       <div class="mt-2 mx-n6 mx-sm-0">
         <ActionsSmallContainer
           :action="action"

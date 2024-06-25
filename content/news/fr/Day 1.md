@@ -43,7 +43,7 @@ image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8x
 url: ""
 audio: []
 
-relatedProject:
+relatedProjects:
   - title: "Event1"
     shortDescription: ""
     description: ""
