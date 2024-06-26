@@ -1,15 +1,13 @@
 <template>
-  <v-col cols="12" md="1">
-    <div
-      class="date-stamp d-flex flex-md-column text-md-right align-center align-md-end"
-    >
-      <span class="day"> {{ detailedDate.day }}</span>
-      <span class="month-year">
-        {{ detailedDate.month }}<br />
-        {{ detailedDate.year }}
-      </span>
-    </div>
-  </v-col>
+  <div
+    class="date-stamp d-flex flex-md-column text-md-right align-center align-md-end"
+  >
+    <span class="day"> {{ detailedDate.day }}</span>
+    <span class="month-year">
+      {{ detailedDate.month }}<br />
+      {{ detailedDate.year }}
+    </span>
+  </div>
 </template>
 
 <script setup>
@@ -35,6 +33,7 @@ const detailedDate = ref(
   .day {
     font-size: 2.6rem;
     line-height: 2.6rem;
+    font-family: "Bodoni Moda", sans-serif;
   }
   .month-year {
     padding-left: 0.5rem;

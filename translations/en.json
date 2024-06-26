@@ -92,6 +92,7 @@
     ]
   },
   "list": {
+    "search-type": "Search {0}",
     "tiles": "Tiles",
     "list": "List",
     "pls-x-more": "+ {0} more",

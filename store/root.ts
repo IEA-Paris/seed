@@ -384,6 +384,7 @@ export const useRootStore = defineStore("rootStore", {
       this.update(type)
     },
     updateSearch({ search, type }: { search: any; type: string }) {
+      console.log("updateSearch: ", { search, type })
       this.setPage({ page: 1, type })
       this.setSearch({ search, type })
       this.update(type)

@@ -6,19 +6,20 @@
           <v-btn
             x-large
             tile
+            flat
             icon
             :class="{
               'mt-3': isXsDisplay,
             }"
             v-bind="mergeProps(menu, tooltip)"
           >
-            <v-icon>mdi-{{ current?.icon || defaultSort?.icon }}</v-icon>
+            <v-icon>mdi-{{ current?.icon || defaultView?.icon }}</v-icon>
           </v-btn>
         </template>
         <span
           v-html="
-            $t('list.sort-mode') +
-            $t('list.' + current.text || defaultSort.text)
+            $t('list.view-mode') +
+            $t('list.' + current.name || defaultView.name)
           "
         ></span>
       </v-tooltip>
@@ -26,14 +27,14 @@
     <v-list density="compact">
       <template v-for="(item, index) in items">
         <v-list-item
-          v-if="item.text !== current.text"
+          v-if="item.name !== current.name"
           :key="index"
-          @click="updateSort(item.value)"
+          @click="updateView(item.value)"
         >
           <template v-slot:prepend>
             <v-icon>mdi-{{ item.icon }}</v-icon>
           </template>
-          <v-list-item-title>{{ $t("list." + item.text) }}</v-list-item-title>
+          <v-list-item-title>{{ $t("list." + item.name) }}</v-list-item-title>
         </v-list-item></template
       >
     </v-list>
@@ -62,35 +63,12 @@ const props = defineProps({
     required: true,
   },
 })
-const items = ref(rootStore[props.type].list.sort)
-const defaultSort = ref(
-  rootStore[props.type].list.sort[
-    Object.keys(rootStore[props.type].list.sort).find(
-      (item) => rootStore[props.type].list.sort[item].default === true
-    )
-  ]
-)
+const items = ref(rootStore[props.type].list.views)
 
-const current = computed(() => {
-  try {
-    return rootStore[props.type].list.sort[
-      Object.keys(rootStore[props.type].list.sort).find((item) => {
-        return (
-          rootStore[props.type].list.sort[item].value[0] ===
-            rootStore[props.type].list.sortBy[0] &&
-          rootStore[props.type].list.sort[item].value[1] ===
-            rootStore[props.type].list.sortDesc[0]
-        )
-      })
-    ]
-  } catch (error) {
-    console.log("error: ", error)
-    return items[Object.keys(items).find((item) => item.default)]
-  }
-})
+const current = ref(rootStore[props.type].list.view)
 
-const updateSort = async (value) => {
-  await rootStore.updateSort({ value, type: props.type })
+const updateView = async (value) => {
+  await rootStore.updateView({ value, type: props.type })
 }
 
 onMounted(() => {
