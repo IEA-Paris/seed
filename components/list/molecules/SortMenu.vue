@@ -16,7 +16,10 @@
           </v-btn>
         </template>
         <span
-          v-html="$t('sort-mode') + $t(current.text || defaultSort.text)"
+          v-html="
+            $t('list.sort-mode') +
+            $t('list.' + current.text || defaultSort.text)
+          "
         ></span>
       </v-tooltip>
     </template>
@@ -30,7 +33,7 @@
           <template v-slot:prepend>
             <v-icon>mdi-{{ item.icon }}</v-icon>
           </template>
-          <v-list-item-title>{{ $t(item.text) }}</v-list-item-title>
+          <v-list-item-title>{{ $t("list." + item.text) }}</v-list-item-title>
         </v-list-item></template
       >
     </v-list>
@@ -70,14 +73,16 @@ const defaultSort = ref(
 
 const current = computed(() => {
   try {
-    return Object.keys(rootStore[props.type].list.sort).find((item) => {
-      return (
-        rootStore[props.type].list.sort[item].value[0] ===
-          rootStore[props.type].list.sortBy[0] &&
-        (!!rootStore[props.type].list.sort[item].value[1] === "-1") ===
-          rootStore[props.type].list.sortDesc
-      )
-    })
+    return rootStore[props.type].list.sort[
+      Object.keys(rootStore[props.type].list.sort).find((item) => {
+        return (
+          rootStore[props.type].list.sort[item].value[0] ===
+            rootStore[props.type].list.sortBy[0] &&
+          rootStore[props.type].list.sort[item].value[1] ===
+            rootStore[props.type].list.sortDesc[0]
+        )
+      })
+    ]
   } catch (error) {
     console.log("error: ", error)
     return items[Object.keys(items).find((item) => item.default)]

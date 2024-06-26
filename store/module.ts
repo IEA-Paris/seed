@@ -61,7 +61,7 @@ const createModule = async (type: string): Promise<ModuleType> => {
     defaultSortKey !== undefined
       ? baseType?.list.sort[defaultSortKey]
       : undefined
-  console.log("defaultView: ", defaultView)
+  console.log("defaultSort: ", defaultSort)
 
   // Helper function to handle aliases
   const processAliases = async (
@@ -211,8 +211,8 @@ const createModule = async (type: string): Promise<ModuleType> => {
       }),
       search: "",
       page: 1,
-      sortBy: defaultSort && [defaultSort.value[1]],
-      sortDesc: defaultSort && [defaultSort.value[0] === "desc"],
+      sortBy: defaultSort && [defaultSort.value[0]],
+      sortDesc: defaultSort && [defaultSort.value[1]],
       // numberOfPages: 0,
     },
     loading: [],

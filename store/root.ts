@@ -252,13 +252,11 @@ export const useRootStore = defineStore("rootStore", {
         ;(this[type] as ModuleType).list.sortBy = [query.sortBy] as any
       }
       if (typeof query.sortDesc !== "undefined") {
-        ;(this[type] as ModuleType).list.sortDesc = !!(
+        ;(this[type] as ModuleType).list.sortDesc[0] = !!(
           query.sortDesc === "true"
         )
       } else {
-        ;(this[type] as ModuleType).list.sortDesc = !!(
-          defaultSort[0].value[0] === "desc"
-        )
+        ;(this[type] as ModuleType).list.sortDesc[0] = defaultSort[0].value[1]
       }
     },
     setSearch({ search, type }: { search: any; type: string }) {
@@ -293,9 +291,10 @@ export const useRootStore = defineStore("rootStore", {
       ;(this[type] as ModuleType).list.filters[Object.keys(filters)[0]] =
         filters[Object.keys(filters)[0]]
     },
-    setSort({ value, type }: { value: number[]; type: string }) {
+    setSort({ value, type }: { value: [string[] | number[]]; type: string }) {
+      console.log("sort value: ", value)
       ;(this[type] as ModuleType).list.sortBy = [value[0]]
-      ;('this[type] as ModuleType).list.sortDesc = value[1] === "-1"')
+      ;(this[type] as ModuleType).list.sortDesc = [value[1]]
     },
     setView({ value, type }: { value: string; type: string }) {
       ;(this[type] as ModuleType).list.view = value
@@ -329,6 +328,7 @@ export const useRootStore = defineStore("rootStore", {
         (item) => sortObj[item].default === true
       )
       const defaultSort = [sortObj[defaultSortKey as string]]
+      console.log("defaultSort root: ", defaultSort)
 
       // TODO make dynamic based on an ~/assets located file
       ;(this[type] as ModuleType).list.filters = {
@@ -342,9 +342,8 @@ export const useRootStore = defineStore("rootStore", {
       }
       ;(this[type] as ModuleType).list.search = ""
       ;(this[type] as ModuleType).list.view = defaultView.value
-      ;(this[type] as ModuleType).list.sortBy = defaultSort[0].value[0]
-      ;(this[type] as ModuleType).list.sortDesc =
-        defaultSort[0].value[0] === "desc"
+      ;(this[type] as ModuleType).list.sortBy = [defaultSort.value[0]]
+      ;(this[type] as ModuleType).list.sortDesc = [defaultSort.value[1]]
       ;(this[type] as ModuleType).resetFilters = false
     },
     setBlankFilterLoad(type: string) {
@@ -499,15 +498,10 @@ export const useRootStore = defineStore("rootStore", {
       const sortBy = (this[type] as ModuleType).list.sortBy
       const sortByItem = (sortBy as number[])[0]
 
-      const sortArray =
-        (this[type] as ModuleType).list.view === "issues"
-          ? [
-              "issueIndex",
-              (this[type] as ModuleType).list.sortDesc ? 1 : -1,
-              "date",
-              (this[type] as ModuleType).list.sortDesc ? 1 : -1,
-            ]
-          : [sortByItem, (this[type] as ModuleType).list.sortDesc ? -1 : 1]
+      const sortArray = [
+        sortByItem,
+        (this[type] as ModuleType).list.sortDesc[0],
+      ]
       console.log("type1: ", type)
       console.log("pipeline: ", pipeline)
       console.log("queryContent: ", queryContent)
@@ -555,10 +549,11 @@ export const useRootStore = defineStore("rootStore", {
           sortByItem !== defaultSort.value[1] && {
             sortBy: sortByItem,
           }),
-        ...(typeof (this[type] as ModuleType).list.sortDesc !== "undefined" &&
-          ((this[type] as ModuleType).list.sortDesc ? "desc" : "asc") !==
+        ...(typeof (this[type] as ModuleType).list.sortDesc[0] !==
+          "undefined" &&
+          (this[type] as ModuleType).list.sortDesc[0] !==
             defaultSort.value[0] && {
-            sortDesc: !!(this[type] as ModuleType).list.sortDesc,
+            sortDesc: !!(this[type] as ModuleType).list.sortDesc[0],
           }),
         ...((this[type] as ModuleType).list.view &&
           (this[type] as ModuleType).list.view !== defaultView.name && {
