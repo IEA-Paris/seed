@@ -1,7 +1,7 @@
 <template>
-  {{ items[0] }}
+  {{ item }}
 </template>
 
 <script setup>
-const props = defineProps({ items: { type: Array, required: true } })
+const props = defineProps({ item: { type: Object, required: true } })
 </script>

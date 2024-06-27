@@ -1,5 +1,12 @@
 <template>
-  <component :is="capitalizeFirstLetter(type) + 'RelatedItem'" :items="items" />
+  <div>
+    <div class="text-overline"></div>
+    <component
+      v-for="item in items"
+      :is="capitalizeFirstLetter(type) + 'RelatedItem'"
+      :item="item"
+    />
+  </div>
 </template>
 
 <script setup>
