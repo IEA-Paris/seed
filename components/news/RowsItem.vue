@@ -16,7 +16,12 @@
 
     <v-col cols="12" md="7" lg="4">
       <NuxtLink
-        to="/"
+        :to="
+          localePath({
+            name: 'news-slug',
+            params: { slug: item._path.split('/').pop() },
+          })
+        "
         class="text-wrap text-h4 text-md-h5 text-xl-h4 text-black"
       >
         {{ item.title }}</NuxtLink
