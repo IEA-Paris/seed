@@ -105,5 +105,11 @@
   "programme-pdf": "The Programm (PDF)",
   "resumes-des-presentations": "Presentation summaries",
   "details-0": "Details",
-  "read-more": "Read more"
+  "read-more": "Read more",
+  "related": {
+    "events": "Related events",
+    "news": "Related news",
+    "project": "Related projects"
+  },
+  "by-author": "By {0}"
 }

@@ -8,7 +8,7 @@
     >
       {{ item.title }}
     </v-col>
-    <v-col cols="12" md="3" lg="3" xl="3">
+    <v-col cols="12" md="4">
       <div class="overflow-hidden mx-sm-6">
         <v-img
           :src="item.image"
@@ -20,7 +20,7 @@
       </div>
     </v-col>
 
-    <v-col cols="12" md="9" lg="9" xl="9">
+    <v-col cols="12" md="8">
       <div class="ml-md-4 mx-sm-6">
         <div v-if="lgAndUp" class="text-wrap text-lg-h4 text-black">
           {{ item.title }}
@@ -28,7 +28,12 @@
         <div class="d-flex flex-column flex-md-row align-md-center">
           <MiscAtomsDateStamp :date="item.date" class="ml-n3 ml-md-5 ml-lg-0" />
           <div class="text-body-1 text-black ml-md-5">
-            {{ item.authors[0].firstname }} {{ item.authors[0].firstname }}
+            <!--    TODO use a proper & conditional formatting of names (depending on number of authors) -->
+            {{
+              $t("by-author", [
+                item.authors[0].firstname + " " + item.authors[0].firstname,
+              ])
+            }}
           </div>
         </div>
         <MiscMoleculesChipContainer
@@ -38,12 +43,8 @@
     </v-col>
   </v-row>
 
-  <v-row>
-    <v-col cols="12" lg="7" xl="7">
-      <ContentRenderer :value="item" class="mx-sm-6" />
-    </v-col>
-
-    <v-col cols="12" lg="5" xl="5">
+  <v-row class="mt-6">
+    <v-col cols="12" md="4" :order="mdAndUp ? 'first' : 'last'">
       <MiscMoleculesRelatedItems
         type="events"
         :items="item.relatedEvents"
@@ -52,21 +53,24 @@
         type="project"
         :items="item.relatedProjects"
       ></MiscMoleculesRelatedItems>
-      <div class="mt-2 mx-n6 mx-sm-0">
+      <div class="mt-2 mx-n6 mx-sm-0" v-if="mdAndUp">
         <ActionsSmallContainer
           :action="action"
           :ratio="1 / 2"
         ></ActionsSmallContainer>
       </div>
     </v-col>
+    <v-col cols="12" md="8">
+      <ContentRenderer :value="item" class="mx-sm-6 mt-6" />
+    </v-col>
   </v-row>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
+const { name, mdAndDown, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
 const router = useRouter()
 const { $i18n } = useNuxtApp()
-const { name, mdAndDown, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
 const props = defineProps({
   item: {
     type: Object,
