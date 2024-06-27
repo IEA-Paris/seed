@@ -45,6 +45,12 @@
 
   <v-row class="mt-6">
     <v-col cols="12" md="4" :order="mdAndUp ? 'first' : 'last'">
+      <div class="mt-2 mx-n6 mx-sm-0" v-if="mdAndUp">
+        <ActionsSmallContainer
+          :action="action"
+          :ratio="1 / 2"
+        ></ActionsSmallContainer>
+      </div>
       <MiscMoleculesRelatedItems
         type="events"
         :items="item.relatedEvents"
@@ -53,12 +59,6 @@
         type="project"
         :items="item.relatedProjects"
       ></MiscMoleculesRelatedItems>
-      <div class="mt-2 mx-n6 mx-sm-0" v-if="mdAndUp">
-        <ActionsSmallContainer
-          :action="action"
-          :ratio="1 / 2"
-        ></ActionsSmallContainer>
-      </div>
     </v-col>
     <v-col cols="12" md="8">
       <ContentRenderer :value="item" class="mx-sm-6 mt-6" />

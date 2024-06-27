@@ -20,7 +20,6 @@
       hide-details
       :density="smAndDown ? 'dense' : 'default'"
       clearable
-      style="min-width: 150px"
       type="search"
     >
       <!--    :loading="$nuxt.loading || $store.state.loading" :class="{ 'mt-3':

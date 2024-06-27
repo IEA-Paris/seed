@@ -24,9 +24,6 @@ console.log("items: ", props.items)
 
 const capitalizeFirstLetter = (string) =>
   string.charAt(0).toUpperCase() + string.slice(1)
-
-console.log("STRING", capitalizeFirstLetter(props.type))
-console.log("STRING", props.items)
 </script>
 
 <style></style>
