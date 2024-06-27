@@ -7,8 +7,4 @@
   </v-container>
 </template>
 
-<script setup>
-import { useDisplay } from "vuetify"
-const { smAndUp } = useDisplay()
-const localePath = useLocalePath()
-</script>
+<script setup></script>

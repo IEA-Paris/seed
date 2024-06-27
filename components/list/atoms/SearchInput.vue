@@ -55,7 +55,7 @@ const props = defineProps({
 })
 const search = computed({
   get() {
-    return rootStore[props.type].list?.search || ""
+    return rootStore.search || ""
   },
   set: useDebounceFn(function (v) {
     console.log("v: ", v)

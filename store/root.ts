@@ -47,6 +47,11 @@ export const useRootStore = defineStore("rootStore", {
     scrolled: process.browser ? window.scrollY > 0 : false,
     loading: true,
     resetFilters: false,
+    total: 0,
+    skip: 0,
+    numberOfPages: 0,
+    search: "",
+    page: 1,
     ...modulesState,
   }),
 
@@ -222,7 +227,7 @@ export const useRootStore = defineStore("rootStore", {
       const query = currentRoute.value.query
 
       if (query.search) {
-        ;(this[type] as ModuleType).list.search = query.search
+        this.search = query.search
       }
       if (query.filters) {
         const filters = JSON.parse(query.filters as any)
@@ -238,9 +243,9 @@ export const useRootStore = defineStore("rootStore", {
           | undefined
       }
       if (query.page) {
-        ;(this[type] as ModuleType).list.page = +query.page
+        this.page = +query.page
       } else {
-        ;(this[type] as ModuleType).list.page = 1
+        this.page = 1
       }
 
       const sortObj = (this[type] as ModuleType).list.sort
@@ -259,46 +264,7 @@ export const useRootStore = defineStore("rootStore", {
         ;(this[type] as ModuleType).list.sortDesc[0] = defaultSort[0].value[1]
       }
     },
-    setSearch({ search, type }: { search: any; type: string }) {
-      ;(this[type] as ModuleType).list.search = search
-    },
-    setItems({
-      type,
-      values,
-    }: {
-      type: string
-      values: { items: any; total: number; numberOfPages: number }
-    }) {
-      ;(this[type] as ModuleType).list.items = values.items
-      ;(this[type] as ModuleType).list.total = values.total
-      ;(this[type] as ModuleType).list.numberOfPages = values.numberOfPages
-    },
-    setItemsPerPage({ value, type }: { value: number; type: string }) {
-      ;(this[type] as ModuleType).list.itemsPerPage = value
-    },
-    setPage({ page, type }: { page: number; type: string }) {
-      ;(this[type] as ModuleType).list.page = page
-    },
-    setFilters({
-      filters,
-      type,
-    }: {
-      filters: Record<string, any[]>
-      type: string
-    }) {
-      if (filters[Object.keys(filters)[0]].length)
-        (this[type] as ModuleType).loading.push(Object.keys(filters)[0])
-      ;(this[type] as ModuleType).list.filters[Object.keys(filters)[0]] =
-        filters[Object.keys(filters)[0]]
-    },
-    setSort({ value, type }: { value: [string[] | number[]]; type: string }) {
-      console.log("sort value: ", value)
-      ;(this[type] as ModuleType).list.sortBy = [value[0]]
-      ;(this[type] as ModuleType).list.sortDesc = [value[1]]
-    },
-    setView({ value, type }: { value: string; type: string }) {
-      ;(this[type] as ModuleType).list.view = value
-    },
+
     setFiltersCount(type: string) {
       const filters = (this[type] as ModuleType).list.filters
       const filtersCount = Object.keys(filters)
@@ -314,7 +280,10 @@ export const useRootStore = defineStore("rootStore", {
         ).length
       ;(this[type] as ModuleType).list.filtersCount = filtersCount
     },
-    setBlankState(type: string) {
+    setBlankFilterLoad(type: string) {
+      ;(this[type] as ModuleType).loading = []
+    },
+    resetState(type: string) {
       this.resetFilters = true
 
       const viewsObj = (this[type] as ModuleType).list.views
@@ -340,27 +309,23 @@ export const useRootStore = defineStore("rootStore", {
         discipline: [],
         type: [],
       }
-      ;(this[type] as ModuleType).list.search = ""
+      this.search = ""
       ;(this[type] as ModuleType).list.view = defaultView.value
       ;(this[type] as ModuleType).list.sortBy = [defaultSort.value[0]]
       ;(this[type] as ModuleType).list.sortDesc = [defaultSort.value[1]]
       ;(this[type] as ModuleType).resetFilters = false
-    },
-    setBlankFilterLoad(type: string) {
-      ;(this[type] as ModuleType).loading = []
-    },
-    resetState(type: string) {
-      this.setBlankState(type)
-      this.setPage({ page: 1, type })
+      this.page = 1
+
       this.update(type)
     },
-    updateSort({ value, type }: { value: number[]; type: string }) {
-      this.setSort({ value, type })
-      this.setPage({ page: 1, type })
+    updateSort({ value, type }: { value: number[] | Boolean[]; type: string }) {
+      ;(this[type] as ModuleType).list.sortBy = [value[0]]
+      ;(this[type] as ModuleType).list.sortDesc = [value[1]]
+      this.page = 1
       this.update(type)
     },
     updateView({ value, type }: { value: string; type: string }) {
-      this.setView({ value, type })
+      ;(this[type] as ModuleType).list.view = value
       this.update(type)
     },
     updateFilters({
@@ -370,23 +335,28 @@ export const useRootStore = defineStore("rootStore", {
       filters: Record<string, any[]>
       type: string
     }) {
-      this.setFilters({ filters, type })
-      this.setPage({ page: 1, type })
+      if (filters[Object.keys(filters)[0]].length)
+        (this[type] as ModuleType).loading.push(Object.keys(filters)[0])
+      ;(this[type] as ModuleType).list.filters[Object.keys(filters)[0]] =
+        filters[Object.keys(filters)[0]]
+      this.page = 1
+
       this.update(type)
     },
     updateItemsPerPage({ value, type }: { value: number; type: string }) {
-      this.setPage({ page: 1, type })
-      this.setItemsPerPage({ value, type })
+      this.page = 1
+      ;(this[type] as ModuleType).list.itemsPerPage = value
+
       this.update(type)
     },
     updatePage({ page, type }: { page: number; type: string }) {
-      this.setPage({ page, type })
+      this.page = page
       this.update(type)
     },
     updateSearch({ search, type }: { search: any; type: string }) {
       console.log("updateSearch: ", { search, type })
-      this.setPage({ page: 1, type })
-      this.setSearch({ search, type })
+      this.page = 1
+      this.search = search
       this.update(type)
     },
     async update(type: string) {
@@ -405,7 +375,7 @@ export const useRootStore = defineStore("rootStore", {
       const queryFilters: any = {}
 
       pipeline.$or = []
-
+      // TODO maybe remove
       for (const filter in filters) {
         // remove empty values
         if (
@@ -470,8 +440,8 @@ export const useRootStore = defineStore("rootStore", {
       }
       console.log("pipeline: ", pipeline)
 
-      const count = [{}]
-      const totalItems = count.length
+      const count = await queryContent(target).where(pipeline).count()
+      const totalItems = count
       console.log("totalItems: ", totalItems)
 
       const itemsPerPageValue = (this[type] as ModuleType).list
@@ -484,16 +454,16 @@ export const useRootStore = defineStore("rootStore", {
       const itemsPerPage = (this[type] as ModuleType)?.list?.itemsPerPage || 1
 
       const skipNumber = () => {
-        if (+(this[type] as ModuleType).list.page === 1) {
+        if (+this.page === 1) {
           return 0
         }
-        if (+(this[type] as ModuleType).list.page === lastPage) {
+        if (+this.page === lastPage) {
           if (lastPageCount === 0) {
             return totalItems - itemsPerPage
           }
           return totalItems - lastPageCount
         }
-        return (+(this[type] as ModuleType).list.page - 1) * itemsPerPage
+        return (+this.page - 1) * itemsPerPage
       }
 
       const sortBy = (this[type] as ModuleType).list.sortBy
@@ -539,12 +509,12 @@ export const useRootStore = defineStore("rootStore", {
 
       // update route
       const query: Record<string, QueryValues> = {
-        ...((this[type] as ModuleType).list.search &&
-          typeof (this[type] as ModuleType).list.search !== "undefined" && {
-            search: (this[type] as ModuleType).list.search,
+        ...(this.search &&
+          typeof this.search !== "undefined" && {
+            search: this.search,
           }),
-        ...((this[type] as ModuleType).list.page > 1 && {
-          page: (this[type] as ModuleType).list.page.toString(),
+        ...(this.page > 1 && {
+          page: this.page.toString(),
         }),
         ...(((this[type] as ModuleType).list.sortBy as number[]).length &&
           sortByItem !== defaultSort.value[1] && {
@@ -593,10 +563,9 @@ export const useRootStore = defineStore("rootStore", {
       this.setFiltersCount(type)
       this.setBlankFilterLoad(type)
       console.log("type2: ", type)
-      this.setItems({
-        type,
-        values: { items, total: totalItems, numberOfPages: lastPage },
-      })
+      ;(this[type] as ModuleType).list.items = items
+      this.total = totalItems
+      this.numberOfPages = lastPage
       this.setLoading(false)
     },
   },

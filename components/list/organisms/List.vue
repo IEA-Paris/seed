@@ -88,10 +88,10 @@ const itemTemplate = computed(() =>
   )
 )
 const route = useRoute()
-const total = computed(() => rootStore[props.type].list.total)
-const numberOfPages = computed(() => rootStore[props.type].list.numberOfPages)
+const total = computed(() => rootStore.total)
+const numberOfPages = computed(() => rootStore.numberOfPages)
 
-const page = computed(() => +rootStore[props.type].list.page)
+const page = computed(() => +rootStore.page)
 
 const sortBy = computed(() => rootStore[props.type].list.sortBy)
 
@@ -115,7 +115,7 @@ const itemsPerPage = computed({
 
 const search = computed({
   get() {
-    return rootStore[props.type].list.search
+    return rootStore.search
   },
   set(value) {
     debouncedSearch(value)

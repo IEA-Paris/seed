@@ -6,6 +6,7 @@
   >
     <v-btn
       v-if="!(hidePrevNext && firstPageSelected())"
+      :disabled="firstPageSelected()"
       min-width="35"
       height="35"
       width="35"
@@ -66,6 +67,7 @@
     <v-btn
       v-if="!(hidePrevNext && lastPageSelected())"
       :tabindex="!hidePrevNext && lastPageSelected() ? -1 : 0"
+      :disabled="lastPageSelected()"
       aria-label="Next Page"
       :to="`/${type}/${currentPage + 1}`"
       min-width="35"
@@ -82,7 +84,7 @@
 <script setup>
 // THIS COMPONENT IS INITALLY BASED ON https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-pagination
 // AND MODIFIED TO FIT INTO OUR NEEDS (Vuetify + nuxt 3)
-const props =  defineProps({
+const props = defineProps({
   totalPages: {
     type: Number,
     required: true,
@@ -197,7 +199,7 @@ const firstPageSelected = () => {
 }
 
 const lastPageSelected = () => {
-      return props.currentPage === props.totalPages || props.totalPages === 0
+  return props.currentPage === props.totalPages || props.totalPages === 0
 }
 
 const createGap = (pageIndex) => {
