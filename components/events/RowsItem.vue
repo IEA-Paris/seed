@@ -1,10 +1,13 @@
 <template>
   <v-divider v-if="index > 0"></v-divider>
   <v-row class="my-8 px-sm-12 px-4" no-gutters>
-    <MiscAtomsDateStamp :date="item.start" class="pr-6" />
-    <v-col cols="12" md="8" lg="9" class="px-md-6 mt-6 mt-md-0">
-      <v-row no-gutters>
-        <v-col cols="12" md="8">
+    <!--  TODO rework on xs sm. The picture occupies too much of the vertical space and the datestamp is alone on one width -->
+    <v-col cols="12" md="1">
+      <MiscAtomsDateStamp :date="item.start" class="pr-6 mt-md-1"
+    /></v-col>
+    <v-col cols="12" md="8" class="px-md-6 mt-6 mt-md-0">
+      <v-row no-gutters="">
+        <v-col cols="12" lg="9" class="pr-lg-6">
           <nuxt-link
             :to="
               localePath({
@@ -12,10 +15,9 @@
                 params: { slug: item._path.split('/').pop() },
               })
             "
-            class="text-h4 text-black text-wrap"
+            class="text-h4 text-black text-wrap mt-4"
           >
             {{ item.title }}
-            {{ item.slug }}
           </nuxt-link>
           <div class="mt-2 text-h6 text-overline font-weight-black">
             {{ $t("events.categories." + item.category) }}
@@ -47,9 +49,7 @@
           </div>
         </v-col>
 
-        <v-col cols="12" lg="1" v-if="lgAndUp"> </v-col>
-
-        <v-col cols="12" md="4" lg="3" class="px-md-6">
+        <v-col cols="12" lg="3" class="">
           <v-row no-gutters>
             <v-col cols="12">
               <div class="text-overline">
@@ -60,7 +60,7 @@
                 {{ formatDate(item.start, $i18n.locale) }}
               </div>
             </v-col>
-            <v-col cols="12" class="my-6" v-if="item.location">
+            <v-col cols="12" class="mb-6 mt-3" v-if="item.location">
               <div class="text-overline">
                 {{ $t("location") }}
               </div>
@@ -98,7 +98,7 @@
         >
       </div>
     </v-col>
-    <v-col cols="12" md="3" lg="2" xl="2">
+    <v-col cols="12" md="3">
       <div class="overflow-hidden">
         <nuxt-link
           :to="
@@ -123,7 +123,7 @@
 <script setup>
 import { useDisplay } from "vuetify"
 
-const { name, smAndUp, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
+const { name, smAndDown, smAndUp, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
 const localePath = useLocalePath()
 const props = defineProps({
   item: {

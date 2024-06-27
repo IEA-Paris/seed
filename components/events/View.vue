@@ -52,7 +52,7 @@
       md="3"
       v-if="mdAndUp"
     >
-      <div class="bg-grey-lighten-2">
+      <div class="bg-grey-lighten-4">
         <div class="ma-md-4 ma-lg-8">
           <EventsDateTimePlace :item="item"></EventsDateTimePlace>
 
@@ -104,7 +104,7 @@
     <v-col class="d-flex flex-row" cols="12" v-if="sm">
       <v-row class="ml-sm-1">
         <v-col cols="6">
-          <v-responsive :aspect-ratio="1 / 1" class="bg-grey-lighten-2">
+          <v-responsive :aspect-ratio="1 / 1" class="bg-grey-lighten-4">
             <v-img
               :src="item.image"
               :aspect-ratio="1 / 1"
@@ -121,7 +121,7 @@
     </v-col>
 
     <v-col class="ml-2" cols="12" v-if="xs">
-      <v-responsive :aspect-ratio="1 / 1" class="bg-grey-lighten-2">
+      <v-responsive :aspect-ratio="1 / 1" class="bg-grey-lighten-4">
         <v-img
           :src="item.image"
           :aspect-ratio="1 / 1"

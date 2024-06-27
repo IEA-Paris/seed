@@ -54,6 +54,8 @@ const { smAndUp } = useDisplay()
         <v-divider vertical></v-divider>
         <!--  LANGUAGE SWITCHER -->
         <NavigationLanguageSwitcher />
+        <v-divider vertical></v-divider>
+        <NavigationGlobalSearch />
       </template>
       <NavigationMainMenu v-else />
     </template>
