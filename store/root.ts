@@ -13,6 +13,7 @@ interface InputParams {
   defaults?: any | null
   value?: any
 }
+
 type QueryValues = string | Views | boolean | number | string[] | undefined
 const modulesState: Record<string, ModuleType> = {}
 let types: string[] = []
@@ -43,7 +44,7 @@ const initStore = async () => {
 }
 
 export const useRootStore = defineStore("rootStore", {
-  state: (): Record<string, boolean | ModuleType> => ({
+  state: (): Record<string, boolean | number | string | ModuleType> => ({
     scrolled: process.browser ? window.scrollY > 0 : false,
     loading: true,
     resetFilters: false,
