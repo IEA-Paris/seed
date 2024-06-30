@@ -36,7 +36,7 @@
     "@mdi/font": "^7.2.96",
     "@nuxt/image": "^1.0.0-rc.1",
     "@nuxtjs/robots": "^3.0.0",
-    "@paris-ias/data": "^0.1.1",
+    "@paris-ias/data": "^0.4.6",
     "@pinia/nuxt": "^0.4.6",
     "@vueuse/core": "^10.11.0",
     "@vueuse/motion": "^2.0.0-beta.25",

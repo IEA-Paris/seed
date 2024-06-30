@@ -4,12 +4,12 @@ import createModule, { ModuleType } from "~/store/module"
 /* import api from "~/server/api/github" */
 import config from "~/static.config"
 import fs from "fs"
-import { Form, Model, Sort, Views } from "@paris-ias/data"
+import { Views } from "@paris-ias/data"
 interface InputParams {
   key?: any | string
-  level?: any[] | any | null
-  store?: any[] | any | null
-  category?: any | string
+  level?: string[] | number[] | number | null
+  store?: any
+  category?: string
   defaults?: any | null
   value?: any
 }
@@ -20,17 +20,6 @@ let types: string[] = []
 console.log("STARTING THE STORE")
 const initStore = async () => {
   const modules = {}
-  if (process.server) {
-    console.log("opening directory")
-    const dir = fs.opendirSync("./data")
-    let file
-    while ((file = dir.readSync()) !== null) {
-      !(file.name.startsWith(".") || file.name === "LICENCE") &&
-        types.push(file.name.substring(0, file.name.length - 3))
-    }
-    dir.closeSync()
-  }
-  console.log("types: ", types)
 
   await Promise.all(
     [/* "people", "fellowship", "project", */ "events", "news" /* */].map(
@@ -111,8 +100,10 @@ export const useRootStore = defineStore("rootStore", {
       }
     },
     updateForm({ key, value, category, level, store }: InputParams): any {
-      level = level ?? [(this[category] as ModuleType)?.form?.values[key]]
-      store = store ?? (this[category] as ModuleType).form.values
+      level = level ?? [
+        (this[category as string] as ModuleType)?.form?.values[key],
+      ]
+      store = store ?? (this[category as string] as ModuleType).form.values
       console.log(`updateForm
         key: ${key}
         value: ${value}
@@ -130,8 +121,8 @@ export const useRootStore = defineStore("rootStore", {
         //guard against undef keys
         if (store[level[0]] === undefined) {
           if (isArray) {
-            const itemValue = (this[category] as ModuleType).form.schema[key]
-              ?.default
+            const itemValue = (this[category as string] as ModuleType).form
+              .schema[key]?.default
             store[level[0]] = [itemValue]
           } else {
             // if the key is not a number, it is an object (if it was a primitive, level.length would be 1)
@@ -153,8 +144,10 @@ export const useRootStore = defineStore("rootStore", {
       level = null,
       store = null,
     }: InputParams): any {
-      level = level ?? [(this[category] as ModuleType).form.values[key]]
-      store = store ?? (this[category] as ModuleType).form.values
+      level = level ?? [
+        (this[category as string] as ModuleType).form.values[key],
+      ]
+      store = store ?? (this[category as string] as ModuleType).form.values
       console.log(`deleteFormItem
         key: ${key}
         category: ${category}
@@ -185,9 +178,11 @@ export const useRootStore = defineStore("rootStore", {
       defaults = null,
     }: InputParams): any {
       try {
-        level = level ?? [(this[category] as ModuleType).form.values[key]]
-        store = store ?? (this[category] as ModuleType).form.values
-        const defaultForm = (this[category] as ModuleType).form
+        level = level ?? [
+          (this[category as string] as ModuleType).form.values[key],
+        ]
+        store = store ?? (this[category as string] as ModuleType).form.values
+        const defaultForm = (this[category as string] as ModuleType).form
           ._defaults as string
         if (!defaults) defaults = JSON.parse(defaultForm)
         console.log("defaults: ", defaults)
@@ -228,10 +223,10 @@ export const useRootStore = defineStore("rootStore", {
       const query = currentRoute.value.query
 
       if (query.search) {
-        this.search = query.search
+        this.search = query.search as string
       }
       if (query.filters) {
-        const filters = JSON.parse(query.filters as any)
+        const filters = JSON.parse(query.filters as string)
         Object.keys(filters).forEach((filter) => {
           ;(this[type] as ModuleType).list.filters[filter] = filters[filter]
         })
