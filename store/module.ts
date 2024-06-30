@@ -12,7 +12,7 @@ interface List {
   filters: Record<string, any>
   limit?: number
   sortBy: Sort | string[] | undefined
-  sortDesc?: Sort | number[] | boolean | undefined
+  sortDesc?: Sort | number[] | string[] | string | undefined
 }
 
 interface CustomForm {
@@ -56,7 +56,7 @@ const createModule = async (type: string): Promise<ModuleType> => {
     defaultSortKey !== undefined
       ? baseType?.list.sort[defaultSortKey]
       : undefined
-  console.log("defaultSort: ", defaultSort)
+  // console.log("defaultSort: ", defaultSort)
 
   // Helper function to handle aliases
   const processAliases = async (

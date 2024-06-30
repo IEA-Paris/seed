@@ -3161,10 +3161,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@paris-ias/data@npm:^0.4.6":
-  version: 0.4.6
-  resolution: "@paris-ias/data@npm:0.4.6"
-  checksum: 10c0/51e9928fe1a71ed7f9c1206ef271f57a12b5724070e489ccec9accb0a17adeaab2077ea0101be23c61b3bce6fcb0d7ecc7f3ae99bb4481afb091341169971aad
+"@paris-ias/data@npm:^0.4.8":
+  version: 0.4.8
+  resolution: "@paris-ias/data@npm:0.4.8"
+  checksum: 10c0/3296a775ec0cc39ec55ddcd829cbb612948330cebeae606166cb979260baea246b5bb3ef0d98a8750dc78e8887d747e1b1ef28a5bcb203f1b27ed638863d272a
   languageName: node
   linkType: hard
 
@@ -12088,7 +12088,7 @@ __metadata:
     "@nuxtjs/html-validator": "npm:^1.5.2"
     "@nuxtjs/i18n": "npm:^8.0.0-rc.4"
     "@nuxtjs/robots": "npm:^3.0.0"
-    "@paris-ias/data": "npm:^0.4.6"
+    "@paris-ias/data": "npm:^0.4.8"
     "@pinia/nuxt": "npm:^0.4.6"
     "@vite-pwa/nuxt": "npm:^0.1.1"
     "@vue/test-utils": "npm:^2.4.6"

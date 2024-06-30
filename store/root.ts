@@ -520,15 +520,15 @@ export const useRootStore = defineStore("rootStore", {
         ...((this.page as number) > 1 && {
           page: this.page.toString(),
         }),
-        ...(((this[type] as ModuleType).list.sortBy as number[]).length &&
-          sortByItem !== defaultSort.value[1] && {
+        ...(((this[type] as ModuleType).list.sortBy as string[]).length &&
+          sortByItem !== defaultSort.value[0] && {
             sortBy: sortByItem,
           }),
         ...(typeof (this[type] as ModuleType).list.sortDesc[0] !==
           "undefined" &&
-          (this[type] as ModuleType).list.sortDesc[0] !==
+          ((this[type] as ModuleType).list.sortDesc[0] as string) !==
             defaultSort.value[0] && {
-            sortDesc: !!(this[type] as ModuleType).list.sortDesc[0] as boolean,
+            sortDesc: !!(this[type] as ModuleType).list.sortDesc[0],
           }),
         ...((this[type] as ModuleType).list.view &&
           (this[type] as ModuleType).list.view !== defaultView.name && {
