@@ -249,17 +249,18 @@ export const useRootStore = defineStore("rootStore", {
         (item) => sortObj[item].default === true
       )
       const defaultSort = [sortObj[defaultSortKey as string]]
+
+      const sortDesc = (this[type] as ModuleType).list.sortDesc
+      let sortDescItem
+      sortDescItem = (sortDesc as number[] | boolean[])[0]
+
       if (query.sortBy) {
         ;(this[type] as ModuleType).list.sortBy = [query.sortBy] as string[]
       }
       if (typeof query.sortDesc !== "undefined") {
-        ;(this[type] as ModuleType).list.sortDesc[0] = !!(
-          query.sortDesc === "true"
-        )
+        sortDescItem = !!(query.sortDesc === "true")
       } else {
-        ;(this[type] as ModuleType).list.sortDesc[0] = [
-          defaultSort[0].value[1],
-        ] as number[]
+        sortDescItem = defaultSort[0].value[1]
       }
     },
 
@@ -372,7 +373,7 @@ export const useRootStore = defineStore("rootStore", {
       const pipeline = {
         // default filters
         /* ...filters, */
-      }
+      } as any
       const queryFilters: any = {}
 
       pipeline.$or = []
@@ -470,10 +471,9 @@ export const useRootStore = defineStore("rootStore", {
       const sortBy = (this[type] as ModuleType).list.sortBy
       const sortByItem = (sortBy as string[])[0]
 
-      const sortArray = [
-        sortByItem,
-        (this[type] as ModuleType).list.sortDesc[0],
-      ]
+      const sortDesc = (this[type] as ModuleType).list.sortDesc
+      const sortDescItem = (sortDesc as number[])[0]
+      const sortArray = [sortByItem, sortDescItem]
       console.log("type1: ", type)
       console.log("pipeline: ", pipeline)
       console.log("queryContent: ", queryContent)
@@ -524,11 +524,9 @@ export const useRootStore = defineStore("rootStore", {
           sortByItem !== defaultSort.value[0] && {
             sortBy: sortByItem,
           }),
-        ...(typeof (this[type] as ModuleType).list.sortDesc[0] !==
-          "undefined" &&
-          ((this[type] as ModuleType).list.sortDesc[0] as string) !==
-            defaultSort.value[0] && {
-            sortDesc: !!(this[type] as ModuleType).list.sortDesc[0],
+        ...(typeof sortDescItem !== "undefined" &&
+          sortDescItem !== defaultSort.value[1] && {
+            sortDesc: !!sortDescItem,
           }),
         ...((this[type] as ModuleType).list.view &&
           (this[type] as ModuleType).list.view !== defaultView.name && {
