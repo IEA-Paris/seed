@@ -4,10 +4,10 @@ import createModule, { ModuleType } from "~/store/module"
 /* import api from "~/server/api/github" */
 import config from "~/static.config"
 import fs from "fs"
-import { Views } from "@paris-ias/data"
+import { Sort, Views } from "@paris-ias/data"
 interface InputParams {
   key?: any | string
-  level?: string[] | number[] | number | null
+  level?: string[] | number[] | number | any
   store?: any
   category?: string
   defaults?: any | null
@@ -250,14 +250,16 @@ export const useRootStore = defineStore("rootStore", {
       )
       const defaultSort = [sortObj[defaultSortKey as string]]
       if (query.sortBy) {
-        ;(this[type] as ModuleType).list.sortBy = [query.sortBy] as any
+        ;(this[type] as ModuleType).list.sortBy = [query.sortBy] as string[]
       }
       if (typeof query.sortDesc !== "undefined") {
         ;(this[type] as ModuleType).list.sortDesc[0] = !!(
           query.sortDesc === "true"
         )
       } else {
-        ;(this[type] as ModuleType).list.sortDesc[0] = defaultSort[0].value[1]
+        ;(this[type] as ModuleType).list.sortDesc[0] = [
+          defaultSort[0].value[1],
+        ] as number[]
       }
     },
 
@@ -282,7 +284,10 @@ export const useRootStore = defineStore("rootStore", {
     resetState(type: string) {
       this.resetFilters = true
 
-      const viewsObj = (this[type] as ModuleType).list.views
+      const viewsObj = (this[type] as ModuleType).list.views as Record<
+        string,
+        Views
+      >
       const defaultViewsKey = Object.keys(viewsObj).find(
         (item) => viewsObj[item].default === true
       )
@@ -292,7 +297,7 @@ export const useRootStore = defineStore("rootStore", {
       const defaultSortKey = Object.keys(sortObj).find(
         (item) => sortObj[item].default === true
       )
-      const defaultSort = [sortObj[defaultSortKey as string]]
+      const defaultSort = sortObj[defaultSortKey as string]
       console.log("defaultSort root: ", defaultSort)
 
       // TODO make dynamic based on an ~/assets located file
@@ -306,7 +311,7 @@ export const useRootStore = defineStore("rootStore", {
         type: [],
       }
       this.search = ""
-      ;(this[type] as ModuleType).list.view = defaultView.value
+      ;(this[type] as ModuleType).list.view = defaultView.name
       ;(this[type] as ModuleType).list.sortBy = [defaultSort.value[0]]
       ;(this[type] as ModuleType).list.sortDesc = [defaultSort.value[1]]
       ;(this[type] as ModuleType).resetFilters = false
@@ -314,9 +319,9 @@ export const useRootStore = defineStore("rootStore", {
 
       this.update(type)
     },
-    updateSort({ value, type }: { value: number[] | Boolean[]; type: string }) {
-      ;(this[type] as ModuleType).list.sortBy = [value[0]]
-      ;(this[type] as ModuleType).list.sortDesc = [value[1]]
+    updateSort({ value, type }: { value: number[] | string[]; type: string }) {
+      ;(this[type] as ModuleType).list.sortBy = [value[0]] as string[]
+      ;(this[type] as ModuleType).list.sortDesc = [value[1]] as number[]
       this.page = 1
       this.update(type)
     },
@@ -463,7 +468,7 @@ export const useRootStore = defineStore("rootStore", {
       }
 
       const sortBy = (this[type] as ModuleType).list.sortBy
-      const sortByItem = (sortBy as number[])[0]
+      const sortByItem = (sortBy as string[])[0]
 
       const sortArray = [
         sortByItem,
@@ -489,7 +494,10 @@ export const useRootStore = defineStore("rootStore", {
           .find()
       )
 
-      const viewsObj = (this[type] as ModuleType).list.views
+      const viewsObj = (this[type] as ModuleType).list.views as Record<
+        string,
+        Views
+      >
       const defaultViewsKey = Object.keys(viewsObj).find(
         (item) => viewsObj[item].default === true
       )
@@ -504,12 +512,12 @@ export const useRootStore = defineStore("rootStore", {
       console.log("type b4 route query: ", type)
 
       // update route
-      const query: Record<string, QueryValues> = {
+      const query: Record<string, any> = {
         ...(this.search &&
           typeof this.search !== "undefined" && {
             search: this.search,
           }),
-        ...(this.page > 1 && {
+        ...((this.page as number) > 1 && {
           page: this.page.toString(),
         }),
         ...(((this[type] as ModuleType).list.sortBy as number[]).length &&
@@ -520,7 +528,7 @@ export const useRootStore = defineStore("rootStore", {
           "undefined" &&
           (this[type] as ModuleType).list.sortDesc[0] !==
             defaultSort.value[0] && {
-            sortDesc: !!(this[type] as ModuleType).list.sortDesc[0],
+            sortDesc: !!(this[type] as ModuleType).list.sortDesc[0] as boolean,
           }),
         ...((this[type] as ModuleType).list.view &&
           (this[type] as ModuleType).list.view !== defaultView.name && {
@@ -559,7 +567,7 @@ export const useRootStore = defineStore("rootStore", {
       this.setFiltersCount(type)
       this.setBlankFilterLoad(type)
       console.log("type2: ", type)
-      ;(this[type] as ModuleType).list.items = items
+      ;(this[type] as ModuleType).list.items = items as any
       this.total = totalItems
       this.numberOfPages = lastPage
       this.setLoading(false)

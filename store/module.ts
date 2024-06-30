@@ -12,7 +12,7 @@ interface List {
   filters: Record<string, any>
   limit?: number
   sortBy: Sort | string[] | undefined
-  sortDesc?: Sort | number[] | undefined
+  sortDesc?: Sort | number[] | boolean | undefined
 }
 
 interface CustomForm {
