@@ -3161,10 +3161,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@paris-ias/data@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "@paris-ias/data@npm:0.1.1"
-  checksum: 10c0/b779475473545aa625e16db32a846f8ea5be522480386008a62e7161888899ef8ab0e9587c4e55bb72ddbe59b8dcd7da74b569fdec2a84b21f044073cf94aa3e
+"@paris-ias/data@npm:^0.4.8":
+  version: 0.4.8
+  resolution: "@paris-ias/data@npm:0.4.8"
+  checksum: 10c0/3296a775ec0cc39ec55ddcd829cbb612948330cebeae606166cb979260baea246b5bb3ef0d98a8750dc78e8887d747e1b1ef28a5bcb203f1b27ed638863d272a
   languageName: node
   linkType: hard
 
@@ -12088,10 +12088,11 @@ __metadata:
     "@nuxtjs/html-validator": "npm:^1.5.2"
     "@nuxtjs/i18n": "npm:^8.0.0-rc.4"
     "@nuxtjs/robots": "npm:^3.0.0"
-    "@paris-ias/data": "npm:^0.1.1"
+    "@paris-ias/data": "npm:^0.4.8"
     "@pinia/nuxt": "npm:^0.4.6"
     "@vite-pwa/nuxt": "npm:^0.1.1"
     "@vue/test-utils": "npm:^2.4.6"
+    "@vueuse/core": "npm:^10.11.0"
     "@vueuse/motion": "npm:^2.0.0-beta.25"
     nuxt: "npm:^3.7.0"
     nuxt-csurf: "npm:^1.3.1"
