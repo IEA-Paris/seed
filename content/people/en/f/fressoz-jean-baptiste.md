@@ -6,8 +6,7 @@ firstname: Jean-Baptiste
 is_institution: false
 issue:
   - content/issues/crises-et-prophetes.md
-language:
-  - English
+language:  English
 lastname: Fressoz
 affiliations:
   - affiliation: CRH-EHESS, France

@@ -7,8 +7,7 @@ firstname: Manuel
 is_institution: false
 issue:
   - content/issues/virtual-realities.md
-language:
-  - English
+language:  English
 lastname: Mello
 affiliations:
   - affiliation: SCN Lab, Sapienza University Rome, Italy

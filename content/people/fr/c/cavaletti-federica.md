@@ -6,8 +6,7 @@ firstname: Federica
 is_institution: false
 issue:
   - content/issues/identity-from-double-to-avatar.md
-language:
-  - English
+language:  English
 lastname: Cavaletti
 affiliations:
   - affiliation: Università Cattolica di Milano, Italy

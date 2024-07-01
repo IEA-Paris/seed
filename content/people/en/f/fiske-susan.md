@@ -6,8 +6,7 @@ firstname: Susan
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Fiske
 affiliations:
   - affiliation: Princeton University, USA

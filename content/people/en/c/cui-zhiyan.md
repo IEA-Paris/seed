@@ -6,8 +6,7 @@ firstname: Zhiyan
 is_institution: false
 issue:
   - content/issues/paris-ias-ideas.md
-language:
-  - English
+language:  English
 lastname: Cui
 affiliations:
   - affiliation: Université de Tsinghua, Pékin

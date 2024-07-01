@@ -10,8 +10,7 @@ firstname: Emmanuelle
 is_institution: false
 issue:
   - content/issues/crises-et-prophetes.md
-language:
-  - English
+language:  English
   - French
 lastname: Danblon
 affiliations:

@@ -6,8 +6,7 @@ firstname: Elise
 is_institution: false
 issue:
   - content/issues/paysages-alimentaires.md
-language:
-  - French
+language:  French
 lastname: Demeulenaere
 picture: ''
 picture_copyright: ''

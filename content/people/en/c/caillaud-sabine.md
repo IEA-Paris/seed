@@ -6,8 +6,7 @@ firstname: Sabine
 is_institution: false
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Caillaud
 affiliations:
   - affiliation: Paris-Descartes University, France

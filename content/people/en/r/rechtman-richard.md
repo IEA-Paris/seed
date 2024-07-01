@@ -6,8 +6,7 @@ firstname: Richard
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Rechtman
 affiliations:
   - affiliation: EHESS, France

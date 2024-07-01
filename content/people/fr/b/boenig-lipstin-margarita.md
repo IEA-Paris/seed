@@ -7,8 +7,7 @@ firstname: Margarita
 is_institution: false
 issue:
   - content/issues/paris-ias-ideas.md
-language:
-  - English
+language:  English
 lastname: Boenig-Lipstin
 affiliations:
   - affiliation: ETH Zürich

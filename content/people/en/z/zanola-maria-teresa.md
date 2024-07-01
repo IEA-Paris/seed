@@ -6,8 +6,7 @@ firstname: Maria Teresa
 is_institution: false
 issue:
   - content/issues/HCERES - PFUE 2022.md
-language:
-  - French
+language:  French
 lastname: Zanola
 picture: ''
 picture_copyright: ''

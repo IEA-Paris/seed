@@ -6,8 +6,7 @@ firstname: Marc
 is_institution: false
 issue:
   - content/issues/HCERES - PFUE 2022.md
-language:
-  - English
+language:  English
 lastname: Vanholsbeeck
 picture: ''
 picture_copyright: ''

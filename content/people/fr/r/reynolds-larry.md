@@ -13,8 +13,7 @@ is_institution: false
 issue:
   - content/issues/territories-of-energy-transition.md
   - content/issues/justice-climate-transitions.md
-language:
-  - English
+language:  English
 lastname: Reynolds
 affiliations:
   - affiliation: IEA de Paris, France

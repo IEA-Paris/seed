@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Silvana
 issue:
   - content/issues/HCERES - PFUE 2022.md
-language:
-  - English
+language:  English
 lastname: Colella
 picture: ''
 picture_copyright: ''

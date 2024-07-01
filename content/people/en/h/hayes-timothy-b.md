@@ -6,8 +6,7 @@ firstname: Timothy B.
 is_institution: false
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Hayes
 affiliations:
   - affiliation: University of Southern California, USA

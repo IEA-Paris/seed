@@ -1,11 +1,7 @@
 // variables not needed in this file, It's already imported in the project globally
+
 @import "transitions";
 @import "variables";
-$container-max-widths: (
-  "lg": 748px,
-  "xl": 240px,
-  "xxl": 1240px,
-);
 html,
 body {
   padding: 0;
@@ -38,6 +34,7 @@ $body-font-family: "Open sans", sans-serif;
 $border-radius-root: 0;
 $btn-font-weight: 700;
 $heading-font-family: "Bodoni Moda", sans-serif;
+
 $headings: (
   "h1": (
     "font-family": $heading-font-family,

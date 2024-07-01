@@ -6,8 +6,7 @@ firstname: ''
 is_institution: true
 issue:
   - content/issues/paysages-alimentaires.md
-language:
-  - French
+language:  French
 lastname: University of Göttigen, Germany
 picture: ''
 picture_copyright: ''

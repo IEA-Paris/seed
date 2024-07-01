@@ -6,8 +6,7 @@ firstname: Thomas
 is_institution: false
 issue:
   - content/issues/assessing-resilience.md
-language:
-  - French
+language:  French
 lastname: Delahais
 affiliations:
   - affiliation: Quadrant Conseil, France

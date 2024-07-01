@@ -7,8 +7,7 @@ firstname: Emanuel
 is_institution: false
 issue:
   - content/issues/HCERES - PFUE 2022.md
-language:
-  - English
+language:  English
 lastname: Kulczycki
 picture: ''
 picture_copyright: ''

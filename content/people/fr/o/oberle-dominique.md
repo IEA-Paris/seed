@@ -6,8 +6,7 @@ exerpt: ''
 firstname: Dominique
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Oberlé
 affiliations:
   - affiliation: Paris-Ouest-Nanterre-la-Défense University, France

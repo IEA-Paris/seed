@@ -6,8 +6,7 @@ firstname: Olivier
 is_institution: false
 issue:
   - content/issues/territories-of-energy-transition.md
-language:
-  - French
+language:  French
 lastname: Coutard
 affiliations:
   - affiliation: CNRS, LATTS / Université Gustave Eiffel, France

@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Elea
 issue:
   - content/issues/HCERES - PFUE 2022.md
-language:
-  - English
+language:  English
 lastname: Giménez-Toledo
 picture: ''
 picture_copyright: ''

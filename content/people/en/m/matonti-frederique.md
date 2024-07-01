@@ -6,8 +6,7 @@ firstname: Frédérique
 is_institution: false
 issue:
   - content/issues/Agir en temps de crise.md
-language:
-  - French
+language:  French
 lastname: Matonti
 picture: ''
 picture_copyright: ''

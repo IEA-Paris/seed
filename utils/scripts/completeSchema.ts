@@ -1,4 +1,4 @@
-import { Form, configData } from "@paris-ias/data";
+import { Form, configData } from "@paris-ias/data"
 
 export default async (
   schema: Record<string, Form>
@@ -6,12 +6,12 @@ export default async (
   for await (const key of Object.keys(schema)) {
     // is it a template?
     if (schema[key] && schema[key]?.type === 3) {
-      console.log("importing template: ", key);
-      const templateState = configData[key].form;
-      configData;
-      schema[key].items = templateState;
+      console.log("importing template: ", key)
+      if (key === "eventSlot") console.log("configData: ", configData[key].form)
+      const templateState = configData[key].form
+      schema[key].items = templateState
     }
     // check if it is an object or a collection?
   }
-  return schema;
-};
+  return schema
+}

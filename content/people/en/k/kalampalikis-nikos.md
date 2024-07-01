@@ -6,8 +6,7 @@ firstname: Nikos
 is_institution: false
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Kalampalikis
 affiliations:
   - affiliation: Lumière Lyon 2 University, France

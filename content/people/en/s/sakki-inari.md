@@ -7,8 +7,7 @@ firstname: Inari
 is_institution: false
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Sakki
 affiliations:
   - affiliation: University of Helsinki, Finland

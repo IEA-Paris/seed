@@ -6,8 +6,7 @@ firstname: Luciano
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Fadiga
 affiliations:
   - affiliation: Università degli Studi di Ferrara, Italy

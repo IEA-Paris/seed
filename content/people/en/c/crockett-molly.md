@@ -6,8 +6,7 @@ firstname: Molly
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Crockett
 affiliations:
   - affiliation: University of Oxford, United Kingdom

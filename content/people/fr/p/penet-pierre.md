@@ -8,8 +8,7 @@ firstname: Pierre
 is_institution: false
 issue:
   - content/issues/crises-et-prophetes.md
-language:
-  - French
+language:  French
 lastname: Pénet
 affiliations:
   - affiliation: Université de Genève, Suisse / Institut d’études avancées de Paris, France

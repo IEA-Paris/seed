@@ -7,8 +7,7 @@ firstname: Eliezer
 is_institution: false
 issue:
   - content/issues/Intercontinental Academia 4.md
-language:
-  - English
+language:  English
 lastname: Rabinovici
 affiliations:
   - affiliation: CERN Council (European Organization for Nuclear Research)

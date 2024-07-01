@@ -6,8 +6,7 @@ firstname: Eus
 is_institution: false
 issue:
   - content/issues/sleep-and-memory.md
-language:
-  - English
+language:  English
 lastname: Van Someren
 affiliations:
   - affiliation: Netherlands Institute for Neuroscience

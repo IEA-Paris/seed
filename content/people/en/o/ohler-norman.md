@@ -10,8 +10,7 @@ firstname: Norman
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: OHLER
 affiliations:
   - affiliation: Germany

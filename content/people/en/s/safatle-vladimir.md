@@ -7,8 +7,7 @@ firstname: Vladimir
 is_institution: false
 issue:
   - content/issues/paris-ias-ideas.md
-language:
-  - English
+language:  English
 lastname: Safatle
 affiliations:
   - affiliation: Université de São Paulo, Brésil

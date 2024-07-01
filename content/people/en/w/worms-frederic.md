@@ -6,8 +6,7 @@ firstname: Frédéric
 is_institution: false
 issue:
   - content/issues/Agir en temps de crise.md
-language:
-  - French
+language:  French
 lastname: Worms
 picture: ''
 picture_copyright: ''

@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Milena
 issue:
   - content/issues/HCERES - PFUE 2022.md
-language:
-  - English
+language:  English
 lastname: Žic Fuchs
 picture: ''
 picture_copyright: ''

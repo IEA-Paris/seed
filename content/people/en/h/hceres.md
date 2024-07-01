@@ -6,8 +6,7 @@ firstname: ''
 is_institution: true
 issue:
   - content/issues/HCERES - PFUE 2022.md
-language:
-  - French
+language:  French
 lastname: HCÉRES
 picture: ''
 picture_copyright: ''

@@ -6,8 +6,7 @@ firstname: Xiaobo
 issue:
   - content/issues/WPRN21 Videos.md
   - content/issues/WPRN21 Conference.md
-language:
-  - English
+language:  English
 lastname: Zhang
 picture: ''
 picture_copyright: ''

@@ -9,8 +9,7 @@ is_institution: false
 issue:
   - content/issues/crises-et-prophetes.md
   - content/issues/assessing-resilience.md
-language:
-  - French
+language:  French
 lastname: Lemardeley
 affiliations:
   - affiliation: Ville de Paris, France

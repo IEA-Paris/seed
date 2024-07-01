@@ -6,8 +6,7 @@ firstname: Jacques
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Semelin
 affiliations:
   - affiliation: CNRS  / Sciences Po, France

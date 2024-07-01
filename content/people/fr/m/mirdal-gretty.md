@@ -13,8 +13,7 @@ issue:
   - content/issues/sleep-and-memory.md
   - content/issues/hommage-serge-moscovici.md
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Mirdal
 affiliations:
   - affiliation: Paris Institute for Advanced Study

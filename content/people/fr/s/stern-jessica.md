@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Jessica
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Stern
 affiliations:
   - affiliation: Boston University, USA

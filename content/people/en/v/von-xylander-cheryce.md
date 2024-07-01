@@ -6,8 +6,7 @@ firstname: Cheryce
 is_institution: false
 issue:
   - content/issues/identity-from-double-to-avatar.md
-language:
-  - English
+language:  English
 lastname: von Xylander
 affiliations:
   - affiliation: Humboldt Universität zu Berlin, Germany

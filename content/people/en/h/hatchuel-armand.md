@@ -7,8 +7,7 @@ firstname: Armand
 is_institution: false
 issue:
   - content/issues/biens-communus.md
-language:
-  - French
+language:  French
 lastname: Hatchuel
 picture: ''
 picture_copyright: ''

@@ -6,8 +6,7 @@ firstname: Jonathan
 is_institution: false
 issue:
   - content/issues/paris-ias-ideas.md
-language:
-  - English
+language:  English
 lastname: Glasser
 affiliations:
   - affiliation: Université William & Mary, US

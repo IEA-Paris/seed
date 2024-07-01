@@ -6,8 +6,7 @@ firstname: Mélanie
 is_institution: false
 issue:
   - content/issues/assessing-resilience.md
-language:
-  - French
+language:  French
 lastname: Eck
 affiliations:
   - affiliation: Sciences Po Paris, Algoé Consultants, France

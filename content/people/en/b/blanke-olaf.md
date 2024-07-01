@@ -6,8 +6,7 @@ firstname: Olaf
 is_institution: false
 issue:
   - content/issues/identity-from-double-to-avatar.md
-language:
-  - English
+language:  English
 lastname: Blanke
 affiliations:
   - affiliation: École polytechnique Lausanne, Switzerland

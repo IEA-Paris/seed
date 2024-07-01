@@ -6,8 +6,7 @@ exerpt: ''
 firstname: Eemeli
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Hakoköngäs
 affiliations:
   - affiliation: University of Helsinki, Finland

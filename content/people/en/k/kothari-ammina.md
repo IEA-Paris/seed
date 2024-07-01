@@ -6,8 +6,7 @@ firstname: Ammina
 issue:
   - content/issues/WPRN21 Papers.md
   - content/issues/WPRN21 Proceedings.md
-language:
-  - English
+language:  English
 lastname: Kothari
 picture: ''
 picture_copyright: ''

@@ -6,8 +6,7 @@ firstname: Dominique
 is_institution: false
 issue:
   - content/issues/assessing-resilience.md
-language:
-  - French
+language:  French
 lastname: Méda
 affiliations:
   - affiliation: Université Paris Dauphine, France

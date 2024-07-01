@@ -6,8 +6,7 @@ firstname: Muneo
 issue:
   - content/issues/WPRN21 Papers.md
   - content/issues/WPRN21 Proceedings.md
-language:
-  - English
+language:  English
 lastname: Kaigo
 picture: ''
 picture_copyright: ''

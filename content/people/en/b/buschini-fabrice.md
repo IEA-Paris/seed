@@ -6,8 +6,7 @@ firstname: Fabrice
 is_institution: false
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - French
+language:  French
 lastname: Buschini
 affiliations:
   - affiliation: Sorbonne Nouvelle - Paris 3 University, France

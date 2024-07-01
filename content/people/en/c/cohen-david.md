@@ -6,8 +6,7 @@ firstname: David
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Cohen
 affiliations:
   - affiliation: Université Pierre & Marie Curie, France

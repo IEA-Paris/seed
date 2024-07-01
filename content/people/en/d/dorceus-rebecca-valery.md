@@ -6,8 +6,7 @@ firstname: Rebecca-Valéry
 is_institution: false
 issue:
   - content/issues/assessing-resilience.md
-language:
-  - French
+language:  French
 lastname: Dorcéus
 affiliations:
   - affiliation: Rouge Vif territoires, France

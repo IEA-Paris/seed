@@ -10,8 +10,7 @@ firstname: Mark
 is_institution: false
 issue:
   - content/issues/sleep-and-memory.md
-language:
-  - English
+language:  English
 lastname: Blagrove
 affiliations:
   - affiliation: Swansea University

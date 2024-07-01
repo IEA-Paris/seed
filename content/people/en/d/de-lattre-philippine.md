@@ -6,8 +6,7 @@ firstname: Philippine
 is_institution: false
 issue:
   - content/issues/assessing-resilience.md
-language:
-  - English
+language:  English
 lastname: de Lattre
 affiliations:
   - affiliation: Les Greniers d'Abondance, France

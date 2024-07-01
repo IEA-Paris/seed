@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Michel
 issue:
   - content/issues/Our Microbial Lives.md
-language:
-  - French
+language:  French
 lastname: Morange
 picture: ''
 picture_copyright: ''

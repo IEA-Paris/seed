@@ -26,8 +26,7 @@ issue:
   - content/issues/brains-that-pull-the-triggers.md
   - content/issues/sleep-and-memory.md
   - content/issues/Intercontinental Academia 4.md
-language:
-  - English
+language:  English
 lastname: Fried
 affiliations:
   - affiliation: UCLA, USA / Université de Tel-Aviv, Israël

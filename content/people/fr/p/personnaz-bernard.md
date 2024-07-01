@@ -6,8 +6,7 @@ firstname: Bernard
 is_institution: false
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - French
+language:  French
 lastname: Personnaz
 affiliations:
   - affiliation: Centre Edgar Morin/ IIAC EHESS-CNRS, France

@@ -7,8 +7,7 @@ firstname: Talina
 is_institution: false
 issue:
   - content/issues/Intercontinental Academia 4.md
-language:
-  - English
+language:  English
 lastname: Ralitera
 affiliations:
   - affiliation: French Alternative Energies and Atomic Energy Commission (CEA)

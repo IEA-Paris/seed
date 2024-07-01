@@ -1,5 +1,7 @@
 <template>
-  <v-container> <EventsView :item="value"></EventsView></v-container>
+  <v-container style="max-width: 1600px">
+    <EventsView :item="value"></EventsView
+  ></v-container>
 </template>
 
 <script setup>

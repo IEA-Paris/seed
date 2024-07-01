@@ -6,8 +6,7 @@ firstname: Latifa
 is_institution: false
 issue:
   - content/issues/Agir en temps de crise.md
-language:
-  - French
+language:  French
 lastname: Oulkhouir
 picture: ''
 picture_copyright: ''

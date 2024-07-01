@@ -7,8 +7,7 @@ firstname: Simon
 is_institution: false
 issue:
   - content/issues/intellectuals-against-democracy.md
-language:
-  - English
+language:  English
 lastname: Ridley
 affiliations:
   - affiliation: Université Paris Nanterre, France

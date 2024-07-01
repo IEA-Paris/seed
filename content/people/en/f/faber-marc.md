@@ -6,8 +6,7 @@ firstname: Marc
 is_institution: false
 issue:
   - content/issues/crises-et-prophetes.md
-language:
-  - English
+language:  English
 lastname: Faber
 affiliations:
   - affiliation: France

@@ -7,8 +7,7 @@ firstname: Jessica
 is_institution: false
 issue:
   - content/issues/biens-communus.md
-language:
-  - French
+language:  French
 lastname: Makowiak
 picture: ''
 picture_copyright: ''

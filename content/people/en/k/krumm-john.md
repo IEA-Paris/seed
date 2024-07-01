@@ -6,8 +6,7 @@ firstname: John
 is_institution: false
 issue:
   - content/issues/paris-ias-ideas.md
-language:
-  - English
+language:  English
 lastname: Krumm
 affiliations:
   - affiliation: Université de Californie du Sud, US

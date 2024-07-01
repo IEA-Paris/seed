@@ -6,8 +6,7 @@ firstname: Jorge Correia
 is_institution: false
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Jesuino
 affiliations:
   - affiliation: >-

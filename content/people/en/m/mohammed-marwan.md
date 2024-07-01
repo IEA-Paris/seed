@@ -6,8 +6,7 @@ firstname: Marwan
 is_institution: false
 issue:
   - content/issues/Agir en temps de crise.md
-language:
-  - French
+language:  French
 lastname: Mohammed
 picture: ''
 picture_copyright: ''

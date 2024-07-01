@@ -1,10 +1,7 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col cols="12">
-        <ListOrganismsList type="events"></ListOrganismsList> </v-col
-    ></v-row>
-  </v-container>
+  <v-container style="max-width: 1600px">
+    <ListOrganismsList type="events"></ListOrganismsList
+  ></v-container>
 </template>
 
 <script lang="ts" setup>

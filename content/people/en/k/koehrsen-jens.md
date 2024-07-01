@@ -6,8 +6,7 @@ firstname: Jens
 is_institution: false
 issue:
   - content/issues/territories-of-energy-transition.md
-language:
-  - English
+language:  English
 lastname: Koehrsen
 affiliations:
   - affiliation: Basel University, Switzerland

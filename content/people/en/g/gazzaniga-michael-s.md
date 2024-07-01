@@ -6,8 +6,7 @@ firstname: Michael S.
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Gazzaniga
 affiliations:
   - affiliation: University of California Santa Barbara, USA

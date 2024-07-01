@@ -19,17 +19,6 @@ let types: string[] = []
 console.log("STARTING THE STORE")
 const initStore = async () => {
   const modules = {}
-  if (process.server) {
-    console.log("opening directory")
-    const dir = fs.opendirSync("./data")
-    let file
-    while ((file = dir.readSync()) !== null) {
-      !(file.name.startsWith(".") || file.name === "LICENCE") &&
-        types.push(file.name.substring(0, file.name.length - 3))
-    }
-    dir.closeSync()
-  }
-  console.log("types: ", types)
 
   await Promise.all(
     [/* "people", "fellowship", "project", */ "events", "news" /* */].map(

@@ -10,8 +10,7 @@ firstname: Gordon
 is_institution: false
 issue:
   - content/issues/justice-climate-transitions.md
-language:
-  - English
+language:  English
 lastname: Walker
 affiliations:
   - affiliation: University of Lancaster, United Kingdom

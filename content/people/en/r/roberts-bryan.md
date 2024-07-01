@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Bryan
 issue:
   - content/issues/HCERES - PFUE 2022.md
-language:
-  - English
+language:  English
 lastname: Roberts
 picture: ''
 picture_copyright: ''

@@ -6,8 +6,7 @@ firstname: Lionel
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Naccache
 affiliations:
   - affiliation: Institut du Cerveau et de la Moelle épinière (ICM), France

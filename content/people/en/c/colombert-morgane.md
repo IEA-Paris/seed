@@ -6,8 +6,7 @@ firstname: Morgane
 is_institution: false
 issue:
   - content/issues/assessing-resilience.md
-language:
-  - French
+language:  French
 lastname: Colombert
 affiliations:
   - affiliation: Efficacity, France

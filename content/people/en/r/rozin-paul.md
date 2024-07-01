@@ -6,8 +6,7 @@ firstname: Paul
 is_institution: false
 issue:
   - content/issues/paris-ias-ideas.md
-language:
-  - English
+language:  English
 lastname: Rozin
 affiliations:
   - affiliation: Université de Pennsylvanie, USA

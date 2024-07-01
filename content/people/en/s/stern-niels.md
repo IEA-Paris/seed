@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Niels
 issue:
   - content/issues/HCERES - PFUE 2022.md
-language:
-  - English
+language:  English
 lastname: Stern
 picture: ''
 picture_copyright: ''

@@ -7,8 +7,7 @@ firstname: Fabio
 is_institution: false
 issue:
   - content/issues/intellectuals-against-democracy.md
-language:
-  - English
+language:  English
 lastname: De Sa E Silva
 affiliations:
   - affiliation: University of Oklahoma, USA

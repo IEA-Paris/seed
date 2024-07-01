@@ -7,8 +7,7 @@ firstname: Ariel
 is_institution: false
 issue:
   - content/issues/crises-et-prophetes.md
-language:
-  - French
+language:  French
   - English
 lastname: Colonomos
 affiliations:

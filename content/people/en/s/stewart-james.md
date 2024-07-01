@@ -6,8 +6,7 @@ firstname: James
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Stewart
 affiliations:
   - affiliation: International Criminal Court, Netherlands

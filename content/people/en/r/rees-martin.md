@@ -7,8 +7,7 @@ firstname: Martin
 is_institution: false
 issue:
   - content/issues/Intercontinental Academia 4.md
-language:
-  - English
+language:  English
 lastname: Rees
 affiliations:
   - affiliation: >-

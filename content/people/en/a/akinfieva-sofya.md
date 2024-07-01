@@ -6,8 +6,7 @@ firstname: Sofya
 issue:
   - content/issues/WPRN21 Papers.md
   - content/issues/WPRN21 Proceedings.md
-language:
-  - English
+language:  English
 lastname: Akinfieva
 picture: ''
 picture_copyright: ''

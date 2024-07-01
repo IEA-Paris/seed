@@ -127,5 +127,6 @@
     "news": "Related news",
     "project": "Related projects"
   },
-  "by-author": "By {0}"
+  "by-author": "By {0}",
+  "0-articles-found-page-1-of-2": "{0} articles found. Page {1} of {2}"
 }

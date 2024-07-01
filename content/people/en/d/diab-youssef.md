@@ -8,8 +8,7 @@ firstname: Youssef
 is_institution: false
 issue:
   - content/issues/assessing-resilience.md
-language:
-  - French
+language:  French
 lastname: Diab
 affiliations:
   - affiliation: Ecole des ingénieurs de la Ville de Paris (EIVP), France

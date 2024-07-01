@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Marc-André
 issue:
   - content/issues/Our Microbial Lives.md
-language:
-  - French
+language:  French
 lastname: Selosse
 picture: ''
 picture_copyright: ''

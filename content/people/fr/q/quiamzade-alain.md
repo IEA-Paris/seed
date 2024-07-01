@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Alain
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Quiamzade
 affiliations:
   - affiliation: University of Geneva, Switzerland

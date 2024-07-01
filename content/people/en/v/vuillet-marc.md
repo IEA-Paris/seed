@@ -6,8 +6,7 @@ firstname: Marc
 is_institution: false
 issue:
   - content/issues/assessing-resilience.md
-language:
-  - French
+language:  French
 lastname: Vuillet
 affiliations:
   - affiliation: EIVP, Lab’Urba, France

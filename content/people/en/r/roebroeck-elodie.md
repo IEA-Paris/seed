@@ -6,8 +6,7 @@ exerpt: ''
 firstname: Elodie
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Roebroeck
 affiliations:
   - affiliation: Blaise Pascal University, France

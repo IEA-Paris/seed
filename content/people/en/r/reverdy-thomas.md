@@ -6,8 +6,7 @@ firstname: Thomas
 is_institution: false
 issue:
   - content/issues/territories-of-energy-transition.md
-language:
-  - French
+language:  French
 lastname: Reverdy
 affiliations:
   - affiliation: PACTE / Université de Grenoble, France

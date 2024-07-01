@@ -7,8 +7,7 @@ firstname: Abram
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: De Swaan
 affiliations:
   - affiliation: University of Amsterdam, Netherlands

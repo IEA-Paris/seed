@@ -10,8 +10,7 @@ firstname: Valentin
 is_institution: false
 issue:
   - content/issues/intellectuals-against-democracy.md
-language:
-  - English
+language:  English
   - French
 lastname: Behr
 affiliations:

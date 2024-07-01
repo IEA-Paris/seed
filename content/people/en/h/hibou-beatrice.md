@@ -6,8 +6,7 @@ firstname: Béatrice
 is_institution: false
 issue:
   - content/issues/intellectuals-against-democracy.md
-language:
-  - French
+language:  French
 lastname: Hibou
 affiliations:
   - affiliation: CNRS / Sciences Po, CERI, France

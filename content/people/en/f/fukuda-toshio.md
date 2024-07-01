@@ -7,8 +7,7 @@ firstname: Toshio
 is_institution: false
 issue:
   - content/issues/Intercontinental Academia 4.md
-language:
-  - English
+language:  English
 lastname: Fukuda
 affiliations:
   - affiliation: Nagoya University

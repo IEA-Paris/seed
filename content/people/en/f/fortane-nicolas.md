@@ -7,8 +7,7 @@ exerpt: ''
 firstname: Nicolas
 issue:
   - content/issues/Our Microbial Lives.md
-language:
-  - French
+language:  French
 lastname: Fortané
 picture: ''
 picture_copyright: ''

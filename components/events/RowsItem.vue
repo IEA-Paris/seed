@@ -112,6 +112,7 @@
             :src="item.image"
             :aspect-ratio="1 / 1"
             cover
+            max-height="100%"
             class="img-animation"
           >
           </v-img>

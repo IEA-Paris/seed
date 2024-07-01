@@ -7,8 +7,7 @@ firstname: Dominique
 is_institution: false
 issue:
   - content/issues/biens-communus.md
-language:
-  - French
+language:  French
 lastname: Bourg
 picture: ''
 picture_copyright: ''

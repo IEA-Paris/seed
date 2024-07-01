@@ -6,8 +6,7 @@ firstname: Marewa
 issue:
   - content/issues/WPRN21 Papers.md
   - content/issues/WPRN21 Proceedings.md
-language:
-  - English
+language:  English
 lastname: Glover
 picture: ''
 picture_copyright: ''

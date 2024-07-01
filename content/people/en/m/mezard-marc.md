@@ -7,8 +7,7 @@ firstname: Marc
 is_institution: false
 issue:
   - content/issues/Intercontinental Academia 4.md
-language:
-  - English
+language:  English
 lastname: Mézard
 affiliations:
   - affiliation: École Normale Supérieure (ENS) in Paris

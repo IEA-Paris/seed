@@ -6,8 +6,7 @@ firstname: Michael
 is_institution: false
 issue:
   - content/issues/sleep-and-memory.md
-language:
-  - English
+language:  English
 lastname: Zugaro
 affiliations:
   - affiliation: CNRS - Collège de France

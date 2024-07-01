@@ -9,8 +9,7 @@ is_institution: false
 issue:
   - content/issues/guest_lectures.md
   - content/issues/paris-ias-ideas.md
-language:
-  - French
+language:  French
   - English
 lastname: Decety
 picture: ''

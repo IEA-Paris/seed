@@ -6,8 +6,7 @@ firstname: Stephen
 is_institution: false
 issue:
   - content/issues/territories-of-energy-transition.md
-language:
-  - English
+language:  English
 lastname: Hall
 affiliations:
   - affiliation: Leeds University, Great Britain

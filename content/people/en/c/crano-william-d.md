@@ -5,8 +5,7 @@ exerpt: ''
 firstname: William D.
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Crano
 affiliations:
   - affiliation: Claremont Graduate University, USA

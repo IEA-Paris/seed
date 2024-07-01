@@ -10,8 +10,7 @@ issue:
   - content/issues/WPRN21 Videos.md
   - content/issues/WPRN21 Conference.md
   - content/issues/Intercontinental Academia 4.md
-language:
-  - English
+language:  English
 lastname: Boucekkine
 picture: ''
 picture_copyright: ''

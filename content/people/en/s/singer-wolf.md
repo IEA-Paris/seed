@@ -6,8 +6,7 @@ firstname: Wolf
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Singer
 affiliations:
   - affiliation: Max Planck Institute for Brain Research, Germany

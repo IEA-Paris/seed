@@ -11,8 +11,7 @@ firstname: Tania
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: SINGER
 affiliations:
   - affiliation: Max Planck Institute for Human cognitive and Brain Sciences

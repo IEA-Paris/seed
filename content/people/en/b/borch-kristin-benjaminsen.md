@@ -6,8 +6,7 @@ firstname: Kristin Benjaminsen
 issue:
   - content/issues/WPRN21 Papers.md
   - content/issues/WPRN21 Proceedings.md
-language:
-  - English
+language:  English
 lastname: Borch
 picture: ''
 picture_copyright: ''

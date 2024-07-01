@@ -7,8 +7,7 @@ firstname: Deshen
 is_institution: false
 issue:
   - content/issues/Intercontinental Academia 4.md
-language:
-  - English
+language:  English
 lastname: Moodley
 affiliations:
   - affiliation: University of Cape Town

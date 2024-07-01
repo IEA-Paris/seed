@@ -6,8 +6,7 @@ firstname: Hervé
 is_institution: false
 issue:
   - content/issues/Agir en temps de crise.md
-language:
-  - French
+language:  French
 lastname: Chneiweiss
 picture: ''
 picture_copyright: ''
