@@ -4,20 +4,15 @@ import { configData, Form, Model, Sort, Views } from "@paris-ias/data"
 interface List {
   items: any[]
   itemsPerPage?: number
-  itemsPerPageArray?: any[]
+  itemsPerPageArray?: number[]
   filtersCount: number
-  views?: any
+  views?: Record<string, Views>
   sort: Record<string, Sort>
   view: Views | string | undefined
-  filters: Record<string, any[]>
-  total: number
-  skip: number
-  numberOfPages: number
+  filters: Record<string, any>
   limit?: number
-  search: string | any[]
-  page: number
-  sortBy: Sort | number[] | string | undefined
-  sortDesc?: boolean[] | boolean
+  sortBy: Sort | string[] | undefined
+  sortDesc?: Sort | number[] | string[] | string | undefined
 }
 
 interface CustomForm {
@@ -61,7 +56,7 @@ const createModule = async (type: string): Promise<ModuleType> => {
     defaultSortKey !== undefined
       ? baseType?.list.sort[defaultSortKey]
       : undefined
-  console.log("defaultSort: ", defaultSort)
+  // console.log("defaultSort: ", defaultSort)
 
   // Helper function to handle aliases
   const processAliases = async (

@@ -7,7 +7,6 @@ export default async (
     // is it a template?
     if (schema[key] && schema[key]?.type === 3) {
       console.log("importing template: ", key)
-      if (key === "eventSlot") console.log("configData: ", configData[key].form)
       const templateState = configData[key].form
       schema[key].items = templateState
     }
