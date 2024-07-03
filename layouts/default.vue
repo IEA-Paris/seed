@@ -24,7 +24,9 @@
         </h1> -->
         <v-divider></v-divider>
       </v-container>
-      <slot />
+      <v-container class="main-container">
+        <slot />
+      </v-container>
       <!--   <section v-if="isSnapRoutes()" style="background-color:black">
         <NavigationFooter></NavigationFooter>
       </section> -->

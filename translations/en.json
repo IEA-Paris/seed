@@ -130,7 +130,7 @@
   "by-author": "By {0}",
   "0-1-found-page-2-of-3": "{0} {1} found. Page {2} of {3}",
   "items": {
-    "event": "event | event | events",
+    "events": "event | event | events",
     "news": "news | news | news",
     "project": "project | project | projects",
     "fellow": "fellow | fellow | fellows",

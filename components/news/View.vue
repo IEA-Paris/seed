@@ -3,8 +3,8 @@
   <v-row>
     <v-col
       cols="12"
-      v-if="mdAndDown"
-      class="text-wrap text-h4 text-md-h5 text-black mx-sm-6"
+      v-if="smAndDown"
+      class="text-wrap text-h4 text-black mx-sm-6"
     >
       {{ item.title }}
     </v-col>
@@ -22,15 +22,13 @@
 
     <v-col cols="12" md="8">
       <div class="ml-md-4 mx-sm-6">
-        <div v-if="lgAndUp" class="text-wrap text-lg-h4 text-black">
+        <div class="d-flex text-wrap text-h4 text-black">
           {{ item.title }}
         </div>
-        <div
-          class="d-flex flex-column flex-md-row align-md-center mt-md-10 mt-lg-4"
-        >
+        <div class="d-flex flex-column flex-md-row align-md-center mt-6">
           <MiscAtomsDateStamp :date="item.date" class="ml-0 mt-lg-2" />
 
-          <div class="d-flex flex-column ml-md-8">
+          <div class="ml-md-8">
             <div
               class="text-body-2 text-lg-body-1 text-black mt-4 mt-sm-4 mt-md-0 mb-md-n4 ml-md-0"
             >
