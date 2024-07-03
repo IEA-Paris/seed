@@ -32,7 +32,7 @@
 
           <div class="d-flex flex-column ml-md-8">
             <div
-              class="text-body-2 text-lg-body-1 text-black mt-4 mt-sm-4 mt-md-0 mb-md-n4 mt-lg-2 ml-md-0"
+              class="text-body-2 text-lg-body-1 text-black mt-4 mt-sm-4 mt-md-0 mb-md-n4 ml-md-0"
             >
               <!--    TODO use a proper & conditional formatting of names (depending on number of authors) -->
               {{

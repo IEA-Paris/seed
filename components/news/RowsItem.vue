@@ -40,7 +40,16 @@
             ]
           "
         />
-        <v-btn class="mt-4" variant="outlined">
+        <v-btn
+          class="mt-4"
+          variant="outlined"
+          :to="
+            localePath({
+              name: 'news-slug',
+              params: { slug: item._path.split('/').pop() },
+            })
+          "
+        >
           {{ $t("read-more") }}
         </v-btn>
       </template>
@@ -56,7 +65,21 @@
           ]
         "
       />
-      <v-btn class="mt-4" variant="outlined">
+      <v-btn
+        class="mt-4"
+        variant="outlined"
+        :to="
+          localePath({
+            name: 'news-slug',
+            params: { slug: item._path.split('/').pop() },
+          })
+        "
+        :size="
+          ['small', 'small', 'small', 'default', 'large', 'large'][
+            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+          ]
+        "
+      >
         {{ $t("read-more") }}
       </v-btn>
     </v-col>
