@@ -128,5 +128,13 @@
     "project": "Related projects"
   },
   "by-author": "By {0}",
-  "0-articles-found-page-1-of-2": "{0} articles found. Page {1} of {2}"
+  "0-1-found-page-2-of-3": "{0} {1} found. Page {2} of {3}",
+  "items": {
+    "event": "event | event | events",
+    "news": "news | news | news",
+    "project": "project | project | projects",
+    "fellow": "fellow | fellow | fellows",
+    "people": "person | person | people",
+    "fellowship": "fellowship | fellowship | fellowships"
+  }
 }

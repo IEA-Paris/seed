@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="mb-4 font-weight-light">
     {{
-      $t("0-articles-found-page-1-of-2", [
-        rootStore[props.type].total || 0,
+      $t("0-1-found-page-2-of-3", [
+        rootStore.total || 0,
+        $t("items." + props.type, rootStore.total || 0),
         rootStore.page || 1,
         rootStore.numberOfPages || 1,
       ])
