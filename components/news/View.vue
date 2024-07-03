@@ -22,7 +22,7 @@
 
     <v-col cols="12" md="8">
       <div class="ml-md-4 mx-sm-6">
-        <div class="d-flex text-wrap text-h4 text-black">
+        <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
           {{ item.title }}
         </div>
         <div class="d-flex flex-column flex-md-row align-md-center mt-6">
@@ -35,7 +35,7 @@
               <!--    TODO use a proper & conditional formatting of names (depending on number of authors) -->
               {{
                 $t("by-author", [
-                  item.authors[0].firstname + " " + item.authors[0].lastname,
+                  item.authors[0].firstname + " " + item.authors[0].firstname,
                 ])
               }}
             </div>
