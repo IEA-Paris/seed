@@ -25,25 +25,34 @@
         <div v-if="lgAndUp" class="text-wrap text-lg-h4 text-black">
           {{ item.title }}
         </div>
-        <div class="d-flex flex-column flex-md-row align-md-center">
-          <MiscAtomsDateStamp :date="item.date" class="ml-n3 ml-md-5 ml-lg-0" />
-          <div class="text-body-1 text-black ml-md-5">
-            <!--    TODO use a proper & conditional formatting of names (depending on number of authors) -->
-            {{
-              $t("by-author", [
-                item.authors[0].firstname + " " + item.authors[0].firstname,
-              ])
-            }}
+        <div
+          class="d-flex flex-column flex-md-row align-md-center mt-md-10 mt-lg-4"
+        >
+          <MiscAtomsDateStamp :date="item.date" class="ml-0 mt-lg-2" />
+
+          <div class="d-flex flex-column ml-md-8">
+            <div
+              class="text-body-2 text-lg-body-1 text-black mt-4 mt-sm-4 mt-md-0 mb-md-n4 ml-md-0"
+            >
+              <!--    TODO use a proper & conditional formatting of names (depending on number of authors) -->
+              {{
+                $t("by-author", [
+                  item.authors[0].firstname + " " + item.authors[0].lastname,
+                ])
+              }}
+            </div>
+            <div class="mt-lg-n1">
+              <MiscMoleculesChipContainer
+                :items="item.tags"
+              ></MiscMoleculesChipContainer>
+            </div>
           </div>
         </div>
-        <MiscMoleculesChipContainer
-          :items="item.tags"
-        ></MiscMoleculesChipContainer>
       </div>
     </v-col>
   </v-row>
 
-  <v-row class="mt-6">
+  <v-row class="mt-12">
     <v-col cols="12" md="4" :order="mdAndUp ? 'first' : 'last'">
       <div class="mt-2 mx-n6 mx-sm-0" v-if="mdAndUp">
         <ActionsSmallContainer
@@ -61,7 +70,7 @@
       ></MiscMoleculesRelatedItems>
     </v-col>
     <v-col cols="12" md="8">
-      <ContentRenderer :value="item" class="mx-sm-6 mt-6" />
+      <ContentRenderer :value="item" class="mt-n10 mt-md-n2 mx-sm-6" />
     </v-col>
   </v-row>
 </template>

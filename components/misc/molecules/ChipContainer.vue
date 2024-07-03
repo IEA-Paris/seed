@@ -3,7 +3,7 @@
     <div v-for="tag in items" :key="tag" class="mr-2 mt-2">
       <v-chip
         :size="
-          ['small', 'small', 'default', 'default', 'large'][
+          ['small', 'small', 'small', 'default', 'large'][
             ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
           ]
         "

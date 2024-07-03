@@ -1,45 +1,105 @@
 ---
 name: "Comparative Health Humanities"
 subtitle: "En partenariat avec l’EPHE et le CNRS"
-date_text: '05 - 06 October 2023'
+date_text: "05 - 06 October 2023"
 start: 2023-10-05T00:00:00.000Z
 stop: 2023-12-04T00:00:00.000Z
 online: false
 category: 1
-description: "Symposium organized by Céline Lefève, director of the Institute \"La personne en médecine\", with the support of the Paris Institute for Advanced study"
+description: 'Symposium organized by Céline Lefève, director of the Institute "La personne en médecine", with the support of the Paris Institute for Advanced study'
 location: "Institut d'études avancées de Paris, 17 quai d'Anjou, 75004, Paris"
 image: https://www.paris-iea.fr/images/evenements/30331/_thumb3/postercomparative-health-humanities-symposium-in-paris1.png
 type: 3
 outside: true
 files: null
+relatedProjects:
+  - title: "Project1"
+    shortDescription: ""
+    description: ""
+    url: ""
+    image: ""
+    video: ""
+    color: ""
+    date: ""
+  - title: "Project2"
+    shortDescription: ""
+    description: ""
+    url: ""
+    image: ""
+    video: ""
+    color: ""
+    date: ""
+  - title: "Project3"
+    shortDescription: ""
+    description: ""
+    url: ""
+    image: ""
+    video: ""
+    color: ""
+    date: ""
+
+relatedNews:
+  - bookingState: "News1"
+    createdAt: ""
+    description: ""
+    image: ""
+    name: ""
+    outside: ""
+    start: ""
+    state: ""
+    summary: ""
+    eventType: ""
+    url: ""
+  - bookingState: "News2"
+    createdAt: ""
+    description: ""
+    image: ""
+    name: ""
+    outside: ""
+    start: ""
+    state: ""
+    summary: ""
+    eventType: ""
+    url: ""
+  - bookingState: "News3"
+    createdAt: ""
+    description: ""
+    image: ""
+    name: ""
+    outside: ""
+    start: ""
+    state: ""
+    summary: ""
+    eventType: ""
+    url: ""
 ---
 
 **Septembre 2023**
 **vendredi 8 septembre
 **
 
--   **Juan Pablo Caicedo** (Universidad Javeriana, Colombia -- Bogota City Administration) -- *Reimagining Urban Transportation: Green Corridors as Catalysts for Materializing a 15-mintute City in Bogotá*
+- **Juan Pablo Caicedo** (Universidad Javeriana, Colombia -- Bogota City Administration) -- _Reimagining Urban Transportation: Green Corridors as Catalysts for Materializing a 15-mintute City in Bogotá_
 
 **Octobre 2023**
 
 **vendredi 6 octobre 2023
 **
 
--   **Tamar Flash** (Weizmann Institute of Science, Rehovot, Israel) -- *Connections between our modeling work on space-time geometries and the brain*-   **Paul Rozin** (University of Pennsylvania) -- *Food worlds of French and American*-   **Virginia Valian** (Hunter College - CUNY) -- *Are executive functions immutable?*
+- **Tamar Flash** (Weizmann Institute of Science, Rehovot, Israel) -- _Connections between our modeling work on space-time geometries and the brain_- **Paul Rozin** (University of Pennsylvania) -- _Food worlds of French and American_- **Virginia Valian** (Hunter College - CUNY) -- _Are executive functions immutable?_
 
 **Novembre 2023**
 
 **Vendredi 10 novembre 2023
 **
 
--   **Angelo Torre** (Università del Piemonte Orientale, Italy) -- *Commons as local institutions*-   **Björn Wittrock** (Academia Europeae, Swedish Collegium for Advanced Study) -- *Social Theory and World History: Rethinking a Century of Occidentalism*-   **Zhiyuan Cui** (Tsinghua University) -- *Interrogating Modernity: Hans Blumenberg and Roberto Unger Compared*-   **Jim Hollan** (UCSD) -- *Network-of-Networks Collaboratory to Address the Grand Challenge of the Future of Information Work at the Human-Technology Frontier*
+- **Angelo Torre** (Università del Piemonte Orientale, Italy) -- _Commons as local institutions_- **Björn Wittrock** (Academia Europeae, Swedish Collegium for Advanced Study) -- _Social Theory and World History: Rethinking a Century of Occidentalism_- **Zhiyuan Cui** (Tsinghua University) -- _Interrogating Modernity: Hans Blumenberg and Roberto Unger Compared_- **Jim Hollan** (UCSD) -- _Network-of-Networks Collaboratory to Address the Grand Challenge of the Future of Information Work at the Human-Technology Frontier_
 
 **Décembre 2023**
 
 **Vendredi 8 décembre 2023
 **
 
--   **Jonathan Glasser** (William & Mary) -- *Patrimony as Inalienability*-   **Vladimir Pinheiro Safatle** (Sao Paulo University) -- *Nature can only exist where it is destroyed: Politically constructing freedom as heteronomy without servitude*
+- **Jonathan Glasser** (William & Mary) -- _Patrimony as Inalienability_- **Vladimir Pinheiro Safatle** (Sao Paulo University) -- _Nature can only exist where it is destroyed: Politically constructing freedom as heteronomy without servitude_
 
 **Janvier 2024
 **
@@ -47,21 +107,21 @@ files: null
 **Vendredi 5 janvier 2024
 **
 
--   **Andrea Pinotti** (Università Statale di Milano) -- *Cyber-Theo. Reflections on the Theological roots of Contemporary digital Technologies*-   **Uichol Kim** (Inha University) -- *Understanding the software of the mind, co-creativity, and cultural transformations: With a specific focus on the secrets to happiness, success, and sustainable communities*-   **John Krumm** (University of Southern California) -- *Personal data privacy*
+- **Andrea Pinotti** (Università Statale di Milano) -- _Cyber-Theo. Reflections on the Theological roots of Contemporary digital Technologies_- **Uichol Kim** (Inha University) -- _Understanding the software of the mind, co-creativity, and cultural transformations: With a specific focus on the secrets to happiness, success, and sustainable communities_- **John Krumm** (University of Southern California) -- _Personal data privacy_
 
 **Février 2024**
 
 **Vendredi 2 février 2024
 **
 
--   **Jean Decety** (University of Chicago) -- *Exploring the dark side of morality*-   **Philippe Rochat** (Emory University) -- *The need for self-abandonment and stepping out of mind*
+- **Jean Decety** (University of Chicago) -- _Exploring the dark side of morality_- **Philippe Rochat** (Emory University) -- _The need for self-abandonment and stepping out of mind_
 
 **Mars 2024**
 
 **Vendredi 8 mars
 **
 
--   **Robert Pasnau** (University of Colorado Boulder) -- *How voluntarism influenced the broader culture of the later Middle Ages*-   **Alberto Fergusson** (Universidad del Rosario)-- *Applications of Accompanied Autoanalysis (Selfrehabilitation) (AA) in novel scenarios*-   **Sergejus Muravjovas** (Transparency International Lithuania) -- *A novel anti-corruption approach to reduce bribery in healthcare*-   **Helga Nowotny** (ETH Zurich -- ERC) -- *The Illusion of Control*
+- **Robert Pasnau** (University of Colorado Boulder) -- _How voluntarism influenced the broader culture of the later Middle Ages_- **Alberto Fergusson** (Universidad del Rosario)-- _Applications of Accompanied Autoanalysis (Selfrehabilitation) (AA) in novel scenarios_- **Sergejus Muravjovas** (Transparency International Lithuania) -- _A novel anti-corruption approach to reduce bribery in healthcare_- **Helga Nowotny** (ETH Zurich -- ERC) -- _The Illusion of Control_
 
 **Avril 2024
 **
@@ -69,7 +129,7 @@ files: null
 **Vendredi 5 avril
 **
 
--   **Salvatore Maria Aglioti** (Sapienza University of Rome, Italy) -- *Brains and bodies in the metaverse*-   **Barry Rogers** (London School of Economics) -- *Post-program implementation at a European multinational*-   **Itzhak Fried** (UCLA) -- *The Brain that Pull the Triggers: New Insights into Syndrome E*
+- **Salvatore Maria Aglioti** (Sapienza University of Rome, Italy) -- _Brains and bodies in the metaverse_- **Barry Rogers** (London School of Economics) -- _Post-program implementation at a European multinational_- **Itzhak Fried** (UCLA) -- _The Brain that Pull the Triggers: New Insights into Syndrome E_
 
 **Mai 2024
 **
@@ -77,7 +137,7 @@ files: null
 **Vendredi 3 mai
 **
 
--   **Leor Zmigrod** (University of Cambridge) -- *The Science of Ideological Consciousness: Building an Empirically-Informed Political Philosophy of Mind*-   **Colette Colligan** (Université d'Angers) -- *Digital Discovery and Fake Imprints: Unmasking Turn-of-the-Century Pornographers in Paris*-   **Leslie-Anne Duvic-Paoli** (King's College London) -- *Legislating on climate change: Insights from citizens' assemblies*-   **Ed Hutchins** (UCSD)-- *Generative AI meets distributed cognition and cognitive ethnography*
+- **Leor Zmigrod** (University of Cambridge) -- _The Science of Ideological Consciousness: Building an Empirically-Informed Political Philosophy of Mind_- **Colette Colligan** (Université d'Angers) -- _Digital Discovery and Fake Imprints: Unmasking Turn-of-the-Century Pornographers in Paris_- **Leslie-Anne Duvic-Paoli** (King's College London) -- _Legislating on climate change: Insights from citizens' assemblies_- **Ed Hutchins** (UCSD)-- _Generative AI meets distributed cognition and cognitive ethnography_
 
 **Juin 2024
 **
@@ -85,4 +145,4 @@ files: null
 **Vendredi 7 juin
 **
 
--   **Robert Desjarlais** (Sarah Lawrence College, New York) -- *Phenomenological Approaches in Anthropology*-   **Raluca Grosescu** (National University of Political Science and Public Administration, Bucharest, Romania) -- *Corporate Accountability for Gross Human Rights Violations: A Fragmented Cause*-   **Alena Ledeneva** (University College London) -- *Informality: 50 years on*-   **Patrick Haggard** (University College London) -- *Review of the cognitive psychology and cognitive neuroscience of human voluntary action*
+- **Robert Desjarlais** (Sarah Lawrence College, New York) -- _Phenomenological Approaches in Anthropology_- **Raluca Grosescu** (National University of Political Science and Public Administration, Bucharest, Romania) -- _Corporate Accountability for Gross Human Rights Violations: A Fragmented Cause_- **Alena Ledeneva** (University College London) -- _Informality: 50 years on_- **Patrick Haggard** (University College London) -- _Review of the cognitive psychology and cognitive neuroscience of human voluntary action_
