@@ -6,8 +6,7 @@ firstname: Steve
 is_institution: false
 issue:
   - content/issues/crises-et-prophetes.md
-language:
-  - English
+language:  English
 lastname: Keen
 affiliations:
   - affiliation: University College London, United Kingdom

@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Michael A.
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Hogg
 affiliations:
   - affiliation: Claremont Graduate University, USA

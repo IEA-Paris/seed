@@ -6,8 +6,7 @@ firstname: Flore
 issue:
   - content/issues/WPRN21 Videos.md
   - content/issues/WPRN21 Conference.md
-language:
-  - English
+language:  English
 lastname: Gubert
 affiliations:
   - affiliation: Institut de Recherche pour le Développement, France

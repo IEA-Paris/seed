@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Wendy
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Wood
 affiliations:
   - affiliation: University of Southern California, USA

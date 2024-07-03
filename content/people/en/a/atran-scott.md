@@ -6,8 +6,7 @@ firstname: Scott
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Atran
 affiliations:
   - affiliation: University of Michigan, USA

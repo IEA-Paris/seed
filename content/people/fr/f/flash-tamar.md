@@ -6,8 +6,7 @@ firstname: Tamar
 is_institution: false
 issue:
   - content/issues/paris-ias-ideas.md
-language:
-  - English
+language:  English
 lastname: Flash
 affiliations:
   - affiliation: Weizmann Institute of Science, Israel

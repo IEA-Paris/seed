@@ -6,8 +6,7 @@ firstname: Bruno
 is_institution: false
 issue:
   - content/issues/Agir en temps de crise.md
-language:
-  - French
+language:  French
 lastname: David
 picture: ''
 picture_copyright: ''

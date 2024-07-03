@@ -23,8 +23,7 @@ is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
   - content/issues/identity-from-double-to-avatar.md
-language:
-  - English
+language:  English
 lastname: Berthoz
 affiliations:
   - affiliation: Collège de France, France

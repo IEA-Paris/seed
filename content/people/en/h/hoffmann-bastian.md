@@ -6,8 +6,7 @@ firstname: Bastian
 is_institution: false
 issue:
   - content/issues/territories-of-energy-transition.md
-language:
-  - English
+language:  English
 lastname: Hoffmann
 affiliations:
   - affiliation: European Institute for Energy Research, Germany

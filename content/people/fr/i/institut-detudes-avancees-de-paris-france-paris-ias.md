@@ -26,8 +26,7 @@ issue:
   - content/issues/justice-climate-transitions.md
   - content/issues/sleep-and-memory.md
   - content/issues/virtual-realities.md
-language:
-  - French
+language:  French
   - English
 lastname: Institut d'études avancées de Paris, France
 picture: ''

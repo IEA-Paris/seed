@@ -6,8 +6,7 @@ firstname: Najat
 is_institution: false
 issue:
   - content/issues/Agir en temps de crise.md
-language:
-  - French
+language:  French
 lastname: Vallaud-Belkacem
 picture: ''
 picture_copyright: ''

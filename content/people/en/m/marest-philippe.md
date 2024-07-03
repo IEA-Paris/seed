@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Philippe
 issue:
   - content/issues/assessing-resilience.md
-language:
-  - French
+language:  French
 lastname: Marest
 affiliations:
   - affiliation: Ville et Métropole de Nantes, France

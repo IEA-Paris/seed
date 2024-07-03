@@ -10,8 +10,7 @@ firstname: Darrel
 is_institution: false
 issue:
   - content/issues/justice-climate-transitions.md
-language:
-  - English
+language:  English
 lastname: Moellendorf
 affiliations:
   - affiliation: Goethe University, Frankfurt, Germany

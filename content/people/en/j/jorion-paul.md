@@ -6,8 +6,7 @@ firstname: Paul
 is_institution: false
 issue:
   - content/issues/crises-et-prophetes.md
-language:
-  - English
+language:  English
 lastname: Jorion
 affiliations:
   - affiliation: Université catholique de Lille, France

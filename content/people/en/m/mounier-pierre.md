@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Pierre
 issue:
   - content/issues/HCERES - PFUE 2022.md
-language:
-  - English
+language:  English
 lastname: Mounier
 picture: ''
 picture_copyright: ''

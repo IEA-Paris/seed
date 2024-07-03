@@ -13,8 +13,7 @@ is_institution: false
 issue:
   - content/issues/identity-from-double-to-avatar.md
   - content/issues/virtual-realities.md
-language:
-  - English
+language:  English
 lastname: Slater
 picture: ''
 picture_copyright: ''

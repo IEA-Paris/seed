@@ -84,11 +84,11 @@ export default defineNuxtConfig({
     "@nuxtjs/device", // https://github.com/nuxt-community/device-module
     "@nuxtjs/robots", // https://github.com/nuxt-modules/robots
     "@nuxtjs/google-fonts", //
-    /*  "nuxt-simple-sitemap", */
+    "nuxt-simple-sitemap",
     "nuxt-link-checker",
     "nuxt-schema-org",
     "@vite-pwa/nuxt",
-    "@nuxtjs/apollo",
+    /*  "@nuxtjs/apollo", */
     "@vueuse/motion/nuxt",
     "@nuxt/test-utils/module", //https://nuxt.com/docs/getting-started/testing
   ],

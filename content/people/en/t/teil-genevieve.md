@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Geneviève
 issue:
   - content/issues/Our Microbial Lives.md
-language:
-  - French
+language:  French
 lastname: Teil
 picture: ''
 picture_copyright: ''

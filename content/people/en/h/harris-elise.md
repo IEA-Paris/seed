@@ -6,8 +6,7 @@ firstname: Elise
 is_institution: false
 issue:
   - content/issues/identity-from-double-to-avatar.md
-language:
-  - English
+language:  English
 lastname: Harris
 picture: ''
 picture_copyright: ''

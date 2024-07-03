@@ -10,8 +10,7 @@ firstname: Brian
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Schiff
 affiliations:
   - affiliation: American University of Paris, France

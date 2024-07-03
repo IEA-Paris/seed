@@ -6,8 +6,7 @@ firstname: Lasana
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Harris
 affiliations:
   - affiliation: University of Leiden, Netherlands

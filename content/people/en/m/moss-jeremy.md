@@ -10,8 +10,7 @@ firstname: Jeremy
 is_institution: false
 issue:
   - content/issues/justice-climate-transitions.md
-language:
-  - English
+language:  English
 lastname: Moss
 affiliations:
   - affiliation: University of New South Wales, Sydney, Australia

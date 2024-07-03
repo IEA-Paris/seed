@@ -7,8 +7,7 @@ firstname: Massimiliano
 is_institution: false
 issue:
   - content/issues/Intercontinental Academia 4.md
-language:
-  - English
+language:  English
 lastname: Di Luca
 affiliations:
   - affiliation: University of Birmingham School of Psychology

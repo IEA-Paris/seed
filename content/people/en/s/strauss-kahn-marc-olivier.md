@@ -6,8 +6,7 @@ firstname: Marc-Olivier
 is_institution: false
 issue:
   - content/issues/Agir en temps de crise.md
-language:
-  - French
+language:  French
 lastname: Strauss-Kahn
 picture: ''
 picture_copyright: ''

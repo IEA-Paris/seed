@@ -6,8 +6,7 @@ firstname: Julie
 is_institution: false
 issue:
   - content/issues/assessing-resilience.md
-language:
-  - French
+language:  French
 lastname: Rozenberg
 affiliations:
   - affiliation: World Bank, Switzerland

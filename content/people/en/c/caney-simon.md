@@ -10,8 +10,7 @@ firstname: Simon
 is_institution: false
 issue:
   - content/issues/justice-climate-transitions.md
-language:
-  - English
+language:  English
 lastname: Caney
 affiliations:
   - affiliation: Oxford University, United Kingdom

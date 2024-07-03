@@ -10,8 +10,7 @@ firstname: JM
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Berger
 affiliations:
   - affiliation: International Center for Counter-Terrorism, Netherlands

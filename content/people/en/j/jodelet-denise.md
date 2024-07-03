@@ -7,8 +7,7 @@ firstname: Denise
 is_institution: false
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Jodelet
 affiliations:
   - affiliation: EHESS, France

@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Simon
 issue:
   - content/issues/intellectuals-against-democracy.md
-language:
-  - French
+language:  French
 lastname: Massei
 affiliations:
   - affiliation: Université libre de Bruxelles, Belgium

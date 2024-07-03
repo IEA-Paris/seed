@@ -6,8 +6,7 @@ firstname: Themis
 is_institution: false
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Apostolidis
 affiliations:
   - affiliation: University of Aix-Marseille, France

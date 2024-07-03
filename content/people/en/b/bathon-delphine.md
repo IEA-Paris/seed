@@ -6,8 +6,7 @@ firstname: Delphine
 is_institution: false
 issue:
   - content/issues/Agir en temps de crise.md
-language:
-  - French
+language:  French
 lastname: Bathon
 picture: ''
 picture_copyright: ''

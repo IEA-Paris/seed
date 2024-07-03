@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Pierre-Olivier
 issue:
   - content/issues/Our Microbial Lives.md
-language:
-  - French
+language:  French
 lastname: Méthot
 picture: ''
 picture_copyright: ''

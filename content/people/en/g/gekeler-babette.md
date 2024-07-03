@@ -7,8 +7,7 @@ firstname: Babette
 is_institution: false
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Gekeler
 affiliations:
   - affiliation: Institute for Medical Psychology / Charité University Hospitals, Germany

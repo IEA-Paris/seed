@@ -7,8 +7,7 @@ firstname: John
 is_institution: false
 issue:
   - content/issues/justice-climate-transitions.md
-language:
-  - English
+language:  English
 lastname: O'Neill
 affiliations:
   - affiliation: University of Manchester, United Kingdom

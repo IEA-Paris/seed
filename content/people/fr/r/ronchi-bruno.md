@@ -7,8 +7,7 @@ firstname: Bruno
 is_institution: false
 issue:
   - content/issues/intellectuals-against-democracy.md
-language:
-  - English
+language:  English
 lastname: Ronchi
 affiliations:
   - affiliation: Université Rennes 1

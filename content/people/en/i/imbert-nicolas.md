@@ -6,8 +6,7 @@ firstname: Nicolas
 is_institution: false
 issue:
   - content/issues/assessing-resilience.md
-language:
-  - English
+language:  English
 lastname: Imbert
 affiliations:
   - affiliation: Green Cross France et Territoires, France

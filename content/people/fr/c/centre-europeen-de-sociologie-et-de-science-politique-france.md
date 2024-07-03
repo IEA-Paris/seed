@@ -6,8 +6,7 @@ firstname: ''
 is_institution: true
 issue:
   - content/issues/intellectuals-against-democracy.md
-language:
-  - English
+language:  English
 lastname: Centre Européen de Sociologie et de Science Politique, France
 picture: ''
 picture_copyright: ''

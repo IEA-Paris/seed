@@ -6,8 +6,7 @@ firstname: Kathy
 is_institution: false
 issue:
   - content/issues/assessing-resilience.md
-language:
-  - English
+language:  English
 lastname: Oldham
 affiliations:
   - affiliation: Greater Manchester

@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Andrea
 issue:
   - content/issues/HCERES - PFUE 2022.md
-language:
-  - English
+language:  English
 lastname: Bonaccorsi
 picture: ''
 picture_copyright: ''

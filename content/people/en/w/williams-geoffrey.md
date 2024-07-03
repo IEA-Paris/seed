@@ -6,8 +6,7 @@ exerpt: ''
 firstname: Geoffrey
 issue:
   - content/issues/HCERES - PFUE 2022.md
-language:
-  - English
+language:  English
 lastname: Williams
 picture: ''
 picture_copyright: ''

@@ -6,8 +6,7 @@ firstname: Katrine Jonna
 issue:
   - content/issues/WPRN21 Papers.md
   - content/issues/WPRN21 Proceedings.md
-language:
-  - English
+language:  English
 lastname: Diab
 picture: ''
 picture_copyright: ''

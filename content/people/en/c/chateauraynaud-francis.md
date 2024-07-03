@@ -6,8 +6,7 @@ firstname: Francis
 is_institution: false
 issue:
   - content/issues/crises-et-prophetes.md
-language:
-  - English
+language:  English
 lastname: Chateauraynaud
 affiliations:
   - affiliation: GSPR-EHESS, France

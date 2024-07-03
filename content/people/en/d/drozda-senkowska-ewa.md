@@ -6,8 +6,7 @@ exerpt: ''
 firstname: Ewa
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Drozda-Senkowska
 affiliations:
   - affiliation: Université René Descartes,  France

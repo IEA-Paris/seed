@@ -7,8 +7,7 @@ firstname: Evandro
 is_institution: false
 issue:
   - content/issues/Intercontinental Academia 4.md
-language:
-  - English
+language:  English
 lastname: Cunha
 affiliations:
   - affiliation: Faculty of Letters of the Federal University of Minas Gerais (UFMG)

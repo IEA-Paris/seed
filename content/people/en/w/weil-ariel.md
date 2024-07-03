@@ -6,8 +6,7 @@ firstname: Ariel
 is_institution: false
 issue:
   - content/issues/crises-et-prophetes.md
-language:
-  - English
+language:  English
 lastname: Weil
 affiliations:
   - affiliation: Ville de Paris, France

@@ -6,8 +6,7 @@ firstname: Charles-Édouard
 is_institution: false
 issue:
   - content/issues/paysages-alimentaires.md
-language:
-  - French
+language:  French
 lastname: de Suremain
 picture: ''
 picture_copyright: ''

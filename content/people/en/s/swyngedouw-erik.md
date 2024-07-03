@@ -6,8 +6,7 @@ firstname: Erik
 is_institution: false
 issue:
   - content/issues/crises-et-prophetes.md
-language:
-  - English
+language:  English
 lastname: Swyngedouw
 affiliations:
   - affiliation: Université de Manchester, United Kingdom

@@ -6,8 +6,7 @@ firstname: Noémie
 is_institution: false
 issue:
   - content/issues/paysages-alimentaires.md
-language:
-  - French
+language:  French
 lastname: Sauve
 picture: ''
 picture_copyright: ''

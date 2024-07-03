@@ -6,8 +6,7 @@ exerpt: ''
 firstname: Jorge
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Vala
 affiliations:
   - affiliation: Instituto de Ciências Sociais, Universidade de Lisboa, Portugal

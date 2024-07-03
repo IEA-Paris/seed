@@ -5,8 +5,7 @@ exerpt: ''
 firstname: David
 issue:
   - content/issues/HCERES - PFUE 2022.md
-language:
-  - English
+language:  English
 lastname: Teira
 picture: ''
 picture_copyright: ''

@@ -6,8 +6,7 @@ firstname: David
 is_institution: false
 issue:
   - content/issues/intellectuals-against-democracy.md
-language:
-  - English
+language:  English
 lastname: Swartz
 affiliations:
   - affiliation: Boston University, USA

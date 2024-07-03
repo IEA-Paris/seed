@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Thierry
 issue:
   - content/issues/Our Microbial Lives.md
-language:
-  - French
+language:  French
 lastname: Naas
 picture: ''
 picture_copyright: ''

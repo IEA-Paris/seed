@@ -6,8 +6,7 @@ firstname: Dorra
 is_institution: false
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Ben Alaya
 affiliations:
   - affiliation: Tunis El Manar University, Tunisia

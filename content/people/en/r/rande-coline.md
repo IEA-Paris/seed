@@ -6,8 +6,7 @@ firstname: Coline
 is_institution: false
 issue:
   - content/issues/assessing-resilience.md
-language:
-  - English
+language:  English
 lastname: Rande
 affiliations:
   - affiliation: Département de la Gironde, France

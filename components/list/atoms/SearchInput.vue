@@ -26,7 +26,7 @@
       $store.state.scrolled }" -->
       <template v-if="!search" #label>
         <div class="searchLabel">
-          {{ $t("search-type", [$t(type)]) }}
+          {{ $t("list.search-type", [$t(props.type)]) }}
         </div>
       </template></v-text-field
     >

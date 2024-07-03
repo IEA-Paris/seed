@@ -6,8 +6,7 @@ exerpt: ''
 firstname: Serge
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Guimond
 affiliations:
   - affiliation: Laboratoire de Psychologie Sociale et Cognitive, CNRS, France

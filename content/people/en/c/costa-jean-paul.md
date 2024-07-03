@@ -6,8 +6,7 @@ firstname: Jean-Paul
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Costa
 affiliations:
   - affiliation: International Institute of Human Rights, France

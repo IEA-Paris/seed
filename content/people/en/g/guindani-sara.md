@@ -11,8 +11,7 @@ firstname: Sara
 is_institution: false
 issue:
   - content/issues/identity-from-double-to-avatar.md
-language:
-  - English
+language:  English
 lastname: Guindani
 picture: ''
 picture_copyright: ''

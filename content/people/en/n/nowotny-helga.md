@@ -12,8 +12,7 @@ issue:
   - content/issues/HCERES - PFUE 2022.md
   - content/issues/WPRN21 Conference.md
   - content/issues/Intercontinental Academia 4.md
-language:
-  - English
+language:  English
 lastname: Nowotny
 picture: ''
 picture_copyright: ''

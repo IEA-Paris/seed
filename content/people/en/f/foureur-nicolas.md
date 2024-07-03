@@ -6,8 +6,7 @@ firstname: Nicolas
 is_institution: false
 issue:
   - content/issues/Agir en temps de crise.md
-language:
-  - French
+language:  French
 lastname: Foureur
 picture: ''
 picture_copyright: ''

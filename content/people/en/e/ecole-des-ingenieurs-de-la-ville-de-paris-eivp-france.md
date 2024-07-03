@@ -6,8 +6,7 @@ firstname: ''
 is_institution: true
 issue:
   - content/issues/assessing-resilience.md
-language:
-  - English
+language:  English
 lastname: École des Ingénieurs de la Ville de Paris (EIVP), France
 picture: ''
 picture_copyright: ''

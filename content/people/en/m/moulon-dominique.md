@@ -6,8 +6,7 @@ firstname: Dominique
 is_institution: false
 issue:
   - content/issues/identity-from-double-to-avatar.md
-language:
-  - English
+language:  English
 lastname: Moulon
 affiliations:
   - affiliation: Observatoire des mondes numériques en sciences humaines (OMNSH), France

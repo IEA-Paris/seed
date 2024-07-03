@@ -10,8 +10,7 @@ firstname: Fabian
 is_institution: false
 issue:
   - content/issues/justice-climate-transitions.md
-language:
-  - English
+language:  English
 lastname: Schuppert
 affiliations:
   - affiliation: Queen’s University Belfast, Northern Ireland

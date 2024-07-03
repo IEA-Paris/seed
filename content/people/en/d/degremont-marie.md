@@ -7,8 +7,7 @@ firstname: Marie
 is_institution: false
 issue:
   - content/issues/territories-of-energy-transition.md
-language:
-  - French
+language:  French
 lastname: Degremont
 affiliations:
   - affiliation: Sciences Po / CSO, France

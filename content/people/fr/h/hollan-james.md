@@ -6,8 +6,7 @@ firstname: James
 is_institution: false
 issue:
   - content/issues/paris-ias-ideas.md
-language:
-  - English
+language:  English
 lastname: Hollan
 affiliations:
   - affiliation: Université de Californie, San Diego

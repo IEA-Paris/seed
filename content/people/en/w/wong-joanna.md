@@ -6,8 +6,7 @@ firstname: Joanna
 is_institution: false
 issue:
   - content/issues/paysages-alimentaires.md
-language:
-  - French
+language:  French
 lastname: Wong
 picture: ''
 picture_copyright: ''

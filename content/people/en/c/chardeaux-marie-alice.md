@@ -7,8 +7,7 @@ firstname: Marie-Alice
 is_institution: false
 issue:
   - content/issues/biens-communus.md
-language:
-  - French
+language:  French
 lastname: Chardeaux
 picture: ''
 picture_copyright: ''

@@ -10,8 +10,7 @@ is_institution: false
 issue:
   - content/issues/assessing-resilience.md
   - content/issues/territories-of-energy-transition.md
-language:
-  - French
+language:  French
 lastname: Blauel
 affiliations:
   - affiliation: Ville de Paris, France

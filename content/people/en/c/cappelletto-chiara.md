@@ -6,8 +6,7 @@ firstname: Chiara
 is_institution: false
 issue:
   - content/issues/identity-from-double-to-avatar.md
-language:
-  - English
+language:  English
 lastname: Cappelletto
 affiliations:
   - affiliation: Università Statale di Milano, Italy

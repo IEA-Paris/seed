@@ -6,8 +6,7 @@ firstname: Xabier
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Agirre Aranburu
 affiliations:
   - affiliation: International Criminal Court, Netherlands

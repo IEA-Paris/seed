@@ -6,8 +6,7 @@ firstname: Claudine
 is_institution: false
 issue:
   - content/issues/crises-et-prophetes.md
-language:
-  - English
+language:  English
 lastname: Gauthier
 affiliations:
   - affiliation: Université de Bordeaux IIAC-LAHIC, France

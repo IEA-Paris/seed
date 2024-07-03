@@ -1,43 +1,3 @@
-<style lang="scss" scoped>
-.content {
-  margin-top: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-</style>
-<script setup>
-const ignoredRoutes = ["fr", "about", "activities"];
-
-const localePath = useLocalePath();
-const route = useRoute();
-const isSnapRoutes = () => {
-  return route.name.startsWith("about") || route.name.startsWith("index");
-};
-console.log("route: ", route.name);
-const crumbs = computed(() => {
-  return route.path
-    .split("/")
-    .filter((item) => item && !ignoredRoutes.includes(item))
-    .map((item, index) => {
-      return {
-        title: item,
-        ...(index > 0 && {
-          href:
-            "/" +
-            route.path
-              .split("/")
-              .filter((item) => item)
-              .slice(0, index + 1)
-              .join("/"),
-        }),
-        disabled: false,
-        exact: true,
-      };
-    });
-});
-</script>
-
 <template>
   <v-app>
     <NavigationTopBar />
@@ -72,3 +32,43 @@ const crumbs = computed(() => {
     </v-main>
   </v-app>
 </template>
+
+<script setup>
+const ignoredRoutes = ["fr", "about", "activities"]
+
+const localePath = useLocalePath()
+const route = useRoute()
+const isSnapRoutes = () => {
+  return route.name.startsWith("about") || route.name.startsWith("index")
+}
+console.log("route: ", route.name)
+const crumbs = computed(() => {
+  return route.path
+    .split("/")
+    .filter((item) => item && !ignoredRoutes.includes(item))
+    .map((item, index) => {
+      return {
+        title: item,
+        ...(index > 0 && {
+          href:
+            "/" +
+            route.path
+              .split("/")
+              .filter((item) => item)
+              .slice(0, index + 1)
+              .join("/"),
+        }),
+        disabled: false,
+        exact: true,
+      }
+    })
+})
+</script>
+<style lang="scss" scoped>
+.content {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

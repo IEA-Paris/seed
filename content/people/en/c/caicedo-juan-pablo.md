@@ -7,8 +7,7 @@ firstname: Juan Pablo
 is_institution: false
 issue:
   - content/issues/paris-ias-ideas.md
-language:
-  - English
+language:  English
 lastname: Caicedo
 affiliations:
   - affiliation: PARIS IAS

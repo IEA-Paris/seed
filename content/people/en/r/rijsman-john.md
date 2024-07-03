@@ -7,8 +7,7 @@ firstname: John
 is_institution: false
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Rijsman
 affiliations:
   - affiliation: University of Tilburg, The Netherlands

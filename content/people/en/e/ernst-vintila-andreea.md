@@ -6,8 +6,7 @@ firstname: Andreea
 is_institution: false
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Ernst-Vintila
 affiliations:
   - affiliation: Paris-Ouest- Nanterre-la-Défense University, France

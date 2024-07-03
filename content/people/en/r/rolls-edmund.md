@@ -6,8 +6,7 @@ exerpt: ''
 firstname: Edmund
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Rolls
 affiliations:
   - affiliation: Oxford Centre for Computational Neuroscience, United Kingdom

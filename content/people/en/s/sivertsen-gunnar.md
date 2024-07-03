@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Gunnar
 issue:
   - content/issues/HCERES - PFUE 2022.md
-language:
-  - English
+language:  English
 lastname: Sivertsen
 picture: ''
 picture_copyright: ''

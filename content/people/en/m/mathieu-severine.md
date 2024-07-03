@@ -9,8 +9,7 @@ firstname: Séverine
 is_institution: false
 issue:
   - content/issues/Agir en temps de crise.md
-language:
-  - French
+language:  French
 lastname: Mathieu
 picture: ''
 picture_copyright: ''

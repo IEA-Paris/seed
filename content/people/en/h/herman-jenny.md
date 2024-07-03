@@ -6,8 +6,7 @@ firstname: Jenny
 is_institution: false
 issue:
   - content/issues/paysages-alimentaires.md
-language:
-  - French
+language:  French
 lastname: Herman
 picture: ''
 picture_copyright: ''

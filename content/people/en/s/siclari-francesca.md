@@ -6,8 +6,7 @@ firstname: Francesca
 is_institution: false
 issue:
   - content/issues/sleep-and-memory.md
-language:
-  - English
+language:  English
 lastname: Siclari
 affiliations:
   - affiliation: University of lausanne - CHUV

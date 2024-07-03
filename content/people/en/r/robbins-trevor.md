@@ -6,8 +6,7 @@ firstname: Trevor
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Robbins
 affiliations:
   - affiliation: University of Cambridge, United Kingdom

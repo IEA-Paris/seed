@@ -7,8 +7,7 @@ exerpt: ''
 firstname: Élise
 issue:
   - content/issues/Our Microbial Lives.md
-language:
-  - French
+language:  French
 lastname: Tancoigne
 picture: ''
 picture_copyright: ''

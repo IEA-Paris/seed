@@ -6,8 +6,7 @@ firstname: Christopher
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Browning
 affiliations:
   - affiliation: University of North Carolina, USA

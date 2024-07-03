@@ -6,8 +6,7 @@ firstname: Géraldine
 is_institution: false
 issue:
   - content/issues/sleep-and-memory.md
-language:
-  - English
+language:  English
 lastname: Rauchs
 affiliations:
   - affiliation: Inserm - Université de Caen

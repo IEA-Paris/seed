@@ -7,8 +7,7 @@ firstname: Jean-Pol
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Tassin
 affiliations:
   - affiliation: Collège de France, France

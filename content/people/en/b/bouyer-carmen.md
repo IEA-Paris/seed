@@ -6,8 +6,7 @@ firstname: Carmen
 is_institution: false
 issue:
   - content/issues/paysages-alimentaires.md
-language:
-  - French
+language:  French
 lastname: Bouyer
 picture: ''
 picture_copyright: ''

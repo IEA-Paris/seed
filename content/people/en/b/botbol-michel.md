@@ -6,8 +6,7 @@ firstname: Michel
 is_institution: false
 issue:
   - content/issues/brains-that-pull-the-triggers.md
-language:
-  - English
+language:  English
 lastname: Botbol
 affiliations:
   - affiliation: Université de Bretagne Occidentale, France

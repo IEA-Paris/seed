@@ -6,8 +6,7 @@ firstname: Alice
 is_institution: false
 issue:
   - content/issues/Agir en temps de crise.md
-language:
-  - French
+language:  French
 lastname: Desclaux
 picture: ''
 picture_copyright: ''

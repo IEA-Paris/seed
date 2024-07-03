@@ -6,8 +6,7 @@ firstname: Dominique
 is_institution: false
 issue:
   - content/issues/Agir en temps de crise.md
-language:
-  - French
+language:  French
 lastname: Mehl
 picture: ''
 picture_copyright: ''

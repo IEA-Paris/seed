@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Ioana
 issue:
   - content/issues/HCERES - PFUE 2022.md
-language:
-  - English
+language:  English
 lastname: Galleron
 picture: ''
 picture_copyright: ''

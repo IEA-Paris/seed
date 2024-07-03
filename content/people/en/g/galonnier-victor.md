@@ -17,8 +17,7 @@ exerpt: ''
 firstname: Victor
 issue:
   - content/issues/WPRN Memorandums.md
-language:
-  - English
+language:  English
 lastname: Galonnier
 picture: ''
 picture_copyright: ''

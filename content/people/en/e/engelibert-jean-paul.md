@@ -6,8 +6,7 @@ firstname: Jean-Paul
 is_institution: false
 issue:
   - content/issues/crises-et-prophetes.md
-language:
-  - English
+language:  English
 lastname: Engélibert
 affiliations:
   - affiliation: Université Bordeaux-Montaigne, France

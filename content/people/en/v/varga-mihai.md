@@ -6,8 +6,7 @@ firstname: Mihai
 is_institution: false
 issue:
   - content/issues/intellectuals-against-democracy.md
-language:
-  - English
+language:  English
 lastname: Varga
 affiliations:
   - affiliation: Freie Universität Berlin, Germany

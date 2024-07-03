@@ -10,8 +10,7 @@ firstname: Conrad
 is_institution: false
 issue:
   - content/issues/justice-climate-transitions.md
-language:
-  - English
+language:  English
 lastname: Kunze
 affiliations:
   - affiliation: Helmholtz Centre for Environmental Research – UFZ, Leipzig, Germany

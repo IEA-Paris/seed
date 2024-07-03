@@ -6,8 +6,7 @@ firstname: Marie
 is_institution: false
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - French
+language:  French
 lastname: Personnaz
 affiliations:
   - affiliation: >-

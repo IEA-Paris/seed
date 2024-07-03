@@ -7,8 +7,7 @@ firstname: François
 is_institution: false
 issue:
   - content/issues/Agir en temps de crise.md
-language:
-  - French
+language:  French
 lastname: Croquette
 affiliations:
   - affiliation: Ville de Paris, France

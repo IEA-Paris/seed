@@ -7,8 +7,7 @@ firstname: Suranga
 is_institution: false
 issue:
   - content/issues/Intercontinental Academia 4.md
-language:
-  - English
+language:  English
 lastname: Kasturi
 affiliations:
   - affiliation: Center for Biomedical Informatics at Regenstrief Institute

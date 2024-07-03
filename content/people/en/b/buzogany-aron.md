@@ -6,8 +6,7 @@ firstname: Aron
 is_institution: false
 issue:
   - content/issues/intellectuals-against-democracy.md
-language:
-  - English
+language:  English
 lastname: Buzogany
 affiliations:
   - affiliation: BOKU Vienna

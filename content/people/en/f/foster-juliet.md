@@ -6,8 +6,7 @@ firstname: Juliet
 is_institution: false
 issue:
   - content/issues/hommage-serge-moscovici.md
-language:
-  - English
+language:  English
 lastname: Foster
 affiliations:
   - affiliation: University of Cambridge, United Kingdom

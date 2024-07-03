@@ -5,8 +5,7 @@ exerpt: ''
 firstname: Jeanne
 issue:
   - content/issues/Our Microbial Lives.md
-language:
-  - French
+language:  French
 lastname: Ropars
 picture: ''
 picture_copyright: ''

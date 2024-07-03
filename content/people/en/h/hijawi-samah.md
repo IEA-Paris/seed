@@ -6,8 +6,7 @@ firstname: Samah
 is_institution: false
 issue:
   - content/issues/paysages-alimentaires.md
-language:
-  - French
+language:  French
 lastname: Hijawi
 picture: ''
 picture_copyright: ''

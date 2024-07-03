@@ -6,8 +6,7 @@ firstname: Morgan
 is_institution: false
 issue:
   - content/issues/Agir en temps de crise.md
-language:
-  - French
+language:  French
 lastname: Meyer
 affiliations:
   - affiliation: CNRS, France
