@@ -99,6 +99,15 @@
           </v-list-item>
         </v-list>
       </v-sheet>
+
+      <MiscMoleculesRelatedItems
+        type="news"
+        :items="item.relatedNews"
+      ></MiscMoleculesRelatedItems>
+      <MiscMoleculesRelatedItems
+        type="project"
+        :items="item.relatedProjects"
+      ></MiscMoleculesRelatedItems>
     </v-col>
 
     <v-col class="d-flex flex-row" cols="12" v-if="sm">

@@ -25,21 +25,28 @@
         <div v-if="lgAndUp" class="text-wrap text-lg-h4 text-black">
           {{ item.title }}
         </div>
-        <div class="d-flex flex-column flex-md-row align-md-center">
-          <MiscAtomsDateStamp :date="item.date" class="ml-0" />
+        <div
+          class="d-flex flex-column flex-md-row align-md-center mt-md-10 mt-lg-4"
+        >
+          <MiscAtomsDateStamp :date="item.date" class="ml-0 mt-lg-2" />
 
-          <div class="text-body-1 text-black mt-4 mt-sm-4 ml-md-5">
-            <!--    TODO use a proper & conditional formatting of names (depending on number of authors) -->
-            {{
-              $t("by-author", [
-                item.authors[0].firstname + " " + item.authors[0].lastname,
-              ])
-            }}
+          <div class="d-flex flex-column ml-md-8">
+            <div
+              class="text-body-2 text-lg-body-1 text-black mt-4 mt-sm-4 mt-md-0 mb-md-n4 mt-lg-2 ml-md-0"
+            >
+              <!--    TODO use a proper & conditional formatting of names (depending on number of authors) -->
+              {{
+                $t("by-author", [
+                  item.authors[0].firstname + " " + item.authors[0].lastname,
+                ])
+              }}
+            </div>
+            <div class="mt-lg-n1">
+              <MiscMoleculesChipContainer
+                :items="item.tags"
+              ></MiscMoleculesChipContainer>
+            </div>
           </div>
-
-          <MiscMoleculesChipContainer
-            :items="item.tags"
-          ></MiscMoleculesChipContainer>
         </div>
       </div>
     </v-col>
