@@ -361,9 +361,7 @@ export const useRootStore = defineStore("rootStore", {
       this.search = search
       this.update(type)
     },
-    async update(type: string) {
-      const lang =
-        /* useNuxtApp().$i18n.locale || useNuxtApp().$i18n.fallbackLocale || */ "en"
+    async update(type: string, lang: string = "en") {
       console.log("type: ", type + "/" + lang)
       const target = type + "/" + lang + "/"
       this.setLoading(true)
@@ -486,14 +484,14 @@ export const useRootStore = defineStore("rootStore", {
 
       const { data: items } = await useAsyncData("items", () =>
         queryContent(target)
-          .where(pipeline)
+          /*  .where(pipeline) */
           .sort({ [sortArray[0]]: sortArray[1] })
           /*  .sort({ [sortArray[2]]: sortArray[3] }) */
           .skip(skipNumber())
           .limit(itemsPerPage)
           .find()
       )
-
+      console.log("query done")
       const viewsObj = (this[type] as ModuleType).list.views as Record<
         string,
         Views

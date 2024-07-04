@@ -1,9 +1,9 @@
 <template>
   <v-divider v-if="index > 0"></v-divider>
-  <v-row class="my-8 px-sm-12 px-4" no-gutters>
+  <v-row class="my-8 px-sm-12 px-md-4" no-gutters>
     <!--  TODO rework on xs sm. The picture occupies too much of the vertical space and the datestamp is alone on one width -->
     <v-col cols="12" md="1">
-      <MiscAtomsDateStamp :date="item.start" class="pr-6 mt-md-1"
+      <MiscAtomsDateStamp :date="item.start" class="pr-6 mt-md-2"
     /></v-col>
     <v-col cols="12" md="8" class="px-md-6 mt-6 mt-md-0">
       <v-row no-gutters="">
@@ -49,54 +49,56 @@
           </div>
         </v-col>
 
-        <v-col cols="12" lg="3" class="">
-          <v-row no-gutters>
-            <v-col cols="12">
-              <div class="text-overline">
-                {{ $t("date-and-time") }}
-              </div>
-              <div class="text-body-1">
-                {{ item.date_text }} <br />
-                {{ formatDate(item.start, $i18n.locale) }}
-              </div>
-            </v-col>
-            <v-col cols="12" class="mb-6 mt-3" v-if="item.location">
-              <div class="text-overline">
-                {{ $t("location") }}
-              </div>
-              <div class="text-body-1">
-                {{ item.location }}
-              </div>
-            </v-col>
-          </v-row>
+        <v-col cols="12" class="" lg="3">
+          <div class="text-overline">
+            {{ $t("date-and-time") }}
+          </div>
+          <div class="text-body-1">
+            {{ item.date_text }} <br />
+            {{ formatDate(item.start, $i18n.locale) }}
+          </div>
+          <template v-if="item.location">
+            <div class="text-overline mt-6">
+              {{ $t("location") }}
+            </div>
+            <div class="text-body-1">
+              {{ item.location }}
+            </div>
+          </template>
         </v-col>
       </v-row>
-      <div class="d-flex flex-row align-center flex-wrap" v-if="mdAndDown">
-        <v-btn
-          color="grey-lighten-3"
-          flat
-          rounded="0"
-          prepend-icon="mdi-circle-medium"
-          size="small"
-          class="my-2"
+      <v-row
+        class="d-flex flex-row align-center flex-wrap"
+        no-gutters
+        v-if="mdAndDown"
+      >
+        <v-col cols="12">
+          <v-btn
+            color="grey-lighten-3"
+            flat
+            rounded="0"
+            prepend-icon="mdi-circle-medium"
+            size="small"
+            class="my-2"
+          >
+            <template v-slot:prepend>
+              <v-icon size="large" color="success"></v-icon>
+            </template>
+            {{ $t("registration-open") }}</v-btn
+          >
+          <v-divider vertical class="mx-3" v-if="smAndUp"></v-divider>
+          <v-btn
+            color="grey-lighten-3"
+            flat
+            rounded="0"
+            prepend-icon="mdi-television-play"
+            size="small"
+            class="my-xs-2"
+          >
+            {{ $t("live-stream-available") }}</v-btn
+          ></v-col
         >
-          <template v-slot:prepend>
-            <v-icon size="large" color="success"></v-icon>
-          </template>
-          {{ $t("registration-open") }}</v-btn
-        >
-        <v-divider vertical class="mx-3" v-if="smAndUp"></v-divider>
-        <v-btn
-          color="grey-lighten-3"
-          flat
-          rounded="0"
-          prepend-icon="mdi-television-play"
-          size="small"
-          class="my-xs-2"
-        >
-          {{ $t("live-stream-available") }}</v-btn
-        >
-      </div>
+      </v-row>
     </v-col>
     <v-col cols="12" md="3">
       <div class="overflow-hidden">

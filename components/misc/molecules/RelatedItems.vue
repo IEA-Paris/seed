@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-sm-6 my-6 pa-6 border-thin">
+  <div class="mx-sm-6 mb-6 pa-6 border-thin">
     <div class="text-overline">{{ $t("related." + type) }}</div>
     <component
       v-for="item in items"

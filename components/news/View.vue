@@ -1,5 +1,5 @@
 <template>
-  {{ name }}
+  <!--  {{ name }} -->
   <v-row>
     <v-col
       cols="12"
@@ -8,7 +8,7 @@
     >
       {{ item.title }}
     </v-col>
-    <v-col cols="12" md="4">
+    <v-col cols="12" md="4" class="pb-0">
       <div class="overflow-hidden mx-sm-6">
         <v-img
           :src="item.image"
@@ -20,12 +20,14 @@
       </div>
     </v-col>
 
-    <v-col cols="12" md="8">
-      <div class="ml-md-4 mx-sm-6">
+    <v-col cols="12" md="8" class="pl-0 pb-0">
+      <div class="mx-4 mx-md-0">
         <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
           {{ item.title }}
         </div>
-        <div class="d-flex flex-column flex-md-row align-md-center mt-6">
+        <div
+          class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-6"
+        >
           <MiscAtomsDateStamp :date="item.date" class="ml-0 mt-lg-2" />
 
           <div class="ml-md-8">
@@ -51,13 +53,7 @@
   </v-row>
 
   <v-row class="mt-12">
-    <v-col cols="12" md="4" :order="mdAndUp ? 'first' : 'last'">
-      <div class="mt-2 mx-n6 mx-sm-0" v-if="mdAndUp">
-        <ActionsSmallContainer
-          :action="action"
-          :ratio="null"
-        ></ActionsSmallContainer>
-      </div>
+    <v-col cols="12" md="4" :order="mdAndUp ? 'first' : 'last'" class="pt-0">
       <MiscMoleculesRelatedItems
         type="events"
         :items="item.relatedEvents"
@@ -66,9 +62,15 @@
         type="project"
         :items="item.relatedProjects"
       ></MiscMoleculesRelatedItems>
+      <div class="mt-2 mx-n6 mx-sm-0" v-if="mdAndUp">
+        <ActionsSmallContainer
+          :action="action"
+          :ratio="null"
+        ></ActionsSmallContainer>
+      </div>
     </v-col>
-    <v-col cols="12" md="8">
-      <ContentRenderer :value="item" class="mt-n10 mt-md-n2 mx-sm-6" />
+    <v-col cols="12" md="8" class="pl-0 pt-0">
+      <ContentRenderer :value="item" class="mt-sm-n10 mt-md-n2 mx-4 mx-md-0" />
     </v-col>
   </v-row>
 </template>

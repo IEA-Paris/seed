@@ -18,9 +18,9 @@
       class="transition-swing"
       variant="outlined"
       hide-details
-      :density="smAndDown ? 'dense' : 'default'"
       clearable
       type="search"
+      :loading="rootStore.loading"
     >
       <!--    :loading="$nuxt.loading || $store.state.loading" :class="{ 'mt-3':
       $store.state.scrolled }" -->

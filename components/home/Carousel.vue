@@ -4,7 +4,7 @@
       <div
         class="d-flex flex-column justify-space-between left-panel align-end"
       >
-        <v-btn
+        <!--  <v-btn
           text
           variant="flat"
           right
@@ -18,7 +18,7 @@
           {{
             featured[selected >= 1 ? selected - 1 : featured.length - 1].title
           }}
-        </v-btn>
+        </v-btn> -->
         <v-sheet class="d-flex justify-center align-end pa-6 flex-column">
           <div class="text-h2 text-right mb-6" v-motion-fade>
             {{ featured[selected].title }}
@@ -29,7 +29,7 @@
             <v-btn color="default" class="mt-6">Click here</v-btn>
           </div>
         </v-sheet>
-        <v-btn
+        <!--  <v-btn
           size="large"
           variant="flat"
           right
@@ -42,7 +42,7 @@
           {{
             featured[selected < featured.length - 1 ? selected + 1 : 0].title
           }}
-        </v-btn>
+        </v-btn> -->
       </div>
       <div class="right-panel d-flex align-center">
         <v-carousel
