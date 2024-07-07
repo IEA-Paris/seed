@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <ListAtomsListHeader
+        <!-- <ListAtomsListHeader
           :headers="[
             'scientific-advisory-board',
             'team',
@@ -20,7 +20,9 @@
         >
           Overview of the people by category: team, current fellows, recent
           speakers, featured in resources</v-card
-        >
+        > -->
+
+        <ListOrganismsList type="people"></ListOrganismsList> </v-col
       </v-col>
     </v-row>
   </v-container>
