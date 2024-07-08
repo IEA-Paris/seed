@@ -5,8 +5,6 @@ date: 2023-10-04T00:00:00.000Z
 picture: "/logoPF.png"
 color: '#fff'
 ---
-Le dispositif cifre
--------------------
 
 Le dispositif des Conventions industrielles de formations par la recherche (CIFRE), géré par l'[Association nationale de la recherche et de la technologie (ANRT)](http://www.anrt.asso.fr/fr/cifre-7843) pour le compte du ministère chargé de l'Enseignement supérieur, de la Recherche et de l'Innovation, est un dispositif d'aide à l'embauche permettant le recrutement de doctorant.e.s par des entreprises ou collectivités territoriales, durant la réalisation de leur thèse.
 

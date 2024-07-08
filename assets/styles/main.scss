@@ -145,6 +145,12 @@ $stepper-elevation: 0;
   margin-bottom: 16px;
   padding-bottom: 0;
 }
+.clamped-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 // FF print fix
 /* @media print {
   .application {
