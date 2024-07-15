@@ -39,6 +39,18 @@
         <NuxtLink to="/" class="text-wrap text-h4 text-black">
           {{ item.title }}</NuxtLink
         >
+
+        <ContentRenderer
+          :value="item"
+          class="text-body-1 clamped-text"
+          :style="
+            '-webkit-line-clamp:' +
+            [5, 5, 3, 6, 10][
+              ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+            ]
+          "
+        />
+
         <div>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis,
           totam libero soluta natus officiis dolorum, quas obcaecati odio sunt
