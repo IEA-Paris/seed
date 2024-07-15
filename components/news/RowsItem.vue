@@ -87,6 +87,7 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
+const localePath = useLocalePath()
 const { name, mdAndDown, md, xl, lg, smAndDown, mdAndUp, lgAndUp } =
   useDisplay()
 const props = defineProps({

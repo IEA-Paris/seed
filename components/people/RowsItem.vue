@@ -84,8 +84,6 @@ const props = defineProps({
     required: true,
   },
 })
-
-console.log("HELLO", props.item)
 </script>
 
 <style lang="scss">
