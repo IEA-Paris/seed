@@ -2,9 +2,19 @@
   <v-row no-gutters>
     <v-col cols="12">
       <v-btn
+        x-large
+        :height="mdAndUp ? '56' : '40'"
+        outlined
+        :rounded="0"
+        color="primary"
+        @click="rootStore.setLoading(!rootStore.loading)"
+      >
+        <v-icon left>mdi-loading</v-icon>
+      </v-btn>
+      <v-btn
         v-if="addBtn"
         x-large
-        :height="$vuetify.breakpoint.mdAndUp ? '56' : '40'"
+        :height="mdAndUp ? '56' : '40'"
         outlined
         :rounded="0"
         color="primary"
@@ -27,6 +37,13 @@
 </template>
 
 <script setup>
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
+
+import { useDisplay } from "vuetify"
+const { name, mdAndDown, md, xl, lg, smAndDown, mdAndUp, lgAndUp } =
+  useDisplay()
+
 const props = defineProps({
   type: {
     type: String,

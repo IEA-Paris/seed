@@ -5,7 +5,7 @@
 <script lang="ts" setup>
 import { useDisplay } from "vuetify"
 const { $i18n } = useNuxtApp()
-const { smAndUp } = useDisplay()
+const { smAndUp, mdAndUp } = useDisplay()
 const route = useRoute()
 const localePath = useLocalePath()
 

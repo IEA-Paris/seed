@@ -3,68 +3,112 @@
   <v-row class="my-8 px-sm-12 px-md-4" no-gutters>
     <!--  TODO rework on xs sm. The picture occupies too much of the vertical space and the datestamp is alone on one width -->
     <v-col cols="12" md="1">
-      <MiscAtomsDateStamp :date="item.start" class="pr-6 mt-md-2"
-    /></v-col>
+      <v-skeleton-loader
+        v-if="rootStore.loading"
+        :type="
+          [
+            'heading, article, heading, text, heading, text, button, button',
+            'heading, article, heading, text, heading, text, button, button',
+            'heading, text',
+            'heading, text',
+            'heading, text',
+            'heading, text',
+          ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
+        "
+      >
+      </v-skeleton-loader>
+      <div v-else>
+        <MiscAtomsDateStamp :date="item.start" class="pr-6 mt-md-2" />
+      </div>
+    </v-col>
     <v-col cols="12" md="8" class="px-md-6 mt-6 mt-md-0">
       <v-row no-gutters="">
         <v-col cols="12" lg="9" class="pr-lg-6">
-          <nuxt-link
-            :to="
-              localePath({
-                name: 'activities-events-slug',
-                params: { slug: item._path.split('/').pop() },
-              })
+          <v-skeleton-loader
+            v-if="rootStore.loading"
+            :type="
+              [
+                'article, button, button',
+                'article, button, button',
+                'article, button, button',
+              ][['lg', 'xl', 'xxl'].indexOf(name || 'md')]
             "
-            class="text-h4 text-black text-wrap mt-4"
           >
-            {{ item.title }}
-          </nuxt-link>
-          <div class="mt-2 text-h6 text-overline font-weight-black">
-            {{ $t("events.categories." + item.category) }}
-          </div>
-          <p class="text-body-1 text-wrap">
-            {{ item.description }}
-          </p>
-          <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">
-            <v-btn
-              color="grey-lighten-3"
-              flat
-              rounded="0"
-              prepend-icon="mdi-circle-medium"
+          </v-skeleton-loader>
+
+          <div v-else>
+            <nuxt-link
+              :to="
+                localePath({
+                  name: 'activities-events-slug',
+                  params: { slug: item._path.split('/').pop() },
+                })
+              "
+              class="text-h4 text-black text-wrap mt-4"
             >
-              <template v-slot:prepend>
-                <v-icon size="large" color="success"></v-icon>
-              </template>
-              {{ $t("registration-open") }}</v-btn
-            >
-            <v-btn
-              color="grey-lighten-3"
-              flat
-              rounded="0"
-              prepend-icon="mdi-television-play"
-              class="ml-md-4"
-            >
-              {{ $t("live-stream-available") }}</v-btn
-            >
+              {{ item.title }}
+            </nuxt-link>
+            <div class="mt-2 text-h6 text-overline font-weight-black">
+              {{ $t("events.categories." + item.category) }}
+            </div>
+            <p class="text-body-1 text-wrap">
+              {{ item.description }}
+            </p>
+            <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">
+              <v-btn
+                color="grey-lighten-3"
+                flat
+                rounded="0"
+                prepend-icon="mdi-circle-medium"
+              >
+                <template v-slot:prepend>
+                  <v-icon size="large" color="success"></v-icon>
+                </template>
+                {{ $t("registration-open") }}</v-btn
+              >
+              <v-btn
+                color="grey-lighten-3"
+                flat
+                rounded="0"
+                prepend-icon="mdi-television-play"
+                class="ml-md-4"
+              >
+                {{ $t("live-stream-available") }}</v-btn
+              >
+            </div>
           </div>
         </v-col>
 
-        <v-col cols="12" class="" lg="3">
-          <div class="text-overline">
-            {{ $t("date-and-time") }}
-          </div>
-          <div class="text-body-1">
-            {{ item.date_text }} <br />
-            {{ formatDate(item.start, $i18n.locale) }}
-          </div>
-          <template v-if="item.location">
-            <div class="text-overline mt-6">
-              {{ $t("location") }}
+        <v-col cols="12" lg="3">
+          <v-skeleton-loader
+            v-if="rootStore.loading"
+            :type="
+              [
+                'heading, text, heading, text',
+                'heading, text, heading, text',
+                'heading, text, heading, text',
+              ][['lg', 'xl', 'xxl'].indexOf(name || 'md')]
+            "
+          >
+          </v-skeleton-loader>
+
+          <div v-else>
+            <div class="text-overline">
+              {{ $t("date-and-time") }}
             </div>
             <div class="text-body-1">
-              {{ item.location }}
+              {{ item.date_text }} <br />
+              {{ formatDate(item.start, $i18n.locale) }}
             </div>
-          </template>
+            <template v-if="item.location">
+              <div class="text-overline mt-6">
+                {{ $t("location") }}
+              </div>
+              <div class="text-body-1">
+                {{ item.location }}
+              </div>
+            </template>
+          </div>
         </v-col>
       </v-row>
       <v-row
@@ -73,61 +117,84 @@
         v-if="mdAndDown"
       >
         <v-col cols="12">
-          <v-btn
-            color="grey-lighten-3"
-            flat
-            rounded="0"
-            prepend-icon="mdi-circle-medium"
-            size="small"
-            class="my-2"
+          <v-skeleton-loader
+            v-if="rootStore.loading"
+            :type="
+              ['article, heading, text, heading, text, button, button'][
+                ['md'].indexOf(name || 'md')
+              ]
+            "
           >
-            <template v-slot:prepend>
-              <v-icon size="large" color="success"></v-icon>
-            </template>
-            {{ $t("registration-open") }}</v-btn
-          >
-          <v-divider vertical class="mx-3" v-if="smAndUp"></v-divider>
-          <v-btn
-            color="grey-lighten-3"
-            flat
-            rounded="0"
-            prepend-icon="mdi-television-play"
-            size="small"
-            class="my-xs-2"
-          >
-            {{ $t("live-stream-available") }}</v-btn
-          ></v-col
-        >
+          </v-skeleton-loader>
+
+          <div v-else>
+            <v-btn
+              color="grey-lighten-3"
+              flat
+              rounded="0"
+              prepend-icon="mdi-circle-medium"
+              size="small"
+              class="my-2"
+            >
+              <template v-slot:prepend>
+                <v-icon size="large" color="success"></v-icon>
+              </template>
+              {{ $t("registration-open") }}</v-btn
+            >
+            <v-divider vertical class="mx-3" v-if="smAndUp"></v-divider>
+            <v-btn
+              color="grey-lighten-3"
+              flat
+              rounded="0"
+              prepend-icon="mdi-television-play"
+              size="small"
+              class="my-xs-2"
+            >
+              {{ $t("live-stream-available") }}</v-btn
+            >
+          </div>
+        </v-col>
       </v-row>
     </v-col>
     <v-col cols="12" md="3">
-      <div class="overflow-hidden">
-        <nuxt-link
-          :to="
-            localePath({
-              name: 'activities-events-slug',
-              params: { slug: item._path.split('/').pop() },
-            })
-          "
-        >
-          <v-img
-            :src="item.image"
-            :aspect-ratio="1 / 1"
-            cover
-            max-height="100%"
-            class="img-animation"
+      <v-skeleton-loader
+        v-if="rootStore.loading"
+        max-height="200"
+        max-width="200"
+        type="image"
+      >
+      </v-skeleton-loader>
+
+      <div v-else>
+        <div class="overflow-hidden">
+          <nuxt-link
+            :to="
+              localePath({
+                name: 'activities-events-slug',
+                params: { slug: item._path.split('/').pop() },
+              })
+            "
           >
-          </v-img>
-        </nuxt-link>
+            <v-img
+              :src="item.image"
+              :aspect-ratio="1 / 1"
+              cover
+              max-height="100%"
+              class="img-animation"
+            >
+            </v-img>
+          </nuxt-link>
+        </div>
       </div>
     </v-col>
   </v-row>
 </template>
 <script setup>
 import { useDisplay } from "vuetify"
-
+import { useRootStore } from "~/store/root"
 const { name, smAndDown, smAndUp, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
 const localePath = useLocalePath()
+const rootStore = useRootStore()
 const props = defineProps({
   item: {
     type: Object,
