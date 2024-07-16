@@ -3,7 +3,6 @@
   <v-row class="my-4 mx-2 mx-sm-8 mx-md-0">
     <v-col cols="12 " md="4" lg="3" v-if="mdAndUp" class="pr-md-0">
       <v-skeleton-loader
-        class="skeleton-img"
         v-if="rootStore.loading"
         height="100%"
         type="image"

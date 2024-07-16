@@ -566,7 +566,7 @@ export const useRootStore = defineStore("rootStore", {
       ;(this[type] as ModuleType).list.items = items as any
       this.total = totalItems
       this.numberOfPages = lastPage
-      //this.setLoading(false)
+      this.setLoading(false)
     },
   },
 })
