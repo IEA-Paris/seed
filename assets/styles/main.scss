@@ -121,7 +121,24 @@ $material-light: (
   "chips": #ffffff,
 );
 $stepper-elevation: 0;
+.clamped-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.img-animation {
+  transition: all 2s ease-in-out;
+}
 
+.img-animation:hover {
+  transform: scale(1.1);
+}
+
+.v-skeleton-loader__bone.v-skeleton-loader__image {
+  aspect-ratio: 1/1;
+  height: auto;
+}
 .v-card__title {
   word-break: normal;
 }

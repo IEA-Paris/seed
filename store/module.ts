@@ -174,7 +174,7 @@ const createModule = async (type: string): Promise<ModuleType> => {
       schema: defaultState,
     },
     list: {
-      items: [],
+      items: [{}, {}, {}, {}, {}, {}, {}, {}, {}],
       ...(baseType?.list?.perPage?.default && {
         itemsPerPage: baseType.list?.perPage.default,
       }),

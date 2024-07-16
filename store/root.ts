@@ -22,7 +22,7 @@ const initStore = async () => {
   const modules = {}
 
   await Promise.all(
-    [/* "people", "fellowship", "project", */ "events", "news" /* */].map(
+    [/*  "fellowship", "project", */ "events", "news", "people" /* */].map(
       async (type) => {
         modulesState[type] = await createModule(type)
       }
