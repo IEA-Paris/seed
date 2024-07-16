@@ -3,21 +3,13 @@
   <v-row class="my-4 mx-2 mx-sm-8 mx-md-0">
     <v-col cols="12 " md="4" lg="3" v-if="mdAndUp" class="pr-md-0">
       <v-skeleton-loader
+        class="skeleton-img"
         v-if="rootStore.loading"
-        :max-width="
-          ['200', '200', '200', '200'][
-            ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-          ]
-        "
-        :max-height="
-          ['200', '200', '200', '200'][
-            ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-          ]
-        "
+        height="100%"
         type="image"
       ></v-skeleton-loader>
 
-      <div v-else class="overflow-hidden">
+      <template v-else class="overflow-hidden">
         <v-img
           :src="item.image"
           :aspect-ratio="1 / 1"
@@ -25,7 +17,7 @@
           class="img-animation"
         >
         </v-img>
-      </div>
+      </template>
     </v-col>
 
     <v-col cols="12" md="8" lg="4" class="pl-md-6">
@@ -33,8 +25,8 @@
         v-if="rootStore.loading"
         :type="
           [
-            'article, button',
-            'article, button',
+            'heading, subtitle, text@4, ossein, button',
+            'heading, subtitle, text@4, ossein, button',
             'article, button',
             'article',
             'article',
@@ -43,7 +35,7 @@
         "
       ></v-skeleton-loader>
 
-      <div v-else>
+      <template v-else>
         <NuxtLink
           :to="
             localePath({
@@ -83,7 +75,7 @@
             {{ $t("read-more") }}
           </v-btn>
         </template>
-      </div>
+      </template>
     </v-col>
 
     <v-col cols="12" lg="5" v-if="lgAndUp">
@@ -92,7 +84,7 @@
         type="paragraph, paragraph, button"
       ></v-skeleton-loader>
 
-      <div v-else>
+      <template v-else>
         <ContentRenderer
           :value="item"
           class="text-body-1 mt-n3 clamped-text"
@@ -119,7 +111,7 @@
         >
           {{ $t("read-more") }}
         </v-btn>
-      </div>
+      </template>
     </v-col>
   </v-row>
 </template>
@@ -143,18 +135,4 @@ const props = defineProps({
 })
 </script>
 
-<style lang="scss" scoped>
-.clamped-text {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.img-animation {
-  transition: all 2s ease-in-out;
-}
-
-.img-animation:hover {
-  transform: scale(1.1);
-}
-</style>
+<style></style>

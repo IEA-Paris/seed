@@ -1,37 +1,23 @@
 <template>
   <v-divider v-if="index > 0"></v-divider>
   <v-row class="my-8 px-sm-12 px-md-4" no-gutters>
-    <!--  TODO rework on xs sm. The picture occupies too much of the vertical space and the datestamp is alone on one width -->
     <v-col cols="12" md="1">
-      <v-skeleton-loader
-        v-if="rootStore.loading"
-        :type="
-          [
-            'heading, article, heading, text, heading, text, button, button',
-            'heading, article, heading, text, heading, text, button, button',
-            'heading, text',
-            'heading, text',
-            'heading, text',
-            'heading, text',
-          ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
-        "
-      >
-      </v-skeleton-loader>
-      <div v-else>
-        <MiscAtomsDateStamp :date="item.start" class="pr-6 mt-md-2" />
-      </div>
+      <MiscAtomsDateStamp :date="item.start" class="pr-6 mt-md-2" />
     </v-col>
     <v-col cols="12" md="8" class="px-md-6 mt-6 mt-md-0">
-      <v-row no-gutters="">
+      <v-row no-gutters>
         <v-col cols="12" lg="9" class="pr-lg-6">
           <v-skeleton-loader
             v-if="rootStore.loading"
             :type="
               [
-                'article, button, button',
-                'article, button, button',
-                'article, button, button',
-              ][['lg', 'xl', 'xxl'].indexOf(name || 'md')]
+                'heading, subtitle, text@6,subtitle, text,  ossein,  button, button',
+                'heading, subtitle, text@6,subtitle, text,  ossein,  button, button',
+                'heading, subtitle, text@6,  ossein,  button, button',
+                'heading, subtitle, text@6,  ossein,  button, button',
+                'heading, subtitle, text@6,  ossein,  button, button',
+                'heading, subtitle, text@6,  ossein,  button, button',
+              ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
             "
           >
           </v-skeleton-loader>
@@ -84,10 +70,10 @@
             v-if="rootStore.loading"
             :type="
               [
-                'heading, text, heading, text',
-                'heading, text, heading, text',
-                'heading, text, heading, text',
-              ][['lg', 'xl', 'xxl'].indexOf(name || 'md')]
+                'text,paragraph, text, paragraph',
+                'text,paragraph, text, paragraph',
+                'text,paragraph, text, paragraph',
+              ][['lg', 'xl', 'xxl'].indexOf(name || 'lg')]
             "
           >
           </v-skeleton-loader>
@@ -159,9 +145,9 @@
     <v-col cols="12" md="3">
       <v-skeleton-loader
         v-if="rootStore.loading"
-        max-height="200"
-        max-width="200"
+        height="100%"
         type="image"
+        class="d-flex align-start px-4"
       >
       </v-skeleton-loader>
 
@@ -207,13 +193,4 @@ const props = defineProps({
 })
 </script>
 
-<style lang="scss" scoped>
-// TODO: Add the following styles to the global styles
-.img-animation {
-  transition: all 2s ease-in-out;
-}
-
-.img-animation:hover {
-  transform: scale(1.1);
-}
-</style>
+<style lang="scss" scoped></style>

@@ -1,5 +1,17 @@
 <template>
+  <v-skeleton-loader
+    v-if="rootStore.loading"
+    max-width="120px"
+    class="d-flex flex-row flex-md-column align-center align-md-end"
+    :type="
+      ['avatar', 'avatar', 'avatar', 'avatar', 'avatar', 'avatar'][
+        ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+      ]
+    "
+  >
+  </v-skeleton-loader>
   <div
+    v-else
     class="date-stamp d-flex flex-md-column text-md-right align-center align-md-end"
   >
     <span class="day"> {{ detailedDate.day }}</span>
@@ -14,6 +26,8 @@
 import { useDisplay } from "vuetify"
 const { smAndUp, mdAndUp, name } = useDisplay()
 import { getDetailedFormatedDate } from "~/composables/useUtils"
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
 
 const { $i18n } = useNuxtApp()
 const props = defineProps({
