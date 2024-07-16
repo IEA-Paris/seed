@@ -13,6 +13,16 @@
             {{ $t(item.title).toUpperCase() }}
           </template>
         </v-breadcrumbs>
+        <v-btn
+          x-large
+          :height="mdAndUp ? '56' : '40'"
+          outlined
+          :rounded="0"
+          color="primary"
+          @click="rootStore.setLoading(!rootStore.loading)"
+        >
+          <v-icon left>mdi-loading</v-icon>
+        </v-btn>
         <!--    <h1
           v-if="
             crumbs.slice(-1)[0] &&
@@ -37,6 +47,8 @@
 
 <script setup>
 const ignoredRoutes = ["fr", "about", "activities"]
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
 
 const localePath = useLocalePath()
 const route = useRoute()

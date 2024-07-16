@@ -86,12 +86,4 @@ const props = defineProps({
 })
 </script>
 
-<style lang="scss">
-.img-animation {
-  transition: all 2s ease-in-out;
-}
-
-.img-animation:hover {
-  transform: scale(1.1);
-}
-</style>
+<style lang="scss"></style>

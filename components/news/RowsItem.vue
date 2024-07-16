@@ -24,12 +24,12 @@
         v-if="rootStore.loading"
         :type="
           [
-            'heading, subtitle, text@4, ossein, button',
-            'heading, subtitle, text@4, ossein, button',
-            'article, button',
-            'article',
-            'article',
-            'article',
+            'heading, subtitle, text@5, ossein, button',
+            'heading, subtitle, text@5, ossein, button',
+            'heading, subtitle, text@3, ossein, button',
+            'heading@2, subtitle',
+            'heading@2, subtitle',
+            'heading@2, subtitle',
           ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
         "
       ></v-skeleton-loader>
@@ -55,7 +55,7 @@
             class="text-body-1 clamped-text"
             :style="
               '-webkit-line-clamp:' +
-              [5, 5, 3, 6, 10][
+              [5, 5, 3, 6, 10, 10][
                 ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
               ]
             "
@@ -80,7 +80,7 @@
     <v-col cols="12" lg="5" v-if="lgAndUp">
       <v-skeleton-loader
         v-if="rootStore.loading"
-        type="paragraph, paragraph, button"
+        type="text@8, ossein, button"
       ></v-skeleton-loader>
 
       <template v-else>

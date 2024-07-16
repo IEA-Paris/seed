@@ -68,13 +68,7 @@
         <v-col cols="12" lg="3">
           <v-skeleton-loader
             v-if="rootStore.loading"
-            :type="
-              [
-                'text,paragraph, text, paragraph',
-                'text,paragraph, text, paragraph',
-                'text,paragraph, text, paragraph',
-              ][['lg', 'xl', 'xxl'].indexOf(name || 'lg')]
-            "
+            type="text,paragraph, text, paragraph"
           >
           </v-skeleton-loader>
 

@@ -2,16 +2,6 @@
   <v-row no-gutters>
     <v-col cols="12">
       <v-btn
-        x-large
-        :height="mdAndUp ? '56' : '40'"
-        outlined
-        :rounded="0"
-        color="primary"
-        @click="rootStore.setLoading(!rootStore.loading)"
-      >
-        <v-icon left>mdi-loading</v-icon>
-      </v-btn>
-      <v-btn
         v-if="addBtn"
         x-large
         :height="mdAndUp ? '56' : '40'"
