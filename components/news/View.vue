@@ -6,10 +6,22 @@
       v-if="smAndDown"
       class="text-wrap text-h4 text-black mx-sm-6"
     >
-      {{ item.title }}
+      <v-skeleton-loader
+        v-if="rootStore.loading"
+        :type="['heading', 'heading'][['xs', 'sm'].indexOf(name || 'sm')]"
+      ></v-skeleton-loader>
+      <template v-else>
+        {{ item.title }}
+      </template>
     </v-col>
     <v-col cols="12" md="4" class="pb-0">
-      <div class="overflow-hidden mx-sm-6">
+      <v-skeleton-loader
+        v-if="rootStore.loading"
+        height="100%"
+        type="image"
+      ></v-skeleton-loader>
+
+      <div v-else class="overflow-hidden mx-sm-6">
         <v-img
           :src="item.image"
           :aspect-ratio="1 / 1"
@@ -21,56 +33,100 @@
     </v-col>
 
     <v-col cols="12" md="8" class="pl-0 pb-0">
-      <div class="mx-4 mx-md-0">
-        <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
-          {{ item.title }}
-        </div>
-        <div
-          class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-6"
-        >
-          <MiscAtomsDateStamp :date="item.date" class="ml-0 mt-lg-2" />
+      <v-skeleton-loader
+        v-if="rootStore.loading"
+        :type="
+          [
+            'avatar, paragraph',
+            'avatar, paragraph',
+            'heading, ossein,	avatar, paragraph',
+            'heading, ossein,	avatar, paragraph',
+            'heading, ossein, avatar, paragraph',
+            'heading',
+          ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
+        "
+      ></v-skeleton-loader>
 
-          <div class="ml-md-8">
-            <div
-              class="text-body-2 text-lg-body-1 text-black mt-4 mt-sm-4 mt-md-0 mb-md-n4 ml-md-0"
-            >
-              <!--    TODO use a proper & conditional formatting of names (depending on number of authors) -->
-              {{
-                $t("by-author", [
-                  item.authors[0].firstname + " " + item.authors[0].firstname,
-                ])
-              }}
-            </div>
-            <div class="mt-lg-n1">
-              <MiscMoleculesChipContainer
-                :items="item.tags"
-              ></MiscMoleculesChipContainer>
+      <template v-else>
+        <div class="mx-4 mx-md-0">
+          <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
+            {{ item.title }}
+          </div>
+          <div
+            class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-6"
+          >
+            <MiscAtomsDateStamp :date="item.date" class="ml-0 mt-lg-2" />
+
+            <div class="ml-md-8">
+              <div
+                class="text-body-2 text-lg-body-1 text-black mt-4 mt-sm-4 mt-md-0 mb-md-n4 ml-md-0"
+              >
+                <!--    TODO use a proper & conditional formatting of names (depending on number of authors) -->
+                {{
+                  $t("by-author", [
+                    item.authors[0].firstname + " " + item.authors[0].firstname,
+                  ])
+                }}
+              </div>
+              <div class="mt-lg-n1">
+                <MiscMoleculesChipContainer
+                  :items="item.tags"
+                ></MiscMoleculesChipContainer>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </template>
     </v-col>
   </v-row>
 
   <v-row class="mt-12">
     <v-col cols="12" md="4" :order="mdAndUp ? 'first' : 'last'" class="pt-0">
-      <MiscMoleculesRelatedItems
-        type="events"
-        :items="item.relatedEvents"
-      ></MiscMoleculesRelatedItems>
-      <MiscMoleculesRelatedItems
-        type="project"
-        :items="item.relatedProjects"
-      ></MiscMoleculesRelatedItems>
-      <div class="mt-2 mx-n6 mx-sm-0" v-if="mdAndUp">
-        <ActionsSmallContainer
-          :action="action"
-          :ratio="null"
-        ></ActionsSmallContainer>
-      </div>
+      <v-skeleton-loader
+        v-if="rootStore.loading"
+        :type="
+          [
+            'heading, list-item-avatar@3, heading, list-item-avatar@3',
+            'heading, list-item-avatar@3, heading, list-item-avatar@3',
+            'heading, list-item-avatar@3, heading, list-item-avatar@3, image, text@3, ossein, button',
+            'heading, list-item-avatar@3, heading, list-item-avatar@3, image, text@3, ossein, button',
+            'heading, list-item-avatar@3, heading, list-item-avatar@3, image, text@3, ossein, button',
+            'heading, list-item-avatar@3, heading, list-item-avatar@3, image, text@3, ossein, button',
+          ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
+        "
+      ></v-skeleton-loader>
+      <template v-else>
+        <MiscMoleculesRelatedItems
+          type="events"
+          :items="item.relatedEvents"
+        ></MiscMoleculesRelatedItems>
+        <MiscMoleculesRelatedItems
+          type="project"
+          :items="item.relatedProjects"
+        ></MiscMoleculesRelatedItems>
+        <div class="mt-2 mx-n6 mx-sm-0" v-if="mdAndUp">
+          <ActionsSmallContainer
+            :action="action"
+            :ratio="null"
+          ></ActionsSmallContainer>
+        </div>
+      </template>
     </v-col>
     <v-col cols="12" md="8" class="pl-0 pt-0">
-      <ContentRenderer :value="item" class="mt-sm-n10 mt-md-n2 mx-4 mx-md-0" />
+      <v-skeleton-loader
+        v-if="rootStore.loading"
+        :type="
+          ['text@60', 'text@60', 'text@60', 'text@70', 'text@80', 'text@80'][
+            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+          ]
+        "
+      ></v-skeleton-loader>
+      <template v-else>
+        <ContentRenderer
+          :value="item"
+          class="mt-sm-n10 mt-md-n2 mx-4 mx-md-0"
+        />
+      </template>
     </v-col>
   </v-row>
 </template>
@@ -80,6 +136,8 @@ import { useDisplay } from "vuetify"
 const { name, mdAndDown, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
 const router = useRouter()
 const { $i18n } = useNuxtApp()
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
 const props = defineProps({
   item: {
     type: Object,
