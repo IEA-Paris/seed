@@ -39,9 +39,9 @@
           [
             'avatar, paragraph',
             'avatar, paragraph',
-            'heading, ossein,	avatar, paragraph',
-            'heading, ossein,	avatar, paragraph',
-            'heading, ossein, avatar, paragraph',
+            'heading, ossein,	avatar, text, ossein, chip@3',
+            'heading, ossein,	avatar, text, ossein, chip@3',
+            'heading, ossein, avatar, text, ossein, chip@3',
             'heading',
           ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
         "
@@ -116,16 +116,13 @@
       <v-skeleton-loader
         v-if="rootStore.loading"
         :type="
-          ['text@60', 'text@60', 'text@60', 'text@70', 'text@80', 'text@80'][
+          ['text@50', 'text@50', 'text@50', 'text@50', 'text@50', 'text@50'][
             ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
           ]
         "
       ></v-skeleton-loader>
       <template v-else>
-        <ContentRenderer
-          :value="item"
-          class="mt-sm-n10 mt-md-n2 mx-4 mx-md-0"
-        />
+        <ContentRenderer :value="item" class="mt-md-n2 mx-10 mx-md-0" />
       </template>
     </v-col>
   </v-row>

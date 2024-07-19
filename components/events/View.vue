@@ -27,11 +27,12 @@
     >
       <v-skeleton-loader
         v-if="rootStore.loading"
+        width="100%"
         :type="
           [
-            'subtitle, heading@1, text, button',
-            'subtitle, heading@1, text, button',
-            'subtitle, heading@1, text, button',
+            'subtitle, heading@2, text, button',
+            'subtitle, heading@2, text, button',
+            'subtitle, heading@2, text, button',
             'subtitle, heading@2, text, button',
             'subtitle, heading@2, text, button',
             'subtitle, heading@2, text, button',
