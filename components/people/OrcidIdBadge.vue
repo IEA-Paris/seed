@@ -2,10 +2,16 @@
   <v-tooltip location="bottom">
     <template v-slot:activator="{ props }">
       <v-btn
+        flat
         icon
         v-bind="props"
         target="_blank"
-        :href="'https://orcid.org/' + orcId"
+        :href="orcId"
+        :size="
+          ['small', 'default', 'default', 'large', 'large', 'large'][
+            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+          ]
+        "
       >
         <v-icon> mdi-account </v-icon>
       </v-btn>
@@ -14,6 +20,8 @@
   </v-tooltip>
 </template>
 <script setup>
+import { useDisplay } from "vuetify"
+const { name } = useDisplay()
 const props = defineProps({
   orcId: {
     type: String,
