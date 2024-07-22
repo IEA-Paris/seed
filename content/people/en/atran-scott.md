@@ -13,16 +13,18 @@ affiliations:
   - affiliation: University of Michigan, USA
     positions: []
 socials:
-  website: "https://www.paris-iea.fr/fr/"
-  wikipedia: "https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal"
-  orcid: "https://orcid.org"
-  linkedin: "https://www.linkedin.com/"
-  twitter: "https://x.com/?lang=fr"
-  researchgate: "https://www.researchgate.net/"
-  instagram: ""
-  scholar: "https://scholar.google.com/"
-  mendeley: ""
-  idRef: ""
+  - name: linkedin
+    id: "123"
+  - name: twitter
+    id: "456"
+  - name: orcid
+    id: "123"
+  - name: scholar
+    id: "123"
+  - name: wikipedia
+    id: "123"
+  - name: researchgate
+    id: "123"
 years:
   - 2017
 ---

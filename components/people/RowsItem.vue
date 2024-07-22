@@ -30,20 +30,7 @@
             ]
           "
         />
-        <div class="mt-lg-2 mt-xl-0 d-flex">
-          <div class="mr-md-2 mr-lg-4">
-            <PeopleOrcidIdBadge :orcId="item.socials.orcid" />
-          </div>
-          <div class="mr-md-2 mr-lg-4">
-            <PeopleGoogleScholarIdBadge :scholarId="item.socials.scholar" />
-          </div>
-          <div class="mr-md-2 mr-lg-4">
-            <PeopleLinkedinIdBadge :profilId="item.socials.linkedin" />
-          </div>
-          <div class="mr-md-2 mr-lg-4">
-            <PeopleWikipediaIdBadge :pageId="item.socials.wikipedia" />
-          </div>
-        </div>
+        <PeopleIconBadge :socials="item.socials" />
       </div>
     </v-col>
     <v-col cols="12" md="1"></v-col>
