@@ -42,8 +42,8 @@
 
 <script setup>
 import slugify from "~/assets/utils/slugify"
-const localePath = useLocalePath()
 import { useDisplay } from "vuetify"
+const localePath = useLocalePath()
 const { name, mdAndDown, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
 
 const props = defineProps({ item: { type: Object, required: true } })
