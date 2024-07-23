@@ -79,6 +79,18 @@
   "invalid-doi-code": "Invalid DOI",
   "invalid-date": "The date format is invalid",
   "invalid-orcid": "Your ORCID number is invalid",
+  "socials": {
+    "linkedin": "Get in touch on linkedin",
+    "scholar": "Visit the author google scholar page",
+    "orcid": "Visit the author Orcid page",
+    "wikipedia": "Check the wikipedia page of the author",
+    "facebook": "Visit our Facebook page",
+    "twitter": "Follow us on Twitter",
+    "youtube": "Check out our Youtube channel",
+    "instagram": "Follow us on Instagram",
+    "rss": "RSS",
+    "github": "Visit our Github repositories"
+  },
   "events": {
     "register": "Register to this event",
     "register-me": "Register",
@@ -137,9 +149,5 @@
     "fellow": "fellow | fellow | fellows",
     "people": "person | person | people",
     "fellowship": "fellowship | fellowship | fellowships"
-  },
-  "get-in-touch-on-linkedin": "Get in touch on linkedin",
-  "visit-the-author-google-scholar-page": "Visit the author google scholar page",
-  "visit-the-author-orcid-page": "Visit the author Orcid page",
-  "check-the-wikipedia-page-of-the-author": "Check the wikipedia page of the author"
+  }
 }

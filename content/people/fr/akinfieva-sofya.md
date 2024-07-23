@@ -18,7 +18,7 @@ affiliations:
 reference: ""
 image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 socials:
-  - wikipedia: "259"
+    wikipedia: "259"
     orcid: "213"
     linkedin: "214"
     twitter: "256"

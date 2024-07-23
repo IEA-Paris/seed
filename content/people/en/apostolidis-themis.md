@@ -13,7 +13,7 @@ affiliations:
   - affiliation: University of Aix-Marseille, France
     positions: []
 socials:
-  - wikipedia: "359"
+    wikipedia: "359"
     orcid: "313"
     linkedin: "314"
     twitter: "356"

@@ -13,7 +13,7 @@ affiliations:
   - affiliation: International Criminal Court, Netherlands
     positions: []
 socials:
-  - wikipedia: "759"
+    wikipedia: "759"
     orcid: "113"
     linkedin: "114"
     twitter: "456"

@@ -18,7 +18,7 @@ affiliations:
     positions: []
 reference: ""
 socials:
-  - wikipedia: "259"
+    wikipedia: "259"
     orcid: "213"
     linkedin: "214"
     twitter: "256"

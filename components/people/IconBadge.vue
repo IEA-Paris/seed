@@ -1,22 +1,26 @@
 <template>
-  <v-tooltip v-for="(id, name) in socials[0]" :key="name" :location="location">
+  <v-tooltip
+    v-for="(value, key, index) in socials"
+    :key="key + value"
+    :location="location"
+  >
     <template v-slot:activator="{ props }">
       <v-btn
         flat
         icon
         v-bind="props"
         target="_blank"
-        :href="getSocialId(name, id)"
+        :href="getSocialId(key, value)"
         :size="
-          ['small', 'default', 'default', 'large', 'large', 'large'][
-            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+          ['small', 'small', 'small', 'default', 'large', 'large'][
+            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(key || 'md')
           ]
         "
       >
-        <v-icon> {{ getProfileIcon(name) }}</v-icon>
+        <v-icon> {{ getProfileIcon(key) }}</v-icon>
       </v-btn>
     </template>
-    <span>{{ getTooltipText(name) }}</span>
+    <span>{{ $t("socials." + key) }}</span>
   </v-tooltip>
 </template>
 
@@ -66,23 +70,6 @@ const getProfileIcon = (name) => {
       return "mdi-wikipedia"
     case "researchgate":
       return "mdi-account"
-  }
-}
-
-const getTooltipText = (name) => {
-  switch (name) {
-    case "linkedin":
-      return "LinkedIn"
-    case "orcid":
-      return "Orcid"
-    case "twitter":
-      return "Twitter"
-    case "scholar":
-      return "Scholar"
-    case "wikipedia":
-      return "Wikipedia"
-    case "researchgate":
-      return "ResearchGate"
   }
 }
 </script>

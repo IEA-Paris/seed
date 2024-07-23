@@ -13,7 +13,7 @@ affiliations:
   - affiliation: University of Michigan, USA
     positions: []
 socials:
-  - wikipedia: "459"
+    wikipedia: "459"
     orcid: "443"
     linkedin: "414"
     twitter: "456"
