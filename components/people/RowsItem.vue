@@ -53,7 +53,6 @@ const props = defineProps({
     required: true,
   },
 })
-console.log("toto", props.item.socials)
 </script>
 
 <style lang="scss"></style>
