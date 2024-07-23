@@ -13,18 +13,12 @@ affiliations:
   - affiliation: University of Michigan, USA
     positions: []
 socials:
-  - name: linkedin
-    id: "123"
-  - name: twitter
-    id: "456"
-  - name: orcid
-    id: "123"
-  - name: scholar
-    id: "123"
-  - name: wikipedia
-    id: "123"
-  - name: researchgate
-    id: "123"
+  - wikipedia: "459"
+    orcid: "413"
+    linkedin: "414"
+    twitter: "456"
+    scholar: "423"
+    researchgate: "423"
 years:
   - 2017
 ---

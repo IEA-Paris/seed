@@ -18,18 +18,12 @@ affiliations:
 reference: ""
 image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 socials:
-  - name: linkedin
-    id: "123"
-  - name: twitter
-    id: "456"
-  - name: orcid
-    id: "123"
-  - name: scholar
-    id: "123"
-  - name: wikipedia
-    id: "123"
-  - name: researchgate
-    id: "123"
+  - wikipedia: "259"
+    orcid: "213"
+    linkedin: "214"
+    twitter: "256"
+    scholar: "223"
+    researchgate: "223"
 years:
   - 2022
 ---

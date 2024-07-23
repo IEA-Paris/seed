@@ -19,10 +19,12 @@
         <NuxtLink to="/" class="text-wrap text-h4 text-black">
           {{ item.title }}</NuxtLink
         >
-
+        <div class="ml-n3">
+          <PeopleIconBadge :socials="item.socials" />
+        </div>
         <ContentRenderer
           :value="item"
-          class="text-body-1 clamped-text"
+          class="text-body-1 clamped-text mt-n3"
           :style="
             '-webkit-line-clamp:' +
             [5, 5, 4, 6, 9, 9][
@@ -30,7 +32,6 @@
             ]
           "
         />
-        <PeopleIconBadge :socials="item.socials" />
       </div>
     </v-col>
     <v-col cols="12" md="1"></v-col>

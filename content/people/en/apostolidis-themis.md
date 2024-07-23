@@ -13,18 +13,12 @@ affiliations:
   - affiliation: University of Aix-Marseille, France
     positions: []
 socials:
-  - name: linkedin
-    id: "123"
-  - name: twitter
-    id: "456"
-  - name: orcid
-    id: "123"
-  - name: scholar
-    id: "123"
-  - name: wikipedia
-    id: "123"
-  - name: researchgate
-    id: "123"
+  - wikipedia: "359"
+    orcid: "313"
+    linkedin: "314"
+    twitter: "356"
+    scholar: "323"
+    researchgate: "323"
 years:
   - 2016
 ---

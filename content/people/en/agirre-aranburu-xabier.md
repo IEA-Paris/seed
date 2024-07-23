@@ -13,18 +13,12 @@ affiliations:
   - affiliation: International Criminal Court, Netherlands
     positions: []
 socials:
-  - name: linkedin
-    id: "123"
-  - name: twitter
-    id: "456"
-  - name: orcid
-    id: "123"
-  - name: scholar
-    id: "123"
-  - name: wikipedia
-    id: "123"
-  - name: researchgate
-    id: "123"
+  - wikipedia: "759"
+    orcid: "113"
+    linkedin: "114"
+    twitter: "456"
+    scholar: "123"
+    researchgate: "123"
 years:
   - 2016
 ---
