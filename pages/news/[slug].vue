@@ -10,7 +10,7 @@ const route = useRoute()
 const localePath = useLocalePath()
 
 const { data } = await useAsyncData(
-  "events",
+  "news",
   async () =>
     await queryContent(
       "news/" + $i18n.locale.value + "/" + route.params.slug

@@ -38,7 +38,15 @@
 
       <template v-else>
         <div class="ml-md-8">
-          <NuxtLink to="/" class="text-wrap text-h4 text-black">
+          <NuxtLink
+            :to="
+              localePath({
+                name: 'people-slug',
+                params: { slug: item._path.split('/').pop() },
+              })
+            "
+            class="text-wrap text-h4 text-black"
+          >
             {{ item.title }}</NuxtLink
           >
           <div class="ml-n3 my-2">
@@ -62,12 +70,11 @@
 </template>
 <script setup>
 import { useRootStore } from "~/store/root"
-
 import { highlight } from "~/assets/utils/transforms"
 import { useDisplay } from "vuetify"
 const { name, mdAndDown, md, xl, lg, smAndDown, mdAndUp, lgAndUp } =
   useDisplay()
-
+const localePath = useLocalePath()
 const rootStore = useRootStore()
 const props = defineProps({
   item: {
