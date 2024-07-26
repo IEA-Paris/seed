@@ -58,7 +58,6 @@ const search = computed({
     return rootStore.search || ""
   },
   set: useDebounceFn(function (v) {
-    console.log("v: ", v)
     rootStore.updateSearch({ search: v, type: props.type })
   }, 300),
 })

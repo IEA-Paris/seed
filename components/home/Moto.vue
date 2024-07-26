@@ -28,7 +28,6 @@ const { $i18n } = useNuxtApp()
 const { data: rst } = await useAsyncData("moto", () =>
   queryContent("/pages/" + $i18n.locale.value + "/moto").findOne()
 )
-console.log("rst: ", rst.value)
 const moto = ref(rst.value.description)
 </script>
 <style lang="scss" scoped>

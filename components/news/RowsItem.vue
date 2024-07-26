@@ -8,14 +8,16 @@
         type="image"
       ></v-skeleton-loader>
 
-      <template v-else class="overflow-hidden">
-        <v-img
-          :src="item.image"
-          :aspect-ratio="1 / 1"
-          cover
-          class="img-animation"
-        >
-        </v-img>
+      <template v-else>
+        <div class="overflow-hidden">
+          <v-img
+            :src="item.image"
+            :aspect-ratio="1 / 1"
+            cover
+            class="img-animation"
+          >
+          </v-img>
+        </div>
       </template>
     </v-col>
 
