@@ -20,7 +20,7 @@
           {{ item.title }}</NuxtLink
         >
         <div class="ml-n3 my-2">
-          <PeopleIconBadge :socials="item.socials" />
+          <MiscAtomsSocials :socials="item.socials" />
         </div>
         <ContentRenderer
           :value="item"
