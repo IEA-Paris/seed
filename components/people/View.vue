@@ -1,18 +1,17 @@
 <template>
   {{ name }}
   <v-row>
-    <v-col cols="12" md="1"></v-col>
-    <v-col cols="12" md="12" lg="10" xl="10">
-      <v-card width="100%">
+    <v-col cols="12" md="12">
+      <v-card max-width="1200px">
         <v-card-item class="d-flex justify-center">
           <v-card-title class="d-flex flex-column">
-            <div class="overflow-hidden align-self-center">
+            <div class="overflow-hidden align-self-center" v-if="mdAndUp">
               <v-img
                 :src="item.image"
                 :aspect-ratio="1 / 1"
                 :width="
-                  ['100', '100', '200', '189', '252', '300'][
-                    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+                  ['200', '250', '250', '300'][
+                    ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
                   ]
                 "
                 cover
@@ -20,10 +19,10 @@
               >
               </v-img>
             </div>
-            <div class="mt-md-6 text-h4 align-self-center">
+            <div class="mt-md-6 text-h4 align-self-center text-wrap">
               {{ item.firstname + " " + item.lastname }}
             </div>
-            <div class="ml-n3 mt-md-2 align-self-center">
+            <div class="ml-n3 mt-md-2 align-self-center text-wrap">
               <PeopleIconBadge :socials="item.socials" />
             </div>
           </v-card-title>
@@ -41,7 +40,7 @@
         </v-card-item>
 
         <v-card-text>
-          <ContentRenderer :value="item" class="mx-md-4" />
+          <ContentRenderer :value="item" class="mx-4" />
 
           <div>
             <div class="ml-4 text-h5">
@@ -64,28 +63,32 @@
                   {{ position.role + " " + position.department || "" }}
                 </div>
 
-                <div class="mt-4 mx-n6">
-                  <MiscMoleculesRelatedItems
-                    type="events"
-                    :items="item.relatedEvents"
-                  ></MiscMoleculesRelatedItems>
-                  <MiscMoleculesRelatedItems
-                    type="project"
-                    :items="item.relatedProjects"
-                  ></MiscMoleculesRelatedItems>
-
-                  <MiscMoleculesRelatedItems
-                    type="news"
-                    :items="item.relatedNews"
-                  ></MiscMoleculesRelatedItems>
-                </div>
+                <v-row class="mt-2 mt-md-4 ml-n9">
+                  <v-col cols="12" md="4">
+                    <MiscMoleculesRelatedItems
+                      type="events"
+                      :items="item.relatedEvents"
+                    ></MiscMoleculesRelatedItems>
+                  </v-col>
+                  <v-col cols="12" md="4">
+                    <MiscMoleculesRelatedItems
+                      type="project"
+                      :items="item.relatedProjects"
+                    ></MiscMoleculesRelatedItems>
+                  </v-col>
+                  <v-col cols="12" md="4">
+                    <MiscMoleculesRelatedItems
+                      type="news"
+                      :items="item.relatedNews"
+                    ></MiscMoleculesRelatedItems>
+                  </v-col>
+                </v-row>
               </v-card-item>
             </v-card>
           </div>
         </v-card-text>
       </v-card>
     </v-col>
-    <v-col cols="12" md="1"></v-col>
   </v-row>
 </template>
 
