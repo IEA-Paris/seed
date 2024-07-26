@@ -16,7 +16,4 @@ const { data } = await useAsyncData(
 )
 
 const value = data._rawValue
-console.log("TESTTTTT", value)
-
-console.log("DATATA", data)
 </script>

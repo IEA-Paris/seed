@@ -149,5 +149,15 @@
     "fellow": "fellow | fellow | fellows",
     "people": "person | person | people",
     "fellowship": "fellowship | fellowship | fellowships"
+  },
+  "positions-and-affiliations": "Positions and Affiliations",
+
+  "groups": {
+    "team": "team",
+    "sab": "sab",
+    "board": "board",
+    "fellow": "fellow",
+    "sponsor": "sponsor",
+    "vintage": "vintage"
   }
 }
