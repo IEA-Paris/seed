@@ -18,8 +18,18 @@ affiliations:
     positions:
       - role: Manager
         department: Institute of advanced studies
+        start: 2023-10-04T00:00:00.000Z
+        stop: 2023-12-04T00:00:00.000Z
+  - affiliation: International Criminal Court, Netherlands
+    positions:
+      - role: Director
+        department: Institute of advanced studies
+        start: 2023-10-04T00:00:00.000Z
+        stop: 2023-12-04T00:00:00.000Z
+      - role: Assistant
+        department: Institute for very advanced studies
         start:
-        stop:
+        stop: 
 reference: ""
 socials:
   wikipedia: "259"

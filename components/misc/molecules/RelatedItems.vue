@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-sm-6 mb-6 pa-6 border-thin">
+  <div class="pa-6 border-thin">
     <div class="text-overline">{{ $t("related." + type) }}</div>
     <component
       v-for="item in items"
@@ -20,7 +20,6 @@ const props = defineProps({
     required: true,
   },
 })
-console.log("items: ", props.items)
 
 const capitalizeFirstLetter = (string) =>
   string.charAt(0).toUpperCase() + string.slice(1)

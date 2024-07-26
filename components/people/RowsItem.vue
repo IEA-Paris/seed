@@ -1,7 +1,6 @@
 <template>
-  {{ name }}
   <v-divider v-if="index > 0"></v-divider>
-  <v-row class="my-6 ml-md-1">
+  <v-row class="my-6 ml-md-1 px-3 px-md-0">
     <v-col cols="12" md="3" v-if="mdAndUp">
       <v-skeleton-loader
         v-if="rootStore.loading"
@@ -29,15 +28,15 @@
             'heading, subtitle, text@5',
             'heading, subtitle, text@5',
             'heading, subtitle, text@3',
-            'heading, subtitle, text@7',
-            'heading, subtitle, text@11',
-            'heading, subtitle, text@11',
+            'heading, subtitle, text@6',
+            'heading, subtitle, text@9',
+            'heading, subtitle, text@9',
           ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
         "
       ></v-skeleton-loader>
 
       <template v-else>
-        <div class="ml-md-8">
+        <div class="ml-md-8 d-flex flex-column">
           <NuxtLink
             :to="
               localePath({
@@ -45,11 +44,11 @@
                 params: { slug: item._path.split('/').pop() },
               })
             "
-            class="text-wrap text-h4 text-black"
+            class="text-wrap text-h4 text-black mb-2"
           >
             {{ item.title }}</NuxtLink
           >
-          <div class="ml-n3 my-2">
+          <div class="ml-n3">
             <PeopleIconBadge :socials="item.socials" />
           </div>
           <ContentRenderer
@@ -57,7 +56,7 @@
             class="text-body-1 clamped-text mt-n3"
             :style="
               '-webkit-line-clamp:' +
-              [5, 5, 3, 5, 9, 9][
+              [5, 5, 3, 6, 9, 9][
                 ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
               ]
             "

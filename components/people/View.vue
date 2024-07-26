@@ -1,11 +1,20 @@
 <template>
   {{ name }}
-  <v-row>
-    <v-col cols="12" md="12">
-      <v-card max-width="1200px">
-        <v-card-item class="d-flex justify-center">
-          <v-card-title class="d-flex flex-column">
-            <div class="overflow-hidden align-self-center" v-if="mdAndUp">
+  <v-row justify="center">
+    <v-col cols="12" sm="11" md="8" lg="8" xl="6">
+      <v-row no-gutters>
+        <v-col cols="12" class="text-center">
+          <!--   PEOPLE IMAGE -->
+          <div class="d-flex justify-center">
+            <v-sheet
+              class="overflow-hidden"
+              v-if="mdAndUp"
+              :width="
+                ['200', '250', '250', '300'][
+                  ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+                ]
+              "
+            >
               <v-img
                 :src="item.image"
                 :aspect-ratio="1 / 1"
@@ -15,21 +24,24 @@
                   ]
                 "
                 cover
-                class="img-animation"
+                class="img-animation d-flex align-center justify-center"
               >
               </v-img>
-            </div>
-            <div class="mt-md-6 text-h4 align-self-center text-wrap">
-              {{ item.firstname + " " + item.lastname }}
-            </div>
-            <div class="ml-n3 mt-md-2 align-self-center text-wrap">
-              <PeopleIconBadge :socials="item.socials" />
-            </div>
-          </v-card-title>
+            </v-sheet>
+          </div>
+          <!-- FIRSTNAME LASTNAME -->
+          <div class="my-8 text-h3 align-self-center text-wrap">
+            {{ item.firstname + " " + item.lastname
+            }}<!--  TODO : call a composable to format people names (multiple, initials, capped & al. )-->
+          </div>
 
-          <div class="mt-md-2 align-self-center">
+          <!-- SOCIALS -->
+          <PeopleIconBadge :socials="item.socials" />
+
+          <!-- GROUPS -->
+          <div class="mt-6 align-self-center">
             <v-chip
-              class="mr-2"
+              class="mr-2 mt-3"
               variant="text"
               v-for="group in item.groups"
               :key="group"
@@ -37,57 +49,79 @@
               {{ $t("groups." + group) }}</v-chip
             >
           </div>
-        </v-card-item>
+        </v-col>
+      </v-row>
 
-        <v-card-text>
-          <ContentRenderer :value="item" class="mx-4" />
+      <!-- DIVIDERS -->
+      <v-responsive class="mx-auto my-9" width="120">
+        <v-divider class="mb-1" />
+        <v-divider />
+      </v-responsive>
 
-          <div>
-            <div class="ml-4 text-h5">
-              {{ $t("positions-and-affiliations") }}
+      <!-- BIOGRAPHY -->
+      <div class="text-overline mt-6">
+        {{ $t("biography") }}
+      </div>
+      <ContentRenderer :value="item" class="my-6 flex-wrap" />
+      <!-- DIVIDERS -->
+      <v-responsive class="mx-auto my-9" width="120">
+        <v-divider class="mb-1" />
+        <v-divider />
+      </v-responsive>
+      <!-- POSITIONS AND AFFILIATIONS -->
+      <div class="text-overline mt-6">
+        {{ $t("positions-and-affiliations") }}
+      </div>
+      <v-card
+        flat
+        v-for="record in item.affiliations"
+        :key="record.affiliation"
+      >
+        <v-card-item class="px-0">
+          <v-card-title class="text-wrap">
+            {{ record.affiliation }}
+          </v-card-title>
+          <div class="text-body-2" v-for="position in record.positions">
+            <div class="text-overline" v-if="position.start && position.stop">
+              {{
+                $t("from {0} to {1}", [
+                  formatDate(position.start),
+                  formatDate(position.stop),
+                ])
+              }}
             </div>
-
-            <v-card
-              flat
-              v-for="record in item.affiliations"
-              :key="record.affiliation"
-            >
-              <v-card-item>
-                <v-card-title class="text-md-subtitle-1">
-                  {{ record.affiliation }}
-                </v-card-title>
-                <div
-                  class="text-md-body-2"
-                  v-for="position in record.positions"
-                >
-                  {{ position.role + " " + position.department || "" }}
-                </div>
-
-                <v-row class="mt-2 mt-md-4 ml-n9">
-                  <v-col cols="12" md="4">
-                    <MiscMoleculesRelatedItems
-                      type="events"
-                      :items="item.relatedEvents"
-                    ></MiscMoleculesRelatedItems>
-                  </v-col>
-                  <v-col cols="12" md="4">
-                    <MiscMoleculesRelatedItems
-                      type="project"
-                      :items="item.relatedProjects"
-                    ></MiscMoleculesRelatedItems>
-                  </v-col>
-                  <v-col cols="12" md="4">
-                    <MiscMoleculesRelatedItems
-                      type="news"
-                      :items="item.relatedNews"
-                    ></MiscMoleculesRelatedItems>
-                  </v-col>
-                </v-row>
-              </v-card-item>
-            </v-card>
+            {{ position.role + " " + position.department || "" }}
           </div>
-        </v-card-text>
+        </v-card-item>
       </v-card>
+    </v-col>
+  </v-row>
+  <!-- DIVIDERS -->
+  <v-responsive class="mx-auto my-9" width="120">
+    <v-divider class="mb-1" />
+    <v-divider /> </v-responsive
+  ><v-row>
+    <!-- RELATED ITEMS -->
+    <v-col cols="12" md="4">
+      <MiscMoleculesRelatedItems
+        type="events"
+        :items="item.relatedEvents"
+        class="mr-md-3"
+      ></MiscMoleculesRelatedItems>
+    </v-col>
+    <v-col cols="12" md="4">
+      <MiscMoleculesRelatedItems
+        type="project"
+        :items="item.relatedProjects"
+        class="mx-md-3"
+      ></MiscMoleculesRelatedItems>
+    </v-col>
+    <v-col cols="12" md="4">
+      <MiscMoleculesRelatedItems
+        type="news"
+        :items="item.relatedNews"
+        class="ml-md-3"
+      ></MiscMoleculesRelatedItems>
     </v-col>
   </v-row>
 </template>
@@ -97,6 +131,6 @@ import { useDisplay } from "vuetify"
 const { name, mdAndDown, md, xl, lg, smAndDown, mdAndUp, lgAndUp } =
   useDisplay()
 const props = defineProps({ item: { type: Object, required: true } })
-
+console.log("PEOPLE", props.item.affiliations)
 console.log("SOCIALS", props.item)
 </script>

@@ -151,7 +151,7 @@
     "fellowship": "fellowship | fellowship | fellowships"
   },
   "positions-and-affiliations": "Positions and Affiliations",
-
+  "from {0} to {1}": "from {0} to {1}",
   "groups": {
     "team": "team",
     "sab": "sab",
@@ -159,5 +159,6 @@
     "fellow": "fellow",
     "sponsor": "sponsor",
     "vintage": "vintage"
-  }
+  },
+  "biography": "Biography"
 }
