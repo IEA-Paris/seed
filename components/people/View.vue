@@ -26,6 +26,7 @@
               ></v-skeleton-loader>
 
               <template v-else>
+                <!-- TODO comment on peut remplacer v-img par le composant  <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />  -->
                 <v-img
                   :src="item.image"
                   :aspect-ratio="1 / 1"

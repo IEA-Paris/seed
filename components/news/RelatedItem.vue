@@ -14,24 +14,16 @@
           type="image"
         ></v-skeleton-loader>
         <template v-else>
-          <div class="overflow-hidden">
-            <nuxt-link
-              :to="
-                localePath({
-                  name: 'activities-events-slug',
-                  params: { slug: slugify(item.name) },
-                })
-              "
-            >
-              <v-img
-                :src="item.image"
-                :aspect-ratio="1 / 1"
-                cover
-                class="img-animation"
-              >
-              </v-img>
-            </nuxt-link>
-          </div>
+          <nuxt-link
+            :to="
+              localePath({
+                name: 'activities-events-slug',
+                params: { slug: slugify(item.name) },
+              })
+            "
+          >
+            <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
+          </nuxt-link>
         </template>
       </v-col>
       <v-col cols="12" lg="9">

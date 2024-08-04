@@ -6,17 +6,7 @@
         height="100%"
         type="image"
       ></v-skeleton-loader>
-      <template v-else>
-        <div class="overflow-hidden">
-          <v-img
-            :src="item.image"
-            :aspect-ratio="1 / 1"
-            cover
-            class="img-animation"
-          >
-          </v-img>
-        </div>
-      </template>
+      <MiscAtomsImageContainer v-else :image="item.image" :ratio="1 / 1" />
     </v-col>
 
     <v-col
@@ -160,13 +150,7 @@
           ></v-skeleton-loader>
           <template v-else>
             <v-responsive :aspect-ratio="1 / 1" class="bg-grey-lighten-4">
-              <v-img
-                :src="item.image"
-                :aspect-ratio="1 / 1"
-                cover
-                class="img-animation"
-              >
-              </v-img>
+              <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
             </v-responsive>
           </template>
         </v-col>
@@ -190,13 +174,7 @@
       ></v-skeleton-loader>
       <template v-else>
         <v-responsive :aspect-ratio="1 / 1" class="bg-grey-lighten-4">
-          <v-img
-            :src="item.image"
-            :aspect-ratio="1 / 1"
-            cover
-            class="img-animation"
-          >
-          </v-img>
+          <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
         </v-responsive>
       </template>
     </v-col>
@@ -331,13 +309,3 @@ function redirectToMap(long, lat) {
   )
 }
 </script>
-
-<style scoped>
-.img-animation {
-  transition: all 2s ease-in-out;
-}
-
-.img-animation:hover {
-  transform: scale(1.1);
-}
-</style>

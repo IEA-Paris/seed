@@ -21,14 +21,8 @@
         type="image"
       ></v-skeleton-loader>
 
-      <div v-else class="overflow-hidden mx-sm-6">
-        <v-img
-          :src="item.image"
-          :aspect-ratio="1 / 1"
-          cover
-          class="img-animation"
-        >
-        </v-img>
+      <div v-else class="mx-sm-6">
+        <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
       </div>
     </v-col>
 

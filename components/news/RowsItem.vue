@@ -8,17 +8,7 @@
         type="image"
       ></v-skeleton-loader>
 
-      <template v-else>
-        <div class="overflow-hidden">
-          <v-img
-            :src="item.image"
-            :aspect-ratio="1 / 1"
-            cover
-            class="img-animation"
-          >
-          </v-img>
-        </div>
-      </template>
+      <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" v-else />
     </v-col>
 
     <v-col cols="12" md="8" lg="4" class="pl-md-6">

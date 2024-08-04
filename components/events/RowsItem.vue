@@ -145,27 +145,18 @@
       >
       </v-skeleton-loader>
 
-      <div v-else>
-        <div class="overflow-hidden">
-          <nuxt-link
-            :to="
-              localePath({
-                name: 'activities-events-slug',
-                params: { slug: item._path.split('/').pop() },
-              })
-            "
-          >
-            <v-img
-              :src="item.image"
-              :aspect-ratio="1 / 1"
-              cover
-              max-height="100%"
-              class="img-animation"
-            >
-            </v-img>
-          </nuxt-link>
-        </div>
-      </div>
+      <template v-else>
+        <nuxt-link
+          :to="
+            localePath({
+              name: 'activities-events-slug',
+              params: { slug: item._path.split('/').pop() },
+            })
+          "
+        >
+          <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
+        </nuxt-link>
+      </template>
     </v-col>
   </v-row>
 </template>
@@ -186,5 +177,3 @@ const props = defineProps({
   },
 })
 </script>
-
-<style lang="scss" scoped></style>
