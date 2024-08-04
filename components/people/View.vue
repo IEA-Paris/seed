@@ -185,42 +185,25 @@
   ><v-row>
     <!-- RELATED ITEMS -->
     <v-col cols="12" md="4">
-      <v-skeleton-loader v-if="rootStore.loading" type="image">
-      </v-skeleton-loader>
-
-      <template v-else>
-        <MiscMoleculesRelatedItems
-          type="events"
-          :items="item.relatedEvents"
-          class="mr-md-3"
-        ></MiscMoleculesRelatedItems>
-      </template>
+      <MiscMoleculesRelatedItems
+        type="events"
+        :items="item.relatedEvents"
+        class="mr-md-3"
+      ></MiscMoleculesRelatedItems>
     </v-col>
     <v-col cols="12" md="4">
-      <v-skeleton-loader v-if="rootStore.loading" type="image">
-      </v-skeleton-loader>
-      <template v-else>
-        <MiscMoleculesRelatedItems
-          type="project"
-          :items="item.relatedProjects"
-          class="mx-md-3"
-        ></MiscMoleculesRelatedItems>
-      </template>
+      <MiscMoleculesRelatedItems
+        type="project"
+        :items="item.relatedProjects"
+        class="mx-md-3"
+      ></MiscMoleculesRelatedItems>
     </v-col>
     <v-col cols="12" md="4">
-      <v-skeleton-loader
-        v-if="rootStore.loading"
-        :height="['10%', '10%'][['xs', 'sm'].indexOf(name || 'md')]"
-        type="image"
-      >
-      </v-skeleton-loader>
-      <template v-else>
-        <MiscMoleculesRelatedItems
-          type="news"
-          :items="item.relatedNews"
-          class="ml-md-3"
-        ></MiscMoleculesRelatedItems>
-      </template>
+      <MiscMoleculesRelatedItems
+        type="news"
+        :items="item.relatedNews"
+        class="ml-md-3"
+      ></MiscMoleculesRelatedItems>
     </v-col>
   </v-row>
 </template>
