@@ -76,28 +76,26 @@
 
   <v-row class="mt-12">
     <v-col cols="12" md="4" :order="mdAndUp ? 'first' : 'last'" class="pt-0">
+      <MiscMoleculesRelatedItems
+        type="events"
+        :items="item.relatedEvents"
+      ></MiscMoleculesRelatedItems>
+      <MiscMoleculesRelatedItems
+        type="project"
+        :items="item.relatedProjects"
+      ></MiscMoleculesRelatedItems>
       <v-skeleton-loader
         v-if="rootStore.loading"
         :type="
           [
-            'heading, list-item-avatar@3, heading, list-item-avatar@3',
-            'heading, list-item-avatar@3, heading, list-item-avatar@3',
-            'heading, list-item-avatar@3, heading, list-item-avatar@3, image, text@3, ossein, button',
-            'heading, list-item-avatar@3, heading, list-item-avatar@3, image, text@3, ossein, button',
-            'heading, list-item-avatar@3, heading, list-item-avatar@3, image, text@3, ossein, button',
-            'heading, list-item-avatar@3, heading, list-item-avatar@3, image, text@3, ossein, button',
-          ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
+            'image, text@3, ossein, button',
+            'image, text@3, ossein, button',
+            'image, text@3, ossein, button',
+            'image, text@3, ossein, button',
+          ][['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
         "
       ></v-skeleton-loader>
       <template v-else>
-        <MiscMoleculesRelatedItems
-          type="events"
-          :items="item.relatedEvents"
-        ></MiscMoleculesRelatedItems>
-        <MiscMoleculesRelatedItems
-          type="project"
-          :items="item.relatedProjects"
-        ></MiscMoleculesRelatedItems>
         <div class="mt-2 mx-n6 mx-sm-0" v-if="mdAndUp">
           <ActionsSmallContainer
             :action="action"

@@ -72,10 +72,10 @@
           [
             '',
             '',
-            'image, image, heading, list-item-avatar@2, heading, list-item-avatar@3, heading, list-item-avatar@3',
-            'image, image, heading, list-item-avatar@2, heading, list-item-avatar@3, heading, list-item-avatar@3',
-            'image, image, heading, list-item-avatar@2, heading, list-item-avatar@3, heading, list-item-avatar@3',
-            'image, image, heading, list-item-avatar@2, heading, list-item-avatar@3, heading, list-item-avatar@3',
+            'image, image, heading, list-item@2',
+            'image, image, heading, list-item@2',
+            'image, image, heading, list-item@2',
+            'image, image, heading, list-item@2',
           ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
         "
       ></v-skeleton-loader>
@@ -128,16 +128,16 @@
             </v-list-item>
           </v-list>
         </v-sheet>
-
-        <MiscMoleculesRelatedItems
-          type="news"
-          :items="item.relatedNews"
-        ></MiscMoleculesRelatedItems>
-        <MiscMoleculesRelatedItems
-          type="project"
-          :items="item.relatedProjects"
-        ></MiscMoleculesRelatedItems>
       </template>
+
+      <MiscMoleculesRelatedItems
+        type="news"
+        :items="item.relatedNews"
+      ></MiscMoleculesRelatedItems>
+      <MiscMoleculesRelatedItems
+        type="project"
+        :items="item.relatedProjects"
+      ></MiscMoleculesRelatedItems>
     </v-col>
 
     <v-col class="d-flex flex-row" cols="12" v-if="sm">
