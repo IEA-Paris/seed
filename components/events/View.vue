@@ -138,6 +138,11 @@
         type="project"
         :items="item.relatedProjects"
       ></MiscMoleculesRelatedItems>
+
+      <MiscMoleculesRelatedItems
+        type="people"
+        :items="item.relatedPeople"
+      ></MiscMoleculesRelatedItems>
     </v-col>
 
     <v-col class="d-flex flex-row" cols="12" v-if="sm">

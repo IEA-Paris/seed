@@ -110,6 +110,19 @@ relatedEvents:
     summary: ""
     eventType: ""
     url: ""
+
+relatedPeople:
+  - firstname: "IEA"
+    lastname: "Paris"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+  - firstname: "Georges"
+    lastname: "Leblanc"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+  - firstname: "Amelio"
+    lastname: "Duffour"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 ---
 
 Each day at the [Paris IAS](https://www.paris-iea.fr/en/ "Paris IAS"), [ICA4 Fellows](/fellows "Fellows") meet with their [Mentors](/mentors "Mentors") for **a closed 3-hour seminar**, during which two mentors launch the discussion with a presentation. Upon completion of the seminar, the Fellows then meet for 45 minutes to list the **key takeaways and ideas** that have emerged from the discussion, followed by a **collective brainstorming session**. This ensures that the output of collective intelligence is collected, formatted and capitalised.

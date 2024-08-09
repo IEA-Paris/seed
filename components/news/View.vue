@@ -84,6 +84,10 @@
         type="project"
         :items="item.relatedProjects"
       ></MiscMoleculesRelatedItems>
+      <MiscMoleculesRelatedItems
+        type="people"
+        :items="item.relatedPeople"
+      ></MiscMoleculesRelatedItems>
       <v-skeleton-loader
         v-if="rootStore.loading"
         :type="
