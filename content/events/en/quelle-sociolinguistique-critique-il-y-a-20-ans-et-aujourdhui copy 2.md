@@ -72,6 +72,19 @@ relatedNews:
     summary: ""
     eventType: ""
     url: ""
+
+relatedPeople:
+  - firstname: "IEA"
+    lastname: "Paris"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+  - firstname: "Georges"
+    lastname: "Leblanc"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+  - firstname: "Amelio"
+    lastname: "Duffour"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 ---
 
 **Septembre 2023**

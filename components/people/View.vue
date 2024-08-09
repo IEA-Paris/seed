@@ -15,91 +15,174 @@
                 ]
               "
             >
-              <v-img
-                :src="item.image"
-                :aspect-ratio="1 / 1"
+              <v-skeleton-loader
+                v-if="rootStore.loading"
                 :width="
                   ['200', '250', '250', '300'][
                     ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
                   ]
                 "
-                cover
-                class="img-animation d-flex align-center justify-center"
-              >
-              </v-img>
+                type="image"
+              ></v-skeleton-loader>
+
+              <template v-else>
+                <!-- TODO comment on peut remplacer v-img par le composant  <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />  -->
+                <v-img
+                  :src="item.image"
+                  :aspect-ratio="1 / 1"
+                  :width="
+                    ['200', '250', '250', '300'][
+                      ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+                    ]
+                  "
+                  cover
+                  class="img-animation d-flex align-center justify-center"
+                >
+                </v-img>
+              </template>
             </v-sheet>
           </div>
           <!-- FIRSTNAME LASTNAME -->
-          <div class="my-8 text-h3 align-self-center text-wrap">
-            {{ item.firstname + " " + item.lastname
-            }}<!--  TODO : call a composable to format people names (multiple, initials, capped & al. )-->
-          </div>
+          <v-skeleton-loader
+            class="mx-auto"
+            v-if="rootStore.loading"
+            :width="
+              ['300', '400', '340', '400', '600', '600'][
+                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+              ]
+            "
+            :type="
+              [
+                'heading@2, ossein, avatar@4, ossein, chip@3',
+                'heading, ossein, avatar@6, ossein, chip@4',
+                'heading, ossein, avatar@5, ossein, chip@3',
+                'heading, ossein, avatar@6, ossein, chip@4',
+                'heading, ossein, avatar@9, ossein, chip@6',
+                'heading, ossein, avatar@9, ossein, chip@6',
+              ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
+            "
+          >
+          </v-skeleton-loader>
 
-          <!-- SOCIALS -->
-          <PeopleIconBadge :socials="item.socials" />
+          <template v-else>
+            <div class="my-8 text-h3 align-self-center text-wrap">
+              {{ item.firstname + " " + item.lastname
+              }}<!--  TODO : call a composable to format people names (multiple, initials, capped & al. )-->
+            </div>
 
-          <!-- GROUPS -->
-          <div class="mt-6 align-self-center">
-            <v-chip
-              class="mr-2 mt-3"
-              variant="text"
-              v-for="group in item.groups"
-              :key="group"
-            >
-              {{ $t("groups." + group) }}</v-chip
-            >
-          </div>
+            <!-- SOCIALS -->
+            <PeopleIconBadge :socials="item.socials" />
+
+            <!-- GROUPS -->
+            <div class="mt-6 align-self-center">
+              <v-chip
+                class="mr-2 mt-3"
+                variant="text"
+                v-for="group in item.groups"
+                :key="group"
+              >
+                {{ $t("groups." + group) }}</v-chip
+              >
+            </div>
+          </template>
         </v-col>
       </v-row>
 
       <!-- DIVIDERS -->
       <v-responsive class="mx-auto my-9" width="120">
-        <v-divider class="mb-1" />
-        <v-divider />
+        <v-skeleton-loader
+          v-if="rootStore.loading"
+          type="divider@2"
+        ></v-skeleton-loader>
+        <template v-else>
+          <v-divider class="mb-1" />
+          <v-divider />
+        </template>
       </v-responsive>
 
-      <!-- BIOGRAPHY -->
       <div class="text-overline mt-6">
-        {{ $t("biography") }}
+        <v-skeleton-loader v-if="rootStore.loading" width="200" type="heading">
+        </v-skeleton-loader>
+        <div v-else>
+          {{ $t("biography") }}
+        </div>
       </div>
-      <ContentRenderer :value="item" class="my-6 flex-wrap" />
+
+      <v-skeleton-loader
+        v-if="rootStore.loading"
+        :type="
+          ['text@16', 'text@16', 'text@16', 'text@12', 'text@12', 'text@12'][
+            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+          ]
+        "
+      >
+      </v-skeleton-loader>
+      <template v-else>
+        <ContentRenderer :value="item" class="my-6 flex-wrap" />
+      </template>
       <!-- DIVIDERS -->
       <v-responsive class="mx-auto my-9" width="120">
-        <v-divider class="mb-1" />
-        <v-divider />
+        <v-skeleton-loader
+          v-if="rootStore.loading"
+          type="divider@2"
+        ></v-skeleton-loader>
+        <template v-else>
+          <v-divider class="mb-1" />
+          <v-divider />
+        </template>
       </v-responsive>
       <!-- POSITIONS AND AFFILIATIONS -->
       <div class="text-overline mt-6">
-        {{ $t("positions-and-affiliations") }}
+        <v-skeleton-loader v-if="rootStore.loading" width="200" type="heading">
+        </v-skeleton-loader>
+        <div v-else>
+          {{ $t("positions-and-affiliations") }}
+        </div>
       </div>
-      <v-card
-        flat
-        v-for="record in item.affiliations"
-        :key="record.affiliation"
+
+      <!-- BIOGRAPHY -->
+      <v-skeleton-loader
+        v-if="rootStore.loading"
+        type="subtitle, text@2"
+        width="300"
       >
-        <v-card-item class="px-0">
-          <v-card-title class="text-wrap">
-            {{ record.affiliation }}
-          </v-card-title>
-          <div class="text-body-2" v-for="position in record.positions">
-            <div class="text-overline" v-if="position.start && position.stop">
-              {{
-                $t("from {0} to {1}", [
-                  formatDate(position.start),
-                  formatDate(position.stop),
-                ])
-              }}
+      </v-skeleton-loader>
+      <template v-else>
+        <v-card
+          flat
+          v-for="record in item.affiliations"
+          :key="record.affiliation"
+        >
+          <v-card-item class="px-0">
+            <v-card-title class="text-wrap">
+              {{ record.affiliation }}
+            </v-card-title>
+            <div class="text-body-2" v-for="position in record.positions">
+              <div class="text-overline" v-if="position.start && position.stop">
+                {{
+                  $t("from {0} to {1}", [
+                    formatDate(position.start),
+                    formatDate(position.stop),
+                  ])
+                }}
+              </div>
+              {{ position.role + " " + position.department || "" }}
             </div>
-            {{ position.role + " " + position.department || "" }}
-          </div>
-        </v-card-item>
-      </v-card>
+          </v-card-item>
+        </v-card>
+      </template>
     </v-col>
   </v-row>
   <!-- DIVIDERS -->
   <v-responsive class="mx-auto my-9" width="120">
-    <v-divider class="mb-1" />
-    <v-divider /> </v-responsive
+    <v-skeleton-loader
+      v-if="rootStore.loading"
+      type="divider@2"
+    ></v-skeleton-loader>
+    <template v-else>
+      <v-divider class="mb-1" />
+      <v-divider />
+    </template> </v-responsive
   ><v-row>
     <!-- RELATED ITEMS -->
     <v-col cols="12" md="4">
@@ -128,6 +211,8 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
 const { name, mdAndDown, md, xl, lg, smAndDown, mdAndUp, lgAndUp } =
   useDisplay()
 const props = defineProps({ item: { type: Object, required: true } })

@@ -3,7 +3,7 @@
     :to="
       localePath({
         name: 'activities-events-slug',
-        params: { slug: slugify(item.name) },
+        params: { slug: slugify(item.firstname + item.lastname) }, //TODO à modifier
       })
     "
   >
@@ -18,7 +18,7 @@
             :to="
               localePath({
                 name: 'activities-events-slug',
-                params: { slug: slugify(item.name) },
+                params: { slug: slugify(item.firstname + item.lastname) }, //TODO à modifier
               })
             "
           >
@@ -29,14 +29,11 @@
       <v-col cols="12" lg="9">
         <v-skeleton-loader
           v-if="rootStore.loading"
-          type="heading, text@3"
+          type="heading"
         ></v-skeleton-loader>
         <template v-else>
           <div class="text-h6">
-            {{ item.name }}
-          </div>
-          <div class="text-body-1">
-            {{ item.description }}
+            {{ item.firstname + " " + item.lastname }}
           </div>
         </template>
       </v-col></v-row
@@ -46,8 +43,8 @@
 
 <script setup>
 import slugify from "~/assets/utils/slugify"
-const localePath = useLocalePath()
 import { useDisplay } from "vuetify"
+const localePath = useLocalePath()
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
 const { name, mdAndDown, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()

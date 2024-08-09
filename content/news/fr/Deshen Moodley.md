@@ -103,6 +103,19 @@ relatedEvents:
     summary: ""
     eventType: ""
     url: ""
+
+relatedPeople:
+  - firstname: "IEA"
+    lastname: "Paris"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+  - firstname: "Georges"
+    lastname: "Leblanc"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+  - firstname: "Amelio"
+    lastname: "Duffour"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 ---
 
 Ever wondered how **adaptive and cognitive systems** operate? This is precisely what [**Deshen**](/fellows#moodley "Deshen Moodley") is investigating and he explains all about his fascinating work in his research pitch!

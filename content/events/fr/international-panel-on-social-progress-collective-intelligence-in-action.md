@@ -146,6 +146,19 @@ programme: "**Septembre 2023**
 **
 
 -   **Robert Desjarlais** (Sarah Lawrence College, New York) -- *Phenomenological Approaches in Anthropology*-   **Raluca Grosescu** (National University of Political Science and Public Administration, Bucharest, Romania) -- *Corporate Accountability for Gross Human Rights Violations: A Fragmented Cause*-   **Alena Ledeneva** (University College London) -- *Informality: 50 years on*-   **Patrick Haggard** (University College London) -- *Review of the cognitive psychology and cognitive neuroscience of human voluntary action*"
+
+relatedPeople:
+  - firstname: "IEA"
+    lastname: "Paris"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+  - firstname: "Georges"
+    lastname: "Leblanc"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+  - firstname: "Amelio"
+    lastname: "Duffour"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 ---
 
 **Meeting organisé par la fondation RFIEA et l'IEA de Paris, avec le soutien de l'European Climate Foundation, du CNRS, de Paris School of Economics, de Cornell University, de la FMSH et du Laboratoire d'excellence RFIEA+.**

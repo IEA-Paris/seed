@@ -102,6 +102,19 @@ relatedEvents:
     summary: ""
     eventType: ""
     url: ""
+
+relatedPeople:
+  - firstname: "IEA"
+    lastname: "Paris"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+  - firstname: "Georges"
+    lastname: "Leblanc"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+  - firstname: "Amelio"
+    lastname: "Duffour"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 ---
 
 The Final Day of ICA4 began with two thought-provoking lectures from [**Shimon Ullman **](/mentors#ullman "Shimon Ullman")and [**_Zaven Paré_**](/mentors#pare "Zaven Pare"), discussing **how humans extract information from complex scenes** and **the peculiar nature of the relationship between humans and robots**. Pare then revealed a provocative example of **an existing robot that is addressed to isolation in a contemporary urban environment**.
