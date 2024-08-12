@@ -9,7 +9,5 @@
 
 <script setup lang="ts">
 /* const { signIn } = useSession() */
-onMounted(() => {
-  console.log("loading rows")
-})
+onMounted(() => {})
 </script>

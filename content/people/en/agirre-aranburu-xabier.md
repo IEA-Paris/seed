@@ -11,16 +11,129 @@ language: English
 lastname: Agirre Aranburu
 affiliations:
   - affiliation: International Criminal Court, Netherlands
-    positions: []
+    positions:
+      - role: Director
+        department: Institute of advanced studies
+        start:
+        stop:
+      - role: Assistant
+        department: Institute for very advanced studies
+        start:
+        stop:        
 socials:
-    wikipedia: "759"
-    orcid: "113"
-    linkedin: "114"
-    twitter: "456"
-    scholar: "123"
-    researchgate: "123"
+  wikipedia: "759"
+  orcid: "113"
+  linkedin: "114"
+  twitter: "456"
+  scholar: "123"
+  researchgate: "123"
+
+groups:
+  - team
+  - sab
+  - board
+  - fellow
+  - sponsor
+  - vintage
+
 years:
   - 2016
+
+relatedProjects:
+  - title: "Project1"
+    shortDescription: ""
+    description: ""
+    url: ""
+    image: ""
+    video: ""
+    color: ""
+    date: ""
+  - title: "Project2"
+    shortDescription: ""
+    description: ""
+    url: ""
+    image: ""
+    video: ""
+    color: ""
+    date: ""
+  - title: "Project3"
+    shortDescription: ""
+    description: ""
+    url: ""
+    image: ""
+    video: ""
+    color: ""
+    date: ""
+
+relatedNews:
+  - bookingState: "News1"
+    createdAt: ""
+    description: ""
+    image: ""
+    name: ""
+    outside: ""
+    start: ""
+    state: ""
+    summary: ""
+    eventType: ""
+    url: ""
+  - bookingState: "News2"
+    createdAt: ""
+    description: ""
+    image: ""
+    name: ""
+    outside: ""
+    start: ""
+    state: ""
+    summary: ""
+    eventType: ""
+    url: ""
+  - bookingState: "News3"
+    createdAt: ""
+    description: ""
+    image: ""
+    name: ""
+    outside: ""
+    start: ""
+    state: ""
+    summary: ""
+    eventType: ""
+    url: ""
+
+relatedEvents:
+  - bookingState: "Day1"
+    createdAt: ""
+    description: "Alex Cayco Gajic is a neuroscientist who works on recurrent neural networks"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+    name: "Event1"
+    outside: ""
+    start: ""
+    state: ""
+    summary: ""
+    eventType: ""
+    url: ""
+  - bookingState: "Day2"
+    createdAt: ""
+    description: ""
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+    name: "Event2"
+    outside: ""
+    start: ""
+    state: ""
+    summary: ""
+    eventType: ""
+    url: ""
+  - bookingState: "Day3"
+    createdAt: ""
+    description: "lex Cayco Gajic is a neuroscientist who works on recurrent neural networks"
+    image: ""
+    name: "Event3"
+    outside: ""
+    start: ""
+    state: ""
+    summary: ""
+    eventType: ""
+    url: ""
 ---
 
 Each day at the [Paris IAS](https://www.paris-iea.fr/en/ "Paris IAS"), [ICA4 Fellows](/fellows "Fellows") meet with their [Mentors](/mentors "Mentors") for **a closed 3-hour seminar**, during which two mentors launch the discussion with a presentation. Upon completion of the seminar, the Fellows then meet for 45 minutes to list the **key takeaways and ideas** that have emerged from the discussion, followed by a **collective brainstorming session**. This ensures that the output of collective intelligence is collected, formatted and capitalised.

@@ -1,27 +1,31 @@
 <template>
-  <v-tooltip
-    v-for="(value, key, index) in socials"
-    :key="key + value"
-    :location="location"
-  >
-    <template v-slot:activator="{ props }">
-      <v-btn
-        flat
-        icon
-        v-bind="props"
-        target="_blank"
-        :href="getSocialId(key, value)"
-        :size="
-          ['small', 'small', 'small', 'default', 'large', 'large'][
-            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(key || 'md')
-          ]
-        "
+  <v-row no-gutters>
+    <v-col>
+      <v-tooltip
+        v-for="(value, key, index) in socials"
+        :key="key + value"
+        :location="location"
       >
-        <v-icon> {{ getProfileIcon(key) }}</v-icon>
-      </v-btn>
-    </template>
-    <span>{{ $t("socials." + key) }}</span>
-  </v-tooltip>
+        <template v-slot:activator="{ props }">
+          <v-btn
+            flat
+            icon
+            v-bind="props"
+            target="_blank"
+            :href="getSocialId(key, value)"
+            :size="
+              ['small', 'small', 'small', 'default', 'large', 'large'][
+                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(key || 'md')
+              ]
+            "
+          >
+            <v-icon> {{ getProfileIcon(key) }}</v-icon>
+          </v-btn>
+        </template>
+        <span>{{ $t("socials." + key) }}</span>
+      </v-tooltip>
+    </v-col>
+  </v-row>
 </template>
 
 <script setup>
