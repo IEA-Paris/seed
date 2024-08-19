@@ -8,9 +8,14 @@
         type="image"
       ></v-skeleton-loader>
 
-      <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" v-else />
+      <MiscAtomsImageContainer
+        :image="item.image"
+        :ratio="1 / 1"
+        link="news-slug"
+        :slug="item._path.split('/').pop()"
+        v-else
+      />
     </v-col>
-
     <v-col cols="12" md="8" lg="4" class="pl-md-6">
       <v-skeleton-loader
         v-if="rootStore.loading"

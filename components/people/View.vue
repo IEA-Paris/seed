@@ -26,19 +26,18 @@
               ></v-skeleton-loader>
 
               <template v-else>
-                <!-- TODO comment on peut remplacer v-img par le composant  <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />  -->
-                <v-img
-                  :src="item.image"
-                  :aspect-ratio="1 / 1"
+                <MiscAtomsImageContainer
+                  :image="item.image"
+                  :ratio="1 / 1"
                   :width="
                     ['200', '250', '250', '300'][
                       ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
                     ]
                   "
                   cover
-                  class="img-animation d-flex align-center justify-center"
+                  class="d-flex align-center justify-center"
                 >
-                </v-img>
+                </MiscAtomsImageContainer>
               </template>
             </v-sheet>
           </div>
@@ -46,7 +45,7 @@
           <v-skeleton-loader
             class="mx-auto"
             v-if="rootStore.loading"
-            :width="
+            :max-width="
               ['300', '400', '340', '400', '600', '600'][
                 ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
               ]
