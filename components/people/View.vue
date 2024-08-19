@@ -90,14 +90,8 @@
 
       <!-- DIVIDERS -->
       <v-responsive class="mx-auto my-9" width="120">
-        <v-skeleton-loader
-          v-if="rootStore.loading"
-          type="divider@2"
-        ></v-skeleton-loader>
-        <template v-else>
-          <v-divider class="mb-1" />
-          <v-divider />
-        </template>
+        <v-divider class="mb-1" />
+        <v-divider />
       </v-responsive>
 
       <div class="text-overline mt-6">
@@ -122,14 +116,8 @@
       </template>
       <!-- DIVIDERS -->
       <v-responsive class="mx-auto my-9" width="120">
-        <v-skeleton-loader
-          v-if="rootStore.loading"
-          type="divider@2"
-        ></v-skeleton-loader>
-        <template v-else>
-          <v-divider class="mb-1" />
-          <v-divider />
-        </template>
+        <v-divider class="mb-1" />
+        <v-divider />
       </v-responsive>
       <!-- POSITIONS AND AFFILIATIONS -->
       <div class="text-overline mt-6">
@@ -175,14 +163,8 @@
   </v-row>
   <!-- DIVIDERS -->
   <v-responsive class="mx-auto my-9" width="120">
-    <v-skeleton-loader
-      v-if="rootStore.loading"
-      type="divider@2"
-    ></v-skeleton-loader>
-    <template v-else>
-      <v-divider class="mb-1" />
-      <v-divider />
-    </template> </v-responsive
+    <v-divider class="mb-1" />
+    <v-divider /> </v-responsive
   ><v-row>
     <!-- RELATED ITEMS -->
     <v-col cols="12" md="4">
