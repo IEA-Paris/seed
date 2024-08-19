@@ -79,14 +79,17 @@
       <MiscMoleculesRelatedItems
         type="events"
         :items="item.relatedEvents"
+        class="mx-6 my-2"
       ></MiscMoleculesRelatedItems>
       <MiscMoleculesRelatedItems
         type="project"
         :items="item.relatedProjects"
+        class="mx-6 my-2"
       ></MiscMoleculesRelatedItems>
       <MiscMoleculesRelatedItems
         type="people"
         :items="item.relatedPeople"
+        class="mx-6 my-2"
       ></MiscMoleculesRelatedItems>
       <v-skeleton-loader
         v-if="rootStore.loading"
