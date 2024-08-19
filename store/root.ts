@@ -22,9 +22,11 @@ const initStore = async () => {
   const modules = {}
 
   await Promise.all(
-    ["fellowship", "project", "events", "news", "people"].map(async (type) => {
-      modulesState[type] = await createModule(type)
-    })
+    [/*"fellowship",*/ "project", "events", "news", "people"].map(
+      async (type) => {
+        modulesState[type] = await createModule(type)
+      }
+    )
   )
   /* const githubApi = new api(config.modules.github) */
   return modules

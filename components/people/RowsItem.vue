@@ -2,13 +2,7 @@
   <v-divider v-if="index > 0"></v-divider>
   <v-row class="my-6 ml-md-1 px-3 px-md-0">
     <v-col cols="12" md="3" v-if="mdAndUp">
-      <v-skeleton-loader
-        v-if="rootStore.loading"
-        height="100%"
-        type="image"
-      ></v-skeleton-loader>
-
-      <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" v-else />
+      <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
     </v-col>
 
     <v-col cols="12" md="8">

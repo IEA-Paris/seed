@@ -4,34 +4,47 @@
   - test lazy-src
   - validate requested quality 
   - Add conditional overlays slots (top left/right, bottom left/right/center for date, caption, copyright)-->
-  <nuxt-link
-    :to="
-      link
-        ? localePath({
-            name: link,
-            params: { slug: slugify(slug) },
-          })
-        : null
-    "
-  >
-    <div class="overflow-hidden">
-      <v-img
-        :aspect-ratio="ratio"
-        cover
-        class="img-animation"
-        :lazy-src="img(image, { width: 10, quality: 70 })"
-        :src="img(image, { width, quality: 70 })"
-        :srcset="_srcset.srcset"
-        :sizes="_srcset.sizes"
-        :title="caption"
-      >
-      </v-img></div
-  ></nuxt-link>
+
+  <v-skeleton-loader
+    v-if="rootStore.loading"
+    height="100%"
+    type="image"
+  ></v-skeleton-loader>
+
+  <template v-else>
+    <nuxt-link
+      :to="
+        link
+          ? localePath({
+              name: link,
+              params: { slug: slugify(slug) },
+            })
+          : null
+      "
+    >
+      <div class="overflow-hidden">
+        <v-img
+          :aspect-ratio="ratio"
+          cover
+          class="img-animation"
+          :lazy-src="img(image, { width: 10, quality: 70 })"
+          :src="img(image, { width, quality: 70 })"
+          :srcset="_srcset.srcset"
+          :sizes="_srcset.sizes"
+          :title="caption"
+        >
+        </v-img></div
+    ></nuxt-link>
+  </template>
 </template>
 
 <script setup>
 import slugify from "~/assets/utils/slugify"
+import { useRootStore } from "~/store/root"
+
 const img = useImage()
+
+const rootStore = useRootStore()
 
 const props = defineProps({
   image: {

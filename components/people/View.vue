@@ -15,30 +15,18 @@
                 ]
               "
             >
-              <v-skeleton-loader
-                v-if="rootStore.loading"
+              <MiscAtomsImageContainer
+                :image="item.image"
+                :ratio="1 / 1"
                 :width="
                   ['200', '250', '250', '300'][
                     ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
                   ]
                 "
-                type="image"
-              ></v-skeleton-loader>
-
-              <template v-else>
-                <MiscAtomsImageContainer
-                  :image="item.image"
-                  :ratio="1 / 1"
-                  :width="
-                    ['200', '250', '250', '300'][
-                      ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-                    ]
-                  "
-                  cover
-                  class="d-flex align-center justify-center"
-                >
-                </MiscAtomsImageContainer>
-              </template>
+                cover
+                class="d-flex align-center justify-center"
+              >
+              </MiscAtomsImageContainer>
             </v-sheet>
           </div>
           <!-- FIRSTNAME LASTNAME -->

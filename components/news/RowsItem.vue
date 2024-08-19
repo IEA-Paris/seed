@@ -2,18 +2,11 @@
   <v-divider v-if="index > 0"></v-divider>
   <v-row class="my-4 mx-2 mx-sm-8 mx-md-0">
     <v-col cols="12 " md="4" lg="3" v-if="mdAndUp" class="pr-md-0">
-      <v-skeleton-loader
-        v-if="rootStore.loading"
-        height="100%"
-        type="image"
-      ></v-skeleton-loader>
-
       <MiscAtomsImageContainer
         :image="item.image"
         :ratio="1 / 1"
         link="news-slug"
         :slug="item._path.split('/').pop()"
-        v-else
       />
     </v-col>
     <v-col cols="12" md="8" lg="4" class="pl-md-6">

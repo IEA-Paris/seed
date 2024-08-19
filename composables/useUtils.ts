@@ -29,3 +29,6 @@ export const getDetailedFormatedDate = (
     minutes: date.getMinutes(),
   }
 }
+
+export const capitalize = (name: string) =>
+  name && name.charAt(0).toUpperCase() + name.slice(1)
