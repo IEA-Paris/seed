@@ -21,7 +21,6 @@
 </template>
 
 <script setup>
-import slugify from "~/assets/utils/slugify"
 const localePath = useLocalePath()
 const props = defineProps({
   item: {

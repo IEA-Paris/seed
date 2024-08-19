@@ -9,22 +9,12 @@
   >
     <v-row>
       <v-col cols="3" v-if="lgAndUp">
-        <v-skeleton-loader
-          v-if="rootStore.loading"
-          type="image"
-        ></v-skeleton-loader>
-        <template v-else>
-          <nuxt-link
-            :to="
-              localePath({
-                name: 'activities-events-slug',
-                params: { slug: slugify(item.name) },
-              })
-            "
-          >
-            <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
-          </nuxt-link>
-        </template>
+        <MiscAtomsImageContainer
+          :image="item.image"
+          :ratio="1 / 1"
+          :link="item.name"
+          :name="activities - events - slug"
+        />
       </v-col>
       <v-col cols="12" lg="9">
         <v-skeleton-loader
