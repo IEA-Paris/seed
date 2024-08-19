@@ -54,10 +54,8 @@
 </template>
 <script setup>
 import { useRootStore } from "~/store/root"
-import { highlight } from "~/assets/utils/transforms"
 import { useDisplay } from "vuetify"
-const { name, mdAndDown, md, xl, lg, smAndDown, mdAndUp, lgAndUp } =
-  useDisplay()
+const { name, mdAndUp } = useDisplay()
 const localePath = useLocalePath()
 const rootStore = useRootStore()
 const props = defineProps({

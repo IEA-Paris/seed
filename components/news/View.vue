@@ -129,7 +129,7 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
-const { name, mdAndDown, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
+const { name, mdAndUp, smAndDown } = useDisplay()
 const router = useRouter()
 const { $i18n } = useNuxtApp()
 import { useRootStore } from "~/store/root"

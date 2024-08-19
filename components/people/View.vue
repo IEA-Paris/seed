@@ -182,9 +182,6 @@
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
-const { name, mdAndDown, md, xl, lg, smAndDown, mdAndUp, lgAndUp } =
-  useDisplay()
+const { name, mdAndUp } = useDisplay()
 const props = defineProps({ item: { type: Object, required: true } })
-console.log("PEOPLE", props.item.affiliations)
-console.log("SOCIALS", props.item)
 </script>

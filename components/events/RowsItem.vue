@@ -163,7 +163,7 @@
 <script setup>
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
-const { name, smAndDown, smAndUp, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
+const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay()
 const localePath = useLocalePath()
 const rootStore = useRootStore()
 const props = defineProps({
