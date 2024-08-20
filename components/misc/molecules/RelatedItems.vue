@@ -3,13 +3,16 @@
     <div class="text-overline">{{ $t("related." + type) }}</div>
     <component
       v-for="item in items"
-      :is="capitalizeFirstLetter(type) + 'RelatedItem'"
+      :is="capitalize(type) + 'RelatedItem'"
       :item="item"
     />
   </div>
 </template>
 
 <script setup>
+import { useRootStore } from "~/store/root"
+import { capitalize } from "~/composables/useUtils"
+const rootStore = useRootStore()
 const props = defineProps({
   type: {
     type: String,
@@ -20,9 +23,6 @@ const props = defineProps({
     required: true,
   },
 })
-
-const capitalizeFirstLetter = (string) =>
-  string.charAt(0).toUpperCase() + string.slice(1)
 </script>
 
 <style></style>

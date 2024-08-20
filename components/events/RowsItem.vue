@@ -115,7 +115,7 @@
               prepend-icon="mdi-circle-medium"
               size="small"
               class="my-2"
-            >
+              ><!--  TODO: bind -->
               <template v-slot:prepend>
                 <v-icon size="large" color="success"></v-icon>
               </template>
@@ -129,7 +129,7 @@
               prepend-icon="mdi-television-play"
               size="small"
               class="my-xs-2"
-            >
+              ><!--  TODO: bind -->
               {{ $t("live-stream-available") }}</v-btn
             >
           </div>
@@ -145,34 +145,25 @@
       >
       </v-skeleton-loader>
 
-      <div v-else>
-        <div class="overflow-hidden">
-          <nuxt-link
-            :to="
-              localePath({
-                name: 'activities-events-slug',
-                params: { slug: item._path.split('/').pop() },
-              })
-            "
-          >
-            <v-img
-              :src="item.image"
-              :aspect-ratio="1 / 1"
-              cover
-              max-height="100%"
-              class="img-animation"
-            >
-            </v-img>
-          </nuxt-link>
-        </div>
-      </div>
+      <template v-else>
+        <nuxt-link
+          :to="
+            localePath({
+              name: 'activities-events-slug',
+              params: { slug: item._path.split('/').pop() },
+            })
+          "
+        >
+          <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
+        </nuxt-link>
+      </template>
     </v-col>
   </v-row>
 </template>
 <script setup>
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
-const { name, smAndDown, smAndUp, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
+const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay()
 const localePath = useLocalePath()
 const rootStore = useRootStore()
 const props = defineProps({
@@ -186,5 +177,3 @@ const props = defineProps({
   },
 })
 </script>
-
-<style lang="scss" scoped></style>

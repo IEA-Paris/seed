@@ -1,54 +1,63 @@
 <template>
-  {{ name }}
   <v-row justify="center">
     <v-col cols="12" sm="11" md="8" lg="8" xl="6">
       <v-row no-gutters>
         <v-col cols="12" class="text-center">
           <!--   PEOPLE IMAGE -->
-          <div class="d-flex justify-center">
-            <v-sheet
-              class="overflow-hidden"
-              v-if="mdAndUp"
-              :width="
-                ['200', '250', '250', '300'][
-                  ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-                ]
-              "
-            >
-              <v-img
-                :src="item.image"
-                :aspect-ratio="1 / 1"
-                :width="
-                  ['200', '250', '250', '300'][
-                    ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-                  ]
-                "
-                cover
-                class="img-animation d-flex align-center justify-center"
-              >
-              </v-img>
-            </v-sheet>
-          </div>
+          <MiscAtomsImageContainer
+            v-if="mdAndUp"
+            :image="item.image"
+            :ratio="1 / 1"
+            :width="
+              ['200', '250', '250', '300'][
+                ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+              ]
+            "
+          >
+          </MiscAtomsImageContainer>
           <!-- FIRSTNAME LASTNAME -->
-          <div class="my-8 text-h3 align-self-center text-wrap">
-            {{ item.firstname + " " + item.lastname
-            }}<!--  TODO : call a composable to format people names (multiple, initials, capped & al. )-->
-          </div>
+          <v-skeleton-loader
+            class="mx-auto"
+            v-if="rootStore.loading"
+            :max-width="
+              ['300', '400', '340', '400', '600', '600'][
+                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+              ]
+            "
+            :type="
+              [
+                'heading@2, ossein, avatar@4, ossein, chip@3',
+                'heading, ossein, avatar@6, ossein, chip@4',
+                'heading, ossein, avatar@5, ossein, chip@3',
+                'heading, ossein, avatar@6, ossein, chip@4',
+                'heading, ossein, avatar@9, ossein, chip@6',
+                'heading, ossein, avatar@9, ossein, chip@6',
+              ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
+            "
+          >
+          </v-skeleton-loader>
 
-          <!-- SOCIALS -->
-          <PeopleIconBadge :socials="item.socials" />
+          <template v-else>
+            <div class="my-8 text-h3 align-self-center text-wrap">
+              {{ item.firstname + " " + item.lastname
+              }}<!--  TODO : call a composable to format people names (multiple, initials, capped & al. )-->
+            </div>
 
-          <!-- GROUPS -->
-          <div class="mt-6 align-self-center">
-            <v-chip
-              class="mr-2 mt-3"
-              variant="text"
-              v-for="group in item.groups"
-              :key="group"
-            >
-              {{ $t("groups." + group) }}</v-chip
-            >
-          </div>
+            <!-- SOCIALS -->
+            <PeopleIconBadge :socials="item.socials" />
+
+            <!-- GROUPS -->
+            <div class="mt-6 align-self-center">
+              <v-chip
+                class="mr-2 mt-3"
+                variant="text"
+                v-for="group in item.groups"
+                :key="group"
+              >
+                {{ $t("groups." + group) }}</v-chip
+              >
+            </div>
+          </template>
         </v-col>
       </v-row>
 
@@ -58,21 +67,52 @@
         <v-divider />
       </v-responsive>
 
-      <!-- BIOGRAPHY -->
       <div class="text-overline mt-6">
-        {{ $t("biography") }}
+        <v-skeleton-loader v-if="rootStore.loading" width="200" type="heading">
+        </v-skeleton-loader>
+        <div v-else>
+          {{ $t("biography") }}
+        </div>
       </div>
-      <ContentRenderer :value="item" class="my-6 flex-wrap" />
+
+      <v-skeleton-loader
+        v-if="rootStore.loading"
+        :type="
+          ['text@16', 'text@16', 'text@16', 'text@12', 'text@12', 'text@12'][
+            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+          ]
+        "
+      >
+      </v-skeleton-loader>
+      <template v-else>
+        <ContentRenderer :value="item" class="my-6 flex-wrap" />
+      </template>
+
       <!-- DIVIDERS -->
       <v-responsive class="mx-auto my-9" width="120">
         <v-divider class="mb-1" />
         <v-divider />
       </v-responsive>
+
       <!-- POSITIONS AND AFFILIATIONS -->
       <div class="text-overline mt-6">
-        {{ $t("positions-and-affiliations") }}
+        <v-skeleton-loader v-if="rootStore.loading" width="200" type="heading">
+        </v-skeleton-loader>
+        <div v-else>
+          {{ $t("positions-and-affiliations") }}
+        </div>
       </div>
+
+      <!-- BIOGRAPHY -->
+      <v-skeleton-loader
+        v-if="rootStore.loading"
+        type="subtitle, text@2"
+        width="300"
+      >
+      </v-skeleton-loader>
+
       <v-card
+        v-else
         flat
         v-for="record in item.affiliations"
         :key="record.affiliation"
@@ -96,6 +136,7 @@
       </v-card>
     </v-col>
   </v-row>
+
   <!-- DIVIDERS -->
   <v-responsive class="mx-auto my-9" width="120">
     <v-divider class="mb-1" />
@@ -128,9 +169,8 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
-const { name, mdAndDown, md, xl, lg, smAndDown, mdAndUp, lgAndUp } =
-  useDisplay()
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
+const { name, mdAndUp } = useDisplay()
 const props = defineProps({ item: { type: Object, required: true } })
-console.log("PEOPLE", props.item.affiliations)
-console.log("SOCIALS", props.item)
 </script>

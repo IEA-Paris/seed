@@ -26,6 +26,7 @@
 <script setup>
 import { useRootStore } from "~/store/root"
 import { useDisplay } from "vuetify"
+import { capitalize } from "~/composables/useUtils"
 const { $i18n } = useNuxtApp()
 const {
   name: nameDisplay,
@@ -36,7 +37,7 @@ const {
   smAndDown,
 } = useDisplay()
 const nuxtApp = useNuxtApp()
-const capitalize = (str) => str && str.charAt(0).toUpperCase() + str.slice(1)
+
 const rootStore = useRootStore()
 const props = defineProps({
   addBtn: {
