@@ -2,25 +2,13 @@
   <v-divider v-if="index > 0"></v-divider>
   <v-row class="my-4 mx-2 mx-sm-8 mx-md-0">
     <v-col cols="12 " md="4" lg="3" v-if="mdAndUp" class="pr-md-0">
-      <v-skeleton-loader
-        v-if="rootStore.loading"
-        height="100%"
-        type="image"
-      ></v-skeleton-loader>
-
-      <template v-else>
-        <div class="overflow-hidden">
-          <v-img
-            :src="item.image"
-            :aspect-ratio="1 / 1"
-            cover
-            class="img-animation"
-          >
-          </v-img>
-        </div>
-      </template>
+      <MiscAtomsImageContainer
+        :image="item.image"
+        :ratio="1 / 1"
+        link="news-slug"
+        :slug="item._path.split('/').pop()"
+      />
     </v-col>
-
     <v-col cols="12" md="8" lg="4" class="pl-md-6">
       <v-skeleton-loader
         v-if="rootStore.loading"
@@ -122,8 +110,7 @@ import { useRootStore } from "~/store/root"
 import { useDisplay } from "vuetify"
 const localePath = useLocalePath()
 const rootStore = useRootStore()
-const { name, mdAndDown, md, xl, lg, smAndDown, mdAndUp, lgAndUp } =
-  useDisplay()
+const { name, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
 const props = defineProps({
   item: {
     type: Object,

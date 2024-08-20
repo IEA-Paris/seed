@@ -3,7 +3,8 @@
     class="d-flex flex-row pa-6 align-start"
     :to="
       localePath(
-        '/activities/projects/' + item._file.split('/').pop().slice(0, -3)
+        '/activities/projects/' +
+          item._file.split('/').pop().slice(0, -3) /* TODO : make it cleaner */
       )
     "
   >
@@ -21,7 +22,6 @@
 </template>
 
 <script setup>
-import slugify from "~/assets/utils/slugify"
 const localePath = useLocalePath()
 const props = defineProps({
   item: {

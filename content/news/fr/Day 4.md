@@ -102,6 +102,19 @@ relatedEvents:
     summary: ""
     eventType: ""
     url: ""
+
+relatedPeople:
+  - firstname: "IEA"
+    lastname: "Paris"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+  - firstname: "Georges"
+    lastname: "Leblanc"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+  - firstname: "Amelio"
+    lastname: "Duffour"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 ---
 
 The Fellows embarked on their first scientific trip for ICA4 and were hosted by [**Ecole Normale Superieure de Paris-Saclay \*\***](http://ens-paris-saclay.fr/en "Paris Saclay")**throughout Day 4. The sessions at Saclay included two thought-provoking talks by** [_Xiao-Jing Wang_\*\*](/mentors/#wang "Xiao-Jing Wang") and [**_Jay McClelland_**](/mentors/#mcclelland "Jay McClelland"), both of which touched upon **the principles underlying cognitive behaviours**, as well as **the difference between human and machine intelligence**. These were followed by a symposium on AI at University Paris-Saclay. The symposium was followed by **a half-day event with multiple workshops** in which **ICA4 mentors discussed major advances and issues surrounding AI** with other world-class researchers such as [**_Stanislas Dehaene_**](https://www.college-de-france.fr/site/en-stanislas-dehaene/index.htm "Stanislas Deahene"). Finally, the intellectually intense day came to an end with a talk in which [**_Zaven Paré_**](/mentors/#pare "Zaven Pare") raised important questions regarding **how we will interact with AI algorithms and intelligent robotics in the decades to come...**<!--more-->

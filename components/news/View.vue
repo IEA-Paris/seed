@@ -21,14 +21,8 @@
         type="image"
       ></v-skeleton-loader>
 
-      <div v-else class="overflow-hidden mx-sm-6">
-        <v-img
-          :src="item.image"
-          :aspect-ratio="1 / 1"
-          cover
-          class="img-animation"
-        >
-        </v-img>
+      <div v-else class="mx-sm-6">
+        <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
       </div>
     </v-col>
 
@@ -82,28 +76,33 @@
 
   <v-row class="mt-12">
     <v-col cols="12" md="4" :order="mdAndUp ? 'first' : 'last'" class="pt-0">
+      <MiscMoleculesRelatedItems
+        type="events"
+        :items="item.relatedEvents"
+        class="mx-6 my-2"
+      ></MiscMoleculesRelatedItems>
+      <MiscMoleculesRelatedItems
+        type="project"
+        :items="item.relatedProjects"
+        class="mx-6 my-2"
+      ></MiscMoleculesRelatedItems>
+      <MiscMoleculesRelatedItems
+        type="people"
+        :items="item.relatedPeople"
+        class="mx-6 my-2"
+      ></MiscMoleculesRelatedItems>
       <v-skeleton-loader
         v-if="rootStore.loading"
         :type="
           [
-            'heading, list-item-avatar@3, heading, list-item-avatar@3',
-            'heading, list-item-avatar@3, heading, list-item-avatar@3',
-            'heading, list-item-avatar@3, heading, list-item-avatar@3, image, text@3, ossein, button',
-            'heading, list-item-avatar@3, heading, list-item-avatar@3, image, text@3, ossein, button',
-            'heading, list-item-avatar@3, heading, list-item-avatar@3, image, text@3, ossein, button',
-            'heading, list-item-avatar@3, heading, list-item-avatar@3, image, text@3, ossein, button',
-          ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
+            'image, text@3, ossein, button',
+            'image, text@3, ossein, button',
+            'image, text@3, ossein, button',
+            'image, text@3, ossein, button',
+          ][['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
         "
       ></v-skeleton-loader>
       <template v-else>
-        <MiscMoleculesRelatedItems
-          type="events"
-          :items="item.relatedEvents"
-        ></MiscMoleculesRelatedItems>
-        <MiscMoleculesRelatedItems
-          type="project"
-          :items="item.relatedProjects"
-        ></MiscMoleculesRelatedItems>
         <div class="mt-2 mx-n6 mx-sm-0" v-if="mdAndUp">
           <ActionsSmallContainer
             :action="action"
@@ -130,7 +129,7 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
-const { name, mdAndDown, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
+const { name, mdAndUp, smAndDown } = useDisplay()
 const router = useRouter()
 const { $i18n } = useNuxtApp()
 import { useRootStore } from "~/store/root"

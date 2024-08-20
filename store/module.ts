@@ -126,6 +126,7 @@ const createModule = async (type: string): Promise<ModuleType> => {
   // Build the form
   const buildForm = async (schema: Record<string, Form>): Promise<any> => {
     try {
+      if (!schema) return {}
       let form: { [key: string]: any } = {}
       for await (const key of Object.keys(schema)) {
         switch (schema[key]?.type) {
