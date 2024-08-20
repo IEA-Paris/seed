@@ -13,7 +13,7 @@
           :image="item.image"
           :ratio="1 / 1"
           :link="item.name"
-          :name="activities - events - slug"
+          name="activities-events-slug"
         />
       </v-col>
       <v-col cols="12" lg="9">

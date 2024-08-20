@@ -1,34 +1,20 @@
 <template>
-  {{ name }}
   <v-row justify="center">
     <v-col cols="12" sm="11" md="8" lg="8" xl="6">
       <v-row no-gutters>
         <v-col cols="12" class="text-center">
           <!--   PEOPLE IMAGE -->
-          <div class="d-flex justify-center">
-            <v-sheet
-              class="overflow-hidden"
-              v-if="mdAndUp"
-              :width="
-                ['200', '250', '250', '300'][
-                  ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-                ]
-              "
-            >
-              <MiscAtomsImageContainer
-                :image="item.image"
-                :ratio="1 / 1"
-                :width="
-                  ['200', '250', '250', '300'][
-                    ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-                  ]
-                "
-                cover
-                class="d-flex align-center justify-center"
-              >
-              </MiscAtomsImageContainer>
-            </v-sheet>
-          </div>
+          <MiscAtomsImageContainer
+            v-if="mdAndUp"
+            :image="item.image"
+            :ratio="1 / 1"
+            :width="
+              ['200', '250', '250', '300'][
+                ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+              ]
+            "
+          >
+          </MiscAtomsImageContainer>
           <!-- FIRSTNAME LASTNAME -->
           <v-skeleton-loader
             class="mx-auto"
@@ -101,11 +87,13 @@
       <template v-else>
         <ContentRenderer :value="item" class="my-6 flex-wrap" />
       </template>
+
       <!-- DIVIDERS -->
       <v-responsive class="mx-auto my-9" width="120">
         <v-divider class="mb-1" />
         <v-divider />
       </v-responsive>
+
       <!-- POSITIONS AND AFFILIATIONS -->
       <div class="text-overline mt-6">
         <v-skeleton-loader v-if="rootStore.loading" width="200" type="heading">
@@ -122,32 +110,33 @@
         width="300"
       >
       </v-skeleton-loader>
-      <template v-else>
-        <v-card
-          flat
-          v-for="record in item.affiliations"
-          :key="record.affiliation"
-        >
-          <v-card-item class="px-0">
-            <v-card-title class="text-wrap">
-              {{ record.affiliation }}
-            </v-card-title>
-            <div class="text-body-2" v-for="position in record.positions">
-              <div class="text-overline" v-if="position.start && position.stop">
-                {{
-                  $t("from {0} to {1}", [
-                    formatDate(position.start),
-                    formatDate(position.stop),
-                  ])
-                }}
-              </div>
-              {{ position.role + " " + position.department || "" }}
+
+      <v-card
+        v-else
+        flat
+        v-for="record in item.affiliations"
+        :key="record.affiliation"
+      >
+        <v-card-item class="px-0">
+          <v-card-title class="text-wrap">
+            {{ record.affiliation }}
+          </v-card-title>
+          <div class="text-body-2" v-for="position in record.positions">
+            <div class="text-overline" v-if="position.start && position.stop">
+              {{
+                $t("from {0} to {1}", [
+                  formatDate(position.start),
+                  formatDate(position.stop),
+                ])
+              }}
             </div>
-          </v-card-item>
-        </v-card>
-      </template>
+            {{ position.role + " " + position.department || "" }}
+          </div>
+        </v-card-item>
+      </v-card>
     </v-col>
   </v-row>
+
   <!-- DIVIDERS -->
   <v-responsive class="mx-auto my-9" width="120">
     <v-divider class="mb-1" />

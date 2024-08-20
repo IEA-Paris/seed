@@ -115,7 +115,7 @@
               prepend-icon="mdi-circle-medium"
               size="small"
               class="my-2"
-            >
+              ><!--  TODO: bind -->
               <template v-slot:prepend>
                 <v-icon size="large" color="success"></v-icon>
               </template>
@@ -129,7 +129,7 @@
               prepend-icon="mdi-television-play"
               size="small"
               class="my-xs-2"
-            >
+              ><!--  TODO: bind -->
               {{ $t("live-stream-available") }}</v-btn
             >
           </div>

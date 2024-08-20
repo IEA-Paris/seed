@@ -23,6 +23,7 @@
       "
     >
       <div class="overflow-hidden">
+        <!--  TODO debug why the picture is not displaying/sizing properly -->
         <v-img
           :aspect-ratio="ratio"
           cover
@@ -32,6 +33,7 @@
           :srcset="_srcset.srcset"
           :sizes="_srcset.sizes"
           :title="caption"
+          v-bind="$attrs"
         >
         </v-img></div
     ></nuxt-link>

@@ -20,36 +20,31 @@
         "
       ></v-skeleton-loader>
 
-      <template v-else>
-        <div class="ml-md-8 d-flex flex-column">
-          <NuxtLink
-            :to="
-              localePath({
-                name: 'people-slug',
-                params: { slug: item._path.split('/').pop() },
-              })
-            "
-            class="text-wrap text-h4 text-black mb-2"
-          >
-            {{ item.title }}</NuxtLink
-          >
-          <div class="ml-n3">
-            <PeopleIconBadge :socials="item.socials" />
-          </div>
-          <ContentRenderer
-            :value="item"
-            class="text-body-1 clamped-text mt-n3"
-            :style="
-              '-webkit-line-clamp:' +
-              [5, 5, 3, 6, 9, 9][
-                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-              ]
-            "
-          />
-        </div>
-      </template>
+      <div class="ml-md-8" v-else>
+        <NuxtLink
+          :to="
+            localePath({
+              name: 'people-slug',
+              params: { slug: item._path.split('/').pop() },
+            })
+          "
+          class="text-wrap text-h4 text-black mb-2"
+        >
+          {{ item.title }}</NuxtLink
+        >
+        <PeopleIconBadge :socials="item.socials" class="ml-n3" />
+        <ContentRenderer
+          :value="item"
+          class="text-body-1 clamped-text mt-n3"
+          :style="
+            '-webkit-line-clamp:' +
+            [5, 5, 3, 6, 9, 9][
+              ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+            ]
+          "
+        />
+      </div>
     </v-col>
-    <v-col cols="12" md="1"></v-col>
   </v-row>
 </template>
 <script setup>

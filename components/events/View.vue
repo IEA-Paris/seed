@@ -81,6 +81,7 @@
             <EventsDateTimePlace :item="item"></EventsDateTimePlace>
 
             <div class="mt-md-4">
+              <!--  TODO: bind -->
               {{ $t("inscription-gratuite-et-obligatoire") }}
             </div>
           </div>
@@ -128,41 +129,38 @@
       <MiscMoleculesRelatedItems
         type="news"
         :items="item.relatedNews"
+        class="my-6"
       ></MiscMoleculesRelatedItems>
       <MiscMoleculesRelatedItems
         type="project"
         :items="item.relatedProjects"
+        class="mb-6"
       ></MiscMoleculesRelatedItems>
 
       <MiscMoleculesRelatedItems
         type="people"
         :items="item.relatedPeople"
+        class="mb-6"
       ></MiscMoleculesRelatedItems>
     </v-col>
 
     <v-col class="d-flex flex-row" cols="12" v-if="sm">
       <v-row class="ml-sm-1">
         <v-col cols="6">
-          <v-responsive :aspect-ratio="1 / 1" class="bg-grey-lighten-4">
-            <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
-          </v-responsive>
+          <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
         </v-col>
         <v-col cols="6">
           <v-skeleton-loader
             v-if="rootStore.loading"
             type="heading, subtitle, heading, subtitle, ossein, button"
           ></v-skeleton-loader>
-          <template v-else>
-            <EventsDateTimePlace :item="item"></EventsDateTimePlace>
-          </template>
+          <EventsDateTimePlace v-else :item="item"></EventsDateTimePlace>
         </v-col>
       </v-row>
     </v-col>
 
     <v-col class="ml-2" cols="12" v-if="xs">
-      <v-responsive :aspect-ratio="1 / 1" class="bg-grey-lighten-4">
-        <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
-      </v-responsive>
+      <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
     </v-col>
 
     <v-col class="ml-2" cols="12" v-if="xs">
@@ -170,9 +168,7 @@
         v-if="rootStore.loading"
         type="heading, subtitle, heading, subtitle, ossein, button"
       ></v-skeleton-loader>
-      <template v-else>
-        <EventsDateTimePlace :item="item"></EventsDateTimePlace>
-      </template>
+      <EventsDateTimePlace v-else :item="item"></EventsDateTimePlace>
     </v-col>
 
     <v-col cols="12" xl="6" lg="6" md="8" class="px-0">
@@ -222,8 +218,8 @@
           </v-sheet>
         </div>
 
-        <div class="" v-if="smAndDown">
-          <v-expansion-panels v-model="panel" ripple elevation="0" class="">
+        <div v-if="smAndDown">
+          <v-expansion-panels v-model="panel" ripple elevation="0">
             <v-expansion-panel
               :text="item.description"
               :title="$t('presentation')"
@@ -240,7 +236,9 @@
             </v-expansion-panel>
 
             <v-expansion-panel :title="$t('details-0')" value="details">
-              <v-expansion-panel-text> Details content</v-expansion-panel-text>
+              <v-expansion-panel-text>
+                Details content<!--  TODO: bind --></v-expansion-panel-text
+              >
             </v-expansion-panel>
           </v-expansion-panels>
         </div>
@@ -252,12 +250,11 @@
         :type="['', '', ''][['lg', 'xl', 'xxl'].indexOf(name || 'md')]"
       ></v-skeleton-loader>
 
-      <template v-else>
-        <ActionsSmallContainer
-          :action="action"
-          :ratio="1 / 2"
-        ></ActionsSmallContainer>
-      </template>
+      <ActionsSmallContainer
+        v-else
+        :action="action"
+        :ratio="1 / 2"
+      ></ActionsSmallContainer>
     </v-col>
   </v-row>
 </template>

@@ -3,7 +3,8 @@
     class="d-flex flex-row pa-6 align-start"
     :to="
       localePath(
-        '/activities/projects/' + item._file.split('/').pop().slice(0, -3)
+        '/activities/projects/' +
+          item._file.split('/').pop().slice(0, -3) /* TODO : make it cleaner */
       )
     "
   >
