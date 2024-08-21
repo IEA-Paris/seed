@@ -18,11 +18,10 @@
           <v-divider></v-divider>
         </v-container>
       </div>
-      <v-container fluid> <slot /></v-container>
+      <v-container fluid>
+        <slot /> <NavigationFooter isSnapScroll
+      /></v-container>
     </v-main>
-    <section>
-      <NavigationFooter />
-    </section>
   </v-app>
 </template>
 

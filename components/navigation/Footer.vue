@@ -1,5 +1,11 @@
 <template>
-    <v-footer dark color="black" class="d-flex justify-center align-center">
+  <section>
+    <v-footer
+      dark
+      color="black"
+      class="d-flex justify-center align-center"
+      :class="{ 'fill-height': isSnapScroll }"
+    >
       <v-container class="fill-height">
         <v-row justify="center" no-gutters>
           <v-col cols="12" lg="10" class="mt-6">
@@ -172,6 +178,7 @@
         </v-row>
       </v-container>
     </v-footer>
+  </section>
 </template>
 <script setup>
 import socials from "~/assets/data/social"
@@ -192,6 +199,9 @@ const socialsRef = ref(socials)
 const panel = reactive([])
 const footer = ref(sitemap.footer)
 const email = ref("")
+const props = defineProps({
+  isSnapScroll: Boolean,
+})
 const rules = [
   //TODO internationalzie the error messages
   (value) => !!value || "Required.",
@@ -202,7 +212,7 @@ const rules = [
 ]
 </script>
 <style lang="scss">
-.v-footer .v-container {
+.v-footer.fill-height {
   height: 100vh;
   /* scroll-snap-stop: normal; */
 }
