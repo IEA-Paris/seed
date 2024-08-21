@@ -37,6 +37,7 @@
     "@nuxtjs/robots": "^3.0.0",
     "@paris-ias/data": "^0.5",
     "@pinia/nuxt": "^0.4.6",
+    "@vueuse/components": "^11.0.1",
     "@vueuse/core": "^10.11.0",
     "@vueuse/motion": "^2.2.3",
     "nuxt-csurf": "^1.5.2",
