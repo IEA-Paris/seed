@@ -124,7 +124,8 @@ const { data: presentation } = await useAsyncData("presentation", () =>
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 100vh;
+  height: calc(100vh - 64px);
+  margin-top: 64px;
   section,
   .carousel {
     scroll-snap-align: start;
@@ -135,12 +136,12 @@ const { data: presentation } = await useAsyncData("presentation", () =>
     scroll-padding-bottom: 100vh;
   }
   section {
-    height: 100vh;
+    height: calc(100vh - 64px);
     display: flex;
     align-items: center;
   }
   .carousel {
-    height: 100vh;
+    height: calc(100vh - 64px);
   }
 }
 </style>

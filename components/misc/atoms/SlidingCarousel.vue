@@ -3,36 +3,38 @@
     <v-row>
       <v-col cols="12">
         <v-container>
-          <v-row>
-            <v-col cols="12">
-              <div
-                class="text-h2 my-12 d-flex"
-                v-motion-slide-visible-once-bottom
-              >
-                <slot></slot>
-                <v-spacer></v-spacer>
-                <div class="text-h6 font-weight-black d-flex align-center mr-6">
-                  {{ model + 1 }}/{{
-                    rootStore[props.type].list.items.length || 0
-                  }}
-                </div>
-                <v-btn
-                  size="large"
-                  flat
-                  :disabled="model === 0"
-                  icon="mdi-chevron-left"
-                  @click="model--"
-                ></v-btn>
-                <v-btn
-                  size="large"
-                  :disabled="
-                    model === rootStore[props.type].list.items.length - 1
-                  "
-                  flat
-                  icon="mdi-chevron-right"
-                  @click="model++"
-                ></v-btn>
-              </div>
+          <v-row class="mb-md-12" no-gutters>
+            <v-col
+              :class="mdAndUp ? 'text-h2' : 'text-h4'"
+              v-motion-slide-visible-once-bottom
+            >
+              <slot></slot>
+            </v-col>
+            <v-col
+              class="text-h6 font-weight-black d-flex align-center"
+              cols="1"
+            >
+              {{ model + 1 }}/{{ rootStore[props.type].list.items.length || 0 }}
+            </v-col>
+
+            <v-col cols="1" class="d-flex flex-row">
+              <v-btn
+                :size="mdAndUp ? 'large' : 'regular'"
+                flat
+                :disabled="model === 0"
+                icon="mdi-chevron-left"
+                @click="model--"
+              ></v-btn>
+              <v-btn
+                :size="mdAndUp ? 'large' : 'medium'"
+                size="large"
+                :disabled="
+                  model === rootStore[props.type].list.items.length - 1
+                "
+                flat
+                icon="mdi-chevron-right"
+                @click="model++"
+              ></v-btn>
             </v-col>
           </v-row>
         </v-container>
@@ -86,7 +88,7 @@ useFetch(async () => {
   await rootStore.update(props.type, $i18n.locale.value)
 })
 const computedWidth = computed(() => {
-  return ["200", "250", "350", "400", "450", "500"][
+  return ["200", "250", "300", "330", "400", "400"][
     ["xs", "sm", "md", "lg", "xl", "xxl"].indexOf(name.value || "md")
   ]
 })

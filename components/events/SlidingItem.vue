@@ -7,7 +7,7 @@
       :slug="item.name"
     >
     </MiscAtomsImageContainer>
-    <div class="mt-3 pl-0 text-h6">
+    <div class="mt-6 pl-0 text-h5 font-weight-medium">
       {{ item.name }}
     </div>
   </v-sheet>

@@ -71,6 +71,7 @@
 </template>
 <script setup lang="ts">
 import slugify from "~/assets/utils/slugify"
+const { $i18n } = useNuxtApp()
 
 import { useDisplay } from "vuetify"
 const { smAndUp, mdAndUp, name } = useDisplay()
