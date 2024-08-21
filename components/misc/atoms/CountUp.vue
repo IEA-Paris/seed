@@ -1,11 +1,8 @@
 <template>
-  <span ref="counter" v-intersection-observer="onIntersectionObserver">{{
-    displayedAmount
-  }}</span>
+  <span> {{ displayedAmount }}</span>
 </template>
 
 <script setup lang="ts">
-import { vIntersectionObserver } from "@vueuse/components"
 /* 
 /!\ This component is a port by Antoine Cordelois 
 of the vue3-autocounter package made by ps-christopher 
@@ -109,12 +106,7 @@ const displayedAmount = computed(
 )
 
 // Methods
-const onIntersectionObserver = ([
-  { isIntersecting },
-]: IntersectionObserverEntry[]) => {
-  console.log("inside")
-  start()
-}
+
 const start = (): void => {
   cancelAnimation()
   state.currentStartAmount = props.startAmount

@@ -10,7 +10,7 @@
     <v-row>
       <v-col cols="3" v-if="lgAndUp">
         <MiscAtomsImageContainer
-          :image="item.image"
+          :src="item.image"
           :ratio="1 / 1"
           :link="item.name"
           name="activities-events-slug"

@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <NavigationTopBar />
-    <v-main class="scroller">
+    <v-main>
       <v-container v-if="crumbs && crumbs.length">
         <v-breadcrumbs :items="crumbs" class="pl-0" link>
           <template v-slot:prepend>

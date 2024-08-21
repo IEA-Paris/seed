@@ -62,4 +62,7 @@ console.log($i18n.locale.value)
 const { data: sab } = await useAsyncData("sab-list", () =>
   queryContent("/sab/" + $i18n.locale.value).find()
 )
+definePageMeta({
+  layout: "about",
+})
 </script>

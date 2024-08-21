@@ -2,7 +2,7 @@
   <v-divider v-if="index > 0"></v-divider>
   <v-row class="my-6 ml-md-1 px-3 px-md-0">
     <v-col cols="12" md="3" v-if="mdAndUp">
-      <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
+      <MiscAtomsImageContainer :src="item.image" :ratio="1 / 1" />
     </v-col>
 
     <v-col cols="12" md="8">

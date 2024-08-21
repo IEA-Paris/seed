@@ -1,8 +1,9 @@
 <template>
   <v-app>
-    <v-main class="myapp">
+    <v-main class="scroller">
       <div class="header-section">
         <NavigationTopBar />
+        ABOUT
         <v-container v-if="crumbs && crumbs.length">
           <v-breadcrumbs :items="crumbs" class="pl-0" link>
             <template v-slot:prepend>
@@ -17,7 +18,7 @@
           <v-divider></v-divider>
         </v-container>
       </div>
-      <v-container> <slot /></v-container>
+      <v-container fluid> <slot /></v-container>
     </v-main>
     <section>
       <NavigationFooter />

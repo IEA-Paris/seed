@@ -43,6 +43,7 @@
               },
             }"
             flat
+            id="presentation"
             class="d-flex align-center justify-center pa-6 presentation-pitch"
           >
             <ContentDoc
@@ -57,20 +58,9 @@
     </v-container>
   </section>
   <section>
-    <v-container>
-      <v-row justify-center align-center>
-        <v-col cols="12">
-          <div class="text-h2 my-12" v-motion-slide-visible-once-bottom>
-            {{ $t("upcoming-events") }}
-          </div>
-          <EventsListContainer :events="events"></EventsListContainer
-        ></v-col>
-        <!--   <v-col cols="4" v-if="smAndUp">
-            <ActionsSmallContainer :action="action"></ActionsSmallContainer>
-          </v-col> -->
-        <v-divider class="mt-3 mb-12"></v-divider>
-      </v-row>
-    </v-container>
+    <MiscAtomsSlidingCarousel type="events">
+      {{ $t("upcoming-events") }}
+    </MiscAtomsSlidingCarousel>
   </section>
   <section>
     <v-container>
@@ -83,25 +73,18 @@
     </v-container>
   </section>
   <section>
-    <v-container>
-      <v-row>
-        <v-col cols="12" class="mb-12">
-          <!--      <PeopleSlidingGroup :items="fellows">
-            <div class="text-h2" v-motion-slide-visible-once-bottom>
-              {{ $t("discover-our-0-fellows", ["2023-2024"]) }}
-            </div></PeopleSlidingGroup
-          > -->
-        </v-col>
-        <v-divider class="mt-3 mb-12"></v-divider>
-      </v-row>
-    </v-container>
+    <MiscAtomsSlidingCarousel type="people">
+      {{ $t("discover-our-0-fellows", ["2023-2024"]) }}
+    </MiscAtomsSlidingCarousel>
   </section>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
 import { debounce } from "~/composables/debounce"
-
+definePageMeta({
+  layout: "about",
+})
 const router = useRouter()
 const { smAndUp, mdAndUp } = useDisplay()
 const localePath = useLocalePath()

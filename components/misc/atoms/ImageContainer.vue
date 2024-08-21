@@ -28,8 +28,8 @@
           :aspect-ratio="ratio"
           cover
           class="img-animation"
-          :lazy-src="img(image, { width: 10, quality: 70 })"
-          :src="img(image, { width, quality: 70 })"
+          :lazy-src="img(src, { width: 10, quality: 70 })"
+          :src="img(src, { width, quality: 70 })"
           :srcset="_srcset.srcset"
           :sizes="_srcset.sizes"
           :title="caption"
@@ -49,7 +49,7 @@ const img = useImage()
 const rootStore = useRootStore()
 
 const props = defineProps({
-  image: {
+  src: {
     type: String,
     required: true,
   },

@@ -22,7 +22,7 @@
       ></v-skeleton-loader>
 
       <div v-else class="mx-sm-6">
-        <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
+        <MiscAtomsImageContainer :src="item.image" :ratio="1 / 1" />
       </div>
     </v-col>
 

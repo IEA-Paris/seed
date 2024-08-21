@@ -6,7 +6,7 @@
           <!--   PEOPLE IMAGE -->
           <MiscAtomsImageContainer
             v-if="mdAndUp"
-            :image="item.image"
+            :src="item.image"
             :ratio="1 / 1"
             :width="
               ['200', '250', '250', '300'][

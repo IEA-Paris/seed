@@ -11,15 +11,17 @@
       class="d-flex justify-start flex-column"
       v-motion-slide-visible-once-bottom
     >
-      <div class="text-overline">{{ $t("fellows") }}</div>
+      <div class="text-overline">{{ $t("people") }}</div>
       <div class="text-h1 my-3">
         <MiscAtomsCountUp
+          key="active"
+          v-intersection-observer="onIntersectionObserver"
           lazy
           :startAmount="0"
           :endAmount="1883"
-          :duration="0.8"
+          :duration="1.2"
           decimalSeparator="."
-          :autoinit="false"
+          :autoinit="true"
         ></MiscAtomsCountUp>
       </div>
 
@@ -37,12 +39,12 @@
       <div class="text-overline">{{ $t("events.key") }}</div>
       <div class="text-h1 my-3">
         <MiscAtomsCountUp
-          lazy
+          key="active"
           :startAmount="0"
           :endAmount="1344"
-          :duration="0.8"
+          :duration="1.2"
           decimalSeparator="."
-          :autoinit="false"
+          :autoinit="true"
         ></MiscAtomsCountUp>
       </div>
       <div :class="mdAndUp ? 'text-h4' : 'text-h5'">
@@ -59,12 +61,13 @@
       <div class="text-overline">{{ $t("fellowships") }}</div>
       <div class="text-h1 my-3">
         <MiscAtomsCountUp
+          key="active"
           lazy
           :startAmount="0"
           :endAmount="104"
-          :duration="0.8"
+          :duration="1.2"
           decimalSeparator="."
-          :autoinit="false"
+          :autoinit="true"
         ></MiscAtomsCountUp>
       </div>
       <div :class="mdAndUp ? 'text-h4' : 'text-h5'">
@@ -77,7 +80,13 @@
 </template>
 <script setup>
 import { useDisplay } from "vuetify"
+import { vIntersectionObserver } from "@vueuse/components"
 const { mdAndUp } = useDisplay()
+
+const active = ref(null)
+const onIntersectionObserver = ([{ isIntersecting }]) => {
+  active.value = isIntersecting
+}
 </script>
 
 <style lang="scss" scoped></style>

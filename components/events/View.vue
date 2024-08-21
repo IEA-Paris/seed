@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col cols="12" lg="3" md="3" v-if="mdAndUp">
-      <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
+      <MiscAtomsImageContainer :src="item.image" :ratio="1 / 1" />
     </v-col>
 
     <v-col
@@ -147,7 +147,7 @@
     <v-col class="d-flex flex-row" cols="12" v-if="sm">
       <v-row class="ml-sm-1">
         <v-col cols="6">
-          <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
+          <MiscAtomsImageContainer :src="item.image" :ratio="1 / 1" />
         </v-col>
         <v-col cols="6">
           <v-skeleton-loader
@@ -160,7 +160,7 @@
     </v-col>
 
     <v-col class="ml-2" cols="12" v-if="xs">
-      <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
+      <MiscAtomsImageContainer :src="item.image" :ratio="1 / 1" />
     </v-col>
 
     <v-col class="ml-2" cols="12" v-if="xs">

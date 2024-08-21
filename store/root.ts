@@ -35,7 +35,7 @@ const initStore = async () => {
 export const useRootStore = defineStore("rootStore", {
   state: (): Record<string, boolean | number | string | ModuleType> => ({
     scrolled: process.browser ? window.scrollY > 0 : false,
-    loading: true,
+    loading: false,
     resetFilters: false,
     total: 0,
     skip: 0,
@@ -362,7 +362,7 @@ export const useRootStore = defineStore("rootStore", {
       this.update(type)
     },
     async update(type: string, lang: string = "en") {
-      console.log("type: ", type + "/" + lang)
+      /*      console.log("type: ", type + "/" + lang) */
       const target = type + "/" + lang + "/"
       this.setLoading(true)
 
@@ -438,11 +438,11 @@ export const useRootStore = defineStore("rootStore", {
       } else {
         pipeline.$or = pipeline.$or.flat()
       }
-      console.log("pipeline: ", pipeline)
-
+      /*  console.log("pipeline: ", pipeline)
+       */
       const count = await queryContent(target).where(pipeline).count()
       const totalItems = count
-      console.log("totalItems: ", totalItems)
+      /*   console.log("totalItems: ", totalItems) */
 
       const itemsPerPageValue = (this[type] as ModuleType).list
         ?.itemsPerPage as number
@@ -472,7 +472,7 @@ export const useRootStore = defineStore("rootStore", {
       const sortDesc = (this[type] as ModuleType).list.sortDesc
       const sortDescItem = (sortDesc as number[])[0]
       const sortArray = [sortByItem, sortDescItem]
-      console.log("type1: ", type)
+      /*       console.log("type1: ", type)
       console.log("pipeline: ", pipeline)
       console.log("queryContent: ", queryContent)
       console.log("target: ", target)
@@ -480,7 +480,7 @@ export const useRootStore = defineStore("rootStore", {
         [sortArray[0]]: sortArray[1],
       })
       console.log("skipNumber(): ", skipNumber())
-      console.log("itemsPerPage: ", itemsPerPage)
+      console.log("itemsPerPage: ", itemsPerPage) */
 
       const { data: items } = await useAsyncData("items", () =>
         queryContent(target)
@@ -491,7 +491,6 @@ export const useRootStore = defineStore("rootStore", {
           .limit(itemsPerPage)
           .find()
       )
-      console.log("query done")
       const viewsObj = (this[type] as ModuleType).list.views as Record<
         string,
         Views
@@ -506,8 +505,6 @@ export const useRootStore = defineStore("rootStore", {
         (item) => sortObj[item].default === true
       )
       const defaultSort = sortObj[defaultSortKey as string]
-
-      console.log("type b4 route query: ", type)
 
       // update route
       const query: Record<string, any> = {
@@ -536,8 +533,8 @@ export const useRootStore = defineStore("rootStore", {
       }
       const sortObject = (obj: any) =>
         Object.fromEntries(Object.entries(obj).sort())
-      console.log("type b4 sort obj: ", type)
-      console.log("query: ", query)
+      /*       console.log("type b4 sort obj: ", type)
+      console.log("query: ", query) */
 
       Object.keys(query).forEach((key) =>
         query[key] === undefined
@@ -562,7 +559,7 @@ export const useRootStore = defineStore("rootStore", {
 
       this.setFiltersCount(type)
       this.setBlankFilterLoad(type)
-      console.log("type2: ", type)
+      /*       console.log("type2: ", type) */
       ;(this[type] as ModuleType).list.items = items as any
       this.total = totalItems
       this.numberOfPages = lastPage

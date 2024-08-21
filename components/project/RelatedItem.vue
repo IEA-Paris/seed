@@ -2,7 +2,7 @@
   <v-row class="cursor-pointer" v-ripple>
     <v-col cols="3" v-if="lgAndUp">
       <MiscAtomsImageContainer
-        :image="item.image"
+        :src="item.image"
         :ratio="1 / 1"
         :link="item.title"
         :slug="item.title"

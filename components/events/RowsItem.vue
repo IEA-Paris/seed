@@ -154,7 +154,7 @@
             })
           "
         >
-          <MiscAtomsImageContainer :image="item.image" :ratio="1 / 1" />
+          <MiscAtomsImageContainer :src="item.image" :ratio="1 / 1" />
         </nuxt-link>
       </template>
     </v-col>
