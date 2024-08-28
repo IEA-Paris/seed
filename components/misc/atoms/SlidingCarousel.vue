@@ -38,7 +38,6 @@
             </v-col>
           </v-row>
         </v-container>
-
         <v-slide-group
           v-model="model"
           :center-active="true"
@@ -64,6 +63,7 @@
     </v-row>
   </v-container>
 </template>
+
 <script setup>
 import { capitalize } from "~/composables/useUtils"
 const { $i18n } = useNuxtApp()

@@ -149,7 +149,7 @@ onMounted(async () => {
 })
 
 useFetch(async () => {
-  //console.log("$i18n.locale.value: ", $i18n.locale.value)
+  // console.log("$i18n.locale.value: ", $i18n.locale.value)
   await rootStore.update(props.type, $i18n.locale.value)
 })
 </script>
