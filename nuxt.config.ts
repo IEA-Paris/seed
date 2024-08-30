@@ -1,4 +1,4 @@
-import config from "./static.config"
+import config from "./static.config";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   sourcemap: {
@@ -212,4 +212,4 @@ export default defineNuxtConfig({
   experimental: {
     asyncContext: true,
   },
-})
+});

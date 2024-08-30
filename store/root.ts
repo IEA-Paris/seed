@@ -6,7 +6,7 @@ import config from "~/static.config";
 import { defineStore } from "pinia";
 
 import { Views, ModuleType } from "@paris-ias/data";
-import { modulesState } from "./createModules";
+// import { modulesState } from "./createModules";
 interface InputParams {
   key?: any | string;
   level?: string[] | number[] | number | any;
@@ -15,6 +15,10 @@ interface InputParams {
   defaults?: any | null;
   value?: any;
 }
+
+const { modulesState } = await $fetch("/api/resolve-path");
+
+console.log("modulesState", modulesState);
 
 export const useRootStore = defineStore("rootStore", {
   state: (): Record<string, boolean | number | string | ModuleType> => ({
