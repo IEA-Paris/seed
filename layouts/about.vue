@@ -18,7 +18,7 @@
           <v-divider></v-divider>
         </v-container>
       </div>
-      <v-container fluid>
+      <v-container fluid class="pa-0">
         <slot /> <NavigationFooter isSnapScroll
       /></v-container>
     </v-main>

@@ -6,7 +6,7 @@
         :src="item.image"
         :ratio="1 / 1"
         link="news-slug"
-        :slug="item._path.split('/').pop()"
+        :slug="item._path && item._path.split('/').pop()"
       />
     </v-col>
     <v-col cols="12" md="8" lg="4" class="pl-md-6">

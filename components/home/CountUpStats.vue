@@ -12,7 +12,7 @@
       v-motion-slide-visible-once-bottom
     >
       <div class="text-overline">{{ $t("people") }}</div>
-      <div class="text-h1 my-3">
+      <div class="text-h3 text-md-h1 my-3">
         <MiscAtomsCountUp
           key="active"
           v-intersection-observer="onIntersectionObserver"
@@ -37,7 +37,7 @@
       v-motion-slide-visible-once-bottom
     >
       <div class="text-overline">{{ $t("events.key") }}</div>
-      <div class="text-h1 my-3">
+      <div class="text-h3 text-md-h1 my-3">
         <MiscAtomsCountUp
           key="active"
           :startAmount="0"
@@ -59,7 +59,7 @@
       v-motion-slide-visible-once-bottom
     >
       <div class="text-overline">{{ $t("fellowships") }}</div>
-      <div class="text-h1 my-3">
+      <div class="text-h3 text-md-h1 my-3">
         <MiscAtomsCountUp
           key="active"
           lazy
