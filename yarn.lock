@@ -2993,12 +2993,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@paris-ias/data@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "@paris-ias/data@npm:1.1.3"
+"@paris-ias/data@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "@paris-ias/data@npm:1.1.4"
   dependencies:
     ts-node: "npm:^10.9.2"
-  checksum: 10c0/ba2711e1948dde8ddf1a65dca5795de3cef0b1e5a92b617da44bee43557eeb51695b27afa08ca809fcd0bd215264019dc189ed722cd7933a69f96049ef39ed48
+  checksum: 10c0/49e182885fa683516b3bc50f8b127cbc3893033ec672107aad4152dbfafca8e9fff7789f3f2729bb218344245a957056ec47892290092d5c6102cca2d5437380
   languageName: node
   linkType: hard
 
@@ -11534,7 +11534,7 @@ __metadata:
     "@nuxtjs/html-validator": "npm:^1.8.2"
     "@nuxtjs/i18n": "npm:^8.3.1"
     "@nuxtjs/robots": "npm:^3.0.0"
-    "@paris-ias/data": "npm:^1.1.3"
+    "@paris-ias/data": "npm:^1.1.4"
     "@pinia/nuxt": "npm:^0.4.6"
     "@vite-pwa/nuxt": "npm:^0.8.1"
     "@vue/test-utils": "npm:^2.4.6"

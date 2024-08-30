@@ -5,8 +5,15 @@ import lists from '~/assets/data/lists' */
 import config from "~/static.config";
 import { defineStore } from "pinia";
 
-import { Views, ModuleType } from "@paris-ias/data";
-// import { modulesState } from "./createModules";
+import {
+  Views,
+  ModuleType,
+  events,
+  news,
+  people,
+  project,
+} from "@paris-ias/data";
+
 interface InputParams {
   key?: any | string;
   level?: string[] | number[] | number | any;
@@ -15,10 +22,6 @@ interface InputParams {
   defaults?: any | null;
   value?: any;
 }
-
-const { modulesState } = await $fetch("/api/resolve-path");
-
-console.log("modulesState", modulesState);
 
 export const useRootStore = defineStore("rootStore", {
   state: (): Record<string, boolean | number | string | ModuleType> => ({
@@ -30,7 +33,10 @@ export const useRootStore = defineStore("rootStore", {
     numberOfPages: 0,
     search: "",
     page: 1,
-    ...modulesState,
+    events,
+    news,
+    people,
+    project,
   }),
 
   actions: {
