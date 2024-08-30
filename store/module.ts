@@ -129,6 +129,7 @@ const createModule = async (type: string): Promise<ModuleType> => {
       if (!schema) return {}
       let form: { [key: string]: any } = {}
       for await (const key of Object.keys(schema)) {
+        console.log("[key]: ", key)
         switch (schema[key]?.type) {
           // document picker
           case 4:

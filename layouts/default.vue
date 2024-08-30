@@ -3,7 +3,7 @@
     <NavigationTopBar />
     <v-main>
       <v-container v-if="crumbs && crumbs.length">
-        <v-breadcrumbs :items="crumbs" class="pl-0" link>
+        <!--         <v-breadcrumbs :items="crumbs" class="pl-0" link>
           <template v-slot:prepend>
             <v-btn to="/" size="small" variant="text" icon="mdi-home"></v-btn>
             /
@@ -12,7 +12,7 @@
           <template v-slot:title="{ item }">
             {{ $t(item.title).toUpperCase() }}
           </template>
-        </v-breadcrumbs>
+        </v-breadcrumbs> -->
         <v-btn
           x-large
           :height="mdAndUp ? '56' : '40'"
@@ -57,8 +57,9 @@ const isSnapRoutes = () => {
 }
 console.log("route: ", route.name)
 const crumbs = computed(() => {
+  console.log("route.path: ", route.path)
   return route.path
-    .split("/")
+  /*  .split("/")
     .filter((item) => item && !ignoredRoutes.includes(item))
     .map((item, index) => {
       return {
@@ -75,7 +76,7 @@ const crumbs = computed(() => {
         disabled: false,
         exact: true,
       }
-    })
+    }) */
 })
 </script>
 <style lang="scss" scoped>

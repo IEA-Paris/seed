@@ -80,29 +80,29 @@
           <div class="d-flex align-center justify-center flex-column">
             <h3>{{ $t("our-members") }}</h3>
           </div>
-          <HomeLogoGallery :items="logos"></HomeLogoGallery
+          <HomeLogoGallery
+            :items="logos"
+            class="logo-container"
+          ></HomeLogoGallery
         ></v-col>
       </v-row>
     </v-container>
   </section>
 
   <section>
-    {{ name }}
-    <v-container
-      class="d-flex flex-xxl-row flex-xl-row flex-lg-row flex-md-row flex-sm-column flex-column align-sm-start"
-    >
+    <v-container class="d-flex flex-md-row flex-column align-sm-start">
       <div>
         <v-sheet
           class="d-flex flex-md-column flex-sm-row flex-row"
           variant="text"
         >
           <div
-            class="card-title align-self-lg-end align-self-md-end align-self-sm-start align-self-start mr-2 mr-sm-2 mr-md-0"
+            class="card-title align-self-md-end align-self-start mr-2 mr-sm-2 mr-md-0"
           >
             30
           </div>
           <div
-            class="card-title-subtitle align-self-sm-center align-self-center"
+            class="card-title-subtitle align-self-center"
             :class="mdAndUp ? 'text-right' : 'text-left'"
           >
             Apr <br />
@@ -128,24 +128,24 @@
 </template>
 
 <script lang="ts" setup>
-import { useDisplay } from "vuetify";
-definePageMeta({ layout: "about" });
-const { smAndUp, name, mdAndUp } = useDisplay();
-const localePath = useLocalePath();
-const { $i18n } = useNuxtApp();
+import { useDisplay } from "vuetify"
+definePageMeta({ layout: "about" })
+const { smAndUp, name, mdAndUp } = useDisplay()
+const localePath = useLocalePath()
+const { $i18n } = useNuxtApp()
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + $i18n.locale.value)
     .limit(1)
     .find()
-);
+)
 
 const { data: logosData } = await useAsyncData("logos", () =>
   queryContent("/logos/" + $i18n.locale.value)
     .only(["picture", "title", "url"])
     .find()
-);
+)
 
-const logos = !logosData || !logosData.value ? undefined : logosData.value;
+const logos = !logosData || !logosData.value ? undefined : logosData.value
 </script>
 
 <style lang="scss" scoped>
@@ -153,7 +153,9 @@ const logos = !logosData || !logosData.value ? undefined : logosData.value;
   width: 10px;
   height: 10px;
 }
-
+.logo-container {
+  max-height: 400px;
+}
 // event component
 .fill-image {
   width: 100%;

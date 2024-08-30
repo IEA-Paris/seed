@@ -213,7 +213,7 @@ const rules = [
 </script>
 <style lang="scss">
 .v-footer.fill-height {
-  height: 100vh;
+  height: calc(100vh - 64px);
   /* scroll-snap-stop: normal; */
 }
 </style>
