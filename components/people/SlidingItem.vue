@@ -2,11 +2,15 @@
   <v-card
     flat
     class="pa-6"
-    :to="localePath('/people/' + item.slug)"
+    :to="localePath('/people/' + slugify(item.firstname + ' ' + item.lastname))"
     v-motion-fade-visible
   >
-    <v-img :aspectRatio="1 / 1" :src="item.picture" cover width="240px">
-    </v-img>
+    <MiscAtomsImageContainer
+      :src="item.image"
+      :ratio="1 / 1"
+      :link="item.firstname + ' ' + item.lastname"
+      name="people-slug"
+    />
     <v-card-title class="mt-3 pl-0 text-left">{{
       item.firstname + " " + item.lastname
     }}</v-card-title>
@@ -21,9 +25,10 @@
 <script setup>
 // import { useDisplay } from "vuetify"
 // const { smAndUp } = useDisplay()
-const localePath = useLocalePath()
+
+const localePath = useLocalePath();
 const props = defineProps({
   item: Object,
-})
+});
 </script>
 <style lang="scss"></style>

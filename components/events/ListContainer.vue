@@ -29,16 +29,16 @@
   </v-sheet>
 </template>
 <script setup>
-import { useDisplay } from "vuetify"
-const { smAndUp, xsOnly } = useDisplay()
-import slugify from "~/assets/utils/slugify"
-const { $i18n } = useNuxtApp()
+import { useDisplay } from "vuetify";
+const { smAndUp, xsOnly } = useDisplay();
+
+const { $i18n } = useNuxtApp();
 const props = defineProps({
   events: {
     type: Array,
     required: true,
   },
-})
+});
 // import { useDisplay } from "vuetify"
 // const { smAndUp } = useDisplay()
 // const localePath = useLocalePath()

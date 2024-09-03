@@ -58,7 +58,7 @@
     </v-container>
   </section>
   <section>
-    <MiscAtomsSlidingCarousel type="events">
+    <MiscAtomsSlidingCarousel type="events" key="events">
       {{ $t("upcoming-events") }}
     </MiscAtomsSlidingCarousel>
   </section>
@@ -73,48 +73,48 @@
     </v-container>
   </section>
   <section>
-    <MiscAtomsSlidingCarousel type="people">
+    <MiscAtomsSlidingCarousel type="people" key="people">
       {{ $t("discover-our-0-fellows", ["2023-2024"]) }}
     </MiscAtomsSlidingCarousel>
   </section>
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify"
-import { debounce } from "~/composables/debounce"
+import { useDisplay } from "vuetify";
+import { debounce } from "~/composables/debounce";
 definePageMeta({
   layout: "about",
-})
-const router = useRouter()
-const { smAndUp, mdAndUp } = useDisplay()
-const localePath = useLocalePath()
+});
+const router = useRouter();
+const { smAndUp, mdAndUp } = useDisplay();
+const localePath = useLocalePath();
 /* const goTo = useGoTo() */
 
-const config = useAppConfig()
-const { locale } = useI18n()
+const config = useAppConfig();
+const { locale } = useI18n();
 
-const { $i18n } = useNuxtApp()
+const { $i18n } = useNuxtApp();
 const { data: featured } = await useAsyncData("featured-list", () =>
-  queryContent("/carousel/" + $i18n.locale.value).find()
-)
+  queryContent("/carousel/" + $i18n.locale.value).find(),
+);
 const { data: events } = await useAsyncData("event-list", () =>
   queryContent("/event/" + $i18n.locale.value)
     .sort({ date: 1 })
-    .find()
-)
+    .find(),
+);
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + $i18n.locale.value)
     .limit(1)
-    .find()
-)
+    .find(),
+);
 const { data: fellows } = await useAsyncData("fellows", () =>
-  queryContent("/fellows/" + $i18n.locale.value).find()
-)
+  queryContent("/fellows/" + $i18n.locale.value).find(),
+);
 const { data: presentation } = await useAsyncData("presentation", () =>
   queryContent("/pages/" + $i18n.locale.value + "/institute_presentation")
     .limit(1)
-    .find()
-)
+    .find(),
+);
 </script>
 <style lang="scss">
 .presentation-pitch p {

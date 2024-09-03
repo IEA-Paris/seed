@@ -35,12 +35,11 @@
 </template>
 
 <script setup>
-import slugify from "~/assets/utils/slugify"
-const localePath = useLocalePath()
-import { useDisplay } from "vuetify"
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
-const { name, mdAndDown, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
+const localePath = useLocalePath();
+import { useDisplay } from "vuetify";
+import { useRootStore } from "~/store/root";
+const rootStore = useRootStore();
+const { name, mdAndDown, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay();
 
-const props = defineProps({ item: { type: Object, required: true } })
+const props = defineProps({ item: { type: Object, required: true } });
 </script>

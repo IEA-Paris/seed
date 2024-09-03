@@ -208,8 +208,5 @@ export default defineNuxtConfig({
     enabled: false,
   },
 
-  compatibilityDate: "2024-07-03",
-  experimental: {
-    asyncContext: true,
-  },
+  compatibilityDate: "2024-09-03",
 });

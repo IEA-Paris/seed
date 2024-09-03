@@ -46,12 +46,15 @@
           ref="slideGroup"
           mobile-breakpoint="sm"
         >
+          <template v-if="rootStore.loading"> LOADING </template>
           <v-slide-group-item
+            v-else
             v-for="(item, index) in rootStore[props.type].list.items"
             :key="n"
             v-slot="{ isSelected, toggle, selectedClass }"
           >
             <component
+              :key="index + props.type"
               :is="capitalize(props.type) + 'SlidingItem'"
               :index="index"
               :item="item"
@@ -81,11 +84,13 @@ const props = defineProps({
 });
 
 onMounted(async () => {
+  console.log("props.type: ", props.type);
   await rootStore.update(props.type, $i18n.locale.value);
 });
 
-useFetch(async () => {
-  await rootStore.update(props.type, $i18n.locale.value);
+await callOnce(async () => {
+  console.log("props.type: ", props.type);
+  return await rootStore.update(props.type, $i18n.locale.value);
 });
 const computedWidth = computed(() => {
   return ["200", "250", "300", "330", "400", "400"][

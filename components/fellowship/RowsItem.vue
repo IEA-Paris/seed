@@ -70,17 +70,16 @@
   <v-divider></v-divider>
 </template>
 <script setup lang="ts">
-import slugify from "~/assets/utils/slugify"
-const { $i18n } = useNuxtApp()
+const { $i18n } = useNuxtApp();
 
-import { useDisplay } from "vuetify"
-const { smAndUp, mdAndUp, name } = useDisplay()
-const localePath = useLocalePath()
+import { useDisplay } from "vuetify";
+const { smAndUp, mdAndUp, name } = useDisplay();
+const localePath = useLocalePath();
 const props = defineProps({
   item: {
     type: Object,
     required: true,
   },
-})
+});
 </script>
 <style lang="scss"></style>

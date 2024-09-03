@@ -5,8 +5,16 @@ import lists from '~/assets/data/lists' */
 import config from "~/static.config";
 import { defineStore } from "pinia";
 
-import { Views, ModuleType } from "@paris-ias/data";
-// import { modulesState } from "./createModules";
+import {
+  Views,
+  ModuleType,
+  events,
+  news,
+  people,
+  project,
+  fellowship,
+} from "@paris-ias/data";
+
 interface InputParams {
   key?: any | string;
   level?: string[] | number[] | number | any;
@@ -15,10 +23,6 @@ interface InputParams {
   defaults?: any | null;
   value?: any;
 }
-
-const { modulesState } = await $fetch("/api/resolve-path");
-
-console.log("modulesState", modulesState);
 
 export const useRootStore = defineStore("rootStore", {
   state: (): Record<string, boolean | number | string | ModuleType> => ({
@@ -30,7 +34,11 @@ export const useRootStore = defineStore("rootStore", {
     numberOfPages: 0,
     search: "",
     page: 1,
-    ...modulesState,
+    events,
+    news,
+    people,
+    project,
+    fellowship,
   }),
 
   actions: {
@@ -350,7 +358,7 @@ export const useRootStore = defineStore("rootStore", {
       this.update(type);
     },
     async update(type: string, lang: string = "en") {
-      /*      console.log("type: ", type + "/" + lang) */
+      console.log("type: ", type + "/" + lang);
       const target = type + "/" + lang + "/";
       this.setLoading(true);
 
@@ -469,16 +477,16 @@ export const useRootStore = defineStore("rootStore", {
       })
       console.log("skipNumber(): ", skipNumber())
       console.log("itemsPerPage: ", itemsPerPage) */
+      console.log("target: ", target);
 
-      const { data: items } = await useAsyncData("items", () =>
-        queryContent(target)
-          /*  .where(pipeline) */
-          .sort({ [sortArray[0]]: sortArray[1] })
-          /*  .sort({ [sortArray[2]]: sortArray[3] }) */
-          .skip(skipNumber())
-          .limit(itemsPerPage)
-          .find(),
-      );
+      const items = await queryContent(target)
+        /*  .where(pipeline) */
+        .sort({ [sortArray[0]]: sortArray[1] })
+        /*  .sort({ [sortArray[2]]: sortArray[3] }) */
+        .skip(skipNumber())
+        .limit(itemsPerPage)
+        .find();
+      /*       console.log("items: ", items); */
       const viewsObj = (this[type] as ModuleType).list.views as Record<
         string,
         Views
