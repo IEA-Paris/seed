@@ -65,31 +65,31 @@
 </template>
 
 <script setup>
-import { capitalize } from "~/composables/useUtils"
-const { $i18n } = useNuxtApp()
-import { useDisplay } from "vuetify"
-const { name, mdAndUp } = useDisplay()
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
-const model = ref(0)
-const slideGroup = ref()
+import { capitalize } from "~/composables/useUtils";
+const { $i18n } = useNuxtApp();
+import { useDisplay } from "vuetify";
+const { name, mdAndUp } = useDisplay();
+import { useRootStore } from "~/store/root";
+const rootStore = useRootStore();
+const model = ref(0);
+const slideGroup = ref();
 const props = defineProps({
   type: {
     type: String,
     required: true,
   },
-})
+});
 
 onMounted(async () => {
-  await rootStore.update(props.type, $i18n.locale.value)
-})
+  await rootStore.update(props.type, $i18n.locale.value);
+});
 
 useFetch(async () => {
-  await rootStore.update(props.type, $i18n.locale.value)
-})
+  await rootStore.update(props.type, $i18n.locale.value);
+});
 const computedWidth = computed(() => {
   return ["200", "250", "300", "330", "400", "400"][
     ["xs", "sm", "md", "lg", "xl", "xxl"].indexOf(name.value || "md")
-  ]
-})
+  ];
+});
 </script>
