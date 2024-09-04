@@ -34,7 +34,7 @@ const { name } = useDisplay();
 
 const props = defineProps({
   socials: {
-    type: Array,
+    type: Object,
     required: true,
   },
   location: {
