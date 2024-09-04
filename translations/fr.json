@@ -33,7 +33,8 @@
     "invalid-url": "URL invalide",
     "max-0-characters": "{0} caractères maximum",
     "numbers-and-special-characters-not-allowed": "Les chiffres et caractères spéciaux ne sont pas autorisés",
-    "required": "Requis"
+    "required": "Requis",
+    "only-digits-allowed": "Chiffres uniquement"
   },
   "resources": "Ressources",
   "sab": "Conseil scientifique",
@@ -85,7 +86,8 @@
       "Conference",
       "Colloquium",
       "Fellow's presentation"
-    ]
+    ],
+    "register-me": "Registre"
   },
   "live-stream-available": "Diffusion en direct disponible",
   "date-et-heure": "Date et Heure",
@@ -96,12 +98,11 @@
   "programme": "Programme",
   "programme-pdf": "Le programme (PDF)",
   "resumes-des-presentations": "Resumés des présentations",
-  "get-in-touch-on-linkedin": "Contactez-nous sur LinkedIn",
-  "visit-the-author-google-scholar-page": "Visitez la page Google Scholar de l'auteur",
-  "visit-the-author-orcid-page": "Visitez la page de l'auteur Orcid",
-  "check-the-wikipedia-page-of-the-author": "Consultez la page wikipedia de l'auteur",
+  "get-in-touch-on-linkedin": "Prenez contact sur LinkedIn",
+  "visit-the-author-google-scholar-page": "Visitez la page Google Scholar de cette personne",
+  "visit-the-author-orcid-page": "Voir le profil Orcid",
+  "check-the-wikipedia-page-of-the-author": "Consultez la page wikipedia",
   "positions-and-affiliations": "Positions et Affiliations",
-
   "groups": {
     "team": "équipe",
     "sab": "sab",
@@ -109,5 +110,59 @@
     "fellow": "fellow",
     "sponsor": "sponsor",
     "vintage": "vintage"
+  },
+  "0-1-found-page-2-of-3": "Aucun {1} trouvé. \nPage {2} sur {3} | {0} {1} trouvé. \nPage {2} sur {3} | {0} {1} trouvés. \nPage {2} sur {3} ",
+  "biography": "Biographie",
+  "by-author": "Avant {0}",
+  "details-0": "Détails",
+  "document": "Documents",
+  "from {0} to {1}": "de {0} à {1}",
+  "invalid-color-code": "code couleur invalide",
+  "invalid-ror-code": "Syntaxe d'identifiant ROR invalide",
+  "items": {
+    "events": "événement | \névénement | \névénements",
+    "fellow": "camarade | \ncamarade | \nles gars",
+    "fellowship": "bourse | \nbourse | \nbourses",
+    "news": "nouvelles | \nnouvelles | \nnouvelles",
+    "people": "personne | \npersonne | \npersonnes",
+    "project": "projet | \nprojet | \nprojets"
+  },
+  "list": {
+    "by-date-most-recent-first": "Dernier",
+    "by-date-oldest-first": "Le plus ancien",
+    "by-name-from-a-to-z": "Par nom, de A à Z",
+    "by-name-from-z-to-a": "Par nom, de Z à A",
+    "list": "Liste",
+    "pls-x-more": "{0} plus",
+    "rows": "Lignes",
+    "search-type": "Rechercher {0}",
+    "sort-mode": "Mode de tri :",
+    "tiles": "Carrelage",
+    "view-issues": "Par problème",
+    "view-list": "Liste",
+    "view-mode": "Mode d'affichage :",
+    "view-text": "Texte",
+    "view-tiles": "Matelassé"
+  },
+  "plus-de-details": "Plus de détails",
+  "presentation-0": "présentation",
+  "presentation-1": "présentation",
+  "read-more": "En savoir plus",
+  "related": {
+    "events": "Événements liés",
+    "news": "Actualités connexes",
+    "project": "Projets associés"
+  },
+  "socials": {
+    "facebook": "Visitez notre page Facebook",
+    "github": "Visitez nos dépôts Github",
+    "instagram": "Suivez-nous sur Instagram",
+    "linkedin": "Contactez-nous sur linkedin",
+    "orcid": "Visitez la page de l'auteur Orcid",
+    "rss": "RSS",
+    "scholar": "Visitez la page Google Scholar de l'auteur",
+    "twitter": "Suivez-nous sur Twitter",
+    "wikipedia": "Consultez la page wikipedia de l'auteur",
+    "youtube": "Consultez notre chaîne Youtube"
   }
 }

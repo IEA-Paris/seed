@@ -44,7 +44,7 @@
             </div>
 
             <!-- SOCIALS -->
-            <PeopleIconBadge :socials="item.socials" />
+            <MiscAtomsSocials :socials="item.socials" />
 
             <!-- GROUPS -->
             <div class="mt-6 align-self-center">
@@ -168,9 +168,9 @@
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify"
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
-const { name, mdAndUp } = useDisplay()
-const props = defineProps({ item: { type: Object, required: true } })
+import { useDisplay } from "vuetify";
+import { useRootStore } from "~/store/root";
+const rootStore = useRootStore();
+const { name, mdAndUp } = useDisplay();
+const props = defineProps({ item: { type: Object, required: true } });
 </script>

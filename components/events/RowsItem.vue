@@ -144,28 +144,23 @@
         class="d-flex align-start px-4"
       >
       </v-skeleton-loader>
-
-      <template v-else>
-        <nuxt-link
-          :to="
-            localePath({
-              name: 'activities-events-slug',
-              params: { slug: item._path.split('/').pop() },
-            })
-          "
-        >
-          <MiscAtomsImageContainer :src="item.image" :ratio="1 / 1" />
-        </nuxt-link>
-      </template>
+      <MiscAtomsImageContainer
+        v-else
+        :link="item.title"
+        :slug="getSlugFromPath(item._path)"
+        name="activities-events-slug"
+        :src="item.image"
+        :ratio="1 / 1"
+      />
     </v-col>
   </v-row>
 </template>
 <script setup>
-import { useDisplay } from "vuetify"
-import { useRootStore } from "~/store/root"
-const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay()
-const localePath = useLocalePath()
-const rootStore = useRootStore()
+import { useDisplay } from "vuetify";
+import { useRootStore } from "~/store/root";
+const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay();
+const localePath = useLocalePath();
+const rootStore = useRootStore();
 const props = defineProps({
   item: {
     type: Object,
@@ -175,5 +170,5 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-})
+});
 </script>

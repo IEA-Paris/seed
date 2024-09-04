@@ -4,7 +4,7 @@
       :ratio="1"
       :src="item.image"
       link="activities-events-slug"
-      :slug="item.name"
+      :slug="getSlugFromPath(item._path)"
     >
     </MiscAtomsImageContainer>
     <div class="mt-6 pl-0 text-h5 font-weight-medium">

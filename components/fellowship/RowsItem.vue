@@ -8,7 +8,10 @@
         <v-col cols="12" sm="10" lg="9">
           <v-row no-gutters>
             <v-col cols="12" :order="smAndUp ? 'first' : 'last'"
-              ><a class="text-h6 text-black" :href="localePath(item._path)">
+              ><a
+                class="text-h6 text-black"
+                :href="localePath(getSlugFromPath(item._path))"
+              >
                 {{ item.title }}
               </a></v-col
             >
@@ -25,9 +28,12 @@
                 </template>
                 {{ $t("registration-open") }}
               </v-chip>
-              <v-btn nuxt :to="localePath(item.link)" class="justify-right">{{
-                $t("more-info")
-              }}</v-btn>
+              <v-btn
+                nuxt
+                :to="localePath(getSlugFromPath(item._path))"
+                class="justify-right"
+                >{{ $t("more-info") }}</v-btn
+              >
             </v-col>
           </v-row>
         </v-col>

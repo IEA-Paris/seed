@@ -358,7 +358,7 @@ export const useRootStore = defineStore("rootStore", {
       this.update(type);
     },
     async update(type: string, lang: string = "en") {
-      console.log("type: ", type + "/" + lang);
+      /*   console.log("type: ", type + "/" + lang); */
       const target = type + "/" + lang + "/";
       this.setLoading(true);
 

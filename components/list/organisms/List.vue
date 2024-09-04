@@ -1,6 +1,6 @@
 <template>
   <ListMoleculesHeader :type="type"></ListMoleculesHeader>
-  <component :is="'ListViews' + view">
+  <component :is="view">
     <component
       v-for="(item, index) in items"
       :item="item"
@@ -77,7 +77,9 @@ const props = defineProps({
 
 const show = ref(true);
 const view = computed(() =>
-  resolveComponent(capitalize(rootStore[props.type].list.view.name)),
+  resolveComponent(
+    "ListViews" + capitalize(rootStore[props.type].list.view.name),
+  ),
 );
 const itemTemplate = computed(() =>
   resolveComponent(

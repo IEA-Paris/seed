@@ -98,9 +98,30 @@ export default defineNuxtConfig({
   },
 
   content: {
+    documentDriven: false,
     // https://content.nuxtjs.org/api/configuration
     experimental: {
       clientDB: true,
+    },
+
+    markdown: {
+      toc: { depth: 2, searchDepth: 2 },
+      rehypePlugins: [
+        /* "rehype-figure" */
+      ],
+      // Object syntax can be used to override default options
+      remarkPlugins: {
+        // Override remark-emoji options
+        /*   "remark-emoji": {
+          emoticon: true,
+        }, */
+        // Disable remark-gfm
+        /*   "remark-gfm": false,
+        // Add remark-oembed
+        "remark-oembed": {
+          // Options
+        }, */
+      },
     },
   },
 

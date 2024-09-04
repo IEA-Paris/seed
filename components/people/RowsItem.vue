@@ -32,7 +32,7 @@
         >
           {{ item.title }}</NuxtLink
         >
-        <PeopleIconBadge :socials="item.socials" class="ml-n3" />
+        <MiscAtomsSocials :socials="item.socials" class="ml-n3" />
         <ContentRenderer
           :value="item"
           class="text-body-1 clamped-text mt-n3"
@@ -48,11 +48,11 @@
   </v-row>
 </template>
 <script setup>
-import { useRootStore } from "~/store/root"
-import { useDisplay } from "vuetify"
-const { name, mdAndUp } = useDisplay()
-const localePath = useLocalePath()
-const rootStore = useRootStore()
+import { useRootStore } from "~/store/root";
+import { useDisplay } from "vuetify";
+const { name, mdAndUp } = useDisplay();
+const localePath = useLocalePath();
+const rootStore = useRootStore();
 const props = defineProps({
   item: {
     type: Object,
@@ -62,5 +62,5 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-})
+});
 </script>

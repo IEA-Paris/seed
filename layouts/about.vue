@@ -26,9 +26,9 @@
 </template>
 
 <script setup>
-const ignoredRoutes = ["fr", "about", "activities"]
-const route = useRoute()
-console.log("route: ", route.name)
+const ignoredRoutes = ["fr", "about", "activities"];
+const route = useRoute();
+console.log("route: ", route.name);
 const crumbs = computed(() => {
   return route.path
     .split("/")
@@ -47,9 +47,9 @@ const crumbs = computed(() => {
         }),
         disabled: false,
         exact: true,
-      }
-    })
-})
+      };
+    });
+});
 </script>
 <style lang="scss">
 // .myapp {

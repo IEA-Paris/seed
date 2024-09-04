@@ -1,8 +1,8 @@
 <template>
   <v-row no-gutters>
     <v-col cols="12">
-      <v-btn
-        v-if="addBtn"
+      <!--    <v-btn
+        v-if="rootStore.addBtn"
         x-large
         :height="mdAndUp ? '56' : '40'"
         outlined
@@ -12,7 +12,7 @@
       >
         <v-icon left>mdi-plus</v-icon>
         {{ $t("new-x", { item: $tc("x-" + type, 1) }) }}
-      </v-btn>
+      </v-btn> -->
       <div class="d-flex">
         <v-spacer></v-spacer>
         <ListMoleculesFilters :type="type" />
@@ -27,12 +27,12 @@
 </template>
 
 <script setup>
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
+import { useRootStore } from "~/store/root";
+const rootStore = useRootStore();
 
-import { useDisplay } from "vuetify"
+import { useDisplay } from "vuetify";
 const { name, mdAndDown, md, xl, lg, smAndDown, mdAndUp, lgAndUp } =
-  useDisplay()
+  useDisplay();
 
 const props = defineProps({
   type: {
@@ -40,7 +40,7 @@ const props = defineProps({
     required: false,
     default: "",
   },
-})
+});
 // const route = useRoute()
-const localePath = useLocalePath()
+const localePath = useLocalePath();
 </script>
