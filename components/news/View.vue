@@ -7,7 +7,7 @@
       class="text-wrap text-h4 text-black mx-sm-6"
     >
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.news.loading"
         :type="['heading', 'heading'][['xs', 'sm'].indexOf(name || 'sm')]"
       ></v-skeleton-loader>
       <template v-else>
@@ -16,19 +16,23 @@
     </v-col>
     <v-col cols="12" md="4" class="pb-0">
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.news.loading"
         height="100%"
         type="image"
       ></v-skeleton-loader>
 
       <div v-else class="mx-sm-6">
-        <MiscAtomsImageContainer :src="item.image" :ratio="1 / 1" />
+        <MiscAtomsImageContainer
+          :loading="rootStore.news.loading"
+          :src="item.image"
+          :ratio="1 / 1"
+        />
       </div>
     </v-col>
 
     <v-col cols="12" md="8" class="pl-0 pb-0">
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.news.loading"
         :type="
           [
             'avatar, paragraph',
@@ -92,7 +96,7 @@
         class="mx-6 my-2"
       ></MiscMoleculesRelatedItems>
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.news.loading"
         :type="
           [
             'image, text@3, ossein, button',
@@ -113,7 +117,7 @@
     </v-col>
     <v-col cols="12" md="8" class="pl-0 pt-0">
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.news.loading"
         :type="
           ['text@50', 'text@50', 'text@50', 'text@50', 'text@50', 'text@50'][
             ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
@@ -128,24 +132,24 @@
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify"
-const { name, mdAndUp, smAndDown } = useDisplay()
-const router = useRouter()
-const { $i18n } = useNuxtApp()
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
+import { useDisplay } from "vuetify";
+const { name, mdAndUp, smAndDown } = useDisplay();
+const router = useRouter();
+const { $i18n } = useNuxtApp();
+import { useRootStore } from "~/store/root";
+const rootStore = useRootStore();
 const props = defineProps({
   item: {
     type: Object,
     required: true,
   },
-})
+});
 
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + $i18n.locale.value)
     .limit(1)
-    .find()
-)
+    .find(),
+);
 </script>
 
 <style scoped>

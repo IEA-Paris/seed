@@ -2411,10 +2411,10 @@
     "@parcel/watcher-win32-ia32" "2.4.1"
     "@parcel/watcher-win32-x64" "2.4.1"
 
-"@paris-ias/data@^1.1.6":
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/@paris-ias/data/-/data-1.1.6.tgz#2028f934352cc81d1fc0d24913639255d89538c1"
-  integrity sha512-0IgXCn+ZRK1U7jG9LQ6povAvB8JkCAuYALPGSKSygOPopgifzX+t2cKKNWUbaiy4mXzpUD5XpD/lcbRIDFn30w==
+"@paris-ias/data@^1.1.7":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/@paris-ias/data/-/data-1.1.7.tgz#4e304a3089d9f01d9fdc213da5391861f0ad1f34"
+  integrity sha512-IDOsYxqvHHyHSb389N7b5SWSqoQUXyiM7XZroLmh5dfvihpGf67crKIZ9lBTpxVGGmfcAbn3eOSfDbp8f3MNuw==
   dependencies:
     ts-node "^10.9.2"
 

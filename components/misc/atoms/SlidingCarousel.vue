@@ -46,11 +46,12 @@
           ref="slideGroup"
           mobile-breakpoint="sm"
         >
-          <template v-if="rootStore.loading"> LOADING </template>
+          <template v-if="rootStore.loading || rootStore[props.type].loading">
+            LOADING
+          </template>
           <v-slide-group-item
             v-else
             v-for="(item, index) in rootStore[props.type].list.items"
-            :key="n"
             v-slot="{ isSelected, toggle, selectedClass }"
           >
             <component
@@ -84,12 +85,10 @@ const props = defineProps({
 });
 
 onMounted(async () => {
-  console.log("props.type: ", props.type);
   await rootStore.update(props.type, $i18n.locale.value);
 });
 
 await callOnce(async () => {
-  console.log("props.type: ", props.type);
   return await rootStore.update(props.type, $i18n.locale.value);
 });
 const computedWidth = computed(() => {

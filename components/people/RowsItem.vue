@@ -2,12 +2,16 @@
   <v-divider v-if="index > 0"></v-divider>
   <v-row class="my-6 ml-md-1 px-3 px-md-0">
     <v-col cols="12" md="3" v-if="mdAndUp">
-      <MiscAtomsImageContainer :src="item.image" :ratio="1 / 1" />
+      <MiscAtomsImageContainer
+        :loading="rootStore.people.loading"
+        :src="item.image"
+        :ratio="1 / 1"
+      />
     </v-col>
 
     <v-col cols="12" md="8">
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.people.loading"
         :type="
           [
             'heading, subtitle, text@5',

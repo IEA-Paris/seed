@@ -5,13 +5,14 @@
       <MiscAtomsImageContainer
         :src="item.image"
         :ratio="1 / 1"
+        :loading="rootStore.news.loading"
         link="news-slug"
         :slug="item._path && item._path.split('/').pop()"
       />
     </v-col>
     <v-col cols="12" md="8" lg="4" class="pl-md-6">
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.news.loading"
         :type="
           [
             'heading, subtitle, text@5, ossein, button',
@@ -69,7 +70,7 @@
 
     <v-col cols="12" lg="5" v-if="lgAndUp">
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.news.loading"
         type="text@8, ossein, button"
       ></v-skeleton-loader>
 
@@ -106,11 +107,11 @@
 </template>
 
 <script setup>
-import { useRootStore } from "~/store/root"
-import { useDisplay } from "vuetify"
-const localePath = useLocalePath()
-const rootStore = useRootStore()
-const { name, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
+import { useRootStore } from "~/store/root";
+import { useDisplay } from "vuetify";
+const localePath = useLocalePath();
+const rootStore = useRootStore();
+const { name, mdAndDown, mdAndUp, lgAndUp } = useDisplay();
 const props = defineProps({
   item: {
     type: Object,
@@ -120,7 +121,7 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-})
+});
 </script>
 
 <style></style>

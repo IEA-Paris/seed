@@ -3,6 +3,7 @@
     <v-col cols="3" v-if="lgAndUp">
       <MiscAtomsImageContainer
         :src="item.image"
+        :loading="rootStore.project.loading"
         :ratio="1 / 1"
         :link="item.title"
         :slug="item.title"
@@ -11,7 +12,7 @@
     </v-col>
     <v-col cols="12" lg="9">
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.project.loading"
         type="heading, text@3"
       ></v-skeleton-loader>
       <template v-else>
@@ -27,10 +28,10 @@
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify"
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
-const { lgAndUp } = useDisplay()
+import { useDisplay } from "vuetify";
+import { useRootStore } from "~/store/root";
+const rootStore = useRootStore();
+const { lgAndUp } = useDisplay();
 
-const props = defineProps({ item: { type: Object, required: true } })
+const props = defineProps({ item: { type: Object, required: true } });
 </script>

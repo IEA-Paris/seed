@@ -11,6 +11,7 @@
       <v-col cols="3" v-if="lgAndUp">
         <MiscAtomsImageContainer
           :src="item.image"
+          :loading="rootStore.news.loading"
           :ratio="1 / 1"
           :link="item.name"
           name="activities-events-slug"
@@ -18,7 +19,7 @@
       </v-col>
       <v-col cols="12" lg="9">
         <v-skeleton-loader
-          v-if="rootStore.loading"
+          v-if="rootStore.loading || rootStore.news.loading"
           type="heading, text@3"
         ></v-skeleton-loader>
         <template v-else>

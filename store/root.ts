@@ -27,7 +27,7 @@ interface InputParams {
 export const useRootStore = defineStore("rootStore", {
   state: (): Record<string, boolean | number | string | ModuleType> => ({
     scrolled: process.browser ? window.scrollY > 0 : false,
-    loading: false,
+    loading: true,
     resetFilters: false,
     total: 0,
     skip: 0,
@@ -361,7 +361,7 @@ export const useRootStore = defineStore("rootStore", {
       /*   console.log("type: ", type + "/" + lang); */
       const target = type + "/" + lang + "/";
       this.setLoading(true);
-
+      (this[type] as ModuleType).loading = true;
       const router = useRouter();
       const filters = (this[type] as ModuleType)?.list?.filters || {};
       const pipeline = {
@@ -560,6 +560,7 @@ export const useRootStore = defineStore("rootStore", {
       this.total = totalItems;
       this.numberOfPages = lastPage;
       this.setLoading(false);
+      (this[type] as ModuleType).loading = false;
     },
   },
 });

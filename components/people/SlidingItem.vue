@@ -6,6 +6,7 @@
     v-motion-fade-visible
   >
     <MiscAtomsImageContainer
+      :loading="rootStore.people.loading"
       :src="item.image"
       :ratio="1 / 1"
       :link="item.firstname + ' ' + item.lastname"
@@ -25,6 +26,8 @@
 <script setup>
 // import { useDisplay } from "vuetify"
 // const { smAndUp } = useDisplay()
+import { useRootStore } from "~/store/root";
+const rootStore = useRootStore();
 
 const localePath = useLocalePath();
 const props = defineProps({

@@ -6,6 +6,7 @@
           <!--   PEOPLE IMAGE -->
           <MiscAtomsImageContainer
             v-if="mdAndUp"
+            :loading="rootStore.people.loading"
             :src="item.image"
             :ratio="1 / 1"
             :width="
@@ -18,7 +19,7 @@
           <!-- FIRSTNAME LASTNAME -->
           <v-skeleton-loader
             class="mx-auto"
-            v-if="rootStore.loading"
+            v-if="rootStore.loading || rootStore.people.loading"
             :max-width="
               ['300', '400', '340', '400', '600', '600'][
                 ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
@@ -68,7 +69,11 @@
       </v-responsive>
 
       <div class="text-overline mt-6">
-        <v-skeleton-loader v-if="rootStore.loading" width="200" type="heading">
+        <v-skeleton-loader
+          v-if="rootStore.loading || rootStore.people.loading"
+          width="200"
+          type="heading"
+        >
         </v-skeleton-loader>
         <div v-else>
           {{ $t("biography") }}
@@ -76,7 +81,7 @@
       </div>
 
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.people.loading"
         :type="
           ['text@16', 'text@16', 'text@16', 'text@12', 'text@12', 'text@12'][
             ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
@@ -96,7 +101,11 @@
 
       <!-- POSITIONS AND AFFILIATIONS -->
       <div class="text-overline mt-6">
-        <v-skeleton-loader v-if="rootStore.loading" width="200" type="heading">
+        <v-skeleton-loader
+          v-if="rootStore.loading || rootStore.people.loading"
+          width="200"
+          type="heading"
+        >
         </v-skeleton-loader>
         <div v-else>
           {{ $t("positions-and-affiliations") }}
@@ -105,7 +114,7 @@
 
       <!-- BIOGRAPHY -->
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.people.loading"
         type="subtitle, text@2"
         width="300"
       >

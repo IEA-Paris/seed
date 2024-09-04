@@ -6,7 +6,7 @@
   - Add conditional overlays slots (top left/right, bottom left/right/center for date, caption, copyright)-->
 
   <v-skeleton-loader
-    v-if="rootStore.loading"
+    v-if="rootStore.loading || loading"
     height="100%"
     type="image"
   ></v-skeleton-loader>
@@ -52,13 +52,17 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  width: { type: Number , default: 0 },
-  ratio: { type:  Number, required: true, default: 1 },
+  loading: {
+    type: Boolean,
+    default: false,
+    required: true,
+  },
+  width: { type: Number, default: 0 },
+  ratio: { type: Number, required: true, default: 1 },
   caption: { type: String, default: "" },
   slug: { type: String, default: "" },
   link: { type: String, default: "" },
 });
-
 const _srcset = computed(() => {
   return img.getSizes(props.src, {
     sizes: "xs:100vw sm:100vw md:100vw lg:100vw xl:100vw",

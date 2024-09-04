@@ -10,6 +10,7 @@
     <v-row>
       <v-col cols="3" v-if="lgAndUp">
         <MiscAtomsImageContainer
+          :loading="rootStore.people.loading"
           :src="item.image"
           :ratio="1 / 1"
           :link="item.firstname + item.lastname"
@@ -18,7 +19,7 @@
       </v-col>
       <v-col cols="12" lg="9">
         <v-skeleton-loader
-          v-if="rootStore.loading"
+          v-if="rootStore.loading || rootStore.people.loading"
           type="heading"
         ></v-skeleton-loader>
         <template v-else>

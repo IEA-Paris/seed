@@ -1,7 +1,11 @@
 <template>
   <v-row>
     <v-col cols="12" lg="3" md="3" v-if="mdAndUp">
-      <MiscAtomsImageContainer :src="item.image" :ratio="1 / 1" />
+      <MiscAtomsImageContainer
+        :src="item.image"
+        :ratio="1 / 1"
+        :loading="rootStore.events.loading"
+      />
     </v-col>
 
     <v-col
@@ -11,7 +15,7 @@
       class="d-flex flex-sm-column flex-md-column justify-md-end flex-wrap"
     >
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.events.loading"
         width="100%"
         :type="
           [
@@ -61,7 +65,7 @@
       v-if="mdAndUp"
     >
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.events.loading"
         height="100%"
         :type="
           [
@@ -147,11 +151,15 @@
     <v-col class="d-flex flex-row" cols="12" v-if="sm">
       <v-row class="ml-sm-1">
         <v-col cols="6">
-          <MiscAtomsImageContainer :src="item.image" :ratio="1 / 1" />
+          <MiscAtomsImageContainer
+            :src="item.image"
+            :ratio="1 / 1"
+            :loading="rootStore.events.loading"
+          />
         </v-col>
         <v-col cols="6">
           <v-skeleton-loader
-            v-if="rootStore.loading"
+            v-if="rootStore.loading || rootStore.events.loading"
             type="heading, subtitle, heading, subtitle, ossein, button"
           ></v-skeleton-loader>
           <EventsDateTimePlace v-else :item="item"></EventsDateTimePlace>
@@ -160,12 +168,16 @@
     </v-col>
 
     <v-col class="ml-2" cols="12" v-if="xs">
-      <MiscAtomsImageContainer :src="item.image" :ratio="1 / 1" />
+      <MiscAtomsImageContainer
+        :src="item.image"
+        :ratio="1 / 1"
+        :loading="rootStore.events.loading"
+      />
     </v-col>
 
     <v-col class="ml-2" cols="12" v-if="xs">
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.events.loading"
         type="heading, subtitle, heading, subtitle, ossein, button"
       ></v-skeleton-loader>
       <EventsDateTimePlace v-else :item="item"></EventsDateTimePlace>
@@ -173,7 +185,7 @@
 
     <v-col cols="12" xl="6" lg="6" md="8" class="px-0">
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.events.loading"
         :type="
           [
             'avatar, text, ossein, avatar, text, ossein, avatar, text',
@@ -246,7 +258,7 @@
     </v-col>
     <v-col cols="12" xl="3" lg="3" v-if="lgAndUp" class="d-flex">
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.events.loading"
         :type="['', '', ''][['lg', 'xl', 'xxl'].indexOf(name || 'md')]"
       ></v-skeleton-loader>
 
@@ -260,35 +272,35 @@
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify"
-import getFileIcon from "~/composables/useIcons"
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
+import { useDisplay } from "vuetify";
+import getFileIcon from "~/composables/useIcons";
+import { useRootStore } from "~/store/root";
+const rootStore = useRootStore();
 
-const { name, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
+const { name, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay();
 
-const localePath = useLocalePath()
-const router = useRouter()
-const { $i18n } = useNuxtApp()
+const localePath = useLocalePath();
+const router = useRouter();
+const { $i18n } = useNuxtApp();
 const props = defineProps({
   item: {
     type: Object,
     required: true,
   },
-})
+});
 
 // UI components models
-const panel = ref(["presentation"])
+const panel = ref(["presentation"]);
 
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + $i18n.locale.value)
     .limit(1)
-    .find()
-)
+    .find(),
+);
 
 function redirectToMap(long, lat) {
   router.push(
-    `https://www.openstreetmap.org/?mlat=${lat}&amp;mlon=${long}#map=19/${lat}/${long}`
-  )
+    `https://www.openstreetmap.org/?mlat=${lat}&amp;mlon=${long}#map=19/${lat}/${long}`,
+  );
 }
 </script>

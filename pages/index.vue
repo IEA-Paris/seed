@@ -58,7 +58,7 @@
     </v-container>
   </section>
   <section>
-    <MiscAtomsSlidingCarousel type="events" key="events">
+    <MiscAtomsSlidingCarousel type="events">
       {{ $t("upcoming-events") }}
     </MiscAtomsSlidingCarousel>
   </section>

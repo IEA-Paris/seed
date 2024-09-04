@@ -8,7 +8,7 @@
       <v-row no-gutters>
         <v-col cols="12" lg="9" class="pr-lg-6">
           <v-skeleton-loader
-            v-if="rootStore.loading"
+            v-if="rootStore.loading || rootStore.events.loading"
             :type="
               [
                 'heading, subtitle, text@6,subtitle, text,  ossein,  button, button',
@@ -67,7 +67,7 @@
 
         <v-col cols="12" lg="3">
           <v-skeleton-loader
-            v-if="rootStore.loading"
+            v-if="rootStore.loading || rootStore.events.loading"
             type="text,paragraph, text, paragraph"
           >
           </v-skeleton-loader>
@@ -98,7 +98,7 @@
       >
         <v-col cols="12">
           <v-skeleton-loader
-            v-if="rootStore.loading"
+            v-if="rootStore.loading || rootStore.events.loading"
             :type="
               ['article, heading, text, heading, text, button, button'][
                 ['md'].indexOf(name || 'md')
@@ -138,7 +138,7 @@
     </v-col>
     <v-col cols="12" md="3">
       <v-skeleton-loader
-        v-if="rootStore.loading"
+        v-if="rootStore.loading || rootStore.events.loading"
         height="100%"
         type="image"
         class="d-flex align-start px-4"
@@ -149,6 +149,7 @@
         :link="item.title"
         :slug="getSlugFromPath(item._path)"
         name="activities-events-slug"
+        :loading="rootStore.events.loading"
         :src="item.image"
         :ratio="1 / 1"
       />
