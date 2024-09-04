@@ -15,7 +15,7 @@
             :href="getSocialId(key, value)"
             :size="
               ['small', 'small', 'small', 'default', 'large', 'large'][
-                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(key || 'md')
+                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
               ]
             "
           >
@@ -29,8 +29,8 @@
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify"
-const { name } = useDisplay()
+import { useDisplay } from "vuetify";
+const { name } = useDisplay();
 
 const props = defineProps({
   socials: {
@@ -41,41 +41,41 @@ const props = defineProps({
     type: String,
     default: "bottom",
   },
-})
+});
 
 const getSocialId = (name, id) => {
   switch (name) {
     case "linkedin":
-      return `https://www.linkedin.com/in/${id}`
+      return `https://www.linkedin.com/in/${id}`;
     case "twitter":
-      return `https://x.com/${id}`
+      return `https://x.com/${id}`;
     case "orcid":
-      return `https://orcid.org/${id}`
+      return `https://orcid.org/${id}`;
     case "scholar":
-      return `https://scholar.google.com/${id}`
+      return `https://scholar.google.com/${id}`;
     case "wikipedia":
-      return `https://fr.wikipedia.org/${id}`
+      return `https://fr.wikipedia.org/${id}`;
     case "researchgate":
-      return `https://www.researchgate.net/${id}`
+      return `https://www.researchgate.net/${id}`;
   }
-}
+};
 
 const getProfileIcon = (name) => {
   switch (name) {
     case "linkedin":
-      return "mdi-linkedin"
+      return "mdi-linkedin";
     case "twitter":
-      return "mdi-twitter"
+      return "mdi-twitter";
     case "orcid":
-      return "mdi-account"
+      return "mdi-account";
     case "scholar":
-      return "mdi-google"
+      return "mdi-google";
     case "wikipedia":
-      return "mdi-wikipedia"
+      return "mdi-wikipedia";
     case "researchgate":
-      return "mdi-account"
+      return "mdi-account";
   }
-}
+};
 </script>
 
 <style lang="scss"></style>

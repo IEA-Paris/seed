@@ -27,7 +27,6 @@
               ></v-btn>
               <v-btn
                 :size="mdAndUp ? 'large' : 'medium'"
-                size="large"
                 :disabled="
                   model === rootStore[props.type].list.items.length - 1
                 "
