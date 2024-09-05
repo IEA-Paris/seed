@@ -20,7 +20,7 @@ Les résidents peuvent bénéficier d'un soutien financier et matériel à leurs
 
 ### Accès aux bibliothèques de recherche partenaires
 
-Les accords passés entre l'IEA et ses institutions partenaires permettent aux résidents de bénéficier dès leur arrivée d'un accès privilégié et d'un droit au prêt étendu [dans les principales bibliothèques parisiennes](https://www.paris-iea.fr/fr/sejourner-a-l-iea/bibliotheque).
+Les accords passés entre l'IEA et ses institutions partenaires permettent aux résidents de bénéficier dès leur arrivée d'un accès privilégié et d'un droit au prêt étendu .
 
 ### Communication et promotion
 
@@ -28,7 +28,7 @@ L'IEA de Paris annonce sur son site Internet et dans sa lettre d'information men
 
 ## Hébergement
 
-Depuis septembre 2017, les résidents de l'IEA de Paris sont hébergés au sein du Pavillon Victor Lyon. Situé au cœur de la [Cité internationale universitaire de Paris](http://www.ciup.fr/), la résidence peut accueillir les chercheurs avec leurs familles. Un vingtaine de logements, de deux à cinq pièces, entièrement équipés, sont mis à leur disposition.
+Depuis septembre 2017, les résidents de l'IEA de Paris sont hébergés au sein du Pavillon Victor Lyon. Situé au cœur de la , la résidence peut accueillir les chercheurs avec leurs familles. Un vingtaine de logements, de deux à cinq pièces, entièrement équipés, sont mis à leur disposition.
 Pensé comme un lieu de vie, de rencontres et d'échanges interculturels et interdisciplinaires, voisin des autres centres d'accueil d'étudiants et chercheurs de la Cité universitaire, le Pavillon Victor Lyon est doté d'un salon bibliothèque de 103 m2, d'une salle de conférences modulable de 100m2 et d'un foyer de 80m2.
 
 ## Aide pour les démarches administratives à l'obtention d'un visa

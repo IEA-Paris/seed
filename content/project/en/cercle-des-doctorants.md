@@ -8,7 +8,7 @@ color: '#fff'
 Le dispositif cifre
 -------------------
 
-Le dispositif des Conventions industrielles de formations par la recherche (CIFRE), géré par l'[Association nationale de la recherche et de la technologie (ANRT)](http://www.anrt.asso.fr/fr/cifre-7843) pour le compte du ministère chargé de l'Enseignement supérieur, de la Recherche et de l'Innovation, est un dispositif d'aide à l'embauche permettant le recrutement de doctorant.e.s par des entreprises ou collectivités territoriales, durant la réalisation de leur thèse.
+Le dispositif des Conventions industrielles de formations par la recherche (CIFRE), géré par l' pour le compte du ministère chargé de l'Enseignement supérieur, de la Recherche et de l'Innovation, est un dispositif d'aide à l'embauche permettant le recrutement de doctorant.e.s par des entreprises ou collectivités territoriales, durant la réalisation de leur thèse.
 
 ​
 
@@ -21,7 +21,7 @@ L'objectif de ce dispositif est double :
 L'action de la Ville de Paris pour les cifre
 --------------------------------------------
 
-[La Ville de Paris](https://www.paris.fr/pages/cifre-un-dispositif-d-accueil-de-doctorants-a-paris-candidatez-en-ligne-4222/), dans le cadre du dispositif CIFRE, accueille au sein de ses services des doctorant-e-s dont le sujet de thèse porte sur les questions prioritaires de la municipalité.
+, dans le cadre du dispositif CIFRE, accueille au sein de ses services des doctorant-e-s dont le sujet de thèse porte sur les questions prioritaires de la municipalité.
 
 ​
 

@@ -3,10 +3,10 @@
     <NuxtPage />
   </NuxtLayout>
 </template>
-<script lang="ts" setup>
-const { $i18n } = useNuxtApp()
+<script setup>
 const config = useAppConfig()
 const route = useRoute()
+const { $i18n } = useNuxtApp()
 useHead({
   // as a string,
   // where `%s` is replaced with the title

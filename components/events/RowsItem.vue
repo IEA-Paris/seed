@@ -82,7 +82,7 @@
             </div>
             <div class="text-body-1">
               {{ item.date_text }} <br />
-              {{ formatDate(item.start, $i18n.locale) }}
+              {{ formatDate(item.start, locale) }}
             </div>
             <template v-if="item.location">
               <div class="text-overline mt-6">
@@ -163,6 +163,7 @@
 <script setup>
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
+const { locale } = useI18n()
 const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay()
 const localePath = useLocalePath()
 const rootStore = useRootStore()

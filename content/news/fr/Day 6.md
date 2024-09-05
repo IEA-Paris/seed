@@ -117,11 +117,11 @@ relatedPeople:
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 ---
 
-While at [**SCAI**](https://scai.sorbonne-universite.fr "SCAI"), The [ICA4 Fellows](/fellows "Fellows") plunged into **the** **philosophy of computation** with two [ICA4 mentors](/mentors "Mentors"), who are philosophers of cognitive science ([**_Jack Copeland _**](/mentors#copeland)and [**_Oron Shagrir_**](/mentors#shagrir "Oron Shagrir")). The day continued with a **presentation of SCAI** from the Director followed by **a tour from the robotics labs**. Finally, [**_Xiao-Jing Wang_**](/mentors#wang "Xiao-Jing Wang") explained why **Artificial Intelligence needs the prefrontal cortex**.<!--more-->
+While at , The  plunged into **the** **philosophy of computation** with two , who are philosophers of cognitive science (and ). The day continued with a **presentation of SCAI** from the Director followed by **a tour from the robotics labs**. Finally,  explained why **Artificial Intelligence needs the prefrontal cortex**.<!--more-->
 
 **Computational indeterminacy: what is your computer doing?**
 
-Presented by [**_Jack Copeland _**](/mentors#copeland)and [**_Oron Shagrir_**](/mentors#shagrir "Oron Shagrir")
+Presented by and 
 
 Both sessions focused on the notion of **indeterminacy in computation**. Perhaps it's necessary to describe what computational indeterminacy is, and then look at its applications and philosophical questions.
 
@@ -183,10 +183,10 @@ Oron’s own proposal is that we use **semantics** to solve this problem. The re
 
 **Artificial intelligence needs the prefrontal cortex**
 
-Presented by [**_Xiao-Jing Wang_**](/mentors#wang "Xiao-Jing Wang")
+Presented by 
 
 Today’s remarkably successful AI systems roughly correspond to the biological systems of perception. By contrast, mental life and behavioural flexibility depend on other parts of the brain, especially **the prefrontal cortex** (PFC, often called the **“CEO of the brain”**). Wang discussed some **experimental and computational work designed to elucidate “cognitive-type” neural circuits exemplified by the PFC**. In particular, he presented **a recurrent network model that learns** to carry out many cognitive tasks involving working memory, decision-making, categorization and control of motor responses. This line of research motivated us to investigate how the brain utilises previously acquired knowledge to accelerate learning in solving a new problem (learning-to-learn). **Both rule-based multi-tasking and learning-to-learn are frontier topics in the field of machine learning, therefore bridging the brain and the AI**.
 
-Scribe: [_Henry Taylor_](/fellows#taylor "Henry Taylor")
+Scribe: 
 
-Chair: [_Ithai Rabinowitch_](/fellows#rabinowitch "Thai Rabinowitch")
+Chair: 

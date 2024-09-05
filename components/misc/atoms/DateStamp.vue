@@ -29,7 +29,7 @@ import { getDetailedFormatedDate } from "~/composables/useUtils"
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
 
-const { $i18n } = useNuxtApp()
+const { locale } = useI18n()
 const props = defineProps({
   date: {
     type: String,
@@ -41,9 +41,7 @@ const props = defineProps({
   },
 })
 
-const detailedDate = ref(
-  getDetailedFormatedDate(props.date, $i18n.locale.value),
-)
+const detailedDate = ref(getDetailedFormatedDate(props.date, locale.value))
 </script>
 <style lang="scss" scoped>
 .date-stamp {

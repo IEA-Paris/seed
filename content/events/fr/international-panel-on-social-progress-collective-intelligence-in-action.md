@@ -171,7 +171,7 @@ Inspiré par les travaux des panels internationaux sur le climat (IPCC) ou sur l
 
 Le premier cycle du Panel (2015-2019) a abouti à la production d'un rapport "_Rethinking Societies for the 21st Century_" publié en trois volumes par Cambridge University Press en 2018. Un *Manifeste pour le Progrès social* a été publié et traduit en huit langues. Plus de 100 événements de dissémination avaient été organisés dans le monde : dans les universités, auprès des organisations internationales et des organisations non-gouvernementales.
 
-Le deuxième cycle du Panel (2023-2027) a pour principale innovation d'associer les acteurs du changement (associations, entrepreneurs, chercheurs, philanthropes, gouvernants, etc.) à l'identification des meilleures solutions pour les transformations de nos sociétés et leur mise en œuvre inclusive, durable et démocratique. Un *Advisory Board* international composé de 60 personnalités de premier plan actives dans ces différents secteurs de la société ([www.ipsp.org](http://www.ipsp.org/advisoryboard)).
+Le deuxième cycle du Panel (2023-2027) a pour principale innovation d'associer les acteurs du changement (associations, entrepreneurs, chercheurs, philanthropes, gouvernants, etc.) à l'identification des meilleures solutions pour les transformations de nos sociétés et leur mise en œuvre inclusive, durable et démocratique. Un *Advisory Board* international composé de 60 personnalités de premier plan actives dans ces différents secteurs de la société ().
 
 La première réunion de l'Advisory Board du Panel se déroulera à l'Institut d'études avancées de Paris du 27 au 29 septembre 2023.
 

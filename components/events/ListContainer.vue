@@ -34,7 +34,7 @@ const { smAndUp, xsOnly } = useDisplay()
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
 
-const { $i18n } = useNuxtApp()
+const { locale } = useI18n()
 const props = defineProps({
   events: {
     type: Array,

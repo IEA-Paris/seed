@@ -9,11 +9,11 @@
 // import { useDisplay } from "vuetify"
 // const { smAndUp } = useDisplay()
 // const localePath = useLocalePath()
-const { $i18n } = useNuxtApp();
+const { locale } = useI18n()
 const { data: rst } = await useAsyncData("moto", () =>
-  queryContent("/pages/" + $i18n.locale.value + "/moto").findOne(),
-);
-const moto = ref(rst.value.description);
+  queryContent("/pages/" + locale.value + "/moto").findOne(),
+)
+const moto = ref(rst.value.description)
 </script>
 <style lang="scss" scoped>
 h3.moto {

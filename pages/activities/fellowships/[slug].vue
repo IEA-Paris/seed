@@ -33,7 +33,7 @@ import { useRootStore } from "~/store/root"
 const store = useRootStore()
 const route = useRoute()
 const { smAndUp } = useDisplay()
-const { $i18n } = useNuxtApp()
+const { locale } = useI18n()
 const localePath = useLocalePath()
 console.log("route.params.slug: ", route.params.slug)
 
@@ -41,7 +41,7 @@ const { data } = await useAsyncData(
   "fellowship",
   async () =>
     await queryContent(
-      "fellowship/" + $i18n.locale.value + "/" + route.params.slug,
+      "fellowship/" + locale.value + "/" + route.params.slug,
     ).findOne(),
 )
 </script>

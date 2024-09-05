@@ -118,7 +118,7 @@ relatedPeople:
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 ---
 
-Ever wondered how **adaptive and cognitive systems** operate? This is precisely what [**Deshen**](/fellows#moodley "Deshen Moodley") is investigating and he explains all about his fascinating work in his research pitch!
+Ever wondered how **adaptive and cognitive systems** operate? This is precisely what  is investigating and he explains all about his fascinating work in his research pitch!
 
 Curious about Deshen?
 

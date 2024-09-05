@@ -10,6 +10,7 @@ export default defineNuxtConfig({
 
   site: {
     url: "https://paris-iea.fr",
+    name: "Paris Institute for Advanced Study",
   },
 
   app: {
@@ -74,8 +75,8 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: {
-      crawlLinks: true,
-      failOnError: false,
+      /*  crawlLinks: true, */
+      /*    failOnError: false, */
     },
   },
   modules: [
@@ -87,13 +88,13 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "nuxt-swiper",
     "@nuxtjs/i18n",
+    "@nuxtjs/sitemap",
     // https://github.com/nuxt-community/device-module
     "@nuxtjs/device",
     // https://github.com/nuxt-modules/robots
     "@nuxtjs/robots",
     //
     "@nuxtjs/google-fonts",
-    "nuxt-simple-sitemap",
     "nuxt-link-checker",
     "nuxt-schema-org",
     "@vite-pwa/nuxt",
@@ -101,7 +102,7 @@ export default defineNuxtConfig({
     "@vueuse/motion/nuxt",
     //https://nuxt.com/docs/getting-started/testing
     "@nuxt/test-utils/module",
-    "@nuxtjs/html-validator",
+    /*     "@nuxtjs/html-validator", */
   ],
 
   pinia: {
@@ -109,10 +110,11 @@ export default defineNuxtConfig({
   },
 
   content: {
-    documentDriven: false,
     // https://content.nuxtjs.org/api/configuration
     experimental: {
-      clientDB: true,
+      search: {
+        indexed: true,
+      },
     },
 
     markdown: {

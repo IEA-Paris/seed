@@ -19,5 +19,4 @@
 <script lang="ts" setup>
 import { useDisplay } from "vuetify"
 const { smAndUp } = useDisplay()
-const localePath = useLocalePath()
 </script>

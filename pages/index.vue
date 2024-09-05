@@ -24,7 +24,7 @@
               class="text-h4 text-md-h2 mt-6"
               :class="mdAndUp ? 'text-right' : 'text-left'"
             >
-              {{ presentation[0].title }}
+              {{ $t("moto") }}
             </div></v-col
           >
           <v-col cols="12" md="7" lg="8">
@@ -47,12 +47,8 @@
               id="presentation"
               class="d-flex align-center justify-center pa-6 presentation-pitch"
             >
-              <ContentDoc
-                class="text-body-2"
-                :path="
-                  '/pages/' + $i18n.locale.value + '/institute_presentation'
-                "
-            /></v-card>
+              <ContentDoc class="text-body-2" :path="presentation" />
+            </v-card>
           </v-col>
           <v-divider class="mt-3 mb-12"></v-divider>
         </v-row>
@@ -83,7 +79,6 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
-import { debounce } from "~/composables/debounce"
 definePageMeta({
   layout: "about",
   documentDriven: {
@@ -99,27 +94,10 @@ const localePath = useLocalePath()
 const config = useAppConfig()
 const { locale } = useI18n()
 
-const { $i18n } = useNuxtApp()
+const presentation = ref("/pages/" + locale.value + "/institute_presentation")
+
 const { data: featured } = await useAsyncData("featured-list", () =>
-  queryContent("/carousel/" + $i18n.locale.value).find(),
-)
-const { data: events } = await useAsyncData("event-list", () =>
-  queryContent("/event/" + $i18n.locale.value)
-    .sort({ date: 1 })
-    .find(),
-)
-const { data: action } = await useAsyncData("actions", () =>
-  queryContent("/actions/" + $i18n.locale.value)
-    .limit(1)
-    .find(),
-)
-const { data: fellows } = await useAsyncData("fellows", () =>
-  queryContent("/fellows/" + $i18n.locale.value).find(),
-)
-const { data: presentation } = await useAsyncData("presentation", () =>
-  queryContent("/pages/" + $i18n.locale.value + "/institute_presentation")
-    .limit(1)
-    .find(),
+  queryContent("/carousel/" + locale.value).find(),
 )
 </script>
 <style lang="scss">

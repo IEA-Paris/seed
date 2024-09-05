@@ -4,7 +4,7 @@ page: network
 ---
 # Gouvernance
 
-L'IEA de Paris est une association loi 1901 créée le 1er janvier 2011, dont la présidente est Bettina Laville, Conseillère d’État honoraire, fondatrice et présidente d'honneur du Comité 21.[](/people/fellows)
+L'IEA de Paris est une association loi 1901 créée le 1er janvier 2011, dont la présidente est Bettina Laville, Conseillère d’État honoraire, fondatrice et présidente d'honneur du Comité 21.
 
 L’Institut est gouverné par deux instances, l’Assemblée générale et le Conseil d’administration.
 

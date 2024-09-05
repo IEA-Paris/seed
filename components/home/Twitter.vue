@@ -28,9 +28,9 @@
   </v-list>
 </template>
 <script setup>
-const { $i18n } = useNuxtApp()
-console.log($i18n.locale.value)
+const { locale } = useI18n()
+console.log(locale.value)
 const { data: featured } = await useAsyncData("featured-list", () =>
-  queryContent("/carousel/" + $i18n.locale.value).find()
+  queryContent("/carousel/" + locale.value).find(),
 )
 </script>

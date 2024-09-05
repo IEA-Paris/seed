@@ -272,35 +272,35 @@
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify";
-import getFileIcon from "~/composables/useIcons";
-import { useRootStore } from "~/store/root";
-const rootStore = useRootStore();
+import { useDisplay } from "vuetify"
+import getFileIcon from "~/composables/useIcons"
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
 
-const { name, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay();
+const { name, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
 
-const localePath = useLocalePath();
-const router = useRouter();
-const { $i18n } = useNuxtApp();
+const localePath = useLocalePath()
+const router = useRouter()
+const { locale } = useI18n()
 const props = defineProps({
   item: {
     type: Object,
     required: true,
   },
-});
+})
 
 // UI components models
-const panel = ref(["presentation"]);
+const panel = ref(["presentation"])
 
 const { data: action } = await useAsyncData("actions", () =>
-  queryContent("/actions/" + $i18n.locale.value)
+  queryContent("/actions/" + locale.value)
     .limit(1)
     .find(),
-);
+)
 
 function redirectToMap(long, lat) {
   router.push(
     `https://www.openstreetmap.org/?mlat=${lat}&amp;mlon=${long}#map=19/${lat}/${long}`,
-  );
+  )
 }
 </script>

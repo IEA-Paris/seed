@@ -11,8 +11,5 @@
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
 const store = useRootStore()
-const route = useRoute()
 const { smAndUp } = useDisplay()
-const { $i18n } = useNuxtApp()
-const localePath = useLocalePath()
 </script>

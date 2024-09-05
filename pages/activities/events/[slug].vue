@@ -6,7 +6,7 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
-const { $i18n } = useNuxtApp()
+const { locale } = useI18n()
 const { smAndUp } = useDisplay()
 const localePath = useLocalePath()
 const route = useRoute()
@@ -14,7 +14,7 @@ const { data } = await useAsyncData(
   "events",
   async () =>
     await queryContent(
-      "events/" + $i18n.locale.value + "/" + route.params.slug,
+      "events/" + locale.value + "/" + route.params.slug,
     ).findOne(),
 )
 

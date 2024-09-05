@@ -66,7 +66,7 @@
 
 <script setup>
 import { capitalize } from "~/composables/useUtils"
-const { $i18n } = useNuxtApp()
+const { locale } = useI18n()
 import { useDisplay } from "vuetify"
 const { name, mdAndUp } = useDisplay()
 import { useRootStore } from "~/store/root"
@@ -81,11 +81,11 @@ const props = defineProps({
 })
 
 onMounted(async () => {
-  await rootStore.update(props.type, $i18n.locale.value)
+  await rootStore.update(props.type, locale.value)
 })
 
-await callOnce(async () => {
-  return await rootStore.update(props.type, $i18n.locale.value)
+callOnce(async () => {
+  return await rootStore.update(props.type, locale.value)
 })
 const computedWidth = computed(() => {
   return ["200", "250", "300", "330", "400", "400"][

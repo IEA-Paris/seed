@@ -13,10 +13,7 @@ import { useRootStore } from "~/store/root"
 /* import { useEventStore } from "~/store/root" 
 const eventStore = useEventStore()*/
 const store = useRootStore()
-const route = useRoute()
 const { smAndUp } = useDisplay()
-const { $i18n } = useNuxtApp()
-const localePath = useLocalePath()
 /* const item = store["project"].items.find(
   (item) => item.slug === route.params.slug
 ) */

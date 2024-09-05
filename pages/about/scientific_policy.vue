@@ -8,9 +8,7 @@
       </v-col>
       <v-col cols="12" sm="8">
         <v-card class="d-flex align-center justify-center">
-          <ContentDoc
-            :path="'/pages/' + $i18n.locale.value + '/scientific_policy'"
-          />
+          <ContentDoc :path="scientificPolicy" />
         </v-card> </v-col
     ></v-row>
   </section>
@@ -55,19 +53,21 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
+import { fr } from "vuetify/locale"
 const { smAndUp } = useDisplay()
 const localePath = useLocalePath()
-const { $i18n } = useNuxtApp()
-console.log($i18n.locale.value)
+const { locale } = useI18n()
+console.log(locale.value)
 const { data: sab } = await useAsyncData(
   "sab-list",
-  async () => await queryContent("/sab/" + $i18n.locale.value).find(),
+  async () => await queryContent("/sab/" + locale.value).find(),
 )
+const scientificPolicy = "/pages/" + locale.value + "/scientific_policy"
 definePageMeta({
   layout: "about",
-  documentDriven: {
+  /*   documentDriven: {
     page: false, // Keep page fetching enabled
     surround: false, // Disable surround fetching
-  },
+  }, */
 })
 </script>

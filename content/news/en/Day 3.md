@@ -116,15 +116,15 @@ relatedPeople:
 
 Day 3 of the first session of ICA4 continued in Paris IAS, where the Fellows sat through three more scientific seminars, followed by discussions and brainstorming sessions.
 
-The day kicked off by a framework proposed by [_Saadi Lahlou_](/about/ica4#lahlou "Saadi Lahlou"), called **"Installation Theory"**, which enables scientists to **analyse and regulate human behaviour**. This was complemented by a new technique to **capture the subjective perception of action**, ultimately bringing psychological and behavioural sciences one step closer to what was once considered a technically impossible task: **introspection!**
+The day kicked off by a framework proposed by , called **"Installation Theory"**, which enables scientists to **analyse and regulate human behaviour**. This was complemented by a new technique to **capture the subjective perception of action**, ultimately bringing psychological and behavioural sciences one step closer to what was once considered a technically impossible task: **introspection!**
 
-[_William Hopkins_](/mentors#hopkins "William Hopkins") then joined the discussions with some stimulating videos from research done on **apes**, while exploring **self-recognition and social cognition in animals**.
+ then joined the discussions with some stimulating videos from research done on **apes**, while exploring **self-recognition and social cognition in animals**.
 
 Finally, Toshio Fukuda revealed the Moonshot project: **a society where humans and robots live together in 2050!**<!--more-->
 
 **Distributed Intelligence & Distributed Agency**
 
-Presented by [**_Saadi Lahlou_**](/about/ica4#lahlou "Saadi Lahlou")
+Presented by 
 
 We want intelligence to perform relevantly adapted actions that change the situation in which we are for the better. To design intelligence, we must first understand **the nature of the actual activity**. In this sense, the behaviour was defined as what people do, seen from the outside. In other words, behaviour remains an external description of objective phenomena. This is while activity is how people subjectively perceive their action and how they see it from their own perspective.
 
@@ -138,7 +138,7 @@ To conclude, ICA4 Fellows were left with some questions as food for thought. For
 
 **Perspective on Artificial Intelligence research from studies on Agency, self-recognition and social cognition in animals**
 
-Presented by [**_William Hopkins_**](/mentors#hopkins "William Hopkins")
+Presented by 
 
 The session began by discussing humans constructed concepts to reflect intellectual abilities in various domains of cognitive functions. In this sense, we use tests like the WAIS or Stanford Binet to quantify and scale performance to standards for specific age classes. These tests rely heavily on language. There are many approaches to developing fair tests of cognition between species with different sensory and motor capabilities. It began with Darwin and Furness. Then, George Romanes (1884) focused on animal intelligence and later on, Kohler (1925) on insight learning. Within the same field, Robert Yerkes (1916) worked on “The mental life of monkeys and apes: a study of ideational behavior”. Yerkes later developed the IQ test used by the army in WW1 (army alpha test).
 
@@ -150,12 +150,12 @@ However, is it language? There is very little evidence for declarative productio
 
 **AI and Robots for Future: The Moon Shot Project**
 
-Presented by [**_Toshio Fukuda_**](/mentors#fukuda "Toshio Fukuda")
+Presented by 
 
 Robots are avatars that pop up to help when humans need them. There is an information and physical interaction between robots and humans. Toshio showed several multi-scale robots, e.g., monkey-type robots, multi-locomotion, intelligent cane, etc. One of these robots is the Brachiator I-III. Brachiation is a form of long-armed ape locomotion. It uses dynamics of the pendulum, under-actuated mechanical system, variable constraint system, machine learning, AI, reinforce learning, soft computing (fuzzy, genetic algorithm). Regarding multi-locomotion types, in many cases, one creature has multiple types of locomotion in order to improve its mobility. The motivation of their study is to develop a robot mechanism and a control architecture that can achieve multiple locomotions. Hybrid computational intelligence, i.e., AI and brain interface were also commented upon by the speaker while showing a series of related videos. An example of such videos illustrated the Boston dynamics atlas and others: three robots dancing and jumping which was quite impressive!
 
 Moreover, AI+Robot+IoT (Internet of Things), the use of robots in mega-trend (energy, urbanisation, food, ageing, global warming, robot, and AI) were discussed. This was followed by further discussions on autonomous cars, which may be safer than human drivers, mixed reality, the Eve project (a transparent body that simulates the human body), cyborg technology (fusion of robot and animal), and multiple robots (communication among robots).
 
-Scribe: [_André Fujita_](/fellows#fujita "Andre Fujita")
+Scribe: 
 
-Chair: [_Philipp Kellmeyer_](/fellows#kellmeyer "Philipp Kellmeyer")
+Chair: 

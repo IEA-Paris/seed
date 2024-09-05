@@ -46,19 +46,20 @@
 </template>
 
 <script setup>
-const ignoredRoutes = ["fr", "about", "activities"];
-import { useRootStore } from "~/store/root";
-const rootStore = useRootStore();
-import { useDisplay } from "vuetify";
-const { name, mdAndUp } = useDisplay();
+const ignoredRoutes = ["fr", "about", "activities"]
+import { useDisplay } from "vuetify"
+const { name, mdAndUp } = useDisplay()
+import { useRootStore } from "./store/root"
+const { locale } = useI18n()
+const { rootStore } = useRootStore()
 
-const localePath = useLocalePath();
-const route = useRoute();
+const localePath = useLocalePath()
+const route = useRoute()
 const isSnapRoutes = () => {
-  return route.name.startsWith("about") || route.name.startsWith("index");
-};
+  return route.name.startsWith("about") || route.name.startsWith("index")
+}
 const crumbs = computed(() => {
-  return route.path;
+  return route.path
   /*  .split("/")
     .filter((item) => item && !ignoredRoutes.includes(item))
     .map((item, index) => {
@@ -76,8 +77,8 @@ const crumbs = computed(() => {
         disabled: false,
         exact: true,
       }
-    }) */
-});
+    */
+})
 </script>
 <style lang="scss" scoped>
 .content {

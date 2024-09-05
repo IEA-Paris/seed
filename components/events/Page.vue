@@ -43,7 +43,7 @@
               {{
                 item.date_text +
                 " " +
-                new Date(item.start).toLocaleString($i18n.locale, {
+                new Date(item.start).toLocaleString(locale, {
                   weekday: "long",
                   year: "numeric",
                   month: "long",
@@ -95,10 +95,10 @@
     </v-col>
   </v-row>
 </template>
-<script setup lang="ts">
+<script setup>
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
-
+const { locale } = useI18n()
 import { useDisplay } from "vuetify"
 const { smAndUp, mdAndUp, name } = useDisplay()
 const localePath = useLocalePath()

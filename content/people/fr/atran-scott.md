@@ -131,8 +131,8 @@ relatedEvents:
 ---
 
 He ICA4 continued onto the second day, through which three seminars took place with mentors who had joined the first session in Paris from around the world.
-The first lecture was by [_Robert Aumann_](/mentors#aumann "Robert Aumann"), a Nobel prize laureate, who focused on the convoluted concept of **consciousness** and its counterparts.
-This was followed by a lecture from [_Karen Yeung_](/mentors#yeung "Karen Yeung"), who offered a rather critical point of view on the prevalence of AI, as well as some of its surrounding **myths and misconceptions**. She then went on to explain how **responsibility** should be re-defined to consider the **unintended impact(s) of AI in human societies**.
+The first lecture was by , a Nobel prize laureate, who focused on the convoluted concept of **consciousness** and its counterparts.
+This was followed by a lecture from , who offered a rather critical point of view on the prevalence of AI, as well as some of its surrounding **myths and misconceptions**. She then went on to explain how **responsibility** should be re-defined to consider the **unintended impact(s) of AI in human societies**.
 He ICA4 continued onto the second day, through which three seminars took place with mentors who had joined the first session in Paris from around the world!
-The first lecture was by [_Robert Aumann_](/mentors#aumann "Robert Aumann"), a Nobel prize laureate, who focused on the convoluted concept of **consciousness** and its counterparts.
-This was followed by a lecture from [_Karen Yeung_](/mentors#yeung "Karen Yeung"), who offered a rather critical point of view on the prevalence of AI, as well as some of its surrounding **myths and misconceptions**. She then went on to explain how **responsibility** should be re-defined to consider the **unintended impact(s) of AI in human societies**.
+The first lecture was by , a Nobel prize laureate, who focused on the convoluted concept of **consciousness** and its counterparts.
+This was followed by a lecture from , who offered a rather critical point of view on the prevalence of AI, as well as some of its surrounding **myths and misconceptions**. She then went on to explain how **responsibility** should be re-defined to consider the **unintended impact(s) of AI in human societies**.

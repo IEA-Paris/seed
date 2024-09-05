@@ -136,7 +136,7 @@ relatedEvents:
     url: ""
 ---
 
-Each day at the [Paris IAS](https://www.paris-iea.fr/en/ "Paris IAS"), [ICA4 Fellows](/fellows "Fellows") meet with their [Mentors](/mentors "Mentors") for **a closed 3-hour seminar**, during which two mentors launch the discussion with a presentation. Upon completion of the seminar, the Fellows then meet for 45 minutes to list the **key takeaways and ideas** that have emerged from the discussion, followed by a **collective brainstorming session**. This ensures that the output of collective intelligence is collected, formatted and capitalised.
+Each day at the ,  meet with their  for **a closed 3-hour seminar**, during which two mentors launch the discussion with a presentation. Upon completion of the seminar, the Fellows then meet for 45 minutes to list the **key takeaways and ideas** that have emerged from the discussion, followed by a **collective brainstorming session**. This ensures that the output of collective intelligence is collected, formatted and capitalised.
 He ICA4 continued onto the second day, through which three seminars took place with mentors who had joined the first session in Paris from around the world!
-The first lecture was by [_Robert Aumann_](/mentors#aumann "Robert Aumann"), a Nobel prize laureate, who focused on the convoluted concept of **consciousness** and its counterparts.
-This was followed by a lecture from [_Karen Yeung_](/mentors#yeung "Karen Yeung"), who offered a rather critical point of view on the prevalence of AI, as well as some of its surrounding **myths and misconceptions**. She then went on to explain how **responsibility** should be re-defined to consider the **unintended impact(s) of AI in human societies**.
+The first lecture was by , a Nobel prize laureate, who focused on the convoluted concept of **consciousness** and its counterparts.
+This was followed by a lecture from , who offered a rather critical point of view on the prevalence of AI, as well as some of its surrounding **myths and misconceptions**. She then went on to explain how **responsibility** should be re-defined to consider the **unintended impact(s) of AI in human societies**.

@@ -1,21 +1,19 @@
 <template>
-  <v-container> <NewsView :item="value"></NewsView></v-container>
+  <v-container> <NewsView :item="news"></NewsView></v-container>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { useDisplay } from "vuetify"
-const { $i18n } = useNuxtApp()
+const { locale } = useI18n()
 const { smAndUp, mdAndUp } = useDisplay()
 const route = useRoute()
 const localePath = useLocalePath()
 
-const { data } = await useAsyncData(
+const { data: news } = await useAsyncData(
   "news",
   async () =>
     await queryContent(
-      "news/" + $i18n.locale.value + "/" + route.params.slug,
+      "news/" + locale.value + "/" + route.params.slug,
     ).findOne(),
 )
-
-const value = data._rawValue
 </script>

@@ -116,6 +116,6 @@ relatedPeople:
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 ---
 
-**Human language processing** has always been rather peculiar and quite fascinating! In such a complex realm, [**Diego**](/fellows#frassinelli "Diego Frassinelli"), who is an Assistant Professor in Artificial Intelligence at the Department of Linguistics, University of Konstanz, is investigating **if social and cultural aspects are captured by neural language models**.
+**Human language processing** has always been rather peculiar and quite fascinating! In such a complex realm, , who is an Assistant Professor in Artificial Intelligence at the Department of Linguistics, University of Konstanz, is investigating **if social and cultural aspects are captured by neural language models**.
 
 He explains it much better himself in his research pitch!

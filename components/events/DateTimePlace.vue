@@ -23,25 +23,19 @@
 
 <script setup>
 import { getDetailedFormatedDate } from "~/composables/useUtils"
-const { $i18n } = useNuxtApp()
+const { locale } = useI18n()
 const props = defineProps({
   item: {
     type: Object,
     required: true,
   },
 })
-const detailedStart = getDetailedFormatedDate(
-  props.item.start,
-  $i18n.locale.value
-)
+const detailedStart = getDetailedFormatedDate(props.item.start, locale.value)
 const startDay = ref(
-  `${detailedStart.day} ${detailedStart.month} ${detailedStart.year}`
+  `${detailedStart.day} ${detailedStart.month} ${detailedStart.year}`,
 )
 const startTime = ref(detailedStart.hours)
-const detailedStop = getDetailedFormatedDate(
-  props.item.stop,
-  $i18n.locale.value
-)
+const detailedStop = getDetailedFormatedDate(props.item.stop, locale.value)
 const stopTime = ref(detailedStop.hours)
 </script>
 

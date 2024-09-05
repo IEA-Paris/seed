@@ -5,7 +5,7 @@
         <NavigationTopBar />
         ABOUT
         <v-container v-if="crumbs && crumbs.length">
-          <v-breadcrumbs :items="crumbs" class="pl-0" link>
+          <!--   <v-breadcrumbs :items="crumbs" class="pl-0" link>
             <template v-slot:prepend>
               <v-btn to="/" size="small" variant="text" icon="mdi-home"></v-btn>
               /
@@ -14,13 +14,12 @@
             <template v-slot:title="{ item }">
               {{ $t(item.title).toUpperCase() }}
             </template>
-          </v-breadcrumbs>
+          </v-breadcrumbs> -->
           <v-divider></v-divider>
         </v-container>
       </div>
-      <v-container fluid class="pa-0">
-        <slot /> <NavigationFooter isSnapScroll
-      /></v-container>
+      <v-container fluid class="pa-0"> <slot /> </v-container
+      ><NavigationFooter isSnapScroll />
     </v-main>
   </v-app>
 </template>
@@ -28,6 +27,10 @@
 <script setup>
 const ignoredRoutes = ["about", "activities"]
 const route = useRoute()
+import { useRootStore } from "../store/root"
+const { locale } = useI18n()
+const { rootStore } = useRootStore()
+
 console.log("route: ", route.name)
 const crumbs = computed(() => {
   return route.path

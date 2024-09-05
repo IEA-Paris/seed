@@ -130,9 +130,9 @@ relatedEvents:
     url: ""
 ---
 
-The first lecture was by [_Robert Aumann_](/mentors#aumann "Robert Aumann"), a Nobel prize laureate, who focused on the convoluted concept of **consciousness** and its counterparts.
-This was followed by a lecture from [_Karen Yeung_](/mentors#yeung "Karen Yeung"), who offered a rather critical point of view on the prevalence of AI, as well as some of its surrounding **myths and misconceptions**. She then went on to explain how **responsibility** should be re-defined to consider the **unintended impact(s) of AI in human societies**.
-Ever wondered how **adaptive and cognitive systems** operate? This is precisely what [**Deshen**](/fellows#moodley "Deshen Moodley") is investigating and he explains all about his fascinating work in his research pitch!
+The first lecture was by , a Nobel prize laureate, who focused on the convoluted concept of **consciousness** and its counterparts.
+This was followed by a lecture from , who offered a rather critical point of view on the prevalence of AI, as well as some of its surrounding **myths and misconceptions**. She then went on to explain how **responsibility** should be re-defined to consider the **unintended impact(s) of AI in human societies**.
+Ever wondered how **adaptive and cognitive systems** operate? This is precisely what  is investigating and he explains all about his fascinating work in his research pitch!
 Curious about Deshen?
 **Deshen Moodley** is an Associate Professor in the Department of Computer Science, the University of Cape Town as well as the Co-Director of the South African National Centre for Artificial Intelligence Research.
 **Excited to hear more from Deshen?**

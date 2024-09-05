@@ -23,7 +23,7 @@
             height="250"
             link
           >
-            <ContentDoc :path="'/pages/' + $i18n.locale.value + '/network'" />
+            <ContentDoc :path="network" />
           </v-sheet>
         </v-col> </v-row
     ></v-container>
@@ -38,9 +38,7 @@
             :to="localePath('/support')"
             link
           >
-            <ContentDoc
-              :path="'/pages/' + $i18n.locale.value + '/partners'"
-            /> </v-sheet
+            <ContentDoc :path="partners" /> </v-sheet
         ></v-col>
         <v-col cols="12" sm="6">
           <v-sheet class="d-flex align-center justify-center">
@@ -92,134 +90,31 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
-definePageMeta({ layout: "about" })
+definePageMeta({
+  layout: "about",
+  /*   documentDriven: {
+    page: false, // Keep page fetching enabled
+    surround: false, // Disable surround fetching
+  }, */
+})
 const { smAndUp, name, mdAndUp } = useDisplay()
 const localePath = useLocalePath()
-const { $i18n } = useNuxtApp()
+const { locale } = useI18n()
 //TODO .limit(1).find() > .findOne()
 const { data: action } = await useAsyncData("actions", () =>
-  queryContent("/actions/" + $i18n.locale.value)
+  queryContent("/actions/" + locale.value)
     .limit(1)
     .find(),
 )
 
 const { data: logosData } = await useAsyncData("logos", () =>
-  queryContent("/logos/" + $i18n.locale.value)
+  queryContent("/logos/" + locale.value)
     .only(["picture", "title", "url"])
     .find(),
 )
-
+const partners = "/pages/" + locale.value + "/partners"
+const network = "/pages/" + locale.value + "/network"
 const logos = !logosData || !logosData.value ? undefined : logosData.value
 </script>
 
-<style lang="scss" scoped>
-.base-fill-container {
-  width: 10px;
-  height: 10px;
-}
-.logo-container {
-  max-height: 400px;
-}
-// event component
-.fill-image {
-  width: 100%;
-  height: 100%;
-  transition: all 0.3s ease;
-}
-
-.fill-image:hover {
-  transform: scale(1.1);
-}
-
-.sheet-component {
-  overflow: hidden;
-}
-
-.card-title,
-.card-title-subtitle {
-  color: #181818;
-  font-family: "Lelo", helvetica, arial, sans-serif;
-}
-
-.card-title {
-  font-size: 42px;
-}
-
-.card-title-subtitle {
-  font-size: 14px;
-}
-
-.anchor-card-title {
-  text-decoration: none;
-  font-family: Rosart, serif;
-  font-size: 28px;
-  color: #181818;
-}
-
-.lecture {
-  color: #767676;
-  font-family: Lelo, helvetica, arial, sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-}
-.anchor-lecture {
-  color: #767676;
-  text-decoration: none;
-  font-family: Lelo, helvetica, arial, sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.content-item {
-  color: #181818;
-  font-family: Lelo, helvetica, arial, sans-serif;
-  font-size: 16px;
-}
-
-.content-item-event {
-  font-family: Rosart, serif;
-  font-size: 18px;
-  margin-top: 24px;
-  margin-bottom: 0;
-}
-
-.card-align-item {
-  text-align: left;
-}
-
-.icon-fontsz {
-  font-size: 8px;
-}
-
-.regi-item {
-  font-size: 14px;
-  color: #767676;
-  font-family: Lelo, helvetica, arial, sans-serif;
-}
-
-.regi-main {
-  background-color: #f1f1f1;
-  padding: 11px 16px;
-  margin-right: 20px;
-  margin-top: 20px;
-  font-family: Lelo, helvetica, arial, sans-serif;
-}
-
-.stream-main {
-  margin-top: 20px;
-  margin-right: 20px;
-}
-.stream-item {
-  color: #767676;
-  font-family: Lelo, helvetica, arial, sans-serif;
-  font-size: 16px;
-}
-
-.header-item {
-  font-family: Lelo, helvetica, arial, sans-serif;
-  font-size: 14px;
-}
-.test {
-  text-align: right;
-}
-</style>
+<style lang="scss" scoped></style>

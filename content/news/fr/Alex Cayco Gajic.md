@@ -118,7 +118,7 @@ relatedPeople:
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 ---
 
-[**Alex**](/fellows#cayco-gajic "Alex Cayco-Gajic") is Junior Professor in the Département d’Etudes Cognitives at École Normale Supérieure in Paris. Let's hear all about her research from herself, as she explains **"From movement to cognition: Understanding cerebello-cortical coordination for flexible learning"** through a bite-sized video pitch.
+ is Junior Professor in the Département d’Etudes Cognitives at École Normale Supérieure in Paris. Let's hear all about her research from herself, as she explains **"From movement to cognition: Understanding cerebello-cortical coordination for flexible learning"** through a bite-sized video pitch.
 
 More about Alex:
 

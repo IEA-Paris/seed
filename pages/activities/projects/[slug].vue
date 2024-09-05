@@ -16,13 +16,11 @@ import { useRootStore } from "~/store/root"
 const store = useRootStore()
 const route = useRoute()
 const { smAndUp } = useDisplay()
-const { $i18n } = useNuxtApp()
+const { locale } = useI18n()
 const localePath = useLocalePath()
 console.log("route.params.slug: ", route.params.slug)
 const { data } = await useAsyncData("project", () =>
-  queryContent(
-    "project/" + $i18n.locale.value + "/" + route.params.slug,
-  ).findOne(),
+  queryContent("project/" + locale.value + "/" + route.params.slug).findOne(),
 )
 
 const item = data._value

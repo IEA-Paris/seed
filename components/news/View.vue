@@ -139,7 +139,7 @@
 import { useDisplay } from "vuetify"
 const { name, mdAndUp, smAndDown } = useDisplay()
 const router = useRouter()
-const { $i18n } = useNuxtApp()
+const { locale } = useI18n()
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
 const props = defineProps({
@@ -150,7 +150,7 @@ const props = defineProps({
 })
 
 const { data: action } = await useAsyncData("actions", () =>
-  queryContent("/actions/" + $i18n.locale.value)
+  queryContent("/actions/" + locale.value)
     .limit(1)
     .find(),
 )
