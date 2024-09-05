@@ -27,9 +27,7 @@
 <script setup>
 const ignoredRoutes = ["about", "activities"]
 const route = useRoute()
-import { useRootStore } from "../store/root"
 const { locale } = useI18n()
-const { rootStore } = useRootStore()
 
 console.log("route: ", route.name)
 const crumbs = computed(() => {

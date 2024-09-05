@@ -49,9 +49,7 @@
 const ignoredRoutes = ["fr", "about", "activities"]
 import { useDisplay } from "vuetify"
 const { name, mdAndUp } = useDisplay()
-import { useRootStore } from "./store/root"
 const { locale } = useI18n()
-const { rootStore } = useRootStore()
 
 const localePath = useLocalePath()
 const route = useRoute()
