@@ -88,61 +88,25 @@
       </v-row>
     </v-container>
   </section>
-
-  <section>
-    <v-container class="d-flex flex-md-row flex-column align-sm-start">
-      <div>
-        <v-sheet
-          class="d-flex flex-md-column flex-sm-row flex-row"
-          variant="text"
-        >
-          <div
-            class="card-title align-self-md-end align-self-start mr-2 mr-sm-2 mr-md-0"
-          >
-            30
-          </div>
-          <div
-            class="card-title-subtitle align-self-center"
-            :class="mdAndUp ? 'text-right' : 'text-left'"
-          >
-            Apr <br />
-            2024
-          </div>
-        </v-sheet>
-      </div>
-
-      <div>
-        <div class="ml-lg-20 ml-md-12 mt-lg-0 mt-md-0 mt-12 mt-sm-12 mt-12">
-          <v-sheet class="mx-auto sheet-component">
-            <nuxt-img
-              src="https://radcliffe-harvard-edu.imgix.net/7a3318d8-16f7-437e-b8c3-fbf9bbe1f926/Alexis-Pauline-Gumbs_by-Sufia-Ikbal-Doucet.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C1584%2C1584"
-              fit:cover
-              class="fill-image"
-            >
-            </nuxt-img>
-          </v-sheet>
-        </div>
-      </div>
-    </v-container>
-  </section>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { useDisplay } from "vuetify"
 definePageMeta({ layout: "about" })
 const { smAndUp, name, mdAndUp } = useDisplay()
 const localePath = useLocalePath()
 const { $i18n } = useNuxtApp()
+//TODO .limit(1).find() > .findOne()
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + $i18n.locale.value)
     .limit(1)
-    .find()
+    .find(),
 )
 
 const { data: logosData } = await useAsyncData("logos", () =>
   queryContent("/logos/" + $i18n.locale.value)
     .only(["picture", "title", "url"])
-    .find()
+    .find(),
 )
 
 const logos = !logosData || !logosData.value ? undefined : logosData.value

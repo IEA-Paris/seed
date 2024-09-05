@@ -2,7 +2,11 @@
   <v-divider v-if="index > 0"></v-divider>
   <v-row class="my-8 px-sm-12 px-md-4" no-gutters>
     <v-col cols="12" md="1">
-      <MiscAtomsDateStamp :date="item.start" class="pr-6 mt-md-2" />
+      <MiscAtomsDateStamp
+        :loading="rootStore.events.loading"
+        :date="item.start"
+        class="pr-6 mt-md-2"
+      />
     </v-col>
     <v-col cols="12" md="8" class="px-md-6 mt-6 mt-md-0">
       <v-row no-gutters>
@@ -157,11 +161,11 @@
   </v-row>
 </template>
 <script setup>
-import { useDisplay } from "vuetify";
-import { useRootStore } from "~/store/root";
-const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay();
-const localePath = useLocalePath();
-const rootStore = useRootStore();
+import { useDisplay } from "vuetify"
+import { useRootStore } from "~/store/root"
+const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay()
+const localePath = useLocalePath()
+const rootStore = useRootStore()
 const props = defineProps({
   item: {
     type: Object,
@@ -171,5 +175,5 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-});
+})
 </script>

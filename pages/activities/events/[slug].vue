@@ -14,8 +14,8 @@ const { data } = await useAsyncData(
   "events",
   async () =>
     await queryContent(
-      "events/" + $i18n.locale.value + "/" + route.params.slug
-    ).findOne()
+      "events/" + $i18n.locale.value + "/" + route.params.slug,
+    ).findOne(),
 )
 
 const value = data._rawValue

@@ -1,4 +1,4 @@
-import config from "./static.config";
+import config from "./static.config"
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   sourcemap: {
@@ -72,25 +72,36 @@ export default defineNuxtConfig({
       target: "esnext", //browsers can handle the latest ES features
     },
   },
-
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      failOnError: false,
+    },
+  },
   modules: [
     "@pinia/nuxt",
     "@nuxt/content",
     /* "@nuxtjs/html-validator", */ // https://nuxt.com/modules/html-validator
-    "nuxt-csurf", // Cross-Site Request Forgery (CSRF) prevention (https://nuxt.com/modules/csurf).
+    // Cross-Site Request Forgery (CSRF) prevention (https://nuxt.com/modules/csurf).
+    "nuxt-csurf",
     "@nuxt/image",
     "nuxt-swiper",
     "@nuxtjs/i18n",
-    "@nuxtjs/device", // https://github.com/nuxt-community/device-module
-    "@nuxtjs/robots", // https://github.com/nuxt-modules/robots
-    "@nuxtjs/google-fonts", //
+    // https://github.com/nuxt-community/device-module
+    "@nuxtjs/device",
+    // https://github.com/nuxt-modules/robots
+    "@nuxtjs/robots",
+    //
+    "@nuxtjs/google-fonts",
     "nuxt-simple-sitemap",
     "nuxt-link-checker",
     "nuxt-schema-org",
     "@vite-pwa/nuxt",
     /*  "@nuxtjs/apollo", */
     "@vueuse/motion/nuxt",
-    "@nuxt/test-utils/module", //https://nuxt.com/docs/getting-started/testing
+    //https://nuxt.com/docs/getting-started/testing
+    "@nuxt/test-utils/module",
+    "@nuxtjs/html-validator",
   ],
 
   pinia: {
@@ -133,7 +144,9 @@ export default defineNuxtConfig({
     global: true,
     dirs: ["~/components"],
   },
-
+  routeRules: {
+    "/api/**": { isr: false },
+  },
   i18n: {
     langDir: "translations/",
     locales: config.lang.locales,
@@ -230,4 +243,4 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2024-09-03",
-});
+})

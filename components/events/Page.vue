@@ -3,6 +3,7 @@
   <v-row>
     <v-col cols="3">
       <MiscAtomsDateStamp
+        :loading="rootStore.events.loading"
         v-if="item.start"
         :date="[
           new Date(item.start),
@@ -95,6 +96,9 @@
   </v-row>
 </template>
 <script setup lang="ts">
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
+
 import { useDisplay } from "vuetify"
 const { smAndUp, mdAndUp, name } = useDisplay()
 const localePath = useLocalePath()

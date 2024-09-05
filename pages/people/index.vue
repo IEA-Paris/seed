@@ -33,4 +33,5 @@ import { useDisplay } from "vuetify"
 const { smAndUp } = useDisplay()
 // const route = useRoute()
 const localePath = useLocalePath()
+
 </script>

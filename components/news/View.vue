@@ -53,7 +53,11 @@
           <div
             class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-6"
           >
-            <MiscAtomsDateStamp :date="item.date" class="ml-0 mt-lg-2" />
+            <MiscAtomsDateStamp
+              :loading="rootStore.events.loading"
+              :date="item.date"
+              class="ml-0 mt-lg-2"
+            />
 
             <div class="ml-md-8">
               <div
@@ -132,24 +136,24 @@
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify";
-const { name, mdAndUp, smAndDown } = useDisplay();
-const router = useRouter();
-const { $i18n } = useNuxtApp();
-import { useRootStore } from "~/store/root";
-const rootStore = useRootStore();
+import { useDisplay } from "vuetify"
+const { name, mdAndUp, smAndDown } = useDisplay()
+const router = useRouter()
+const { $i18n } = useNuxtApp()
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
 const props = defineProps({
   item: {
     type: Object,
     required: true,
   },
-});
+})
 
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + $i18n.locale.value)
     .limit(1)
     .find(),
-);
+)
 </script>
 
 <style scoped>

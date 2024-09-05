@@ -3,8 +3,7 @@
     <v-card
       class="mx-auto d-flex align-center justify-center flex-column px-6"
       :color="action[0].color || 'default'"
-      v-motion-slide-visible-once-right
-      :variant="outlined"
+      variant="outlined"
     >
       <v-img
         class="w-100"

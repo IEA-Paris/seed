@@ -6,10 +6,10 @@
         $router.push(localePath('/activities/events/' + slugify(event.title)))
       "
       style="cursor: pointer"
-      v-motion-slide-visible-once-bottom
     >
       <v-col cols="3">
         <MiscAtomsDateStamp
+          :loading="rootStore.events.loading"
           :date="[
             new Date(event.start),
             ...(event.stop ? [new Date(event.stop)] : []),
@@ -29,16 +29,18 @@
   </v-sheet>
 </template>
 <script setup>
-import { useDisplay } from "vuetify";
-const { smAndUp, xsOnly } = useDisplay();
+import { useDisplay } from "vuetify"
+const { smAndUp, xsOnly } = useDisplay()
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
 
-const { $i18n } = useNuxtApp();
+const { $i18n } = useNuxtApp()
 const props = defineProps({
   events: {
     type: Array,
     required: true,
   },
-});
+})
 // import { useDisplay } from "vuetify"
 // const { smAndUp } = useDisplay()
 // const localePath = useLocalePath()

@@ -82,41 +82,45 @@
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify";
-import { debounce } from "~/composables/debounce";
+import { useDisplay } from "vuetify"
+import { debounce } from "~/composables/debounce"
 definePageMeta({
   layout: "about",
-});
-const router = useRouter();
-const { smAndUp, mdAndUp } = useDisplay();
-const localePath = useLocalePath();
+  documentDriven: {
+    page: false, // Keep page fetching enabled
+    surround: false, // Disable surround fetching
+  },
+})
+const router = useRouter()
+const { smAndUp, mdAndUp } = useDisplay()
+const localePath = useLocalePath()
 /* const goTo = useGoTo() */
 
-const config = useAppConfig();
-const { locale } = useI18n();
+const config = useAppConfig()
+const { locale } = useI18n()
 
-const { $i18n } = useNuxtApp();
+const { $i18n } = useNuxtApp()
 const { data: featured } = await useAsyncData("featured-list", () =>
   queryContent("/carousel/" + $i18n.locale.value).find(),
-);
+)
 const { data: events } = await useAsyncData("event-list", () =>
   queryContent("/event/" + $i18n.locale.value)
     .sort({ date: 1 })
     .find(),
-);
+)
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + $i18n.locale.value)
     .limit(1)
     .find(),
-);
+)
 const { data: fellows } = await useAsyncData("fellows", () =>
   queryContent("/fellows/" + $i18n.locale.value).find(),
-);
+)
 const { data: presentation } = await useAsyncData("presentation", () =>
   queryContent("/pages/" + $i18n.locale.value + "/institute_presentation")
     .limit(1)
     .find(),
-);
+)
 </script>
 <style lang="scss">
 .presentation-pitch p {

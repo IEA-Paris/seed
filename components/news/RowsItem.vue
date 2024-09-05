@@ -86,7 +86,8 @@
           "
         />
         <v-btn
-          variant="outlined mt-4"
+          class="mt-4"
+          variant="outlined"
           :to="
             localePath({
               name: 'news-slug',
@@ -107,11 +108,11 @@
 </template>
 
 <script setup>
-import { useRootStore } from "~/store/root";
-import { useDisplay } from "vuetify";
-const localePath = useLocalePath();
-const rootStore = useRootStore();
-const { name, mdAndDown, mdAndUp, lgAndUp } = useDisplay();
+import { useRootStore } from "~/store/root"
+import { useDisplay } from "vuetify"
+const localePath = useLocalePath()
+const rootStore = useRootStore()
+const { name, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
 const props = defineProps({
   item: {
     type: Object,
@@ -121,7 +122,7 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-});
+})
 </script>
 
 <style></style>

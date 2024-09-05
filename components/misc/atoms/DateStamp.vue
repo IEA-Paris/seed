@@ -23,28 +23,27 @@
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify";
-const { smAndUp, mdAndUp, name } = useDisplay();
-import { getDetailedFormatedDate } from "~/composables/useUtils";
-import { useRootStore } from "~/store/root";
-const rootStore = useRootStore();
+import { useDisplay } from "vuetify"
+const { smAndUp, mdAndUp, name } = useDisplay()
+import { getDetailedFormatedDate } from "~/composables/useUtils"
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
 
-const { $i18n } = useNuxtApp();
+const { $i18n } = useNuxtApp()
 const props = defineProps({
   date: {
     type: String,
-    required: true,
   },
   loading: {
     type: Boolean,
     default: false,
     required: true,
   },
-});
+})
 
 const detailedDate = ref(
   getDetailedFormatedDate(props.date, $i18n.locale.value),
-);
+)
 </script>
 <style lang="scss" scoped>
 .date-stamp {

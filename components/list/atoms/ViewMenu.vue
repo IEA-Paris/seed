@@ -16,12 +16,12 @@
             <v-icon>mdi-{{ current?.icon || defaultView?.icon }}</v-icon>
           </v-btn>
         </template>
-        <span
+        <div
           v-html="
             $t('list.view-mode') +
             $t('list.' + current.name || defaultView.name)
           "
-        ></span>
+        ></div>
       </v-tooltip>
     </template>
     <v-list density="compact">

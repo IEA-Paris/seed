@@ -11,8 +11,8 @@ const { data } = await useAsyncData(
   "people",
   async () =>
     await queryContent(
-      "people/" + $i18n.locale.value + "/" + route.params.slug
-    ).findOne()
+      "people/" + $i18n.locale.value + "/" + route.params.slug,
+    ).findOne(),
 )
 
 const value = data._rawValue

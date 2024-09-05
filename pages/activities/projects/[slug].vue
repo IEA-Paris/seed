@@ -21,8 +21,9 @@ const localePath = useLocalePath()
 console.log("route.params.slug: ", route.params.slug)
 const { data } = await useAsyncData("project", () =>
   queryContent(
-    "project/" + $i18n.locale.value + "/" + route.params.slug
-  ).findOne()
+    "project/" + $i18n.locale.value + "/" + route.params.slug,
+  ).findOne(),
 )
+
 const item = data._value
 </script>

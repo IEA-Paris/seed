@@ -1,8 +1,5 @@
 <template>
   <v-row class="my-6">
-    <!--     <v-col cols="12" sm="1" :order="smAndUp ? 'first' : 'first'">
-      <MiscAtomsDateStamp :date="new Date(item.date)"></MiscAtomsDateStamp>
-    </v-col> -->
     <v-col cols="12" sm="8" :order="smAndUp ? 'first' : 'last'">
       <v-row no-gutters>
         <v-col cols="12" sm="10" lg="9">
@@ -28,12 +25,9 @@
                 </template>
                 {{ $t("registration-open") }}
               </v-chip>
-              <v-btn
-                nuxt
-                :to="localePath(getSlugFromPath(item._path))"
-                class="justify-right"
-                >{{ $t("more-info") }}</v-btn
-              >
+              <v-btn nuxt :to="localePath(item._path)" class="justify-right">{{
+                $t("more-info")
+              }}</v-btn>
             </v-col>
           </v-row>
         </v-col>
@@ -62,30 +56,36 @@
     </v-col>
 
     <v-col cols="12" sm="3" :order="smAndUp ? 'last' : 'first'">
-      <v-img
+      <MiscAtomsImageContainer
         :src="item.picture"
-        :alt="item.title"
-        :aspect-ratio="1 / 1"
+        :title="item.title"
+        :loading="rootStore.fellowship.loading"
+        :ratio="1 / 1"
         :max-width="mdAndUp ? '250px' : '100%'"
-        cover
         class="ml-auto"
-        nuxt
-        :to="localePath(item.link)"
-      ></v-img> </v-col
+        :link="localePath(item._path)"
+      ></MiscAtomsImageContainer> </v-col
   ></v-row>
   <v-divider></v-divider>
 </template>
-<script setup lang="ts">
-const { $i18n } = useNuxtApp();
 
-import { useDisplay } from "vuetify";
-const { smAndUp, mdAndUp, name } = useDisplay();
-const localePath = useLocalePath();
+<script setup>
+const { $i18n } = useNuxtApp()
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
+
+import { useDisplay } from "vuetify"
+const { smAndUp, mdAndUp, name } = useDisplay()
+const localePath = useLocalePath()
 const props = defineProps({
   item: {
     type: Object,
     required: true,
   },
-});
+  index: {
+    type: Number,
+    required: true,
+  },
+})
 </script>
 <style lang="scss"></style>

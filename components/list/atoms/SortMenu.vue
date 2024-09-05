@@ -17,12 +17,12 @@
             <v-icon>mdi-{{ current?.icon || defaultSort?.icon }}</v-icon>
           </v-btn>
         </template>
-        <span
+        <div
           v-html="
             $t('list.sort-mode') +
             $t('list.' + current.text || defaultSort.text)
           "
-        ></span>
+        ></div>
       </v-tooltip>
     </template>
     <v-list density="compact">
@@ -68,9 +68,9 @@ const items = ref(rootStore[props.type].list.sort)
 const defaultSort = ref(
   rootStore[props.type].list.sort[
     Object.keys(rootStore[props.type].list.sort).find(
-      (item) => rootStore[props.type].list.sort[item].default === true
+      (item) => rootStore[props.type].list.sort[item].default === true,
     )
-  ]
+  ],
 )
 
 const current = computed(() => {

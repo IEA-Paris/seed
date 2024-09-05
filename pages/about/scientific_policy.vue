@@ -18,10 +18,10 @@
     <v-row>
       <v-col cols="12">
         <v-card class="d-flex align-center justify-center" link>
-          <PeopleSlidingGroup :items="sab"
-            ><div class="text-h2" v-motion-slide-visible-once-bottom>
+          <MiscAtomsSlidingCarousel type="people"
+            ><div class="text-h2">
               {{ $t("scientific-advisory-board") }}
-            </div></PeopleSlidingGroup
+            </div></MiscAtomsSlidingCarousel
           >
         </v-card>
       </v-col>
@@ -59,10 +59,15 @@ const { smAndUp } = useDisplay()
 const localePath = useLocalePath()
 const { $i18n } = useNuxtApp()
 console.log($i18n.locale.value)
-const { data: sab } = await useAsyncData("sab-list", () =>
-  queryContent("/sab/" + $i18n.locale.value).find()
+const { data: sab } = await useAsyncData(
+  "sab-list",
+  async () => await queryContent("/sab/" + $i18n.locale.value).find(),
 )
 definePageMeta({
   layout: "about",
+  documentDriven: {
+    page: false, // Keep page fetching enabled
+    surround: false, // Disable surround fetching
+  },
 })
 </script>

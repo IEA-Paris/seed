@@ -2,8 +2,8 @@
 import lists from '~/assets/data/lists' */
 
 /* import api from "~/server/api/github" */
-import config from "~/static.config";
-import { defineStore } from "pinia";
+import config from "~/static.config"
+import { defineStore } from "pinia"
 
 import {
   Views,
@@ -13,15 +13,15 @@ import {
   people,
   project,
   fellowship,
-} from "@paris-ias/data";
+} from "@paris-ias/data"
 
 interface InputParams {
-  key?: any | string;
-  level?: string[] | number[] | number | any;
-  store?: any;
-  category?: string;
-  defaults?: any | null;
-  value?: any;
+  key?: any | string
+  level?: string[] | number[] | number | any
+  store?: any
+  category?: string
+  defaults?: any | null
+  value?: any
 }
 
 export const useRootStore = defineStore("rootStore", {
@@ -52,77 +52,77 @@ export const useRootStore = defineStore("rootStore", {
         if ((this[type] as ModuleType).source === "gql") {
           // call appsync mutation
         }
-        return true;
+        return true
       } catch (error) {
-        console.log(`error while saving ${type}`, error);
+        console.log(`error while saving ${type}`, error)
       }
     },
     setLoading(value: boolean) {
-      this.loading = value;
+      this.loading = value
     },
     setScrolled() {
       if (process.browser) {
-        this.scrolled = window.scrollY > 0;
+        this.scrolled = window.scrollY > 0
       }
     },
 
     getKey({ key, level, store }: InputParams): any {
-      console.log("key: ", key);
-      console.log("level: ", level);
-      console.log("store: ", store);
-      console.log("store key val: ", store?.[level[0]]);
-      const isArray = typeof level[0] === "number";
+      console.log("key: ", key)
+      console.log("level: ", level)
+      console.log("store: ", store)
+      console.log("store key val: ", store?.[level[0]])
+      const isArray = typeof level[0] === "number"
       if (level.length === 1) {
         //guard against undef keys
-        if (store[level[0]] === undefined) store[level[0]] = ""; // TODO make sure it works with othjer primitive types
-        return isArray ? store.at(level[0]) : store[level[0]];
+        if (store[level[0]] === undefined) store[level[0]] = "" // TODO make sure it works with othjer primitive types
+        return isArray ? store.at(level[0]) : store[level[0]]
       }
 
       if (level.length > 1) {
         //guard against undef keys
         if (store[level[0]] === undefined) {
           if (isArray) {
-            store[level[0]] = [];
+            store[level[0]] = []
           } else {
             // if the key is not a number, it is an object (if it was a primitive, level.length would be 1)
-            store[level[0]] = {};
+            store[level[0]] = {}
           }
         }
         return this.getKey({
           key,
           level: level.slice(1),
           store: isArray ? store.at(level[0]) : store[level[0]],
-        });
+        })
       }
     },
     updateForm({ key, value, category, level, store }: InputParams): any {
       level = level ?? [
         (this[category as string] as ModuleType)?.form?.values[key],
-      ];
-      store = store ?? (this[category as string] as ModuleType).form.values;
+      ]
+      store = store ?? (this[category as string] as ModuleType).form.values
       console.log(`updateForm
         key: ${key}
         value: ${value}
         category: ${category}
         level: ${level}
-        store: ${Array.isArray(store) ? store.length : Object.keys(store)}`);
+        store: ${Array.isArray(store) ? store.length : Object.keys(store)}`)
       if (level.length === 1) {
         //guard against undef keys
-        if (store[level[0]] === undefined) store[level[0]] = ""; // TODO make sure it works with othjer primitive types
-        store[level[0]] = value;
+        if (store[level[0]] === undefined) store[level[0]] = "" // TODO make sure it works with othjer primitive types
+        store[level[0]] = value
       }
 
       if (level.length > 1) {
-        const isArray = typeof level[0] === "number";
+        const isArray = typeof level[0] === "number"
         //guard against undef keys
         if (store[level[0]] === undefined) {
           if (isArray) {
             const itemValue = (this[category as string] as ModuleType).form
-              .schema[key]?.default;
-            store[level[0]] = [itemValue];
+              .schema[key]?.default
+            store[level[0]] = [itemValue]
           } else {
             // if the key is not a number, it is an object (if it was a primitive, level.length would be 1)
-            store[level[0]] = {};
+            store[level[0]] = {}
           }
         }
         return this.updateForm({
@@ -131,7 +131,7 @@ export const useRootStore = defineStore("rootStore", {
           level: level.slice(1),
           category,
           store: store[level[0]],
-        });
+        })
       }
     },
     deleteFormItem({
@@ -142,28 +142,28 @@ export const useRootStore = defineStore("rootStore", {
     }: InputParams): any {
       level = level ?? [
         (this[category as string] as ModuleType).form.values[key],
-      ];
-      store = store ?? (this[category as string] as ModuleType).form.values;
+      ]
+      store = store ?? (this[category as string] as ModuleType).form.values
       console.log(`deleteFormItem
         key: ${key}
         category: ${category}
-        level: ${level}`);
+        level: ${level}`)
       // if level = 1 this is a primitive
       if (level.length === 1) {
-        console.log("store: ", store.length);
+        console.log("store: ", store.length)
         const newStore = store.filter(
           (item: any, index: any) => index === level[0],
-        );
-        store = newStore;
-        console.log("store: ", store.length);
+        )
+        store = newStore
+        console.log("store: ", store.length)
       } else if (level.length > 1) {
-        const isArray = typeof level[0] === "number";
+        const isArray = typeof level[0] === "number"
         return this.deleteFormItem({
           key,
           level: level.slice(1),
           category,
           store: store[level[0]],
-        });
+        })
       }
     },
     addFormItem({
@@ -176,30 +176,30 @@ export const useRootStore = defineStore("rootStore", {
       try {
         level = level ?? [
           (this[category as string] as ModuleType).form.values[key],
-        ];
-        store = store ?? (this[category as string] as ModuleType).form.values;
+        ]
+        store = store ?? (this[category as string] as ModuleType).form.values
         const defaultForm = (this[category as string] as ModuleType).form
-          ._defaults as string;
-        if (!defaults) defaults = JSON.parse(defaultForm);
-        console.log("defaults: ", defaults);
+          ._defaults as string
+        if (!defaults) defaults = JSON.parse(defaultForm)
+        console.log("defaults: ", defaults)
         console.log(`addFormItem
           key: ${key}
           category: ${category}
-          level: ${level}`);
+          level: ${level}`)
         // if level = 1 this is a primitive
         if (level.length === 1) {
-          const defautlValue = defaults[level[0]][0];
-          console.log("defautlValue: ", defautlValue);
-          store[key].push(defautlValue);
+          const defautlValue = defaults[level[0]][0]
+          console.log("defautlValue: ", defautlValue)
+          store[key].push(defautlValue)
         } else if (level.length > 1) {
-          const isArray = typeof level[0] === "number";
+          const isArray = typeof level[0] === "number"
           //guard against undef keys
           if (store[level[0]] === undefined) {
             if (isArray) {
-              store[level[0]] = [];
+              store[level[0]] = []
             } else {
               // if the key is not a number, it is an object (if it was a primitive, level.length would be 1)
-              store[level[0]] = {};
+              store[level[0]] = {}
             }
           }
           return this.addFormItem({
@@ -208,60 +208,60 @@ export const useRootStore = defineStore("rootStore", {
             category,
             store: store[level[0]],
             defaults: defaults[level[0]],
-          });
+          })
         }
       } catch (error) {
-        console.log("error: ", error);
+        console.log("error: ", error)
       }
     },
     loadRouteQuery(type: string) {
-      const { currentRoute } = useRouter();
-      const query = currentRoute.value.query;
+      const { currentRoute } = useRouter()
+      const query = currentRoute.value.query
 
       if (query.search) {
-        this.search = query.search as string;
+        this.search = query.search as string
       }
       if (query.filters) {
-        const filters = JSON.parse(query.filters as string);
+        const filters = JSON.parse(query.filters as string)
         Object.keys(filters).forEach((filter) => {
-          (this[type] as ModuleType).list.filters[filter] = filters[filter];
-        });
+          ;(this[type] as ModuleType).list.filters[filter] = filters[filter]
+        })
       }
 
       if (query.view) {
-        (this[type] as ModuleType).list.view = query.view as
+        ;(this[type] as ModuleType).list.view = query.view as
           | string
           | Views
-          | undefined;
+          | undefined
       }
       if (query.page) {
-        this.page = +query.page;
+        this.page = +query.page
       } else {
-        this.page = 1;
+        this.page = 1
       }
 
-      const sortObj = (this[type] as ModuleType).list.sort;
+      const sortObj = (this[type] as ModuleType).list.sort
       const defaultSortKey = Object.keys(sortObj).find(
         (item) => sortObj[item].default === true,
-      );
-      const defaultSort = [sortObj[defaultSortKey as string]];
+      )
+      const defaultSort = [sortObj[defaultSortKey as string]]
 
-      const sortDesc = (this[type] as ModuleType).list.sortDesc;
-      let sortDescItem;
-      sortDescItem = (sortDesc as number[] | boolean[])[0];
+      const sortDesc = (this[type] as ModuleType).list.sortDesc
+      let sortDescItem
+      sortDescItem = (sortDesc as number[] | boolean[])[0]
 
       if (query.sortBy) {
-        (this[type] as ModuleType).list.sortBy = [query.sortBy] as string[];
+        ;(this[type] as ModuleType).list.sortBy = [query.sortBy] as string[]
       }
       if (typeof query.sortDesc !== "undefined") {
-        sortDescItem = !!(query.sortDesc === "true");
+        sortDescItem = !!(query.sortDesc === "true")
       } else {
-        sortDescItem = defaultSort[0].value[1];
+        sortDescItem = defaultSort[0].value[1]
       }
     },
 
     setFiltersCount(type: string) {
-      const filters = (this[type] as ModuleType).list.filters;
+      const filters = (this[type] as ModuleType).list.filters
       const filtersCount = Object.keys(filters)
         // remove empty values
         .filter(
@@ -272,33 +272,33 @@ export const useRootStore = defineStore("rootStore", {
             (Array.isArray(filters[filter]) && filters[filter].length) ||
             (typeof filters[filter] === "object" &&
               Object.keys(filters[filter]).length),
-        ).length;
-      (this[type] as ModuleType).list.filtersCount = filtersCount;
+        ).length
+      ;(this[type] as ModuleType).list.filtersCount = filtersCount
     },
     setBlankFilterLoad(type: string) {
-      (this[type] as ModuleType).loading = [];
+      ;(this[type] as ModuleType).loading = false
     },
     resetState(type: string) {
-      this.resetFilters = true;
+      this.resetFilters = true
 
       const viewsObj = (this[type] as ModuleType).list.views as Record<
         string,
         Views
-      >;
+      >
       const defaultViewsKey = Object.keys(viewsObj).find(
         (item) => viewsObj[item].default === true,
-      );
-      const defaultView = viewsObj[defaultViewsKey as string];
+      )
+      const defaultView = viewsObj[defaultViewsKey as string]
 
-      const sortObj = (this[type] as ModuleType).list.sort;
+      const sortObj = (this[type] as ModuleType).list.sort
       const defaultSortKey = Object.keys(sortObj).find(
         (item) => sortObj[item].default === true,
-      );
-      const defaultSort = sortObj[defaultSortKey as string];
-      console.log("defaultSort root: ", defaultSort);
+      )
+      const defaultSort = sortObj[defaultSortKey as string]
+      console.log("defaultSort root: ", defaultSort)
 
       // TODO make dynamic based on an ~/assets located file
-      (this[type] as ModuleType).list.filters = {
+      ;(this[type] as ModuleType).list.filters = {
         years: [],
         issue: [],
         tags: [],
@@ -306,71 +306,70 @@ export const useRootStore = defineStore("rootStore", {
         thematic: [],
         discipline: [],
         type: [],
-      };
-      this.search = "";
-      (this[type] as ModuleType).list.view = defaultView.name;
-      (this[type] as ModuleType).list.sortBy = [defaultSort.value[0]];
-      (this[type] as ModuleType).list.sortDesc = [defaultSort.value[1]];
-      (this[type] as ModuleType).resetFilters = false;
-      this.page = 1;
+      }
+      this.search = ""
+      ;(this[type] as ModuleType).list.view = defaultView.name
+      ;(this[type] as ModuleType).list.sortBy = [defaultSort.value[0]]
+      ;(this[type] as ModuleType).list.sortDesc = [defaultSort.value[1]]
+      ;(this[type] as ModuleType).resetFilters = false
+      this.page = 1
 
-      this.update(type);
+      this.update(type)
     },
     updateSort({ value, type }: { value: number[] | string[]; type: string }) {
-      (this[type] as ModuleType).list.sortBy = [value[0]] as string[];
-      (this[type] as ModuleType).list.sortDesc = [value[1]] as number[];
-      this.page = 1;
-      this.update(type);
+      ;(this[type] as ModuleType).list.sortBy = [value[0]] as string[]
+      ;(this[type] as ModuleType).list.sortDesc = [value[1]] as number[]
+      this.page = 1
+      this.update(type)
     },
     updateView({ value, type }: { value: string; type: string }) {
-      (this[type] as ModuleType).list.view = value;
-      this.update(type);
+      ;(this[type] as ModuleType).list.view = value
+      this.update(type)
     },
     updateFilters({
       filters,
-      type,
     }: {
-      filters: Record<string, any[]>;
-      type: string;
+      filters: Record<string, any[]>
+      type: string
     }) {
       if (filters[Object.keys(filters)[0]].length)
-        (this[type] as ModuleType).loading.push(Object.keys(filters)[0]);
-      (this[type] as ModuleType).list.filters[Object.keys(filters)[0]] =
-        filters[Object.keys(filters)[0]];
-      this.page = 1;
+        (this[type] as ModuleType).loading.push(Object.keys(filters)[0])
+      ;(this[type] as ModuleType).list.filters[Object.keys(filters)[0]] =
+        filters[Object.keys(filters)[0]]
+      this.page = 1
 
-      this.update(type);
+      this.update(type)
     },
     updateItemsPerPage({ value, type }: { value: number; type: string }) {
-      this.page = 1;
-      (this[type] as ModuleType).list.itemsPerPage = value;
+      this.page = 1
+      ;(this[type] as ModuleType).list.itemsPerPage = value
 
-      this.update(type);
+      this.update(type)
     },
     updatePage({ page, type }: { page: number; type: string }) {
-      this.page = page;
-      this.update(type);
+      this.page = page
+      this.update(type)
     },
     updateSearch({ search, type }: { search: any; type: string }) {
-      console.log("updateSearch: ", { search, type });
-      this.page = 1;
-      this.search = search;
-      this.update(type);
+      console.log("updateSearch: ", { search, type })
+      this.page = 1
+      this.search = search
+      this.update(type)
     },
     async update(type: string, lang: string = "en") {
       /*   console.log("type: ", type + "/" + lang); */
-      const target = type + "/" + lang + "/";
-      this.setLoading(true);
-      (this[type] as ModuleType).loading = true;
-      const router = useRouter();
-      const filters = (this[type] as ModuleType)?.list?.filters || {};
+      const target = type + "/" + lang + "/"
+      this.setLoading(true)
+      ;(this[type] as ModuleType).loading = true
+      const router = useRouter()
+      const filters = (this[type] as ModuleType)?.list?.filters || {}
       const pipeline = {
         // default filters
         /* ...filters, */
-      } as any;
-      const queryFilters: any = {};
+      } as any
+      const queryFilters: any = {}
 
-      pipeline.$or = [];
+      pipeline.$or = []
       // TODO maybe remove
       for (const filter in filters) {
         // remove empty values
@@ -384,12 +383,12 @@ export const useRootStore = defineStore("rootStore", {
               Object.keys(filters[filter]).length)
           )
         ) {
-          delete filters[filter];
-          continue;
+          delete filters[filter]
+          continue
         }
         // update route query
-        const val = filters[filter];
-        queryFilters[filter] = val;
+        const val = filters[filter]
+        queryFilters[filter] = val
 
         // convert filters into mongo-like loki query & push in the pipeline
         /* if (
@@ -430,44 +429,44 @@ export const useRootStore = defineStore("rootStore", {
       }
 
       if (!pipeline.$or.length) {
-        delete pipeline.$or;
+        delete pipeline.$or
       } else {
-        pipeline.$or = pipeline.$or.flat();
+        pipeline.$or = pipeline.$or.flat()
       }
       /*  console.log("pipeline: ", pipeline)
        */
-      const count = await queryContent(target).where(pipeline).count();
-      const totalItems = count;
+      const count = await queryContent(target).where(pipeline).count()
+      const totalItems = count
       /*   console.log("totalItems: ", totalItems) */
 
       const itemsPerPageValue = (this[type] as ModuleType).list
-        ?.itemsPerPage as number;
-      const lastPage = Math.ceil(totalItems / itemsPerPageValue);
+        ?.itemsPerPage as number
+      const lastPage = Math.ceil(totalItems / itemsPerPageValue)
 
       const lastPageCount =
-        totalItems % ((this[type] as ModuleType)?.list?.itemsPerPage || 1);
+        totalItems % ((this[type] as ModuleType)?.list?.itemsPerPage || 1)
 
-      const itemsPerPage = (this[type] as ModuleType)?.list?.itemsPerPage || 1;
+      const itemsPerPage = (this[type] as ModuleType)?.list?.itemsPerPage || 1
 
       const skipNumber = () => {
         if (+this.page === 1) {
-          return 0;
+          return 0
         }
         if (+this.page === lastPage) {
           if (lastPageCount === 0) {
-            return totalItems - itemsPerPage;
+            return totalItems - itemsPerPage
           }
-          return totalItems - lastPageCount;
+          return totalItems - lastPageCount
         }
-        return (+this.page - 1) * itemsPerPage;
-      };
+        return (+this.page - 1) * itemsPerPage
+      }
 
-      const sortBy = (this[type] as ModuleType).list.sortBy;
-      const sortByItem = (sortBy as string[])[0];
+      const sortBy = (this[type] as ModuleType).list.sortBy
+      const sortByItem = (sortBy as string[])[0]
 
-      const sortDesc = (this[type] as ModuleType).list.sortDesc;
-      const sortDescItem = (sortDesc as number[])[0];
-      const sortArray = [sortByItem, sortDescItem];
+      const sortDesc = (this[type] as ModuleType).list.sortDesc
+      const sortDescItem = (sortDesc as number[])[0]
+      const sortArray = [sortByItem, sortDescItem]
       /*       console.log("type1: ", type)
       console.log("pipeline: ", pipeline)
       console.log("queryContent: ", queryContent)
@@ -477,7 +476,7 @@ export const useRootStore = defineStore("rootStore", {
       })
       console.log("skipNumber(): ", skipNumber())
       console.log("itemsPerPage: ", itemsPerPage) */
-      console.log("target: ", target);
+      console.log("target: ", target)
 
       const items = await queryContent(target)
         /*  .where(pipeline) */
@@ -485,22 +484,22 @@ export const useRootStore = defineStore("rootStore", {
         /*  .sort({ [sortArray[2]]: sortArray[3] }) */
         .skip(skipNumber())
         .limit(itemsPerPage)
-        .find();
+        .find()
       /*       console.log("items: ", items); */
       const viewsObj = (this[type] as ModuleType).list.views as Record<
         string,
         Views
-      >;
+      >
       const defaultViewsKey = Object.keys(viewsObj).find(
         (item) => viewsObj[item].default === true,
-      );
-      const defaultView = viewsObj[defaultViewsKey as string];
+      )
+      const defaultView = viewsObj[defaultViewsKey as string]
 
-      const sortObj = (this[type] as ModuleType).list.sort;
+      const sortObj = (this[type] as ModuleType).list.sort
       const defaultSortKey = Object.keys(sortObj).find(
         (item) => sortObj[item].default === true,
-      );
-      const defaultSort = sortObj[defaultSortKey as string];
+      )
+      const defaultSort = sortObj[defaultSortKey as string]
 
       // update route
       const query: Record<string, any> = {
@@ -526,9 +525,9 @@ export const useRootStore = defineStore("rootStore", {
         ...(Object.keys(filters)?.length && {
           filters: JSON.stringify(queryFilters),
         }),
-      };
+      }
       const sortObject = (obj: any) =>
-        Object.fromEntries(Object.entries(obj).sort());
+        Object.fromEntries(Object.entries(obj).sort())
       /*       console.log("type b4 sort obj: ", type)
       console.log("query: ", query) */
 
@@ -539,7 +538,7 @@ export const useRootStore = defineStore("rootStore", {
             typeof query[key] === "boolean"
             ? query[key] === (query[key] as any).toString()
             : {},
-      );
+      )
 
       /*     if (
           JSON.stringify(router.currentRoute.value.query) !==
@@ -553,17 +552,17 @@ export const useRootStore = defineStore("rootStore", {
    */
       // fetch the item categories
 
-      this.setFiltersCount(type);
-      this.setBlankFilterLoad(type);
+      this.setFiltersCount(type)
+      this.setBlankFilterLoad(type)
       /*       console.log("type2: ", type) */
-      (this[type] as ModuleType).list.items = items as any;
-      this.total = totalItems;
-      this.numberOfPages = lastPage;
-      this.setLoading(false);
-      (this[type] as ModuleType).loading = false;
+      ;(this[type] as ModuleType).list.items = items as any
+      this.total = totalItems
+      this.numberOfPages = lastPage
+      this.setLoading(false)
+      ;(this[type] as ModuleType).loading = false
     },
   },
-});
+})
 
 // -------------------------------------------------------------------------------
 // fetch the item categories
