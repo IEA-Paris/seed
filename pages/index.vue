@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!--  TODO: replace source with news based one (latest X news with featured:true) -->
     <HomeCarousel class="carousel" :featured="featured"></HomeCarousel>
     <section>
       <v-container>
@@ -71,7 +72,8 @@
     </section>
     <section>
       <MiscAtomsSlidingCarousel type="people" key="people">
-        {{ $t("discover-our-0-fellows", ["2023-2024"]) }}
+        {{ $t("discover-our-0-fellows", ["2024-2025"]) }}
+        <!-- TODO: make the date argument dynamic -->
       </MiscAtomsSlidingCarousel>
     </section>
   </div>
@@ -81,10 +83,6 @@
 import { useDisplay } from "vuetify"
 definePageMeta({
   layout: "about",
-  documentDriven: {
-    page: false, // Keep page fetching enabled
-    surround: false, // Disable surround fetching
-  },
 })
 const router = useRouter()
 const { smAndUp, mdAndUp } = useDisplay()
@@ -97,7 +95,9 @@ const { locale } = useI18n()
 const presentation = ref("/pages/" + locale.value + "/institute_presentation")
 
 const { data: featured } = await useAsyncData("featured-list", () =>
-  queryContent("/carousel/" + locale.value).find(),
+  queryContent("/news/" + locale.value)
+    .where({ pinned: true })
+    .find(),
 )
 </script>
 <style lang="scss">

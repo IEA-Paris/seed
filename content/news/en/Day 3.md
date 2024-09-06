@@ -26,7 +26,7 @@ tags:
     createdAt: null
     updatedAt: null
 published: true
-pinned: false
+pinned: true
 title: 'Day 3: "What you do FOR  people, you do TO people, so do it WITH people!"'
 date: 2021-10-19T23:00:00Z
 authors:
@@ -38,7 +38,7 @@ authors:
     biography: ""
     groups: ""
     lang: ""
-image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+image: "https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
 url: ""
 audio: []
 relatedProjects:

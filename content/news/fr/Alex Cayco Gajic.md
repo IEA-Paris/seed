@@ -26,8 +26,8 @@ tags:
     createdAt: null
     updatedAt: null
 published: true
-pinned: false
-title: '"From Movement to Cognition": An exploration of Alex Cayco Gajic''s Research'
+pinned: true
+title: '"From Movement to Cognition": une exploration de la recherche de Alex Cayco Gajic'
 date: 2021-10-14T22:00:00.000+00:00
 authors:
   - firstname: Atrina
@@ -41,7 +41,7 @@ authors:
 url: qhjTekJ2Nc0
 audio:
   - "1122330247"
-image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+image: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg"
 
 relatedProjects:
   - title: "Event1"

@@ -9,7 +9,7 @@
       :index="index"
     ></component>
   </component>
-  <!--   <div class="text-center">
+  <div class="text-center">
     <ListMoleculesPagination
       v-if="numberOfPages > 1"
       :type="type"
@@ -21,7 +21,7 @@
       :page-gap="2"
       :hide-prev-next="false"
     ></ListMoleculesPagination>
-  </div> -->
+  </div>
 </template>
 <script setup>
 import { useRootStore } from "~/store/root"

@@ -3,7 +3,8 @@
     <NavigationTopBar />
     <v-main>
       <v-container v-if="crumbs && crumbs.length">
-        <!--         <v-breadcrumbs :items="crumbs" class="pl-0" link>
+        <!--    TODO: make a NavigationBreadcrumbs component with propers links and correct urls -->
+        <v-breadcrumbs :items="crumbs" class="pl-0" link>
           <template v-slot:prepend>
             <v-btn to="/" size="small" variant="text" icon="mdi-home"></v-btn>
             /
@@ -12,8 +13,8 @@
           <template v-slot:title="{ item }">
             {{ $t(item.title).toUpperCase() }}
           </template>
-        </v-breadcrumbs> -->
-        <v-btn
+        </v-breadcrumbs>
+        <!--       <v-btn
           x-large
           :height="mdAndUp ? '56' : '40'"
           outlined
@@ -22,7 +23,7 @@
           @click="rootStore.setLoading(!rootStore.loading)"
         >
           <v-icon left>mdi-loading</v-icon>
-        </v-btn>
+        </v-btn> -->
         <!--    <h1
           v-if="
             crumbs.slice(-1)[0] &&
@@ -60,7 +61,7 @@ const isSnapRoutes = () => {
 }
 const crumbs = computed(() => {
   return route.path
-  /*  .split("/")
+    .split("/")
     .filter((item) => item && !ignoredRoutes.includes(item))
     .map((item, index) => {
       return {
@@ -77,7 +78,7 @@ const crumbs = computed(() => {
         disabled: false,
         exact: true,
       }
-    */
+    })
 })
 </script>
 <style lang="scss" scoped>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="rootStore.loading || rootStore.fellowship.loading">LOADING</div>
-
+    <!-- TODO: rewrite properly -->
     <v-row class="my-6" v-else>
       <v-col cols="12" sm="8" :order="smAndUp ? 'first' : 'last'">
         <v-row no-gutters>

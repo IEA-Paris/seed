@@ -1,5 +1,8 @@
 <template>
   <div class="d-flex flex-wrap">
+    <!--   TODO: constrain it by height (no more than calc(100vh - 64px)).
+        The logos should size responsively (no hard coded values)
+        Also replace with ImageContainer and pass the hover class animation to it -->
     <a
       :href="item.url"
       target="_blank"

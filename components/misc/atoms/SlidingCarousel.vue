@@ -65,14 +65,22 @@
 </template>
 
 <script setup>
+/* 
+TODO: make it similar to radcliffe :
+- offset out of the layout before scrolling. 
+- Meaningful behavior when clicking on the arrrows
+- Add a slide-in from right animation when the items are entering viewport 
+*/
 import { capitalize } from "~/composables/useUtils"
-const { locale } = useI18n()
 import { useDisplay } from "vuetify"
-const { name, mdAndUp } = useDisplay()
 import { useRootStore } from "~/store/root"
+
+const { locale } = useI18n()
+const { name, mdAndUp } = useDisplay()
 const rootStore = useRootStore()
 const model = ref(0)
 const slideGroup = ref()
+
 const props = defineProps({
   type: {
     type: String,

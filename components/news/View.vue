@@ -114,7 +114,7 @@
         <div class="mt-2 mx-n6 mx-sm-0" v-if="mdAndUp">
           <ActionsSmallContainer
             :action="action"
-            :ratio="null"
+            :ratio="1"
           ></ActionsSmallContainer>
         </div>
       </template>

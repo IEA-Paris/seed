@@ -26,7 +26,7 @@ tags:
     createdAt: null
     updatedAt: null
 published: true
-pinned: false
+pinned: true
 title: 'Day 2: "In AI we trust"...or not!'
 date: 2021-10-18T23:00:00Z
 authors:
@@ -38,7 +38,7 @@ authors:
     biography: ""
     groups: ""
     lang: ""
-image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+image: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg"
 url: ""
 audio: []
 relatedProjects:

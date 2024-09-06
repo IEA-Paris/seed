@@ -1,6 +1,8 @@
 <template>
   <div>
-    <!--  <component
+    <!-- 
+    TODO: reactivate and bind to the related store state parts (as well as the actions)
+    <component
       :is="filters[filter].type"
       v-for="(filter, name) in Object.keys(filters)"
       v-show="name < 3 || expanded"

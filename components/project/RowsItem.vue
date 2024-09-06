@@ -1,4 +1,5 @@
 <template>
+  <!--  TODO: design properly -->
   <div>
     <div v-if="rootStore.loading || rootStore.project.loading">LOADING</div>
     <v-card

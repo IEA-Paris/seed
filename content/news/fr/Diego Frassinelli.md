@@ -26,9 +26,8 @@ tags:
     createdAt: null
     updatedAt: null
 published: true
-pinned: false
-title: Could our culture and society impact natural language models? Let's ask
-  Diego Frassinelli!
+pinned: true
+title: Version FR de vive Diego Frassinelli!
 date: 2021-10-15T22:00:00.000+00:00
 authors:
   - firstname: Atrina
@@ -41,7 +40,7 @@ authors:
     lang: ""
 url: 3AwyxNdg71A
 audio: []
-image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+image: "https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
 
 relatedProjects:
   - title: "Event1"

@@ -26,8 +26,8 @@ tags:
     createdAt: null
     updatedAt: null
 published: true
-pinned: false
-title: Deshen Moodley on "Adaptive and Cognitive Systems"
+pinned: true
+title: Deshen Moodley nous parle des "Adaptive and Cognitive Systems"
 date: 2021-10-14T22:00:00.000+00:00
 authors:
   - firstname: Atrina
@@ -41,7 +41,7 @@ authors:
 url: ziT27xYdi6o
 audio:
   - "1122328105"
-image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+image: "https://cdn.vuetifyjs.com/images/cards/hotel.jpg"
 
 relatedProjects:
   - title: "Event1"
