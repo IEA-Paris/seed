@@ -4,6 +4,7 @@
     role="navigation"
     aria-label="Pagination Navigation"
   >
+    <!--  TODO: switch to page as route param -->
     <v-btn
       v-if="!(hidePrevNext && firstPageSelected())"
       :disabled="firstPageSelected()"
@@ -32,7 +33,7 @@
           renderPages[index - 1].key +
             ((renderPages[index + 1].key || totalPages) -
               renderPages[index - 1].key) /
-              2
+              2,
         )}`"
       >
         ...

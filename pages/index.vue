@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!--  TODO: replace source with news based one (latest X news with featured:true) -->
     <HomeCarousel class="carousel" :featured="featured"></HomeCarousel>
     <section>
       <v-container>
@@ -72,8 +71,7 @@
     </section>
     <section>
       <MiscAtomsSlidingCarousel type="people" key="people">
-        {{ $t("discover-our-0-fellows", ["2024-2025"]) }}
-        <!-- TODO: make the date argument dynamic -->
+        {{ $t("discover-our-0-fellows", academicYear) }}
       </MiscAtomsSlidingCarousel>
     </section>
   </div>
@@ -93,10 +91,17 @@ const config = useAppConfig()
 const { locale } = useI18n()
 
 const presentation = ref("/pages/" + locale.value + "/institute_presentation")
-
+const today = new Date()
+const academicYear = ref(
+  today.getMonth > 7
+    ? today.getFullYear() + "-" + today.getFullYear() + 1
+    : today.getFullYear() - 1 + "-" + today.getFullYear(),
+)
 const { data: featured } = await useAsyncData("featured-list", () =>
   queryContent("/news/" + locale.value)
     .where({ pinned: true })
+    .sort("date", "desc")
+    .limit(3)
     .find(),
 )
 </script>
