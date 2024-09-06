@@ -134,7 +134,10 @@ const display = computed({
     nuxtApp.$vuetify.goTo(0)
   },
 })
-
+const { data, error } = await useAsyncData(
+  async () => await rootStore.update(props.type, locale.value),
+)
+console.log("error: ", error)
 onMounted(async () => {
   const { type, source } = props
 
@@ -146,12 +149,5 @@ onMounted(async () => {
     route.query?.search?.length > 0
   /*
     filter.value = hasFilters */
-
-  await rootStore.update(type, locale.value, source)
-})
-
-await callOnce(async () => {
-  // console.log("locale.value: ", locale.value)
-  return await rootStore.update(props.type, locale.value)
 })
 </script>

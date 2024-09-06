@@ -2,7 +2,7 @@
   <v-card
     flat
     class="pa-6"
-    :to="localePath('/people/' + slugify(item.firstname + ' ' + item.lastname))"
+    :to="localePath('/people/' + slugify(item.lastname + ' ' + item.firstname))"
     v-motion-fade-visible
   >
     <MiscAtomsImageContainer
@@ -26,12 +26,12 @@
 <script setup>
 // import { useDisplay } from "vuetify"
 // const { smAndUp } = useDisplay()
-import { useRootStore } from "~/store/root";
-const rootStore = useRootStore();
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
 
-const localePath = useLocalePath();
+const localePath = useLocalePath()
 const props = defineProps({
   item: Object,
-});
+})
 </script>
 <style lang="scss"></style>

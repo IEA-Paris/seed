@@ -43,7 +43,7 @@ const props = defineProps({
   },
 })
 const valid = ref(false)
-const saving = ref(false)
+let saving = ref(false)
 const save = async () => {
   if (valid) {
     saving = true

@@ -79,14 +79,12 @@ const props = defineProps({
     required: true,
   },
 })
+const { data, error } = await useAsyncData(
+  async () => await rootStore.update(props.type, locale.value),
+)
+console.log("error: ", error)
+onMounted(async () => {})
 
-onMounted(async () => {
-  await rootStore.update(props.type, locale.value)
-})
-
-callOnce(async () => {
-  return await rootStore.update(props.type, locale.value)
-})
 const computedWidth = computed(() => {
   return ["200", "250", "300", "330", "400", "400"][
     ["xs", "sm", "md", "lg", "xl", "xxl"].indexOf(name.value || "md")

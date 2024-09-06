@@ -500,7 +500,7 @@ export const useRootStore = defineStore("rootStore", {
         (item) => sortObj[item].default === true,
       )
       const defaultSort = sortObj[defaultSortKey as string]
-
+      console.log("query done for type ", type)
       // update route
       const query: Record<string, any> = {
         ...(this.search &&
@@ -560,6 +560,7 @@ export const useRootStore = defineStore("rootStore", {
       this.numberOfPages = lastPage
       this.setLoading(false)
       ;(this[type] as ModuleType).loading = false
+      return true
     },
   },
 })

@@ -10,7 +10,7 @@ const { data: people } = await useAsyncData(
   "people",
   async () =>
     await queryContent(
-      "people/" + locale.value + "/" + route.params.slug,
+      "/people/" + locale.value + "/" + route.params.slug,
     ).findOne(),
 )
 </script>

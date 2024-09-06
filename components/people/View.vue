@@ -10,7 +10,7 @@
             :src="item.image"
             :ratio="1 / 1"
             :width="
-              ['200', '250', '250', '300'][
+              [200, 250, 250, 300][
                 ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
               ]
             "
@@ -177,9 +177,9 @@
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify";
-import { useRootStore } from "~/store/root";
-const rootStore = useRootStore();
-const { name, mdAndUp } = useDisplay();
-const props = defineProps({ item: { type: Object, required: true } });
+import { useDisplay } from "vuetify"
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
+const { name, mdAndUp } = useDisplay()
+const props = defineProps({ item: { type: Object, required: true } })
 </script>
