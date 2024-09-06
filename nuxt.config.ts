@@ -239,7 +239,9 @@ export default defineNuxtConfig({
       },
     },
   },
-
+  experimental: {
+    asyncContext: true,
+  },
   devtools: {
     enabled: false,
   },

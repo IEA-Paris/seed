@@ -58,10 +58,7 @@ const { smAndUp } = useDisplay()
 const localePath = useLocalePath()
 const { locale } = useI18n()
 console.log(locale.value)
-const { data: sab } = await useAsyncData(
-  "sab-list",
-  async () => await queryContent("/sab/" + locale.value).find(),
-)
+
 const scientificPolicy = "/pages/" + locale.value + "/scientific_policy"
 definePageMeta({
   layout: "about",
