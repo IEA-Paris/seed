@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="scroller">
     <section>
       <v-container>
         <v-row class="d-flex align-center justify-center">
@@ -96,6 +96,7 @@
           </v-col> </v-row
       ></v-container>
     </section>
+    <NavigationFooter isSnapScroll />
   </div>
 </template>
 

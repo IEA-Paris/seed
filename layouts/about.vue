@@ -1,10 +1,10 @@
 <template>
   <v-app>
-    <v-main class="scroller">
+    <v-main>
       <div class="header-section">
         <NavigationTopBar />
         <!--    TODO: make a NavigationBreadcrumbs component with propers links and correct urls -->
-        <v-container v-if="crumbs && crumbs.length">
+        <!--         <v-container v-if="crumbs && crumbs.length">
           <v-breadcrumbs :items="crumbs" class="pl-0" link>
             <template v-slot:prepend>
               <v-btn to="/" size="small" variant="text" icon="mdi-home"></v-btn>
@@ -16,12 +16,11 @@
             </template>
           </v-breadcrumbs>
           <v-divider></v-divider>
-        </v-container>
+        </v-container> -->
       </div>
       <!--  TODO: fix snapscrolling between routes (footer visible on page land )
       fix chrome double scroll bar issue -->
-      <v-container fluid class="pa-0"> <slot /> </v-container
-      ><NavigationFooter isSnapScroll />
+      <v-container fluid class="pa-0"> <slot /> </v-container>
     </v-main>
   </v-app>
 </template>

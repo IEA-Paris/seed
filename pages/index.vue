@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="scroller">
     <HomeCarousel class="carousel" :featured="featured"></HomeCarousel>
     <section>
       <v-container>
@@ -71,9 +71,10 @@
     </section>
     <section>
       <MiscAtomsSlidingCarousel type="people" key="people">
-        {{ $t("discover-our-0-fellows", academicYear) }}
+        {{ $t("discover-our-0-fellows", [academicYear]) }}
       </MiscAtomsSlidingCarousel>
     </section>
+    <NavigationFooter isSnapScroll />
   </div>
 </template>
 
@@ -93,8 +94,8 @@ const { locale } = useI18n()
 const presentation = ref("/pages/" + locale.value + "/institute_presentation")
 const today = new Date()
 const academicYear = ref(
-  today.getMonth > 7
-    ? today.getFullYear() + "-" + today.getFullYear() + 1
+  today.getMonth() > 6
+    ? today.getFullYear() + "-" + (today.getFullYear() + 1)
     : today.getFullYear() - 1 + "-" + today.getFullYear(),
 )
 const { data: featured } = await useAsyncData("featured-list", () =>

@@ -1,6 +1,6 @@
 <template>
   <!--  TODO: design properly -->
-  <div>
+  <v-col cols="12" sm="6" md="4">
     <div v-if="rootStore.loading || rootStore.project.loading">LOADING</div>
     <v-card
       v-else
@@ -14,7 +14,6 @@
       <MiscAtomsImageContainer
         :src="item.picture"
         class="align-start"
-        max-height="250px"
         :loading="rootStore.project.loading"
         :ratio="1 / 1"
         :title="item.title"
@@ -25,10 +24,9 @@
       </MiscAtomsImageContainer>
       <div>
         <v-card-title>{{ item.title }}</v-card-title>
-        <v-card-text> <ContentRenderer :value="item" /></v-card-text>
       </div>
     </v-card>
-  </div>
+  </v-col>
 </template>
 
 <script setup>
