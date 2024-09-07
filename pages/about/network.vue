@@ -3,29 +3,31 @@
     <section>
       <v-container>
         <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" sm="3">
-            <v-sheet
-              class="d-flex align-center justify-center"
-              color="grey-lighten-3"
-              height="400"
-            >
-              <v-img
-                height="400"
-                fit="contain"
-                :aspectRatio="1 / 1"
-                src="/images/durandcecile.jpg"
-              ></v-img
-            ></v-sheet>
-          </v-col>
-          <v-col cols="12" sm="9">
-            <v-sheet
-              class="d-flex align-center justify-center"
-              color="grey-lighten-3"
-              height="250"
-              link
-            >
-              <ContentDoc :path="network" />
-            </v-sheet>
+          <v-col cols="12" md="10" lg="9" xl="8">
+            <v-row no-gutters>
+              <v-col cols="12" sm="3">
+                <v-sheet
+                  class="d-flex align-center justify-center"
+                  height="400"
+                >
+                  <v-img
+                    height="400"
+                    fit="contain"
+                    :aspectRatio="1 / 1"
+                    src="/images/durandcecile.jpg"
+                  ></v-img
+                ></v-sheet>
+              </v-col>
+              <v-col cols="12" sm="9">
+                <v-sheet
+                  class="d-flex align-center justify-center"
+                  height="250"
+                  link
+                >
+                  <ContentDoc :path="network" />
+                </v-sheet>
+              </v-col>
+            </v-row>
           </v-col> </v-row
       ></v-container>
     </section>
@@ -33,18 +35,22 @@
     <section>
       <v-container>
         <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" sm="6">
-            <v-sheet
-              class="d-flex align-center justify-center"
-              :to="localePath('/support')"
-              link
-            >
-              <ContentDoc :path="partners" /> </v-sheet
-          ></v-col>
-          <v-col cols="12" sm="6">
-            <v-sheet class="d-flex align-center justify-center">
-              List of partners</v-sheet
-            >
+          <v-col cols="12" md="10" lg="9" xl="8">
+            <v-row no-gutters>
+              <v-col cols="12" sm="6">
+                <v-sheet
+                  class="d-flex align-center justify-center"
+                  :to="localePath('/support')"
+                  link
+                >
+                  <ContentDoc :path="partners" /> </v-sheet
+              ></v-col>
+              <v-col cols="12" sm="6">
+                <v-sheet class="d-flex align-center justify-center">
+                  List of partners</v-sheet
+                >
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-container>
@@ -52,30 +58,33 @@
     <section>
       <v-container>
         <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" sm="8">
-            <v-sheet class="d-flex align-center justify-center">
-              List of sponsors</v-sheet
-            >
-            <HomeLogoGallery :items="logos"></HomeLogoGallery>
-          </v-col>
-          <v-col cols="4" v-show="smAndUp">
-            <v-sheet
-              class="d-flex align-center justify-center"
-              :to="localePath('/support')"
-              link
-            >
-              <ActionsSmallContainer
-                :action="action"
-                :ratio="1"
-              ></ActionsSmallContainer></v-sheet
+          <v-col cols="12" md="10" lg="9" xl="8">
+            <v-row no-gutters>
+              <v-col cols="12" sm="8">
+                <v-sheet class="d-flex align-center justify-center">
+                  List of sponsors</v-sheet
+                >
+                <HomeLogoGallery :items="logos"></HomeLogoGallery>
+              </v-col>
+              <v-col cols="4" v-show="smAndUp">
+                <v-sheet
+                  class="d-flex align-center justify-center"
+                  :to="localePath('/support')"
+                  link
+                >
+                  <ActionsSmallContainer
+                    :action="action"
+                    :ratio="1"
+                  ></ActionsSmallContainer></v-sheet
+              ></v-col> </v-row
           ></v-col> </v-row
       ></v-container>
     </section>
 
     <section>
       <v-container>
-        <v-row>
-          <v-col cols="12">
+        <v-row class="d-flex align-center justify-center">
+          <v-col cols="12" md="10" lg="9" xl="8">
             <div class="d-flex align-center justify-center flex-column">
               <h3>{{ $t("our-members") }}</h3>
             </div>
