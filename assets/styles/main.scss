@@ -163,6 +163,28 @@ $stepper-elevation: 0;
   margin-bottom: 16px;
   padding-bottom: 0;
 }
+.scroller {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: calc(100vh - 64px);
+  section,
+  .carousel {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    scroll-padding-top: 64px;
+    scroll-padding-bottom: 100vh;
+  }
+  section {
+    height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+  }
+  .carousel {
+    height: calc(100vh - 64px);
+  }
+}
 // FF print fix
 /* @media print {
   .application {

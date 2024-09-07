@@ -110,28 +110,4 @@ const { data: featured } = await useAsyncData("featured-list", () =>
 .presentation-pitch p {
   font-size: 1.2rem;
 }
-.scroller {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  height: calc(100vh - 64px);
-  margin-top: 64px;
-  section,
-  .carousel {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    overflow-y: scroll;
-
-    scroll-padding-top: 64px;
-    scroll-padding-bottom: 100vh;
-  }
-  section {
-    height: calc(100vh - 64px);
-    display: flex;
-    align-items: center;
-  }
-  .carousel {
-    height: calc(100vh - 64px);
-  }
-}
 </style>
