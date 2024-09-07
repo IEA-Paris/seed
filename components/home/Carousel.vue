@@ -1,27 +1,12 @@
 <template>
-  <v-container class="py-0">
+  <v-container fluid>
     <v-row class="justify-center">
-      <v-col cols="12" class="py-0">
+      <v-col cols="12" md="10" lg="8" xl="7">
         <div class="d-flex align-center">
           <div
             class="d-flex flex-column justify-space-between"
             :class="{ 'left-panel align-end': mdAndUp }"
           >
-            <!--  <v-btn
-          text
-          variant="flat"
-          right
-          size="large"
-          append-icon="mdi-chevron-up"
-          style="text-transform: none"
-          transition="slide-y-transition"
-          @click="selected = selected >= 1 ? selected - 1 : featured.length - 1"
-          v-motion-slide-visible-once-bottom
-        >
-          {{
-            featured[selected >= 1 ? selected - 1 : featured.length - 1].title
-          }}
-        </v-btn> -->
             <v-sheet class="d-flex justify-center align-end pa-6 flex-column">
               <div class="text-h2 text-right mb-6" v-motion-fade>
                 {{ featured[selected].title }}
@@ -37,20 +22,6 @@
                 <v-btn color="default" class="mt-6">Click here</v-btn>
               </div>
             </v-sheet>
-            <!--  <v-btn
-          size="large"
-          variant="flat"
-          right
-          append-icon="mdi-chevron-down"
-          style="text-transform: none"
-          transition="slide-y-transition"
-          @click="selected = selected < featured.length - 1 ? selected + 1 : 0"
-          v-motion-slide-visible-once-bottom
-        >
-          {{
-            featured[selected < featured.length - 1 ? selected + 1 : 0].title
-          }}
-        </v-btn> -->
           </div>
           <div class="right-panel d-flex align-center" v-if="mdAndUp">
             <v-carousel

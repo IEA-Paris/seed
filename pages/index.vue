@@ -2,53 +2,57 @@
   <div class="scroller">
     <HomeCarousel class="carousel" :featured="featured"></HomeCarousel>
     <section>
-      <v-container>
+      <v-container fluid>
         <v-divider inset class="mt-3 mb-12"></v-divider>
-        <v-row justify-center align-center>
-          <v-col cols="12" md="5" lg="4">
-            <div
-              v-motion
-              :initial="{
-                opacity: 0,
-                x: -100,
-              }"
-              :enter="{
-                opacity: 1,
-                x: 0,
-                transition: {
-                  type: 'slide',
-                  stiffness: '100',
-                  delay: 500,
-                },
-              }"
-              class="text-h4 text-md-h2 mt-6"
-              :class="mdAndUp ? 'text-right' : 'text-left'"
-            >
-              {{ $t("moto") }}
-            </div></v-col
-          >
-          <v-col cols="12" md="7" lg="8">
-            <v-card
-              v-motion
-              :initial="{
-                opacity: 0,
-                x: 100,
-              }"
-              :enter="{
-                opacity: 1,
-                x: 0,
-                transition: {
-                  type: 'slide',
-                  stiffness: '100',
-                  delay: 1000,
-                },
-              }"
-              flat
-              id="presentation"
-              class="d-flex align-center justify-center pa-6 presentation-pitch"
-            >
-              <ContentDoc class="text-body-2" :path="presentation" />
-            </v-card>
+        <v-row class="d-flex align-center justify-center">
+          <v-col cols="12" md="12" lg="8" xl="6">
+            <v-row no-gutters>
+              <v-col cols="12" md="5" lg="4">
+                <div
+                  v-motion
+                  :initial="{
+                    opacity: 0,
+                    x: -100,
+                  }"
+                  :enter="{
+                    opacity: 1,
+                    x: 0,
+                    transition: {
+                      type: 'slide',
+                      stiffness: '100',
+                      delay: 500,
+                    },
+                  }"
+                  class="text-h3 text-md-h2 mt-6 px-6"
+                  :class="mdAndUp ? 'text-right' : 'text-left'"
+                >
+                  {{ $t("moto") }}
+                </div></v-col
+              >
+              <v-col cols="12" md="7" lg="8">
+                <v-card
+                  v-motion
+                  :initial="{
+                    opacity: 0,
+                    x: 100,
+                  }"
+                  :enter="{
+                    opacity: 1,
+                    x: 0,
+                    transition: {
+                      type: 'slide',
+                      stiffness: '100',
+                      delay: 1000,
+                    },
+                  }"
+                  flat
+                  id="presentation"
+                  class="d-flex align-center justify-center pa-6 presentation-pitch"
+                >
+                  <ContentDoc class="text-body-2" :path="presentation" />
+                </v-card>
+              </v-col>
+            </v-row>
           </v-col>
           <v-divider class="mt-3 mb-12"></v-divider>
         </v-row>
