@@ -17,6 +17,7 @@ const store = useRootStore()
 const route = useRoute()
 const { smAndUp } = useDisplay()
 const { locale } = useI18n()
+console.log("route: ", route)
 const localePath = useLocalePath()
 console.log("route.params.slug: ", route.params.slug)
 const { data } = await useAsyncData("project", () =>
