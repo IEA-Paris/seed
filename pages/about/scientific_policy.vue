@@ -1,22 +1,24 @@
 <template>
   <div class="scroller">
-    <section>
-      <v-row class="d-flex align-center justify-center">
-        <v-col cols="12" md="10" lg="8" xl="6">
-          <v-row no-gutters>
-            <v-col cols="4" v-if="smAndUp">
-              <v-card class="d-flex align-center justify-center">
-                <v-img
-                  aspect-ratio="1/1"
-                  src="/images/Paulius_Yamin.jpg"
-                ></v-img
-              ></v-card>
-            </v-col>
-            <v-col cols="12" sm="8">
-              <v-card class="d-flex align-center justify-center">
-                <ContentDoc :path="scientificPolicy" />
-              </v-card> </v-col></v-row></v-col
-      ></v-row>
+    <section class="d-flex flex-column">
+      <NavigationBreadcrumbs class="d-flex align-start"></NavigationBreadcrumbs>
+      <v-container fluid>
+        <v-row class="d-flex align-center justify-center">
+          <v-col cols="12" md="10" lg="8" xl="6">
+            <v-row no-gutters>
+              <v-col cols="4" v-if="smAndUp">
+                <v-card class="d-flex align-center justify-center">
+                  <v-img
+                    aspect-ratio="1/1"
+                    src="/images/Paulius_Yamin.jpg"
+                  ></v-img
+                ></v-card>
+              </v-col>
+              <v-col cols="12" sm="8">
+                <v-card class="d-flex align-center justify-center">
+                  <ContentDoc :path="scientificPolicy" />
+                </v-card> </v-col></v-row></v-col></v-row
+      ></v-container>
     </section>
     <section>
       <v-row>

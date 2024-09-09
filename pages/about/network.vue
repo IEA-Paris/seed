@@ -1,6 +1,7 @@
 <template>
   <div class="scroller">
-    <section>
+    <section class="d-flex flex-column">
+      <NavigationBreadcrumbs class="d-flex align-start"></NavigationBreadcrumbs>
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="9" xl="8">
@@ -56,7 +57,7 @@
       </v-container>
     </section>
     <section>
-      <v-container>
+      <v-container fluid>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="9" xl="8">
             <v-row no-gutters>
@@ -64,7 +65,9 @@
                 <v-sheet class="d-flex align-center justify-center">
                   List of sponsors</v-sheet
                 >
-                <HomeLogoGallery :items="logos"></HomeLogoGallery>
+                <MiscMoleculesLogoGallery
+                  :items="logos"
+                ></MiscMoleculesLogoGallery>
               </v-col>
               <v-col cols="4" v-show="smAndUp">
                 <v-sheet
@@ -88,10 +91,10 @@
             <div class="d-flex align-center justify-center flex-column">
               <h3>{{ $t("our-members") }}</h3>
             </div>
-            <HomeLogoGallery
+            <MiscMoleculesLogoGallery
               :items="logos"
               class="logo-container"
-            ></HomeLogoGallery
+            ></MiscMoleculesLogoGallery
           ></v-col>
         </v-row>
       </v-container>

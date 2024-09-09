@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-wrap">
+  <div class="d-flex flex-wrap logo-container">
     <!--   TODO: constrain it by height (no more than calc(100vh - 64px)).
         The logos should size responsively (no hard coded values)
         Also replace with ImageContainer and pass the hover class animation to it -->
@@ -48,6 +48,9 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
+.logo-container {
+  max-height: calc(100vh - 64px);
+}
 .logo-wrapper {
   height: auto;
   margin: 1rem;

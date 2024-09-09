@@ -7,7 +7,7 @@
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="12" lg="8" xl="6">
             <v-row no-gutters>
-              <v-col cols="12" md="5" lg="4">
+              <v-col cols="12" md="5">
                 <div
                   v-motion
                   :initial="{
@@ -23,13 +23,13 @@
                       delay: 500,
                     },
                   }"
-                  class="text-h3 text-md-h2 mt-6 px-6"
+                  class="text-h3 text-md-h2 mt-6 pr-6"
                   :class="mdAndUp ? 'text-right' : 'text-left'"
                 >
                   {{ $t("moto") }}
                 </div></v-col
               >
-              <v-col cols="12" md="7" lg="8">
+              <v-col cols="12" md="7">
                 <v-card
                   v-motion
                   :initial="{

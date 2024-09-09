@@ -1,7 +1,8 @@
 <template>
   <div class="scroller">
-    <section>
-      <v-container>
+    <section class="d-flex flex-column">
+      <NavigationBreadcrumbs class="d-flex align-start"></NavigationBreadcrumbs>
+      <v-container class="h-100" fluid>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="8" xl="6">
             <v-row no-gutters>
