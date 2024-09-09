@@ -3,33 +3,22 @@
   <v-col cols="12" sm="6" md="4">
     <div v-if="rootStore.loading || rootStore.project.loading">LOADING</div>
 
-    <v-card v-else class="d-flex flex-row pa-6 align-start">
-      <nuxt-link
-        :to="
-          localePath({
-            name: 'project-slug',
-            params: { slug: getSlugFromPath(item._path) },
-          })
-          /*'/activities/projects/' +
-          item._file.split('/').pop().slice(0, -3) /* TODO : make it cleaner */
-        "
+    <div v-else class="d-flex flex-row pa-6 align-start">
+      <MiscAtomsImageContainer
+        :src="item.picture"
+        :width="150"
+        class="align-start"
+        :loading="rootStore.project.loading"
+        :ratio="1 / 1"
+        :title="item.title"
+        link="project-slug"
+        :slug="getSlugFromPath(item._path)"
       >
-        <MiscAtomsImageContainer
-          :src="item.picture"
-          class="align-start"
-          :loading="rootStore.project.loading"
-          :ratio="1 / 1"
-          :title="item.title"
-          :link="
-            localePath({ name: 'project-slug', params: { slug: item._path } })
-          "
-        >
-        </MiscAtomsImageContainer>
-        <div>
-          <v-card-title>{{ item.title }}</v-card-title>
-        </div>
-      </nuxt-link>
-    </v-card>
+      </MiscAtomsImageContainer>
+      <div>
+        <v-card-title>{{ item.title }}</v-card-title>
+      </div>
+    </div>
   </v-col>
 </template>
 
