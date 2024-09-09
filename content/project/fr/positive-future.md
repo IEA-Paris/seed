@@ -1,7 +1,7 @@
 ---
 title: Positive Future
 url: https://www.positive-future.org/fr
-picture: "/logoPF.png"
+image: "/logoPF.png"
 date: 2023-10-04T00:00:00.000Z
 color: "#fff"
 relatedNews:
@@ -86,6 +86,33 @@ relatedPeople:
   - firstname: "Amelio"
     lastname: "Duffour"
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+tags:
+  - name: "Cognition"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial Intelligence"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Neuroscience"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Learning"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Movement"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
 ---
 
 L'initiative Positive Future, portée par et la vise à faire connaître largement les travaux de prospective, pour permettre à toutes et tous de penser un futur vivable et désirable et partager des visions positives et mobilisatrices de l'avenir.

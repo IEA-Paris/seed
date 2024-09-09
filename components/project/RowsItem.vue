@@ -2,7 +2,7 @@
   <!--  TODO: design properly -->
   <v-col cols="12" sm="6" md="3">
     <MiscAtomsImageContainer
-      :src="item.picture"
+      :src="item.image"
       class="align-start"
       :loading="rootStore.project.loading"
       :ratio="1 / 1"

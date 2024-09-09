@@ -2,7 +2,7 @@
 title: World Pandemic Research Network
 url: https://wprn.org
 date: 2023-10-04T00:00:00.000Z
-picture: "/logoPF.png"
+image: "/logoPF.png"
 color: "#fff"
 relatedNews:
   - bookingState: "News1"
@@ -86,6 +86,32 @@ relatedPeople:
   - firstname: "Amelio"
     lastname: "Duffour"
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+tags:
+  - name: "Cognition"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial Intelligence"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Neuroscience"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Learning"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Movement"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
 ---
 
 The (Paris IAS) is a transdisciplinary research center that welcomes researchers from all over the world in the fields of humanities and social sciences. It is also open to other disciplines, in particular the life sciences, for projects involving the humanities and social sciences.

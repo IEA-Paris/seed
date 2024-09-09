@@ -2,7 +2,7 @@
 title: GovernU
 url: https://governu.net
 date: 2023-10-04T00:00:00.000Z
-picture: "https://governu.net/governu/icon_text.png"
+image: "https://governu.net/governu/icon_text.png"
 color: "#fff"
 
 relatedNews:

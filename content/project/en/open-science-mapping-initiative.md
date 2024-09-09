@@ -2,7 +2,7 @@
 title: Open Science Mapping Initiative
 url: https://www.positive-future.org
 date: 2023-10-04T00:00:00.000Z
-picture: "/logoPF.png"
+image: "/logoPF.png"
 color: "#fff"
 
 relatedNews:
@@ -87,6 +87,32 @@ relatedPeople:
   - firstname: "Amelio"
     lastname: "Duffour"
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+tags:
+  - name: "Cognition"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial Intelligence"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Neuroscience"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Learning"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Movement"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
 ---
 
 The Positive Future initiative, supported by and the aims to make foresight work widely known, to enable everyone to imagine a livable and desirable, yet realistic future, and to share positive and inspiring visions tomorrow's world.

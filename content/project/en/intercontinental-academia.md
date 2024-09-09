@@ -2,7 +2,7 @@
 title: Intercontinental Academia
 url: https://www.intercontinental-academia.org/
 date: 2023-10-04T00:00:00.000Z
-picture: "/logoPF.png"
+image: "/logoPF.png"
 color: "#fff"
 
 relatedNews:
@@ -87,6 +87,33 @@ relatedPeople:
   - firstname: "Amelio"
     lastname: "Duffour"
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+tags:
+  - name: "Cognition"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial Intelligence"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Neuroscience"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Learning"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Movement"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
 ---
 
 The Intercontinental Academia (ICA) seeks to create a global network of future research leaders in which some of the very best early/mid‐career scholars will work together on paradigm‐shifting cross‐disciplinary research, mentored by some of the most eminent researchers from across the globe.

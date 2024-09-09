@@ -2,7 +2,7 @@
 title: The Food Socioscope
 url: https://thesocioscope.org
 date: 2023-10-04T00:00:00.000Z
-picture: "https://thesocioscope.org/thesocioscope/thesocioscope.png"
+image: "https://thesocioscope.org/thesocioscope/thesocioscope.png"
 color: "#fff"
 relatedNews:
   - bookingState: "News1"
@@ -86,6 +86,33 @@ relatedPeople:
   - firstname: "Amelio"
     lastname: "Duffour"
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+tags:
+  - name: "Cognition"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial Intelligence"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Neuroscience"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Learning"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Movement"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
 ---
 
 **The Socioscope** propose un répertoire mondial consultable des projets, initiatives et ressources scientifiques disponibles sur fixés par les Nations Unies.

@@ -2,7 +2,7 @@
 title: GovernU
 url: https://governu.net
 date: 2023-10-04T00:00:00.000Z
-picture: "https://governu.net/governu/icon_text.png"
+image: "https://governu.net/governu/icon_text.png"
 color: "#fff"
 
 relatedNews:
@@ -87,6 +87,33 @@ relatedPeople:
   - firstname: "Amelio"
     lastname: "Duffour"
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+
+tags:
+  - name: "Cognition"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Artificial Intelligence"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Neuroscience"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Learning"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
+  - name: "Movement"
+    description: ""
+    icon: null
+    createdAt: null
+    updatedAt: null
 ---
 
 **GovernU** propose un répertoire mondial consultable des projets, initiatives et ressources scientifiques disponibles sur l'innovation managériale. Cette inititative est portée par l'.
