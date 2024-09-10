@@ -11,18 +11,19 @@
       :slug="getSlugFromPath(item._path)"
     >
     </MiscAtomsImageContainer>
-
-    <nuxt-link
-      :to="
-        localePath({
-          name: 'activities-projects-slug',
-          params: { slug: getSlugFromPath(item._path) },
-        })
-      "
-      class="text-h5 pt-3"
-    >
-      {{ item.title }}
-    </nuxt-link>
+    <div class="pt-3">
+      <nuxt-link
+        :to="
+          localePath({
+            name: 'activities-projects-slug',
+            params: { slug: getSlugFromPath(item._path) },
+          })
+        "
+        class="text-h5 text-black"
+      >
+        {{ item.title }}
+      </nuxt-link>
+    </div>
   </v-col>
 </template>
 

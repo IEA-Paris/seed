@@ -46,21 +46,18 @@
       ></v-skeleton-loader>
 
       <template v-else>
-        <div class="mx-4 mx-md-0">
-          <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
-            {{ item.title }}
-          </div>
-          <div
-            class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-6"
-          >
-            <div class="ml-md-8">
-              <div class="mt-lg-n1">
-                <MiscMoleculesChipContainer
-                  :items="item.tags"
-                ></MiscMoleculesChipContainer>
-              </div>
-            </div>
-          </div>
+        <div
+          class="d-flex text-wrap text-h4 text-black mx-4 mx-md-0"
+          v-if="mdAndUp"
+        >
+          {{ item.title }}
+        </div>
+        <div
+          class="d-flex flex-column flex-md-row align-md-center mt-6 mx-9 mx-md-0"
+        >
+          <MiscMoleculesChipContainer
+            :items="item.tags"
+          ></MiscMoleculesChipContainer>
         </div>
       </template>
     </v-col>
@@ -94,14 +91,13 @@
           ][['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
         "
       ></v-skeleton-loader>
-      <template v-else>
-        <div class="mt-2 mx-n6 mx-sm-0" v-if="mdAndUp">
-          <ActionsSmallContainer
-            :action="action"
-            :ratio="1"
-          ></ActionsSmallContainer>
-        </div>
-      </template>
+      <ActionsSmallContainer
+        v-else
+        class="mt-2 mx-n6 mx-sm-0"
+        v-if="mdAndUp"
+        :action="action"
+        :ratio="1"
+      ></ActionsSmallContainer>
     </v-col>
     <v-col cols="12" md="8" class="pl-0 pt-0">
       <v-skeleton-loader
@@ -112,9 +108,7 @@
           ]
         "
       ></v-skeleton-loader>
-      <template v-else>
-        <ContentRenderer :value="item" class="mt-md-n2 mx-10 mx-md-0" />
-      </template>
+      <ContentRenderer v-else :value="item" class="mt-md-n2 mx-10 mx-md-0" />
     </v-col>
   </v-row>
 </template>
