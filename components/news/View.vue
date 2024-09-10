@@ -155,13 +155,3 @@ const { data: action } = await useAsyncData("actions", () =>
     .find(),
 )
 </script>
-
-<style scoped>
-.img-animation {
-  transition: all 2s ease-in-out;
-}
-
-.img-animation:hover {
-  transform: scale(1.1);
-}
-</style>

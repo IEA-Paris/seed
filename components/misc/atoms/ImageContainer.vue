@@ -26,7 +26,6 @@
         <!--  TODO debug why the picture is not displaying/sizing properly -->
         <v-img
           :aspect-ratio="ratio"
-          cover
           class="img-animation"
           :lazy-src="img(src, { width: 10, quality: 70 })"
           :src="img(src, { width, quality: 70 })"
@@ -41,11 +40,11 @@
 </template>
 
 <script setup>
-import { useRootStore } from "~/store/root";
+import { useRootStore } from "~/store/root"
 
-const img = useImage();
+const img = useImage()
 
-const rootStore = useRootStore();
+const rootStore = useRootStore()
 
 const props = defineProps({
   src: {
@@ -62,7 +61,7 @@ const props = defineProps({
   caption: { type: String, default: "" },
   slug: { type: String, default: "" },
   link: { type: String, default: "" },
-});
+})
 const _srcset = computed(() => {
   return img.getSizes(props.src, {
     sizes: "xs:100vw sm:100vw md:100vw lg:100vw xl:100vw",
@@ -71,8 +70,8 @@ const _srcset = computed(() => {
       quality: 70,
       ...(props.width && { width: props.width }),
     },
-  });
-});
+  })
+})
 </script>
 
 <style scoped>
