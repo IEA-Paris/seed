@@ -1,7 +1,7 @@
 <template>
   <v-container v-if="crumbs && crumbs.length">
     <!--    TODO: make a NavigationBreadcrumbs component with propers links and correct urls -->
-    <v-breadcrumbs :items="crumbs" class="pl-0" link>
+    <v-breadcrumbs :items="crumbs" class="pl-0 w-100" link>
       <template v-slot:prepend>
         <v-btn to="/" size="small" variant="text" icon="mdi-home"></v-btn>
         /
