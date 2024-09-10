@@ -1,38 +1,43 @@
 <template>
   <div>
-    <!-- 
-    TODO: reactivate and bind to the related store state parts (as well as the actions)
     <component
-      :is="filters[filter].type"
-      v-for="(filter, name) in Object.keys(filters)"
+      v-for="(filter, name) in Object.keys(rootStore[type].list.filters)"
+      :is="ComponentName(filter)"
       v-show="name < 3 || expanded"
       :key="name + type + filter"
       hide-details
-      :dense="$vuetify.breakpoint.sm"
-      :items="filters[filter].items.map((item) => $t(item))"
+      :dense="smAndDown"
+      :items="
+        rootStore[type].list.filters[filter].items.map((item) => $t(item))
+      "
       clearable
       :label="$t(filter)"
       min-height="56"
-      outlined
-      :loading="$store.state[type].loading.includes(filter)"
+      variant="outlined"
+      :loading="rootStore[type].loading"
       :type="type"
       :filter="filter"
       color="black"
       style="min-width: 150px"
       class="transition-swing pb-1"
-      :class="
-        $store.state.scrolled
-          ? 'mt-6'
-          : $store.state[type].filters &&
-              $store.state[type].filters[filter] &&
-              $store.state[type].filters[filter].length
-            ? 'mt-1 mr-1'
-            : 'mt-0 mr-1'
-      "
-    /> -->
+    />
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRootStore } from "~/store/root"
+import { useDisplay } from "vuetify"
+const { smAndDown, mdAndUp } = useDisplay()
+
+const rootStore = useRootStore()
+const props = defineProps(["type", "expanded"])
+console.log("props.type: ", props.type)
+const ComponentName = (name) => {
+  console.log("name: ", name)
+  return resolveComponent(
+    "FormAtoms" + capitalize(rootStore[props.type].list.filters[name].type),
+  )
+}
+</script>
 
 <style lang="scss" scoped></style>
