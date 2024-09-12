@@ -31,7 +31,7 @@
               :to="
                 localePath({
                   name: 'activities-events-slug',
-                  params: { slug: getSlugFromPathy(item._path) },
+                  params: { slug: getSlugFromPath(item._path) },
                 })
               "
               class="text-h4 text-black text-wrap mt-4"

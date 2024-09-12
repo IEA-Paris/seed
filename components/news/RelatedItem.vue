@@ -3,7 +3,7 @@
     :to="
       localePath({
         name: 'news-slug',
-        params: { slug: getSlugFromPathy(item._path) },
+        params: { slug: item.title },
       })
     "
   >
@@ -43,8 +43,4 @@ const rootStore = useRootStore()
 const { lgAndUp } = useDisplay()
 
 const props = defineProps({ item: { type: Object, required: true } })
-
-console.log("PROPS", props.item)
-console.log("PATH", slugify(props.item._path))
-console.log("NAME", slugify(props.item.name))
 </script>

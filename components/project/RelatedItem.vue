@@ -3,7 +3,7 @@
     :to="
       localePath({
         name: 'activities-projects-slug',
-        params: { slug: getSlugFromPathy(item._path) },
+        params: { slug: item.title },
       })
     "
   >

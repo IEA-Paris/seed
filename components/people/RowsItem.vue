@@ -29,7 +29,7 @@
           :to="
             localePath({
               name: 'people-slug',
-              params: { slug: getSlugFromPathy(item._path) },
+              params: { slug: getSlugFromPath(item._path) },
             })
           "
           class="text-wrap text-h4 text-black mb-2"
