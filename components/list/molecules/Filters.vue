@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <!--   <div>
     <component
       v-for="(filter, name) in Object.keys(rootStore[type].list.filters)"
       :is="ComponentName(filter)"
@@ -21,7 +21,7 @@
       style="min-width: 150px"
       class="transition-swing pb-1"
     />
-  </div>
+  </div> -->
 </template>
 
 <script setup>

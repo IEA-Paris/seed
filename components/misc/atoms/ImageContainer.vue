@@ -26,6 +26,7 @@
         <!--  TODO debug why the picture is not displaying/sizing properly -->
         <v-img
           :aspect-ratio="ratio"
+          cover
           class="img-animation"
           :lazy-src="img(src, { width: 10, quality: 70 })"
           :src="img(src, { width, quality: 70 })"

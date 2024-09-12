@@ -545,9 +545,9 @@ export const useRootStore = defineStore("rootStore", {
         JSON.stringify(sortObject(query))
       ) {
         // TODO fix these damn false positives (lead: see if pre-resolving the route before replacing it is possible/relevant or come up with another way to compare query & store)
-        router.replace({
+        /*         router.replace({
           query,
-        })
+        }) */
       }
 
       // fetch the item categories
