@@ -30,7 +30,7 @@
           :to="
             localePath({
               name: 'news-slug',
-              params: { slug: item._path.split('/').pop() },
+              params: { slug: getSlugFromPathy(item._path) },
             })
           "
           class="text-wrap text-h4 text-black"
@@ -58,7 +58,7 @@
             :to="
               localePath({
                 name: 'news-slug',
-                params: { slug: item._path.split('/').pop() },
+                params: { slug: getSlugFromPathy(item._path) },
               })
             "
           >
@@ -91,7 +91,7 @@
           :to="
             localePath({
               name: 'news-slug',
-              params: { slug: item._path.split('/').pop() },
+              params: { slug: getSlugFromPathy(item._path) },
             })
           "
           :size="

@@ -3,7 +3,7 @@
     :to="
       localePath({
         name: 'activities-events-slug',
-        params: { slug: slugify(item.name) },
+        params: { slug: getSlugFromPathy(item._path) },
       })
     "
   >
@@ -36,11 +36,11 @@
 </template>
 
 <script setup>
-const localePath = useLocalePath();
-import { useDisplay } from "vuetify";
-import { useRootStore } from "~/store/root";
-const rootStore = useRootStore();
-const { name, mdAndDown, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay();
+const localePath = useLocalePath()
+import { useDisplay } from "vuetify"
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
+const { name, mdAndDown, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
 
-const props = defineProps({ item: { type: Object, required: true } });
+const props = defineProps({ item: { type: Object, required: true } })
 </script>

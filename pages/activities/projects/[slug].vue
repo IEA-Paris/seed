@@ -21,6 +21,4 @@ const { data } = await useAsyncData("project", () =>
 )
 
 const item = data._value
-
-console.log("item: ", item)
 </script>

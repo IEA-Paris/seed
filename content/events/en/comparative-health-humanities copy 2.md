@@ -1,12 +1,18 @@
 ---
-name: "Quelle sociolinguistique critique, il y a 20 ans et aujourd’hui?"
-subtitle: "En partenariat avec l’EPHE et le CNRS"
+name: "The role of surprise in investigative journalism"
+subtitle: "In partnership with the EPHE and the CNRS"
 date_text: 04 October 2023
-start: 2023-10-04T00:00:00.000Z
-stop: 2023-12-04T00:00:00.000Z
+start: 2024-09-13T18:00:00.000Z
+stop: 2024-09-13T19:00:00.000Z
 online: false
 category: 1
-description: "Conference by Monica Heller, organised by James Costa, professor, Sorbonne Nouvelle, Lola Aubertin and Salomé Molina, doctoral students, Sorbonne Nouvelle, with the support of the IEA de Paris."
+description: "Sans surprise, chercherions-nous à comprendre le monde qui nous entoure ?
+
+Dans le temps long d’un processus de recherche scientifique ou d’une enquête journalistique, la surprise apparait comme une véritable opportunité de réflexion, qui pourra être saisie ou manquée, fructueuse ou non.
+
+Une rencontre avec Ariane Chemin, essayiste, journaliste, grand reporter au Monde, et Rainer Maria Kiesow, vice-président de l'EHESS chargé de la Recherche, directeur d'études à l'EHESS, pour discuter du rôle et de la place de la surprise dans les métiers d’investigation que sont la recherche et le journalisme, et sur l’impact de la confrontation du chercheur et du journaliste à l’inattendu.
+
+Discussion animée par Bettina Laville, présidente de l’IEA de Paris, Conseillère d’Etat honoraire."
 location: "Institut d'études avancées de Paris, 17 quai d'Anjou, 75004, Paris"
 image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 outside: true

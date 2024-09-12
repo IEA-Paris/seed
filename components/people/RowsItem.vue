@@ -29,7 +29,7 @@
           :to="
             localePath({
               name: 'people-slug',
-              params: { slug: item._path.split('/').pop() },
+              params: { slug: getSlugFromPathy(item._path) },
             })
           "
           class="text-wrap text-h4 text-black mb-2"
@@ -52,11 +52,11 @@
   </v-row>
 </template>
 <script setup>
-import { useRootStore } from "~/store/root";
-import { useDisplay } from "vuetify";
-const { name, mdAndUp } = useDisplay();
-const localePath = useLocalePath();
-const rootStore = useRootStore();
+import { useRootStore } from "~/store/root"
+import { useDisplay } from "vuetify"
+const { name, mdAndUp } = useDisplay()
+const localePath = useLocalePath()
+const rootStore = useRootStore()
 const props = defineProps({
   item: {
     type: Object,
@@ -66,5 +66,5 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-});
+})
 </script>

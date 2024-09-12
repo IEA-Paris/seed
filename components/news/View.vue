@@ -54,7 +54,7 @@
             class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-6"
           >
             <MiscAtomsDateStamp
-              :loading="rootStore.events.loading"
+              :loading="rootStore.news.loading"
               :date="item.date"
               class="ml-0 mt-lg-2"
             />
