@@ -155,6 +155,4 @@ const { data: action } = await useAsyncData("actions", () =>
     .limit(1)
     .find(),
 )
-
-console.log("NEWS ITEM", props.item.relatedProjects)
 </script>
