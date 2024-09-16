@@ -79,6 +79,7 @@ export default defineNuxtConfig({
       failOnError: false,
     },
   },
+  /*   plugins: [{ src: "~/plugins/flickity.js", ssr: false }], */
   modules: [
     "@pinia/nuxt",
     "@nuxt/content",
