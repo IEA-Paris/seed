@@ -14,7 +14,6 @@
           :loading="rootStore.project.loading"
           :ratio="1 / 1"
           :link="item.title"
-          :slug="item.title"
           name="activities-projects-slug"
         />
       </v-col>
@@ -39,6 +38,7 @@
 <script setup>
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
+const localePath = useLocalePath()
 const rootStore = useRootStore()
 const { lgAndUp } = useDisplay()
 
