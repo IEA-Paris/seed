@@ -10,6 +10,7 @@
     <v-row>
       <v-col cols="3" v-if="lgAndUp">
         <MiscAtomsImageContainer
+          cover
           :src="item.image"
           :ratio="1 / 1"
           :link="item.name"

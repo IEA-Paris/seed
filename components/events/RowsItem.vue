@@ -149,6 +149,7 @@
       >
       </v-skeleton-loader>
       <MiscAtomsImageContainer
+        cover
         v-else
         :link="item.title"
         :slug="getSlugFromPath(item._path)"

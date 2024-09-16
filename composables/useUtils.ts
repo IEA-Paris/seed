@@ -46,6 +46,4 @@ export const slugify = (str: string) => {
 
   return str
 }
-export const getSlugFromPath = (str: string) => {
-  return str.split("/").pop()
-}
+export const getSlugFromPath = (str: string) => str.split("/").pop()

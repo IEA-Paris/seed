@@ -63,6 +63,7 @@
 
       <v-col cols="12" sm="3" :order="smAndUp ? 'last' : 'first'">
         <MiscAtomsImageContainer
+          cover
           :src="item.picture"
           :title="item.title"
           :loading="rootStore.fellowship.loading"

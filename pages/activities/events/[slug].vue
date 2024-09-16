@@ -10,6 +10,8 @@ const { locale } = useI18n()
 const { smAndUp } = useDisplay()
 const localePath = useLocalePath()
 const route = useRoute()
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
 const { data } = await useAsyncData(
   "events",
   async () =>
@@ -19,4 +21,5 @@ const { data } = await useAsyncData(
 )
 
 const value = data._rawValue
+rootStore.setLoading(false)
 </script>

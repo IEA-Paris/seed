@@ -10,6 +10,7 @@
     <v-row>
       <v-col cols="3" v-if="lgAndUp">
         <MiscAtomsImageContainer
+          cover
           :src="item.image"
           :loading="rootStore.news.loading"
           :ratio="1 / 1"

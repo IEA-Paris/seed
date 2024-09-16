@@ -6,6 +6,7 @@
     v-motion-fade-visible
   >
     <MiscAtomsImageContainer
+      cover
       :loading="rootStore.people.loading"
       :src="item.image"
       :ratio="1 / 1"

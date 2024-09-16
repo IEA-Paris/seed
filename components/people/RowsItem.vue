@@ -3,6 +3,7 @@
   <v-row class="my-6 ml-md-1 px-3 px-md-0">
     <v-col cols="12" md="3" v-if="mdAndUp">
       <MiscAtomsImageContainer
+        cover
         :loading="rootStore.people.loading"
         :src="item.image"
         :ratio="1 / 1"
