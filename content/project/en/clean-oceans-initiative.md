@@ -2,7 +2,7 @@
 title: Clean Oceans Initiative
 url: https://coi.org
 date: 2024-06-18T00:00:00.000Z
-image: "/images/coi-logo.png"
+image: "/images/logos/pias_logo.svg"
 color: "#0077BE"
 relatedNews:
   - bookingState: "Published"

@@ -2,7 +2,7 @@
 title: Biodiversity Preservation Initiative
 url: https://bpi.org
 date: 2024-07-22T00:00:00.000Z
-image: "/images/bpi-logo.png"
+image: "/images/logos/the_socioscope.svg"
 color: "#4CAF50"
 relatedNews:
   - bookingState: "Published"
