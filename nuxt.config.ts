@@ -73,6 +73,7 @@ export default defineNuxtConfig({
       target: "esnext", //browsers can handle the latest ES features
     },
   },
+
   nitro: {
     prerender: {
       /*  crawlLinks: true, */
@@ -142,7 +143,12 @@ export default defineNuxtConfig({
   image: {
     // https://image.nuxt.com/get-started/configuration
   },
-
+  swiper: {
+    /*     navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    }, */
+  },
   components: {
     global: true,
     dirs: ["~/components"],

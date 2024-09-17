@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="ma-6">
+  <v-sheet class="pa-6">
     <MiscAtomsImageContainer
       :ratio="1"
       :src="item.image"
@@ -16,12 +16,12 @@
 <script setup>
 // import { useDisplay } from "vuetify"
 // const { smAndUp } = useDisplay()
-const localePath = useLocalePath();
-import { useRootStore } from "~/store/root";
-const rootStore = useRootStore();
+const localePath = useLocalePath()
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
 
 const props = defineProps({
   item: Object,
-});
+})
 </script>
 <style lang="scss"></style>

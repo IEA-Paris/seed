@@ -18,8 +18,6 @@
 
               <div class="carousel-subtitle" v-motion-fade>
                 {{ featured[selected].description }}
-                <br />
-                <v-btn color="default" class="mt-6">Click here</v-btn>
               </div>
             </v-sheet>
           </div>

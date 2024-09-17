@@ -15,7 +15,6 @@
             </v-col>
 
             <v-col cols="1" class="d-flex flex-row">
-              <!-- useSwiper() within a swiper instance -->
               <v-btn
                 :size="mdAndUp ? 'large' : 'regular'"
                 flat
@@ -37,30 +36,21 @@
             </v-col>
           </v-row>
         </v-container>
-
-        <template v-if="rootStore.loading || rootStore[props.type].loading">
-          LOADING
-        </template>
-
-        <Swiper
-          :loop="true"
-          :space-between="spaceBetween"
-          :centered-slides="true"
-          :slides-per-view="5"
-          :pagination="{
-            hideOnClick: true,
-          }"
-          :modules="[SwiperAutoplay, SwiperA11y, SwiperPagination]"
-          @swiperprogress="onProgress"
-          @swiperslidechange="onSlideChange"
-          :navigation="{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }"
-          v-else
+        <v-slide-group
+          v-model="model"
+          :center-active="true"
+          next-icon=""
+          prev-icon=""
+          ref="slideGroup"
+          mobile-breakpoint="sm"
         >
-          <SwiperSlide
+          <template v-if="rootStore.loading || rootStore[props.type].loading">
+            LOADING
+          </template>
+          <v-slide-group-item
+            v-else
             v-for="(item, index) in rootStore[props.type].list.items"
+            v-slot="{ isSelected, toggle, selectedClass }"
           >
             <component
               :key="index + props.type"
@@ -68,8 +58,9 @@
               :index="index"
               :item="item"
               :width="computedWidth"
-          /></SwiperSlide>
-        </Swiper>
+            />
+          </v-slide-group-item>
+        </v-slide-group>
       </v-col>
     </v-row>
   </v-container>
@@ -85,11 +76,13 @@ TODO: make it similar to radcliffe :
 import { capitalize } from "~/composables/useUtils"
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
+
 const { locale } = useI18n()
 const { name, mdAndUp } = useDisplay()
 const rootStore = useRootStore()
 const model = ref(0)
 const slideGroup = ref()
+
 const props = defineProps({
   type: {
     type: String,
@@ -105,15 +98,7 @@ try {
 )
 console.log("error: ", error) */
 onMounted(async () => {})
-const spaceBetween = 10
-const onProgress = (e) => {
-  const [swiper, progress] = e.detail
-  console.log(progress)
-}
 
-const onSlideChange = (e) => {
-  console.log("slide changed")
-}
 const computedWidth = computed(() => {
   return ["200", "250", "300", "330", "400", "400"][
     ["xs", "sm", "md", "lg", "xl", "xxl"].indexOf(name.value || "md")
