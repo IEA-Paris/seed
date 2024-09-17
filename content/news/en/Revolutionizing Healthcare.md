@@ -27,7 +27,7 @@ tags:
     updatedAt: 2022-10-18T12:30:00.000+00:00
 published: true
 pinned: false
-title: '"Revolutionizing Healthcare: Advances in Biotechnology and Genetics"'
+title: "Revolutionizing Healthcare: Advances in Biotechnology and Genetics"
 date: 2024-01-15T14:00:00.000+00:00
 authors:
   - firstname: "Alice"
@@ -41,7 +41,7 @@ authors:
 url: "https://example.com/biotech-article"
 audio:
   - "1123344556"
-image: "images/durandcecile.jpg"
+image: "images/IA_image.jpg"
 
 relatedProjects:
   - title: "CRISPR Gene Editing"
@@ -105,17 +105,17 @@ relatedEvents:
     url: "https://example.com/gene-therapy-conference"
 
 relatedPeople:
-  - firstname: "Julien"
-    lastname: "Roche"
-    image: "https://www.biotech-images.com/julien-roche.jpg"
+  - firstname: "Paven"
+    lastname: "Mamidi"
+    image: "/images/Mamidi.jpg"
     role: "Workshop Facilitator"
-  - firstname: "Maria"
-    lastname: "Lopez"
-    image: "https://www.biotech-images.com/maria-lopez.jpg"
+  - firstname: "Vivian"
+    lastname: "Loftness"
+    image: "/images/Loftness.jpeg"
     role: "Keynote Speaker"
-  - firstname: "David"
-    lastname: "Steiner"
-    image: "https://www.biotech-images.com/david-steiner.jpg"
+  - firstname: "Daniel"
+    lastname: "Pauly"
+    image: "/images/Pauly.jpg"
     role: "Panelist"
 ---
 

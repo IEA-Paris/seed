@@ -2,14 +2,14 @@
 title: World Pandemic Research Network
 url: https://wprn.org
 date: 2023-10-04T00:00:00.000Z
-image: "/logoPF.png"
+image: "images/logos/wprn_logo.png"
 color: "#ffffff"
 relatedNews:
   - bookingState: "Published"
     createdAt: "2023-09-15T12:30:00.000Z"
     description: "New breakthrough in pandemic research reveals critical insights into viral mutations."
-    image: "/images/news1.png"
-    name: "Breakthrough in Pandemic Research"
+    image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+    name: "Exploring the Earth's Layers: A Journey into Geology"
     outside: "No"
     start: "2023-09-16T08:00:00.000Z"
     state: "Published"
@@ -79,22 +79,22 @@ relatedEvents:
     url: "https://wprn.org/events/ethics-ai-pandemic-preparedness"
 
 relatedPeople:
-  - firstname: "IEA"
-    lastname: "Paris"
-    image: "https://wprn.org/images/people/iea-paris.jpg"
-    role: "Institution Partner"
+  - firstname: "Antoine"
+    lastname: "Cordelois"
+    image: "images/antoine_cordelois.jpg"
+    role: "Speaker"
     biography: "The Institut d'Études Avancées de Paris is a transdisciplinary research center focused on advancing global scientific collaborations."
 
-  - firstname: "Georges"
-    lastname: "Leblanc"
-    image: "https://wprn.org/images/people/georges-leblanc.jpg"
-    role: "Lead Researcher"
+  - firstname: "Saadi"
+    lastname: "Lahlou"
+    image: "images/lahlou_saadi.jpg"
+    role: "Researcher"
     biography: "Georges Leblanc is a senior researcher specializing in viral epidemiology with a focus on global health initiatives."
 
-  - firstname: "Amelio"
-    lastname: "Duffour"
-    image: "https://wprn.org/images/people/amelio-duffour.jpg"
-    role: "AI Specialist"
+  - firstname: "Paulius"
+    lastname: "Yamin"
+    image: "images/Paulius_Yamin.jpg"
+    role: "Organizer"
     biography: "Amelio Duffour is an expert in artificial intelligence and machine learning, currently leading projects on AI applications in healthcare."
 
 tags:

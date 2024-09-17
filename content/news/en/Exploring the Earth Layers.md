@@ -94,18 +94,20 @@ relatedEvents:
     url: "https://example.com/remote-sensing-workshop"
 
 relatedPeople:
-  - firstname: "Jean"
-    lastname: "Martin"
-    image: "https://www.earth-science-images.com/jean-martin.jpg"
-    role: "Speaker"
-  - firstname: "Claire"
-    lastname: "Lemoine"
-    image: "https://www.earth-science-images.com/claire-lemoine.jpg"
-    role: "Researcher"
-  - firstname: "Pierre"
-    lastname: "Durand"
-    image: "https://www.earth-science-images.com/pierre-durand.jpg"
-    role: "Organizer"
+  - firstname: "Antoine"
+    lastname: "Cordelois"
+    image: "images/antoine_cordelois.jpg"
+    role: "Lead Climate Scientist"
+
+  - firstname: "Saadi"
+    lastname: "Lahlou"
+    image: "images/lahlou_saadi.jpg"
+    role: "AI Research Lead"
+
+  - firstname: "Paulius"
+    lastname: "Yamin"
+    image: "images/Paulius_Yamin.jpg"
+    role: "Renewable Energy Expert"
 ---
 
 Marie Dupuis, a geologist from Université de Grenoble, takes us on a journey through the Earth's geological layers. From tectonics to sedimentology, she explores how the Earth's structure has evolved over time.

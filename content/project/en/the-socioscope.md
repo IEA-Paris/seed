@@ -1,14 +1,15 @@
 ---
-title: Global Climate Change Initiative
-url: https://gcci.org
+title: The Socioscope
+url: https://thesocioscope.org/
 date: 2024-05-12T00:00:00.000Z
-image: "/images/gcci-logo.png"
+image: "/images/logos/the_socioscope.svg"
 color: "#00aaff"
+
 relatedNews:
   - bookingState: "Published"
     createdAt: "2024-04-10T10:00:00.000Z"
     description: "New report reveals the alarming acceleration of polar ice melting due to climate change."
-    image: "/images/news1-polar-ice.png"
+    image: "/images/mars_image.jpg"
     name: "Polar Ice Melting Report"
     outside: "No"
     start: "2024-04-11T09:00:00.000Z"
@@ -20,7 +21,7 @@ relatedNews:
   - bookingState: "Published"
     createdAt: "2024-03-20T11:30:00.000Z"
     description: "International collaboration to focus on renewable energy solutions for mitigating climate change."
-    image: "/images/news2-renewable-energy.png"
+    image: "/images/news_image.jpg"
     name: "Renewable Energy Collaboration"
     outside: "Yes"
     start: "2024-03-21T10:00:00.000Z"
@@ -32,7 +33,7 @@ relatedNews:
   - bookingState: "Published"
     createdAt: "2024-02-15T14:00:00.000Z"
     description: "GCCI unveils groundbreaking AI-driven climate prediction models."
-    image: "/images/news3-ai-climate-predictions.png"
+    image: "/images/IA_image.jpg"
     name: "AI Climate Prediction Models"
     outside: "No"
     start: "2024-02-16T12:00:00.000Z"
@@ -79,23 +80,23 @@ relatedEvents:
     url: "https://gcci.org/events/ai-climate-data-analysis"
 
 relatedPeople:
-  - firstname: "Laura"
-    lastname: "Martinez"
-    image: "https://gcci.org/images/people/laura-martinez.jpg"
+  - firstname: "Antoine"
+    lastname: "Cordelois"
+    image: "images/antoine_cordelois.jpg"
     role: "Lead Climate Scientist"
     biography: "Laura Martinez is a renowned climate scientist specializing in atmospheric studies and the long-term effects of climate change on global weather patterns."
 
-  - firstname: "John"
-    lastname: "Davis"
-    image: "https://gcci.org/images/people/john-davis.jpg"
+  - firstname: "Saadi"
+    lastname: "Lahlou"
+    image: "images/lahlou_saadi.jpg"
     role: "AI Research Lead"
-    biography: "John Davis leads the AI research team at GCCI, focusing on predictive models for climate change impacts using machine learning techniques."
+    biography: "Saadi Lahlou leads the AI research team at GCCI, focusing on predictive models for climate change impacts using machine learning techniques."
 
-  - firstname: "Marie"
-    lastname: "Dubois"
-    image: "https://gcci.org/images/people/marie-dubois.jpg"
+  - firstname: "Paulius"
+    lastname: "Yamin"
+    image: "images/Paulius_Yamin.jpg"
     role: "Renewable Energy Expert"
-    biography: "Marie Dubois is an expert in renewable energy solutions and sustainable technology innovations, advocating for global adoption of clean energy."
+    biography: "Paulius Yamin is an expert in renewable energy solutions and sustainable technology innovations, advocating for global adoption of clean energy."
 
 tags:
   - name: "Climate Change"
@@ -129,6 +130,4 @@ tags:
     updatedAt: "2024-08-30T00:00:00.000Z"
 ---
 
-The Global Climate Change Initiative (GCCI) is an international research organization dedicated to addressing the critical issue of climate change. Through cutting-edge research, collaborations, and innovative solutions, GCCI aims to mitigate the effects of climate change and promote sustainability on a global scale.
-
-GCCI focuses on key areas such as the melting of polar ice, the rise in sea levels, and the transition to renewable energy sources. With a strong emphasis on the role of artificial intelligence in climate prediction, the initiative brings together experts from various fields to tackle the challenges posed by global warming. Through annual summits, workshops, and conferences, GCCI fosters international cooperation to accelerate the adoption of climate-resilient solutions.
+The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food. We're on a mission to figure out what's working on the ground all around the world.

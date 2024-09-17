@@ -1,8 +1,8 @@
 ---
-title: Ocean Conservation Project
-url: https://ocp.org
+title: Positive Future
+url: https://www.positive-future.org
 date: 2024-03-18T00:00:00.000Z
-image: "/images/ocp-logo.png"
+image: "/logoPF.png"
 color: "#008080"
 relatedNews:
   - bookingState: "Published"
@@ -79,24 +79,18 @@ relatedEvents:
     url: "https://ocp.org/events/marine-biodiversity-conservation-workshop"
 
 relatedPeople:
-  - firstname: "Elena"
-    lastname: "Torres"
-    image: "https://ocp.org/images/people/elena-torres.jpg"
-    role: "Lead Marine Biologist"
-    biography: "Elena Torres is a marine biologist with over 15 years of experience in coral reef restoration and marine ecosystem conservation. She is the head of research at OCP."
-
-  - firstname: "David"
-    lastname: "Nguyen"
-    image: "https://ocp.org/images/people/david-nguyen.jpg"
-    role: "Oceanographer"
-    biography: "David Nguyen is an oceanographer specializing in marine currents and their impact on plastic pollution distribution in oceans."
-
-  - firstname: "Isabella"
-    lastname: "Martinez"
-    image: "https://ocp.org/images/people/isabella-martinez.jpg"
-    role: "Environmental Policy Expert"
-    biography: "Isabella Martinez is a policy advisor for OCP, focused on global regulations and international agreements aimed at reducing plastic waste in marine environments."
-
+  - firstname: "Paven"
+    lastname: "Mamidi"
+    image: "images/Mamidi.jpg"
+    role: "Workshop Facilitator"
+  - firstname: "Vivian"
+    lastname: "Loftness"
+    image: "images/Loftness.jpeg"
+    role: "Keynote Speaker"
+  - firstname: "Daniel"
+    lastname: "Pauly"
+    image: "images/Pauly.jpg"
+    role: "Panelist"
 tags:
   - name: "Marine Conservation"
     description: "Efforts to protect marine ecosystems and biodiversity."
@@ -129,6 +123,4 @@ tags:
     updatedAt: "2024-04-01T00:00:00.000Z"
 ---
 
-The Ocean Conservation Project (OCP) is a global organization dedicated to protecting the world’s oceans and marine life. Through research, advocacy, and international collaboration, OCP works to combat threats such as coral reef destruction, plastic pollution, and overfishing.
-
-OCP leads numerous initiatives aimed at restoring marine ecosystems, promoting sustainable ocean management practices, and raising awareness about the critical importance of ocean conservation. By uniting scientists, policymakers, and communities, OCP strives to create a future where marine biodiversity thrives and the oceans are protected for generations to come.
+The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100, aims to make foresight work widely known, to enable everyone to imagine a livable and desirable, yet realistic future, and to share positive and inspiring visions tomorrow’s world.

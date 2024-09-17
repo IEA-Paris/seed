@@ -27,7 +27,7 @@ tags:
     updatedAt: 2022-01-15T10:45:00.000+00:00
 published: true
 pinned: true
-title: '"Mitigating Climate Change: A Roadmap to a Sustainable Future"'
+title: "Mitigating Climate Change: A Roadmap to a Sustainable Future"
 date: 2023-02-22T19:00:00.000+00:00
 authors:
   - firstname: "Laura"
@@ -41,33 +41,33 @@ authors:
 url: "https://example.com/climate-change-article"
 audio:
   - "5432167890"
-image: "images/antoine_cordelois.jpg"
+image: "images/mars_image.jpg"
 
 relatedProjects:
-  - title: "Renewable Energy Revolution"
-    shortDescription: "Accelerating the transition to renewable energy."
-    description: "This project focuses on deploying solar, wind, and hydroelectric energy solutions to reduce carbon emissions and mitigate climate change."
-    url: "https://example.com/renewable-energy"
-    image: "https://www.environment-images.com/renewable-energy.jpg"
-    video: "https://example.com/renewable-energy-video"
-    color: "#33cc33"
-    date: "2023-01-15T11:00:00.000+00:00"
-  - title: "Carbon Neutral Cities"
-    shortDescription: "Creating cities with zero carbon emissions."
-    description: "This project aims to develop strategies for reducing carbon footprints in urban areas by promoting energy efficiency and sustainable practices."
-    url: "https://example.com/carbon-neutral-cities"
-    image: "https://www.environment-images.com/carbon-neutral-city.jpg"
-    video: "https://example.com/carbon-neutral-video"
-    color: "#ff6600"
-    date: "2023-02-01T13:00:00.000+00:00"
-  - title: "Climate Policy Innovation"
-    shortDescription: "Developing policies to combat climate change."
-    description: "This project focuses on creating and implementing policies that promote sustainability and reduce greenhouse gas emissions globally."
-    url: "https://example.com/climate-policy"
-    image: "https://www.environment-images.com/climate-policy.jpg"
-    video: "https://example.com/climate-policy-video"
-    color: "#0099cc"
-    date: "2023-02-10T14:00:00.000+00:00"
+  - title: "Positive Future"
+    shortDescription: "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100"
+    description: "This project focuses on using advanced telescopes and algorithms to identify and study exoplanets in our galaxy."
+    url: "https://www.positive-future.org"
+    image: "/logoPF.png"
+    video: ""
+    color: ""
+    date: "2024-01-15T13:00:00.000+00:00"
+  - title: "The Socioscope"
+    shortDescription: "Understanding the formation and evolution of the universe"
+    description: "This research delves into the processes that shaped the universe, from the Big Bang to present-day cosmic structures."
+    url: "https://thesocioscope.org/"
+    image: "/images/logos/the_socioscope.svg"
+    video: "https://example.com/cosmic-video"
+    color: "#003366"
+    date: "2024-02-25T11:00:00.000+00:00"
+  - title: "World Pandemic Research Network"
+    shortDescription: "The World Pandemic Research Network (WPRN) is dedicated to facilitating international collaboration in pandemic research"
+    description: "A project focused on designing and launching space telescopes to observe distant galaxies, stars, and planets."
+    url: " https://wprn.org"
+    image: "images/logos/wprn_logo.png"
+    video: "https://example.com/telescope-video"
+    color: "#3399ff"
+    date: "2024-03-10T12:00:00.000+00:00"
 
 relatedEvents:
   - bookingState: "Confirmed"
@@ -105,18 +105,18 @@ relatedEvents:
     url: "https://example.com/climate-policy-conference"
 
 relatedPeople:
-  - firstname: "Hugo"
-    lastname: "Martinez"
-    image: "https://www.environment-images.com/hugo-martinez.jpg"
-    role: "Speaker"
-  - firstname: "Emma"
-    lastname: "Dufresne"
-    image: "https://www.environment-images.com/emma-dufresne.jpg"
-    role: "Researcher"
-  - firstname: "Sophia"
-    lastname: "Bennett"
-    image: "https://www.environment-images.com/sophia-bennett.jpg"
-    role: "Organizer"
+  - firstname: "Paven"
+    lastname: "Mamidi"
+    image: "/images/Mamidi.jpg"
+    role: "Workshop Facilitator"
+  - firstname: "Vivian"
+    lastname: "Loftness"
+    image: "/images/Loftness.jpeg"
+    role: "Keynote Speaker"
+  - firstname: "Daniel"
+    lastname: "Pauly"
+    image: "/images/Pauly.jpg"
+    role: "Panelist"
 ---
 
 Laura Bouchard, an environmental scientist at the Global Environmental Institute, is leading the charge in renewable energy solutions and sustainable development. Her work spans across projects aimed at reducing carbon emissions and creating greener, more resilient cities.
