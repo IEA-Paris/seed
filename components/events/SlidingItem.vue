@@ -1,6 +1,7 @@
 <template>
   <v-sheet class="pa-6">
     <MiscAtomsImageContainer
+      cover
       :ratio="1"
       :src="item.image"
       link="activities-events-slug"

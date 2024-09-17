@@ -3,13 +3,14 @@
     :to="
       localePath({
         name: 'activities-events-slug',
-        params: { slug: slugify(item.name) },
+        params: { slug: item.name },
       })
     "
   >
     <v-row>
       <v-col cols="3" v-if="lgAndUp">
         <MiscAtomsImageContainer
+          cover
           :src="item.image"
           :ratio="1 / 1"
           :link="item.name"
@@ -36,11 +37,11 @@
 </template>
 
 <script setup>
-const localePath = useLocalePath();
-import { useDisplay } from "vuetify";
-import { useRootStore } from "~/store/root";
-const rootStore = useRootStore();
-const { name, mdAndDown, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay();
+const localePath = useLocalePath()
+import { useDisplay } from "vuetify"
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
+const { name, mdAndDown, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
 
-const props = defineProps({ item: { type: Object, required: true } });
+const props = defineProps({ item: { type: Object, required: true } })
 </script>

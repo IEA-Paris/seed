@@ -23,6 +23,7 @@
 
       <div v-else class="mx-sm-6">
         <MiscAtomsImageContainer
+          cover
           :loading="rootStore.project.loading"
           :src="item.image"
           :ratio="1 / 1"

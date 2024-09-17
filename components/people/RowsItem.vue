@@ -3,6 +3,7 @@
   <v-row class="my-6 ml-md-1 px-3 px-md-0">
     <v-col cols="12" md="3" v-if="mdAndUp">
       <MiscAtomsImageContainer
+        cover
         :loading="rootStore.people.loading"
         :src="item.image"
         :ratio="1 / 1"
@@ -29,7 +30,7 @@
           :to="
             localePath({
               name: 'people-slug',
-              params: { slug: item._path.split('/').pop() },
+              params: { slug: getSlugFromPath(item._path) },
             })
           "
           class="text-wrap text-h4 text-black mb-2"
@@ -52,11 +53,11 @@
   </v-row>
 </template>
 <script setup>
-import { useRootStore } from "~/store/root";
-import { useDisplay } from "vuetify";
-const { name, mdAndUp } = useDisplay();
-const localePath = useLocalePath();
-const rootStore = useRootStore();
+import { useRootStore } from "~/store/root"
+import { useDisplay } from "vuetify"
+const { name, mdAndUp } = useDisplay()
+const localePath = useLocalePath()
+const rootStore = useRootStore()
 const props = defineProps({
   item: {
     type: Object,
@@ -66,5 +67,5 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-});
+})
 </script>

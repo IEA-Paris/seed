@@ -1,13 +1,7 @@
 ---
-articles:
-  - SynE2_2016_16_obedience-responsibility-punishment
 exerpt: ""
 image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
 firstname: Xabier
-is_institution: false
-issue:
-  - content/issues/brains-that-pull-the-triggers.md
-language: English
 lastname: Agirre Aranburu
 affiliations:
   - affiliation: International Criminal Court, Netherlands
@@ -27,18 +21,12 @@ socials:
   twitter: "456"
   scholar: "123"
   researchgate: "123"
-
 groups:
-  - team
-  - sab
-  - board
-  - fellow
-  - sponsor
-  - vintage
-
-years:
-  - 2016
-
+  - vintage:
+    - name: "Paris IAS Ideas"
+      year: 2025
+      theme: "CLimate change and biodiversity"
+      url: https://www.fias-fp.eu
 relatedProjects:
   - title: "Project1"
     shortDescription: ""

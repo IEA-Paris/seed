@@ -1,8 +1,10 @@
 export default function getFileIcon(fileName: string): string {
+  console.log("fileName: ", fileName)
   const fileExtension = fileName.split(".").pop()
+  console.log("fileExtension: ", fileExtension)
   switch (fileExtension) {
     case "pdf":
-      return "mdi-file-pdf"
+      return "mdi-file-pdf-box"
     case "doc":
     case "docx":
       return "mdi-file-word"

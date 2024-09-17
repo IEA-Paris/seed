@@ -15,12 +15,12 @@
 <script setup async>
 const route = useRoute()
 const { locale } = useI18n()
-console.log("route.params.slug: ", route.params.slug)
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
 const { data } = await useAsyncData("project", () =>
   queryContent("project/" + locale.value + "/" + route.params.slug).findOne(),
 )
 
 const item = data._value
-
-console.log("item: ", item)
+rootStore.setLoading(false)
 </script>
