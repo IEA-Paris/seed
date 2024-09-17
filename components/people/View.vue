@@ -5,6 +5,7 @@
         <v-col cols="12" class="text-center">
           <!--   PEOPLE IMAGE -->
           <MiscAtomsImageContainer
+            cover
             v-if="mdAndUp"
             :loading="rootStore.people.loading"
             :src="item.image"

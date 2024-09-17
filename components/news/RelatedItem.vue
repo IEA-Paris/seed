@@ -2,19 +2,20 @@
   <v-sheet
     :to="
       localePath({
-        name: 'activities-events-slug',
-        params: { slug: slugify(item.name) },
+        name: 'news-slug',
+        params: { slug: item.title },
       })
     "
   >
     <v-row>
       <v-col cols="3" v-if="lgAndUp">
         <MiscAtomsImageContainer
+          cover
           :src="item.image"
           :loading="rootStore.news.loading"
           :ratio="1 / 1"
           :link="item.name"
-          name="activities-events-slug"
+          name="news-slug"
         />
       </v-col>
       <v-col cols="12" lg="9">
@@ -36,11 +37,11 @@
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify";
-const localePath = useLocalePath();
-import { useRootStore } from "~/store/root";
-const rootStore = useRootStore();
-const { lgAndUp } = useDisplay();
+import { useDisplay } from "vuetify"
+const localePath = useLocalePath()
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
+const { lgAndUp } = useDisplay()
 
-const props = defineProps({ item: { type: Object, required: true } });
+const props = defineProps({ item: { type: Object, required: true } })
 </script>

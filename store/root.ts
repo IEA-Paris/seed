@@ -540,15 +540,15 @@ export const useRootStore = defineStore("rootStore", {
             : {},
       )
 
-      if (
-        JSON.stringify(router.currentRoute.value.query) !==
-        JSON.stringify(sortObject(query))
-      ) {
-        // TODO fix these damn false positives (lead: see if pre-resolving the route before replacing it is possible/relevant or come up with another way to compare query & store)
-        router.replace({
-          query,
-        })
-      }
+      // if (
+      //   JSON.stringify(router.currentRoute.value.query) !==
+      //   JSON.stringify(sortObject(query))
+      // ) {
+      //   // TODO fix these damn false positives (lead: see if pre-resolving the route before replacing it is possible/relevant or come up with another way to compare query & store)
+      //   router.replace({
+      //     query,
+      //   })
+      // }
 
       // fetch the item categories
 

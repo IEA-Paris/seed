@@ -5,7 +5,8 @@
 <script setup>
 const { locale } = useI18n()
 const route = useRoute()
-
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
 const { data: people } = await useAsyncData(
   "people",
   async () =>
@@ -13,4 +14,5 @@ const { data: people } = await useAsyncData(
       "/people/" + locale.value + "/" + route.params.slug,
     ).findOne(),
 )
+rootStore.setLoading(false)
 </script>

@@ -1,8 +1,9 @@
 <template>
   <v-divider v-if="index > 0"></v-divider>
   <v-row class="my-4 mx-2 mx-sm-8 mx-md-0">
-    <v-col cols="12 " md="4" lg="3" v-if="mdAndUp" class="pr-md-0">
+    <v-col cols="12" md="4" lg="3" v-if="mdAndUp" class="pr-md-0">
       <MiscAtomsImageContainer
+        cover
         :src="item.image"
         :ratio="1 / 1"
         :loading="rootStore.news.loading"
@@ -30,7 +31,7 @@
           :to="
             localePath({
               name: 'news-slug',
-              params: { slug: item._path.split('/').pop() },
+              params: { slug: getSlugFromPath(item._path) },
             })
           "
           class="text-wrap text-h4 text-black"
@@ -58,7 +59,7 @@
             :to="
               localePath({
                 name: 'news-slug',
-                params: { slug: item._path.split('/').pop() },
+                params: { slug: getSlugFromPath(item._path) },
               })
             "
           >
@@ -91,7 +92,7 @@
           :to="
             localePath({
               name: 'news-slug',
-              params: { slug: item._path.split('/').pop() },
+              params: { slug: getSlugFromPath(item._path) },
             })
           "
           :size="
@@ -123,6 +124,8 @@ const props = defineProps({
     required: true,
   },
 })
+
+console.log("NEWS", props.item._path)
 </script>
 
 <style></style>
