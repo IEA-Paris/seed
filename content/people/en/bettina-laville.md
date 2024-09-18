@@ -1,7 +1,7 @@
 ---
-image: "images/lahlou_saadi.jpg"
-firstname: Lahlou
-lastname: Saadi
+image: "images/antoine_cordelois.jpg"
+firstname: Bettina
+lastname: Laville
 affiliations:
   - affiliation: International Criminal Court, Netherlands
     positions:
@@ -21,7 +21,7 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  - team: true
+  - board: true
 
 relatedProjects:
   - title: "Positive Future"
@@ -111,7 +111,6 @@ relatedNews:
     url: ""
 ---
 
-Saadi Lahlou has a multi-disciplinary background (economist statistician, human biology, PhD and habilitation in Psychology). Prior to the IEA in Paris, he has directed four research units (Consumer Research Department at Crédoc, Social Forecast Unit then the Laboratory of Design for Cognition at EDF R&D, Department of Social Psychology at LSE) and sat in the steering committee of the Commissariat Général du Plan. Since 2009 he has been Chair in Social Psychology at the London School of Economics and Political Science. He has worked among other topics on the links between representations and behavior; his recent research focuses on digital ethnography and the impact of context on behavior.
-He is a member of the National Academy of Technologies of France and of the Academia Europaea.
+State Councillor, Doctor of Letters, Sciences Po laureate and ENA alumna, Bettina Laville is President and founder of Comité 21, created in 1995. She was chief of staff to Brice Lalonde, then advisor on environmental issues to two prime ministers, Pierre Bérégovoy and Lionel Jospin, and to French President François Mitterrand. In this capacity, she was responsible for preparing the Rio, Kyoto and Johannesburg conferences. A lecturer at Science Po for ten years, she was responsible for several reports on the environment, in particular during the Grenelle de l'Environnement and the Conférence environnementale, and is the author of numerous articles.
 
-He is the successor to Professor Gretty Mirdal as director of the Paris IEA since September 2018.
+She is co-author of Villette Amazone (1996), published La machine ronde in 2002 and co-authored Développement durable - Aspects stratégiques et opérationnels (2011, EFL), and with CNRS, Quelles solutions contre le réchauffement climatique? (2015). Also with CNRS, she will publish L'adaptation au changement climatique, une question de sociétés (Adapting to climate change: a question of society) in October.

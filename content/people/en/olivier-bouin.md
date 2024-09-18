@@ -1,7 +1,7 @@
 ---
-image: "images/lahlou_saadi.jpg"
-firstname: Lahlou
-lastname: Saadi
+image: "images/bouin.jpg"
+firstname: Olivier
+lastname: Bouin
 affiliations:
   - affiliation: International Criminal Court, Netherlands
     positions:
@@ -21,7 +21,7 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  - team: true
+  - sab: true
 
 relatedProjects:
   - title: "Positive Future"
@@ -111,7 +111,4 @@ relatedNews:
     url: ""
 ---
 
-Saadi Lahlou has a multi-disciplinary background (economist statistician, human biology, PhD and habilitation in Psychology). Prior to the IEA in Paris, he has directed four research units (Consumer Research Department at Crédoc, Social Forecast Unit then the Laboratory of Design for Cognition at EDF R&D, Department of Social Psychology at LSE) and sat in the steering committee of the Commissariat Général du Plan. Since 2009 he has been Chair in Social Psychology at the London School of Economics and Political Science. He has worked among other topics on the links between representations and behavior; his recent research focuses on digital ethnography and the impact of context on behavior.
-He is a member of the National Academy of Technologies of France and of the Academia Europaea.
-
-He is the successor to Professor Gretty Mirdal as director of the Paris IEA since September 2018.
+The Réseau français des instituts d'études avancées (RFIEA) was created by decree in March 2007, as a charitable foundation for scientific cooperation. Against a backdrop of profound changes in research, France has decided to create its own institutes for advanced studies (IEAs) - institutions with a proven track record in the European and international scientific panorama (Princeton, Berlin, Jerusalem, Wassenaar...) - and has opted for a network of four newly-created institutes in major French cities: the Collegium de Lyon, the Institut d'études avancées de Nantes, the Institut Méditerranéen de Recherches Avancées de Marseille, and the Institut d'études avancées - Paris.
