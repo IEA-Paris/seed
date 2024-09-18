@@ -55,11 +55,11 @@
               <v-chip
                 class="mr-2 mt-3"
                 variant="text"
-                v-for="group in Object.keys(item.groups)"
-                :key="group"
-                v-if="group !== 'vintage'"
+                v-for="(value, key, index) in item.groups"
+                :key="key"
+                v-if="key !== 'vintage'"
               >
-                {{ $t("groups." + group) }}</v-chip
+                {{ $t("groups." + key) }}</v-chip
               >
             </div>
           </template>

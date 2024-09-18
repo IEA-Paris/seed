@@ -21,8 +21,11 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  - team: true
-
+  fellow: true
+  vintage: 
+    - year: 2024
+      name: rolling-call-for-fellows
+      theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
 relatedProjects:
   - title: "Positive Future"
     shortDescription: "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100"
@@ -48,7 +51,6 @@ relatedProjects:
     video: ""
     color: ""
     date: "2024-01-05T12:00:00.000+00:00"
-
 relatedEvents:
   - bookingState: "Confirmed"
     createdAt: "2023-05-20T10:00:00.000+00:00"
@@ -111,7 +113,28 @@ relatedNews:
     url: ""
 ---
 
-Saadi Lahlou has a multi-disciplinary background (economist statistician, human biology, PhD and habilitation in Psychology). Prior to the IEA in Paris, he has directed four research units (Consumer Research Department at Crédoc, Social Forecast Unit then the Laboratory of Design for Cognition at EDF R&D, Department of Social Psychology at LSE) and sat in the steering committee of the Commissariat Général du Plan. Since 2009 he has been Chair in Social Psychology at the London School of Economics and Political Science. He has worked among other topics on the links between representations and behavior; his recent research focuses on digital ethnography and the impact of context on behavior.
-He is a member of the National Academy of Technologies of France and of the Academia Europaea.
+Franco-canadien, Daniel Pauly a étudgroups.0 à la documentation et à l'atténuation de l'impact des pêcheries sur les écosystèmes marins de la planète. Les concepts, méthodes et logiciels qu'il a (co)développés sont documentés dans plus de 1000 contributions largement citées, et lui ont valu de nombreuses récompenses scientifiques, dont la Légion d'Honneur. Une biographie complète (*Daniel Pauly - un océan de combats* par David Grémillet), publiée en français en 2019 et en anglais en 2021 sous le titre *The Ocean's Whistleblower - the remarkable life and work of Daniel Pauly*, présente de manière détaillée le travail et l'influence de Daniel Pauly.
 
-He is the successor to Professor Gretty Mirdal as director of the Paris IEA since September 2018.
+Il rejoint l'IEA en mai 2025 pour une résidence d'écriture d'un mois.
+
+### Centres d'interet
+
+Pêche mondiale et à petite échelle, biologie marine
+
+Projet de recherche
+
+**La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe**
+
+L'étude de la pêche à petite échelle en Afrique, en Asie, en Amérique et en Océanie et de leurs conflits avec les grandes pêcheries industrielles est souvent considérée comme une activité intellectuellement stérile.
+
+Cependant, il faut savoir que ces pêcheries artisanales ne sont pas simplement une partie de l'économie informelle que les gouvernements et les universitaires négligent ; elles jouent un rôle majeur en assurant la sécurité alimentaire de leur pays. Pourtant, elles passent souvent inaperçues dans les statistiques nationales et même chez les économistes de la pêche.
+Ce n'est que lorsque les choses vont mal que la pêche artisanale et ses acteurs - essentiellement des pêcheurs et des négociants en poisson - apparaissent dans le champ de vision des pays riches. Par exemple, des milliers de pêcheurs tentent de rejoindre l'Europe sur des embarcations branlantes et des centaines d'entre eux se noient. Ils ont quitté leur foyer parce qu'il n'y a plus de poissons à pêcher dans les eaux de leur pays, en grande partie à cause des flottes industrielles de pêche lointaine des pays développés.
+Ce travail fera le lien entre les activités des flottes de pêche lointaine au large de l'Afrique de l'Ouest et (i) les problèmes de migration mortelle mentionnés ci-dessus, (ii) la situation désespérée de la pêche à petite échelle dans la région, et (iii) les problèmes de sécurité alimentaire associés à la transformation des aliments de base en Afrique de l'Ouest (sardines et autres petits poissons bon marché) en farine de poisson pour nourrir le saumon, par exemple, en Norvège. Cette étude constituerait une contribution importante à une époque où les questions d'équité et de durabilité au niveau mondial sont à juste titre considérées comme primordiales.
+
+### Publications clés
+
+Pauly, D., V. Christensen, J. Dalsgaard, R. Froese and F.C. Torres, Fishing down marine food webs*,* *Science*, 279: 860-863, 1998. 
+
+Pauly, D, Major trends in small-scale marine fisheries, with emphasis on developing countries and some implications for the social sciences, *Maritime Studies* (MAST) 4(2): 7-22, 2006.
+
+Pauly, D. and D. Zeller. (Editors)*,* *Global Atlas of Marine Fisheries: A critical appraisal of catches and ecosystem impacts,* Island Press, Washington D.C., xii +497 p., 2016.

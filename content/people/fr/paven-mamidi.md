@@ -1,7 +1,7 @@
 ---
-image: "images/Paulius_Yamin.jpg"
-firstname: Paulius
-lastname: Yamin
+image: "/images/Mamidi.jpg"
+firstname: Daniel
+lastname: Pauly
 affiliations:
   - affiliation: International Criminal Court, Netherlands
     positions:
@@ -21,8 +21,11 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  team: true
-
+  fellow: true
+  vintage: 
+    - year: 2024
+      name: rolling-call-for-fellows
+      theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
 relatedProjects:
   - title: "Positive Future"
     shortDescription: "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100"
@@ -48,7 +51,6 @@ relatedProjects:
     video: ""
     color: ""
     date: "2024-01-05T12:00:00.000+00:00"
-
 relatedEvents:
   - bookingState: "Confirmed"
     createdAt: "2023-05-20T10:00:00.000+00:00"
@@ -111,8 +113,25 @@ relatedNews:
     url: ""
 ---
 
-Paulius Yamin is an anthropologist and social psychologist with over a decade of experience designing, coordinating, and implementing academic, policy, international development, and community initiatives. Before coming to the Paris IAS, he was the Managing Director of the Center for Social Norms and Behavioral Dynamics at the University of Pennsylvania (US – 2020-2022), a Co-founder and Managing Partner of the Behavioural Lab Lithuania (2019-2020), and the Manager of the National Behavioral and Cultural Change Strategy for Public Servants at the Colombian government (2015-2016), among others. Paulius has lived and worked in academic and research institutions in Colombia, the UK, Lithuania, the US, and now France.
+Pavan Mamidi is the Director of the Centre for Social and Behavior Change (CSBC) at Ashoka University. He led the initiative to set up India's first Nudge Unit at Niti Aayog in New Delhi, as well as in the states of Uttar Pradesh and Bihar as well.
 
-He holds a PhD in Psychological and Behavioral Sciences from the London School of Economics (where he is also a Visiting Fellow), an MBA with Honours from the Quantic School of Business and Technology, an M.A. with Distinction in Cultural Studies from Goldsmiths College, University of London, and a B.A. in Anthropology (Summa Cum Laude degree) from the Universidad de los Andes (Colombia).
+In January 2025, he joins the IAS for a one-month writing residency.
 
-At the Paris IAS, he is in charge of the implementation of the scientific strategy, the planning of the yearly scientific activities and the supervision of the calls for applications and the selection process of the future fellows. He also acts as a liaison and spokesperson with the scientific partners of the Institute.
+### Research Interests
+
+Behavioral science for policy, privacy, AI, philosophy of science.
+
+Research project
+
+**Designing a behavioural experiment to measure the cost of autonomy due to predictive AI and nudging
+**
+
+The extensive use of behavioural nudging, and AI to segment citizens into various personas, and target interventions to produce behaviour changes are likely to result in a loss of "surprisingness" and autonomy in the lives of humans. How do we reconcile the brilliant promise of AI, with social and psychological costs of loss in autonomy and privacy?
+
+### Key publications
+
+Dhami, S., Wei, M., & Mamidi, P.,"Religious identity, trust, reciprocity, and Prosociality: Theory and evidence", *Journal of Development Economics*, 166, 103192, 2024;
+
+Shashidhara, S., Mamidi, P., Vaidya, S., & Daral, I, "Using machine learning prediction to create a 15-question IPV measurement tool", *Journal of interpersonal violence*, 39(1-2), 11-34, 2024;
+
+Spamann, Holger, Lars Klöhn, Christophe Jamin, Vikramaditya Khanna, John Zhuang Liu, Pavan Mamidi, Alexander Morell, and Ivan Reidel, *"Judges in the Lab: No Precedent Effects, No Common/Civil Law Differences", Journal of Legal Analysis* 13, no. 1 : 110-126, 2021.

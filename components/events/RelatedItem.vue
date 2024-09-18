@@ -14,13 +14,13 @@
           :src="item.image"
           :ratio="1 / 1"
           :link="item.name"
-          :loading="rootStore.events.loading"
+          :loading="rootStore.loading"
           name="activities-events-slug"
         />
       </v-col>
       <v-col cols="12" lg="9">
         <v-skeleton-loader
-          v-if="rootStore.loading || rootStore.events.loading"
+          v-if="rootStore.loading"
           type="heading, text@3"
         ></v-skeleton-loader>
         <template v-else>

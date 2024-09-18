@@ -1,7 +1,7 @@
 ---
-image: "images/Paulius_Yamin.jpg"
-firstname: Paulius
-lastname: Yamin
+image: "/images/Pauly.jpg"
+firstname: Daniel
+lastname: Pauly
 affiliations:
   - affiliation: International Criminal Court, Netherlands
     positions:
@@ -21,7 +21,11 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  team: true
+  fellow: true
+  vintage: 
+    - year: 2024
+      name: rolling-call-for-fellows
+      theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
 
 relatedProjects:
   - title: "Positive Future"
@@ -111,8 +115,7 @@ relatedNews:
     url: ""
 ---
 
-Paulius Yamin is an anthropologist and social psychologist with over a decade of experience designing, coordinating, and implementing academic, policy, international development, and community initiatives. Before coming to the Paris IAS, he was the Managing Director of the Center for Social Norms and Behavioral Dynamics at the University of Pennsylvania (US – 2020-2022), a Co-founder and Managing Partner of the Behavioural Lab Lithuania (2019-2020), and the Manager of the National Behavioral and Cultural Change Strategy for Public Servants at the Colombian government (2015-2016), among others. Paulius has lived and worked in academic and research institutions in Colombia, the UK, Lithuania, the US, and now France.
+Saadi Lahlou has a multi-disciplinary background (economist statistician, human biology, PhD and habilitation in Psychology). Prior to the IEA in Paris, he has directed four research units (Consumer Research Department at Crédoc, Social Forecast Unit then the Laboratory of Design for Cognition at EDF R&D, Department of Social Psychology at LSE) and sat in the steering committee of the Commissariat Général du Plan. Since 2009 he has been Chair in Social Psychology at the London School of Economics and Political Science. He has worked among other topics on the links between representations and behavior; his recent research focuses on digital ethnography and the impact of context on behavior.
+He is a member of the National Academy of Technologies of France and of the Academia Europaea.
 
-He holds a PhD in Psychological and Behavioral Sciences from the London School of Economics (where he is also a Visiting Fellow), an MBA with Honours from the Quantic School of Business and Technology, an M.A. with Distinction in Cultural Studies from Goldsmiths College, University of London, and a B.A. in Anthropology (Summa Cum Laude degree) from the Universidad de los Andes (Colombia).
-
-At the Paris IAS, he is in charge of the implementation of the scientific strategy, the planning of the yearly scientific activities and the supervision of the calls for applications and the selection process of the future fellows. He also acts as a liaison and spokesperson with the scientific partners of the Institute.
+He is the successor to Professor Gretty Mirdal as director of the Paris IEA since September 2018.

@@ -1,5 +1,5 @@
 ---
-image: "images/antoine_cordelois.jpg"
+image: "images/Laville.jpg"
 firstname: Bettina
 lastname: Laville
 affiliations:
@@ -21,8 +21,7 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  - board: true
-
+  board: true
 relatedProjects:
   - title: "Positive Future"
     shortDescription: "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100"

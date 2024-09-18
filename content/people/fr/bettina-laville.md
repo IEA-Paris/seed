@@ -1,7 +1,7 @@
 ---
-image: "images/Paulius_Yamin.jpg"
-firstname: Paulius
-lastname: Yamin
+image: "images/Laville.jpg"
+firstname: Bettina
+lastname: Laville
 affiliations:
   - affiliation: International Criminal Court, Netherlands
     positions:
@@ -21,7 +21,7 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  team: true
+  board: true
 
 relatedProjects:
   - title: "Positive Future"
@@ -111,8 +111,10 @@ relatedNews:
     url: ""
 ---
 
-Paulius Yamin is an anthropologist and social psychologist with over a decade of experience designing, coordinating, and implementing academic, policy, international development, and community initiatives. Before coming to the Paris IAS, he was the Managing Director of the Center for Social Norms and Behavioral Dynamics at the University of Pennsylvania (US – 2020-2022), a Co-founder and Managing Partner of the Behavioural Lab Lithuania (2019-2020), and the Manager of the National Behavioral and Cultural Change Strategy for Public Servants at the Colombian government (2015-2016), among others. Paulius has lived and worked in academic and research institutions in Colombia, the UK, Lithuania, the US, and now France.
+Conseiller d’État, docteur en lettres, lauréate de Sciences Po et ancienne élève de l’ENA, Bettina Laville est présidente et fondatrice du Comité 21, créé en 1995.
 
-He holds a PhD in Psychological and Behavioral Sciences from the London School of Economics (where he is also a Visiting Fellow), an MBA with Honours from the Quantic School of Business and Technology, an M.A. with Distinction in Cultural Studies from Goldsmiths College, University of London, and a B.A. in Anthropology (Summa Cum Laude degree) from the Universidad de los Andes (Colombia).
+Elle a été directrice de cabinet de Brice Lalonde, puis conseillère sur les questions d’environnement auprès de deux Premiers ministres, Pierre Bérégovoy puis Lionel Jospin, et du président de la République François Mitterrand. À ce titre, elle fut responsable de la préparation des conférences de Rio, Kyoto et Johannesburg.
 
-At the Paris IAS, he is in charge of the implementation of the scientific strategy, the planning of the yearly scientific activities and the supervision of the calls for applications and the selection process of the future fellows. He also acts as a liaison and spokesperson with the scientific partners of the Institute.
+Enseignante à Science Po pendant dix ans, elle a été chargée de plusieurs rapports sur l'environnement en particulier lors du Grenelle de l’Environnement et de la Conférence environnementale, et auteur de nombreux articles.
+
+Elle est coauteur de Villette Amazone (1996), a publié, en 2002, La machine ronde et a cosigné Développement durable - Aspects stratégiques et opérationnels (2011, EFL), et avec le CNRS, Quelles solutions contre le réchauffement climatique ? (2015). Toujours avec le CNRS, elle publie en octobre prochain L’adaptation au changement climatique, une question de sociétés.

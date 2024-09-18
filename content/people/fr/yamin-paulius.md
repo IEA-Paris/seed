@@ -111,8 +111,12 @@ relatedNews:
     url: ""
 ---
 
-Paulius Yamin is an anthropologist and social psychologist with over a decade of experience designing, coordinating, and implementing academic, policy, international development, and community initiatives. Before coming to the Paris IAS, he was the Managing Director of the Center for Social Norms and Behavioral Dynamics at the University of Pennsylvania (US – 2020-2022), a Co-founder and Managing Partner of the Behavioural Lab Lithuania (2019-2020), and the Manager of the National Behavioral and Cultural Change Strategy for Public Servants at the Colombian government (2015-2016), among others. Paulius has lived and worked in academic and research institutions in Colombia, the UK, Lithuania, the US, and now France.
+Paulius Yamin est un anthropologue et psychologue social avec plus de dix ans d'expérience dans la conception, la coordination et la mise en œuvre d'initiatives de recherche, politiques, communautaires, et de développement international. Avant rejoindre l'IEA, il a été le directeur général (*Managing Director*) du Centre pour les normes sociales et les dynamiques comportementales de l'Université de Pennsylvanie (2020-2022), cofondateur et associé directeur du *Behavioural Lab Lithuania* (2019-2020), et responsable de la stratégie nationale de changement comportemental et culturel pour les fonctionnaires au sein du gouvernement colombien (2015-2016). Paulius a vécu et travaillé dans des institutions de recherche en Colombie, le Royaume-Uni, la Lituanie, les États-Unis et maintenant en France.
 
-He holds a PhD in Psychological and Behavioral Sciences from the London School of Economics (where he is also a Visiting Fellow), an MBA with Honours from the Quantic School of Business and Technology, an M.A. with Distinction in Cultural Studies from Goldsmiths College, University of London, and a B.A. in Anthropology (Summa Cum Laude degree) from the Universidad de los Andes (Colombia).
+Il est titulaire d'un doctorat en sciences psychologiques et comportementales de la *London School of Economics* (où il est également chercheur invité), d'un MBA avec mention de la *Quantic School of Business and Technology*, d'un M.A. avec distinction en études culturelles du *Goldsmiths College*, Université de Londres, et d'un B.A. en anthropologie (diplôme Summa Cum Laude) de l'*Universidad de los Andes* (Colombie).
 
-At the Paris IAS, he is in charge of the implementation of the scientific strategy, the planning of the yearly scientific activities and the supervision of the calls for applications and the selection process of the future fellows. He also acts as a liaison and spokesperson with the scientific partners of the Institute.
+A l'IEA de Paris, il est responsable de la mise en oeuvre de la stratégie scientifique, de la programmation annuelle des activités scientifiques ainsi que de la supervision des appels à candidatures et du processus de sélection des futurs résidents. Il représente l'Institut auprès de ses partenaires scientifiques.
+
+Sur les réseaux sociaux :
+[https://twitter.com/pauliusyamin
+https://www.linkedin.com/in/pauliusyamin/](https://www.linkedin.com/in/pauliusyamin/)

@@ -1,7 +1,7 @@
 ---
-image: "images/Paulius_Yamin.jpg"
-firstname: Paulius
-lastname: Yamin
+image: "images/lahlou_saadi.jpg"
+firstname: Lahlou
+lastname: Saadi
 affiliations:
   - affiliation: International Criminal Court, Netherlands
     positions:
@@ -111,8 +111,6 @@ relatedNews:
     url: ""
 ---
 
-Paulius Yamin is an anthropologist and social psychologist with over a decade of experience designing, coordinating, and implementing academic, policy, international development, and community initiatives. Before coming to the Paris IAS, he was the Managing Director of the Center for Social Norms and Behavioral Dynamics at the University of Pennsylvania (US – 2020-2022), a Co-founder and Managing Partner of the Behavioural Lab Lithuania (2019-2020), and the Manager of the National Behavioral and Cultural Change Strategy for Public Servants at the Colombian government (2015-2016), among others. Paulius has lived and worked in academic and research institutions in Colombia, the UK, Lithuania, the US, and now France.
-
-He holds a PhD in Psychological and Behavioral Sciences from the London School of Economics (where he is also a Visiting Fellow), an MBA with Honours from the Quantic School of Business and Technology, an M.A. with Distinction in Cultural Studies from Goldsmiths College, University of London, and a B.A. in Anthropology (Summa Cum Laude degree) from the Universidad de los Andes (Colombia).
-
-At the Paris IAS, he is in charge of the implementation of the scientific strategy, the planning of the yearly scientific activities and the supervision of the calls for applications and the selection process of the future fellows. He also acts as a liaison and spokesperson with the scientific partners of the Institute.
+Saadi Lahlou a une formation multi-disciplinaire (statisticien économiste, biologie humaine, HDR Psychologie). Il a dirigé, avant l'IEA de Paris, quatre laboratoires de recherche (Département Prospective de la Consommation du Crédoc,  Groupe Prospective Sociale Interne puis Laboratoire de Design Cognitif à EDF R&D, Department of Social Psychology de la LSE) et siégé au Comité d'évaluation du Commissariat Général du Plan. Il est depuis 2009 Chair in Social Psychology à la London School of Economics and Political Science. Il a étudié notamment les relations entre les [représentations et les comportements](https://www.puf.com/content/Penser-manger) ; ses recherches récentes portent sur l'[ethnographie numérique](http://eprints.lse.ac.uk/37759/) et l'impact du contexte sur les comportements.
+Il est membre de l'Académie des Technologies et de l'Academia Europaea.
+Il succède au Professeur Gretty Mirdal à la direction de l'IEA de Paris depuis septembre 2018.

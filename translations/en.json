@@ -154,11 +154,10 @@
   "from {0} to {1}": "from {0} to {1}",
   "groups": {
     "team": "team",
-    "sab": "sab",
-    "board": "board",
-    "fellow": "fellow",
-    "sponsor": "sponsor",
-    "vintage": "vintage"
+    "sab": "Scientific Advisory Board",
+    "board": "Board of directors",
+    "fellow": "Fellow",
+    "sponsor": "Sponsor"
   },
   "biography": "Biography",
   "check-the-wikipedia-page-of-the-author": "Check the wikipedia page",

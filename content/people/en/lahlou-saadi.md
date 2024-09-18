@@ -21,7 +21,7 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  - team: true
+  team: true
 
 relatedProjects:
   - title: "Positive Future"
