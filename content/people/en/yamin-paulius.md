@@ -21,11 +21,7 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  - vintage:
-      - name: "Paris IAS Ideas"
-        year: 2025
-        theme: "CLimate change and biodiversity"
-        url: https://www.fias-fp.eu
+  - team: true
 
 relatedProjects:
   - title: "Positive Future"

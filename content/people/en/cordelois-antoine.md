@@ -21,11 +21,7 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  - vintage:
-      - name: ""
-        year: 2025
-        theme: "CLimate change and biodiversity"
-        url: ""
+  - team: true
 
 relatedProjects:
   - title: "Positive Future"

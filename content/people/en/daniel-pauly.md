@@ -1,7 +1,7 @@
 ---
-image: "images/lahlou_saadi.jpg"
-firstname: Lahlou
-lastname: Saadi
+image: "/images/Pauly.jpg"
+firstname: Daniel
+lastname: Pauly
 affiliations:
   - affiliation: International Criminal Court, Netherlands
     positions:
