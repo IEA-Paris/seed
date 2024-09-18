@@ -1,9 +1,10 @@
 ---
-title: Futur Positif
-url: "https://www.positive-future.org"
-date: 2024-03-18T00:00:00.000Z
-image: "/logoPF.png"
-color: "#008080"
+title: Le Socioscope
+url: "https://thesocioscope.org/"
+date: 2024-05-12T00:00:00.000Z
+image: "/images/logos/the_socioscope.svg"
+color: "#00aaff"
+
 relatedNews:
   - bookingState: "Publié"
     createdAt: "2024-02-05T09:00:00.000Z"
@@ -19,13 +20,13 @@ relatedNews:
 
   - bookingState: "Publié"
     createdAt: "2024-01-15T14:00:00.000Z"
-    description: "La quantité totale de gaz à effet de serre produits par les activités humaines, mesurée en équivalents dioxyde de carbone."
+    description: "La quantité totale de gaz à effet de serre produite par les activités humaines, mesurée en équivalents dioxyde de carbone."
     image: "images/mars_image.jpg"
     name: "Atténuer le changement climatique"
     outside: "Oui"
     start: "2024-01-20T12:00:00.000Z"
     state: "Publié"
-    summary: "La quantité totale de gaz à effet de serre produits par les activités humaines, mesurée en équivalents dioxyde de carbone."
+    summary: "La quantité totale de gaz à effet de serre produite par les activités humaines, mesurée en équivalents dioxyde de carbone."
     eventType: "Nouvelles Globales"
     url: ""
 
@@ -66,49 +67,54 @@ relatedEvents:
     url: ""
 
 relatedPeople:
-  - firstname: "Paven"
-    lastname: "Mamidi"
-    image: "images/Mamidi.jpg"
-    role: "Animateur d'atelier"
-  - firstname: "Vivian"
-    lastname: "Loftness"
-    image: "images/Loftness.jpeg"
-    role: "Conférencière principale"
-  - firstname: "Daniel"
-    lastname: "Pauly"
-    image: "images/Pauly.jpg"
-    role: "Panéliste"
+  - firstname: "Antoine"
+    lastname: "Cordelois"
+    image: "images/antoine_cordelois.jpg"
+    role: "Principal Chercheur en Climatologie"
+    biography: "Laura Martinez est une climatologue renommée spécialisée dans les études atmosphériques et les effets à long terme du changement climatique sur les schémas météorologiques mondiaux."
+
+  - firstname: "Saadi"
+    lastname: "Lahlou"
+    image: "images/lahlou_saadi.jpg"
+    role: "Responsable de la Recherche en IA"
+    biography: "Saadi Lahlou dirige l'équipe de recherche en IA au GCCI, se concentrant sur les modèles prédictifs des impacts du changement climatique à l'aide de techniques d'apprentissage automatique."
+
+  - firstname: "Paulius"
+    lastname: "Yamin"
+    image: "images/Paulius_Yamin.jpg"
+    role: "Expert en Énergies Renouvelables"
+    biography: "Paulius Yamin est un expert en solutions d'énergies renouvelables et en innovations technologiques durables, plaidant pour l'adoption mondiale de l'énergie propre."
 
 tags:
-  - name: "Conservation Marine"
-    description: "Efforts pour protéger les écosystèmes marins et la biodiversité."
-    icon: null
-    createdAt: "2023-11-01T00:00:00.000Z"
-    updatedAt: "2024-03-01T00:00:00.000Z"
-
-  - name: "Récifs Coralliens"
-    description: "Initiatives axées sur la restauration et la protection des écosystèmes de récifs coralliens."
-    icon: null
-    createdAt: "2023-12-15T00:00:00.000Z"
-    updatedAt: "2024-02-20T00:00:00.000Z"
-
-  - name: "Pollution Plastique"
-    description: "Efforts pour réduire la pollution plastique dans les océans et son impact sur la vie marine."
+  - name: "Changement Climatique"
+    description: "Recherches et nouvelles relatives aux impacts du changement climatique mondial."
     icon: null
     createdAt: "2024-01-10T00:00:00.000Z"
-    updatedAt: "2024-03-05T00:00:00.000Z"
+    updatedAt: "2024-04-15T00:00:00.000Z"
 
-  - name: "Surpêche"
-    description: "Études et campagnes visant à réduire la surpêche et à préserver la biodiversité marine."
+  - name: "Énergies Renouvelables"
+    description: "Efforts et innovations dans les solutions d'énergie renouvelable pour un avenir durable."
     icon: null
-    createdAt: "2024-02-01T00:00:00.000Z"
-    updatedAt: "2024-03-18T00:00:00.000Z"
+    createdAt: "2024-02-12T00:00:00.000Z"
+    updatedAt: "2024-03-20T00:00:00.000Z"
 
-  - name: "Océans Durables"
-    description: "Promouvoir des pratiques durables pour la gestion des ressources océaniques."
+  - name: "Intelligence Artificielle"
+    description: "Le rôle de l'IA dans la modélisation du climat et l'analyse des données."
     icon: null
-    createdAt: "2024-02-20T00:00:00.000Z"
-    updatedAt: "2024-04-01T00:00:00.000Z"
+    createdAt: "2024-03-18T00:00:00.000Z"
+    updatedAt: "2024-05-01T00:00:00.000Z"
+
+  - name: "Montée du Niveau de la Mer"
+    description: "Études sur l'impact de la montée des eaux sur les régions côtières."
+    icon: null
+    createdAt: "2024-04-25T00:00:00.000Z"
+    updatedAt: "2024-06-07T00:00:00.000Z"
+
+  - name: "Durabilité"
+    description: "Recherches sur les pratiques durables pour lutter contre le changement climatique."
+    icon: null
+    createdAt: "2024-05-30T00:00:00.000Z"
+    updatedAt: "2024-08-30T00:00:00.000Z"
 ---
 
-L'initiative Futur Positif, soutenue par l'Institut d'études avancées de Paris et la Fondation 2100, vise à faire connaître les travaux de prospective, afin de permettre à chacun d'imaginer un avenir vivable et souhaitable, mais réaliste, et de partager des visions positives et inspirantes du monde de demain.
+Le Socioscope vise à comprendre comment rendre notre monde plus durable, notamment en ce qui concerne l'alimentation. Nous sommes en mission pour découvrir ce qui fonctionne sur le terrain partout dans le monde.
