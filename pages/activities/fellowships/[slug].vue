@@ -44,5 +44,5 @@ const { data } = await useAsyncData(
       "fellowship/" + locale.value + "/" + route.params.slug,
     ).findOne(),
 )
-rootStore.setLoading(false)
+rootStore.setLoading(false, "fellowship")
 </script>

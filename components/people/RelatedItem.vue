@@ -20,7 +20,7 @@
       </v-col>
       <v-col cols="12" lg="9">
         <v-skeleton-loader
-          v-if="rootStore.loading || rootStore.people.loading"
+          v-if="rootStore.loading"
           type="heading"
         ></v-skeleton-loader>
         <template v-else>

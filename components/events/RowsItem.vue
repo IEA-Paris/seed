@@ -45,26 +45,7 @@
               {{ item.description }}
             </p>
             <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">
-              <v-btn
-                color="grey-lighten-3"
-                flat
-                rounded="0"
-                prepend-icon="mdi-circle-medium"
-              >
-                <template v-slot:prepend>
-                  <v-icon size="large" color="success"></v-icon>
-                </template>
-                {{ $t("registration-open") }}</v-btn
-              >
-              <v-btn
-                color="grey-lighten-3"
-                flat
-                rounded="0"
-                prepend-icon="mdi-television-play"
-                class="ml-md-4"
-              >
-                {{ $t("live-stream-available") }}</v-btn
-              >
+              <EventsBadges :item></EventsBadges>
             </div>
           </div>
         </v-col>
@@ -81,8 +62,12 @@
               {{ $t("date-and-time") }}
             </div>
             <div class="text-body-1">
-              {{ item.date_text }} <br />
-              {{ formatDate(item.start, locale) }}
+              <template v-if="item.date_text && item.date_text.length">
+                {{ item.date_text }}
+              </template>
+              <template v-else>
+                {{ formatDate(item.start, locale) }}
+              </template>
             </div>
             <template v-if="item.location">
               <div class="text-overline mt-6">
@@ -111,32 +96,7 @@
           >
           </v-skeleton-loader>
 
-          <div v-else>
-            <v-btn
-              color="grey-lighten-3"
-              flat
-              rounded="0"
-              prepend-icon="mdi-circle-medium"
-              size="small"
-              class="my-2"
-              ><!--  TODO: bind -->
-              <template v-slot:prepend>
-                <v-icon size="large" color="success"></v-icon>
-              </template>
-              {{ $t("registration-open") }}</v-btn
-            >
-            <v-divider vertical class="mx-3" v-if="smAndUp"></v-divider>
-            <v-btn
-              color="grey-lighten-3"
-              flat
-              rounded="0"
-              prepend-icon="mdi-television-play"
-              size="small"
-              class="my-xs-2"
-              ><!--  TODO: bind -->
-              {{ $t("live-stream-available") }}</v-btn
-            >
-          </div>
+          <div v-else><EventsBadges :item></EventsBadges></div>
         </v-col>
       </v-row>
     </v-col>

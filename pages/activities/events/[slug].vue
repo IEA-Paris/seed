@@ -21,5 +21,5 @@ const { data } = await useAsyncData(
 )
 
 const value = data._rawValue
-rootStore.setLoading(false)
+rootStore.setLoading(false, "events")
 </script>

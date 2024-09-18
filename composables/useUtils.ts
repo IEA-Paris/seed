@@ -16,7 +16,7 @@ export const getDetailedFormatedDate = (
   const date = new Date(dateStr)
 
   return {
-    day: date.getDay(),
+    day: date.getDate(),
     month: date.toLocaleString(locale, { month: "long" }),
     year: date.getFullYear(),
     hours: date.getUTCHours(),

@@ -1,9 +1,11 @@
 ---
 name: "Advancements in Renewable Energy and AI Integration"
 subtitle: "In collaboration with Stanford University and the International Energy Agency"
-date_text: 10 February 2025
-start: 2025-02-10T09:00:00.000Z
-stop: 2025-02-10T17:00:00.000Z
+state: 1
+bookingState: 1
+date_text: 10 October 2024
+start: 2024-10-10T09:00:00.000Z
+stop: 2024-10-10T17:00:00.000Z
 online: true
 category: 1
 description: "As the global push for sustainable energy continues, artificial intelligence is playing a pivotal role in optimizing renewable energy systems. This event will feature discussions on the integration of AI with renewable energy technologies, highlighting cutting-edge research and practical applications. Speakers include Dr. Rachel Evans, an expert in renewable energy systems, and Dr. Samuel Green, a pioneer in AI-driven energy solutions. The event will be moderated by Prof. Laura Smith, Director of Energy Research at Stanford University."

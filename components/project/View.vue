@@ -133,4 +133,5 @@ const { data: action } = await useAsyncData("actions", () =>
     .limit(1)
     .find(),
 )
+rootStore.project.loading = false
 </script>

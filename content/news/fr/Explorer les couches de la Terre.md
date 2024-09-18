@@ -26,7 +26,7 @@ tags:
     createdAt: 2022-05-22T14:15:00.000+00:00
     updatedAt: 2022-09-12T15:00:00.000+00:00
 published: true
-pinned: false
+pinned: true
 title: "Explorer les couches de la Terre : Un voyage à travers la géologie"
 date: 2023-06-10T18:00:00.000+00:00
 authors:
@@ -41,7 +41,7 @@ authors:
 url: ""
 audio:
   - "9876543210"
-image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
+image: "images/geology.jpg"
 
 relatedProjects:
   - title: "Futur Positif"

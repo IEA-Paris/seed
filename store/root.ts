@@ -57,8 +57,9 @@ export const useRootStore = defineStore("rootStore", {
         console.log(`error while saving ${type}`, error)
       }
     },
-    setLoading(value: boolean) {
+    setLoading(value: boolean, type: string = "") {
       this.loading = value
+      if (type.length) (this[type] as ModuleType).loading = value
     },
     setScrolled() {
       if (process.browser) {
@@ -67,10 +68,10 @@ export const useRootStore = defineStore("rootStore", {
     },
 
     getKey({ key, level, store }: InputParams): any {
-      console.log("key: ", key)
+      /*       console.log("key: ", key)
       console.log("level: ", level)
       console.log("store: ", store)
-      console.log("store key val: ", store?.[level[0]])
+      console.log("store key val: ", store?.[level[0]]) */
       const isArray = typeof level[0] === "number"
       if (level.length === 1) {
         //guard against undef keys

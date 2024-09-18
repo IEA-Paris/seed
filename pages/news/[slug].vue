@@ -17,5 +17,5 @@ const { data: news } = await useAsyncData(
       "news/" + locale.value + "/" + route.params.slug,
     ).findOne(),
 )
-rootStore.setLoading(false)
+rootStore.setLoading(false, "news")
 </script>

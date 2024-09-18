@@ -22,5 +22,5 @@ const { data } = await useAsyncData("project", () =>
 )
 
 const item = data._value
-rootStore.setLoading(false)
+rootStore.setLoading(false, "project")
 </script>

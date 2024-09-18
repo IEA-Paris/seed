@@ -1,11 +1,12 @@
 ---
 name: "AI and Cybersecurity: Protecting the Digital Future"
 subtitle: "In collaboration with MIT and the European Cybersecurity Agency"
-date_text: 10 April 2026
-start: 2026-04-10T09:00:00.000Z
-stop: 2026-04-10T18:00:00.000Z
+start: 2025-10-12T09:00:00.000
+stop: 2025-10-12T18:00:00.000
 online: true
 category: 2
+state: 1
+bookingState: 2
 description: "As cyber threats evolve in complexity, Artificial Intelligence is becoming a critical tool in enhancing cybersecurity. This event will explore how AI is being used to detect, prevent, and respond to cyberattacks, and how it shapes the future of digital security. Key speakers include Dr. Michael Reynolds, a cybersecurity expert from MIT, and Dr. Leila Ahmed, a specialist in AI-driven security from the European Cybersecurity Agency. Moderated by Prof. Angela Liu, Director of Cybersecurity Research at Oxford University."
 
 location: "Online Event"

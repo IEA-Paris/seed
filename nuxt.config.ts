@@ -92,7 +92,7 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@nuxtjs/sitemap",
     // https://github.com/nuxt-community/device-module
-    "@nuxtjs/device",
+    /* "@nuxtjs/device", */
     // https://github.com/nuxt-modules/robots
     "@nuxtjs/robots",
     //

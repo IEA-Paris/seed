@@ -26,7 +26,7 @@ tags:
     createdAt: 2022-08-10T08:15:00.000+00:00
     updatedAt: 2022-10-18T12:30:00.000+00:00
 published: true
-pinned: false
+pinned: true
 title: "Revolutionizing Healthcare: Advances in Biotechnology and Genetics"
 date: 2024-01-15T14:00:00.000+00:00
 authors:
