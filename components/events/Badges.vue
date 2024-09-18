@@ -8,6 +8,12 @@
       size="small"
       class="my-2"
       v-if="item.bookingState === 1"
+      :to="
+        localePath({
+          name: 'activities-events-slug',
+          params: { slug: getSlugFromPath(item._path) },
+        })
+      "
     >
       <template v-slot:prepend>
         <v-icon size="large" color="success"></v-icon>
@@ -37,6 +43,12 @@
       size="small"
       class="my-xs-2"
       v-if="item.stream && item.stream.length"
+      :to="
+        localePath({
+          name: 'activities-events-slug',
+          params: { slug: getSlugFromPath(item._path) },
+        })
+      "
     >
       {{ $t("live-stream-available") }}</v-btn
     >
@@ -51,6 +63,18 @@
       v-if="item.outside"
     >
       {{ $t("outside-event") }}</v-btn
+    >
+
+    <v-btn
+      color="grey-lighten-3"
+      flat
+      rounded="0"
+      prepend-icon="mdi-cast-education"
+      size="small"
+      class="my-xs-2"
+      v-if="item.eventType === 2"
+    >
+      {{ $t("hybrid-event") }}</v-btn
     >
   </div>
 </template>

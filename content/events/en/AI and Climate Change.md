@@ -1,10 +1,13 @@
 ---
 name: "AI and Climate Change: Technology for a Sustainable Future"
 subtitle: "In collaboration with the International Panel on Climate Change (IPCC) and the University of Oxford"
-date_text: 18 June 2025
-start: 2025-06-18T10:00:00.000Z
-stop: 2025-06-18T17:30:00.000Z
-online: true
+date_text: 18 June 2024
+state: 3
+bookingState: 2
+stream: 0GdITtX_grA
+start: 2024-06-18T10:00:00.000Z
+stop: 2024-06-18T17:30:00.000Z
+eventType: 0
 category: 0
 description: "Artificial Intelligence is emerging as a powerful tool in the fight against climate change. This event will explore how AI can help in reducing carbon emissions, predicting climate patterns, and developing sustainable solutions for the future. Key speakers include Dr. Emma Davis, a climate scientist and AI researcher at the University of Oxford, and Dr. Carlos Gutierrez, a member of the International Panel on Climate Change (IPCC). Moderated by Prof. Elena Rossi, Director of the Environmental Research Lab at MIT."
 
@@ -60,7 +63,6 @@ relatedNews:
     description: "The branch of geology concerned with the description and classification of rocks."
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
     name: "Exploring the Earth's Layers"
-    outside: "No"
     start: "2024-02-10T10:00:00.000Z"
     state: "Published"
     summary: "The branch of geology concerned with the description and classification of rocks."
@@ -72,7 +74,6 @@ relatedNews:
     description: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
     image: "images/mars_image.jpg"
     name: "Mitigating Climate Change"
-    outside: "Yes"
     start: "2024-01-20T12:00:00.000Z"
     state: "Published"
     summary: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
@@ -84,7 +85,6 @@ relatedNews:
     description: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"
     image: "images/IA_image.jpg"
     name: "Revolutionizing Healthcare"
-    outside: "No"
     start: "2023-12-15T09:30:00.000Z"
     state: "Published"
     summary: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"

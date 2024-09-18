@@ -4,7 +4,7 @@ subtitle: "En collaboration avec le MIT et l'Agence Européenne de Cybersécurit
 date_text: 10 avril 2026
 start: 2026-04-10T09:00:00.000Z
 stop: 2026-04-10T18:00:00.000Z
-online: true
+eventType: 2
 category: 2
 description: "À mesure que les menaces cybernétiques évoluent en complexité, l'intelligence artificielle devient un outil essentiel pour renforcer la cybersécurité. Cet événement explorera comment l'IA est utilisée pour détecter, prévenir et répondre aux cyberattaques, et comment elle façonne l'avenir de la sécurité numérique. Les principaux intervenants incluent le Dr Michael Reynolds, expert en cybersécurité du MIT, et la Dr Leila Ahmed, spécialiste en sécurité basée sur l'IA à l'Agence Européenne de Cybersécurité. L'événement sera modéré par la Professeure Angela Liu, Directrice de la Recherche en Cybersécurité à l'Université d'Oxford."
 

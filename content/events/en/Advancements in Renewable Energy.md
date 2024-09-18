@@ -2,17 +2,17 @@
 name: "Advancements in Renewable Energy and AI Integration"
 subtitle: "In collaboration with Stanford University and the International Energy Agency"
 state: 1
+outside: true
 bookingState: 1
 date_text: 10 October 2024
 start: 2024-10-10T09:00:00.000Z
 stop: 2024-10-10T17:00:00.000Z
-online: true
+eventType: 1
 category: 1
 description: "As the global push for sustainable energy continues, artificial intelligence is playing a pivotal role in optimizing renewable energy systems. This event will feature discussions on the integration of AI with renewable energy technologies, highlighting cutting-edge research and practical applications. Speakers include Dr. Rachel Evans, an expert in renewable energy systems, and Dr. Samuel Green, a pioneer in AI-driven energy solutions. The event will be moderated by Prof. Laura Smith, Director of Energy Research at Stanford University."
 
 location: "Stanford University, 450 Serra Mall, Stanford, CA, USA"
 image: "images/renewable.jpg"
-outside: false
 type: 0
 files:
   [
@@ -62,7 +62,6 @@ relatedNews:
     description: "The branch of geology concerned with the description and classification of rocks."
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
     name: "Exploring the Earth's Layers"
-    outside: "No"
     start: "2024-02-10T10:00:00.000Z"
     state: "Published"
     summary: "The branch of geology concerned with the description and classification of rocks."
@@ -74,7 +73,6 @@ relatedNews:
     description: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
     image: "images/mars_image.jpg"
     name: "Mitigating Climate Change"
-    outside: "Yes"
     start: "2024-01-20T12:00:00.000Z"
     state: "Published"
     summary: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
@@ -86,7 +84,6 @@ relatedNews:
     description: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"
     image: "images/IA_image.jpg"
     name: "Revolutionizing Healthcare"
-    outside: "No"
     start: "2023-12-15T09:30:00.000Z"
     state: "Published"
     summary: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"
