@@ -3,7 +3,7 @@ name: "AI and Cybersecurity: Protecting the Digital Future"
 subtitle: "In collaboration with MIT and the European Cybersecurity Agency"
 start: 2025-10-12T09:00:00.000
 stop: 2025-10-12T18:00:00.000
-online: true
+eventType: 2
 category: 2
 state: 1
 bookingState: 2
@@ -61,7 +61,6 @@ relatedNews:
     description: "The branch of geology concerned with the description and classification of rocks."
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
     name: "Exploring the Earth's Layers"
-    outside: "No"
     start: "2024-02-10T10:00:00.000Z"
     state: "Published"
     summary: "The branch of geology concerned with the description and classification of rocks."
@@ -73,7 +72,6 @@ relatedNews:
     description: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
     image: "images/mars_image.jpg"
     name: "Mitigating Climate Change"
-    outside: "Yes"
     start: "2024-01-20T12:00:00.000Z"
     state: "Published"
     summary: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
@@ -85,7 +83,6 @@ relatedNews:
     description: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"
     image: "images/IA_image.jpg"
     name: "Revolutionizing Healthcare"
-    outside: "No"
     start: "2023-12-15T09:30:00.000Z"
     state: "Published"
     summary: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"

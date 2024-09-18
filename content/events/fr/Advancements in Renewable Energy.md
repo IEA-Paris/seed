@@ -4,13 +4,13 @@ subtitle: "En collaboration avec l'Université de Stanford et l'Agence Internati
 date_text: 10 Octobre 2024
 start: 2024-10-10T09:00:00.000Z
 stop: 2024-10-10T17:00:00.000Z
-online: true
+eventType: 1
+outside: true
 category: 1
 description: "Alors que la transition mondiale vers une énergie durable se poursuit, l'intelligence artificielle joue un rôle crucial dans l'optimisation des systèmes d'énergie renouvelable. Cet événement mettra en lumière des discussions sur l'intégration de l'IA avec les technologies d'énergie renouvelable, en mettant l'accent sur la recherche de pointe et les applications pratiques. Les intervenants incluent le Dr Rachel Evans, experte en systèmes d'énergie renouvelable, et le Dr Samuel Green, pionnier des solutions énergétiques basées sur l'IA. L'événement sera modéré par la Professeure Laura Smith, Directrice de la Recherche en Énergie à l'Université de Stanford."
 
 location: "Université de Stanford, 450 Serra Mall, Stanford, CA, USA"
 image: "images/renewable.jpg"
-outside: false
 type: 0
 files:
   [

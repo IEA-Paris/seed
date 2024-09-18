@@ -74,7 +74,12 @@
                 {{ $t("location") }}
               </div>
               <div class="text-body-1">
-                {{ item.location }}
+                <template v-if="item.eventType === 0">
+                  {{ $t("online") }}
+                </template>
+                <template v-else>
+                  {{ item.location }}
+                </template>
               </div>
             </template>
           </div>
