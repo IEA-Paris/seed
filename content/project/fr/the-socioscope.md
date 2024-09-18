@@ -2,9 +2,8 @@
 title: Le Socioscope
 url: "https://thesocioscope.org/"
 date: 2024-05-12T00:00:00.000Z
-image: "/images/SocioscopeWhite.png"
 color: "#000000"
-
+image: "/images/logo_typo_black.svg"
 relatedNews:
   - bookingState: "Publié"
     createdAt: "2024-02-05T09:00:00.000Z"

@@ -1,43 +1,44 @@
 <template>
-  <!--  TODO 
+  <div>
+    <!--  TODO 
   - add skeleton UI 
   - test lazy-src
   - validate requested quality 
   - Add conditional overlays slots (top left/right, bottom left/right/center for date, caption, copyright)-->
 
-  <v-skeleton-loader
-    v-if="rootStore.loading || loading"
-    height="100%"
-    type="image"
-  ></v-skeleton-loader>
+    <v-skeleton-loader
+      v-if="rootStore.loading || loading"
+      height="100%"
+      type="image"
+    ></v-skeleton-loader>
 
-  <template v-else>
-    <nuxt-link
-      :to="
-        link
-          ? localePath({
-              name: link,
-              params: { slug: slugify(slug) },
-            })
-          : null
-      "
-    >
-      <div class="overflow-hidden">
-        <!--  TODO debug why the picture is not displaying/sizing properly -->
-        <v-img
-          :aspect-ratio="ratio"
-          cover
-          class="img-animation"
-          :lazy-src="img(src, { width: 10, quality: 70 })"
-          :src="img(src, { width, quality: 70 })"
-          :srcset="_srcset.srcset"
-          :sizes="_srcset.sizes"
-          :title="caption"
-          v-bind="$attrs"
-        >
-        </v-img></div
-    ></nuxt-link>
-  </template>
+    <template v-else>
+      <nuxt-link
+        :to="
+          link
+            ? localePath({
+                name: link,
+                params: { slug: slugify(slug) },
+              })
+            : null
+        "
+      >
+        <div class="overflow-hidden">
+          <!--  TODO debug why the picture is not displaying/sizing properly -->
+          <v-img
+            :aspect-ratio="ratio"
+            class="img-animation"
+            :lazy-src="img(src, { width: 10, quality: 70 })"
+            :src="img(src, { width, quality: 70 })"
+            :srcset="_srcset.srcset"
+            :sizes="_srcset.sizes"
+            :title="caption"
+            v-bind="$attrs"
+          >
+          </v-img></div
+      ></nuxt-link>
+    </template>
+  </div>
 </template>
 
 <script setup>

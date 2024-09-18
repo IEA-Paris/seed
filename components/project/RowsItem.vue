@@ -1,10 +1,9 @@
 <template>
   <!--  TODO: design properly -->
-  <v-col cols="12" sm="6" md="3">
+  <v-col cols="12" sm="6" md="3" v-ripple>
     <MiscAtomsImageContainer
       contain
       :src="item.image"
-      class="align-start"
       :loading="rootStore.project.loading"
       :ratio="1 / 1"
       :title="item.title"

@@ -1,3 +1,0 @@
----
-firstname: Nadège
-lastname: Bourgeois

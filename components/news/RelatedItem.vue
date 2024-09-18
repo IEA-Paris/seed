@@ -12,7 +12,7 @@
         <MiscAtomsImageContainer
           cover
           :src="item.image"
-          :loading="rootStore.news.loading"
+          :loading="rootStore.loading"
           :ratio="1 / 1"
           :link="item.name"
           name="news-slug"

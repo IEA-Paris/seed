@@ -1,8 +1,8 @@
 <template>
   <v-row justify="center">
     <v-col cols="12" sm="11" md="8" lg="8" xl="6">
-      <v-row no-gutters>
-        <v-col cols="12" class="text-center">
+      <v-row no-gutters class="justify-center">
+        <v-col cols="12" sm="10" md="6" lg="4" xl="3" class="text-center">
           <!--   PEOPLE IMAGE -->
           <MiscAtomsImageContainer
             cover
@@ -17,6 +17,8 @@
             "
           >
           </MiscAtomsImageContainer>
+        </v-col>
+        <v-col cols="12" class="text-center">
           <!-- FIRSTNAME LASTNAME -->
           <v-skeleton-loader
             class="mx-auto"
