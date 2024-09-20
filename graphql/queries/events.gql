@@ -1,0 +1,3 @@
+mutation BookEvent($itemId: ID!, $slot: SlotInput!) {
+  bookEvent(itemId: $itemId, slot: $slot)
+}

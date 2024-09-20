@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <!-- <ListAtomsListHeader
+        <PeopleListHeader
           :headers="[
             'scientific-advisory-board',
             'team',
@@ -10,19 +10,9 @@
             'board-of-directors',
           ]"
           page="people"
-        ></ListAtomsListHeader>
-        <v-card
-          class="d-flex align-center justify-center"
-          color="grey-lighten-3"
-          height="424"
-          :to="localePath('/people')"
-          link
-        >
-          Overview of the people by category: team, current fellows, recent
-          speakers, featured in resources</v-card
-        > -->
+        ></PeopleListHeader>
 
-        <ListOrganismsList type="people"></ListOrganismsList> </v-col
+        <ListOrganismsList type="people"></ListOrganismsList>
       </v-col>
     </v-row>
   </v-container>
@@ -33,5 +23,4 @@ import { useDisplay } from "vuetify"
 const { smAndUp } = useDisplay()
 // const route = useRoute()
 const localePath = useLocalePath()
-
 </script>
