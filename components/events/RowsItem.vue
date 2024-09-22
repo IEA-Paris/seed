@@ -66,7 +66,7 @@
           </v-skeleton-loader>
 
           <div v-else>
-            <div class="text-overline">
+            <!-- <div class="text-overline">
               {{ $t("date-and-time") }}
             </div>
             <div class="text-body-1">
@@ -76,7 +76,7 @@
               <template v-else>
                 {{ formatDate(item.start, locale) }}
               </template>
-            </div>
+            </div> -->
             <template v-if="item.location">
               <div class="text-overline mt-6">
                 {{ $t("location") }}
