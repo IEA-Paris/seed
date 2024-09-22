@@ -1,7 +1,7 @@
 ---
 image: "images/lahlou_saadi.jpg"
-firstname: Lahlou
-lastname: Saadi
+firstname: Saadi
+lastname: Lahlou
 affiliations:
   - affiliation: International Criminal Court, Netherlands
     positions:
@@ -111,6 +111,7 @@ relatedNews:
     url: ""
 ---
 
-Saadi Lahlou a une formation multi-disciplinaire (statisticien économiste, biologie humaine, HDR Psychologie). Il a dirigé, avant l'IEA de Paris, quatre laboratoires de recherche (Département Prospective de la Consommation du Crédoc,  Groupe Prospective Sociale Interne puis Laboratoire de Design Cognitif à EDF R&D, Department of Social Psychology de la LSE) et siégé au Comité d'évaluation du Commissariat Général du Plan. Il est depuis 2009 Chair in Social Psychology à la London School of Economics and Political Science. Il a étudié notamment les relations entre les [représentations et les comportements](https://www.puf.com/content/Penser-manger) ; ses recherches récentes portent sur l'[ethnographie numérique](http://eprints.lse.ac.uk/37759/) et l'impact du contexte sur les comportements.
-Il est membre de l'Académie des Technologies et de l'Academia Europaea.
-Il succède au Professeur Gretty Mirdal à la direction de l'IEA de Paris depuis septembre 2018.
+Saadi Lahlou has a multi-disciplinary background (economist statistician, human biology, PhD and habilitation in Psychology). Prior to the IEA in Paris, he has directed four research units (Consumer Research Department at Crédoc, Social Forecast Unit then the Laboratory of Design for Cognition at EDF R&D, Department of Social Psychology at LSE) and sat in the steering committee of the Commissariat Général du Plan. Since 2009 he has been Chair in Social Psychology at the London School of Economics and Political Science. He has worked among other topics on the links between representations and behavior; his recent research focuses on digital ethnography and the impact of context on behavior.
+He is a member of the National Academy of Technologies of France and of the Academia Europaea.
+
+He is the successor to Professor Gretty Mirdal as director of the Paris IEA since September 2018.

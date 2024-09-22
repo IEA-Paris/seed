@@ -1,7 +1,7 @@
 ---
 image: "/images/Loftness.jpeg"
-firstname: Daniel
-lastname: Pauly
+firstname: Vivian
+lastname: Loftness
 affiliations:
   - affiliation: International Criminal Court, Netherlands
     positions:
@@ -22,7 +22,7 @@ socials:
   researchgate: "123"
 groups:
   fellow: true
-  vintage: 
+  vintage:
     - year: 2024
       name: rolling-call-for-fellows
       theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
@@ -112,6 +112,7 @@ relatedNews:
     eventType: "Research News"
     url: ""
 ---
+
 Vivian Loftness, FAIA, is Paul Mellon Chair and University Professor at Carnegie Mellon University. She is a researcher, author and educator, with over forty years of building science research for industry and government. Editor of the 2013 and 2020 Springer Encyclopedia on Sustainable Built Environments, she has published on climate and regionalism, environmental sustainability, advanced building systems integration, and design for performance in the workplace of the future. She is an elected Fellow of the American Institute of Architects, the US Green Building Council, New Buildings Institute, and Design Futures Council. Vivian has been recognized as one of 13 Stars of Building Science by the Building Research Establishment in the UK, received the Award of Distinction from AIA Pennsylvania and NESEA, holds a National Educator Honor Award from the American Institute of Architecture Students, and a "Sacred Tree" Award from the US Green Building Council. Vivian Loftness has a Bachelor of Science and a Master of Architecture from MIT.
 
 In June 2025, she joins the IAS for a one-month writing residency.
@@ -138,7 +139,7 @@ Investing in planning, design, construction, operation, and disposition of urban
 
 Loftness, V. and M. Snyder, "Sustainable and Healthy Built Environments", *Encyclopedia on Sustainable Built Environments,* Springer, 2020.
 
-Loftness, V and C. Martin, "Building Policies and Actions for Rapid Decarbonization in the US", *Accelerating Decarbonization,* National Academy of Sciences, 2023.
+Loftness, V and C. Martin, "Building Policies and Actions for Rapid Decarbonization in the US", _Accelerating Decarbonization,_ National Academy of Sciences, 2023.
 <https://www.nationalacademies.org/our-work/accelerating-decarbonization-in-the-united-states-technology-policy-and-societal-dimensions.>
 
-Volker Hartkopf and Vivian Loftness, "The Robert L. Preger Intelligent Workplace, a Transformative Living Laboratory at Carnegie Mellon University", in *Facilities Management: Concept, Realization, Vision -- A Global Perspective*. Edmond P. Rondeau (Editor), Michaela Hellerforth (Editor), January 2024, Wiley Publications.
+Volker Hartkopf and Vivian Loftness, "The Robert L. Preger Intelligent Workplace, a Transformative Living Laboratory at Carnegie Mellon University", in _Facilities Management: Concept, Realization, Vision -- A Global Perspective_. Edmond P. Rondeau (Editor), Michaela Hellerforth (Editor), January 2024, Wiley Publications.

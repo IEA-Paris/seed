@@ -1,7 +1,7 @@
 ---
-image: "images/antoine_cordelois.jpg"
-firstname: Antoine
-lastname: Cordelois
+image: "images/Paulius_Yamin.jpg"
+firstname: Paulius
+lastname: Yamin
 affiliations:
   - affiliation: International Criminal Court, Netherlands
     positions:
@@ -111,8 +111,7 @@ relatedNews:
     url: ""
 ---
 
-Antoine Cordelois has a PhD in cognitive science, with a focus on human-computer interfaces, and is a software engineer.
-
-After several years in Research and Development with large industrial groups (EDF R&D, Airbus R&T), he worked as a freelance researcher and developer before joining the Paris Institute for Advanced Study in April 2020.
-
-He is now the Head of Digital Projects and in charge of the implementation of projects and infrastructures such as the World Pandemic Research Network (wprn.org).
+Paulius Yamin est un anthropologue et psychologue social avec plus de dix ans d'expérience dans la conception, la coordination et la mise en œuvre d'initiatives de recherche, politiques, communautaires, et de développement international. Avant rejoindre l'IEA, il a été le directeur général (_Managing Director_) du Centre pour les normes sociales et les dynamiques comportementales de l'Université de Pennsylvanie (2020-2022), cofondateur et associé directeur du _Behavioural Lab Lithuania_ (2019-2020), et responsable de la stratégie nationale de changement comportemental et culturel pour les fonctionnaires au sein du gouvernement colombien (2015-2016). Paulius a vécu et travaillé dans des institutions de recherche en Colombie, le Royaume-Uni, la Lituanie, les États-Unis et maintenant en France. Il est titulaire d'un doctorat en sciences psychologiques et comportementales de la _London School of Economics_ (où il est également chercheur invité), d'un MBA avec mention de la _Quantic School of Business and Technology_, d'un M.A. avec distinction en études culturelles du _Goldsmiths College_, Université de Londres, et d'un B.A. en anthropologie (diplôme Summa Cum Laude) de l'_Universidad de los Andes_ (Colombie). A l'IEA de Paris, il est responsable de la mise en oeuvre de la stratégie scientifique, de la programmation annuelle des activités scientifiques ainsi que de la supervision des appels à candidatures et du processus de sélection des futurs résidents. Il représente l'Institut auprès de ses partenaires scientifiques.
+Sur les réseaux sociaux :
+[https://twitter.com/pauliusyamin
+https://www.linkedin.com/in/pauliusyamin/](https://www.linkedin.com/in/pauliusyamin/)

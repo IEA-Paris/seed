@@ -111,10 +111,4 @@ relatedNews:
     url: ""
 ---
 
-Conseiller d’État, docteur en lettres, lauréate de Sciences Po et ancienne élève de l’ENA, Bettina Laville est présidente et fondatrice du Comité 21, créé en 1995.
-
-Elle a été directrice de cabinet de Brice Lalonde, puis conseillère sur les questions d’environnement auprès de deux Premiers ministres, Pierre Bérégovoy puis Lionel Jospin, et du président de la République François Mitterrand. À ce titre, elle fut responsable de la préparation des conférences de Rio, Kyoto et Johannesburg.
-
-Enseignante à Science Po pendant dix ans, elle a été chargée de plusieurs rapports sur l'environnement en particulier lors du Grenelle de l’Environnement et de la Conférence environnementale, et auteur de nombreux articles.
-
-Elle est coauteur de Villette Amazone (1996), a publié, en 2002, La machine ronde et a cosigné Développement durable - Aspects stratégiques et opérationnels (2011, EFL), et avec le CNRS, Quelles solutions contre le réchauffement climatique ? (2015). Toujours avec le CNRS, elle publie en octobre prochain L’adaptation au changement climatique, une question de sociétés.
+Conseiller d’État, docteur en lettres, lauréate de Sciences Po et ancienne élève de l’ENA, Bettina Laville est présidente et fondatrice du Comité 21, créé en 1995. Elle a été directrice de cabinet de Brice Lalonde, puis conseillère sur les questions d’environnement auprès de deux Premiers ministres, Pierre Bérégovoy puis Lionel Jospin, et du président de la République François Mitterrand. À ce titre, elle fut responsable de la préparation des conférences de Rio, Kyoto et Johannesburg. Enseignante à Science Po pendant dix ans, elle a été chargée de plusieurs rapports sur l'environnement en particulier lors du Grenelle de l’Environnement et de la Conférence environnementale, et auteur de nombreux articles. Elle est coauteur de Villette Amazone (1996), a publié, en 2002, La machine ronde et a cosigné Développement durable - Aspects stratégiques et opérationnels (2011, EFL), et avec le CNRS, Quelles solutions contre le réchauffement climatique ? (2015). Toujours avec le CNRS, elle publie en octobre prochain L’adaptation au changement climatique, une question de sociétés.

@@ -22,7 +22,7 @@ socials:
   researchgate: "123"
 groups:
   fellow: true
-  vintage: 
+  vintage:
     - year: 2024
       name: rolling-call-for-fellows
       theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
@@ -113,9 +113,7 @@ relatedNews:
     url: ""
 ---
 
-Franco-canadien, Daniel Pauly a étudgroups.0 à la documentation et à l'atténuation de l'impact des pêcheries sur les écosystèmes marins de la planète. Les concepts, méthodes et logiciels qu'il a (co)développés sont documentés dans plus de 1000 contributions largement citées, et lui ont valu de nombreuses récompenses scientifiques, dont la Légion d'Honneur. Une biographie complète (*Daniel Pauly - un océan de combats* par David Grémillet), publiée en français en 2019 et en anglais en 2021 sous le titre *The Ocean's Whistleblower - the remarkable life and work of Daniel Pauly*, présente de manière détaillée le travail et l'influence de Daniel Pauly.
-
-Il rejoint l'IEA en mai 2025 pour une résidence d'écriture d'un mois.
+Franco-canadien, Daniel Pauly a étudgroups.0 à la documentation et à l'atténuation de l'impact des pêcheries sur les écosystèmes marins de la planète. Les concepts, méthodes et logiciels qu'il a (co)développés sont documentés dans plus de 1000 contributions largement citées, et lui ont valu de nombreuses récompenses scientifiques, dont la Légion d'Honneur. Une biographie complète (_Daniel Pauly - un océan de combats_ par David Grémillet), publiée en français en 2019 et en anglais en 2021 sous le titre _The Ocean's Whistleblower - the remarkable life and work of Daniel Pauly_, présente de manière détaillée le travail et l'influence de Daniel Pauly. Il rejoint l'IEA en mai 2025 pour une résidence d'écriture d'un mois.
 
 ### Centres d'interet
 
@@ -133,8 +131,8 @@ Ce travail fera le lien entre les activités des flottes de pêche lointaine au 
 
 ### Publications clés
 
-Pauly, D., V. Christensen, J. Dalsgaard, R. Froese and F.C. Torres, Fishing down marine food webs*,* *Science*, 279: 860-863, 1998. 
+Pauly, D., V. Christensen, J. Dalsgaard, R. Froese and F.C. Torres, Fishing down marine food webs*,* _Science_, 279: 860-863, 1998.
 
-Pauly, D, Major trends in small-scale marine fisheries, with emphasis on developing countries and some implications for the social sciences, *Maritime Studies* (MAST) 4(2): 7-22, 2006.
+Pauly, D, Major trends in small-scale marine fisheries, with emphasis on developing countries and some implications for the social sciences, _Maritime Studies_ (MAST) 4(2): 7-22, 2006.
 
-Pauly, D. and D. Zeller. (Editors)*,* *Global Atlas of Marine Fisheries: A critical appraisal of catches and ecosystem impacts,* Island Press, Washington D.C., xii +497 p., 2016.
+Pauly, D. and D. Zeller. (Editors)_,_ _Global Atlas of Marine Fisheries: A critical appraisal of catches and ecosystem impacts,_ Island Press, Washington D.C., xii +497 p., 2016.

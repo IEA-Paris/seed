@@ -1,7 +1,7 @@
 ---
 image: "/images/Mamidi.jpg"
-firstname: Daniel
-lastname: Pauly
+firstname: Paven
+lastname: Mamidi
 affiliations:
   - affiliation: International Criminal Court, Netherlands
     positions:
@@ -22,7 +22,7 @@ socials:
   researchgate: "123"
 groups:
   fellow: true
-  vintage: 
+  vintage:
     - year: 2024
       name: rolling-call-for-fellows
       theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
@@ -113,7 +113,7 @@ relatedNews:
     url: ""
 ---
 
-Pavan Mamidi is the Director of the Centre for Social and Behavior Change (CSBC) at Ashoka University. He led the initiative to set up India's first Nudge Unit at Niti Aayog in New Delhi, as well as in the states of Uttar Pradesh and Bihar as well.
+Pavan est un conseiller principal empirique dans le domaine politique et un enseignant dévoué, qui croit en la démocratisation de l'éducation, la démystification d'idées complexes et leur communication efficace aux étudiants en gestion et en politique. Sur le fond, il poursuit deux axes de travail professionnel et d'étude : le droit/politique et les sciences appliquées du comportement. Il est actuellement directeur du Centre pour le changement social et comportemental à l'université Ashoka et travaille également en étroite collaboration avec Niti Aayog. Il est à l'origine de la création de la première Nudge Unit en Inde, la Behavioral Insights Unit of India, qui est une équipe intégrée au sein de Niti. Il a également contribué à la mise en place d'une unité d'analyse comportementale dans les États de l'Uttar Pradesh et du Bihar. Son travail porte principalement sur les questions liées au développement dans les domaines de l'éducation, de la santé, de la nutrition et de l'égalité des sexes. En outre, Pavan est très fier de cuisiner des plats ruraux du Telangana et pense que le piment vert est bon pour l'âme et qu'il forge le caractère. Il est titulaire d'un doctorat en philosophie de l'Université d'Oxford, d'une maîtrise (LL.M.) de la Harvard Law School et d'une licence en mathématiques, très subventionnée et peu coûteuse, de la meilleure institution publique au monde, l'Université d'Osmania !
 
 In January 2025, he joins the IAS for a one-month writing residency.
 
@@ -130,8 +130,8 @@ The extensive use of behavioural nudging, and AI to segment citizens into variou
 
 ### Key publications
 
-Dhami, S., Wei, M., & Mamidi, P.,"Religious identity, trust, reciprocity, and Prosociality: Theory and evidence", *Journal of Development Economics*, 166, 103192, 2024;
+Dhami, S., Wei, M., & Mamidi, P.,"Religious identity, trust, reciprocity, and Prosociality: Theory and evidence", _Journal of Development Economics_, 166, 103192, 2024;
 
-Shashidhara, S., Mamidi, P., Vaidya, S., & Daral, I, "Using machine learning prediction to create a 15-question IPV measurement tool", *Journal of interpersonal violence*, 39(1-2), 11-34, 2024;
+Shashidhara, S., Mamidi, P., Vaidya, S., & Daral, I, "Using machine learning prediction to create a 15-question IPV measurement tool", _Journal of interpersonal violence_, 39(1-2), 11-34, 2024;
 
-Spamann, Holger, Lars Klöhn, Christophe Jamin, Vikramaditya Khanna, John Zhuang Liu, Pavan Mamidi, Alexander Morell, and Ivan Reidel, *"Judges in the Lab: No Precedent Effects, No Common/Civil Law Differences", Journal of Legal Analysis* 13, no. 1 : 110-126, 2021.
+Spamann, Holger, Lars Klöhn, Christophe Jamin, Vikramaditya Khanna, John Zhuang Liu, Pavan Mamidi, Alexander Morell, and Ivan Reidel, _"Judges in the Lab: No Precedent Effects, No Common/Civil Law Differences", Journal of Legal Analysis_ 13, no. 1 : 110-126, 2021.
