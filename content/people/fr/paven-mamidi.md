@@ -3,14 +3,14 @@ image: "/images/Mamidi.jpg"
 firstname: Paven
 lastname: Mamidi
 affiliations:
-  - affiliation: International Criminal Court, Netherlands
+  - affiliation: Cour pénale internationale, Pays-Bas
     positions:
-      - role: Director
-        department: Institute of advanced studies
+      - role: Directeur
+        department: Institut d'études avancées
         start:
         stop:
       - role: Assistant
-        department: Institute for very advanced studies
+        department: Institut des études très avancées
         start:
         stop:
 socials:
@@ -25,113 +25,110 @@ groups:
   vintage:
     - year: 2024
       name: rolling-call-for-fellows
-      theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
+      theme: "Conception d'une expérience comportementale pour mesurer le coût de l'autonomie due à l'IA prédictive et au nudging"
 relatedProjects:
-  - title: "Positive Future"
-    shortDescription: "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100"
-    description: "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100, aims to make foresight work widely known"
+  - title: "Futur Positif"
+    shortDescription: "L'initiative Futur Positif, soutenue par l'Institut d'études avancées de Paris et la Fondation 2100"
+    description: "L'initiative Futur Positif, soutenue par l'Institut d'études avancées de Paris et la Fondation 2100, vise à faire connaître largement les travaux de prospective"
     url: "https://www.positive-future.org"
     image: "/logoPF.png"
     video: ""
     color: ""
     date: "2023-11-01T10:00:00.000+00:00"
-  - title: "The Socioscope"
-    shortDescription: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
-    description: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
+  - title: "Le Socioscope"
+    shortDescription: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation"
+    description: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation"
     url: "https://thesocioscope.org/"
     image: "/images/logos/the_socioscope.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"
-  - title: "World Pandemic Research Network"
-    shortDescription: "The World Pandemic Research Network (WPRN) is dedicated to facilitating international collaboration in pandemic research"
-    description: "It focuses on generating knowledge, data, and tools that can be shared across nations to better understand and combat pandemics. Through partnerships with institutions like the Institut d'Études Avancées de Paris (Paris IAS), WPRN brings together leading experts to address the complex challenges posed by global health crises"
+  - title: "Réseau Mondial de Recherche sur la Pandémie"
+    shortDescription: "Le Réseau Mondial de Recherche sur la Pandémie (WPRN) est dédié à faciliter la collaboration internationale en matière de recherche sur les pandémies"
+    description: "Il se concentre sur la génération de connaissances, de données et d'outils qui peuvent être partagés entre les nations pour mieux comprendre et combattre les pandémies. Grâce à des partenariats avec des institutions comme l'Institut d'Études Avancées de Paris (Paris IAS), le WPRN rassemble des experts de premier plan pour répondre aux défis complexes posés par les crises sanitaires mondiales"
     url: "https://wprn.org"
     image: "images/logos/wprn_logo.png"
     video: ""
     color: ""
     date: "2024-01-05T12:00:00.000+00:00"
 relatedEvents:
-  - bookingState: "Confirmed"
+  - bookingState: "Confirmé"
     createdAt: "2023-05-20T10:00:00.000+00:00"
-    description: "In collaboration with Stanford University and the International Energy Agency"
+    description: "En collaboration avec l'Université de Stanford et l'Agence Internationale de l'Énergie"
     image: "images/renewable.jpg"
-    name: "Advancements in Renewable Energy and AI Integration"
-    outside: "Yes"
+    name: "Progrès dans les énergies renouvelables et l'intégration de l'IA"
+    outside: "Oui"
     start: "2023-06-15T08:00:00.000+00:00"
-    state: "Upcoming"
-    summary: "As the global push for sustainable energy continues, artificial intelligence is playing a pivotal role in optimizing renewable energy systems"
-    eventType: "Field Trip"
+    state: "À venir"
+    summary: "Alors que l'élan mondial pour une énergie durable se poursuit, l'intelligence artificielle joue un rôle clé dans l'optimisation des systèmes d'énergie renouvelable"
+    eventType: "Excursion"
     url: ""
-  - bookingState: "Confirmed"
+  - bookingState: "Confirmé"
     createdAt: "2023-05-20T10:00:00.000+00:00"
-    description: "Artificial Intelligence is emerging as a powerful tool in the fight against climate change"
+    description: "L'intelligence artificielle émerge comme un outil puissant dans la lutte contre le changement climatique"
     image: "images/climat.jpg"
-    name: "AI and Climate Change"
-    outside: "No"
+    name: "IA et changement climatique"
+    outside: "Non"
     start: "2023-06-20T09:00:00.000+00:00"
-    state: "Upcoming"
-    summary: "Artificial Intelligence is emerging as a powerful tool in the fight against climate change"
-    eventType: "Workshop"
+    state: "À venir"
+    summary: "L'intelligence artificielle émerge comme un outil puissant dans la lutte contre le changement climatique"
+    eventType: "Atelier"
     url: ""
 
 relatedNews:
-  - bookingState: "Published"
+  - bookingState: "Publié"
     createdAt: "2024-02-05T09:00:00.000Z"
-    description: "The branch of geology concerned with the description and classification of rocks."
+    description: "La branche de la géologie qui se consacre à la description et à la classification des roches."
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
-    name: "Exploring the Earth's Layers"
-    outside: "No"
+    name: "Explorer les couches de la Terre"
+    outside: "Non"
     start: "2024-02-10T10:00:00.000Z"
-    state: "Published"
-    summary: "The branch of geology concerned with the description and classification of rocks."
-    eventType: "Conservation News"
+    state: "Publié"
+    summary: "La branche de la géologie qui se consacre à la description et à la classification des roches."
+    eventType: "Actualité de la conservation"
     url: ""
 
-  - bookingState: "Published"
+  - bookingState: "Publié"
     createdAt: "2024-01-15T14:00:00.000Z"
-    description: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
+    description: "Le total des gaz à effet de serre produits par les activités humaines, mesuré en équivalents dioxyde de carbone"
     image: "images/mars_image.jpg"
-    name: "Mitigating Climate Change"
-    outside: "Yes"
+    name: "Atténuer le changement climatique"
+    outside: "Oui"
     start: "2024-01-20T12:00:00.000Z"
-    state: "Published"
-    summary: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
-    eventType: "Global News"
+    state: "Publié"
+    summary: "Le total des gaz à effet de serre produits par les activités humaines, mesuré en équivalents dioxyde de carbone"
+    eventType: "Actualité mondiale"
     url: ""
 
-  - bookingState: "Published"
+  - bookingState: "Publié"
     createdAt: "2023-12-12T11:00:00.000Z"
-    description: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"
+    description: "Un domaine multidisciplinaire qui applique les principes de l'ingénierie à la médecine et à la biologie à des fins de soins de santé"
     image: "images/IA_image.jpg"
-    name: "Revolutionizing Healthcare"
-    outside: "No"
+    name: "Révolutionner les soins de santé"
+    outside: "Non"
     start: "2023-12-15T09:30:00.000Z"
-    state: "Published"
-    summary: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"
-    eventType: "Research News"
+    state: "Publié"
+    summary: "Un domaine multidisciplinaire qui applique les principes de l'ingénierie à la médecine et à la biologie à des fins de soins de santé"
+    eventType: "Actualité de la recherche"
     url: ""
 ---
 
-Pavan est un conseiller principal empirique dans le domaine politique et un enseignant dévoué, qui croit en la démocratisation de l'éducation, la démystification d'idées complexes et leur communication efficace aux étudiants en gestion et en politique. Sur le fond, il poursuit deux axes de travail professionnel et d'étude : le droit/politique et les sciences appliquées du comportement. Il est actuellement directeur du Centre pour le changement social et comportemental à l'université Ashoka et travaille également en étroite collaboration avec Niti Aayog. Il est à l'origine de la création de la première Nudge Unit en Inde, la Behavioral Insights Unit of India, qui est une équipe intégrée au sein de Niti. Il a également contribué à la mise en place d'une unité d'analyse comportementale dans les États de l'Uttar Pradesh et du Bihar. Son travail porte principalement sur les questions liées au développement dans les domaines de l'éducation, de la santé, de la nutrition et de l'égalité des sexes. En outre, Pavan est très fier de cuisiner des plats ruraux du Telangana et pense que le piment vert est bon pour l'âme et qu'il forge le caractère. Il est titulaire d'un doctorat en philosophie de l'Université d'Oxford, d'une maîtrise (LL.M.) de la Harvard Law School et d'une licence en mathématiques, très subventionnée et peu coûteuse, de la meilleure institution publique au monde, l'Université d'Osmania !
+Paven est un conseiller expérimenté et informé dans le domaine des politiques publiques et un enseignant dévoué, croyant à la démocratisation de l'éducation, à la démystification des idées complexes et à leur communication efficace aux étudiants en gestion et en politique. Substantiellement, il poursuit deux axes de travail professionnel et académique : droit/politique et sciences du comportement appliquées. Il est actuellement directeur du Centre pour le changement social et comportemental à l'Université Ashoka, et travaille en étroite collaboration avec Niti Aayog. Il a dirigé l'initiative de création de la première unité de nudging en Inde, l'Unité des Insights Comportementaux de l'Inde, une équipe intégrée au sein de Niti. Il a également aidé à créer des unités d'insights comportementaux pour les États de l'Uttar Pradesh et du Bihar. Son travail principal se concentre sur les questions de développement liées à l'éducation, la santé, la nutrition et le genre. En outre, Paven est passionné par la cuisine traditionnelle du Telangana rural et croit que le piment vert est bon pour l'âme et forge le caractère. Il possède un doctorat en philosophie (Ph.D.) de l'Université d'Oxford, un Master (LL.M.) de la Harvard Law School et une licence très abordable en mathématiques de la meilleure institution publique au monde - l'Université d'Osmania !
 
-In January 2025, he joins the IAS for a one-month writing residency.
+### Centres d'intérêt en recherche
 
-### Research Interests
+Sciences comportementales pour la politique, vie privée, IA, philosophie des sciences.
 
-Behavioral science for policy, privacy, AI, philosophy of science.
+### Projet de recherche
 
-Research project
+**Conception d'une expérience comportementale pour mesurer le coût de l'autonomie due à l'IA prédictive et au nudging**
 
-**Designing a behavioural experiment to measure the cost of autonomy due to predictive AI and nudging
-**
+L'utilisation extensive du nudging comportemental et de l'IA pour segmenter les citoyens en différents profils et cibler des interventions pour produire des changements de comportement risque de réduire la « capacité de surprise » et l'autonomie dans la vie des humains. Comment concilier la promesse brillante de l'IA avec les coûts sociaux et psychologiques liés à la perte d'autonomie et de vie privée ?
 
-The extensive use of behavioural nudging, and AI to segment citizens into various personas, and target interventions to produce behaviour changes are likely to result in a loss of "surprisingness" and autonomy in the lives of humans. How do we reconcile the brilliant promise of AI, with social and psychological costs of loss in autonomy and privacy?
+### Publications clés
 
-### Key publications
+Dhami, S., Wei, M., & Mamidi, P., "Religious identity, trust, reciprocity, and Prosociality: Theory and evidence", _Journal of Development Economics_, 166, 103192, 2024 ;
 
-Dhami, S., Wei, M., & Mamidi, P.,"Religious identity, trust, reciprocity, and Prosociality: Theory and evidence", _Journal of Development Economics_, 166, 103192, 2024;
-
-Shashidhara, S., Mamidi, P., Vaidya, S., & Daral, I, "Using machine learning prediction to create a 15-question IPV measurement tool", _Journal of interpersonal violence_, 39(1-2), 11-34, 2024;
+Shashidhara, S., Mamidi, P., Vaidya, S., & Daral, I., "Using machine learning prediction to create a 15-question IPV measurement tool", _Journal of interpersonal violence_, 39(1-2), 11-34, 2024 ;
 
 Spamann, Holger, Lars Klöhn, Christophe Jamin, Vikramaditya Khanna, John Zhuang Liu, Pavan Mamidi, Alexander Morell, and Ivan Reidel, _"Judges in the Lab: No Precedent Effects, No Common/Civil Law Differences", Journal of Legal Analysis_ 13, no. 1 : 110-126, 2021.

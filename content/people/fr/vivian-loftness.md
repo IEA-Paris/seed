@@ -3,14 +3,14 @@ image: "/images/Loftness.jpeg"
 firstname: Vivian
 lastname: Loftness
 affiliations:
-  - affiliation: International Criminal Court, Netherlands
+  - affiliation: Cour pénale internationale, Pays-Bas
     positions:
-      - role: Director
-        department: Institute of advanced studies
+      - role: Directeur
+        department: Institut d'études avancées
         start:
         stop:
       - role: Assistant
-        department: Institute for very advanced studies
+        department: Institut des études très avancées
         start:
         stop:
 socials:
@@ -27,119 +27,109 @@ groups:
       name: rolling-call-for-fellows
       theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
 relatedProjects:
-  - title: "Positive Future"
-    shortDescription: "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100"
-    description: "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100, aims to make foresight work widely known"
+  - title: "Futur Positif"
+    shortDescription: "L'initiative Futur Positif, soutenue par l'Institut d'études avancées de Paris et la Fondation 2100"
+    description: "L'initiative Futur Positif, soutenue par l'Institut d'études avancées de Paris et la Fondation 2100, vise à faire connaître largement les travaux de prospective"
     url: "https://www.positive-future.org"
     image: "/logoPF.png"
     video: ""
     color: ""
     date: "2023-11-01T10:00:00.000+00:00"
-  - title: "The Socioscope"
-    shortDescription: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
-    description: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
+  - title: "Le Socioscope"
+    shortDescription: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation"
+    description: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation"
     url: "https://thesocioscope.org/"
     image: "/images/logos/the_socioscope.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"
-  - title: "World Pandemic Research Network"
-    shortDescription: "The World Pandemic Research Network (WPRN) is dedicated to facilitating international collaboration in pandemic research"
-    description: "It focuses on generating knowledge, data, and tools that can be shared across nations to better understand and combat pandemics. Through partnerships with institutions like the Institut d'Études Avancées de Paris (Paris IAS), WPRN brings together leading experts to address the complex challenges posed by global health crises"
+  - title: "Réseau Mondial de Recherche sur la Pandémie"
+    shortDescription: "Le Réseau Mondial de Recherche sur la Pandémie (WPRN) est dédié à faciliter la collaboration internationale en matière de recherche sur les pandémies"
+    description: "Il se concentre sur la génération de connaissances, de données et d'outils qui peuvent être partagés entre les nations pour mieux comprendre et combattre les pandémies. Grâce à des partenariats avec des institutions comme l'Institut d'Études Avancées de Paris (Paris IAS), le WPRN rassemble des experts de premier plan pour répondre aux défis complexes posés par les crises sanitaires mondiales"
     url: "https://wprn.org"
     image: "images/logos/wprn_logo.png"
     video: ""
     color: ""
     date: "2024-01-05T12:00:00.000+00:00"
 relatedEvents:
-  - bookingState: "Confirmed"
+  - bookingState: "Confirmé"
     createdAt: "2023-05-20T10:00:00.000+00:00"
-    description: "In collaboration with Stanford University and the International Energy Agency"
+    description: "En collaboration avec l'Université de Stanford et l'Agence Internationale de l'Énergie"
     image: "images/renewable.jpg"
-    name: "Advancements in Renewable Energy and AI Integration"
-    outside: "Yes"
+    name: "Progrès dans les énergies renouvelables et l'intégration de l'IA"
+    outside: "Oui"
     start: "2023-06-15T08:00:00.000+00:00"
-    state: "Upcoming"
-    summary: "As the global push for sustainable energy continues, artificial intelligence is playing a pivotal role in optimizing renewable energy systems"
-    eventType: "Field Trip"
+    state: "À venir"
+    summary: "Alors que l'élan mondial pour une énergie durable se poursuit, l'intelligence artificielle joue un rôle clé dans l'optimisation des systèmes d'énergie renouvelable"
+    eventType: "Excursion"
     url: ""
-  - bookingState: "Confirmed"
+  - bookingState: "Confirmé"
     createdAt: "2023-05-20T10:00:00.000+00:00"
-    description: "Artificial Intelligence is emerging as a powerful tool in the fight against climate change"
+    description: "L'intelligence artificielle émerge comme un outil puissant dans la lutte contre le changement climatique"
     image: "images/climat.jpg"
-    name: "AI and Climate Change"
-    outside: "No"
+    name: "IA et changement climatique"
+    outside: "Non"
     start: "2023-06-20T09:00:00.000+00:00"
-    state: "Upcoming"
-    summary: "Artificial Intelligence is emerging as a powerful tool in the fight against climate change"
-    eventType: "Workshop"
+    state: "À venir"
+    summary: "L'intelligence artificielle émerge comme un outil puissant dans la lutte contre le changement climatique"
+    eventType: "Atelier"
     url: ""
 
 relatedNews:
-  - bookingState: "Published"
+  - bookingState: "Publié"
     createdAt: "2024-02-05T09:00:00.000Z"
-    description: "The branch of geology concerned with the description and classification of rocks."
+    description: "La branche de la géologie qui se consacre à la description et à la classification des roches."
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
-    name: "Exploring the Earth's Layers"
-    outside: "No"
+    name: "Explorer les couches de la Terre"
+    outside: "Non"
     start: "2024-02-10T10:00:00.000Z"
-    state: "Published"
-    summary: "The branch of geology concerned with the description and classification of rocks."
-    eventType: "Conservation News"
+    state: "Publié"
+    summary: "La branche de la géologie qui se consacre à la description et à la classification des roches."
+    eventType: "Actualité de la conservation"
     url: ""
 
-  - bookingState: "Published"
+  - bookingState: "Publié"
     createdAt: "2024-01-15T14:00:00.000Z"
-    description: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
+    description: "Le total des gaz à effet de serre produits par les activités humaines, mesuré en équivalents dioxyde de carbone"
     image: "images/mars_image.jpg"
-    name: "Mitigating Climate Change"
-    outside: "Yes"
+    name: "Atténuer le changement climatique"
+    outside: "Oui"
     start: "2024-01-20T12:00:00.000Z"
-    state: "Published"
-    summary: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
-    eventType: "Global News"
+    state: "Publié"
+    summary: "Le total des gaz à effet de serre produits par les activités humaines, mesuré en équivalents dioxyde de carbone"
+    eventType: "Actualité mondiale"
     url: ""
 
-  - bookingState: "Published"
+  - bookingState: "Publié"
     createdAt: "2023-12-12T11:00:00.000Z"
-    description: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"
+    description: "Un domaine multidisciplinaire qui applique les principes de l'ingénierie à la médecine et à la biologie à des fins de soins de santé"
     image: "images/IA_image.jpg"
-    name: "Revolutionizing Healthcare"
-    outside: "No"
+    name: "Révolutionner les soins de santé"
+    outside: "Non"
     start: "2023-12-15T09:30:00.000Z"
-    state: "Published"
-    summary: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"
-    eventType: "Research News"
+    state: "Publié"
+    summary: "Un domaine multidisciplinaire qui applique les principes de l'ingénierie à la médecine et à la biologie à des fins de soins de santé"
+    eventType: "Actualité de la recherche"
     url: ""
 ---
 
-Vivian Loftness, FAIA, is Paul Mellon Chair and University Professor at Carnegie Mellon University. She is a researcher, author and educator, with over forty years of building science research for industry and government. Editor of the 2013 and 2020 Springer Encyclopedia on Sustainable Built Environments, she has published on climate and regionalism, environmental sustainability, advanced building systems integration, and design for performance in the workplace of the future. She is an elected Fellow of the American Institute of Architects, the US Green Building Council, New Buildings Institute, and Design Futures Council. Vivian has been recognized as one of 13 Stars of Building Science by the Building Research Establishment in the UK, received the Award of Distinction from AIA Pennsylvania and NESEA, holds a National Educator Honor Award from the American Institute of Architecture Students, and a "Sacred Tree" Award from the US Green Building Council. Vivian Loftness has a Bachelor of Science and a Master of Architecture from MIT.
+Vivian Loftness, FAIA, est titulaire de la chaire Paul Mellon et professeure universitaire à la Carnegie Mellon University. Elle est chercheuse, auteure et éducatrice, avec plus de quarante ans de recherche en science du bâtiment pour l'industrie et le gouvernement. Éditrice des encyclopédies Springer de 2013 et 2020 sur les environnements bâtis durables, elle a publié sur le climat et le régionalisme, la durabilité environnementale, l'intégration avancée des systèmes de bâtiments et la conception pour la performance dans le lieu de travail du futur. Elle est élue membre de l'American Institute of Architects, du US Green Building Council, du New Buildings Institute et du Design Futures Council. Vivian a été reconnue comme l'une des 13 étoiles de la science du bâtiment par le Building Research Establishment au Royaume-Uni, a reçu le Prix d'Excellence de l'AIA Pennsylvania et de NESEA, détient un National Educator Honor Award de l'American Institute of Architecture Students, et un "Sacred Tree" Award du US Green Building Council. Vivian Loftness est titulaire d'un Bachelor of Science et d'un Master en architecture du MIT. En juin 2025, elle rejoint l'Institut d'études avancées pour une résidence d'écriture d'un mois.
 
-In June 2025, she joins the IAS for a one-month writing residency.
+### Centres d'intérêt en recherche
 
-### Research interests
+Climat et régionalisme, durabilité environnementale, intégration avancée des systèmes de bâtiments, et conception pour la performance dans le lieu de travail du futur.
 
-Climate and regionalism, environmental sustainability, advanced building systems integration, and design for performance in the workplace of the future
+### Projet de recherche
 
-Research project
+**Le rôle critique de l'environnement bâti pour un avenir neutre en carbone**
 
-**The critical role of the built environment for a carbon neutral future**
+L'investissement stratégique dans la conception des bâtiments, des communautés et des réseaux est aussi crucial que l'approvisionnement en énergie propre et les infrastructures électriques pour respecter nos engagements mondiaux visant à atteindre la décarbonation d'ici 2050. Ce projet vise à quantifier que le secteur du bâtiment est le plus grand "secteur d'utilisation finale" dans l'équation du carbone et peut avoir le plus grand impact sur la réduction de la demande énergétique en carbone et l'optimisation de l'approvisionnement énergétique, tout en offrant des gains mesurables pour la productivité, la santé et la qualité environnementale.
 
-Strategic investment in the design of Buildings, Communities and Grids are as critical as clean energy supplies and electric infrastructures to meet our global commitments to achieve decarbonization by 2050. This project is driven to quantify that the building sector is the biggest "end use sector" in the carbon equation and can have the greatest impact on minimizing carbon energy demand and optimizing energy supply, while providing measurable gains for productivity, health, and environmental quality.
+### Publications clés
 
-In the United States, commercial and residential buildings use 70% of total US electricity and are responsible for over 35% of total U.S. greenhouse gas emissions \[EIA 2022\], compounded by embodied carbon from the industrial sector and land use patterns that amplify transportation carbon generation. At the building level, this project explores the carbon potential of accelerating residential and commercial building retrofits and weatherization, appliance and equipment standards, carbon neutral building codes, and investments in innovations to reduce embodied and operational carbon as well as other greenhouse gas pollutants.
+Loftness, V. et M. Snyder, "Sustainable and Healthy Built Environments", *Encyclopedia on Sustainable Built Environments*, Springer, 2020.
 
-The project goes beyond building decarbonization to capture the substantial gains towards net zero that can only be achieved at the community and regional design level. A decarbonized future requires design and policy to ensure: Field, forest and soil preservation through urban growth boundaries and transit-oriented development; Electrification deliberately bundled with building energy efficiency and transportation choices including walking; Smart surfaces for heat and carbon reduction as well as equity; and Innovation, research, and rapid development of district energy through grid-interactive electrified buildings with thermal energy distribution and storage systems.
+Loftness, V. et C. Martin, "Building Policies and Actions for Rapid Decarbonization in the US", _Accelerating Decarbonization,_ National Academy of Sciences, 2023.
+<https://www.nationalacademies.org/our-work/accelerating-decarbonization-in-the-united-states-technology-policy-and-societal-dimensions>.
 
-Finally, the project will outline the critical need for designing a 'grid of grids', anticipating the spatial distribution of energy infrastructures that fully integrate buildings and communities of buildings. Smart buildings are key to stabilizing the grid through investment in next generation technologies and integrated systems. Electric and thermal energy storage will be critical for addressing the shift in peak energy demands that accompany full electrification. Distributed and community owned renewable energy generation will be critical for resiliency in the face of climate change. The potential for buildings and communities of buildings to eliminate peak energy demands through load shifting, and to meet all demands with on-site renewables in combination with battery and thermal energy storage, is key to a net zero future.
-
-Investing in planning, design, construction, operation, and disposition of urban, suburban, and rural buildings, communities and grids is the most cost effective path to carbon neutrality while improving quality of life with equity and advancing resiliency in the face of climate change.
-
-### Key publications
-
-Loftness, V. and M. Snyder, "Sustainable and Healthy Built Environments", *Encyclopedia on Sustainable Built Environments,* Springer, 2020.
-
-Loftness, V and C. Martin, "Building Policies and Actions for Rapid Decarbonization in the US", _Accelerating Decarbonization,_ National Academy of Sciences, 2023.
-<https://www.nationalacademies.org/our-work/accelerating-decarbonization-in-the-united-states-technology-policy-and-societal-dimensions.>
-
-Volker Hartkopf and Vivian Loftness, "The Robert L. Preger Intelligent Workplace, a Transformative Living Laboratory at Carnegie Mellon University", in _Facilities Management: Concept, Realization, Vision -- A Global Perspective_. Edmond P. Rondeau (Editor), Michaela Hellerforth (Editor), January 2024, Wiley Publications.
+Volker Hartkopf et Vivian Loftness, "The Robert L. Preger Intelligent Workplace, a Transformative Living Laboratory at Carnegie Mellon University", dans _Facilities Management: Concept, Realization, Vision -- A Global Perspective_. Edmond P. Rondeau (éditeur), Michaela Hellerforth (éditrice), janvier 2024, Wiley Publications.

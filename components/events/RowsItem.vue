@@ -41,7 +41,15 @@
             <div class="mt-2 text-h6 text-overline font-weight-black">
               {{ $t("events.categories." + item.category) }}
             </div>
-            <p class="text-body-1 text-wrap">
+            <p
+              class="text-body-1 clamped-text text-wrap"
+              :style="
+                '-webkit-line-clamp:' +
+                [5, 5, 3, 4, 8, 8][
+                  ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+                ]
+              "
+            >
               {{ item.description }}
             </p>
             <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">

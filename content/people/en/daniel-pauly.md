@@ -113,23 +113,23 @@ relatedNews:
     url: ""
 ---
 
-Franco-canadien, Daniel Pauly a étudgroups.0 à la documentation et à l'atténuation de l'impact des pêcheries sur les écosystèmes marins de la planète. Les concepts, méthodes et logiciels qu'il a (co)développés sont documentés dans plus de 1000 contributions largement citées, et lui ont valu de nombreuses récompenses scientifiques, dont la Légion d'Honneur. Une biographie complète (_Daniel Pauly - un océan de combats_ par David Grémillet), publiée en français en 2019 et en anglais en 2021 sous le titre _The Ocean's Whistleblower - the remarkable life and work of Daniel Pauly_, présente de manière détaillée le travail et l'influence de Daniel Pauly. Il rejoint l'IEA en mai 2025 pour une résidence d'écriture d'un mois.
+A French-Canadian, Daniel Pauly has studiedgroups.0 the documentation and mitigation of the impact of fisheries on the planet's marine ecosystems. The concepts, methods and software he has (co)developed are documented in over 1000 widely cited contributions, and have earned him numerous scientific awards, including the Légion d'Honneur. A comprehensive biography (_Daniel Pauly - un océan de combats_ by David Grémillet), published in French in 2019 and in English in 2021 under the title _The Ocean's Whistleblower - the remarkable life and work of Daniel Pauly_, presents Daniel Pauly's work and influence in detail. He joins the IEA in May 2025 for a month-long writing residency.
 
-### Centres d'interet
+### Areas of interest
 
-Pêche mondiale et à petite échelle, biologie marine
+Global and small-scale fisheries, marine biology
 
-Projet de recherche
+### Research project
 
-**La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe**
+Small-scale fishing in the southern hemisphere: its importance, even for Europe **Small-scale fishing in the southern hemisphere: its importance, even for Europe** Small-scale fishing in the southern hemisphere: its importance, even for Europe
 
-L'étude de la pêche à petite échelle en Afrique, en Asie, en Amérique et en Océanie et de leurs conflits avec les grandes pêcheries industrielles est souvent considérée comme une activité intellectuellement stérile.
+The study of small-scale fisheries in Africa, Asia, America and Oceania, and their conflicts with large-scale industrial fisheries, is often regarded as an intellectually sterile activity.
 
-Cependant, il faut savoir que ces pêcheries artisanales ne sont pas simplement une partie de l'économie informelle que les gouvernements et les universitaires négligent ; elles jouent un rôle majeur en assurant la sécurité alimentaire de leur pays. Pourtant, elles passent souvent inaperçues dans les statistiques nationales et même chez les économistes de la pêche.
-Ce n'est que lorsque les choses vont mal que la pêche artisanale et ses acteurs - essentiellement des pêcheurs et des négociants en poisson - apparaissent dans le champ de vision des pays riches. Par exemple, des milliers de pêcheurs tentent de rejoindre l'Europe sur des embarcations branlantes et des centaines d'entre eux se noient. Ils ont quitté leur foyer parce qu'il n'y a plus de poissons à pêcher dans les eaux de leur pays, en grande partie à cause des flottes industrielles de pêche lointaine des pays développés.
-Ce travail fera le lien entre les activités des flottes de pêche lointaine au large de l'Afrique de l'Ouest et (i) les problèmes de migration mortelle mentionnés ci-dessus, (ii) la situation désespérée de la pêche à petite échelle dans la région, et (iii) les problèmes de sécurité alimentaire associés à la transformation des aliments de base en Afrique de l'Ouest (sardines et autres petits poissons bon marché) en farine de poisson pour nourrir le saumon, par exemple, en Norvège. Cette étude constituerait une contribution importante à une époque où les questions d'équité et de durabilité au niveau mondial sont à juste titre considérées comme primordiales.
+However, it's important to realize that these artisanal fisheries are not simply a part of the informal economy that governments and academics overlook; they play a major role in ensuring the food security of their countries. Yet they often go unnoticed in national statistics and even by fisheries economists.
+It's only when things go wrong that artisanal fishing and its players - mainly fishermen and fish traders - appear in the field of vision of wealthy countries. For example, thousands of fishermen try to reach Europe on rickety boats, and hundreds of them drown. They have left their homes because there are no fish left to catch in their home waters, largely due to the industrial fishing fleets of the developed world.
+This work will link the activities of distant-water fishing fleets off West Africa to (i) the lethal migration problems mentioned above, (ii) the desperate situation of small-scale fishing in the region, and (iii) the food security problems associated with the processing of West African staples (sardines and other small, cheap fish) into fishmeal to feed salmon, for example, in Norway. This study would be an important contribution at a time when global issues of equity and sustainability are rightly considered paramount.
 
-### Publications clés
+### Publications
 
 Pauly, D., V. Christensen, J. Dalsgaard, R. Froese and F.C. Torres, Fishing down marine food webs*,* _Science_, 279: 860-863, 1998.
 
