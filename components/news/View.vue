@@ -31,7 +31,7 @@
       </div>
     </v-col>
 
-    <v-col cols="12" md="8" class="pl-0 pb-0">
+    <v-col cols="12" md="8" class="pl-0 pb-0  d-flex flex-column justify-md-end">
       <v-skeleton-loader
         v-if="rootStore.loading || rootStore.news.loading"
         :type="
@@ -46,8 +46,7 @@
         "
       ></v-skeleton-loader>
 
-      <template v-else>
-        <div class="mx-4 mx-md-0">
+        <div  v-else class="mx-4 mx-md-0  d-flex flex-column justify-md-end">
           <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
             {{ item.title }}
           </div>
@@ -79,7 +78,6 @@
             </div>
           </div>
         </div>
-      </template>
     </v-col>
   </v-row>
 

@@ -1,9 +1,9 @@
 <template>
   <v-responsive :aspect-ratio="ratio">
+  <!--     :color="action[0].color || 'default'" -->
     <v-card
       class="mx-auto d-flex align-center justify-center flex-column px-6"
-      :color="action[0].color || 'default'"
-      variant="outlined"
+      variant="flat"
     >
       <v-img
         class="w-100"
@@ -13,7 +13,7 @@
         cover
       ></v-img>
       <v-card-text class="px-0">
-        <div class="text-h6 text--primary">{{ action[0].title }}</div>
+        <div class="text-h6">{{ action[0].title }}</div>
       </v-card-text>
       <v-card-actions>
         <v-btn :to="action[0].link" class="ml-auto">
