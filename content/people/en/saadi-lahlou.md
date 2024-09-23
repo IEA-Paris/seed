@@ -1,7 +1,7 @@
 ---
-image: "images/antoine_cordelois.jpg"
-firstname: Antoine
-lastname: Cordelois
+image: "images/lahlou_saadi.jpg"
+firstname: Saadi
+lastname: Lahlou
 affiliations:
   - affiliation: International Criminal Court, Netherlands
     positions:
@@ -110,7 +110,8 @@ relatedNews:
     eventType: "Research News"
     url: ""
 ---
-Antoine Cordelois has a PhD in cognitive science, with a focus on human-computer interfaces, and is a software engineer.
-After several years in Research and Development with large industrial groups (EDF R&D, Airbus R&T), he worked as a freelance researcher and developer before joining the Paris Institute for Advanced Study in April 2020.
 
-He is now the Head of Digital Projects and in charge of the implementation of projects and infrastructures such as the World Pandemic Research Network ([wprn.org](http://wprn.org)).
+Saadi Lahlou has a multi-disciplinary background (economist statistician, human biology, PhD and habilitation in Psychology). Prior to the IEA in Paris, he has directed four research units (Consumer Research Department at Crédoc, Social Forecast Unit then the Laboratory of Design for Cognition at EDF R&D, Department of Social Psychology at LSE) and sat in the steering committee of the Commissariat Général du Plan. Since 2009 he has been Chair in Social Psychology at the London School of Economics and Political Science. He has worked among other topics on the links between representations and behavior; his recent research focuses on digital ethnography and the impact of context on behavior.
+He is a member of the National Academy of Technologies of France and of the Academia Europaea.
+
+He is the successor to Professor Gretty Mirdal as director of the Paris IEA since September 2018.

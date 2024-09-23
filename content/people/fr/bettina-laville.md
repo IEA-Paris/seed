@@ -3,14 +3,14 @@ image: "images/Laville.jpg"
 firstname: Bettina
 lastname: Laville
 affiliations:
-  - affiliation: International Criminal Court, Netherlands
+  - affiliation: Cour pénale internationale, Pays-Bas
     positions:
-      - role: Director
-        department: Institute of advanced studies
+      - role: Directeur
+        department: Institut d'études avancées
         start:
         stop:
       - role: Assistant
-        department: Institute for very advanced studies
+        department: Institut des études très avancées
         start:
         stop:
 socials:
@@ -22,27 +22,26 @@ socials:
   researchgate: "123"
 groups:
   board: true
-
 relatedProjects:
-  - title: "Positive Future"
-    shortDescription: "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100"
-    description: "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100, aims to make foresight work widely known"
+  - title: "Futur Positif"
+    shortDescription: "L'initiative Futur Positif, soutenue par l'Institut d'études avancées de Paris et la Fondation 2100"
+    description: "L'initiative Futur Positif, soutenue par l'Institut d'études avancées de Paris et la Fondation 2100, vise à faire connaître largement les travaux de prospective"
     url: "https://www.positive-future.org"
     image: "/logoPF.png"
     video: ""
     color: ""
     date: "2023-11-01T10:00:00.000+00:00"
-  - title: "The Socioscope"
-    shortDescription: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
-    description: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
+  - title: "Le Socioscope"
+    shortDescription: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation"
+    description: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation"
     url: "https://thesocioscope.org/"
     image: "/images/logos/the_socioscope.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"
-  - title: "World Pandemic Research Network"
-    shortDescription: "The World Pandemic Research Network (WPRN) is dedicated to facilitating international collaboration in pandemic research"
-    description: "It focuses on generating knowledge, data, and tools that can be shared across nations to better understand and combat pandemics. Through partnerships with institutions like the Institut d'Études Avancées de Paris (Paris IAS), WPRN brings together leading experts to address the complex challenges posed by global health crises"
+  - title: "Réseau Mondial de Recherche sur la Pandémie"
+    shortDescription: "Le Réseau Mondial de Recherche sur la Pandémie (WPRN) est dédié à faciliter la collaboration internationale en matière de recherche sur les pandémies"
+    description: "Il se concentre sur la génération de connaissances, de données et d'outils qui peuvent être partagés entre les nations pour mieux comprendre et combattre les pandémies. Grâce à des partenariats avec des institutions comme l'Institut d'Études Avancées de Paris (Paris IAS), le WPRN rassemble des experts de premier plan pour répondre aux défis complexes posés par les crises sanitaires mondiales"
     url: "https://wprn.org"
     image: "images/logos/wprn_logo.png"
     video: ""
@@ -50,71 +49,65 @@ relatedProjects:
     date: "2024-01-05T12:00:00.000+00:00"
 
 relatedEvents:
-  - bookingState: "Confirmed"
+  - bookingState: "Confirmé"
     createdAt: "2023-05-20T10:00:00.000+00:00"
-    description: "In collaboration with Stanford University and the International Energy Agency"
+    description: "En collaboration avec l'Université de Stanford et l'Agence Internationale de l'Énergie"
     image: "images/renewable.jpg"
-    name: "Advancements in Renewable Energy and AI Integration"
-    outside: "Yes"
+    name: "Progrès dans les énergies renouvelables et l'intégration de l'IA"
+    outside: "Oui"
     start: "2023-06-15T08:00:00.000+00:00"
-    state: "Upcoming"
-    summary: "As the global push for sustainable energy continues, artificial intelligence is playing a pivotal role in optimizing renewable energy systems"
-    eventType: "Field Trip"
+    state: "À venir"
+    summary: "Alors que l'élan mondial pour une énergie durable se poursuit, l'intelligence artificielle joue un rôle clé dans l'optimisation des systèmes d'énergie renouvelable"
+    eventType: "Excursion"
     url: ""
-  - bookingState: "Confirmed"
+  - bookingState: "Confirmé"
     createdAt: "2023-05-20T10:00:00.000+00:00"
-    description: "Artificial Intelligence is emerging as a powerful tool in the fight against climate change"
+    description: "L'intelligence artificielle émerge comme un outil puissant dans la lutte contre le changement climatique"
     image: "images/climat.jpg"
-    name: "AI and Climate Change"
-    outside: "No"
+    name: "IA et changement climatique"
+    outside: "Non"
     start: "2023-06-20T09:00:00.000+00:00"
-    state: "Upcoming"
-    summary: "Artificial Intelligence is emerging as a powerful tool in the fight against climate change"
-    eventType: "Workshop"
+    state: "À venir"
+    summary: "L'intelligence artificielle émerge comme un outil puissant dans la lutte contre le changement climatique"
+    eventType: "Atelier"
     url: ""
 
 relatedNews:
-  - bookingState: "Published"
+  - bookingState: "Publié"
     createdAt: "2024-02-05T09:00:00.000Z"
-    description: "The branch of geology concerned with the description and classification of rocks."
+    description: "La branche de la géologie qui se consacre à la description et à la classification des roches."
     image: "https://www.paris-iea.fr/images/evenements/32419/_thumb3/emily-morter-8xaa0f9yqne-unsplash.jpg"
-    name: "Exploring the Earth's Layers"
-    outside: "No"
+    name: "Explorer les couches de la Terre"
+    outside: "Non"
     start: "2024-02-10T10:00:00.000Z"
-    state: "Published"
-    summary: "The branch of geology concerned with the description and classification of rocks."
-    eventType: "Conservation News"
+    state: "Publié"
+    summary: "La branche de la géologie qui se consacre à la description et à la classification des roches."
+    eventType: "Actualité de la conservation"
     url: ""
 
-  - bookingState: "Published"
+  - bookingState: "Publié"
     createdAt: "2024-01-15T14:00:00.000Z"
-    description: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
+    description: "Le total des gaz à effet de serre produits par les activités humaines, mesuré en équivalents dioxyde de carbone"
     image: "images/mars_image.jpg"
-    name: "Mitigating Climate Change"
-    outside: "Yes"
+    name: "Atténuer le changement climatique"
+    outside: "Oui"
     start: "2024-01-20T12:00:00.000Z"
-    state: "Published"
-    summary: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
-    eventType: "Global News"
+    state: "Publié"
+    summary: "Le total des gaz à effet de serre produits par les activités humaines, mesuré en équivalents dioxyde de carbone"
+    eventType: "Actualité mondiale"
     url: ""
 
-  - bookingState: "Published"
+  - bookingState: "Publié"
     createdAt: "2023-12-12T11:00:00.000Z"
-    description: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"
+    description: "Un domaine multidisciplinaire qui applique les principes de l'ingénierie à la médecine et à la biologie à des fins de soins de santé"
     image: "images/IA_image.jpg"
-    name: "Revolutionizing Healthcare"
-    outside: "No"
+    name: "Révolutionner les soins de santé"
+    outside: "Non"
     start: "2023-12-15T09:30:00.000Z"
-    state: "Published"
-    summary: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"
-    eventType: "Research News"
+    state: "Publié"
+    summary: "Un domaine multidisciplinaire qui applique les principes de l'ingénierie à la médecine et à la biologie à des fins de soins de santé"
+    eventType: "Actualité de la recherche"
     url: ""
 ---
 
-Conseiller d’État, docteur en lettres, lauréate de Sciences Po et ancienne élève de l’ENA, Bettina Laville est présidente et fondatrice du Comité 21, créé en 1995.
-
-Elle a été directrice de cabinet de Brice Lalonde, puis conseillère sur les questions d’environnement auprès de deux Premiers ministres, Pierre Bérégovoy puis Lionel Jospin, et du président de la République François Mitterrand. À ce titre, elle fut responsable de la préparation des conférences de Rio, Kyoto et Johannesburg.
-
-Enseignante à Science Po pendant dix ans, elle a été chargée de plusieurs rapports sur l'environnement en particulier lors du Grenelle de l’Environnement et de la Conférence environnementale, et auteur de nombreux articles.
-
-Elle est coauteur de Villette Amazone (1996), a publié, en 2002, La machine ronde et a cosigné Développement durable - Aspects stratégiques et opérationnels (2011, EFL), et avec le CNRS, Quelles solutions contre le réchauffement climatique ? (2015). Toujours avec le CNRS, elle publie en octobre prochain L’adaptation au changement climatique, une question de sociétés.
+Conseillère d'État, docteur en lettres, lauréate de Sciences Po et ancienne élève de l'ENA, Bettina Laville est présidente et fondatrice du Comité 21, créé en 1995. Elle a été chef de cabinet de Brice Lalonde, puis conseillère sur les questions environnementales auprès de deux premiers ministres, Pierre Bérégovoy et Lionel Jospin, ainsi que du président français François Mitterrand. À ce titre, elle a été chargée de la préparation des conférences de Rio, Kyoto et Johannesburg. Chargée de cours à Sciences...

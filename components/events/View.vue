@@ -1,4 +1,5 @@
 <template>
+  <div>
   <v-row>
     <v-col cols="12" lg="3" md="3" v-if="mdAndUp">
       <MiscAtomsImageContainer
@@ -131,22 +132,7 @@
         </v-sheet>
       </template>
 
-      <MiscMoleculesRelatedItems
-        type="news"
-        :items="item.relatedNews"
-        class="my-6"
-      ></MiscMoleculesRelatedItems>
-      <MiscMoleculesRelatedItems
-        type="project"
-        :items="item.relatedProjects"
-        class="mb-6"
-      ></MiscMoleculesRelatedItems>
-
-      <MiscMoleculesRelatedItems
-        type="people"
-        :items="item.relatedPeople"
-        class="mb-6"
-      ></MiscMoleculesRelatedItems>
+     
     </v-col>
 
     <v-col class="d-flex flex-row" cols="12" v-if="sm">
@@ -272,6 +258,27 @@
       ></ActionsSmallContainer>
     </v-col>
   </v-row>
+  <v-row>
+    <v-col cols="12" md="4">
+      <MiscMoleculesRelatedItems
+        type="news"
+        :items="item.relatedNews"
+      ></MiscMoleculesRelatedItems></v-col>
+
+    <v-col cols="12" md="4">
+      <MiscMoleculesRelatedItems
+        type="project"
+        :items="item.relatedProjects"
+      ></MiscMoleculesRelatedItems>
+    </v-col>
+    <v-col cols="12" md="4">
+      <MiscMoleculesRelatedItems
+        type="people"
+        :items="item.relatedPeople"
+      ></MiscMoleculesRelatedItems>
+    </v-col>
+  </v-row>
+</div>
 </template>
 
 <script setup>

@@ -1,54 +1,46 @@
 <template>
   <div class="scroller">
     <HomeCarousel class="carousel" :featured="featured"></HomeCarousel>
+    <div class="d-flex justify-center mt-n12">
+      <v-btn color="default" icon flat @click="jumpToAbout()">
+        <v-icon>mdi-chevron-down</v-icon>
+      </v-btn>
+    </div>
     <section>
       <v-container fluid>
         <v-divider inset class="mt-3 mb-12"></v-divider>
-        <v-row class="d-flex align-center justify-center">
+        <v-row class="d-flex align-center justify-center" ref="about">
           <v-col cols="12" md="12" lg="8" xl="6">
             <v-row no-gutters>
               <v-col cols="12" md="5">
-                <div
-                  v-motion
-                  :initial="{
-                    opacity: 0,
-                    x: -100,
-                  }"
-                  :enter="{
-                    opacity: 1,
-                    x: 0,
-                    transition: {
-                      type: 'slide',
-                      stiffness: '100',
-                      delay: 500,
-                    },
-                  }"
-                  class="text-h3 text-md-h2 mt-6 pr-6"
-                  :class="mdAndUp ? 'text-right' : 'text-left'"
-                >
+                <div v-motion :initial="{
+      opacity: 0,
+      x: -100,
+    }" :enter="{
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'slide',
+        stiffness: '100',
+        delay: 500,
+      },
+    }" class="text-h3 text-md-h2 mt-6 pr-6" :class="mdAndUp ? 'text-right' : 'text-left'">
                   {{ $t("moto") }}
-                </div></v-col
-              >
+                </div>
+              </v-col>
               <v-col cols="12" md="7">
-                <v-card
-                  v-motion
-                  :initial="{
-                    opacity: 0,
-                    x: 100,
-                  }"
-                  :enter="{
-                    opacity: 1,
-                    x: 0,
-                    transition: {
-                      type: 'slide',
-                      stiffness: '100',
-                      delay: 1000,
-                    },
-                  }"
-                  flat
-                  id="presentation"
-                  class="d-flex align-center justify-center pa-6 presentation-pitch"
-                >
+                <v-card v-motion :initial="{
+      opacity: 0,
+      x: 100,
+    }" :enter="{
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'slide',
+        stiffness: '100',
+        delay: 1000,
+      },
+    }" flat id="presentation" class="d-flex align-center justify-center pa-6 presentation-pitch">
                   <ContentDoc class="text-body-2" :path="presentation" />
                 </v-card>
               </v-col>
@@ -59,7 +51,7 @@
       </v-container>
     </section>
     <section>
-      <MiscAtomsSlidingCarousel type="events">
+      <MiscAtomsSlidingCarousel type="events" lazy key="events">
         {{ $t("upcoming-events") }}
       </MiscAtomsSlidingCarousel>
     </section>
@@ -67,14 +59,14 @@
       <v-container>
         <v-row>
           <v-col cols="12" class="mb-12">
-            <HomeCountUpStats></HomeCountUpStats>
+            <HomeCountUpStats lazy></HomeCountUpStats>
           </v-col>
           <v-divider class="mt-3 mb-12"></v-divider>
         </v-row>
       </v-container>
     </section>
     <section>
-      <MiscAtomsSlidingCarousel type="people" key="people">
+      <MiscAtomsSlidingCarousel type="people" key="people" lazy>
         {{ $t("discover-our-0-fellows", [academicYear]) }}
       </MiscAtomsSlidingCarousel>
     </section>
@@ -91,11 +83,17 @@ const router = useRouter()
 const { smAndUp, mdAndUp } = useDisplay()
 const localePath = useLocalePath()
 /* const goTo = useGoTo() */
-
 const config = useAppConfig()
 const { locale } = useI18n()
-
 const presentation = ref("/pages/" + locale.value + "/institute_presentation")
+
+const about = ref(null)
+const jumpToAbout = () => {
+
+  console.log("about", about);
+  return about?.value?.$el.scrollIntoView({ behavior: 'smooth' })
+}
+
 const today = new Date()
 const academicYear = ref(
   today.getMonth() > 6
@@ -109,6 +107,8 @@ const { data: featured } = await useAsyncData("featured-list", () =>
     .limit(3)
     .find(),
 )
+onMounted(() => {
+})
 </script>
 <style lang="scss">
 .presentation-pitch p {

@@ -49,11 +49,7 @@
             </v-carousel>
           </div>
         </div>
-        <div class="d-flex justify-center mt-n12">
-          <v-btn color="default" icon @click="$vuetify.goto('#presentation')">
-            <v-icon>mdi-chevron-down</v-icon>
-          </v-btn>
-        </div></v-col
+      </v-col
       >
     </v-row>
   </v-container>

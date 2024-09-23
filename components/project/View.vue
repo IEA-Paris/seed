@@ -5,6 +5,7 @@
       cols="12"
       v-if="smAndDown"
       class="text-wrap text-h4 text-black mx-sm-6"
+
     >
       <v-skeleton-loader
         v-if="rootStore.loading || rootStore.project.loading"
@@ -31,7 +32,7 @@
       </div>
     </v-col>
 
-    <v-col cols="12" md="8" class="pl-0 pb-0">
+    <v-col cols="12" md="8" class="pl-0 pb-0 d-flex flex-column justify-md-end mb-4">
       <v-skeleton-loader
         v-if="rootStore.loading || rootStore.project.loading"
         :type="
@@ -48,13 +49,13 @@
 
       <template v-else>
         <div
-          class="d-flex text-wrap text-h4 text-black mx-4 mx-md-0"
+          class="d-flex text-wrap text-h4 text-black mx-4 mx-md-0 "
           v-if="mdAndUp"
         >
           {{ item.title }}
         </div>
         <div
-          class="d-flex flex-column flex-md-row align-md-center mt-6 mx-9 mx-md-0"
+          class=" mx-9 mx-md-0"
         >
           <MiscMoleculesChipContainer
             :items="item.tags"
@@ -66,21 +67,6 @@
 
   <v-row class="mt-12">
     <v-col cols="12" md="4" :order="mdAndUp ? 'first' : 'last'" class="pt-0">
-      <MiscMoleculesRelatedItems
-        type="events"
-        :items="item.relatedEvents"
-        class="mx-6 my-2"
-      ></MiscMoleculesRelatedItems>
-      <MiscMoleculesRelatedItems
-        type="news"
-        :items="item.relatedNews"
-        class="mx-6 my-2"
-      ></MiscMoleculesRelatedItems>
-      <MiscMoleculesRelatedItems
-        type="people"
-        :items="item.relatedPeople"
-        class="mx-6 my-2"
-      ></MiscMoleculesRelatedItems>
       <v-skeleton-loader
         v-if="rootStore.loading || rootStore.project.loading"
         :type="
@@ -110,6 +96,35 @@
         "
       ></v-skeleton-loader>
       <ContentRenderer v-else :value="item" class="mt-md-n2 mx-10 mx-md-0" />
+    </v-col>
+  </v-row>
+
+  <!-- DIVIDERS -->
+  <v-responsive class="mx-auto my-9" width="120">
+    <v-divider class="mb-1" />
+    <v-divider /> </v-responsive
+  ><v-row>
+    <!-- RELATED ITEMS -->
+    <v-col cols="12" md="4">
+      <MiscMoleculesRelatedItems
+        type="events"
+        :items="item.relatedEvents"
+        class="mr-md-3"
+      ></MiscMoleculesRelatedItems>
+    </v-col>
+    <v-col cols="12" md="4">
+      <MiscMoleculesRelatedItems
+        type="people"
+        :items="item.relatedPeople"
+        class="mx-md-3"
+      ></MiscMoleculesRelatedItems>
+    </v-col>
+    <v-col cols="12" md="4">
+      <MiscMoleculesRelatedItems
+        type="news"
+        :items="item.relatedNews"
+        class="ml-md-3"
+      ></MiscMoleculesRelatedItems>
     </v-col>
   </v-row>
 </template>

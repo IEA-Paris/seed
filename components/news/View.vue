@@ -31,7 +31,7 @@
       </div>
     </v-col>
 
-    <v-col cols="12" md="8" class="pl-0 pb-0">
+    <v-col cols="12" md="8" class="pl-0 pb-0  d-flex flex-column justify-md-end">
       <v-skeleton-loader
         v-if="rootStore.loading || rootStore.news.loading"
         :type="
@@ -46,8 +46,7 @@
         "
       ></v-skeleton-loader>
 
-      <template v-else>
-        <div class="mx-4 mx-md-0">
+        <div  v-else class="mx-4 mx-md-0  d-flex flex-column justify-md-end">
           <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
             {{ item.title }}
           </div>
@@ -79,27 +78,11 @@
             </div>
           </div>
         </div>
-      </template>
     </v-col>
   </v-row>
 
   <v-row class="mt-12">
     <v-col cols="12" md="4" :order="mdAndUp ? 'first' : 'last'" class="pt-0">
-      <MiscMoleculesRelatedItems
-        type="events"
-        :items="item.relatedEvents"
-        class="mx-6 my-2"
-      ></MiscMoleculesRelatedItems>
-      <MiscMoleculesRelatedItems
-        type="project"
-        :items="item.relatedProjects"
-        class="mx-6 my-2"
-      ></MiscMoleculesRelatedItems>
-      <MiscMoleculesRelatedItems
-        type="people"
-        :items="item.relatedPeople"
-        class="mx-6 my-2"
-      ></MiscMoleculesRelatedItems>
       <v-skeleton-loader
         v-if="rootStore.loading || rootStore.news.loading"
         :type="
@@ -132,6 +115,35 @@
       <template v-else>
         <ContentRenderer :value="item" class="mt-md-n2 mx-10 mx-md-0" />
       </template>
+    </v-col>
+  </v-row>
+
+  <!-- DIVIDERS -->
+  <v-responsive class="mx-auto my-9" width="120">
+    <v-divider class="mb-1" />
+    <v-divider /> </v-responsive
+  ><v-row>
+    <!-- RELATED ITEMS -->
+    <v-col cols="12" md="4">
+      <MiscMoleculesRelatedItems
+        type="events"
+        :items="item.relatedEvents"
+        class="mr-md-3"
+      ></MiscMoleculesRelatedItems>
+    </v-col>
+    <v-col cols="12" md="4">
+      <MiscMoleculesRelatedItems
+        type="project"
+        :items="item.relatedProjects"
+        class="mx-md-3"
+      ></MiscMoleculesRelatedItems>
+    </v-col>
+    <v-col cols="12" md="4">
+      <MiscMoleculesRelatedItems
+        type="people"
+        :items="item.relatedPeople"
+        class="ml-md-3"
+      ></MiscMoleculesRelatedItems>
     </v-col>
   </v-row>
 </template>

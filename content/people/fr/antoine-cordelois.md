@@ -1,7 +1,7 @@
 ---
-image: "/images/Mamidi.jpg"
-firstname: Paven
-lastname: Mamidi
+image: "images/antoine_cordelois.jpg"
+firstname: Antoine
+lastname: Cordelois
 affiliations:
   - affiliation: Cour pénale internationale, Pays-Bas
     positions:
@@ -21,11 +21,8 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  fellow: true
-  vintage:
-    - year: 2024
-      name: rolling-call-for-fellows
-      theme: "Conception d'une expérience comportementale pour mesurer le coût de l'autonomie due à l'IA prédictive et au nudging"
+  team: true
+
 relatedProjects:
   - title: "Futur Positif"
     shortDescription: "L'initiative Futur Positif, soutenue par l'Institut d'études avancées de Paris et la Fondation 2100"
@@ -51,6 +48,7 @@ relatedProjects:
     video: ""
     color: ""
     date: "2024-01-05T12:00:00.000+00:00"
+
 relatedEvents:
   - bookingState: "Confirmé"
     createdAt: "2023-05-20T10:00:00.000+00:00"
@@ -113,22 +111,4 @@ relatedNews:
     url: ""
 ---
 
-Paven est un conseiller expérimenté et informé dans le domaine des politiques publiques et un enseignant dévoué, croyant à la démocratisation de l'éducation, à la démystification des idées complexes et à leur communication efficace aux étudiants en gestion et en politique. Substantiellement, il poursuit deux axes de travail professionnel et académique : droit/politique et sciences du comportement appliquées. Il est actuellement directeur du Centre pour le changement social et comportemental à l'Université Ashoka, et travaille en étroite collaboration avec Niti Aayog. Il a dirigé l'initiative de création de la première unité de nudging en Inde, l'Unité des Insights Comportementaux de l'Inde, une équipe intégrée au sein de Niti. Il a également aidé à créer des unités d'insights comportementaux pour les États de l'Uttar Pradesh et du Bihar. Son travail principal se concentre sur les questions de développement liées à l'éducation, la santé, la nutrition et le genre. En outre, Paven est passionné par la cuisine traditionnelle du Telangana rural et croit que le piment vert est bon pour l'âme et forge le caractère. Il possède un doctorat en philosophie (Ph.D.) de l'Université d'Oxford, un Master (LL.M.) de la Harvard Law School et une licence très abordable en mathématiques de la meilleure institution publique au monde - l'Université d'Osmania !
-
-### Centres d'intérêt en recherche
-
-Sciences comportementales pour la politique, vie privée, IA, philosophie des sciences.
-
-### Projet de recherche
-
-**Conception d'une expérience comportementale pour mesurer le coût de l'autonomie due à l'IA prédictive et au nudging**
-
-L'utilisation extensive du nudging comportemental et de l'IA pour segmenter les citoyens en différents profils et cibler des interventions pour produire des changements de comportement risque de réduire la « capacité de surprise » et l'autonomie dans la vie des humains. Comment concilier la promesse brillante de l'IA avec les coûts sociaux et psychologiques liés à la perte d'autonomie et de vie privée ?
-
-### Publications clés
-
-Dhami, S., Wei, M., & Mamidi, P., "Religious identity, trust, reciprocity, and Prosociality: Theory and evidence", _Journal of Development Economics_, 166, 103192, 2024 ;
-
-Shashidhara, S., Mamidi, P., Vaidya, S., & Daral, I., "Using machine learning prediction to create a 15-question IPV measurement tool", _Journal of interpersonal violence_, 39(1-2), 11-34, 2024 ;
-
-Spamann, Holger, Lars Klöhn, Christophe Jamin, Vikramaditya Khanna, John Zhuang Liu, Pavan Mamidi, Alexander Morell, and Ivan Reidel, _"Judges in the Lab: No Precedent Effects, No Common/Civil Law Differences", Journal of Legal Analysis_ 13, no. 1 : 110-126, 2021.
+Antoine Cordelois a un doctorat en sciences cognitives, avec une spécialisation dans les interfaces homme-machine, et est ingénieur en logiciel. Après plusieurs années en Recherche et Développement avec de grands groupes industriels (EDF R&D, Airbus R&T), il a travaillé en tant que chercheur et développeur indépendant avant de rejoindre l'Institut d'études avancées de Paris en avril 2020. Il est actuellement chef de projets numériques et responsable de la mise en œuvre de projets et d'infrastructures tels que le World Pandemic Research Network (wprn.org).
