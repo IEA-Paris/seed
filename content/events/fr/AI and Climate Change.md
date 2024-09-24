@@ -1,7 +1,10 @@
 ---
 name: "IA et changement climatique : Technologie pour un avenir durable"
 subtitle: "En collaboration avec le Groupe d'experts intergouvernemental sur l'évolution du climat (GIEC) et l'Université d'Oxford"
-date_text: 18 juin 2024
+date_text: 18 June 2024
+state: 3
+bookingState: 2
+stream: 0GdITtX_grA
 start: 2024-06-18T10:00:00.000Z
 stop: 2024-06-18T17:30:00.000Z
 eventType: 0
@@ -41,7 +44,7 @@ relatedProjects:
     shortDescription: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, notamment en matière d'alimentation."
     description: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, notamment en matière d'alimentation."
     url: "https://thesocioscope.org/"
-    image: "/images/logos/the_socioscope.svg"
+    image:  "/images/logo_typo_black.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"

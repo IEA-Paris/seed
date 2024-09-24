@@ -54,15 +54,13 @@ const crumbs = computed(() => {
     .map((item, index) => {
       return {
         title: item,
-        ...(index > 0 && {
           href:
             "/" +
             route.path
               .split("/")
               .filter((item) => item)
-              .slice(0, index + 1)
+              .slice(0, index +2)
               .join("/"),
-        }),
         disabled: false,
         exact: true,
       }

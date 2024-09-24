@@ -56,7 +56,7 @@ relatedProjects:
     shortDescription: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en matière d'alimentation."
     description: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en matière d'alimentation."
     url: "https://thesocioscope.org/"
-    image: "/images/logos/the_socioscope.svg"
+    image:  "/images/logo_typo_black.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"

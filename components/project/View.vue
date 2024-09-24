@@ -1,42 +1,18 @@
 <template>
   <!--  {{ name }} -->
-  <v-row>
-    <v-col
-      cols="12"
-      v-if="smAndDown"
-      class="text-wrap text-h4 text-black mx-sm-6"
+  <v-row justify="center">
+    <v-col cols="12" sm="11" md="8" lg="8" xl="6">
+      <v-row class="justify-center">
+        <v-col cols="12" sm="10" md="6" lg="4" xl="3" class="text-center">
+          <!--   PROJECT IMAGE -->
 
-    >
-      <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.project.loading"
-        :type="['heading', 'heading'][['xs', 'sm'].indexOf(name || 'sm')]"
-      ></v-skeleton-loader>
-      <template v-else>
-        {{ item.title }}
-      </template>
-    </v-col>
-    <v-col cols="12" md="4" class="pb-0">
-      <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.project.loading"
-        height="100%"
-        type="image"
-      ></v-skeleton-loader>
+          <v-skeleton-loader v-if="rootStore.loading || rootStore.project.loading" height="100%"
+            type="image"></v-skeleton-loader>
 
-      <div v-else class="mx-sm-6">
-        <MiscAtomsImageContainer
-          cover
-          :loading="rootStore.project.loading"
-          :src="item.image"
-          :ratio="1 / 1"
-        />
-      </div>
-    </v-col>
-
-    <v-col cols="12" md="8" class="pl-0 pb-0 d-flex flex-column justify-md-end mb-4">
-      <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.project.loading"
-        :type="
-          [
+          <MiscAtomsImageContainer v-else cover :loading="rootStore.project.loading" :src="item.image" :ratio="1 / 1" />
+        </v-col>
+      </v-row>
+      <v-skeleton-loader v-if="rootStore.loading || rootStore.project.loading" :type="[
             'avatar, paragraph',
             'avatar, paragraph',
             'heading, ossein,	avatar, text, ossein, chip@3',
@@ -44,87 +20,54 @@
             'heading, ossein, avatar, text, ossein, chip@3',
             'heading',
           ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
-        "
-      ></v-skeleton-loader>
+            "></v-skeleton-loader>
 
-      <template v-else>
-        <div
-          class="d-flex text-wrap text-h4 text-black mx-4 mx-md-0 "
-          v-if="mdAndUp"
-        >
+      <div class="d-flex align-center flex-column mt-12" v-else>
+        <div class="d-flex text-center text-wrap text-h3 text-black ">
           {{ item.title }}
         </div>
-        <div
-          class=" mx-9 mx-md-0"
-        >
-          <MiscMoleculesChipContainer
-            :items="item.tags"
-          ></MiscMoleculesChipContainer>
-        </div>
-      </template>
-    </v-col>
-  </v-row>
+        <MiscMoleculesChipContainer :items="item.tags" class="py-6 align-self-center"></MiscMoleculesChipContainer>
+      </div>
 
-  <v-row class="mt-12">
-    <v-col cols="12" md="4" :order="mdAndUp ? 'first' : 'last'" class="pt-0">
-      <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.project.loading"
-        :type="
-          [
-            'image, text@3, ossein, button',
-            'image, text@3, ossein, button',
-            'image, text@3, ossein, button',
-            'image, text@3, ossein, button',
-          ][['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
-        "
-      ></v-skeleton-loader>
-      <ActionsSmallContainer
-        v-else
-        class="mt-2 mx-n6 mx-sm-0"
-        v-if="mdAndUp"
-        :action="action"
-        :ratio="1"
-      ></ActionsSmallContainer>
-    </v-col>
-    <v-col cols="12" md="8" class="pl-0 pt-0">
-      <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.project.loading"
-        :type="
-          ['text@50', 'text@50', 'text@50', 'text@50', 'text@50', 'text@50'][
+      <!-- DIVIDERS -->
+      <v-responsive class="mx-auto my-9" width="120">
+        <v-divider class="mb-1" />
+        <v-divider />
+      </v-responsive>
+
+      <!-- PROJECT DESCRIPTION -->
+      <v-skeleton-loader v-if="rootStore.loading || rootStore.project.loading" :type="['text@50', 'text@50', 'text@50', 'text@50', 'text@50', 'text@50'][
             ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
           ]
-        "
-      ></v-skeleton-loader>
+            "></v-skeleton-loader>
       <ContentRenderer v-else :value="item" class="mt-md-n2 mx-10 mx-md-0" />
+      <template v-if="item.url">
+        <v-btn class="my-6 d-flex" variant="outlined" :href="item.url" target="_blank" :size="['small', 'small', 'small', 'default', 'default', 'large'][
+            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+            ]
+            "
+            prepend-icon="mdi-link"
+            >
+          {{ $t('visit-this-project-website') }}
+        </v-btn>
+      </template>
+
     </v-col>
   </v-row>
 
   <!-- DIVIDERS -->
   <v-responsive class="mx-auto my-9" width="120">
     <v-divider class="mb-1" />
-    <v-divider /> </v-responsive
-  ><v-row>
+    <v-divider /> </v-responsive><v-row>
     <!-- RELATED ITEMS -->
     <v-col cols="12" md="4">
-      <MiscMoleculesRelatedItems
-        type="events"
-        :items="item.relatedEvents"
-        class="mr-md-3"
-      ></MiscMoleculesRelatedItems>
+      <MiscMoleculesRelatedItems type="events" :items="item.relatedEvents"></MiscMoleculesRelatedItems>
     </v-col>
     <v-col cols="12" md="4">
-      <MiscMoleculesRelatedItems
-        type="people"
-        :items="item.relatedPeople"
-        class="mx-md-3"
-      ></MiscMoleculesRelatedItems>
+      <MiscMoleculesRelatedItems type="people" :items="item.relatedPeople"></MiscMoleculesRelatedItems>
     </v-col>
     <v-col cols="12" md="4">
-      <MiscMoleculesRelatedItems
-        type="news"
-        :items="item.relatedNews"
-        class="ml-md-3"
-      ></MiscMoleculesRelatedItems>
+      <MiscMoleculesRelatedItems type="news" :items="item.relatedNews"></MiscMoleculesRelatedItems>
     </v-col>
   </v-row>
 </template>

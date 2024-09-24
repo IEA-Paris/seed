@@ -128,21 +128,18 @@
       <MiscMoleculesRelatedItems
         type="events"
         :items="item.relatedEvents"
-        class="mr-md-3"
       ></MiscMoleculesRelatedItems>
     </v-col>
     <v-col cols="12" md="4">
       <MiscMoleculesRelatedItems
         type="project"
         :items="item.relatedProjects"
-        class="mx-md-3"
       ></MiscMoleculesRelatedItems>
     </v-col>
     <v-col cols="12" md="4">
       <MiscMoleculesRelatedItems
         type="people"
         :items="item.relatedPeople"
-        class="ml-md-3"
       ></MiscMoleculesRelatedItems>
     </v-col>
   </v-row>

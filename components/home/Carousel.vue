@@ -1,14 +1,14 @@
 <template>
-  <v-container fluid>
-    <v-row class="justify-center">
+  <v-container fluid class="pa-0">
+    <v-row class="justify-center" no-gutters>
       <v-col cols="12" md="10" lg="8" xl="7">
         <div class="d-flex align-center">
           <div
             class="d-flex flex-column justify-space-between"
             :class="{ 'left-panel align-end': mdAndUp }"
           >
-            <v-sheet class="d-flex justify-center align-end pa-6 flex-column">
-              <div class="text-h2 text-right mb-6" v-motion-fade>
+            <v-sheet class="d-flex justify-center align-end pr-9 flex-column">
+              <div class="text-h2 text-right " v-motion-fade>
                 {{ featured[selected].title }}
                 <v-responsive class="ml-auto my-3" width="64">
                   <v-divider class="mb-1" />
@@ -86,7 +86,7 @@ const props = defineProps({
   font-size: 1.2rem;
   font-weight: 400;
   font-family: "Roboto", serif;
-  line-height: 3rem;
+  line-height: 2rem;
   text-align: right;
 }
 .v-carousel__controls {

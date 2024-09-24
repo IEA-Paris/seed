@@ -2,11 +2,11 @@
   <div class="scroller">
     <HomeCarousel class="carousel" :featured="featured"></HomeCarousel>
     <div class="d-flex justify-center mt-n12">
-      <v-btn color="default" icon flat @click="jumpToAbout()">
+      <v-btn color="default" icon flat @click="about?.$el.scrollIntoView({ behavior: 'smooth' })">
         <v-icon>mdi-chevron-down</v-icon>
       </v-btn>
     </div>
-    <section>
+    <section class="d-flex flex-column justify-center">
       <v-container fluid>
         <v-divider inset class="mt-3 mb-12"></v-divider>
         <v-row class="d-flex align-center justify-center" ref="about">
@@ -49,24 +49,35 @@
           <v-divider class="mt-3 mb-12"></v-divider>
         </v-row>
       </v-container>
+      <div class="d-flex justify-center">
+        <v-btn color="default" icon flat @click="events?.$el.scrollIntoView({ behavior: 'smooth' })">
+          <v-icon>mdi-chevron-down</v-icon>
+        </v-btn>
+      </div>
     </section>
-    <section>
-      <MiscAtomsSlidingCarousel type="events" lazy key="events">
+    <section class="d-flex flex-column justify-center">
+      <MiscAtomsSlidingCarousel type="events" key="events" ref="events">
         {{ $t("upcoming-events") }}
       </MiscAtomsSlidingCarousel>
+      <v-btn color="default" icon flat @click="numbers?.$el.scrollIntoView({ behavior: 'smooth' })">
+        <v-icon>mdi-chevron-down</v-icon>
+      </v-btn>
     </section>
-    <section>
+    <section class="d-flex flex-column justify-center" >
       <v-container>
-        <v-row>
+        <v-row ref="numbers">
           <v-col cols="12" class="mb-12">
-            <HomeCountUpStats lazy></HomeCountUpStats>
+            <HomeCountUpStats></HomeCountUpStats>
           </v-col>
           <v-divider class="mt-3 mb-12"></v-divider>
         </v-row>
       </v-container>
+      <v-btn color="default" icon flat @click="fellows?.$el.scrollIntoView({ behavior: 'smooth' })">
+        <v-icon>mdi-chevron-down</v-icon>
+      </v-btn>
     </section>
     <section>
-      <MiscAtomsSlidingCarousel type="people" key="people" lazy>
+      <MiscAtomsSlidingCarousel type="people" key="people" lazy ref="fellows">
         {{ $t("discover-our-0-fellows", [academicYear]) }}
       </MiscAtomsSlidingCarousel>
     </section>
@@ -88,11 +99,9 @@ const { locale } = useI18n()
 const presentation = ref("/pages/" + locale.value + "/institute_presentation")
 
 const about = ref(null)
-const jumpToAbout = () => {
-
-  console.log("about", about);
-  return about?.value?.$el.scrollIntoView({ behavior: 'smooth' })
-}
+const events = ref(null)
+const numbers = ref(null)
+const fellows = ref(null)
 
 const today = new Date()
 const academicYear = ref(

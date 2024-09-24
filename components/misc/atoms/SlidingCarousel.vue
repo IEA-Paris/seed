@@ -68,6 +68,7 @@
               :index="index"
               :item="item"
               :width="computedWidth"
+              lazy
           /></SwiperSlide>
         </Swiper>
       </v-col>
