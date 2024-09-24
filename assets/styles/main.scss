@@ -162,7 +162,7 @@ $stepper-elevation: 0;
 }
 
 @supports (scroll-snap-align: start) {
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 700px) { // TODO: come up with a more suited media query
   .scroller {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;

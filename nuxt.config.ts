@@ -144,10 +144,8 @@ export default defineNuxtConfig({
     // https://image.nuxt.com/get-started/configuration
   },
   swiper: {
-    /*     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    }, */
+  // Default parameters
+  
   },
   components: {
     global: true,
