@@ -1,32 +1,7 @@
 <template>
   <div class="scroller">
-    <section class="d-flex flex-column">
+      <section class="d-flex flex-column">
       <NavigationBreadcrumbs class="d-flex align-start"></NavigationBreadcrumbs>
-      <v-container class="h-100" fluid>
-        <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" md="10" lg="8" xl="6">
-            <v-row no-gutters>
-              <v-col cols="12" sm="6">
-                <v-card flat>
-                  <v-img
-                    :height="400"
-                    aspect-ratio="1/1"
-                    src="/images/lahlou_saadi.jpg"
-                  ></v-img>
-                </v-card>
-              </v-col>
-
-              <v-col cols="12" sm="6">
-                <v-sheet>
-                  <HomeMoto></HomeMoto>
-                </v-sheet>
-              </v-col>
-            </v-row>
-          </v-col>
-        </v-row>
-      </v-container>
-    </section>
-    <section>
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="8" xl="6" class="justify-center">

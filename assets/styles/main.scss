@@ -162,12 +162,11 @@ $stepper-elevation: 0;
 }
 
 @supports (scroll-snap-align: start) {
-
+  @media screen and (min-width: 700px) {
   .scroller {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     overflow-x: hidden;
-    height: calc(100vh - 64px); // to match screen height minus toolbar height
 
     section,
     .carousel {
@@ -177,6 +176,12 @@ $stepper-elevation: 0;
       scroll-padding-top: 64px;
       scroll-padding-bottom: 100vh;
     }
+  }
+}
+}
+  .scroller {
+    height: calc(100vh - 64px); // to match screen height minus toolbar height
+
 
     section {
       height: calc(100vh - 64px);
@@ -188,7 +193,6 @@ $stepper-elevation: 0;
       height: calc(100vh - 64px);
     }
   }
-}
 
 // FF print fix
 /* @media print {
