@@ -23,7 +23,7 @@
             : null
         "
       >
-        <div class="overflow-hidden">
+        <div class="overflow-hidden mw-100">
           <!--  TODO debug why the picture is not displaying/sizing properly -->
           <v-img
             :aspect-ratio="ratio"
@@ -79,6 +79,7 @@ const _srcset = computed(() => {
 <style scoped>
 .img-animation {
   transition: all 2s ease-in-out;
+  width: 100%;
 }
 
 .img-animation:hover {

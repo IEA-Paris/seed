@@ -3,15 +3,15 @@
     <v-row>
       <v-col cols="12">
         <v-container>
-          <v-row class="mb-md-12 d-flex align-center" no-gutters>
-            <v-col :class="mdAndUp ? 'text-h2' : 'text-h4'" cols="10">
+          <div class="mb-md-12 d-flex align-center" no-gutters>
+            <div :class="mdAndUp ? 'text-h2' : 'text-h4'">
               <slot></slot>
-            </v-col>
-            <v-col class="text-h6 font-weight-black d-flex align-center" cols="1">
+            </div>
+            <v-spacer></v-spacer>
+            <div class="text-h6 font-weight-black d-flex align-center mx-6">
               {{ model + 1 }}/{{ rootStore[props.type].list.items.length || 0 }}
-            </v-col>
-
-            <v-col cols="1" class="d-flex flex-row">
+            </div>
+            <div class="d-flex flex-row">
               <v-btn-toggle>
                 <v-btn :size="mdAndUp ? 'large' : 'regular'" flat :disabled="model === 0" icon="mdi-chevron-left"
                   @click="model--" class="pseudo-carousel-prev"></v-btn>
@@ -19,8 +19,8 @@
               " flat icon="mdi-chevron-right" @click="model++" class="pseudo-carousel-next"></v-btn>
               </v-btn-toggle>
 
-            </v-col>
-          </v-row>
+            </div>
+          </div>
         </v-container>
 
         <template v-if="rootStore.loading || rootStore[props.type].loading">
@@ -39,6 +39,7 @@
               :item="item" :width="computedWidth" lazy />
           </SwiperSlide>
         </Swiper>
+        <v-btn class="ml-auto" variant="label" :to="localePath(path)">{{ $t('see-more') }}</v-btn>
       </v-col>
     </v-row>
   </v-container>
@@ -69,6 +70,18 @@ const swiperBreakpoints = ref({
   },
   640: {
     slidesPerView: 4,
+    spaceBetween: 40
+  },
+  960: {
+    slidesPerView: 4,
+    spaceBetween: 40
+  },
+  1280: {
+    slidesPerView: 5,
+    spaceBetween: 40
+  },
+  1920: {
+    slidesPerView: 6,
     spaceBetween: 40
   }
 })

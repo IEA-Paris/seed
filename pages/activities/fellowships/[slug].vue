@@ -30,7 +30,7 @@
 <script setup async>
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
-const store = useRootStore()
+const rootStore = useRootStore()
 const route = useRoute()
 const { smAndUp } = useDisplay()
 const { locale } = useI18n()

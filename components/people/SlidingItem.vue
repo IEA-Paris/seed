@@ -4,6 +4,7 @@
     class="pa-6"
     :to="localePath('/people/' + slugify(item.lastname + ' ' + item.firstname))"
     v-motion-fade-visible
+    style="width:100%"
   >
     <MiscAtomsImageContainer
       cover
