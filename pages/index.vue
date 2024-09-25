@@ -90,6 +90,9 @@ import { useDisplay } from "vuetify"
 definePageMeta({
   layout: "about",
 })
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
+
 const router = useRouter()
 const { smAndUp, mdAndUp } = useDisplay()
 const localePath = useLocalePath()
@@ -117,6 +120,9 @@ const { data: featured } = await useAsyncData("featured-list", () =>
     .find(),
 )
 onMounted(() => {
+  // init defaults from a possible previous session
+  rootStore.setDefaults()
+
 })
 </script>
 <style lang="scss">

@@ -279,6 +279,19 @@ export const useRootStore = defineStore("rootStore", {
     setBlankFilterLoad(type: string) {
       ;(this[type] as ModuleType).loading = false
     },
+    setDefaults(){
+      // lang
+      const lang = localStorage.getItem('lang')
+   /*    if(lang)i18n.global.locale = lang; */
+      // dark mode
+
+      // event
+      // people
+      // news
+      // project
+      // fellowships
+
+    },
     resetState(type: string) {
       this.resetFilters = true
 
