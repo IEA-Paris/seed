@@ -1,5 +1,5 @@
 ---
-title: Réseau Mondial de Recherche sur les Pandémies
+title: World Pandemic Research Network
 url: "https://wprn.org"
 date: 2023-10-04T00:00:00.000Z
 image: "images/logos/wprn_logo.png"

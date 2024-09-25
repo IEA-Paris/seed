@@ -1,6 +1,7 @@
 <template>
   <!--  TODO: design properly -->
-  <v-col cols="12" sm="6" md="3" v-ripple>
+  <v-hover v-slot="{ isHovering, props }">
+  <v-col cols="12" sm="6" md="4" xl="3" v-ripple v-bind="props">
     <MiscAtomsImageContainer
       contain
       :src="item.image"
@@ -10,8 +11,10 @@
       link="activities-projects-slug"
       :slug="getSlugFromPath(item._path)"
     >
-    </MiscAtomsImageContainer>
-    <div class="pt-3">
+    <v-expand-transition>
+      <v-card class="pa-3 d-flex text-center align-center justify-center  transition-fast-in-fast-out bg-grey v-card--reveal"  
+      style="height: 100%; opacity:90%;"
+       v-if="isHovering">
       <nuxt-link
         :to="
           localePath({
@@ -19,12 +22,18 @@
             params: { slug: getSlugFromPath(item._path) },
           })
         "
-        class="text-h5 text-black"
+        class="text-h5 text-md-h4 text-white bg-black pa-3"
+        style="opacity:100%"
       >
         {{ item.title }}
       </nuxt-link>
-    </div>
+    </v-card>
+    </v-expand-transition>
+  </MiscAtomsImageContainer>
+  
+
   </v-col>
+</v-hover>
 </template>
 
 <script setup>

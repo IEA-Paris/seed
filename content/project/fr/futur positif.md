@@ -1,5 +1,5 @@
 ---
-title: Futur Positif
+title: Positive Future
 url: "https://www.positive-future.org"
 date: 2024-03-18T00:00:00.000Z
 image: "/logoPF.png"

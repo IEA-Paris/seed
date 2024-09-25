@@ -35,6 +35,7 @@
             :title="caption"
             v-bind="$attrs"
           >
+          <slot></slot>
           </v-img></div
       ></nuxt-link>
     </template>
