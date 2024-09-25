@@ -29,7 +29,7 @@
         <v-list-item
           v-if="item.name !== current.name"
           :key="index"
-          @click="updateView(item.value)"
+          @click="updateView(item.name)"
         >
           <template v-slot:prepend>
             <v-icon>mdi-{{ item.icon }}</v-icon>
@@ -68,6 +68,7 @@ const items = ref(rootStore[props.type].list.views)
 const current = ref(rootStore[props.type].list.view)
 
 const updateView = async (value) => {
+  console.log('value: ', value);
   await rootStore.updateView({ value, type: props.type })
 }
 

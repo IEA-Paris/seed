@@ -3,6 +3,7 @@
     <NavigationTopBar />
     <v-main>
       <NavigationBreadcrumbs></NavigationBreadcrumbs>
+      <v-btn color="success" @click="rootStore.setLoading(!rootStore.loading)">ext</v-btn>
       <v-container class="main-container">
         <slot />
       </v-container>
@@ -14,5 +15,8 @@
   </v-app>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
+</script>
 <style lang="scss" scoped></style>

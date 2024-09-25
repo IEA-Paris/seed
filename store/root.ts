@@ -324,7 +324,7 @@ export const useRootStore = defineStore("rootStore", {
       this.update(type)
     },
     updateView({ value, type }: { value: string; type: string }) {
-      ;(this[type] as ModuleType).list.view = value
+      (this[type] as ModuleType).list.view =  (this[type] as ModuleType).list.views[value] as Views;
       this.update(type)
     },
     updateFilters({

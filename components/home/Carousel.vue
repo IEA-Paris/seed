@@ -8,7 +8,7 @@
             :class="{ 'left-panel align-end': mdAndUp }"
           >
             <v-sheet class="d-flex justify-center align-end pr-9 flex-column">
-              <div class="text-h2 text-right " v-motion-fade>
+              <div class="text-h4 text-sm-h3 text-md-h4 text-right " v-motion-fade>
                 {{ featured[selected].title }}
                 <v-responsive class="ml-auto my-3" width="64">
                   <v-divider class="mb-1" />

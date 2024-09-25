@@ -49,9 +49,9 @@
                     )
                   "
                 ></iframe>
-                <br />
+                <br /> <!-- TODO i18n and color for below text -->
                 <small
-                  ><a href="">View Larger Map {{ route.name }}</a></small
+                  ><a href="">View Larger Map</a></small
                 >
               </v-col>
               <v-col cols="12" sm="4">

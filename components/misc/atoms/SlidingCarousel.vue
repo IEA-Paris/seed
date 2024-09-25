@@ -23,9 +23,7 @@
           </div>
         </v-container>
 
-        <template v-if="rootStore.loading || rootStore[props.type].loading">
-          LOADING
-        </template>
+   
 
         <Swiper :loop="true" :centered-slides="true"
           :slides-per-view="[1, 1, 3, 4, 6, 8][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name)]"
@@ -33,8 +31,11 @@
           @swiperprogress="onProgress" @swiperslidechange="onSlideChange" :navigation="{
               nextEl: '.pseudo-carousel-next',
               prevEl: '.pseudo-carousel-prev',
-            }" v-else>
-          <SwiperSlide v-for="(item, index) in rootStore[props.type].list.items" :key="index + props.type">
+            }" >
+                 <template v-if="rootStore.loading || rootStore[props.type].loading"  v-for="(item, index) in rootStore[props.type].list.items">
+          LOADING
+        </template>
+          <SwiperSlide v-else v-for="(item, index) in rootStore[props.type].list.items" :key="index + props.type">
             <component :key="index + props.type" :is="capitalize(props.type) + 'SlidingItem'" :index="index"
               :item="item" :width="computedWidth" lazy />
           </SwiperSlide>

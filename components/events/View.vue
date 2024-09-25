@@ -33,12 +33,10 @@
 
       <template v-else>
         <div class="ml-2 ml-sm-4 ml-md-8 ml-lg-10 ml-xl-12">
-          <div
-            class="text-wrap text-body-1 mb-2 mb-sm-2 mb-md-4 font-weight-bold"
-          >
-            {{ item.date_text }} -
-            {{ $t("events.categories." + item.category) }}
-          </div>
+         
+          <div class="mt-2 text-h6 text-overline font-weight-black">
+              {{ $t("events.categories." + item.category) }}
+            </div>
 
           <div class="text-wrap text-h4 mb-3 mb-sm-2 mb-md-4">
             {{ item.name }}
