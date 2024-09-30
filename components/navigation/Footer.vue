@@ -14,17 +14,24 @@
           </nuxt-link> -->
             <v-row justify="center">
               <v-col cols="12" sm="4" :order="smAndDown ? 'last' : ''">
+                <NavigationLogo></NavigationLogo>
+
                 <div class="text-body-2 my-6">
                   <div>
-                    <v-icon left class="mr-3">mdi-map-marker</v-icon>
-                    {{ config.address }}
+                    {{ config.full_name }}
                   </div>
                   <div>
-                    <v-icon left class="mr-3">mdi-phone</v-icon>
+                    {{ config.address }}
+                  </div>
+
+                  <div>
+                    {{ config.postcode_country }}
+                  </div>
+
+                  <div>
                     {{ config.phone }}
                   </div>
                   <div>
-                    <v-icon left class="mr-4">mdi-email</v-icon>
                     <a mailto="information@paris-iea.fr">{{ config.email }}</a>
                   </div>
                 </div>
@@ -40,19 +47,18 @@
                   style="border: 1px solid black"
                   @click="
                     router.go(
-                      'https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911'
+                      'https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911',
                     )
                   "
                   @keyup.enter="
                     router.go(
-                      'https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911'
+                      'https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911',
                     )
                   "
                 ></iframe>
-                <br /> <!-- TODO i18n and color for below text -->
-                <small
-                  ><a href="">View Larger Map</a></small
-                >
+                <br />
+                <!-- TODO i18n and color for below text -->
+                <!-- <small><a href="">View Larger Map</a></small> -->
               </v-col>
               <v-col cols="12" sm="4">
                 <v-list bg-color="transparent">
@@ -207,7 +213,7 @@ const rules = [
   (value) => !!value || "Required.",
   (value) =>
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-      value
+      value,
     ) || t("invalid-e-mail"),
 ]
 </script>
@@ -215,5 +221,9 @@ const rules = [
 .v-footer.fill-height {
   height: calc(100vh - 64px);
   /* scroll-snap-stop: normal; */
+}
+
+.footer-image {
+  filter: brightness(1.5) contrast(1.5);
 }
 </style>
