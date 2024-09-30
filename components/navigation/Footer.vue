@@ -63,11 +63,9 @@
               <v-col cols="12" sm="4">
                 <v-list bg-color="transparent">
                   <v-list-item
-                    :to="localePath('/')"
+                    :to="localePath('/about/institute')"
                     nuxt
-                    @click="
-                      route.name === 'index' ? $vuetify.goTo(0) : () => {}
-                    "
+                    @click="open = false"
                   >
                     <v-list-item-title
                       class="text-uppercase text-button"

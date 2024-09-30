@@ -59,7 +59,7 @@
               class="ml-0 mt-lg-2"
             /> -->
 
-          <div class="ml-md-8">
+          <div class="ml-md-n6">
             <div
               class="text-body-2 text-lg-body-1 text-black mt-4 mt-sm-4 mt-md-0 mb-md-n4 ml-md-0"
             >
