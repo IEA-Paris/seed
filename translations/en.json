@@ -170,5 +170,10 @@
   "outside-event": "Outside event",
   "event-full": "Event full",
   "hybrid-event": "Hybrid event",
-  "visit-this-project-website": "Project Website"
+  "visit-this-project-website": "Project Website",
+  "see-more": "See more",
+  "share-on": "Share this on {network}",
+  "share-this-on": "Have a look at {item}",
+  "paris-institute-for-advanced-study": "Paris Institute for Advanced Study",
+  "visit": "Visit us"
 }

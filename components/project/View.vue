@@ -14,7 +14,7 @@
 
           <MiscAtomsImageContainer
             v-else
-            cover
+            contain
             :loading="rootStore.project.loading"
             :src="item.image"
             :ratio="1 / 1"
@@ -39,6 +39,23 @@
         <div class="d-flex text-center text-wrap text-h3 text-black">
           {{ item.title }}
         </div>
+        <MiscMoleculesChipContainer
+          :items="item.tags"
+          class="py-6 align-self-center"
+        ></MiscMoleculesChipContainer>
+        <v-btn-toggle variant="outlined">
+          <MiscAtomsShareMenu :item class="mt-6"></MiscAtomsShareMenu>
+          <v-btn
+            class="my-6 d-flex"
+            variant="outlined"
+            :href="item.url"
+            target="_blank"
+            prepend-icon="mdi-link"
+            v-if="item.url"
+          >
+            {{ $t("visit-this-project-website") }}
+          </v-btn>
+        </v-btn-toggle>
       </div>
 
       <!-- DIVIDERS -->
@@ -57,25 +74,8 @@
         "
       ></v-skeleton-loader>
       <ContentRenderer v-else :value="item" class="mt-md-n2 mx-10 mx-md-0" />
-      <template v-if="item.url">
-        <v-btn
-          class="my-6 d-flex"
-          variant="outlined"
-          :href="item.url"
-          target="_blank"
-          :size="
-            ['small', 'small', 'small', 'default', 'default', 'large'][
-              ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-            ]
-          "
-          prepend-icon="mdi-link"
-        >
-          {{ $t("visit-this-project-website") }}
-        </v-btn>
-      </template>
     </v-col>
   </v-row>
-
   <!-- DIVIDERS -->
   <v-responsive class="mx-auto my-9" width="120">
     <v-divider class="mb-1" />

@@ -64,7 +64,8 @@ export default defineNuxtConfig({
     },
     css: {
       preprocessorOptions: {
-        scss: {
+        sass: {
+          api: "modern-compiler",
           /*           additionalData: '@use "@/assets/styles/_variables.scss" as *;', */
         },
       },
@@ -88,6 +89,7 @@ export default defineNuxtConfig({
     // Cross-Site Request Forgery (CSRF) prevention (https://nuxt.com/modules/csurf).
     "nuxt-csurf",
     "@nuxt/image",
+    '@stefanobartoletti/nuxt-social-share',
     "nuxt-swiper",
     "@nuxtjs/i18n",
     "@nuxtjs/sitemap",
@@ -103,14 +105,19 @@ export default defineNuxtConfig({
     /*  "@nuxtjs/apollo", */
     "@vueuse/motion/nuxt",
     //https://nuxt.com/docs/getting-started/testing
-    "@nuxt/test-utils/module",
-    /*     "@nuxtjs/html-validator", */
+    "@nuxt/test-utils/module"
+    /*     "@nuxtjs/html-validator", */,
+    "@stefanobartoletti/nuxt-social-share",
   ],
 
   pinia: {
     autoImports: ["defineStore", ["defineStore", "definePiniaStore"]],
   },
-
+  // https://nuxt.com/modules/nuxt-social-share
+  socialShare: {
+    baseUrl: 'https://www.paris-iea.fr' // required!
+    // other optional module options
+  },
   content: {
     // https://content.nuxtjs.org/api/configuration
     experimental: {
@@ -144,8 +151,7 @@ export default defineNuxtConfig({
     // https://image.nuxt.com/get-started/configuration
   },
   swiper: {
-  // Default parameters
-  
+    // Default parameters
   },
   components: {
     global: true,

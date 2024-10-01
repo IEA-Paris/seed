@@ -62,11 +62,7 @@
               </v-col>
               <v-col cols="12" sm="4">
                 <v-list bg-color="transparent">
-                  <v-list-item
-                    :to="localePath('/about/institute')"
-                    nuxt
-                    @click="open = false"
-                  >
+                  <v-list-item :to="localePath('/about/institute')" nuxt>
                     <v-list-item-title
                       class="text-uppercase text-button"
                       v-text="$t('about-us')"
@@ -80,6 +76,12 @@
                     <v-list-item-title
                       class="text-uppercase text-button"
                       v-text="$t('contact')"
+                    ></v-list-item-title>
+                  </v-list-item>
+                  <v-list-item :to="localePath('/visit')" nuxt>
+                    <v-list-item-title
+                      class="text-uppercase text-button"
+                      v-text="$t('visit')"
                     ></v-list-item-title>
                   </v-list-item>
                   <v-list-item
@@ -148,11 +150,6 @@
               </v-tooltip> -->
               </v-col>
               <v-col cols="12" align="center" class="mt-3">
-                <v-btn variant="text" size="small" nuxt dark>{{
-                  config.identifier.ISSN
-                    ? "Online ISSN " + config.identifier.ISSN
-                    : ""
-                }}</v-btn>
                 <v-btn variant="text" size="small" nuxt dark>
                   <!-- TODO add raw licence file url on github -->
                   &copy; {{ new Date().getFullYear() }}

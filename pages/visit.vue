@@ -5,7 +5,7 @@
         <v-card
           class="d-flex align-center justify-center flex-column"
         >
-        <div class="text-h3">{{ $t('housing') }}</div>
+        <div class="text-h3">{{ $t('visit') }}</div>
         <ContentDoc :path="content" />
         </v-card
         >
@@ -18,6 +18,6 @@
 import { useDisplay } from "vuetify"
 const { smAndUp } = useDisplay()
 const { locale, locales } = useI18n()
-const content = ref("/pages/" + locale.value + "/housing")
+const content = ref("/pages/" + locale.value + "/visit")
 
 </script>
