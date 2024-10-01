@@ -5,7 +5,7 @@
     <NavigationLogo></NavigationLogo>
     <v-app-bar-title class="align-start">
       <nuxt-link :to="localePath('/')" class="text-black">{{
-        mdAndUp ? config.full_name : config.short_name
+        mdAndUp ? $t('paris-institute-for-advanced-study') : $t('paris-ias')
       }}</nuxt-link></v-app-bar-title
     >
 

@@ -171,5 +171,9 @@
   "outside-event": "Événement extérieur",
   "event-full": "Événement complet",
   "visit-this-project-website": "Site Web du projet",
-  "see-more": "Voir plus"
+  "see-more": "Voir plus",  
+  "share-on": "Partagez sur {network}",
+  "share-this-on": "Jetez un oeil à {item}",
+  "paris-institute-for-advanced-study": "Institut d'études avancées de Paris",
+  "paris-ias":"IEA de Paris"
 }
