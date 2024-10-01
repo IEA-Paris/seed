@@ -57,11 +57,8 @@
               <v-col cols="12" sm="4">
                 <v-list bg-color="transparent">
                   <v-list-item
-                    :to="localePath('/')"
+                    :to="localePath('/about/institute')"
                     nuxt
-                    @click="
-                      route.name === 'index' ? $vuetify.goTo(0) : () => {}
-                    "
                   >
                     <v-list-item-title
                       class="text-uppercase text-button"
@@ -76,6 +73,15 @@
                     <v-list-item-title
                       class="text-uppercase text-button"
                       v-text="$t('contact')"
+                    ></v-list-item-title>
+                  </v-list-item>
+                  <v-list-item
+                    :to="localePath('/visit')"
+                    nuxt
+                  >
+                    <v-list-item-title
+                      class="text-uppercase text-button"
+                      v-text="$t('visit')"
                     ></v-list-item-title>
                   </v-list-item>
                   <v-list-item

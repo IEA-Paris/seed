@@ -95,7 +95,6 @@ import { useDisplay } from "vuetify"
 const { mdAndUp } = useDisplay()
 const localePath = useLocalePath()
 const { locale, locales } = useI18n()
-console.log("$i18n.locale: ", locale.value)
 const presentation = ref("/pages/" + locale.value + "/institute_description")
 const location = ref(
   "/pages/" + locale.value + "/institute_location_description",

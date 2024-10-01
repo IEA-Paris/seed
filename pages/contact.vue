@@ -3,11 +3,11 @@
     <v-row>
       <v-col cols="12">
         <v-card
-          class="d-flex align-center justify-center"
-          color="grey-lighten-3"
-          height="424"
+          class="d-flex align-center justify-center flex-column"
         >
-          Contact</v-card
+        <div class="text-h3">{{ $t('contact-us') }}</div>
+        <ContentDoc :path="content" />
+        </v-card
         >
       </v-col>
     </v-row>
@@ -17,4 +17,7 @@
 <script lang="ts" setup>
 import { useDisplay } from "vuetify"
 const { smAndUp } = useDisplay()
+const { locale, locales } = useI18n()
+const content = ref("/pages/" + locale.value + "/contact")
+
 </script>
