@@ -171,5 +171,7 @@
   "event-full": "Event full",
   "hybrid-event": "Hybrid event",
   "visit-this-project-website": "Project Website",
-  "see-more": "See more"
+  "see-more": "See more",
+  "share-on": "Share this on {network}",
+  "share-this-on": "Have a look at {item}"
 }

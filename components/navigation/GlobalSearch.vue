@@ -6,7 +6,6 @@
         variant="flat"
         class="h-100"
         v-bind="activatorProps"
-        style="min-width: 52px"
       >
         <v-icon>mdi-magnify</v-icon></v-btn
       >
@@ -29,10 +28,10 @@
               size="x-large"
               variant="flat"
               @click="dialog = false"
-              height="70"
-              width="70"
+style="width:92px; height:64px"
+class="d-flex align-center justify-center pt-6 pr-12"
             >
-              <v-icon>mdi-close</v-icon>
+            <v-icon>mdi-close</v-icon>
             </v-btn>
           </div>
         </div>
