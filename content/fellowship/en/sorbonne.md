@@ -1,7 +1,6 @@
 ---
-title: Paris IAS Ideas
-short_title: I(d)eas
-
+title: Chaire Sorbonne Université
+short_title: Sorbonne
 summary: Lorem ipsum tagadaLorem ipsum tagadaLorem ipsum tagadaLorem
   ipsum tagadaLorem ipsum tagadaLorem ipsum tagada
 contact: antoine.cordelois@paris-iea.fr
@@ -75,5 +74,4 @@ details:
         - Be nice to others
 link: /activities/fellowships/rolling-call-for-fellows
 publicationDate: 2023-11-16T13:26:28.478Z
-
 ---
