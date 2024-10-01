@@ -3,7 +3,9 @@
     <NavigationTopBar />
     <v-main>
       <NavigationBreadcrumbs></NavigationBreadcrumbs>
-      <v-btn color="success" @click="rootStore.setLoading(!rootStore.loading)">ext</v-btn>
+      <v-btn color="success" @click="rootStore.setLoading(!rootStore.loading)"
+        >ext</v-btn
+      >
       <v-container class="main-container">
         <slot />
       </v-container>

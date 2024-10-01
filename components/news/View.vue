@@ -31,7 +31,7 @@
       </div>
     </v-col>
 
-    <v-col cols="12" md="8" class="pl-0 pb-0  d-flex flex-column justify-md-end">
+    <v-col cols="12" md="8" class="pl-0 pb-0 d-flex flex-column justify-md-end">
       <v-skeleton-loader
         v-if="rootStore.loading || rootStore.news.loading"
         :type="
@@ -46,38 +46,38 @@
         "
       ></v-skeleton-loader>
 
-        <div  v-else class="mx-4 mx-md-0  d-flex flex-column justify-md-end">
-          <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
-            {{ item.title }}
-          </div>
-          <div
-            class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-6"
-          >
-            <MiscAtomsDateStamp
+      <div v-else class="mx-4 mx-md-0 d-flex flex-column justify-md-end">
+        <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
+          {{ item.title }}
+        </div>
+        <div
+          class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-6"
+        >
+          <!-- <MiscAtomsDateStamp
               :loading="rootStore.news.loading"
               :date="item.date"
               class="ml-0 mt-lg-2"
-            />
+            /> -->
 
-            <div class="ml-md-8">
-              <div
-                class="text-body-2 text-lg-body-1 text-black mt-4 mt-sm-4 mt-md-0 mb-md-n4 ml-md-0"
-              >
-                <!--    TODO use a proper & conditional formatting of names (depending on number of authors) -->
-                {{
-                  $t("by-author", [
-                    item.authors[0].firstname + " " + item.authors[0].firstname,
-                  ])
-                }}
-              </div>
-              <div class="mt-lg-n1">
-                <MiscMoleculesChipContainer
-                  :items="item.tags"
-                ></MiscMoleculesChipContainer>
-              </div>
+          <div class="ml-md-n6">
+            <div
+              class="text-body-2 text-lg-body-1 text-black mt-4 mt-sm-4 mt-md-0 mb-md-n4 ml-md-0"
+            >
+              <!--    TODO use a proper & conditional formatting of names (depending on number of authors) -->
+              {{
+                $t("by-author", [
+                  item.authors[0].firstname + " " + item.authors[0].firstname,
+                ])
+              }}
+            </div>
+            <div class="mt-lg-n1">
+              <MiscMoleculesChipContainer
+                :items="item.tags"
+              ></MiscMoleculesChipContainer>
             </div>
           </div>
         </div>
+      </div>
     </v-col>
   </v-row>
 

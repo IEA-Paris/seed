@@ -89,7 +89,6 @@ export default defineNuxtConfig({
     // Cross-Site Request Forgery (CSRF) prevention (https://nuxt.com/modules/csurf).
     "nuxt-csurf",
     "@nuxt/image",
-    '@stefanobartoletti/nuxt-social-share',
     "nuxt-swiper",
     "@nuxtjs/i18n",
     "@nuxtjs/sitemap",
@@ -105,9 +104,8 @@ export default defineNuxtConfig({
     /*  "@nuxtjs/apollo", */
     "@vueuse/motion/nuxt",
     //https://nuxt.com/docs/getting-started/testing
-    "@nuxt/test-utils/module"
-    /*     "@nuxtjs/html-validator", */,
-    "@stefanobartoletti/nuxt-social-share",
+    "@nuxt/test-utils/module",
+    /*     "@nuxtjs/html-validator", */
   ],
 
   pinia: {
@@ -115,7 +113,7 @@ export default defineNuxtConfig({
   },
   // https://nuxt.com/modules/nuxt-social-share
   socialShare: {
-    baseUrl: 'https://www.paris-iea.fr' // required!
+    baseUrl: "https://www.paris-iea.fr", // required!
     // other optional module options
   },
   content: {
