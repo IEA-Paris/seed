@@ -21,7 +21,6 @@
     "@nuxtjs/html-validator": "^1.8.2",
     "@nuxtjs/i18n": "^8.5.3",
     "@nuxtjs/sitemap": "^6.0.1",
-    "@stefanobartoletti/nuxt-social-share": "^1.1.1",
     "@vite-pwa/nuxt": "^0.10.5",
     "@vue/test-utils": "^2.4.6",
     "nuxt": "^3.13.2",
