@@ -108,6 +108,7 @@
     "tiles": "Tiles",
     "list": "List",
     "rows": "Rows",
+    "dense": "Dense",
     "pls-x-more": "+ {0} more",
     "view-mode": "View mode: ",
     "sort-mode": "Sort mode: ",
@@ -175,5 +176,6 @@
   "share-on": "Share this on {network}",
   "share-this-on": "Have a look at {item}",
   "paris-institute-for-advanced-study": "Paris Institute for Advanced Study",
-  "visit": "Visit us"
+  "visit": "Visit us",
+  "view-larger-map":"View on a larger map"
 }

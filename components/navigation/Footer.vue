@@ -56,10 +56,11 @@
                     )
                   "
                 ></iframe>
-                <br />
-                <!-- TODO i18n and color for below text -->
-                <!-- <small><a href="">View Larger Map</a></small> -->
-              </v-col>
+                <br /> 
+                <small
+                  ><a style="color: white" href="https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911">{{ $t('view-larger-map') }}</a></small
+                >
+                </v-col>
               <v-col cols="12" sm="4">
                 <v-list bg-color="transparent">
                   <v-list-item :to="localePath('/about/institute')" nuxt>

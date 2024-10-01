@@ -133,6 +133,7 @@
     "by-name-from-a-to-z": "Par nom, de A à Z",
     "by-name-from-z-to-a": "Par nom, de Z à A",
     "list": "Liste",
+    "dense": "Dense",
     "pls-x-more": "{0} plus",
     "rows": "Lignes",
     "search-type": "Rechercher {0}",
@@ -175,5 +176,7 @@
   "share-on": "Partagez sur {network}",
   "share-this-on": "Jetez un oeil à {item}",
   "paris-institute-for-advanced-study": "Institut d'études avancées de Paris",
-  "visit": "Modalités d'accès"
+  "visit": "Modalités d'accès",
+  "view-larger-map":"Voir sur une carte en plein écran"
+
 }
