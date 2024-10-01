@@ -64,7 +64,8 @@ export default defineNuxtConfig({
     },
     css: {
       preprocessorOptions: {
-        scss: {
+        sass: {
+          api: "modern-compiler",
           /*           additionalData: '@use "@/assets/styles/_variables.scss" as *;', */
         },
       },
@@ -144,8 +145,7 @@ export default defineNuxtConfig({
     // https://image.nuxt.com/get-started/configuration
   },
   swiper: {
-  // Default parameters
-  
+    // Default parameters
   },
   components: {
     global: true,

@@ -1,13 +1,3 @@
-<script setup>
-import { useDisplay } from "vuetify"
-import { useRootStore } from "~/store/root"
-import sitemap from "~~/assets/data/sitemap"
-const config = useAppConfig()
-const localePath = useLocalePath()
-const rootStore = useRootStore()
-const { smAndUp } = useDisplay()
-</script>
-
 <template>
   <!-- TOP BAR CONTAINER -->
   <v-app-bar>
@@ -15,7 +5,7 @@ const { smAndUp } = useDisplay()
     <NavigationLogo></NavigationLogo>
     <v-app-bar-title class="align-start">
       <nuxt-link :to="localePath('/')" class="text-black">{{
-        config.full_name
+        mdAndUp ? config.full_name : config.short_name
       }}</nuxt-link></v-app-bar-title
     >
 
@@ -61,3 +51,12 @@ const { smAndUp } = useDisplay()
     </template>
   </v-app-bar>
 </template>
+<script setup>
+import { useDisplay } from "vuetify"
+import { useRootStore } from "~/store/root"
+import sitemap from "~~/assets/data/sitemap"
+const config = useAppConfig()
+const localePath = useLocalePath()
+const rootStore = useRootStore()
+const { smAndUp, mdAndUp } = useDisplay()
+</script>

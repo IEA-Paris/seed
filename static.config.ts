@@ -2,6 +2,7 @@ export default {
   env: { NODE_ENV: "dev" },
   name: "PARIS IAS",
   full_name: "Paris Institute for Advanced Study", // set to false if there is none
+  short_name: "Paris IAS", // set to false if there is none
   full_name_html: "Paris&nbsp;Institute<br>for Advanced&nbsp;Study", // set to false if there is none
   address: "17, Quai d'Anjou 75004 PARIS - FRANCE",
   phone: "+33(0)1 56 81 00 52",
