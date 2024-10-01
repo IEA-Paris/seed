@@ -25,16 +25,16 @@
       </v-tooltip>
     </template>
     <v-list density="compact">
-      <template v-for="(item, index) in items">
+      <template v-for="(value, key,  index) in items"
+      :key="index"
+      >
         <v-list-item
-          v-if="item.name !== current.name"
-          :key="index"
-          @click="updateView(item.name)"
+          @click="updateView(value.name || key)"
         >
           <template v-slot:prepend>
-            <v-icon>mdi-{{ item.icon }}</v-icon>
+            <v-icon>mdi-{{ value.icon }}</v-icon>
           </template>
-          <v-list-item-title>{{ $t("list." + item.name) }}</v-list-item-title>
+          <v-list-item-title >{{ $t('list.' + (value.name || key)) }}</v-list-item-title>
         </v-list-item></template
       >
     </v-list>
