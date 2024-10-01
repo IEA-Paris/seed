@@ -5,7 +5,7 @@
         <v-card
           class="d-flex align-center justify-center flex-column"
         >
-        <div class="text-h3">{{ $t('visit') }}</div>
+        <div class="text-h3">{{ $t('workplace') }}</div>
         <ContentDoc :path="content" />
         </v-card
         >
