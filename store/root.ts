@@ -334,6 +334,7 @@ export const useRootStore = defineStore("rootStore", {
       ; (this[type] as ModuleType).list.sortBy = [value[0]] as string[]
         ; (this[type] as ModuleType).list.sortDesc = [value[1]] as number[]
       this.page = 1
+      this.updateLocalStorage(type + '_sort', value.join('_'))
       this.update(type)
     },
     updateView({ value, type }: { value: string; type: string }) {
