@@ -1,5 +1,5 @@
 <template>
-  <!--  {{ name }} -->
+  {{ name }}
   <v-row>
     <v-col
       cols="12"
@@ -36,11 +36,11 @@
         v-if="rootStore.loading || rootStore.news.loading"
         :type="
           [
-            'avatar, paragraph',
-            'avatar, paragraph',
-            'heading, ossein,	avatar, text, ossein, chip@3',
-            'heading, ossein,	avatar, text, ossein, chip@3',
-            'heading, ossein, avatar, text, ossein, chip@3',
+            'text, chip@4',
+            'text, chip@4',
+            'heading, text, chip@5',
+            'heading, text, chip@5',
+            'heading, text, chip@5',
             'heading',
           ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
         "
