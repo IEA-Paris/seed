@@ -5,7 +5,7 @@
     <NavigationLogo></NavigationLogo>
     <v-app-bar-title class="align-start">
       <nuxt-link :to="localePath('/')" class="text-black">{{
-        mdAndUp ? $t('paris-institute-for-advanced-study') : $t('paris-ias')
+        mdAndUp ? $t("paris-institute-for-advanced-study") : $t("paris-ias")
       }}</nuxt-link></v-app-bar-title
     >
 
@@ -13,7 +13,7 @@
       <!--  NAVIGATION -->
       <!-- Client only is need to avoid a bug. temporary workaround until it is fixes: https://github.com/vuetifyjs/vuetify/issues/15323 -->
       <template v-if="smAndUp">
-        <template v-for="(link, index) in sitemap.main" :key="index">
+        <template v-for="(link, index) in config.sitemap.main" :key="index">
           <v-menu :open-on-hover="link.openOnHover" v-if="link.dropdown">
             <template v-slot:activator="{ props }">
               <v-btn exact variant="flat" v-bind="props" class="h-100"
@@ -54,7 +54,6 @@
 <script setup>
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
-import sitemap from "~~/assets/data/sitemap"
 const config = useAppConfig()
 const localePath = useLocalePath()
 const rootStore = useRootStore()

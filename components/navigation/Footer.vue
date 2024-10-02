@@ -56,11 +56,15 @@
                     )
                   "
                 ></iframe>
-                <br /> 
+                <br />
                 <small
-                  ><a style="color: white" href="https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911">{{ $t('view-larger-map') }}</a></small
+                  ><a
+                    style="color: white"
+                    href="https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911"
+                    >{{ $t("view-larger-map") }}</a
+                  ></small
                 >
-                </v-col>
+              </v-col>
               <v-col cols="12" sm="4">
                 <v-list bg-color="transparent">
                   <v-list-item :to="localePath('/about/institute')" nuxt>
@@ -183,8 +187,8 @@
   </section>
 </template>
 <script setup>
-import socials from "~/assets/data/social"
-import sitemap from "~/assets/data/sitemap"
+// import socials from "~/assets/data/social"
+// import sitemap from "~/assets/data/sitemap"
 import { useDisplay } from "vuetify"
 import { useI18n } from "vue-i18n"
 
@@ -197,9 +201,9 @@ const { router } = useRouter()
 const nuxtApp = useNuxtApp()
 
 const { $vuetify } = nuxtApp
-const socialsRef = ref(socials)
+const socialsRef = ref(config.socials)
 const panel = reactive([])
-const footer = ref(sitemap.footer)
+const footer = ref(config.sitemap.footer)
 const email = ref("")
 const props = defineProps({
   isSnapScroll: Boolean,

@@ -41,15 +41,7 @@
             <div class="mt-2 text-h6 text-overline font-weight-black">
               {{ $t("events.categories." + item.category) }}
             </div>
-            <p
-              class="text-body-1 clamped-text text-wrap"
-              :style="
-                '-webkit-line-clamp:' +
-                [5, 5, 3, 4, 8, 8][
-                  ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-                ]
-              "
-            >
+            <p class="text-body-1 text-wrap">
               {{ item.description }}
             </p>
             <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">
@@ -58,7 +50,7 @@
           </div>
         </v-col>
 
-        <v-col cols="12" lg="3">
+        <!-- <v-col cols="12" lg="3">
           <v-skeleton-loader
             v-if="rootStore.loading || rootStore.events.loading"
             type="text,paragraph, text, paragraph"
@@ -66,7 +58,7 @@
           </v-skeleton-loader>
 
           <div v-else>
-            <!-- <div class="text-overline">
+            <div class="text-overline">
               {{ $t("date-and-time") }}
             </div>
             <div class="text-body-1">
@@ -76,7 +68,7 @@
               <template v-else>
                 {{ formatDate(item.start, locale) }}
               </template>
-            </div> -->
+            </div>
             <template v-if="item.location">
               <div class="text-overline mt-6">
                 {{ $t("location") }}
@@ -91,7 +83,7 @@
               </div>
             </template>
           </div>
-        </v-col>
+        </v-col> -->
       </v-row>
       <v-row
         class="d-flex flex-row align-center flex-wrap"
