@@ -4,11 +4,10 @@
     class="cursor-pointer"
     @click="$router.push(localePath('/news/' + getSlugFromPath(item._path)))"
   >
-    <v-col align-self="center" cols="2" class="dense"> </v-col>
     <v-col align-self="center" cols="6" class="text-h6 dense">
       {{ item.title }}
     </v-col>
-    <v-col align-self="center" cols="4" class="dense"> </v-col>
+    <v-col align-self="center" cols="6" class="dense"> </v-col>
   </v-row>
 </template>
 <script setup>

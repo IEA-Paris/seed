@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="mt-6 ml-2">
         <slot>
             <!-- fallback content -->
             Dense view
