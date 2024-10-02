@@ -42,6 +42,7 @@ url: ""
 audio:
   - "9876543210"
 image: "images/geology.jpg"
+
 relatedProjects:
   - title: "Positive Future"
     shortDescription: "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100"
@@ -55,7 +56,7 @@ relatedProjects:
     shortDescription: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     description: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     url: "https://thesocioscope.org/"
-    image:  "/images/logo_typo_black.svg"
+    image: "/images/logo_typo_black.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"

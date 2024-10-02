@@ -1,6 +1,7 @@
 ---
 title: Proceedings of Paris Institute for Advanced Study
 url: "https://paris.pias.science"
+subtitle: A transdisciplinary research center that welcomes researchers from all over the world in the fields of humanities and social sciences
 date: 2024-03-18T00:00:00.000Z
 image: "/images/logos/ppias-logo.png"
 color: "white"

@@ -1,6 +1,7 @@
 ---
 title: World Pandemic Research Network
 url: "https://wprn.org"
+subtitle: Societal impacts and aftermath of Covid-19
 date: 2023-10-04T00:00:00.000Z
 image: "images/logos/wprn_logo.png"
 color: "#ffffff"

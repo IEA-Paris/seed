@@ -39,6 +39,9 @@
         <div class="d-flex text-center text-wrap text-h3 text-black">
           {{ item.title }}
         </div>
+        <div class="d-flex text-center text-wrap text-h6 text-black">
+          {{ item.subtitle }}
+        </div>
         <MiscMoleculesChipContainer
           :items="item.tags"
           class="py-6 align-self-center"
