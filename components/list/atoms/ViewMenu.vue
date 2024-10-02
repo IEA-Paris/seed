@@ -7,13 +7,12 @@
             x-large
             tile
             flat
-            icon
+            :icon="'mdi-' + current?.icon || defaultView?.icon"
             :class="{
               'mt-3': isXsDisplay,
             }"
             v-bind="mergeProps(menu, tooltip)"
           >
-            <v-icon>mdi-{{ current?.icon || defaultView?.icon }}</v-icon>
           </v-btn>
         </template>
         <div

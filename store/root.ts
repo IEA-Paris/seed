@@ -341,7 +341,13 @@ export const useRootStore = defineStore("rootStore", {
         ...(this[type] as ModuleType).list.views[value] as Views,
         name: value
       };
+      this.updateLocalStorage(type + '_view', value)
       this.update(type)
+    },
+    updateLocalStorage(key : string, value: string){
+      const local = JSON.parse(localStorage.getItem('PARIS_IAS')) ||{}
+      local[key] = value
+      localStorage.setItem('PARIS_IAS', JSON.stringify(local))
     },
     updateFilters({
       filters,
