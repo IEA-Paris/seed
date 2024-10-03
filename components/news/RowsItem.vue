@@ -40,6 +40,7 @@
         >
         <MiscMoleculesChipContainer
           :items="item.tags"
+          class="mt-4"
         ></MiscMoleculesChipContainer>
         <template v-if="mdAndDown">
           <ContentRenderer

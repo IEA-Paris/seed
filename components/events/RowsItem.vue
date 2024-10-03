@@ -1,6 +1,6 @@
 <template>
   <v-divider v-if="index > 0"></v-divider>
-  <v-row class="my-8 px-sm-12 px-md-4" no-gutters>
+  <v-row class="my-8 px-4" no-gutters>
     <v-col cols="12" md="1">
       <MiscAtomsDateStamp
         :loading="rootStore.events.loading"
@@ -10,7 +10,7 @@
     </v-col>
     <v-col cols="12" md="8" class="px-md-6 mt-6 mt-md-0">
       <v-row no-gutters>
-        <v-col cols="12" lg="9" class="pr-lg-6">
+        <v-col cols="12" class="pr-lg-6">
           <v-skeleton-loader
             v-if="rootStore.loading || rootStore.events.loading"
             :type="
@@ -42,10 +42,10 @@
               {{ $t("events.categories." + item.category) }}
             </div>
             <p
-              class="text-body-1 clamped-text text-wrap"
+              class="text-body-1 text-wrap clamped-text"
               :style="
                 '-webkit-line-clamp:' +
-                [5, 5, 3, 4, 8, 8][
+                [5, 5, 3, 5, 7, 8][
                   ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
                 ]
               "
@@ -58,7 +58,7 @@
           </div>
         </v-col>
 
-        <v-col cols="12" lg="3">
+        <!-- <v-col cols="12" lg="3">
           <v-skeleton-loader
             v-if="rootStore.loading || rootStore.events.loading"
             type="text,paragraph, text, paragraph"
@@ -66,7 +66,7 @@
           </v-skeleton-loader>
 
           <div v-else>
-            <!-- <div class="text-overline">
+            <div class="text-overline">
               {{ $t("date-and-time") }}
             </div>
             <div class="text-body-1">
@@ -76,7 +76,7 @@
               <template v-else>
                 {{ formatDate(item.start, locale) }}
               </template>
-            </div> -->
+            </div>
             <template v-if="item.location">
               <div class="text-overline mt-6">
                 {{ $t("location") }}
@@ -91,7 +91,7 @@
               </div>
             </template>
           </div>
-        </v-col>
+        </v-col> -->
       </v-row>
       <v-row
         class="d-flex flex-row align-center flex-wrap"

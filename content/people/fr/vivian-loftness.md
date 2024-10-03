@@ -22,10 +22,10 @@ socials:
   researchgate: "123"
 groups:
   fellow: true
-  vintage:
-    - year: 2024
-      name: rolling-call-for-fellows
-      theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
+  # vintage:
+  #   - year: 2024
+  #     name: rolling-call-for-fellows
+  #     theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
 relatedProjects:
   - title: "Futur Positif"
     shortDescription: "L'initiative Futur Positif, soutenue par l'Institut d'études avancées de Paris et la Fondation 2100"
@@ -39,7 +39,7 @@ relatedProjects:
     shortDescription: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation"
     description: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation"
     url: "https://thesocioscope.org/"
-    image:  "/images/logo_typo_black.svg"
+    image: "/images/logo_typo_black.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"
@@ -114,22 +114,3 @@ relatedNews:
 ---
 
 Vivian Loftness, FAIA, est titulaire de la chaire Paul Mellon et professeure universitaire à la Carnegie Mellon University. Elle est chercheuse, auteure et éducatrice, avec plus de quarante ans de recherche en science du bâtiment pour l'industrie et le gouvernement. Éditrice des encyclopédies Springer de 2013 et 2020 sur les environnements bâtis durables, elle a publié sur le climat et le régionalisme, la durabilité environnementale, l'intégration avancée des systèmes de bâtiments et la conception pour la performance dans le lieu de travail du futur. Elle est élue membre de l'American Institute of Architects, du US Green Building Council, du New Buildings Institute et du Design Futures Council. Vivian a été reconnue comme l'une des 13 étoiles de la science du bâtiment par le Building Research Establishment au Royaume-Uni, a reçu le Prix d'Excellence de l'AIA Pennsylvania et de NESEA, détient un National Educator Honor Award de l'American Institute of Architecture Students, et un "Sacred Tree" Award du US Green Building Council. Vivian Loftness est titulaire d'un Bachelor of Science et d'un Master en architecture du MIT. En juin 2025, elle rejoint l'Institut d'études avancées pour une résidence d'écriture d'un mois.
-
-### Centres d'intérêt en recherche
-
-Climat et régionalisme, durabilité environnementale, intégration avancée des systèmes de bâtiments, et conception pour la performance dans le lieu de travail du futur.
-
-### Projet de recherche
-
-**Le rôle critique de l'environnement bâti pour un avenir neutre en carbone**
-
-L'investissement stratégique dans la conception des bâtiments, des communautés et des réseaux est aussi crucial que l'approvisionnement en énergie propre et les infrastructures électriques pour respecter nos engagements mondiaux visant à atteindre la décarbonation d'ici 2050. Ce projet vise à quantifier que le secteur du bâtiment est le plus grand "secteur d'utilisation finale" dans l'équation du carbone et peut avoir le plus grand impact sur la réduction de la demande énergétique en carbone et l'optimisation de l'approvisionnement énergétique, tout en offrant des gains mesurables pour la productivité, la santé et la qualité environnementale.
-
-### Publications clés
-
-Loftness, V. et M. Snyder, "Sustainable and Healthy Built Environments", *Encyclopedia on Sustainable Built Environments*, Springer, 2020.
-
-Loftness, V. et C. Martin, "Building Policies and Actions for Rapid Decarbonization in the US", _Accelerating Decarbonization,_ National Academy of Sciences, 2023.
-<https://www.nationalacademies.org/our-work/accelerating-decarbonization-in-the-united-states-technology-policy-and-societal-dimensions>.
-
-Volker Hartkopf et Vivian Loftness, "The Robert L. Preger Intelligent Workplace, a Transformative Living Laboratory at Carnegie Mellon University", dans _Facilities Management: Concept, Realization, Vision -- A Global Perspective_. Edmond P. Rondeau (éditeur), Michaela Hellerforth (éditrice), janvier 2024, Wiley Publications.

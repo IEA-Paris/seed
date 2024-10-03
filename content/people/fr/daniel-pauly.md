@@ -22,10 +22,10 @@ socials:
   researchgate: "123"
 groups:
   fellow: true
-  vintage:
-    - year: 2024
-      name: rolling-call-for-fellows
-      theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
+  # vintage:
+  #   - year: 2024
+  #     name: rolling-call-for-fellows
+  #     theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
 relatedProjects:
   - title: "Futur Positif"
     shortDescription: "L'initiative Futur Positif, soutenue par l'Institut d'études avancées de Paris et la Fondation 2100"
@@ -39,7 +39,7 @@ relatedProjects:
     shortDescription: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation"
     description: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation"
     url: "https://thesocioscope.org/"
-    image:  "/images/logo_typo_black.svg"
+    image: "/images/logo_typo_black.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"
@@ -114,25 +114,3 @@ relatedNews:
 ---
 
 Franco-canadien, Daniel Pauly a étudié et travaillé principalement sur la documentation et l'atténuation de l'impact des pêcheries sur les écosystèmes marins de la planète. Les concepts, méthodes et logiciels qu'il a (co)développés sont documentés dans plus de 1000 contributions largement citées et lui ont valu de nombreuses récompenses scientifiques, dont la Légion d'Honneur. Une biographie complète (_Daniel Pauly - un océan de combats_ par David Grémillet), publiée en français en 2019 et en anglais en 2021 sous le titre _The Ocean's Whistleblower - the remarkable life and work of Daniel Pauly_, présente de manière détaillée le travail et l'influence de Daniel Pauly. Il rejoint l'IEA en mai 2025 pour une résidence d'écriture d'un mois.
-
-### Centres d'intérêt
-
-Pêche mondiale et à petite échelle, biologie marine
-
-### Projet de recherche
-
-**La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe**
-
-L'étude de la pêche à petite échelle en Afrique, en Asie, en Amérique et en Océanie et de leurs conflits avec les grandes pêcheries industrielles est souvent considérée comme une activité intellectuellement stérile.
-
-Cependant, il est important de réaliser que ces pêcheries artisanales ne sont pas simplement une partie de l'économie informelle que les gouvernements et les universitaires négligent ; elles jouent un rôle majeur en assurant la sécurité alimentaire de leurs pays. Pourtant, elles passent souvent inaperçues dans les statistiques nationales et même chez les économistes de la pêche.
-Ce n'est que lorsque les choses vont mal que la pêche artisanale et ses acteurs - principalement les pêcheurs et les négociants en poisson - apparaissent dans le champ de vision des pays riches. Par exemple, des milliers de pêcheurs tentent de rejoindre l'Europe sur des embarcations branlantes, et des centaines d'entre eux se noient. Ils ont quitté leur foyer parce qu'il n'y a plus de poissons à pêcher dans leurs eaux, en grande partie à cause des flottes de pêche industrielle des pays développés.
-Ce travail établira un lien entre les activités des flottes de pêche lointaine au large de l'Afrique de l'Ouest et (i) les problèmes de migration mortelle mentionnés ci-dessus, (ii) la situation désespérée de la pêche artisanale dans la région et (iii) les problèmes de sécurité alimentaire liés à la transformation des produits de base de l'Afrique de l'Ouest (sardines et autres petits poissons bon marché) en farine de poisson pour nourrir les saumons, par exemple, en Norvège. Cette étude constituerait une contribution importante à une époque où les questions globales d'équité et de durabilité sont à juste titre considérées comme primordiales.
-
-### Publications
-
-Pauly, D., V. Christensen, J. Dalsgaard, R. Froese and F.C. Torres, Fishing down marine food webs*,* _Science_, 279: 860-863, 1998.
-
-Pauly, D, Major trends in small-scale marine fisheries, with emphasis on developing countries and some implications for the social sciences, _Maritime Studies_ (MAST) 4(2): 7-22, 2006.
-
-Pauly, D. and D. Zeller. (Editors)_,_ _Global Atlas of Marine Fisheries: A critical appraisal of catches and ecosystem impacts,_ Island Press, Washington D.C., xii +497 p., 2016.

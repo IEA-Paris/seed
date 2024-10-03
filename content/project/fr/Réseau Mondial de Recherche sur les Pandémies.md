@@ -1,5 +1,6 @@
 ---
-title: World Pandemic Research Network
+title: "Réseau mondial de recherche sur les pandémies"
+subtitle: "Impacts sociétaux et conséquences de Covid-19"
 url: "https://wprn.org"
 date: 2023-10-04T00:00:00.000Z
 image: "images/logos/wprn_logo.png"

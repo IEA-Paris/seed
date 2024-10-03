@@ -1,6 +1,7 @@
 ---
 title: Positive Future
 url: "https://www.positive-future.org"
+subtitle: "Stimulating the imagination and promoting a desirable and livable future"
 date: 2024-03-18T00:00:00.000Z
 image: "/logoPF.png"
 color: "#008080"

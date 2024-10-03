@@ -108,8 +108,7 @@
     "sab": "sab",
     "board": "conseil",
     "fellow": "fellow",
-    "sponsor": "sponsor",
-    "vintage": "vintage"
+    "sponsor": "sponsor"
   },
   "0-1-found-page-2-of-3": "Aucun {1} trouvé. \nPage {2} sur {3} | {0} {1} trouvé. \nPage {2} sur {3} | {0} {1} trouvés. \nPage {2} sur {3} ",
   "biography": "Biographie",
@@ -172,11 +171,10 @@
   "outside-event": "Événement extérieur",
   "event-full": "Événement complet",
   "visit-this-project-website": "Site Web du projet",
-  "see-more": "Voir plus",  
+  "see-more": "Voir plus",
   "share-on": "Partagez sur {network}",
   "share-this-on": "Jetez un oeil à {item}",
   "paris-institute-for-advanced-study": "Institut d'études avancées de Paris",
   "visit": "Modalités d'accès",
-  "view-larger-map":"Voir sur une carte en plein écran"
-
+  "view-larger-map": "Voir sur une carte en plein écran"
 }

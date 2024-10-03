@@ -11,7 +11,7 @@
         v-for="locale in availableLocales"
         :key="locale.code"
         @click="
-          $i18n.setLocale(locale.code) && localStorageSwitch(locale.code) &&
+          $i18n.setLocale(locale.code) &&
             $router.push(localePath($route.fullPath)) 
         "
       >
@@ -24,10 +24,6 @@
 </template>
 <script setup>
 const { locale, locales } = useI18n()
-const switchLocalePath = useSwitchLocalePath()
-const localStorageSwitch = (lang) => {
-  localStorage.setItem('IAS_lang', lang)
-}
 const availableLocales = computed(() => {
   return locales.value.filter((i) => i.code !== locale.value)
 })

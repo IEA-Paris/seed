@@ -12,7 +12,7 @@ useHead({
   // where `%s` is replaced with the title
   // of the current page
   title: "Welcome ",
-  titleTemplate: `%s - ${$i18n.t(config.name)}`,
+  titleTemplate: `%s - ${$i18n.t('paris_ias')}`,
   htmlAttrs: {
     lang: "en",
   },

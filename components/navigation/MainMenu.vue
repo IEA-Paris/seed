@@ -46,7 +46,7 @@
               <v-divider style="border-color: white"></v-divider>
               <v-list dark color="black" bg-color="transparent">
                 <v-list-item
-                  v-for="(item, i) in sitemap.footer"
+                  v-for="(item, i) in config.sitemap.footer"
                   :key="i"
                   :to="item.path"
                   @click="isActive.value = false"
@@ -55,7 +55,9 @@
                     class="text-uppercase text-button mb-6"
                     v-text="$t(item.text)"
                   ></v-list-item-title>
-                  <v-divider v-if="i < sitemap.footer.length - 1"></v-divider>
+                  <v-divider
+                    v-if="i < config.sitemap.footer.length - 1"
+                  ></v-divider>
                 </v-list-item>
               </v-list>
             </div>
@@ -64,7 +66,10 @@
           <v-col cols="12" md="4">
             <v-divider style="border-color: white"></v-divider>
             <v-list dark bg-color="transparent" color="black">
-              <template v-for="(link, index) in sitemap.main" :key="index">
+              <template
+                v-for="(link, index) in config.sitemap.main"
+                :key="index"
+              >
                 <v-list-item
                   :to="localePath(link.path)"
                   @click="isActive.value = false"
@@ -73,7 +78,9 @@
                     {{ $t(link.text) }}
                   </v-list-item-title>
                 </v-list-item>
-                <v-divider v-if="index < sitemap.main.length - 1"></v-divider>
+                <v-divider
+                  v-if="index < config.sitemap.main.length - 1"
+                ></v-divider>
               </template>
             </v-list>
           </v-col>
@@ -82,7 +89,7 @@
             <v-divider></v-divider>
             <div class="overline ma-3">{{ $t("follow-us") }}</div>
             <v-tooltip
-              v-for="(item, index) in socials"
+              v-for="(item, index) in config.socials"
               :key="index"
               location="bottom"
             >
@@ -112,8 +119,9 @@
 </template>
 <script setup>
 import { useDisplay } from "vuetify"
-import sitemap from "~/assets/data/sitemap"
-import socials from "~/assets/data/social"
+// import sitemap from "~/assets/data/sitemap"
+// import socials from "~/assets/data/social"
+const config = useAppConfig()
 const { smAndDown, mdAndUp } = useDisplay()
 </script>
 <style scoped>
