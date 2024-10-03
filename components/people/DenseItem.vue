@@ -2,13 +2,22 @@
   <v-row
     v-ripple
     class="cursor-pointer"
-    @click="$router.push(localePath('/people' + getSlugFromPath(item._path)))"
+    @click="$router.push(localePath('/people/' + getSlugFromPath(item._path)))"
   >
-    <v-col align-self="center" cols="2" class="dense"> </v-col>
     <v-col align-self="center" cols="6" class="text-h6 dense">
       {{ item.title }}
     </v-col>
-    <v-col align-self="center" cols="4" class="dense"> </v-col>
+    <v-col align-self="center" cols="6" class="dense">
+      <v-chip
+        class="mr-2 mt-3"
+        variant="text"
+        v-for="(value, key, index) in item.groups"
+        :key="key"
+        v-if="key !== 'vintage'"
+      >
+        {{ $t("groups." + key) }}</v-chip
+      >
+    </v-col>
   </v-row>
 </template>
 <script setup>

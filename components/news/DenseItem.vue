@@ -7,7 +7,11 @@
     <v-col align-self="center" cols="6" class="text-h6 dense">
       {{ item.title }}
     </v-col>
-    <v-col align-self="center" cols="6" class="dense"> </v-col>
+    <v-col align-self="center" cols="6" class="dense">
+      <MiscMoleculesChipContainer
+        :items="item.tags"
+      ></MiscMoleculesChipContainer
+    ></v-col>
   </v-row>
 </template>
 <script setup>
