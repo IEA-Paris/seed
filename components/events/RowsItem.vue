@@ -1,6 +1,6 @@
 <template>
   <v-divider v-if="index > 0"></v-divider>
-  <v-row class="my-8 px-sm-12 px-md-4" no-gutters>
+  <v-row class="my-8 px-4" no-gutters>
     <v-col cols="12" md="1">
       <MiscAtomsDateStamp
         :loading="rootStore.events.loading"
@@ -10,7 +10,7 @@
     </v-col>
     <v-col cols="12" md="8" class="px-md-6 mt-6 mt-md-0">
       <v-row no-gutters>
-        <v-col cols="12" lg="9" class="pr-lg-6">
+        <v-col cols="12" class="pr-lg-6">
           <v-skeleton-loader
             v-if="rootStore.loading || rootStore.events.loading"
             :type="
@@ -41,7 +41,15 @@
             <div class="mt-2 text-h6 text-overline font-weight-black">
               {{ $t("events.categories." + item.category) }}
             </div>
-            <p class="text-body-1 text-wrap">
+            <p
+              class="text-body-1 text-wrap clamped-text"
+              :style="
+                '-webkit-line-clamp:' +
+                [5, 5, 3, 5, 7, 8][
+                  ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+                ]
+              "
+            >
               {{ item.description }}
             </p>
             <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">

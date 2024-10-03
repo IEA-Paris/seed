@@ -126,6 +126,7 @@
                 <v-btn block size="large" v-show="false">{{
                   $t("subscribe")
                 }}</v-btn>
+                <MiscAtomsSocials :socials="config.socials"></MiscAtomsSocials>
               </v-col>
             </v-row>
             <v-row justify="center" no-gutters class="mt-3">

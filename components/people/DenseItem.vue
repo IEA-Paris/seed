@@ -4,18 +4,17 @@
     class="cursor-pointer"
     @click="$router.push(localePath('/people/' + getSlugFromPath(item._path)))"
   >
-    <v-col align-self="center" cols="6" class="text-h6 dense">
+    <v-col align-self="center" cols="6" sm="5" md="4" lg="3" class="text-h6">
       {{ item.title }}
     </v-col>
-    <v-col align-self="center" cols="6" class="dense">
-      <v-chip
-        class="mr-2 mt-3"
-        variant="text"
-        v-for="(value, key, index) in item.groups"
-        :key="key"
-        v-if="key !== 'vintage'"
-      >
-        {{ $t("groups." + key) }}</v-chip
+    <v-col align-self="center" cols="6">
+      <template v-for="(value, key, index) in item.groups" :key="key">
+        <v-chip v-if="key === 'vintage'">
+          {{ $t("vintage") }} {{ item.groups.vintage }}
+        </v-chip>
+        <v-chip class="mr-2 mt-3" variant="text" v-else>
+          {{ $t("groups." + key) }}</v-chip
+        ></template
       >
     </v-col>
   </v-row>

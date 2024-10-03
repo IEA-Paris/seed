@@ -8,11 +8,13 @@
       )
     "
   >
-    <v-col align-self="center" cols="2" class="dense"> </v-col>
-    <v-col align-self="center" cols="6" class="text-h6 dense">
+    <v-col align-self="center" cols="2">{{
+      formatDate(item.publicationDate)
+    }}</v-col>
+    <v-col align-self="center" cols="6" class="text-h6">
       {{ item.title }}
     </v-col>
-    <v-col align-self="center" cols="4" class="dense"> </v-col>
+    <v-col align-self="center" cols="4"> </v-col>
   </v-row>
 </template>
 <script setup>

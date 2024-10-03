@@ -60,9 +60,7 @@
             /> -->
 
           <div class="ml-md-n6">
-            <div
-              class="text-body-2 text-lg-body-1 text-black mt-4 mt-sm-4 mt-md-0 mb-md-n4 ml-md-0"
-            >
+            <div class="text-body-2 text-lg-body-1 text-black">
               <!--    TODO use a proper & conditional formatting of names (depending on number of authors) -->
               {{
                 $t("by-author", [
@@ -70,9 +68,10 @@
                 ])
               }}
             </div>
-            <div class="mt-lg-n1">
+            <div class="" v-if="smAndDown">
               <MiscMoleculesChipContainer
                 :items="item.tags"
+                class="mt-4"
               ></MiscMoleculesChipContainer>
             </div>
           </div>
@@ -95,11 +94,11 @@
         "
       ></v-skeleton-loader>
       <template v-else>
-        <div class="mt-2 mx-n6 mx-sm-0" v-if="mdAndUp">
-          <ActionsSmallContainer
-            :action="action"
-            :ratio="1"
-          ></ActionsSmallContainer>
+        <div class="mt-2 mx-sm-6" v-if="mdAndUp">
+          <MiscMoleculesChipContainer
+            :items="item.tags"
+            class="mt-4"
+          ></MiscMoleculesChipContainer>
         </div>
       </template>
     </v-col>
@@ -113,7 +112,7 @@
         "
       ></v-skeleton-loader>
       <template v-else>
-        <ContentRenderer :value="item" class="mt-md-n2 mx-10 mx-md-0" />
+        <ContentRenderer :value="item" class="mt-md-n2 mx-4 mx-sm-0" />
       </template>
     </v-col>
   </v-row>

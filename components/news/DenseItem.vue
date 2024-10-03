@@ -4,10 +4,10 @@
     class="cursor-pointer"
     @click="$router.push(localePath('/news/' + getSlugFromPath(item._path)))"
   >
-    <v-col align-self="center" cols="6" class="text-h6 dense">
+    <v-col align-self="center" cols="7" class="text-h6 dense">
       {{ item.title }}
     </v-col>
-    <v-col align-self="center" cols="6" class="dense">
+    <v-col align-self="center" cols="5" class="dense">
       <MiscMoleculesChipContainer
         :items="item.tags"
       ></MiscMoleculesChipContainer
