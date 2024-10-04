@@ -11,6 +11,10 @@
         :type="['heading', 'heading'][['xs', 'sm'].indexOf(name || 'sm')]"
       ></v-skeleton-loader>
       <template v-else>
+        <v-chip class="mb-4">{{
+          $t("news.categories." + item.category)
+        }}</v-chip>
+        <br />
         {{ item.title }}
       </template>
     </v-col>
@@ -46,7 +50,10 @@
         "
       ></v-skeleton-loader>
 
-      <div v-else class="mx-4 mx-md-0 d-flex flex-column justify-md-end">
+      <div v-else class="mx-4 mx-md-0 justify-md-end">
+        <v-chip class="mb-4" v-if="mdAndUp">{{
+          $t("news.categories." + item.category)
+        }}</v-chip>
         <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
           {{ item.title }}
         </div>

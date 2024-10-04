@@ -198,11 +198,12 @@ export default {
   },
 
   socials: {
-    linkedin: "https://www.linkedin.com/company/futurpositif",
-    instagram: "https://www.instagram.com/futurpositif/",
-    youtube:
-      "https://www.youtube.com/channel/UCguKalm3EVILMvkvoNXkANg/featured",
-    twitter: "https://twitter.com/FuturPositif",
-    facebook: "https://www.facebook.com/FuturPositif",
+    linkedin: "iea-de-paris",
+    youtube: "@IEAPARIS",
+    twitter: "ieadeparis",
+    github: "IEA-Paris",
+    facebook:
+      "Institut-d%C3%A9tudes-avanc%C3%A9es-de-Paris-IEA-de-Paris/277065215652486",
+    rss: "https://paris-iea.fr/en/rss.xml",
   },
 }

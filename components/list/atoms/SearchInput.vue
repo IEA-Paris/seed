@@ -19,8 +19,9 @@
       variant="outlined"
       hide-details
       clearable
+      tile
       type="search"
-      :loading="rootStore.loading"
+      :loading="rootStore.loading || rootStore[type].loading"
     >
       <!--    :loading="$nuxt.loading || $store.state.loading" :class="{ 'mt-3':
       $store.state.scrolled }" -->

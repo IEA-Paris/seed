@@ -1,56 +1,61 @@
 <template>
-  <v-container fluid class="pa-0">
-    <v-row class="justify-center" no-gutters>
+  <v-container fluid class="pa-0 d-flex align-md-center">
+    <v-row class="justify-md-center" no-gutters>
       <v-col cols="12" md="10" lg="8" xl="7">
-        <div class="d-flex align-center">
-          <div
-            class="d-flex flex-column justify-space-between"
-            :class="{ 'left-panel align-end': mdAndUp }"
-          >
-            <v-sheet class="d-flex justify-center align-end pr-9 flex-column">
-              <div class="text-h4 text-sm-h3 text-md-h4 text-right " v-motion-fade>
-                {{ featured[selected].title }}
-                <v-responsive class="ml-auto my-3" width="64">
-                  <v-divider class="mb-1" />
-                  <v-divider />
-                </v-responsive>
-              </div>
-
-              <div class="carousel-subtitle" v-motion-fade>
-                {{ featured[selected].description }}
-              </div>
-            </v-sheet>
-          </div>
-          <div class="right-panel d-flex align-center" v-if="mdAndUp">
-            <v-carousel
-              v-model="selected"
-              :show-arrows="false"
-              :cycle="true"
-              background-color="transparent"
-              delimiter-icon="mdi-square"
-            >
-              <template v-slot:prev="{ props }">
-                <v-btn icon @click="props.onClick">
-                  <v-icon>mdi-chevron-up</v-icon></v-btn
-                >
-              </template>
-              <v-carousel-item
-                v-for="(item, index) in featured"
-                :key="index"
+        <div :class="{ 'd-flex ': mdAndUp }" class="align-center">
+          <div :class="{ 'right-panel': mdAndUp }" class="d-flex align-center">
+            <v-responsive aspect-ratio="1" class="carousel-container">
+              <v-carousel
                 cover
-                :src="item.image"
-                :alt="item.title"
-              ></v-carousel-item>
-              <template v-slot:next="{ props }">
-                <v-btn icon @click="props.onClick">
-                  <v-icon>mdi-chevron-left</v-icon></v-btn
-                >
-              </template>
-            </v-carousel>
+                v-model="selected"
+                :show-arrows="false"
+                :cycle="true"
+                background-color="transparent"
+                delimiter-icon="mdi-square"
+                height="100%"
+              >
+                <template v-slot:prev="{ props }">
+                  <v-btn icon @click="props.onClick">
+                    <v-icon>mdi-chevron-right</v-icon></v-btn
+                  >
+                </template>
+                <v-carousel-item
+                  v-for="(item, index) in featured"
+                  :key="index"
+                  cover
+                  :src="item.image"
+                  :alt="item.title"
+                ></v-carousel-item>
+                <template v-slot:next="{ props }">
+                  <v-btn icon @click="props.onClick">
+                    <v-icon>mdi-chevron-left</v-icon></v-btn
+                  >
+                </template>
+              </v-carousel></v-responsive
+            >
+          </div>
+          <div
+            class="d-flex flex-column"
+            :class="mdAndUp ? 'left-panel' : 'bottom-panel'"
+            v-ripple
+            @click="
+              localePath('/news/' + getSlugFromPath(featured[selected]._path))
+            "
+          >
+            <div class="text-h4 text-sm-h3 text-md-h4 mb-6" v-motion-fade>
+              <v-chip class="mb-4">{{
+                $t("news.categories." + featured[selected].category)
+              }}</v-chip>
+              <br />
+              {{ featured[selected].title }}
+            </div>
+
+            <div class="carousel-subtitle" v-motion-fade>
+              {{ featured[selected].description }}
+            </div>
           </div>
         </div>
-      </v-col
-      >
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -67,13 +72,36 @@ const props = defineProps({
 })
 </script>
 <style>
+.bottom-panel {
+  margin: -24vh 0 0 0;
+  background-color: white;
+  z-index: 5;
+  padding: 1em 2em;
+  position: relative;
+  border: 1px solid black;
+}
 .right-panel {
-  width: 38.2%;
-  height: calc(100vh - 64px);
+  width: 61.8vw;
+  background-color: white;
 }
 .left-panel {
   width: 61.8%;
-  height: 50vh;
+  background-color: white;
+  margin-left: -30vw;
+  z-index: 2;
+  padding: 2em;
+  border: 1px solid black;
+}
+.carousel-container {
+  width: 100%;
+  max-height: calc(100vh - 64px);
+}
+@media screen and (min-width: 600px) {
+  .carousel-container {
+  }
+  .bottom-panel {
+    margin: -38vh 10vw 0 10vw;
+  }
 }
 .carousel-title {
   font-size: 3rem;
@@ -87,7 +115,6 @@ const props = defineProps({
   font-weight: 400;
   font-family: "Roboto", serif;
   line-height: 2rem;
-  text-align: right;
 }
 .v-carousel__controls {
   color: white;

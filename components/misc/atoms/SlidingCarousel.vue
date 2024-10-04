@@ -8,9 +8,9 @@
               <slot></slot>
             </div>
             <v-spacer></v-spacer>
-            <div class="text-h6 font-weight-black d-flex align-center mx-6">
+            <!--     <div class="text-h6 font-weight-black d-flex align-center mx-6">
               {{ model + 1 }}/{{ rootStore[props.type].list.items.length || 0 }}
-            </div>
+            </div> -->
             <div class="d-flex flex-row">
               <v-btn-toggle>
                 <v-btn
@@ -34,7 +34,6 @@
             </div>
           </div>
         </v-container>
-
         <Swiper
           style="overflow-x: visible"
           effect="slide"
@@ -52,6 +51,7 @@
             nextEl: '.pseudo-carousel-next',
             prevEl: '.pseudo-carousel-prev',
           }"
+          ref="swiper"
         >
           <template
             v-if="rootStore.loading || rootStore[props.type].loading"
