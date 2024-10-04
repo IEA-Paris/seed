@@ -41,17 +41,29 @@
             <div class="mt-2 text-h6 text-overline font-weight-black">
               {{ $t("events.categories." + item.category) }}
             </div>
-            <p
-              class="text-body-1 text-wrap clamped-text"
-              :style="
-                '-webkit-line-clamp:' +
-                [5, 5, 3, 5, 7, 8][
-                  ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-                ]
+
+            <nuxt-link
+              :to="
+                localePath({
+                  name: 'activities-events-slug',
+                  params: { slug: getSlugFromPath(item._path) },
+                })
               "
+              class="text-black"
             >
-              {{ item.description }}
-            </p>
+              <p
+                class="text-body-1 text-wrap clamped-text"
+                :style="
+                  '-webkit-line-clamp:' +
+                  [5, 5, 3, 5, 7, 8][
+                    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+                  ]
+                "
+              >
+                {{ item.description }}
+              </p></nuxt-link
+            >
+
             <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">
               <EventsBadges :item></EventsBadges>
             </div>
@@ -114,19 +126,11 @@
       </v-row>
     </v-col>
     <v-col cols="12" md="3">
-      <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.events.loading"
-        height="100%"
-        type="image"
-        class="d-flex align-start px-4"
-      >
-      </v-skeleton-loader>
       <MiscAtomsImageContainer
         cover
-        v-else
-        :link="item.title"
+        :name="item.title"
         :slug="getSlugFromPath(item._path)"
-        name="activities-events-slug"
+        link="activities-events-slug"
         :loading="rootStore.events.loading"
         :src="item.image"
         :ratio="1 / 1"

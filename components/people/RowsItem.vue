@@ -7,6 +7,9 @@
         :loading="rootStore.people.loading"
         :src="item.image"
         :ratio="1 / 1"
+        :name="item.lastname + ' ' + item.firstname"
+        :slug="getSlugFromPath(item._path)"
+        link="people-slug"
       />
     </v-col>
 
@@ -37,17 +40,27 @@
         >
           {{ item.title }}</NuxtLink
         >
-        <MiscAtomsSocials :socials="item.socials" class="pt-2 pb-4" />
-        <ContentRenderer
-          :value="item"
-          class="text-body-1 clamped-text mt-n3"
-          :style="
-            '-webkit-line-clamp:' +
-            [5, 5, 3, 6, 9, 9][
-              ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-            ]
+        <MiscAtomsSocials :socials="item.socials" class="ml-n3" />
+        <NuxtLink
+          :to="
+            localePath({
+              name: 'people-slug',
+              params: { slug: getSlugFromPath(item._path) },
+            })
           "
-        />
+          class="text-wrap text-h4 text-black"
+        >
+          <ContentRenderer
+            :value="item"
+            class="text-body-1 clamped-text mt-n3"
+            :style="
+              '-webkit-line-clamp:' +
+              [5, 5, 3, 6, 9, 9][
+                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+              ]
+            "
+          />
+        </NuxtLink>
       </div>
     </v-col>
   </v-row>
