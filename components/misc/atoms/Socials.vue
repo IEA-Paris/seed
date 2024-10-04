@@ -78,11 +78,12 @@ const getSocialId = (name, id) => {
       return `https://gitbub.com/${id}`
     case "rss":
       return ""
+    case "website":
+      return ""
   }
 }
 
 const getProfileIcon = (name) => {
-  console.log("name: ", name)
   switch (name) {
     case "linkedin":
       return "mdi-linkedin"
@@ -106,6 +107,8 @@ const getProfileIcon = (name) => {
       return "mdi-github"
     case "rss":
       return "mdi-rss"
+    case "website":
+      return "mdi-web"
   }
 }
 </script>

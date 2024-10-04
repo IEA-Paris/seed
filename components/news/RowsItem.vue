@@ -92,7 +92,7 @@
           class="text-body-1 mt-n3 clamped-text"
           :style="
             '-webkit-line-clamp:' +
-            [5, 5, 4, 8, 10][
+            [5, 5, 4, 7, 8, 10][
               ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
             ]
           "
@@ -100,6 +100,7 @@
         <v-btn
           class="mt-4"
           variant="outlined"
+          tile
           :to="
             localePath({
               name: 'news-slug',

@@ -1,9 +1,9 @@
 <template>
-  <v-container fluid class="pa-0 d-flex align-center">
-    <v-row class="justify-center" no-gutters>
+  <v-container fluid class="pa-0 d-flex align-md-center">
+    <v-row class="justify-md-center" no-gutters>
       <v-col cols="12" md="10" lg="8" xl="7">
-        <div class="d-flex align-center">
-          <div class="right-panel d-flex align-center" v-if="mdAndUp">
+        <div :class="{ 'd-flex ': mdAndUp }" class="align-center">
+          <div :class="{ 'right-panel': mdAndUp }" class="d-flex align-center">
             <v-responsive aspect-ratio="1" class="carousel-container">
               <v-carousel
                 cover
@@ -36,7 +36,7 @@
           </div>
           <div
             class="d-flex flex-column"
-            :class="{ 'left-panel': mdAndUp }"
+            :class="mdAndUp ? 'left-panel' : 'bottom-panel'"
             v-ripple
             @click="
               localePath('/news/' + getSlugFromPath(featured[selected]._path))
@@ -72,6 +72,14 @@ const props = defineProps({
 })
 </script>
 <style>
+.bottom-panel {
+  margin: -24vh 0 0 0;
+  background-color: white;
+  z-index: 5;
+  padding: 1em 2em;
+  position: relative;
+  border: 1px solid black;
+}
 .right-panel {
   width: 61.8vw;
   background-color: white;
@@ -87,7 +95,13 @@ const props = defineProps({
 .carousel-container {
   width: 100%;
   max-height: calc(100vh - 64px);
-  padding: 4vh;
+}
+@media screen and (min-width: 600px) {
+  .carousel-container {
+  }
+  .bottom-panel {
+    margin: -38vh 10vw 0 10vw;
+  }
 }
 .carousel-title {
   font-size: 3rem;
