@@ -5,10 +5,21 @@
     @click="$router.push(localePath('/people/' + getSlugFromPath(item._path)))"
   >
     <v-col align-self="center" cols="6" sm="5" md="4" lg="3" class="text-h6">
-      {{ item.title }}
+      <v-skeleton-loader
+        v-if="rootStore.loading || rootStore.people.loading"
+        type="heading"
+      ></v-skeleton-loader>
+      <template v-else>
+        {{ item.title }}
+      </template>
     </v-col>
     <v-col align-self="center" cols="6">
-      <template v-for="(value, key, index) in item.groups" :key="key">
+      <v-skeleton-loader
+        v-if="rootStore.loading || rootStore.people.loading"
+        type="chip"
+      ></v-skeleton-loader>
+
+      <template v-else v-for="(value, key, index) in item.groups" :key="key">
         <v-chip v-if="key === 'vintage'">
           {{ $t("vintage") }} {{ item.groups.vintage }}
         </v-chip>
@@ -23,8 +34,6 @@
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
 
-const { locale } = useI18n()
-const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay()
 const localePath = useLocalePath()
 const rootStore = useRootStore()
 const props = defineProps({
