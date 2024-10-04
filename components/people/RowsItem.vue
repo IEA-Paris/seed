@@ -7,9 +7,9 @@
         :loading="rootStore.people.loading"
         :src="item.image"
         :ratio="1 / 1"
-        :link="item.title"
+        :name="item.lastname + ' ' + item.firstname"
         :slug="getSlugFromPath(item._path)"
-        name="activities-events-slug"
+        link="people-slug"
       />
     </v-col>
 

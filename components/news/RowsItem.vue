@@ -9,6 +9,7 @@
         :loading="rootStore.news.loading"
         link="news-slug"
         :slug="item._path && item._path.split('/').pop()"
+        :name="item.title"
       />
     </v-col>
     <v-col cols="12" md="8" lg="4" class="pl-md-6">

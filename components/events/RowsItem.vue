@@ -126,20 +126,11 @@
       </v-row>
     </v-col>
     <v-col cols="12" md="3">
-      <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.events.loading"
-        height="100%"
-        type="image"
-        class="d-flex align-start px-4"
-      >
-      </v-skeleton-loader>
-
       <MiscAtomsImageContainer
         cover
-        v-else
-        :link="item.title"
+        :name="item.title"
         :slug="getSlugFromPath(item._path)"
-        name="activities-events-slug"
+        link="activities-events-slug"
         :loading="rootStore.events.loading"
         :src="item.image"
         :ratio="1 / 1"
