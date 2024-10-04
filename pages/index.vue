@@ -83,7 +83,12 @@
     </section>
     <section class="d-flex flex-column justify-center align-center">
       <v-container>
-        <MiscAtomsSlidingCarousel type="events" key="events" ref="events">
+        <MiscAtomsSlidingCarousel
+          :items="upcomingEvents"
+          key="events"
+          ref="events"
+          type="events"
+        >
           {{ $t("upcoming-events") }}
         </MiscAtomsSlidingCarousel>
         <div class="d-flex justify-center">
@@ -160,6 +165,14 @@ const { data: featured } = await useAsyncData("featured-list", () =>
     .where({ pinned: true })
     .sort("date", "desc")
     .limit(3)
+    .find(),
+)
+
+const { data: upcomingEvents } = await useAsyncData("event-list", () =>
+  queryContent("/events/" + locale.value)
+    .where({ outside: false })
+    .sort("date", "desc")
+    .limit(12)
     .find(),
 )
 onMounted(() => {
