@@ -38,9 +38,9 @@
           [
             'text, chip@4',
             'text, chip@4',
-            'heading, text, chip@5',
-            'heading, text, chip@5',
-            'heading, text, chip@5',
+            'heading, text',
+            'heading, text',
+            'heading, text',
             'heading',
           ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
         "
@@ -51,7 +51,7 @@
           {{ item.title }}
         </div>
         <div
-          class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-6"
+          class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-4 mx-md-6"
         >
           <!-- <MiscAtomsDateStamp
               :loading="rootStore.news.loading"
@@ -85,12 +85,9 @@
       <v-skeleton-loader
         v-if="rootStore.loading || rootStore.news.loading"
         :type="
-          [
-            'image, text@3, ossein, button',
-            'image, text@3, ossein, button',
-            'image, text@3, ossein, button',
-            'image, text@3, ossein, button',
-          ][['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
+          ['chip@2', 'chip@3', 'chip@4', 'chip@5'][
+            ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+          ]
         "
       ></v-skeleton-loader>
       <template v-else>
@@ -112,7 +109,7 @@
         "
       ></v-skeleton-loader>
       <template v-else>
-        <ContentRenderer :value="item" class="mt-md-n2 mx-4 mx-sm-0" />
+        <ContentRenderer :value="item" class="mt-md-n2 mx-4 mx-sm-8 mx-md-0" />
       </template>
     </v-col>
   </v-row>
