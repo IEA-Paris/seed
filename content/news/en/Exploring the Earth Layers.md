@@ -92,7 +92,7 @@ relatedEvents:
     summary: "Artificial Intelligence is emerging as a powerful tool in the fight against climate change"
     eventType: "Workshop"
     url: ""
-
+category: 3
 relatedPeople:
   - firstname: "Antoine"
     lastname: "Cordelois"

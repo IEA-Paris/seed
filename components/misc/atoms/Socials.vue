@@ -1,36 +1,39 @@
 <template>
   <v-row no-gutters>
-    <v-col>
-      <v-tooltip
-        v-for="(value, key, index) in socials"
-        :key="key + value"
-        :location="location"
-      >
-        <template v-slot:activator="{ props }">
-          <v-btn
-            flat
-            icon
-            v-bind="props"
-            target="_blank"
-            :href="getSocialId(key, value)"
-            :size="
-              ['small', 'small', 'small', 'default', 'large', 'large'][
-                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-              ]
-            "
-          >
-            <v-icon> {{ getProfileIcon(key) }}</v-icon>
-          </v-btn>
-        </template>
-        <span>{{ $t("socials." + key) }}</span>
-      </v-tooltip>
+    <v-col class="ml-n4">
+      <template v-for="(value, key, index) in socials" :key="key + value">
+        <v-tooltip :location="location">
+          <template v-slot:activator="{ props }">
+            <v-btn
+              v-bind="mergeProps(props, attrs)"
+              target="_blank"
+              :href="getSocialId(key, value)"
+              :color="dark ? 'black' : 'white'"
+              flat
+            >
+              <v-icon :color="dark ? 'white' : 'black'">
+                {{ getProfileIcon(key) }}</v-icon
+              >
+              <div v-if="labelled" class="text-overline text-muted ml-3">
+                {{ key }}
+              </div>
+            </v-btn>
+          </template>
+          <span>{{ $t("socials." + key) }}</span>
+        </v-tooltip>
+        <br v-if="labelled" />
+      </template>
     </v-col>
   </v-row>
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify";
-const { name } = useDisplay();
+import { useAttrs } from "vue"
+import { mergeProps } from "vue"
+
+const attrs = useAttrs()
+import { useDisplay } from "vuetify"
+const { name } = useDisplay()
 
 const props = defineProps({
   socials: {
@@ -41,41 +44,70 @@ const props = defineProps({
     type: String,
     default: "bottom",
   },
-});
+  dark: {
+    type: Boolean,
+    default: false,
+  },
+  labelled: {
+    type: Boolean,
+    default: false,
+  },
+})
 
 const getSocialId = (name, id) => {
   switch (name) {
     case "linkedin":
-      return `https://www.linkedin.com/in/${id}`;
+      return `https://www.linkedin.com/company/${id}`
     case "twitter":
-      return `https://x.com/${id}`;
+      return `https://x.com/${id}`
     case "orcid":
-      return `https://orcid.org/${id}`;
+      return `https://orcid.org/${id}`
     case "scholar":
-      return `https://scholar.google.com/${id}`;
+      return `https://scholar.google.com/${id}`
     case "wikipedia":
-      return `https://fr.wikipedia.org/${id}`;
+      return `https://fr.wikipedia.org/${id}`
     case "researchgate":
-      return `https://www.researchgate.net/${id}`;
+      return `https://www.researchgate.net/${id}`
+    case "youtube":
+      return `https://www.youtube.com/${id}`
+    case "facebook":
+      return `https://www.facebook.com/pages/${id}`
+    case "instagram":
+      return `https://www.instagram.com/${id}`
+    case "github":
+      return `https://gitbub.com/${id}`
+    case "rss":
+      return ""
   }
-};
+}
 
 const getProfileIcon = (name) => {
+  console.log("name: ", name)
   switch (name) {
     case "linkedin":
-      return "mdi-linkedin";
+      return "mdi-linkedin"
     case "twitter":
-      return "mdi-twitter";
+      return "mdi-twitter"
     case "orcid":
-      return "mdi-account";
+      return "mdi-account"
     case "scholar":
-      return "mdi-google";
+      return "mdi-google"
     case "wikipedia":
-      return "mdi-wikipedia";
+      return "mdi-wikipedia"
     case "researchgate":
-      return "mdi-account";
+      return "mdi-account"
+    case "youtube":
+      return "mdi-youtube"
+    case "facebook":
+      return "mdi-facebook"
+    case "instagram":
+      return "mdi-instagram"
+    case "github":
+      return "mdi-github"
+    case "rss":
+      return "mdi-rss"
   }
-};
+}
 </script>
 
 <style lang="scss"></style>

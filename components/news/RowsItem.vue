@@ -1,6 +1,6 @@
 <template>
   <v-divider v-if="index > 0"></v-divider>
-  <v-row class="my-4 mx-2 mx-sm-8 mx-md-0">
+  <v-row class="my-4 mx-2 mx-md-0">
     <v-col cols="12" md="4" lg="3" v-if="mdAndUp" class="pr-md-0">
       <MiscAtomsImageContainer
         cover
@@ -9,7 +9,11 @@
         :loading="rootStore.news.loading"
         link="news-slug"
         :slug="item._path && item._path.split('/').pop()"
-      />
+      >
+        <v-chip class="ma-2" style="background-color: white; color: black">{{
+          $t("news.categories." + item.category)
+        }}</v-chip></MiscAtomsImageContainer
+      >
     </v-col>
     <v-col cols="12" md="8" lg="4" class="pl-md-6">
       <v-skeleton-loader
@@ -27,6 +31,12 @@
       ></v-skeleton-loader>
 
       <template v-else>
+        <template v-if="smAndDown">
+          <v-chip class="mb-4">{{
+            $t("news.categories." + item.category)
+          }}</v-chip>
+          <br
+        /></template>
         <NuxtLink
           :to="
             localePath({
@@ -34,7 +44,7 @@
               params: { slug: getSlugFromPath(item._path) },
             })
           "
-          class="text-wrap text-h4 text-black"
+          class="text-wrap text-h5 text-black"
         >
           {{ item.title }}</NuxtLink
         >
@@ -114,7 +124,7 @@ import { useRootStore } from "~/store/root"
 import { useDisplay } from "vuetify"
 const localePath = useLocalePath()
 const rootStore = useRootStore()
-const { name, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
+const { name, smAndDown, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
 const props = defineProps({
   item: {
     type: Object,

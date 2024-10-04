@@ -103,6 +103,18 @@
       "Fellow's presentation"
     ]
   },
+  "news": {
+    "key": "News",
+    "categories": [
+      "Press release",
+      "Interview",
+      "Article",
+      "Opinion",
+      "Report",
+      "Blog post",
+      "Life at the institute"
+    ]
+  },
   "list": {
     "search-type": "Search {0}",
     "tiles": "Tiles",

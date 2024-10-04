@@ -37,7 +37,7 @@
         >
           {{ item.title }}</NuxtLink
         >
-        <MiscAtomsSocials :socials="item.socials" class="ml-n3" />
+        <MiscAtomsSocials :socials="item.socials" class="pt-2 pb-4" />
         <ContentRenderer
           :value="item"
           class="text-body-1 clamped-text mt-n3"

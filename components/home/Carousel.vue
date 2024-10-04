@@ -1,28 +1,11 @@
 <template>
-  <v-container fluid class="pa-0">
+  <v-container fluid class="pa-0 d-flex align-center">
     <v-row class="justify-center" no-gutters>
       <v-col cols="12" md="10" lg="8" xl="7">
         <div class="d-flex align-center">
-          <div
-            class="d-flex flex-column justify-space-between"
-            :class="{ 'left-panel align-end': mdAndUp }"
-          >
-            <v-sheet class="d-flex justify-center align-end pr-9 flex-column">
-              <div class="text-h4 text-sm-h3 text-md-h4 text-right " v-motion-fade>
-                {{ featured[selected].title }}
-                <v-responsive class="ml-auto my-3" width="64">
-                  <v-divider class="mb-1" />
-                  <v-divider />
-                </v-responsive>
-              </div>
-
-              <div class="carousel-subtitle" v-motion-fade>
-                {{ featured[selected].description }}
-              </div>
-            </v-sheet>
-          </div>
           <div class="right-panel d-flex align-center" v-if="mdAndUp">
             <v-carousel
+              cover
               v-model="selected"
               :show-arrows="false"
               :cycle="true"
@@ -48,9 +31,21 @@
               </template>
             </v-carousel>
           </div>
+          <div class="d-flex flex-column" :class="{ 'left-panel': mdAndUp }">
+            <div class="text-h4 text-sm-h3 text-md-h4 mb-6" v-motion-fade>
+              <v-chip class="mb-4">{{
+                $t("news.categories." + featured[selected].category)
+              }}</v-chip>
+              <br />
+              {{ featured[selected].title }}
+            </div>
+
+            <div class="carousel-subtitle" v-motion-fade>
+              {{ featured[selected].description }}
+            </div>
+          </div>
         </div>
-      </v-col
-      >
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -68,12 +63,15 @@ const props = defineProps({
 </script>
 <style>
 .right-panel {
-  width: 38.2%;
-  height: calc(100vh - 64px);
+  width: 61.8vw;
+  background-color: white;
 }
 .left-panel {
   width: 61.8%;
-  height: 50vh;
+  background-color: white;
+  margin-left: -30vw;
+  z-index: 2;
+  padding: 2em;
 }
 .carousel-title {
   font-size: 3rem;
@@ -87,7 +85,6 @@ const props = defineProps({
   font-weight: 400;
   font-family: "Roboto", serif;
   line-height: 2rem;
-  text-align: right;
 }
 .v-carousel__controls {
   color: white;

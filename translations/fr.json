@@ -126,6 +126,18 @@
     "people": "personne | \npersonne | \npersonnes",
     "project": "projet | \nprojet | \nprojets"
   },
+  "news": {
+    "key": "Actualités",
+    "categories": [
+      "communiqué de presse",
+      "Vie de l'institut",
+      "Rapport",
+      "Article",
+      "Entretien",
+      "Opinion",
+      "Article de blog"
+    ]
+  },
   "list": {
     "by-date-most-recent-first": "Dernier",
     "by-date-oldest-first": "Le plus ancien",
@@ -176,5 +188,6 @@
   "share-this-on": "Jetez un oeil à {item}",
   "paris-institute-for-advanced-study": "Institut d'études avancées de Paris",
   "visit": "Modalités d'accès",
-  "view-larger-map": "Voir sur une carte en plein écran"
+  "view-larger-map": "Voir sur une carte en plein écran",
+  "hybrid-event": "Événement hybride"
 }
