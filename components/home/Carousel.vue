@@ -4,34 +4,44 @@
       <v-col cols="12" md="10" lg="8" xl="7">
         <div class="d-flex align-center">
           <div class="right-panel d-flex align-center" v-if="mdAndUp">
-            <v-carousel
-              cover
-              v-model="selected"
-              :show-arrows="false"
-              :cycle="true"
-              background-color="transparent"
-              delimiter-icon="mdi-square"
-            >
-              <template v-slot:prev="{ props }">
-                <v-btn icon @click="props.onClick">
-                  <v-icon>mdi-chevron-up</v-icon></v-btn
-                >
-              </template>
-              <v-carousel-item
-                v-for="(item, index) in featured"
-                :key="index"
+            <v-responsive aspect-ratio="1" class="carousel-container">
+              <v-carousel
                 cover
-                :src="item.image"
-                :alt="item.title"
-              ></v-carousel-item>
-              <template v-slot:next="{ props }">
-                <v-btn icon @click="props.onClick">
-                  <v-icon>mdi-chevron-left</v-icon></v-btn
-                >
-              </template>
-            </v-carousel>
+                v-model="selected"
+                :show-arrows="false"
+                :cycle="true"
+                background-color="transparent"
+                delimiter-icon="mdi-square"
+                height="100%"
+              >
+                <template v-slot:prev="{ props }">
+                  <v-btn icon @click="props.onClick">
+                    <v-icon>mdi-chevron-right</v-icon></v-btn
+                  >
+                </template>
+                <v-carousel-item
+                  v-for="(item, index) in featured"
+                  :key="index"
+                  cover
+                  :src="item.image"
+                  :alt="item.title"
+                ></v-carousel-item>
+                <template v-slot:next="{ props }">
+                  <v-btn icon @click="props.onClick">
+                    <v-icon>mdi-chevron-left</v-icon></v-btn
+                  >
+                </template>
+              </v-carousel></v-responsive
+            >
           </div>
-          <div class="d-flex flex-column" :class="{ 'left-panel': mdAndUp }">
+          <div
+            class="d-flex flex-column"
+            :class="{ 'left-panel': mdAndUp }"
+            v-ripple
+            @click="
+              localePath('/news/' + getSlugFromPath(featured[selected]._path))
+            "
+          >
             <div class="text-h4 text-sm-h3 text-md-h4 mb-6" v-motion-fade>
               <v-chip class="mb-4">{{
                 $t("news.categories." + featured[selected].category)
@@ -72,6 +82,12 @@ const props = defineProps({
   margin-left: -30vw;
   z-index: 2;
   padding: 2em;
+  border: 1px solid black;
+}
+.carousel-container {
+  width: 100%;
+  max-height: calc(100vh - 64px);
+  padding: 4vh;
 }
 .carousel-title {
   font-size: 3rem;

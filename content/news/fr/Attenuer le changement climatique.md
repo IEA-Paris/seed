@@ -92,7 +92,7 @@ relatedEvents:
     summary: "L'intelligence artificielle émerge comme un outil puissant dans la lutte contre le changement climatique."
     eventType: "Atelier"
     url: ""
-category: 2
+category: 4
 relatedPeople:
   - firstname: "Paven"
     lastname: "Mamidi"

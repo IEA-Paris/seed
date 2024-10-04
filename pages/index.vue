@@ -1,7 +1,7 @@
 <template>
-  <v-btn color="success" @click="rootStore.setLoading(!rootStore.loading)"
+  <!--   <v-btn color="success" @click="rootStore.setLoading(!rootStore.loading)"
     >ext</v-btn
-  >
+  > -->
   <div class="scroller">
     <HomeCarousel class="carousel" :featured="featured"></HomeCarousel>
     <div class="d-flex justify-center mt-n12">

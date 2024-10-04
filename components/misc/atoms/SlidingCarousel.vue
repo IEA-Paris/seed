@@ -2,7 +2,7 @@
   <v-container>
     <v-row class="d-flex align-center justify-center">
       <v-col cols="12" md="10" class="justify-center">
-        <v-container>
+        <v-container class="mb-6">
           <div class="d-flex align-center" no-gutters>
             <div :class="mdAndUp ? 'text-h2' : 'text-h4'">
               <slot></slot>
@@ -18,7 +18,6 @@
                   flat
                   :disabled="model === 0"
                   icon="mdi-chevron-left"
-                  @click="model--"
                   class="pseudo-carousel-prev"
                 ></v-btn>
                 <v-btn
@@ -39,13 +38,14 @@
         <Swiper
           style="overflow-x: visible"
           effect="slide"
-          :breakpoints="swiperBreakpoints"
           :modules="[
             SwiperAutoplay,
             SwiperA11y,
             SwiperPagination,
             SwiperNavigation,
+            SwiperKeyboard,
           ]"
+          :breakpoints="swiperBreakpoints"
           @swiperprogress="onProgress"
           @swiperslidechange="onSlideChange"
           :navigation="{
@@ -98,28 +98,28 @@ const rootStore = useRootStore()
 const model = ref(0)
 const swiperBreakpoints = ref({
   320: {
-    slidesPerView: 2,
-    spaceBetween: 20,
+    slidesPerView: "auto",
+    spaceBetween: 10,
   },
   480: {
-    slidesPerView: 3,
-    spaceBetween: 30,
+    slidesPerView: "auto",
+    spaceBetween: 20,
   },
   640: {
-    slidesPerView: 4,
-    spaceBetween: 40,
+    slidesPerView: "auto",
+    spaceBetween: 20,
   },
   960: {
-    slidesPerView: 4,
-    spaceBetween: 40,
+    slidesPerView: "auto",
+    spaceBetween: 20,
   },
   1280: {
-    slidesPerView: 5,
-    spaceBetween: 40,
+    slidesPerView: "auto",
+    spaceBetween: 20,
   },
   1920: {
-    slidesPerView: 6,
-    spaceBetween: 40,
+    slidesPerView: "auto",
+    spaceBetween: 20,
   },
 })
 const props = defineProps({
@@ -158,3 +158,8 @@ const computedWidth = computed(() => {
   ]
 })
 </script>
+<style scoped>
+.swiper-slide {
+  width: auto;
+}
+</style>
