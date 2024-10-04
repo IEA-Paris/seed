@@ -134,25 +134,16 @@
       >
       </v-skeleton-loader>
 
-      <template v-else>
-        <nuxt-link
-          :to="
-            localePath({
-              name: 'activities-events-slug',
-              params: { slug: getSlugFromPath(item._path) },
-            })
-          "
-          class="text-black"
-          ><MiscAtomsImageContainer
-            cover
-            :link="item.title"
-            :slug="getSlugFromPath(item._path)"
-            name="activities-events-slug"
-            :loading="rootStore.events.loading"
-            :src="item.image"
-            :ratio="1 / 1"
-        /></nuxt-link>
-      </template>
+      <MiscAtomsImageContainer
+        cover
+        v-else
+        :link="item.title"
+        :slug="getSlugFromPath(item._path)"
+        name="activities-events-slug"
+        :loading="rootStore.events.loading"
+        :src="item.image"
+        :ratio="1 / 1"
+      />
     </v-col>
   </v-row>
 </template>
