@@ -1,5 +1,5 @@
 <template>
-  <v-container style="max-width: 1600px">
+  <v-container style="max-width: 1200px">
     <ListOrganismsList type="events"></ListOrganismsList
   ></v-container>
 </template>
