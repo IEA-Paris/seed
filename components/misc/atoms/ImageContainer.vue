@@ -35,7 +35,7 @@
             :title="caption"
             v-bind="$attrs"
           >
-          <slot></slot>
+            <slot></slot>
           </v-img></div
       ></nuxt-link>
     </template>
@@ -79,7 +79,7 @@ const _srcset = computed(() => {
 
 <style scoped>
 .img-animation {
-  transition: all 2s ease-in-out;
+  transition: all 0.5s ease-in-out;
   width: 100%;
 }
 

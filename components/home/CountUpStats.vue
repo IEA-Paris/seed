@@ -8,8 +8,10 @@
     <v-col
       cols="12"
       md="4"
-      class="d-flex justify-start flex-column"
+      class="d-flex justify-start flex-column cursor-pointer"
       v-motion-slide-visible-once-bottom
+      @click="router.push(localePath('/people'))"
+      v-ripple
     >
       <div class="text-overline">{{ $t("people") }}</div>
       <div class="text-h3 text-md-h1 my-3">
@@ -19,7 +21,7 @@
           lazy
           :startAmount="0"
           :endAmount="1883"
-          :duration="1.2"
+          :duration="3"
           decimalSeparator="."
           :autoinit="true"
         ></MiscAtomsCountUp>
@@ -33,8 +35,10 @@
     <v-col
       cols="12"
       md="4"
-      class="d-flex justify-start flex-column"
+      class="d-flex justify-start flex-column cursor-pointer"
       v-motion-slide-visible-once-bottom
+      @click="router.push(localePath('/activities/events'))"
+      v-ripple
     >
       <div class="text-overline">{{ $t("events.key") }}</div>
       <div class="text-h3 text-md-h1 my-3">
@@ -42,7 +46,7 @@
           key="active"
           :startAmount="0"
           :endAmount="1344"
-          :duration="1.2"
+          :duration="3"
           decimalSeparator="."
           :autoinit="true"
         ></MiscAtomsCountUp>
@@ -55,8 +59,10 @@
     <v-col
       cols="12"
       md="4"
-      class="d-flex justify-start flex-column"
+      class="d-flex justify-start flex-column cursor-pointer"
       v-motion-slide-visible-once-bottom
+      @click="router.push(localePath('/activities/fellowships'))"
+      v-ripple
     >
       <div class="text-overline">{{ $t("fellowships") }}</div>
       <div class="text-h3 text-md-h1 my-3">
@@ -65,7 +71,7 @@
           lazy
           :startAmount="0"
           :endAmount="104"
-          :duration="1.2"
+          :duration="3"
           decimalSeparator="."
           :autoinit="true"
         ></MiscAtomsCountUp>
@@ -82,7 +88,7 @@
 import { useDisplay } from "vuetify"
 import { vIntersectionObserver } from "@vueuse/components"
 const { mdAndUp } = useDisplay()
-
+const router = useRouter()
 const active = ref(null)
 const onIntersectionObserver = ([{ isIntersecting }]) => {
   active.value = isIntersecting

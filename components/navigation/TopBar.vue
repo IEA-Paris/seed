@@ -1,6 +1,6 @@
 <template>
   <!-- TOP BAR CONTAINER -->
-  <v-app-bar>
+  <v-app-bar flat>
     <!--  WEBSITE LOGO -->
     <NavigationLogo></NavigationLogo>
     <v-app-bar-title class="align-start">

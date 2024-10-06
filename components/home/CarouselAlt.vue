@@ -34,6 +34,7 @@
               </v-carousel></v-responsive
             >
           </div>
+
           <div
             class="d-flex flex-column justify-center cursor-pointer"
             :class="mdAndUp ? 'left-panel' : 'bottom-panel'"

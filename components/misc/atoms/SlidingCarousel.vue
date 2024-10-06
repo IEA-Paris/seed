@@ -1,85 +1,81 @@
 <template>
-  <v-container>
-    <v-row class="d-flex align-center justify-center">
-      <v-col cols="12" md="10" class="justify-center">
-        <v-container class="mb-6">
-          <div class="d-flex align-center" no-gutters>
-            <div :class="mdAndUp ? 'text-h2' : 'text-h4'">
-              <slot></slot>
-            </div>
-            <v-spacer></v-spacer>
-            <!--     <div class="text-h6 font-weight-black d-flex align-center mx-6">
+  <v-row class="d-flex align-center justify-center" no-gutters>
+    <v-col cols="12" lg="10" class="justify-center">
+      <div class="d-flex align-center pb-8 justify-space-between" no-gutters>
+        <div :class="mdAndUp ? 'text-h2' : 'text-h4'">
+          <slot></slot>
+        </div>
+        <v-spacer></v-spacer>
+        <!--     <div class="text-h6 font-weight-black d-flex align-center mx-6">
               {{ model + 1 }}/{{ rootStore[props.type].list.items.length || 0 }}
             </div> -->
-            <div class="d-flex flex-row">
-              <v-btn-toggle>
-                <v-btn
-                  :size="mdAndUp ? 'large' : 'regular'"
-                  flat
-                  :disabled="model === 0"
-                  icon="mdi-chevron-left"
-                  class="pseudo-carousel-prev"
-                ></v-btn>
-                <v-btn
-                  :size="mdAndUp ? 'large' : 'medium'"
-                  :disabled="
-                    model === rootStore[props.type].list.items.length - 1
-                  "
-                  flat
-                  icon="mdi-chevron-right"
-                  @click="model++"
-                  class="pseudo-carousel-next"
-                ></v-btn>
-              </v-btn-toggle>
-            </div>
-          </div>
-        </v-container>
-        <Swiper
-          style="overflow-x: visible"
-          effect="slide"
-          :modules="[
-            SwiperAutoplay,
-            SwiperA11y,
-            SwiperPagination,
-            SwiperNavigation,
-            SwiperKeyboard,
-          ]"
-          :breakpoints="swiperBreakpoints"
-          @swiperprogress="onProgress"
-          @swiperslidechange="onSlideChange"
-          :navigation="{
-            nextEl: '.pseudo-carousel-next',
-            prevEl: '.pseudo-carousel-prev',
-          }"
-          ref="swiper"
-        >
-          <template
-            v-if="rootStore.loading || rootStore[props.type].loading"
-            v-for="(item, index) in rootStore[props.type].list.items"
-          >
-            LOADING
-          </template>
-          <SwiperSlide
-            v-else
-            v-for="(item, index) in rootStore[props.type].list.items"
-            :key="index + props.type"
-          >
-            <component
-              :key="index + props.type"
-              :is="capitalize(props.type) + 'SlidingItem'"
-              :index="index"
-              :item="item"
-              :width="computedWidth"
-              lazy
-            />
-          </SwiperSlide>
-        </Swiper>
-        <div class="d-flex justify-end">
-          <v-btn class="ml-auto" variant="flat">{{ $t("see-more") }}</v-btn>
+        <div class="d-flex flex-row">
+          <v-btn-toggle>
+            <v-btn
+              variant="outlined"
+              flat
+              :disabled="model === 0"
+              icon="mdi-chevron-left"
+              class="pseudo-carousel-prev"
+            ></v-btn>
+            <v-btn
+              variant="outlined"
+              :disabled="model === rootStore[props.type].list.items.length - 1"
+              flat
+              icon="mdi-chevron-right"
+              @click="model++"
+              class="pseudo-carousel-next"
+            ></v-btn>
+          </v-btn-toggle>
         </div>
-      </v-col>
-    </v-row>
-  </v-container>
+      </div>
+      <Swiper
+        style="overflow-x: visible"
+        effect="slide"
+        :modules="[
+          SwiperAutoplay,
+          SwiperA11y,
+          SwiperPagination,
+          SwiperNavigation,
+          SwiperKeyboard,
+        ]"
+        :breakpoints="swiperBreakpoints"
+        @swiperprogress="onProgress"
+        @swiperslidechange="onSlideChange"
+        :navigation="{
+          nextEl: '.pseudo-carousel-next',
+          prevEl: '.pseudo-carousel-prev',
+        }"
+        ref="swiper"
+      >
+        <template
+          v-if="rootStore.loading || rootStore[props.type].loading"
+          v-for="(item, index) in rootStore[props.type].list.items"
+        >
+          LOADING
+        </template>
+        <SwiperSlide
+          v-else
+          v-for="(item, index) in rootStore[props.type].list.items"
+          :key="index + props.type"
+        >
+          <component
+            :key="index + props.type"
+            :is="capitalize(props.type) + 'SlidingItem'"
+            :index="index"
+            :item="item"
+            :width="computedWidth"
+            lazy
+          />
+        </SwiperSlide>
+      </Swiper>
+      <div class="d-flex justify-end mt-12">
+        <v-btn class="ml-auto" variant="flat">{{
+          $t(type + ".see-more")
+        }}</v-btn>
+      </div>
+    </v-col>
+  </v-row>
 </template>
 
 <script setup>
