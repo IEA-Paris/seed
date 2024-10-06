@@ -7,9 +7,9 @@
         rootStore.total || 0,
         $t("items." + props.type, rootStore.total || 0),
         rootStore.page || 1,
-        rootStore.numberOfPages || 1,
+        rootStore.numberOfPages || 1 /* ,
         rootstore[props.type].list.view.name,
-        rootstore[props.type].list.view.sort,
+        rootstore[props.type].list.view.sort, */,
       ])
     }}
   </div>
