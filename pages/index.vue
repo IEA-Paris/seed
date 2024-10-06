@@ -3,8 +3,18 @@
     >ext</v-btn
   > -->
   <div class="scroller">
-    <HomeCarousel class="carousel" :featured="featured"></HomeCarousel>
+    <HomeCarousel
+      v-if="carousel"
+      class="carousel"
+      :featured="featured"
+    ></HomeCarousel>
+    <HomeCarouselAlt
+      v-else
+      class="carousel"
+      :featured="featured"
+    ></HomeCarouselAlt>
     <div class="d-flex justify-center mt-n12">
+      <v-switch label="" v-model="carousel"></v-switch>
       <v-btn
         color="default"
         icon
@@ -148,6 +158,8 @@ const localePath = useLocalePath()
 const config = useAppConfig()
 const { locale } = useI18n()
 const presentation = ref("/pages/" + locale.value + "/institute_presentation")
+
+const carousel = ref(true)
 
 const about = ref(null)
 const events = ref(null)

@@ -71,7 +71,7 @@ const props = defineProps({
   },
 })
 </script>
-<style>
+<style scoped>
 .bottom-panel {
   margin: -24vh 0 0 0;
   background-color: white;

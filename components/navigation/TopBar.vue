@@ -8,7 +8,6 @@
         mdAndUp ? $t("paris-institute-for-advanced-study") : $t("paris-ias")
       }}</nuxt-link></v-app-bar-title
     >
-
     <template v-slot:append>
       <!--  NAVIGATION -->
       <!-- Client only is need to avoid a bug. temporary workaround until it is fixes: https://github.com/vuetifyjs/vuetify/issues/15323 -->
