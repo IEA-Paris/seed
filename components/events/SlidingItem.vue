@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="d-flex pa-6">
+  <v-sheet class="d-flex sliding-item">
     <MiscAtomsDateStamp
       :date="item.start"
       :loading="rootStore.events.loading"
@@ -15,7 +15,7 @@
         :loading="rootStore.events.loading"
       >
       </MiscAtomsImageContainer>
-      <div class="mt-6 pl-0 text-h5 font-weight-medium">
+      <div class="mt-6 pl-0 text-h5 font-weight-medium sliding-item-title">
         {{ item.name }}
       </div>
     </div>

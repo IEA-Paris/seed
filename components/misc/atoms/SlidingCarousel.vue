@@ -2,7 +2,7 @@
   <v-row class="d-flex align-center justify-center" no-gutters>
     <v-col cols="12" lg="10" class="justify-center">
       <div class="d-flex align-center pb-8 justify-space-between" no-gutters>
-        <div :class="mdAndUp ? 'text-h2' : 'text-h4'">
+        <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
           <slot></slot>
         </div>
         <v-spacer></v-spacer>
@@ -12,6 +12,7 @@
         <div class="d-flex flex-row">
           <v-btn-toggle>
             <v-btn
+              tile
               variant="outlined"
               flat
               :disabled="model === 0"
@@ -19,6 +20,7 @@
               class="pseudo-carousel-prev"
             ></v-btn>
             <v-btn
+              tile
               variant="outlined"
               :disabled="model === rootStore[props.type].list.items.length - 1"
               flat
@@ -58,14 +60,16 @@
           v-else
           v-for="(item, index) in rootStore[props.type].list.items"
           :key="index + props.type"
+          :style="'width: ' + computedWidth + 'px'"
+          :width="computedWidth"
         >
           <component
             :key="index + props.type"
             :is="capitalize(props.type) + 'SlidingItem'"
             :index="index"
             :item="item"
-            :width="computedWidth"
             lazy
+            :width="computedWidth"
           />
         </SwiperSlide>
       </Swiper>
@@ -79,11 +83,11 @@
 </template>
 
 <script setup>
-/* 
+/*
 TODO: make it similar to radcliffe :
-- offset out of the layout before scrolling. 
+- offset out of the layout before scrolling.
 - Meaningful behavior when clicking on the arrrows
-- Add a slide-in from right animation when the items are entering viewport 
+- Add a slide-in from right animation when the items are entering viewport
 */
 import { capitalize } from "~/composables/useUtils"
 import { useDisplay } from "vuetify"
@@ -143,15 +147,21 @@ const onSlideChange = (e) => {
   console.log("slide changed", e)
 }
 const computedWidth = computed(() => {
-  console.log(
-    "width",
-    ["200", "250", "300", "330", "400", "400"][
+  let modifier = 1
+  switch (props.type) {
+    case "events":
+      modifier = 1.3
+      break
+    case "people":
+      break
+    default:
+      break
+  }
+  return (
+    [200, 250, 300, 330, 400, 400][
       ["xs", "sm", "md", "lg", "xl", "xxl"].indexOf(name.value || "md")
-    ],
+    ] * modifier
   )
-  return ["200", "250", "300", "330", "400", "400"][
-    ["xs", "sm", "md", "lg", "xl", "xxl"].indexOf(name.value || "md")
-  ]
 })
 </script>
 <style scoped>

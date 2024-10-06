@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="pa-2">
+  <v-sheet class="pa-2 sliding-item">
     <MiscAtomsImageContainer
       cover
       :loading="rootStore.people.loading"
@@ -9,7 +9,9 @@
       name="people-slug"
       :slug="getSlugFromPath(item._path)"
     />
-    <div class="mt-3 pl-0 text-left text-h5 font-weight-medium">
+    <div
+      class="mt-3 pl-0 text-left text-h5 font-weight-medium sliding-item-title"
+    >
       {{ item.firstname + " " + item.lastname }}
     </div>
     <!--     <v-card-text

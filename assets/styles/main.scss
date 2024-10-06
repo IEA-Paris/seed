@@ -324,7 +324,9 @@ ul {
 
 li {
 }
-
+.sliding-item:hover .sliding-item-title {
+  text-decoration: underline;
+}
 .v-application code {
   all: initial;
   all: unset;
