@@ -136,8 +136,6 @@ const props = defineProps({
     required: true,
   },
 })
-
-console.log("NEWS", props.item._path)
 </script>
 
 <style></style>

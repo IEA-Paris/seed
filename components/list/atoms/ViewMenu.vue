@@ -24,16 +24,18 @@
       </v-tooltip>
     </template>
     <v-list density="compact">
-        <v-list-item
-        v-for="(value, key,  index) in items"
-      :key="index"
-          @click="updateView(value.name || key)"
-        >
-          <template v-slot:prepend>
-            <v-icon>mdi-{{ value.icon }}</v-icon>
-          </template>
-          <v-list-item-title >{{ $t('list.' + (value.name || key)) }}</v-list-item-title>
-        </v-list-item>
+      <v-list-item
+        v-for="(value, key, index) in items"
+        :key="index"
+        @click="updateView(value.name || key)"
+      >
+        <template v-slot:prepend>
+          <v-icon>mdi-{{ value.icon }}</v-icon>
+        </template>
+        <v-list-item-title>{{
+          $t("list." + (value.name || key))
+        }}</v-list-item-title>
+      </v-list-item>
     </v-list>
   </v-menu>
 </template>
@@ -69,7 +71,6 @@ const updateView = async (value) => {
 }
 
 onMounted(() => {
-  console.log('props.type: ', props.type);
   // Add any logic needed on component mount
 })
 </script>

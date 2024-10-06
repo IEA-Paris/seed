@@ -37,7 +37,7 @@
                 }"
                 class="text-h4 text-sm-h3 text-md-h2 mt-6 pr-6"
                 :class="mdAndUp ? 'text-right' : 'text-left'"
-                :style="mdAndUp ? 'max-width: 500px' : 'text-left'"
+                :style="mdAndUp ? 'max-width: 500px' : 'padding: 0 24px'"
               >
                 {{ $t("moto") }}
               </div>

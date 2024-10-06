@@ -46,7 +46,7 @@
             </div>
 
             <div class="d-flex">
-              <EventsRegisterModal :item="item"></EventsRegisterModal>
+              <EventsBadges :item="item"></EventsBadges>
             </div>
           </div>
         </template>

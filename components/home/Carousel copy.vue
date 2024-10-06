@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0 d-flex align-md-center">
     <v-row class="justify-md-center" no-gutters>
-      <v-col cols="12" md="10" lg="8" xl="7">
+      <v-col cols="12">
         <div :class="{ 'd-flex ': mdAndUp }" class="align-center">
           <div :class="{ 'right-panel': mdAndUp }" class="d-flex align-center">
             <v-responsive aspect-ratio="1" class="carousel-container">
@@ -35,14 +35,21 @@
             >
           </div>
           <div
-            class="d-flex flex-column"
+            class="d-flex flex-column justify-center cursor-pointer"
             :class="mdAndUp ? 'left-panel' : 'bottom-panel'"
             v-ripple
             @click="
-              localePath('/news/' + getSlugFromPath(featured[selected]._path))
+              router.push(
+                localePath(
+                  '/news/' + getSlugFromPath(featured[selected]._path),
+                ),
+              )
             "
           >
-            <div class="text-h4 text-sm-h3 text-md-h4 mb-6" v-motion-fade>
+            <div
+              class="text-h4 text-sm-h3 text-md-h4 text-lg-h3 mb-6 carousel-title"
+              v-motion-fade
+            >
               <v-chip class="mb-4">{{
                 $t("news.categories." + featured[selected].category)
               }}</v-chip>
@@ -62,6 +69,7 @@
 <script setup>
 import { useDisplay } from "vuetify"
 const { mdAndUp } = useDisplay()
+const router = useRouter()
 
 const selected = ref(0)
 const props = defineProps({
@@ -81,14 +89,14 @@ const props = defineProps({
   border: 1px solid black;
 }
 .right-panel {
-  width: 61.8vw;
+  width: 38.2vw;
   background-color: white;
 }
 .left-panel {
-  max-width: 800px;
+  width: 61.8vw;
   background-color: white;
-  margin-left: -30vw;
-  z-index: 2;
+  z-index: 5;
+  height: 38.2vw;
   padding: 2em;
   border: 1px solid black;
 }
@@ -101,19 +109,20 @@ const props = defineProps({
   }
   .bottom-panel {
     margin: -38vh 10vw 0 10vw;
+    background-color: white;
+    position: relative;
+    z-index: 5;
   }
 }
 .carousel-title {
-  font-size: 3rem;
-  font-weight: 400;
-  font-family: "Roboto", serif;
-  line-height: 4.5rem;
-  text-align: right;
+  max-width: min(60ch, 650px);
+  line-height: 1.2em;
 }
 .carousel-subtitle {
   font-size: 1.2rem;
   font-weight: 400;
   font-family: "Roboto", serif;
+  max-width: 60ch;
   line-height: 2rem;
 }
 .v-carousel__controls {

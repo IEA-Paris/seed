@@ -35,7 +35,6 @@ const route = useRoute()
 const { smAndUp } = useDisplay()
 const { locale } = useI18n()
 const localePath = useLocalePath()
-console.log("route.params.slug: ", route.params.slug)
 
 const { data } = await useAsyncData(
   "fellowship",

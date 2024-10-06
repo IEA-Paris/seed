@@ -8,7 +8,7 @@
         class="pr-6 mt-md-2"
       />
     </v-col>
-    <v-col cols="12" md="8" class="px-md-6 mt-6 mt-md-0">
+    <v-col cols="12" md="7" class="px-md-6 mt-6 mt-md-0">
       <v-row no-gutters>
         <v-col cols="12" class="pr-lg-6">
           <v-skeleton-loader
@@ -55,7 +55,7 @@
                 class="text-body-1 text-wrap clamped-text"
                 :style="
                   '-webkit-line-clamp:' +
-                  [5, 5, 3, 5, 7, 8][
+                  [5, 5, 5, 10, 12, 14][
                     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
                   ]
                 "
@@ -125,7 +125,7 @@
         </v-col>
       </v-row>
     </v-col>
-    <v-col cols="12" md="3">
+    <v-col cols="12" md="4">
       <MiscAtomsImageContainer
         cover
         :name="item.title"

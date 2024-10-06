@@ -182,15 +182,10 @@ export const useRootStore = defineStore("rootStore", {
         const defaultForm = (this[category as string] as ModuleType).form
           ._defaults as string
         if (!defaults) defaults = JSON.parse(defaultForm)
-        console.log("defaults: ", defaults)
-        console.log(`addFormItem
-          key: ${key}
-          category: ${category}
-          level: ${level}`)
+
         // if level = 1 this is a primitive
         if (level.length === 1) {
           const defautlValue = defaults[level[0]][0]
-          console.log("defautlValue: ", defautlValue)
           store[key].push(defautlValue)
         } else if (level.length > 1) {
           const isArray = typeof level[0] === "number"
@@ -225,12 +220,12 @@ export const useRootStore = defineStore("rootStore", {
       if (query.filters) {
         const filters = JSON.parse(query.filters as string)
         Object.keys(filters).forEach((filter) => {
-          ; (this[type] as ModuleType).list.filters[filter] = filters[filter]
+          ;(this[type] as ModuleType).list.filters[filter] = filters[filter]
         })
       }
 
       if (query.view) {
-        ; (this[type] as ModuleType).list.view = query.view as
+        ;(this[type] as ModuleType).list.view = query.view as
           | string
           | Views
           | undefined
@@ -252,7 +247,7 @@ export const useRootStore = defineStore("rootStore", {
       sortDescItem = (sortDesc as number[] | boolean[])[0]
 
       if (query.sortBy) {
-        ; (this[type] as ModuleType).list.sortBy = [query.sortBy] as string[]
+        ;(this[type] as ModuleType).list.sortBy = [query.sortBy] as string[]
       }
       if (typeof query.sortDesc !== "undefined") {
         sortDescItem = !!(query.sortDesc === "true")
@@ -274,14 +269,14 @@ export const useRootStore = defineStore("rootStore", {
             (typeof filters[filter] === "object" &&
               Object.keys(filters[filter]).length),
         ).length
-        ; (this[type] as ModuleType).list.filtersCount = filtersCount
+      ;(this[type] as ModuleType).list.filtersCount = filtersCount
     },
     setBlankFilterLoad(type: string) {
-      ; (this[type] as ModuleType).loading = false
+      ;(this[type] as ModuleType).loading = false
     },
     setDefaults() {
       // lang
-      const lang = localStorage.getItem('lang')
+      const lang = localStorage.getItem("lang")
       /*    if(lang)i18n.global.locale = lang; */
       // dark mode
 
@@ -290,7 +285,6 @@ export const useRootStore = defineStore("rootStore", {
       // news
       // project
       // fellowships
-
     },
     resetState(type: string) {
       this.resetFilters = true
@@ -311,44 +305,44 @@ export const useRootStore = defineStore("rootStore", {
       const defaultSort = sortObj[defaultSortKey as string]
       console.log("defaultSort root: ", defaultSort)
 
-        // TODO make dynamic based on an ~/assets located file
-        ; (this[type] as ModuleType).list.filters = {
-          years: [],
-          issue: [],
-          tags: [],
-          language: [],
-          thematic: [],
-          discipline: [],
-          type: [],
-        }
+      // TODO make dynamic based on an ~/assets located file
+      ;(this[type] as ModuleType).list.filters = {
+        years: [],
+        issue: [],
+        tags: [],
+        language: [],
+        thematic: [],
+        discipline: [],
+        type: [],
+      }
       this.search = ""
-        ; (this[type] as ModuleType).list.view = defaultView.name
-        ; (this[type] as ModuleType).list.sortBy = [defaultSort.value[0]]
-        ; (this[type] as ModuleType).list.sortDesc = [defaultSort.value[1]]
-        ; (this[type] as ModuleType).resetFilters = false
+      ;(this[type] as ModuleType).list.view = defaultView.name
+      ;(this[type] as ModuleType).list.sortBy = [defaultSort.value[0]]
+      ;(this[type] as ModuleType).list.sortDesc = [defaultSort.value[1]]
+      ;(this[type] as ModuleType).resetFilters = false
       this.page = 1
 
       this.update(type)
     },
     updateSort({ value, type }: { value: number[] | string[]; type: string }) {
-      ; (this[type] as ModuleType).list.sortBy = [value[0]] as string[]
-        ; (this[type] as ModuleType).list.sortDesc = [value[1]] as number[]
+      ;(this[type] as ModuleType).list.sortBy = [value[0]] as string[]
+      ;(this[type] as ModuleType).list.sortDesc = [value[1]] as number[]
       this.page = 1
-      this.updateLocalStorage(type + '_sort', value.join('_'))
+      this.updateLocalStorage(type + "_sort", value.join("_"))
       this.update(type)
     },
     updateView({ value, type }: { value: string; type: string }) {
-      (this[type] as ModuleType).list.view = {
-        ...(this[type] as ModuleType).list.views[value] as Views,
-        name: value
-      };
-      this.updateLocalStorage(type + '_view', value)
+      ;(this[type] as ModuleType).list.view = {
+        ...((this[type] as ModuleType).list.views[value] as Views),
+        name: value,
+      }
+      this.updateLocalStorage(type + "_view", value)
       this.update(type)
     },
-    updateLocalStorage(key : string, value: string){
-      const local = JSON.parse(localStorage.getItem('PARIS_IAS')) ||{}
+    updateLocalStorage(key: string, value: string) {
+      const local = JSON.parse(localStorage.getItem("PARIS_IAS")) || {}
       local[key] = value
-      localStorage.setItem('PARIS_IAS', JSON.stringify(local))
+      localStorage.setItem("PARIS_IAS", JSON.stringify(local))
     },
     updateFilters({
       filters,
@@ -358,15 +352,15 @@ export const useRootStore = defineStore("rootStore", {
     }) {
       if (filters[Object.keys(filters)[0]].length)
         (this[type] as ModuleType).loading.push(Object.keys(filters)[0])
-          ; (this[type] as ModuleType).list.filters[Object.keys(filters)[0]] =
-            filters[Object.keys(filters)[0]]
+      ;(this[type] as ModuleType).list.filters[Object.keys(filters)[0]] =
+        filters[Object.keys(filters)[0]]
       this.page = 1
 
       this.update(type)
     },
     updateItemsPerPage({ value, type }: { value: number; type: string }) {
       this.page = 1
-        ; (this[type] as ModuleType).list.itemsPerPage = value
+      ;(this[type] as ModuleType).list.itemsPerPage = value
 
       this.update(type)
     },
@@ -383,7 +377,7 @@ export const useRootStore = defineStore("rootStore", {
     async update(type: string, lang: string = "en") {
       const target = type + "/" + lang + "/"
       this.setLoading(true)
-        ; (this[type] as ModuleType).loading = true
+      ;(this[type] as ModuleType).loading = true
       const router = useRouter()
       const filters = (this[type] as ModuleType)?.list?.filters || {}
       const pipeline = {
@@ -501,13 +495,15 @@ export const useRootStore = defineStore("rootStore", {
       console.log("itemsPerPage: ", itemsPerPage) */
       console.log("target: ", target)
 
-      const items = await queryContent(target)
-        /*  .where(pipeline) */
-        .sort({ [sortArray[0]]: sortArray[1] })
-        /*  .sort({ [sortArray[2]]: sortArray[3] }) */
-        .skip(skipNumber())
-        .limit(itemsPerPage)
-        .find()
+      const items = (this.search as string)?.length
+        ? await searchContent(this.search as string)
+        : await queryContent(target)
+            /*  .where(pipeline) */
+            .sort({ [sortArray[0]]: sortArray[1] })
+            /*  .sort({ [sortArray[2]]: sortArray[3] }) */
+            .skip(skipNumber())
+            .limit(itemsPerPage)
+            .find()
       /*       console.log("items: ", items); */
       const viewsObj = (this[type] as ModuleType).list.views as Record<
         string,
@@ -528,23 +524,23 @@ export const useRootStore = defineStore("rootStore", {
       const query: Record<string, any> = {
         ...(this.search &&
           typeof this.search !== "undefined" && {
-          search: this.search,
-        }),
+            search: this.search,
+          }),
         ...((this.page as number) > 1 && {
           page: this.page.toString(),
         }),
         ...(((this[type] as ModuleType).list.sortBy as string[]).length &&
           sortByItem !== defaultSort.value[0] && {
-          sortBy: sortByItem,
-        }),
+            sortBy: sortByItem,
+          }),
         ...(typeof sortDescItem !== "undefined" &&
           sortDescItem !== defaultSort.value[1] && {
-          sortDesc: !!sortDescItem,
-        }),
+            sortDesc: !!sortDescItem,
+          }),
         ...((this[type] as ModuleType).list.view &&
           (this[type] as ModuleType).list.view !== defaultView.name && {
-          view: (this[type] as ModuleType).list.view,
-        }),
+            view: (this[type] as ModuleType).list.view,
+          }),
         ...(Object.keys(filters)?.length && {
           filters: JSON.stringify(queryFilters),
         }),
@@ -558,7 +554,7 @@ export const useRootStore = defineStore("rootStore", {
         query[key] === undefined
           ? delete query[key]
           : // convert boolean to string
-          typeof query[key] === "boolean"
+            typeof query[key] === "boolean"
             ? query[key] === (query[key] as any).toString()
             : {},
       )
@@ -577,12 +573,12 @@ export const useRootStore = defineStore("rootStore", {
 
       this.setFiltersCount(type)
       this.setBlankFilterLoad(type)
-        /*       console.log("type2: ", type) */
-        ; (this[type] as ModuleType).list.items = items as any
+      /*       console.log("type2: ", type) */
+      ;(this[type] as ModuleType).list.items = items as any
       this.total = totalItems
       this.numberOfPages = lastPage
       this.setLoading(false)
-        ; (this[type] as ModuleType).loading = false
+      ;(this[type] as ModuleType).loading = false
       return true
     },
   },

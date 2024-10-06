@@ -70,10 +70,7 @@ const swiper = ref(null)
 const props = defineProps({
   items: [Object],
 })
-onMounted(() => {
-  swiper.value.swiper
-  console.log("swiper: ", swiper)
-})
+onMounted(() => {})
 </script>
 
 <style>
