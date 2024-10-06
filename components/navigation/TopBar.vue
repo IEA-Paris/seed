@@ -17,7 +17,7 @@
             <template v-slot:activator="{ props }">
               <v-btn exact variant="flat" v-bind="props" class="h-100"
                 >{{ $t(link.text) }}
-                <v-icon right>mdi-chevron-down</v-icon>
+                <v-icon size="x-large" right>mdi-chevron-down</v-icon>
               </v-btn>
             </template>
             <v-list>
