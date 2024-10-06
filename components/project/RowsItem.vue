@@ -83,7 +83,7 @@
 <script setup>
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
-
+const router = useRouter()
 const localePath = useLocalePath()
 const props = defineProps({
   item: {

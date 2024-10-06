@@ -3,7 +3,7 @@
   <v-app-bar flat>
     <!--  WEBSITE LOGO -->
     <NavigationLogo></NavigationLogo>
-    <v-app-bar-title class="align-start">
+    <v-app-bar-title class="align-start text-h5">
       <nuxt-link :to="localePath('/')" class="text-black">{{
         mdAndUp ? $t("paris-institute-for-advanced-study") : $t("paris-ias")
       }}</nuxt-link></v-app-bar-title

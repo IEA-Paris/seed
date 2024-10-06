@@ -39,7 +39,9 @@
         <div class="d-flex text-center text-wrap text-h3 text-black">
           {{ item.title }}
         </div>
-        <div class="d-flex text-center text-wrap text-h6 text-black">
+        <v-divider width="154px" class="mb-1 mt-6"></v-divider>
+        <v-divider width="154px"></v-divider>
+        <div class="d-flex text-center text-wrap text-h5 text-black mt-6">
           {{ item.subtitle }}
         </div>
         <MiscMoleculesChipContainer
