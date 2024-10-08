@@ -1,4 +1,6 @@
 ---
 title: Scientific Advisory Board
 ---
-Le conseil scientifique
+Le conseil scientifique de l'Institut d'études avancées de Paris (Paris IAS) joue un rôle crucial dans l'orientation intellectuelle de l'Institut et le maintien de son excellence académique. Composé de chercheurs renommés issus de diverses disciplines, le conseil veille à ce que la recherche menée à l'Institut reste innovante et interdisciplinaire. Ses principales responsabilités consistent à superviser la sélection des boursiers, à garantir le respect des normes les plus élevées en matière de recherche universitaire et à définir le programme de recherche de l'Institut.
+
+Le conseil d'administration évalue les candidatures des boursiers en fonction de leur mérite scientifique et de leur potentiel de collaboration interdisciplinaire. Il donne également des conseils sur les nouvelles tendances de la recherche, en encourageant les partenariats avec des institutions universitaires internationales. Ce faisant, le conseil contribue à faire de l'IAS de Paris un centre de premier plan pour la recherche avancée et les échanges intellectuels.

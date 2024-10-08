@@ -33,7 +33,7 @@
       ></v-container>
     </section>
 
-    <section>
+    <section class="dark">
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="9" xl="8">
@@ -84,7 +84,7 @@
       ></v-container>
     </section>
 
-    <section>
+    <section class="dark">
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="9" xl="8">

@@ -21,7 +21,7 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  sab: true
+  scientific-advisory-board: true
 
 relatedProjects:
   - title: "Futur Positif"

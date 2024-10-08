@@ -10,7 +10,9 @@
         :name="item.lastname + ' ' + item.firstname"
         :slug="getSlugFromPath(item._path)"
         link="people-slug"
-      />
+      >
+        <PeopleGroupBadges :item="item" />
+      </MiscAtomsImageContainer>
     </v-col>
 
     <v-col cols="12" md="8">
@@ -38,9 +40,9 @@
           "
           class="text-wrap text-h4 text-black mb-2"
         >
-          {{ item.title }}</NuxtLink
-        >
-        <MiscAtomsSocials :socials="item.socials" class="ml-n3" />
+          {{ item.title }}
+        </NuxtLink>
+        <MiscAtomsSocials :socials="item.socials" class="my-2" />
         <NuxtLink
           :to="
             localePath({

@@ -3,11 +3,19 @@
   <v-app-bar flat>
     <!--  WEBSITE LOGO -->
     <NavigationLogo></NavigationLogo>
-    <v-app-bar-title class="align-start text-h5">
-      <nuxt-link :to="localePath('/')" class="text-black">{{
+    <!-- <nuxt-link :to="localePath('/')" class="text-black">{{
         mdAndUp ? $t("paris-institute-for-advanced-study") : $t("paris-ias")
-      }}</nuxt-link></v-app-bar-title
-    >
+      }}</nuxt-link> -->
+    <div class="d-flex align-start pl-3" v-if="mdAndUp">
+      <v-img
+        src="/logo_text.png"
+        alt="Paris IAS"
+        class="d-inline-block cursor-pointer"
+        height="100px"
+        width="200px"
+        @click="router.push(localePath('/'))"
+      ></v-img>
+    </div>
     <template v-slot:append>
       <!--  NAVIGATION -->
       <!-- Client only is need to avoid a bug. temporary workaround until it is fixes: https://github.com/vuetifyjs/vuetify/issues/15323 -->
@@ -55,6 +63,7 @@ import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
 const config = useAppConfig()
 const localePath = useLocalePath()
+const router = useRouter()
 const rootStore = useRootStore()
 const { smAndUp, mdAndUp } = useDisplay()
 </script>

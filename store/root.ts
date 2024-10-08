@@ -14,7 +14,6 @@ import {
   project,
   fellowship,
 } from "@paris-ias/data"
-
 interface InputParams {
   key?: any | string
   level?: string[] | number[] | number | any
@@ -214,17 +213,15 @@ export const useRootStore = defineStore("rootStore", {
       const { currentRoute } = useRouter()
       const query = currentRoute.value.query
 
-      if (query.search) {
-        this.search = query.search as string
-      }
-      if (query.filters) {
-        const filters = JSON.parse(query.filters as string)
-        Object.keys(filters).forEach((filter) => {
-          ;(this[type] as ModuleType).list.filters[filter] = filters[filter]
-        })
-      }
-
-      if (query.view) {
+      const filters = JSON.parse(query as string)
+      Object.keys(filters).forEach((filter) => {
+        if (
+          Object.keys((this[type] as ModuleType).list.filters).includes(filter)
+        )
+          (this[type] as ModuleType).list.filters[filter].value =
+            filters[filter]
+      })
+      /*       if (query.view) {
         ;(this[type] as ModuleType).list.view = query.view as
           | string
           | Views
@@ -234,9 +231,9 @@ export const useRootStore = defineStore("rootStore", {
         this.page = +query.page
       } else {
         this.page = 1
-      }
+      } */
 
-      const sortObj = (this[type] as ModuleType).list.sort
+      /*      const sortObj = (this[type] as ModuleType).list.sort
       const defaultSortKey = Object.keys(sortObj).find(
         (item) => sortObj[item].default === true,
       )
@@ -253,7 +250,7 @@ export const useRootStore = defineStore("rootStore", {
         sortDescItem = !!(query.sortDesc === "true")
       } else {
         sortDescItem = defaultSort[0].value[1]
-      }
+      } */
     },
 
     setFiltersCount(type: string) {
@@ -344,18 +341,23 @@ export const useRootStore = defineStore("rootStore", {
       local[key] = value
       localStorage.setItem("PARIS_IAS", JSON.stringify(local))
     },
-    updateFilters({
-      filters,
-    }: {
-      filters: Record<string, any[]>
-      type: string
-    }) {
-      if (filters[Object.keys(filters)[0]].length)
-        (this[type] as ModuleType).loading.push(Object.keys(filters)[0])
-      ;(this[type] as ModuleType).list.filters[Object.keys(filters)[0]] =
-        filters[Object.keys(filters)[0]]
-      this.page = 1
+    updateFilter(key: string, val: any, type: string) {
+      console.log("update filter: ", { key, val, type })
+      ;(this[type] as ModuleType).list.filters[key].value = val
+      const router = useRouter()
 
+      // Update the route query with the new filter
+      console.log(
+        "router.currentRoute.value.query: ",
+        router.currentRoute.value.query,
+      )
+      const query = {
+        ...router.currentRoute.value.query,
+        [key]: Array.isArray(val) ? JSON.stringify(val) : val,
+      }
+      router.push({ query })
+
+      this.page = 1
       this.update(type)
     },
     updateItemsPerPage({ value, type }: { value: number; type: string }) {
@@ -366,6 +368,13 @@ export const useRootStore = defineStore("rootStore", {
     },
     updatePage({ page, type }: { page: number; type: string }) {
       this.page = page
+      const router = useRouter()
+
+      const query = {
+        ...router.currentRoute.value.query,
+        page,
+      }
+      router.push({ query })
       this.update(type)
     },
     updateSearch({ search, type }: { search: any; type: string }) {
@@ -479,6 +488,7 @@ export const useRootStore = defineStore("rootStore", {
       }
 
       const sortBy = (this[type] as ModuleType).list.sortBy
+      console.log("sortBy: ", sortBy)
       const sortByItem = (sortBy as string[])[0]
 
       const sortDesc = (this[type] as ModuleType).list.sortDesc

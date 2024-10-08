@@ -46,21 +46,13 @@
               {{ item.firstname + " " + item.lastname
               }}<!--  TODO : call a composable to format people names (multiple, initials, capped & al. )-->
             </div>
-
             <!-- SOCIALS -->
-            <MiscAtomsSocials :socials="item.socials" />
-
+            <div class="text-center">
+              <MiscAtomsSocials :socials="item.socials" />
+            </div>
             <!-- GROUPS -->
             <div class="mt-6 align-self-center">
-              <v-chip
-                class="mr-2 mt-3"
-                variant="text"
-                v-for="(value, key, index) in item.groups"
-                :key="key"
-                v-if="key !== 'vintage'"
-              >
-                {{ $t("groups." + key) }}</v-chip
-              >
+              <PeopleGroupBadges :item="item" />
             </div>
           </template>
         </v-col>

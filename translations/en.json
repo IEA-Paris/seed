@@ -131,7 +131,59 @@
     "by-date-oldest-first": "Oldest",
     "by-date-most-recent-first": "Latest",
     "by-name-from-z-to-a": "By Name, from Z to A",
-    "by-name-from-a-to-z": "By Name, from A to Z"
+    "by-name-from-a-to-z": "By Name, from A to Z",
+    "filters": {
+      "people": {
+        "categories": {
+          "team": "Team",
+          "scientific-advisory-board": "Scientific Advisory Board",
+          "board-of-directors": "Board of directors",
+          "fellows": "Fellows",
+          "sponsor": "Sponsor"
+        },
+        "vintage": {
+          "2011": "2011",
+          "2012": "2012",
+          "2013": "2013",
+          "2014": "2014",
+          "2015": "2015",
+          "2016": "2016",
+          "2017": "2017",
+          "2018": "2018",
+          "2019": "2019",
+          "2020": "2020",
+          "2021": "2021",
+          "2022": "2022",
+          "2023": "2023",
+          "2024": "2024"
+        },
+        "program": {
+          "paris-ias-ideas": "Paris IAS Ideas",
+          "pop": "Program Oxford-Paris",
+          "fias": "French Institutes for Advanced Study",
+          "cat": "Constructive Advanced Thinking"
+        },
+        "discipline": {
+          "history": "History",
+          "philosophy": "Philosophy",
+          "sociology": "Sociology",
+          "economics": "Economics",
+          "law": "Law",
+          "political-science": "Political Science",
+          "geography": "Geography",
+          "psychology": "Psychology",
+          "education": "Education",
+          "communication": "Communication",
+          "management": "Management",
+          "marketing": "Marketing",
+          "finance": "Finance"
+        },
+        "member": {
+          "paris-1": "Paris 1"
+        }
+      },
+      "news": []
+    }
   },
   "live-stream-available": "Live stream available",
   "date-et-heure": "Date and Time",
@@ -154,24 +206,18 @@
     "project": "Related projects"
   },
   "by-author": "By {0}",
-  "0-1-found-page-2-of-3": "{0} {1} found. Page {2} of {3}",
+  "0-1-found-page-2-of-3": "No {item} found. | {n} {item} found. | {n} {item} found. ",
+  "page-0-of-1": "Page {0} of {1}",
   "items": {
-    "events": "event | event | events",
-    "news": "news | news | news",
-    "project": "project | project | projects",
-    "fellow": "fellow | fellow | fellows",
-    "people": "person | person | people",
-    "fellowship": "fellowship | fellowship | fellowships"
+    "events": "event | events",
+    "news": "news | news",
+    "project": "project | projects",
+    "fellow": "fellow | fellows",
+    "people": "person | people",
+    "fellowship": "fellowship | fellowships"
   },
   "positions-and-affiliations": "Positions and Affiliations",
   "from {0} to {1}": "from {0} to {1}",
-  "groups": {
-    "team": "team",
-    "sab": "Scientific Advisory Board",
-    "board": "Board of directors",
-    "fellow": "Fellow",
-    "sponsor": "Sponsor"
-  },
   "biography": "Biography",
   "check-the-wikipedia-page-of-the-author": "Check the wikipedia page",
   "get-in-touch-on-linkedin": "Contact on Linkedin",
@@ -190,5 +236,9 @@
   "paris-institute-for-advanced-study": "Paris Institute for Advanced Study",
   "visit": "Visit us",
   "view-larger-map": "View on a larger map",
-  "visit-the-project-website": "Visit the project website"
+  "visit-the-project-website": "Visit the project website",
+  "filters": "Filters",
+  "open-the-filter-panel": "Open the filter panel",
+  "close-the-filter-panel": "Close the filter panel",
+  "vintage": "Fellow"
 }

@@ -21,7 +21,7 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  fellow: true
+  fellows: true
   # vintage:
   #   - year: 2024
   #     name: rolling-call-for-fellows

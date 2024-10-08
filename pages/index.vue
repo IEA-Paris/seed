@@ -32,7 +32,6 @@
           ref="about"
           no-gutters
         >
-          <v-divider inset class=""></v-divider>
           <v-col cols="12" md="6" class="d-flex justify-end my-6">
             <div
               v-motion
@@ -49,7 +48,7 @@
                   delay: 500,
                 },
               }"
-              class="text-h4 text-sm-h3 text-md-h2 mt-6 pr-6"
+              class="text-h4 text-sm-h3 text-md-h2 pr-6"
               :class="mdAndUp ? 'text-right' : 'text-left'"
               :style="mdAndUp ? 'max-width: 500px' : 'padding: 0 24px'"
             >
@@ -81,7 +80,6 @@
               <ContentDoc class="text-body-2" :path="presentation" />
             </div>
           </v-col>
-          <v-divider class=""></v-divider>
         </v-row>
       </v-container>
       <div class="d-flex justify-center">
@@ -168,7 +166,7 @@ const config = useAppConfig()
 const { locale } = useI18n()
 const presentation = ref("/pages/" + locale.value + "/institute_presentation")
 
-const carousel = ref(false)
+const carousel = ref(true)
 
 const about = ref(null)
 const events = ref(null)

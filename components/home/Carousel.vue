@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0 d-flex align-md-center">
     <v-row class="justify-md-center" no-gutters>
-      <v-col cols="12" md="10" lg="8" xl="7">
+      <v-col cols="12" lg="10" xl="8">
         <div :class="{ 'd-flex ': mdAndUp }" class="align-center">
           <div :class="{ 'right-panel': mdAndUp }" class="d-flex align-center">
             <v-responsive aspect-ratio="1" class="carousel-container">
@@ -81,13 +81,13 @@ const props = defineProps({
   border: 1px solid black;
 }
 .right-panel {
-  width: 61.8vw;
+  width: min(61.8vw, 830px);
   background-color: white;
 }
 .left-panel {
   max-width: 800px;
   background-color: white;
-  margin-left: -30vw;
+  margin-left: -24vw;
   z-index: 2;
   padding: 2em;
   border: 1px solid black;

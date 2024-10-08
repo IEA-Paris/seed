@@ -171,13 +171,13 @@ export default {
         text: "people",
         dropdown: true,
         children: [
-          { text: "fellows", path: '/people?categories=["fellows"]' },
-          { text: "team", path: '/people?categories=["team"]' },
+          { text: "fellows", path: "/people?categories=fellows" },
+          { text: "team", path: "/people?categories=team" },
           {
             text: "sab",
-            path: '/people?categories=["scientific-advisory-board"]',
+            path: "/people?categories=scientific-advisory-board",
           },
-          { text: "board", path: '/people?categories=["board-of-directors"]' },
+          { text: "board", path: "/people?categories=board-of-directors" },
           { text: "browse", path: "/people" },
         ],
       },

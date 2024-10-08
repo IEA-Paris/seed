@@ -10,7 +10,7 @@
             </v-sheet> </v-col></v-row
       ></v-container>
     </section>
-    <section>
+    <section class="dark">
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="9" xl="8">
@@ -33,8 +33,10 @@
                 </v-sheet>
               </v-col>
               <v-col cols="12" md="8">
-                <v-sheet class="d-flex align-center justify-center pa-12">
-                  <ContentDoc :path="location" /> </v-sheet></v-col
+                <div
+                  class="d-flex align-center justify-center pa-12 text-white"
+                >
+                  <ContentDoc :path="location" /></div></v-col
             ></v-row> </v-col></v-row
       ></v-container>
     </section>
@@ -61,7 +63,7 @@
         ></v-container
       >
     </section>
-    <section>
+    <section class="dark">
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="9" xl="8">
@@ -81,9 +83,9 @@
                 </v-carousel>
               </v-col>
               <v-col cols="12" md="8">
-                <v-sheet class="d-flex align-center justify-center pa-12">
+                <div class="d-flex align-center justify-center pa-12">
                   <ContentDoc :path="history" />
-                </v-sheet>
+                </div>
               </v-col>
             </v-row>
           </v-col> </v-row
@@ -112,3 +114,8 @@ definePageMeta({
   }, */
 })
 </script>
+<style>
+.dark h2 a {
+  color: white;
+}
+</style>

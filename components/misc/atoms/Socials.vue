@@ -5,6 +5,7 @@
         <v-tooltip :location="location">
           <template v-slot:activator="{ props }">
             <v-btn
+              tile
               v-bind="mergeProps(props, attrs)"
               target="_blank"
               :href="getSocialId(key, value)"

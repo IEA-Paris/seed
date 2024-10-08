@@ -21,11 +21,11 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  fellow: true
-  # vintage:
-  #   - year: 2024
-  #     name: rolling-call-for-fellows
-  #     theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
+  fellows: true
+  vintage:
+    - year: 2024
+      name: rolling-call-for-fellows
+      theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
 relatedProjects:
   - title: "Positive Future"
     shortDescription: "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100"
