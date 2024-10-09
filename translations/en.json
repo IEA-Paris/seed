@@ -91,6 +91,9 @@
     "rss": "RSS",
     "github": "Visit our Github repositories"
   },
+  "fellowship": {
+    "register": "Register to this fellowship"
+  },
   "events": {
     "register": "Register to this event",
     "register-me": "Register",
@@ -240,5 +243,9 @@
   "filters": "Filters",
   "open-the-filter-panel": "Open the filter panel",
   "close-the-filter-panel": "Close the filter panel",
-  "vintage": "Fellow"
+  "vintage": "Fellow",
+  "registration-close": "registration close",
+  "since": "Since",
+  "until ": "until",
+  "until": "until"
 }
