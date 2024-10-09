@@ -39,9 +39,9 @@
         </div>
         <MiscMoleculesChipContainer
           :items="item.tags"
-          class="mt-2"
+          class="mt-n2"
         ></MiscMoleculesChipContainer>
-        <div class="d-flex">
+        <div class="d-flex mt-4">
           <FellowshipBadges :item="item"></FellowshipBadges>
         </div>
       </div>
