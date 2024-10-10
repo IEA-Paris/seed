@@ -15,7 +15,7 @@ summary: "How AI innovations are shaping the future of climate change mitigation
 files: ""
 video: ""
 bookingState: 1
-tags:
+disciplines:
   - name: "Geology"
   - name: "Hydrology"
 ---

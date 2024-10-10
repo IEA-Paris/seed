@@ -38,7 +38,7 @@
           >
         </div>
         <MiscMoleculesChipContainer
-          :items="item.tags"
+          :items="item.disciplines"
           class="mt-n2"
         ></MiscMoleculesChipContainer>
         <div class="d-flex mt-4">

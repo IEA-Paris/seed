@@ -15,7 +15,7 @@ summary: "Discover how AI is shaping the future of smart cities and sustainable 
 files: ""
 video: ""
 bookingState: 1
-tags:
+disciplines:
   - name: "Neurosciences"
   - name: "Short stay"
 ---

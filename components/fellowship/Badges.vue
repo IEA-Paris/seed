@@ -46,6 +46,8 @@ const registrationStatus = computed(() => {
   const endDate = new Date(props.item.applicationStop)
   if (startDate <= currentDate && currentDate <= endDate) {
     return true
+  } else if (currentDate >= startDate && currentDate <= endDate) {
+    return true
   } else if (currentDate > startDate && currentDate > endDate) {
     return false
   }

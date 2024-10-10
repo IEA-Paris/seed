@@ -15,7 +15,7 @@ summary: "Explore the transformative impact of AI on renewable energy technologi
 files: ""
 video: ""
 bookingState: 1
-tags:
+disciplines:
   - name: "Long stay"
   - name: "Short stay"
 ---
