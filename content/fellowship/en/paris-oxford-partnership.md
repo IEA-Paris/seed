@@ -1,9 +1,10 @@
 ---
-title: "Paris IAS Ideas"
-applicationStart: "2024-05-01T08:30:00.000Z"
-fellowshipStart: "2024-06-15T08:30:00.000Z"
-contact: "smartcities@innovation-hub.org"
-description: "The Smart Cities and AI Summit brings together global leaders, urban planners, and technologists to discuss how AI is transforming urban environments. Topics include AI-driven traffic management, energy-efficient city infrastructures, and the role of AI in enhancing urban sustainability. Featured speakers include Prof. David Turner, a leading authority on AI for urban systems, and Dr. Ana Gómez, a smart infrastructure specialist. The event will be hosted by the Global Innovation Hub."
+title: "Paris Oxford Partnership"
+applicationStart: "2024-12-31T09:00:00.000Z"
+fellowshipStart: "2024-02-01T09:00:00.000Z"
+contact: "events@energy-ai.org"
+description: "As part of the agreement established between the University of Paris, the CNRS, and the University of Oxford to promote interdisciplinary research in the humanities and social sciences, the Paris IAS welcomes Oxford scholars for short stays (one to two months).
+These scholars, who must conduct their research in collaboration with colleagues from the University of Paris or the Sorbonne Paris-Cité Alliance, are selected jointly by the university, the CNRS, and the Paris IAS. They benefit from the same conditions of residence as IAS researchers and can thus develop their research work within a leading international and interdisciplinary community."
 fellowshipDetails:
   selectionProcess: |-
       APPLICATIONS
@@ -87,30 +88,17 @@ fellowshipDetails:
   fundingPeriod: |-
         September 1 - June 30 (academic year)
 fellow: ""
-url: "https://www.innovation-hub.org/smart-cities-ai-summit"
-applicationStop: 2024-05-30T08:30:00.000Z
-fellowshipStop: 2024-06-20T08:30:00.000Z
-image: ""
-publicationDate: 2024-04-15T08:30:00.000Z
-summary: "Discover how AI is shaping the future of smart cities and sustainable urban living."
+url: "https://www.energy-ai.org/symposium-2024"
+applicationStop: "2024-11-30T09:00:00.000Z"
+fellowshipStop: "2024-11-05T09:00:00.000Z"
+image: "images/ai-renewable-symposium.jpg"
+publicationDate: 2023-12-15T09:00:00.000Z
+summary: "Explore the transformative impact of AI on renewable energy technologies."
 files: ""
 video: ""
-fellowshipType: 1
+fellowshipType: 0
 disciplines:
-  - name: "Neurosciences"
+  - name: "Mathematics"
 ---
-Launched in September 2023, the one-month writing residencies enable outstanding SSH researchers to work on an article that presents the "definitive" version of an idea or concept they've been working on but haven't had the opportunity to formalize in a clear, widely accessible publication. The program is also open to professionals who have recently held positions of high responsibility and who will formalize their experience in a publication. In both cases, we select ideas and concepts that have the potential to become influential pieces beyond their own discipline.
-
-No unsolicited applications are accepted for this program: candidates are identified by a group of 27 Editorial Fellows and the IAS Scientific Advisory Board, and are invited on a rolling basis.
-
-Among them :
-
--   Helga Nowotny
--   John Krumm
--   Uichol Kim
--   Leslie-Anne Duvic-Paoli
--   Colette Colligan
--   Leor Zmigrod
--   Jonathan Glasser
--   Lina Restrepo-Plaza
--   and 19 other leading researchers in the social sciences and humanities from around the world.
+As part of the agreement established between the University of Paris, the CNRS, and the University of Oxford to promote interdisciplinary research in the humanities and social sciences, the Paris IAS welcomes Oxford scholars for short stays (one to two months).
+These scholars, who must conduct their research in collaboration with colleagues from the University of Paris or the Sorbonne Paris-Cité Alliance, are selected jointly by the university, the CNRS, and the Paris IAS. They benefit from the same conditions of residence as IAS researchers and can thus develop their research work within a leading international and interdisciplinary community.

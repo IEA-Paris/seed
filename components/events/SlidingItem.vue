@@ -15,7 +15,9 @@
         :loading="rootStore.events.loading"
       >
       </MiscAtomsImageContainer>
-      <div class="mt-6 pl-0 text-h5 font-weight-medium sliding-item-title">
+      <div
+        class="mt-6 pl-0 text-h5 text-md-h4 font-weight-medium sliding-item-title"
+      >
         {{ item.name }}
       </div>
     </div>

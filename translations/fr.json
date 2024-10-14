@@ -77,6 +77,9 @@
   "invalid-doi-code": "DOI invalide",
   "invalid-date": "Le format de date n'est pas valide",
   "invalid-orcid": "Votre numéro ORCID n'est pas valide",
+  "fellowship": {
+    "register": "S'inscrire à cette bourse"
+  },
   "events": {
     "register": "Inscrivez vous à cet évènement",
     "key": "Évènements",
@@ -190,5 +193,11 @@
   "visit": "Modalités d'accès",
   "view-larger-map": "Voir sur une carte en plein écran",
   "hybrid-event": "Événement hybride",
-  "vintage": "Résident"
+  "vintage": "Année",
+  "short-stay": "Séjour court",
+  "long-stay": "Séjour long",
+  "in-groups": "En groupe",
+  "opening-applications-on-0": "Ouverture aux candidatures le {0}",
+  "applications-closed-since-0": "Inscriptions fermées depuis le {0}",
+  "register-until-0": "Candidatez jusqu'au {0}"
 }

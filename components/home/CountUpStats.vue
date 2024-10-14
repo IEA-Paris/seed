@@ -8,7 +8,7 @@
     <v-col
       cols="12"
       md="4"
-      class="d-flex justify-start flex-column cursor-pointer"
+      class="d-flex justify-start flex-column cursor-pointer stat-col"
       v-motion-slide-visible-once-bottom
       @click="router.push(localePath('/people'))"
       v-ripple
@@ -27,7 +27,7 @@
         ></MiscAtomsCountUp>
       </div>
 
-      <div :class="mdAndUp ? 'text-h4' : 'text-h5'">
+      <div :class="mdAndUp ? 'text-h4' : 'text-h5'" class="count-text">
         {{ $t("people-attending-our-events-since-2011") }}
       </div>
     </v-col>
@@ -35,7 +35,7 @@
     <v-col
       cols="12"
       md="4"
-      class="d-flex justify-start flex-column cursor-pointer"
+      class="d-flex justify-start flex-column cursor-pointer stat-col"
       v-motion-slide-visible-once-bottom
       @click="router.push(localePath('/activities/events'))"
       v-ripple
@@ -51,7 +51,7 @@
           :autoinit="true"
         ></MiscAtomsCountUp>
       </div>
-      <div :class="mdAndUp ? 'text-h4' : 'text-h5'">
+      <div :class="mdAndUp ? 'text-h4' : 'text-h5'" class="count-text">
         {{ $t("events-organized-at-paris-ias") }}
       </div>
     </v-col>
@@ -59,7 +59,7 @@
     <v-col
       cols="12"
       md="4"
-      class="d-flex justify-start flex-column cursor-pointer"
+      class="d-flex justify-start flex-column cursor-pointer stat-col"
       v-motion-slide-visible-once-bottom
       @click="router.push(localePath('/activities/fellowships'))"
       v-ripple
@@ -76,7 +76,7 @@
           :autoinit="true"
         ></MiscAtomsCountUp>
       </div>
-      <div :class="mdAndUp ? 'text-h4' : 'text-h5'">
+      <div :class="mdAndUp ? 'text-h4' : 'text-h5'" class="count-text">
         {{
           $t("fellowships-programs-and-research-projects-hosted-at-paris-ias")
         }}
@@ -95,4 +95,8 @@ const onIntersectionObserver = ([{ isIntersecting }]) => {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.stat-col:hover .count-text {
+  text-decoration: underline;
+}
+</style>

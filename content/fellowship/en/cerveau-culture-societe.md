@@ -1,9 +1,10 @@
 ---
-title: "Paris IAS Ideas"
+title: "The Brain, Culture and Society Program"
 applicationStart: "2024-05-01T08:30:00.000Z"
 fellowshipStart: "2024-06-15T08:30:00.000Z"
 contact: "smartcities@innovation-hub.org"
-description: "The Smart Cities and AI Summit brings together global leaders, urban planners, and technologists to discuss how AI is transforming urban environments. Topics include AI-driven traffic management, energy-efficient city infrastructures, and the role of AI in enhancing urban sustainability. Featured speakers include Prof. David Turner, a leading authority on AI for urban systems, and Dr. Ana Gómez, a smart infrastructure specialist. The event will be hosted by the Global Innovation Hub."
+description: "The Paris IAS promotes a specific program to link mind and brain, humanities and social sciences and neurosciences. Particular attention is paid to topics related to major societal challenges: child development, ageing, health, education and learning, addictions, the effect of new digital and information technologies, tolerance, aggressiveness, fanaticism, etc.
+The aim of this dialogue is to enable the humanities and social sciences, as well as the brain sciences, to renew their perspectives on classical objects and to open new fields of research with bold and innovative interdisciplinary approaches."
 fellowshipDetails:
   selectionProcess: |-
       APPLICATIONS
@@ -95,22 +96,12 @@ publicationDate: 2024-04-15T08:30:00.000Z
 summary: "Discover how AI is shaping the future of smart cities and sustainable urban living."
 files: ""
 video: ""
-fellowshipType: 1
+fellowshipType: 0
 disciplines:
   - name: "Neurosciences"
 ---
-Launched in September 2023, the one-month writing residencies enable outstanding SSH researchers to work on an article that presents the "definitive" version of an idea or concept they've been working on but haven't had the opportunity to formalize in a clear, widely accessible publication. The program is also open to professionals who have recently held positions of high responsibility and who will formalize their experience in a publication. In both cases, we select ideas and concepts that have the potential to become influential pieces beyond their own discipline.
-
-No unsolicited applications are accepted for this program: candidates are identified by a group of 27 Editorial Fellows and the IAS Scientific Advisory Board, and are invited on a rolling basis.
-
-Among them :
-
--   Helga Nowotny
--   John Krumm
--   Uichol Kim
--   Leslie-Anne Duvic-Paoli
--   Colette Colligan
--   Leor Zmigrod
--   Jonathan Glasser
--   Lina Restrepo-Plaza
--   and 19 other leading researchers in the social sciences and humanities from around the world.
+The Paris IAS promotes a specific program to link mind and brain, humanities and social sciences and neurosciences. Particular attention is paid to topics related to major societal challenges: child development, ageing, health, education and learning, addictions, the effect of new digital and information technologies, tolerance, aggressiveness, fanaticism, etc.
+The aim of this dialogue is to enable the humanities and social sciences, as well as the brain sciences, to renew their perspectives on classical objects and to open new fields of research with bold and innovative interdisciplinary approaches.
+**[*More information*](https://www.paris-iea.fr/en/events-feed/22964-brain-culture-and-society-program)
+The Paris IAS is a member of the [FIAS program](https://www.fias-fp.eu/) (MSCA COFUND), which offers high-level researchers in the humanities and social sciences the opportunity to carry out 10-month research residencies in five French Institutes for Advanced Study. Starting in 2021, its annual call for applications for non-thematic fellowships and fellowships in the Brain, Culture and Society program will be covered by the FIAS program.**
+[***More information about the next call for applications under the FIAS program***](https://www.paris-iea.fr/en/apply/calls-for-applications)

@@ -2,7 +2,7 @@
   <v-row justify="center">
     <v-col cols="12" sm="11" md="8" lg="8" xl="6">
       <v-row no-gutters class="justify-center">
-        <v-col cols="12" sm="10" md="6" lg="4" xl="3" class="text-center">
+        <v-col cols="12" sm="10" md="6" class="text-center">
           <!--   PEOPLE IMAGE -->
           <MiscAtomsImageContainer
             cover
@@ -59,7 +59,7 @@
       </v-row>
 
       <!-- DIVIDERS -->
-      <v-responsive class="mx-auto my-9" width="120">
+      <v-responsive class="mx-auto my-6" width="120">
         <v-divider class="mb-1" />
         <v-divider />
       </v-responsive>

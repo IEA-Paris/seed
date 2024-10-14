@@ -111,10 +111,10 @@ const props = defineProps({
   text-align: right;
 }
 .carousel-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 400;
   font-family: "Roboto", serif;
-  line-height: 2rem;
+  line-height: 2.2rem;
 }
 .v-carousel__controls {
   color: white;

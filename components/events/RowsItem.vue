@@ -52,7 +52,7 @@
               class="text-black"
             >
               <p
-                class="text-body-1 text-wrap clamped-text"
+                class="text-wrap clamped-text"
                 :style="
                   '-webkit-line-clamp:' +
                   [5, 5, 5, 10, 12, 14][
@@ -69,41 +69,6 @@
             </div>
           </div>
         </v-col>
-
-        <!-- <v-col cols="12" lg="3">
-          <v-skeleton-loader
-            v-if="rootStore.loading || rootStore.events.loading"
-            type="text,paragraph, text, paragraph"
-          >
-          </v-skeleton-loader>
-
-          <div v-else>
-            <div class="text-overline">
-              {{ $t("date-and-time") }}
-            </div>
-            <div class="text-body-1">
-              <template v-if="item.date_text && item.date_text.length">
-                {{ item.date_text }}
-              </template>
-              <template v-else>
-                {{ formatDate(item.start, locale) }}
-              </template>
-            </div>
-            <template v-if="item.location">
-              <div class="text-overline mt-6">
-                {{ $t("location") }}
-              </div>
-              <div class="text-body-1">
-                <template v-if="item.eventType === 0">
-                  {{ $t("online") }}
-                </template>
-                <template v-else>
-                  {{ item.location }}
-                </template>
-              </div>
-            </template>
-          </div>
-        </v-col> -->
       </v-row>
       <v-row
         class="d-flex flex-row align-center flex-wrap"

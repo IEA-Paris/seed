@@ -31,13 +31,13 @@
     ></v-skeleton-loader>
 
     <template v-else>
-      <div class="text-h4 text-sm-h3 text-md-h4 my-6">
+      <div class="text-h5 text-sm-h3 text-md-h4 text-md-h4 my-6">
         {{ item.title }}
       </div>
 
       <ContentRenderer
         :value="item"
-        class="text-body-1 mt-n3 clamped-text"
+        class="mt-n3 clamped-text"
         :style="
           '-webkit-line-clamp:' +
           [5, 5, 4, 8, 10][

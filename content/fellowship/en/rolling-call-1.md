@@ -1,9 +1,13 @@
 ---
-title: "Paris IAS Ideas"
-applicationStart: "2024-05-01T08:30:00.000Z"
-fellowshipStart: "2024-06-15T08:30:00.000Z"
-contact: "smartcities@innovation-hub.org"
-description: "The Smart Cities and AI Summit brings together global leaders, urban planners, and technologists to discuss how AI is transforming urban environments. Topics include AI-driven traffic management, energy-efficient city infrastructures, and the role of AI in enhancing urban sustainability. Featured speakers include Prof. David Turner, a leading authority on AI for urban systems, and Dr. Ana Gómez, a smart infrastructure specialist. The event will be hosted by the Global Innovation Hub."
+title: "Rolling Call for 10 months fellowships"
+applicationStart: "2024-03-01T10:00:00.000Z"
+fellowshipStart: "2024-04-01T10:00:00.000Z"
+contact: climate.ai@future-perspectives.org
+description: "Research projects proposed at the Paris IAS can be in all disciplines and themes of the humanities and social sciences and must have an interdisciplinary dimension.
+
+The essential selection criterion is the excellence of the project and its leader. The Paris IAS aims above all to support original projects (methods, interdisciplinarity, theoretical innovation...), which significantly advance the state of the art. The impact of the research beyond the discipline and/or the academic field is also taken into account.
+
+The Paris IAS also supports work aimed at addressing major and urgent threats to the future of our societies, giving researchers complete freedom to choose the theme, on the sole condition that they respond to these vital issues through fundamental research or intersectoral collaborative projects (associating non-academic actors: the political, economic, and associative worlds)."
 fellowshipDetails:
   selectionProcess: |-
       APPLICATIONS
@@ -87,30 +91,31 @@ fellowshipDetails:
   fundingPeriod: |-
         September 1 - June 30 (academic year)
 fellow: ""
-url: "https://www.innovation-hub.org/smart-cities-ai-summit"
-applicationStop: 2024-05-30T08:30:00.000Z
-fellowshipStop: 2024-06-20T08:30:00.000Z
-image: ""
-publicationDate: 2024-04-15T08:30:00.000Z
-summary: "Discover how AI is shaping the future of smart cities and sustainable urban living."
+url: "https://www.future-perspectives.org/climate-ai-conference-2024"
+applicationStop: "2024-12-15T10:00:00.000Z"
+fellowshipStop: "2024-04-05T10:00:00.000Z"
+image: "images/climate-ai-conference.jpg"
+publicationDate: "2024-02-01T10:00:00.000Z"
+summary: "A non-thematic fellowship program focused on interdisciplinary collaboration"
 files: ""
 video: ""
-fellowshipType: 1
+fellowshipType: 0
 disciplines:
-  - name: "Neurosciences"
+  - name: "All disciplines"
 ---
-Launched in September 2023, the one-month writing residencies enable outstanding SSH researchers to work on an article that presents the "definitive" version of an idea or concept they've been working on but haven't had the opportunity to formalize in a clear, widely accessible publication. The program is also open to professionals who have recently held positions of high responsibility and who will formalize their experience in a publication. In both cases, we select ideas and concepts that have the potential to become influential pieces beyond their own discipline.
+Research projects proposed at the Paris IAS can be **in all disciplines and themes of the humanities and social sciences and must have an interdisciplinary dimension.**
+The essential selection criterion is **the excellence of the project and its leader**. The Paris IAS aims above all to support original projects (methods, interdisciplinarity, theoretical innovation...), which significantly advance the state of the art. **The impact of the research beyond the discipline and/or the academic field is also taken into account.**
 
-No unsolicited applications are accepted for this program: candidates are identified by a group of 27 Editorial Fellows and the IAS Scientific Advisory Board, and are invited on a rolling basis.
+The Paris IAS also supports work aimed at addressing **major and urgent threats to the future of our societies**, giving researchers complete freedom to choose the theme, on the sole condition that they respond to these vital issues through fundamental research or intersectoral collaborative projects (associating non-academic actors: the political, economic, and associative worlds).
 
-Among them :
+[^1]: ### Support for scientific activities
 
--   Helga Nowotny
--   John Krumm
--   Uichol Kim
--   Leslie-Anne Duvic-Paoli
--   Colette Colligan
--   Leor Zmigrod
--   Jonathan Glasser
--   Lina Restrepo-Plaza
--   and 19 other leading researchers in the social sciences and humanities from around the world.
+      Fellows can receive financial and material support for their research work and activities. This includes in particular the organization of scientific events (study days, conferences,...), doctoral training and workshops with non-academic collaborators or audiences, as well as the translation and publication of texts.
+
+      **Access to partner research libraries**
+
+      Agreements between the IAS and its partner institutions enable residents to benefit from privileged access and extended lending rights in the main Parisian libraries from the moment of their arrival (link to the booklet bibliotheque de genevieve in pdf to download).
+
+      **Communication and promotion**
+
+      The Paris IAS announces the participation of its fellows in scientific events and their publications on its website and in its monthly newsletter. Each fellow also has a dedicated page on the IAS website, as well as those of its partners Netias and Ubias, giving a brief description of his or her background and research project.
