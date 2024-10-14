@@ -5,12 +5,12 @@
       :loading="rootStore.people.loading"
       :src="item.image"
       :ratio="1 / 1"
-      :link="item.firstname + ' ' + item.lastname"
-      name="people-slug"
+      :name="item.firstname + ' ' + item.lastname"
+      link="people-slug"
       :slug="getSlugFromPath(item._path)"
     />
     <div
-      class="mt-3 pl-0 text-left text-h5 font-weight-medium sliding-item-title"
+      class="mt-3 pl-0 text-left text-h5 text-md-h4 font-weight-medium sliding-item-title"
     >
       {{ item.firstname + " " + item.lastname }}
     </div>

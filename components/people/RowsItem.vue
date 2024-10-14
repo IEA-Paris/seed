@@ -38,7 +38,7 @@
               params: { slug: getSlugFromPath(item._path) },
             })
           "
-          class="text-wrap text-h4 text-black mb-2"
+          class="text-wrap text-h5 text-md-h4 text-black mb-2"
         >
           {{ item.title }}
         </NuxtLink>

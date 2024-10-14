@@ -77,7 +77,7 @@
               class="d-flex align-center justify-center pa-6 presentation-pitch"
               style="max-width: 600px"
             >
-              <ContentDoc class="text-body-2" :path="presentation" />
+              <ContentDoc :path="presentation" />
             </div>
           </v-col>
         </v-row>

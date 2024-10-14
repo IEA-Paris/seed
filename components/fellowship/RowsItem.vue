@@ -1,6 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="">
     <div v-ripple class="border-thin pa-6">
+      <FellowshipBadges class="mt-6" :item="item"></FellowshipBadges>
       <div class="d-flex">
         <nuxt-link
           :to="
@@ -25,7 +26,7 @@
           class="text-black"
         >
           <p
-            class="text-body-1 text-wrap clamped-text"
+            class="text-wrap clamped-text"
             :style="
               '-webkit-line-clamp:' +
               [5, 5, 5, 10, 12, 14][
@@ -41,7 +42,6 @@
         :items="[...fellowshipType, ...item.disciplines]"
         class="mt-2"
       ></MiscMoleculesChipContainer>
-      <FellowshipBadges class="mt-6" :item="item"></FellowshipBadges>
     </div>
   </v-col>
 </template>
