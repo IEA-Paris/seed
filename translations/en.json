@@ -243,9 +243,11 @@
   "filters": "Filters",
   "open-the-filter-panel": "Open the filter panel",
   "close-the-filter-panel": "Close the filter panel",
-  "vintage": "Fellow",
-  "registration-close": "registration close",
-  "since": "Since",
-  "until ": "until",
-  "until": "until"
+  "vintage": "Year",
+  "short-stay": "Short stay",
+  "long-stay": "Long stay",
+  "in-groups": "In group",
+  "opening-applications-on-0": "Open to applications on {0}",
+  "applications-closed-since-0": "Applications closed since {0}",
+  "register-until-0": "Register until {0}"
 }

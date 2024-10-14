@@ -193,9 +193,11 @@
   "visit": "Modalités d'accès",
   "view-larger-map": "Voir sur une carte en plein écran",
   "hybrid-event": "Événement hybride",
-  "vintage": "Résident",
-  "registration-close": "clôture des inscriptions",
-  "since": "Depuis le",
-  "until ": "jusqu'au",
-  "until": "jusqu'au"
+  "vintage": "Année",
+  "short-stay": "Séjour court",
+  "long-stay": "Séjour long",
+  "in-groups": "En groupe",
+  "opening-applications-on-0": "Ouverture aux candidatures le {0}",
+  "applications-closed-since-0": "Inscriptions fermées depuis le {0}",
+  "register-until-0": "Candidatez jusqu'au {0}"
 }

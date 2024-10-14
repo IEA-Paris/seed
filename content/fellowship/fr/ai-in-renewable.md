@@ -7,7 +7,7 @@ description: "Join us for an insightful symposium where experts will discuss the
 fellowshipDetails: ""
 fellow: ""
 url: "https://www.energy-ai.org/symposium-2024"
-applicationStop: "2024-11-30T09:00:00.000Z"
+applicationStop: "2025-01-30T09:00:00.000Z"
 fellowshipStop: "2024-11-05T09:00:00.000Z"
 image: "images/ai-renewable-symposium.jpg"
 publicationDate: 2023-12-15T09:00:00.000Z
@@ -16,5 +16,5 @@ files: ""
 video: ""
 fellowshipType: 2
 disciplines:
-  - name: "Mathematics"
+  - name: "Geology"
 ---

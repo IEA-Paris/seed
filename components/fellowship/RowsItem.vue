@@ -1,52 +1,49 @@
 <template>
-  <v-row class="my-8 mx-2 pa-6 border-thin" no-gutters>
-    <v-col cols="12" md="8">
-      <div class="">
-        <div>
-          <nuxt-link
-            :to="
-              localePath({
-                name: 'activities-fellowships-slug',
-                params: { slug: getSlugFromPath(item._path) },
-              })
-            "
-            class="text-h4 text-black text-wrap mt-4"
-          >
-            {{ item.title }}
-          </nuxt-link>
-
-          <nuxt-link
-            :to="
-              localePath({
-                name: 'activities-fellowships-slug',
-                params: { slug: getSlugFromPath(item._path) },
-              })
-            "
-            class="text-black"
-          >
-            <p
-              class="text-body-1 text-wrap clamped-text"
-              :style="
-                '-webkit-line-clamp:' +
-                [5, 5, 5, 10, 12, 14][
-                  ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-                ]
-              "
-            >
-              {{ item.description }}
-            </p></nuxt-link
-          >
-        </div>
-        <MiscMoleculesChipContainer
-          :items="item.disciplines"
-          class="mt-n2"
-        ></MiscMoleculesChipContainer>
-        <div class="d-flex mt-4">
-          <FellowshipBadges :item="item"></FellowshipBadges>
-        </div>
+  <v-col cols="12" md="6" class="">
+    <div v-ripple class="border-thin pa-6">
+      <div class="d-flex">
+        <nuxt-link
+          :to="
+            localePath({
+              name: 'activities-fellowships-slug',
+              params: { slug: getSlugFromPath(item._path) },
+            })
+          "
+          class="text-h4 text-black text-wrap mt-4 pb-4"
+        >
+          {{ item.title }}
+        </nuxt-link>
       </div>
-    </v-col>
-  </v-row>
+      <div class="d-flex">
+        <nuxt-link
+          :to="
+            localePath({
+              name: 'activities-fellowships-slug',
+              params: { slug: getSlugFromPath(item._path) },
+            })
+          "
+          class="text-black"
+        >
+          <p
+            class="text-body-1 text-wrap clamped-text"
+            :style="
+              '-webkit-line-clamp:' +
+              [5, 5, 5, 10, 12, 14][
+                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+              ]
+            "
+          >
+            {{ item.description }}
+          </p></nuxt-link
+        >
+      </div>
+      <MiscMoleculesChipContainer
+        :items="[...fellowshipType, ...item.disciplines]"
+        class="mt-2"
+      ></MiscMoleculesChipContainer>
+      <FellowshipBadges class="mt-6" :item="item"></FellowshipBadges>
+    </div>
+  </v-col>
 </template>
 
 <script setup>
@@ -68,5 +65,14 @@ const props = defineProps({
     required: true,
   },
 })
+const fellowshipType = ref([
+  ...(props.item.fellowshipType === 2
+    ? [{ name: "short-stay" }, { name: "in-groups" }]
+    : [
+        {
+          name: ["long-stay", "short-stay"][props.item.fellowshipType],
+        },
+      ]),
+])
 </script>
 <style lang="scss"></style>

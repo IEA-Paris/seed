@@ -60,6 +60,9 @@ const getItems = (name) => {
     value: item,
   }))
 }
+onMounted(() => {
+  rootStore.loadRouteQuery(props.type)
+})
 /* const filterValue = computed({
   get(name) {
     console.log("name: ", name)

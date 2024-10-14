@@ -1,39 +1,40 @@
 <template>
-  <div v-if="registrationStatus">
-    <FellowshipRegisterModal :item="item"></FellowshipRegisterModal>
-    <v-btn
-      color="grey-lighten-3"
-      flat
-      rounded="0"
-      size="small"
-      class="my-2 mx-4"
-    >
-      {{ $t("until") + " " + transformerDate(item.applicationStop) }}
-    </v-btn>
+  <div class="text-overline" v-if="registrationStatus === 0">
+    {{
+      $t("opening-applications-on-0", [getLocalizedDate(item.applicationStart)])
+    }}
   </div>
 
-  <div v-else>
-    <v-btn color="grey-lighten-3" flat rounded="0" size="small" class="my-2">
-      <template v-slot:append>
-        <v-icon class="text-green" size="x-large"> mdi-circle-medium</v-icon>
-      </template>
-      {{ $t("registration-close") }}
-    </v-btn>
-    <v-btn
-      color="grey-lighten-3"
-      flat
-      rounded="0"
-      size="small"
-      class="my-2 mx-4"
-    >
-      {{ $t("since") + " " + transformerDate(item.applicationStop) }}
-    </v-btn>
-  </div>
+  <FellowshipRegisterModal
+    :item="item"
+    v-else-if="registrationStatus === 1"
+    class="mr-2"
+  ></FellowshipRegisterModal>
+
+  <v-btn
+    color="grey-lighten-3"
+    flat
+    rounded="0"
+    size="small"
+    class="my-2"
+    v-else-if="registrationStatus === 2"
+  >
+    <template v-slot:append>
+      <v-icon class="text-grey" size="x-large"> mdi-circle-medium</v-icon>
+    </template>
+    {{
+      $t("applications-closed-since-0", [
+        getLocalizedDate(item.applicationStop),
+      ])
+    }}
+  </v-btn>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
 const { locale, locales } = useI18n()
+const { $i18n } = useNuxtApp()
+
 const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay()
 
 const props = defineProps({
@@ -44,23 +45,17 @@ const registrationStatus = computed(() => {
   const currentDate = new Date()
   const startDate = new Date(props.item.applicationStart)
   const endDate = new Date(props.item.applicationStop)
-  if (startDate <= currentDate && currentDate <= endDate) {
-    return true
-  } else if (currentDate >= startDate && currentDate <= endDate) {
-    return true
-  } else if (currentDate > startDate && currentDate > endDate) {
-    return false
+  switch (true) {
+    case currentDate < startDate:
+      return 0
+    case currentDate > startDate && currentDate < endDate:
+      return 1
+    case currentDate > startDate && currentDate > endDate:
+      return 2
+    default:
+      return false
   }
 })
-
-function transformerDate(dateIso) {
-  const date = new Date(dateIso)
-  const options = { year: "numeric", month: "long", day: "numeric" }
-  // return new Intl.DateTimeFormat(this.$i18n.locale, options).format(date) //TODO: Voir avec Antoine
-  // console.log("locale", locale)
-  // console.log("locales", locales)
-  return new Intl.DateTimeFormat("en-En", options).format(date)
-}
 </script>
 
 <style lang="scss" scoped></style>

@@ -6,13 +6,13 @@
         flat
         rounded="0"
         size="small"
-        v-bind="activatorProps"
+        v-bind="mergeProps(activatorProps, attrs)"
         class="my-2"
       >
         <template v-slot:append>
           <v-icon class="text-green" size="x-large"> mdi-circle-medium</v-icon>
         </template>
-        {{ $t("inscription-ouverte") }}
+        {{ $t("register-until-0", [getLocalizedDate(item.applicationStop)]) }}
       </v-btn>
     </template>
 
@@ -36,3 +36,11 @@
     </template>
   </v-dialog>
 </template>
+<script setup>
+import { mergeProps } from "vue"
+import { useAttrs } from "vue"
+const attrs = useAttrs()
+const props = defineProps({
+  item: { type: Object, required: true },
+})
+</script>
