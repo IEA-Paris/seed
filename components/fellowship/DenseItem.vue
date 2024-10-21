@@ -8,13 +8,16 @@
       )
     "
   >
-    <v-col align-self="center" cols="2">{{
-      formatDate(item.publicationDate)
-    }}</v-col>
-    <v-col align-self="center" cols="6" class="text-h6">
+    <v-col align-self="center" cols="8" class="text-h6">
       {{ item.title }}
+      <FellowshipBadges :item="item"></FellowshipBadges>
     </v-col>
-    <v-col align-self="center" cols="4"> </v-col>
+    <v-col align-self="center" cols="4">
+      <MiscMoleculesChipContainer
+        :items="[...fellowshipType, ...item.disciplines]"
+        class="mt-2"
+      ></MiscMoleculesChipContainer
+    ></v-col>
   </v-row>
 </template>
 <script setup>
@@ -35,4 +38,13 @@ const props = defineProps({
     required: true,
   },
 })
+const fellowshipType = ref([
+  ...(props.item.fellowshipType === 2
+    ? [{ name: "short-stay" }, { name: "in-groups" }]
+    : [
+        {
+          name: ["long-stay", "short-stay"][props.item.fellowshipType],
+        },
+      ]),
+])
 </script>
