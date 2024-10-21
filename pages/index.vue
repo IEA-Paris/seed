@@ -74,7 +74,7 @@
               color="transparent"
               flat
               id="presentation"
-              class="d-flex align-center justify-center pa-6 presentation-pitch"
+              class="d-flex align-center justify-center px-6 pb-6 pt-0 mt-md-6 presentation-pitch"
               style="max-width: 600px"
             >
               <ContentDoc :path="presentation" />

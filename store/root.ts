@@ -212,16 +212,18 @@ export const useRootStore = defineStore("rootStore", {
     loadRouteQuery(type: string) {
       const { currentRoute } = useRouter()
       const query = currentRoute.value.query
-
-      const filters = JSON.parse(query as string)
-      Object.keys(filters).forEach((filter) => {
-        if (
-          Object.keys((this[type] as ModuleType).list.filters).includes(filter)
-        )
-          (this[type] as ModuleType).list.filters[filter].value =
-            filters[filter]
-      })
-      /*       if (query.view) {
+      if (query?.length) {
+        const filters = JSON.parse(query as string)
+        Object.keys(filters).forEach((filter) => {
+          if (
+            Object.keys((this[type] as ModuleType).list.filters).includes(
+              filter,
+            )
+          )
+            (this[type] as ModuleType).list.filters[filter].value =
+              filters[filter]
+        })
+        /*       if (query.view) {
         ;(this[type] as ModuleType).list.view = query.view as
           | string
           | Views
@@ -233,7 +235,7 @@ export const useRootStore = defineStore("rootStore", {
         this.page = 1
       } */
 
-      /*      const sortObj = (this[type] as ModuleType).list.sort
+        /*      const sortObj = (this[type] as ModuleType).list.sort
       const defaultSortKey = Object.keys(sortObj).find(
         (item) => sortObj[item].default === true,
       )
@@ -251,21 +253,31 @@ export const useRootStore = defineStore("rootStore", {
       } else {
         sortDescItem = defaultSort[0].value[1]
       } */
+      }
     },
 
     setFiltersCount(type: string) {
-      const filters = (this[type] as ModuleType).list.filters
-      const filtersCount = Object.keys(filters)
+      let filtersCount = 0 as number
+      Object.keys((this[type] as ModuleType).list.filters)
         // remove empty values
-        .filter(
-          (filter) =>
-            (typeof filters[filter] === "boolean" &&
-              filters[filter] !== null &&
-              filters[filter] !== undefined) ||
-            (Array.isArray(filters[filter]) && filters[filter].length) ||
-            (typeof filters[filter] === "object" &&
-              Object.keys(filters[filter]).length),
-        ).length
+        .forEach((filter) => {
+          console.log("filter: ", filter) /* 
+          console.log("filters[filter]?.value: ", filters[filter].value)
+          */ /*  console.log(
+            'typeof filters[filter]?.value !== "undefined": ',
+            typeof filters[filter]?.value !== "undefined",
+          ) */
+          if (
+            (this[type] as ModuleType).list.filters[filter]?.value?.length &&
+            typeof (this[type] as ModuleType).list.filters[filter]?.value !==
+              "undefined"
+          ) {
+            filtersCount++
+          }
+          return filtersCount
+        })
+
+      console.log("filtersCount: ", filtersCount)
       ;(this[type] as ModuleType).list.filtersCount = filtersCount
     },
     setBlankFilterLoad(type: string) {

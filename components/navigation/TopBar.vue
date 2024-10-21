@@ -6,7 +6,7 @@
     <!-- <nuxt-link :to="localePath('/')" class="text-black">{{
         mdAndUp ? $t("paris-institute-for-advanced-study") : $t("paris-ias")
       }}</nuxt-link> -->
-    <div class="d-flex align-start pl-3" v-if="mdAndUp">
+    <div class="d-flex align-start pl-3" v-ripple v-if="mdAndUp">
       <v-img
         src="/logo_text.png"
         alt="Paris IAS"

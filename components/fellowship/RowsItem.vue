@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="">
     <div v-ripple class="border-thin pa-6">
-      <FellowshipBadges class="mt-6" :item="item"></FellowshipBadges>
+      <FellowshipBadges :item="item"></FellowshipBadges>
       <div class="d-flex">
         <nuxt-link
           :to="

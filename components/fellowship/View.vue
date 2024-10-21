@@ -110,7 +110,7 @@ import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
 
 const { name, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
-const accordeon = ref(0)
+const accordeon = ref(-1)
 const localePath = useLocalePath()
 const router = useRouter()
 const { locale } = useI18n()

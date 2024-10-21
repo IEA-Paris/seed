@@ -13,7 +13,7 @@
         <v-icon left>mdi-plus</v-icon>
         {{ $t("new-x", { item: $tc("x-" + type, 1) }) }}
       </v-btn> -->
-      <div class="d-flex mb-3">
+      <div class="d-flex">
         <ListAtomsFiltersMenu
           :open="filtersOpen"
           @open="filtersOpen = $event"
@@ -23,7 +23,7 @@
         <ListAtomsSortMenu :type="type" />
       </div>
       <v-expand-transition>
-        <div v-if="filtersOpen" class="mb-8">
+        <div v-if="filtersOpen" class="mb-7">
           <ListMoleculesFilters :type="type" /></div
       ></v-expand-transition>
       <ListAtomsSearchInput :type="type" />

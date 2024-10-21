@@ -66,6 +66,7 @@
           <v-btn
             class="mt-4"
             variant="outlined"
+            tile
             size="small"
             :to="
               localePath({

@@ -42,7 +42,10 @@
               localePath('/news/' + getSlugFromPath(featured[selected]._path))
             "
           >
-            <div class="text-h4 text-sm-h3 text-md-h4 mb-6" v-motion-fade>
+            <div
+              class="text-h4 text-sm-h3 text-md-h4 text-lg-h3 mb-6"
+              v-motion-fade
+            >
               <v-chip class="mb-4">{{
                 $t("news.categories." + featured[selected].category)
               }}</v-chip>
@@ -87,7 +90,7 @@ const props = defineProps({
 .left-panel {
   max-width: 800px;
   background-color: white;
-  margin-left: -24vw;
+  margin-left: max(-19.1vw, -815px);
   z-index: 2;
   padding: 2em;
   border: 1px solid black;
@@ -104,9 +107,6 @@ const props = defineProps({
   }
 }
 .carousel-title {
-  font-size: 3rem;
-  font-weight: 400;
-  font-family: "Roboto", serif;
   line-height: 4.5rem;
   text-align: right;
 }
