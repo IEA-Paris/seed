@@ -56,6 +56,10 @@
         <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
           {{ item.title }}
         </div>
+
+        <div class="d-flex text-wrap text-h6 text-black mt-3" v-if="mdAndUp">
+          {{ item.description }}
+        </div>
         <div
           class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-4 mx-md-6"
         >

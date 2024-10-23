@@ -28,6 +28,7 @@ tags:
 published: true
 pinned: true
 title: "Explorer les couches de la Terre : Un voyage à travers la géologie"
+description: "Découvrez des stratégies concrètes pour lutter contre le changement climatique, en mettant l'accent sur les énergies durables, les politiques environnementales et les technologies innovantes"
 date: 2023-06-10T18:00:00.000+00:00
 authors:
   - firstname: "Marie"
@@ -56,7 +57,7 @@ relatedProjects:
     shortDescription: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en matière d'alimentation."
     description: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en matière d'alimentation."
     url: "https://thesocioscope.org/"
-    image:  "/images/logo_typo_black.svg"
+    image: "/images/logo_typo_black.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"

@@ -121,7 +121,6 @@
     "0-items-found-with-1-filter": "No {1} found with {2} filters.|1 {1} found with {2} filters. | {0} {1} found with {2} filters.",
     "0-items-found-searching-for-with-1-filter": "{1} found searching for \"{2}\" with {3} filters.| {0} {1} found searching for \"{2}\" with {3} filters. | {0} {1} found searching for \"{2}\" with {3} filters.",
     "page-0-of-1": "Page {0} of {1}",
-
     "search-type": "Search {0}",
     "tiles": "Tiles",
     "list": "List",
@@ -226,7 +225,11 @@
           "colloquium": "Colloquium",
           "fellow-presentation": "Fellow's presentation"
         },
-        "organiserCategory": ["Paris IAS", "Fellow", "External"],
+        "organiserCategory": [
+          "Paris IAS",
+          "Fellow",
+          "External"
+        ],
         "disciplines": {
           "history": "History",
           "philosophy": "Philosophy",
@@ -344,5 +347,6 @@
   "in-groups": "In group",
   "opening-applications-on-0": "Open to applications on {0}",
   "applications-closed-since-0": "Applications closed since {0}",
-  "register-until-0": "Register until {0}"
+  "register-until-0": "Register until {0}",
+  "register": "register"
 }

@@ -28,6 +28,7 @@ tags:
 published: true
 pinned: true
 title: "Mitigating Climate Change: A Roadmap to a Sustainable Future"
+description: "Discover actionable strategies for combating climate change, focusing on sustainable energy, environmental policies, and innovative technologies"
 date: 2023-02-22T19:00:00.000+00:00
 authors:
   - firstname: "Laura"
@@ -56,7 +57,7 @@ relatedProjects:
     shortDescription: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     description: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     url: "https://thesocioscope.org/"
-    image:  "/images/logo_typo_black.svg"
+    image: "/images/logo_typo_black.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"

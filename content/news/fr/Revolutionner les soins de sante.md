@@ -28,6 +28,7 @@ tags:
 published: true
 pinned: true
 title: "Révolutionner les soins de santé : Progrès en biotechnologie et génétique"
+description: "Explorez les innovations de pointe en biotechnologie et en génétique qui transforment le domaine de la santé"
 date: 2024-01-15T14:00:00.000+00:00
 authors:
   - firstname: "Alice"
@@ -56,7 +57,7 @@ relatedProjects:
     shortDescription: "Le Socioscope est dédié à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation."
     description: "Le Socioscope est dédié à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation."
     url: "https://thesocioscope.org/"
-    image:  "/images/logo_typo_black.svg"
+    image: "/images/logo_typo_black.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"

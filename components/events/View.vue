@@ -54,7 +54,7 @@
       <v-col cols="12" lg="3" v-if="lgAndUp"> </v-col>
     </v-row>
 
-    <v-row class="mt-md-8 mt-lg-10 mt-xl-12">
+    <v-row class="mt-md-3 mt-lg-10 mt-xl-12">
       <v-col
         class="d-flex flex-column"
         cols="12"
@@ -104,8 +104,18 @@
               ></iframe
             ></v-responsive>
           </div>
+          <div class="mt-md-4 mt-lg-6 mt-xl-8">
+            <v-btn
+              class="my-6 d-flex"
+              variant="outlined"
+              href="/"
+              target="_blank"
+            >
+              {{ $t("register") }}
+            </v-btn>
+          </div>
 
-          <v-sheet class="mt-md-8 mt-lg-10 mt-xl-12">
+          <v-sheet class="mt-md-0 mt-lg-2 mt-xl-4">
             <v-list>
               <v-list-subheader class="text-overline font-weight-bold">{{
                 $t("document")

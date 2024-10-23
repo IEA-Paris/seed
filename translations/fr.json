@@ -199,5 +199,6 @@
   "in-groups": "En groupe",
   "opening-applications-on-0": "Ouverture aux candidatures le {0}",
   "applications-closed-since-0": "Inscriptions fermées depuis le {0}",
-  "register-until-0": "Candidatez jusqu'au {0}"
+  "register-until-0": "Candidatez jusqu'au {0}",
+  "register": "s'enregistrer"
 }

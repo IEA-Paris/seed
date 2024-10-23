@@ -28,6 +28,7 @@ tags:
 published: true
 pinned: true
 title: "Exploring the Earth's Layers: A Journey into Geology"
+description: "Dive into the fascinating world of geology, exploring the Earth's structure"
 date: 2023-06-10T18:00:00.000+00:00
 authors:
   - firstname: "Marie"
