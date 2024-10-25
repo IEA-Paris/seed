@@ -141,8 +141,14 @@
     </section>
     <section class="d-flex flex-column justify-center align-center">
       <v-container>
-        <MiscAtomsSlidingCarousel type="people" key="people" lazy ref="fellows">
-          {{ $t("discover-our-0-fellows", [academicYear]) }}
+        <MiscAtomsSlidingCarousel
+          :items="upcomingFellows"
+          type="people"
+          key="people"
+          lazy
+          ref="fellows"
+        >
+          {{ $t("discover-our-0-news", [academicYear]) }}
         </MiscAtomsSlidingCarousel></v-container
       >
     </section>
@@ -191,6 +197,14 @@ const { data: upcomingEvents } = await useAsyncData("event-list", () =>
   queryContent("/events/" + locale.value)
     .where({ outside: false })
     .sort("date", "desc")
+    .limit(12)
+    .find(),
+)
+
+const { data: upcomingFellows } = await useAsyncData("fellow-list", () =>
+  queryContent("/people/" + locale.value)
+    // .where({ outside: false })
+    // .sort("date", "desc")
     .limit(12)
     .find(),
 )

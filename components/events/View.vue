@@ -104,15 +104,9 @@
               ></iframe
             ></v-responsive>
           </div>
+
           <div class="mt-md-4 mt-lg-6 mt-xl-8">
-            <v-btn
-              class="my-6 d-flex"
-              variant="outlined"
-              href="/"
-              target="_blank"
-            >
-              {{ $t("register") }}
-            </v-btn>
+            <EventsRegisterModal />
           </div>
 
           <v-sheet class="mt-md-0 mt-lg-2 mt-xl-4">

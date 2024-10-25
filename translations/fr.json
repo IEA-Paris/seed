@@ -65,7 +65,6 @@
   "colloquium": "Colloque",
   "registration-open": "Inscriptions ouvertes",
   "by-the-numbers": "Par les chiffres",
-  "discover-our-0-fellows": "Découvrez nos résidents {0}",
   "institute_life": "Vie de l'institut",
   "more-info": "Plus d'informations",
   "upcoming-events": "Évènements à venir",
@@ -200,5 +199,6 @@
   "opening-applications-on-0": "Ouverture aux candidatures le {0}",
   "applications-closed-since-0": "Inscriptions fermées depuis le {0}",
   "register-until-0": "Candidatez jusqu'au {0}",
-  "register": "s'enregistrer"
+  "register": "s'enregistrer",
+  "discover-our-0-news": "Découvrez nos actualités {0}"
 }

@@ -149,6 +149,19 @@
       ></MiscMoleculesRelatedItems>
     </v-col>
   </v-row>
+  <!-- <v-row>
+    <v-col cols="12" md="4">
+      <MiscAtomsSlidingCarousel
+        :data="item"
+        type="news"
+        key="news"
+        lazy
+        ref="fellows"
+      >
+        {{ $t("discover-our-0-news", [academicYear]) }}
+      </MiscAtomsSlidingCarousel>
+    </v-col>
+  </v-row> -->
 </template>
 
 <script setup>
@@ -165,6 +178,12 @@ const props = defineProps({
   },
 })
 
+const today = new Date()
+const academicYear = ref(
+  today.getMonth() > 6
+    ? today.getFullYear() + "-" + (today.getFullYear() + 1)
+    : today.getFullYear() - 1 + "-" + today.getFullYear(),
+)
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + locale.value)
     .limit(1)

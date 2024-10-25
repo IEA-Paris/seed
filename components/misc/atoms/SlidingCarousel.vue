@@ -7,7 +7,7 @@
         </div>
         <v-spacer></v-spacer>
         <!--     <div class="text-h6 font-weight-black d-flex align-center mx-6">
-              {{ model + 1 }}/{{ rootStore[props.type].list.items.length || 0 }}
+              {{ model + 1 }}/{{ items.length || 0 }}
             </div> -->
         <div class="d-flex flex-row">
           <v-btn-toggle>
@@ -22,7 +22,7 @@
             <v-btn
               tile
               variant="outlined"
-              :disabled="model === rootStore[props.type].list.items.length - 1"
+              :disabled="model === items.length - 1"
               flat
               icon="mdi-chevron-right"
               @click="model++"
@@ -52,13 +52,13 @@
       >
         <template
           v-if="rootStore.loading || rootStore[props.type].loading"
-          v-for="(item, index) in rootStore[props.type].list.items"
+          v-for="(item, index) in items"
         >
           LOADING
         </template>
         <SwiperSlide
           v-else
-          v-for="(item, index) in rootStore[props.type].list.items"
+          v-for="(item, index) in items"
           :key="index + props.type"
           :style="'width: ' + computedWidth + 'px'"
           :width="computedWidth"
@@ -127,12 +127,9 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  items: { type: Array, required: true },
 })
-try {
-  await rootStore.update(props.type, locale.value)
-} catch (error) {
-  console.log("error: ", error)
-}
+
 /* const { data, error } = await useAsyncData(props.type, () =>
 )
 console.log("error: ", error) */
