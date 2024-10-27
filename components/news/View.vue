@@ -127,8 +127,26 @@
   <!-- DIVIDERS -->
   <v-responsive class="mx-auto my-9" width="120">
     <v-divider class="mb-1" />
-    <v-divider /> </v-responsive
-  ><v-row>
+    <v-divider />
+  </v-responsive>
+  <v-row>
+    <v-col cols="12" md="4">
+      <MiscAtomsSlidingCarousel
+        :items="item.gallery"
+        type="news"
+        ref="news"
+        key="news"
+      >
+        {{ $t("discover-our-0-news", [academicYear]) }}
+      </MiscAtomsSlidingCarousel>
+    </v-col>
+  </v-row>
+  <!-- DIVIDERS -->
+  <v-responsive class="mx-auto my-9" width="120">
+    <v-divider class="mb-1" />
+    <v-divider />
+  </v-responsive>
+  <v-row>
     <!-- RELATED ITEMS -->
     <v-col cols="12" md="4">
       <MiscMoleculesRelatedItems
@@ -149,19 +167,6 @@
       ></MiscMoleculesRelatedItems>
     </v-col>
   </v-row>
-  <!-- <v-row>
-    <v-col cols="12" md="4">
-      <MiscAtomsSlidingCarousel
-        :data="item"
-        type="news"
-        key="news"
-        lazy
-        ref="fellows"
-      >
-        {{ $t("discover-our-0-news", [academicYear]) }}
-      </MiscAtomsSlidingCarousel>
-    </v-col>
-  </v-row> -->
 </template>
 
 <script setup>

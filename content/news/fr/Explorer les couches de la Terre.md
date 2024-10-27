@@ -109,6 +109,29 @@ relatedPeople:
     lastname: "Yamin"
     image: "images/Paulius_Yamin.jpg"
     role: "Expert en énergies renouvelables"
+
+gallery:
+  - url: "/images/logo_typo_black.svg"
+    alt:
+    caption: "Exploring the Earth's Layers"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/logo_typo_black.svg"
+    alt:
+    caption: "Exploring the Earth's Layers"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/logo_typo_black.svg"
+    alt:
+    caption: "Exploring the Earth's Layers"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 Marie Dupuis, géologue à l'Université de Grenoble, nous emmène dans un voyage à travers les couches géologiques de la Terre. De la tectonique à la sédimentologie, elle explore comment la structure de la Terre a évolué au fil du temps.

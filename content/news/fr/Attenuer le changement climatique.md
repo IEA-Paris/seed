@@ -107,6 +107,29 @@ relatedPeople:
     lastname: "Pauly"
     image: "/images/Pauly.jpg"
     role: "Panéliste"
+
+gallery:
+  - url: "/images/logo_typo_black.svg"
+    alt:
+    caption: "Exploring the Earth's Layers"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/logo_typo_black.svg"
+    alt:
+    caption: "Exploring the Earth's Layers"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/logo_typo_black.svg"
+    alt:
+    caption: "Exploring the Earth's Layers"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 Laura Bouchard, scientifique spécialisée en environnement à l'Institut Mondial de l'Environnement, est à la tête des solutions en énergie renouvelable et du développement durable. Son travail couvre des projets visant à réduire les émissions de carbone et à créer des villes plus vertes et résilientes.

@@ -107,6 +107,29 @@ relatedPeople:
     lastname: "Pauly"
     image: "/images/Pauly.jpg"
     role: "Panelist"
+
+gallery:
+  - url: "/images/logo_typo_black.svg"
+    alt:
+    caption: "Exploring the Earth's Layers"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/logo_typo_black.svg"
+    alt:
+    caption: "Exploring the Earth's Layers"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/logo_typo_black.svg"
+    alt:
+    caption: "Exploring the Earth's Layers"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 Laura Bouchard, an environmental scientist at the Global Environmental Institute, is leading the charge in renewable energy solutions and sustainable development. Her work spans across projects aimed at reducing carbon emissions and creating greener, more resilient cities.

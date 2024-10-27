@@ -107,6 +107,29 @@ relatedPeople:
     lastname: "Pauly"
     image: "/images/Pauly.jpg"
     role: "Panelist"
+
+gallery:
+  - url: "/images/logo_typo_black.svg"
+    alt:
+    caption: "Exploring the Earth's Layers"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/logo_typo_black.svg"
+    alt:
+    caption: "Exploring the Earth's Layers"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/logo_typo_black.svg"
+    alt:
+    caption: "Exploring the Earth's Layers"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 Alice Bernard, a geneticist at the **Genomics Research Institute**, is at the cutting edge of **CRISPR technology** and its applications in healthcare. Her work includes researching the use of **gene editing** to treat genetic disorders and pioneering **synthetic biology** techniques for new medical treatments.

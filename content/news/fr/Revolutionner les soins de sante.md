@@ -107,6 +107,29 @@ relatedPeople:
     lastname: "Pauly"
     image: "/images/Pauly.jpg"
     role: "Panéliste"
+
+gallery:
+  - url: "/images/logo_typo_black.svg"
+    alt:
+    caption: "Exploring the Earth's Layers"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/logo_typo_black.svg"
+    alt:
+    caption: "Exploring the Earth's Layers"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/logo_typo_black.svg"
+    alt:
+    caption: "Exploring the Earth's Layers"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 Alice Bernard, généticienne à l'**Institut de Recherche en Génomique**, est à la pointe de la **technologie CRISPR** et de ses applications dans les soins de santé. Son travail comprend la recherche sur l'utilisation de **l'édition de gènes** pour traiter les troubles génétiques et la mise au point de techniques de **biologie synthétique** pour de nouveaux traitements médicaux.

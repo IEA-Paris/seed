@@ -200,7 +200,7 @@ const { data: upcomingEvents } = await useAsyncData("event-list", () =>
     .limit(12)
     .find(),
 )
-
+console.log("upcomingEvents", upcomingEvents)
 const { data: upcomingFellows } = await useAsyncData("fellow-list", () =>
   queryContent("/people/" + locale.value)
     // .where({ outside: false })
