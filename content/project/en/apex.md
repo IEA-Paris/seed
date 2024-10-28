@@ -108,7 +108,31 @@ tags:
     icon: null
     createdAt: "2024-02-20T00:00:00.000Z"
     updatedAt: "2024-04-01T00:00:00.000Z"
+
+gallery:
+  - url: "/images/renewable.jpg"
+    alt:
+    caption: "Harnessing Renewable Energy for a Sustainable Future"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/disaster.jpg"
+    alt:
+    caption: "Integrating Solar and Wind Power in Modern Energy Grids"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/news_image.jpg"
+    alt:
+    caption: "Innovations Driving Clean and Renewable Energy Solutions"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
+
 Apex is the code name of an ongoing project of a micro-services-based infrastructure designed to serve the needs of both institutes for advanced studies and our university and academic members.
 
 The first micro-services are:

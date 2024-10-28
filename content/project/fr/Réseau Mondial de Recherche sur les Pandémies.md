@@ -116,6 +116,29 @@ tags:
     icon: null
     createdAt: "2023-05-30T00:00:00.000Z"
     updatedAt: "2023-08-30T00:00:00.000Z"
+
+gallery:
+  - url: "/images/renewable.jpg"
+    alt:
+    caption: "Harnessing Renewable Energy for a Sustainable Future"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/disaster.jpg"
+    alt:
+    caption: "Integrating Solar and Wind Power in Modern Energy Grids"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/news_image.jpg"
+    alt:
+    caption: "Innovations Driving Clean and Renewable Energy Solutions"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 Le Réseau Mondial de Recherche sur les Pandémies (WPRN) est dédié à faciliter la collaboration internationale en matière de recherche sur les pandémies. Il se concentre sur la génération de connaissances, de données et d'outils pouvant être partagés entre les nations pour mieux comprendre et combattre les pandémies. Grâce à des partenariats avec des institutions telles que l'Institut d'Études Avancées de Paris (Paris IAS), le WPRN réunit des experts de premier plan pour relever les défis complexes posés par les crises sanitaires mondiales.

@@ -108,9 +108,32 @@ tags:
     icon: null
     createdAt: "2024-02-20T00:00:00.000Z"
     updatedAt: "2024-04-01T00:00:00.000Z"
+
+gallery:
+  - url: "/images/renewable.jpg"
+    alt:
+    caption: "Harnessing Renewable Energy for a Sustainable Future"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/disaster.jpg"
+    alt:
+    caption: "Integrating Solar and Wind Power in Modern Energy Grids"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/news_image.jpg"
+    alt:
+    caption: "Innovations Driving Clean and Renewable Energy Solutions"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
-Le dispositif cifre
--------------------
+
+## Le dispositif cifre
 
 Le dispositif des Conventions industrielles de formations par la recherche (CIFRE), géré par l'[Association nationale de la recherche et de la technologie (ANRT)](http://www.anrt.asso.fr/fr/cifre-7843) pour le compte du ministère chargé de l'Enseignement supérieur, de la Recherche et de l'Innovation, est un dispositif d'aide à l'embauche permettant le recrutement de doctorant.e.s par des entreprises ou collectivités territoriales, durant la réalisation de leur thèse.
 
@@ -122,8 +145,7 @@ L'objectif de ce dispositif est double :
 
 - encourager les projets de collaboration entre laboratoires de recherche et entreprises, ou collectivités.
 
-L'action de la Ville de Paris pour les cifre
---------------------------------------------
+## L'action de la Ville de Paris pour les cifre
 
 [La Ville de Paris](https://www.paris.fr/pages/cifre-un-dispositif-d-accueil-de-doctorants-a-paris-candidatez-en-ligne-4222/), dans le cadre du dispositif CIFRE, accueille au sein de ses services des doctorant-e-s dont le sujet de thèse porte sur les questions prioritaires de la municipalité.
 
@@ -137,8 +159,7 @@ Intégré.e.s dans un service municipal dont l'activité concerne directement le
 
 ​
 
-Le rôle de l'IEA de Paris
--------------------------
+## Le rôle de l'IEA de Paris
 
 Partenaire de la Ville de Paris, et soucieux d'expérimenter toujours plus les nouveaux formats possibles de collaborations intersectorielles, l'IEA de Paris accompagne la municipalité dans sa réflexion sur l'amélioration constante de ce dispositif, premier lieu d'acculturation des chercheurs aux problématiques du monde extra-académique.
 

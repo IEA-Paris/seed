@@ -115,6 +115,29 @@ tags:
     icon: null
     createdAt: "2024-05-30T00:00:00.000Z"
     updatedAt: "2024-08-30T00:00:00.000Z"
+
+gallery:
+  - url: "/images/renewable.jpg"
+    alt:
+    caption: "Harnessing Renewable Energy for a Sustainable Future"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/disaster.jpg"
+    alt:
+    caption: "Integrating Solar and Wind Power in Modern Energy Grids"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/news_image.jpg"
+    alt:
+    caption: "Innovations Driving Clean and Renewable Energy Solutions"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 **Le Socioscope** s'attache à comprendre comment rendre notre monde plus durable, en particulier dans le domaine de l'alimentation. Nous avons pour mission de comprendre ce qui fonctionne sur le terrain partout dans le monde.
