@@ -2,17 +2,15 @@
   <v-sheet class="pa-2 sliding-item">
     <MiscAtomsImageContainer
       cover
-      :loading="rootStore.people.loading"
-      :src="item.image"
+      :loading="loading"
+      :src="item.url"
       :ratio="1 / 1"
-      :name="item.firstname + ' ' + item.lastname"
-      link="people-slug"
-      :slug="getSlugFromPath(item._path)"
+      :name="caption"
     />
     <div
       class="mt-3 pl-0 text-left text-h5 text-md-h4 font-weight-medium sliding-item-title"
     >
-      {{ item.firstname + " " + item.lastname }}
+      {{ item.caption }}
     </div>
     <!--     <v-card-text
       class="text-subtitle text-left text-disabled"
@@ -25,12 +23,11 @@
 <script setup>
 // import { useDisplay } from "vuetify"
 // const { smAndUp } = useDisplay()
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
 
 const localePath = useLocalePath()
 const props = defineProps({
   item: Object,
+  loading: Boolean
 })
 </script>
 <style lang="scss"></style>

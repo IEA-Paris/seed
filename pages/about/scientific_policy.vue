@@ -8,50 +8,37 @@
             <v-row no-gutters>
               <v-col cols="4" v-if="smAndUp">
                 <v-card class="d-flex align-center justify-center">
-                  <v-img
-                    aspect-ratio="1/1"
-                    src="/images/Paulius_Yamin.jpg"
-                  ></v-img
-                ></v-card>
+                  <v-img aspect-ratio="1/1" src="/images/Paulius_Yamin.jpg"></v-img></v-card>
               </v-col>
               <v-col cols="12" sm="8">
                 <v-card class="d-flex align-center justify-center">
                   <ContentDoc :path="scientificPolicy" />
-                </v-card> </v-col></v-row></v-col></v-row
-      ></v-container>
+                </v-card> </v-col></v-row></v-col></v-row></v-container>
     </section>
     <section class="dark">
       <v-row>
         <v-col cols="12" class="d-flex align-center justify-center">
-          <MiscAtomsSlidingCarousel type="people"
-            ><div class="text-h2">
+          <MiscAtomsSlidingCarousel type="people" :loading="false">
+            <div class="text-h2">
               {{ $t("scientific-advisory-board") }}
-            </div></MiscAtomsSlidingCarousel
-          >
+            </div>
+          </MiscAtomsSlidingCarousel>
         </v-col>
       </v-row>
     </section>
     <section>
       <v-row>
         <v-col cols="4" v-if="smAndUp">
-          <v-card
-            class="d-flex align-center justify-center"
-            height="400"
-            :to="localePath('reports')"
-            link
-          >
-            Link to annual reports</v-card
-          >
+          <v-card class="d-flex align-center justify-center" height="400" :to="localePath('reports')" link>
+            Link to annual reports</v-card>
         </v-col>
         <v-col cols="4" v-if="smAndUp">
           <v-card class="d-flex align-center justify-center" height="400" link>
-            Link to fellows (?)</v-card
-          >
+            Link to fellows (?)</v-card>
         </v-col>
         <v-col cols="4" v-if="smAndUp">
           <v-card class="d-flex align-center justify-center" height="400" link>
-            Link to proceedings (?)</v-card
-          >
+            Link to proceedings (?)</v-card>
         </v-col>
       </v-row>
     </section>

@@ -101,6 +101,7 @@
           key="events"
           ref="events"
           type="events"
+        :loading="false"
         >
           {{ $t("upcoming-events") }}
         </MiscAtomsSlidingCarousel>
@@ -147,6 +148,7 @@
           key="people"
           lazy
           ref="fellows"
+        :loading="false"
         >
           {{ $t("discover-our-0-news", [academicYear]) }}
         </MiscAtomsSlidingCarousel></v-container

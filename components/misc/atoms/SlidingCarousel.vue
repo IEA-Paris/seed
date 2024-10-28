@@ -51,7 +51,7 @@
         ref="swiper"
       >
         <template
-          v-if="rootStore.loading || rootStore[props.type].loading"
+          v-if="loading"
           v-for="(item, index) in items"
         >
           LOADING
@@ -91,10 +91,8 @@ TODO: make it similar to radcliffe :
 */
 import { capitalize } from "~/composables/useUtils"
 import { useDisplay } from "vuetify"
-import { useRootStore } from "~/store/root"
 const { locale } = useI18n()
 const { name, mdAndUp } = useDisplay()
-const rootStore = useRootStore()
 const model = ref(0)
 const swiperBreakpoints = ref({
   320: {
@@ -128,6 +126,7 @@ const props = defineProps({
     required: true,
   },
   items: { type: Array, required: true },
+  loading: {type: Boolean, default: false}
 })
 
 /* const { data, error } = await useAsyncData(props.type, () =>
@@ -151,6 +150,8 @@ const computedWidth = computed(() => {
       break
     case "people":
       break
+    case "image":
+      break
     default:
       break
   }
@@ -159,6 +160,10 @@ const computedWidth = computed(() => {
       ["xs", "sm", "md", "lg", "xl", "xxl"].indexOf(name.value || "md")
     ] * modifier
   )
+})
+
+onMounted(() => {
+  console.log("Resolved Item", capitalize(props.type) + 'SlidingItem');
 })
 </script>
 <style scoped>

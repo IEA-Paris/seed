@@ -57,7 +57,7 @@ relatedProjects:
     shortDescription: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     description: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     url: "https://thesocioscope.org/"
-    image: "/images/logo_typo_black.svg"
+    image: "/images/renewable.jpg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"
@@ -111,21 +111,21 @@ relatedPeople:
     role: "Renewable Energy Expert"
 
 gallery:
-  - url: "/images/logo_typo_black.svg"
+  - url: "/images/renewable.jpg"
     alt:
     caption: "Exploring the Earth's Layers"
     copyright:
     license:
     licenseUrl:
     backgroundColor:
-  - url: "/images/logo_typo_black.svg"
+  - url: "/images/renewable.jpg"
     alt:
     caption: "Exploring the Earth's Layers"
     copyright:
     license:
     licenseUrl:
     backgroundColor:
-  - url: "/images/logo_typo_black.svg"
+  - url: "/images/renewable.jpg"
     alt:
     caption: "Exploring the Earth's Layers"
     copyright:
