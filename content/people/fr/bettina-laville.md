@@ -21,7 +21,7 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  board: true
+  board-of-directors: true
 relatedProjects:
   - title: "Futur Positif"
     shortDescription: "L'initiative Futur Positif, soutenue par l'Institut d'études avancées de Paris et la Fondation 2100"

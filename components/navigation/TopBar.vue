@@ -1,24 +1,31 @@
 <template>
   <!-- TOP BAR CONTAINER -->
-  <v-app-bar>
+  <v-app-bar flat>
     <!--  WEBSITE LOGO -->
     <NavigationLogo></NavigationLogo>
-    <v-app-bar-title class="align-start">
-      <nuxt-link :to="localePath('/')" class="text-black">{{
-        mdAndUp ? $t('paris-institute-for-advanced-study') : $t('paris-ias')
-      }}</nuxt-link></v-app-bar-title
-    >
-
+    <!-- <nuxt-link :to="localePath('/')" class="text-black">{{
+        mdAndUp ? $t("paris-institute-for-advanced-study") : $t("paris-ias")
+      }}</nuxt-link> -->
+    <div class="d-flex align-start pl-3" v-ripple v-if="mdAndUp">
+      <v-img
+        src="/logo_text.png"
+        alt="Paris IAS"
+        class="d-inline-block cursor-pointer"
+        height="100px"
+        width="200px"
+        @click="router.push(localePath('/'))"
+      ></v-img>
+    </div>
     <template v-slot:append>
       <!--  NAVIGATION -->
       <!-- Client only is need to avoid a bug. temporary workaround until it is fixes: https://github.com/vuetifyjs/vuetify/issues/15323 -->
       <template v-if="smAndUp">
-        <template v-for="(link, index) in sitemap.main" :key="index">
+        <template v-for="(link, index) in config.sitemap.main" :key="index">
           <v-menu :open-on-hover="link.openOnHover" v-if="link.dropdown">
             <template v-slot:activator="{ props }">
               <v-btn exact variant="flat" v-bind="props" class="h-100"
                 >{{ $t(link.text) }}
-                <v-icon right>mdi-chevron-down</v-icon>
+                <v-icon size="x-large" right>mdi-chevron-down</v-icon>
               </v-btn>
             </template>
             <v-list>
@@ -54,9 +61,9 @@
 <script setup>
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
-import sitemap from "~~/assets/data/sitemap"
 const config = useAppConfig()
 const localePath = useLocalePath()
+const router = useRouter()
 const rootStore = useRootStore()
 const { smAndUp, mdAndUp } = useDisplay()
 </script>

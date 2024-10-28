@@ -1,6 +1,7 @@
 ---
 title: The Socioscope
 url: "https://thesocioscope.org/"
+subtitle: "Let's work together to make our world a better and more sustainable place"
 date: 2024-05-12T00:00:00.000Z
 image: "/images/logo_typo_black.svg"
 relatedNews:
@@ -117,19 +118,19 @@ tags:
 
 **The Socioscope** is all about understanding how we make our world more sustainable, especially when it comes to food. We're on a mission to figure out what's working on the ground all around the world.
 
-***What We Do:***
+**_What We Do:_**
 
 We dig deep into what local projects are doing to make a difference. We talk to people, create videos, and learn everything we can about how these projects are changing things for the better. Then, we use machine learning tools to make sense of it all and see what's really making a difference.
 
-***Our Story:***
+**_Our Story:_**
 
 The Socioscope started with the [Paris Institute for Advanced Study](https://www.paris-iea.fr/en/) and the [Vienna Complexity Science Hub](https://csh.ac.at/). After testing our ideas in nine countries and with 60 projects, we got the support we needed to expand to 600 projects across four continents.
 
-***Our Platform:***
+**_Our Platform:_**
 
 Our website, The Socioscope, is like a big online library where you can learn all about projects that are changing how we think about food. It's a place to show off cool projects, connect with others, and share ideas. Whether you're a project leader or just curious, there's something for everyone.
 
-***Get Involved:***
+**_Get Involved:_**
 
 We want everyone to be part of the solution. Whether you're running a project or just want to learn more, you're welcome here. Our website is easy to use, so [you can share what you're up to in just a few minutes](https://thesocioscope.org/register).
 

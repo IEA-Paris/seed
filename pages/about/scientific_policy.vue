@@ -20,16 +20,14 @@
                 </v-card> </v-col></v-row></v-col></v-row
       ></v-container>
     </section>
-    <section>
+    <section class="dark">
       <v-row>
-        <v-col cols="12">
-          <v-card class="d-flex align-center justify-center" link>
-            <MiscAtomsSlidingCarousel type="people"
-              ><div class="text-h2">
-                {{ $t("scientific-advisory-board") }}
-              </div></MiscAtomsSlidingCarousel
-            >
-          </v-card>
+        <v-col cols="12" class="d-flex align-center justify-center">
+          <MiscAtomsSlidingCarousel type="people"
+            ><div class="text-h2">
+              {{ $t("scientific-advisory-board") }}
+            </div></MiscAtomsSlidingCarousel
+          >
         </v-col>
       </v-row>
     </section>

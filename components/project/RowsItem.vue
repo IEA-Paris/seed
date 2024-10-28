@@ -1,53 +1,89 @@
 <template>
-  <!--  TODO: design properly -->
-  <v-hover v-slot="{ isHovering, props }">
-    <v-col
-      cols="12"
-      sm="6"
-      md="4"
-      xl="3"
-      v-ripple
-      v-bind="props"
-      class="projectItem"
+  <v-col cols="12" sm="6" md="4" lg="3" xl="2" v-ripple>
+    <MiscAtomsImageContainer
+      contain
+      :src="item.image"
+      :loading="rootStore.project.loading"
+      :ratio="1 / 1"
+      :title="item.title"
+      link="activities-projects-slug"
+      :slug="getSlugFromPath(item._path)"
     >
-      <MiscAtomsImageContainer
-        contain
-        :src="item.image"
-        :loading="rootStore.project.loading"
-        :ratio="1 / 1"
-        :title="item.title"
-        link="activities-projects-slug"
-        :slug="getSlugFromPath(item._path)"
+    </MiscAtomsImageContainer>
+  </v-col>
+  <v-col
+    cols="12"
+    sm="6"
+    md="8"
+    lg="9"
+    xl="10"
+    class="px-6 cursor-pointer"
+    v-ripple
+    @click="
+      router.push(
+        localePath('/activities/projects/' + getSlugFromPath(item._path)),
+      )
+    "
+  >
+    <v-skeleton-loader
+      v-if="rootStore.loading"
+      type="header, ossein text@8, ossein, button , button"
+    ></v-skeleton-loader>
+
+    <template v-else>
+      <div class="text-h5 text-sm-h3 text-md-h4 text-md-h4 my-6">
+        {{ item.title }}
+      </div>
+
+      <ContentRenderer
+        :value="item"
+        class="mt-n3 clamped-text"
+        :style="
+          '-webkit-line-clamp:' +
+          [5, 5, 4, 8, 10][
+            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+          ]
+        "
+      />
+      <v-btn
+        class="mt-4"
+        variant="outlined"
+        tile
+        :to="
+          localePath({
+            name: 'project-slug',
+            params: { slug: getSlugFromPath(item._path) },
+          })
+        "
+        :size="
+          ['small', 'small', 'small', 'default', 'default', 'large'][
+            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+          ]
+        "
       >
-        <v-expand-transition>
-          <v-card
-            class="pa-3 d-flex text-center align-center justify-center transition-fast-in-fast-out bg-grey v-card--reveal"
-            style="height: 100%; opacity: 90%"
-            v-if="isHovering"
-          >
-            <nuxt-link
-              :to="
-                localePath({
-                  name: 'activities-projects-slug',
-                  params: { slug: getSlugFromPath(item._path) },
-                })
-              "
-              class="text-h5 text-md-h4 text-white bg-black pa-3"
-              style="opacity: 100%"
-            >
-              {{ item.title }}
-            </nuxt-link>
-          </v-card>
-        </v-expand-transition>
-      </MiscAtomsImageContainer>
-    </v-col>
-  </v-hover>
+        {{ $t("read-more") }}
+      </v-btn>
+      <v-btn
+        variant="outlined"
+        tile
+        class="mt-4 ml-4"
+        prepend-icon="mdi-web"
+        :size="
+          ['small', 'small', 'small', 'default', 'default', 'large'][
+            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+          ]
+        "
+        >{{ $t("visit-the-project-website") }}</v-btn
+      >
+    </template>
+  </v-col>
+  <v-divider></v-divider>
 </template>
 
 <script setup>
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
-
+const router = useRouter()
 const localePath = useLocalePath()
 const props = defineProps({
   item: {
@@ -60,9 +96,4 @@ const props = defineProps({
 })
 </script>
 
-<style lang="scss">
-.projectItem {
-  border: 1px solid #000;
-  margin: 0.5rem;
-}
-</style>
+<style lang="scss"></style>

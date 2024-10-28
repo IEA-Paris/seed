@@ -9,13 +9,20 @@
       <v-container class="fill-height">
         <v-row justify="center" no-gutters>
           <v-col cols="12" lg="10" class="mt-6">
-            <!--    <nuxt-link :to="localePath('/')" style="transition: all 500ms ease 0s" @click.native="$vuetify.goTo(0)">
-            <v-img src="/logo_text_alt.svg" contain width="200" class="my-6"></v-img>
-          </nuxt-link> -->
             <v-row justify="center">
               <v-col cols="12" sm="4" :order="smAndDown ? 'last' : ''">
-                <NavigationLogo></NavigationLogo>
-
+                <nuxt-link
+                  :to="localePath('/')"
+                  style="transition: all 500ms ease 0s"
+                  @click.native="$vuetify.goTo(0)"
+                >
+                  <v-img
+                    src="/Logo_white.png"
+                    contain
+                    width="200"
+                    class="my-6"
+                  ></v-img>
+                </nuxt-link>
                 <div class="text-body-2 my-6">
                   <div>
                     {{ config.full_name }}
@@ -56,11 +63,15 @@
                     )
                   "
                 ></iframe>
-                <br /> 
+                <br />
                 <small
-                  ><a style="color: white" href="https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911">{{ $t('view-larger-map') }}</a></small
+                  ><a
+                    style="color: white"
+                    href="https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911"
+                    >{{ $t("view-larger-map") }}</a
+                  ></small
                 >
-                </v-col>
+              </v-col>
               <v-col cols="12" sm="4">
                 <v-list bg-color="transparent">
                   <v-list-item :to="localePath('/about/institute')" nuxt>
@@ -117,11 +128,17 @@
                   :rules="rules"
                   :label="$t('email')"
                   variant="outlined"
+                  tile
                 >
                 </v-text-field>
                 <v-btn block size="large" v-show="false">{{
                   $t("subscribe")
                 }}</v-btn>
+                <MiscAtomsSocials
+                  dark
+                  :socials="config.socials"
+                  labelled
+                ></MiscAtomsSocials>
               </v-col>
             </v-row>
             <v-row justify="center" no-gutters class="mt-3">
@@ -183,8 +200,8 @@
   </section>
 </template>
 <script setup>
-import socials from "~/assets/data/social"
-import sitemap from "~/assets/data/sitemap"
+// import socials from "~/assets/data/social"
+// import sitemap from "~/assets/data/sitemap"
 import { useDisplay } from "vuetify"
 import { useI18n } from "vue-i18n"
 
@@ -197,9 +214,9 @@ const { router } = useRouter()
 const nuxtApp = useNuxtApp()
 
 const { $vuetify } = nuxtApp
-const socialsRef = ref(socials)
+const socialsRef = ref(config.socials)
 const panel = reactive([])
-const footer = ref(sitemap.footer)
+const footer = ref(config.sitemap.footer)
 const email = ref("")
 const props = defineProps({
   isSnapScroll: Boolean,

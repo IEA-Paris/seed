@@ -1,25 +1,9 @@
 <template>
   <div>
-    <v-btn
-      color="grey-lighten-3"
-      flat
-      rounded="0"
-      prepend-icon="mdi-circle-medium"
-      size="small"
-      class="my-2"
+    <EventsRegisterModal
+      :item="item"
       v-if="item.bookingState === 1"
-      :to="
-        localePath({
-          name: 'activities-events-slug',
-          params: { slug: getSlugFromPath(item._path) },
-        })
-      "
-    >
-      <template v-slot:prepend>
-        <v-icon size="large" color="success"></v-icon>
-      </template>
-      {{ $t("registration-open") }}</v-btn
-    >
+    ></EventsRegisterModal>
     <v-btn
       color="grey-lighten-3"
       flat
@@ -34,6 +18,7 @@
       </template>
       {{ $t("event-full") }}</v-btn
     >
+
     <v-divider vertical class="mx-3" v-if="smAndUp"></v-divider>
     <v-btn
       color="grey-lighten-3"

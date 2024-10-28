@@ -14,7 +14,6 @@ import {
   project,
   fellowship,
 } from "@paris-ias/data"
-
 interface InputParams {
   key?: any | string
   level?: string[] | number[] | number | any
@@ -182,15 +181,10 @@ export const useRootStore = defineStore("rootStore", {
         const defaultForm = (this[category as string] as ModuleType).form
           ._defaults as string
         if (!defaults) defaults = JSON.parse(defaultForm)
-        console.log("defaults: ", defaults)
-        console.log(`addFormItem
-          key: ${key}
-          category: ${category}
-          level: ${level}`)
+
         // if level = 1 this is a primitive
         if (level.length === 1) {
           const defautlValue = defaults[level[0]][0]
-          console.log("defautlValue: ", defautlValue)
           store[key].push(defautlValue)
         } else if (level.length > 1) {
           const isArray = typeof level[0] === "number"
@@ -218,18 +212,18 @@ export const useRootStore = defineStore("rootStore", {
     loadRouteQuery(type: string) {
       const { currentRoute } = useRouter()
       const query = currentRoute.value.query
-
-      if (query.search) {
-        this.search = query.search as string
-      }
-      if (query.filters) {
-        const filters = JSON.parse(query.filters as string)
+      if (query?.length) {
+        const filters = JSON.parse(query as string)
         Object.keys(filters).forEach((filter) => {
-          ;(this[type] as ModuleType).list.filters[filter] = filters[filter]
+          if (
+            Object.keys((this[type] as ModuleType).list.filters).includes(
+              filter,
+            )
+          )
+            (this[type] as ModuleType).list.filters[filter].value =
+              filters[filter]
         })
-      }
-
-      if (query.view) {
+        /*       if (query.view) {
         ;(this[type] as ModuleType).list.view = query.view as
           | string
           | Views
@@ -239,9 +233,9 @@ export const useRootStore = defineStore("rootStore", {
         this.page = +query.page
       } else {
         this.page = 1
-      }
+      } */
 
-      const sortObj = (this[type] as ModuleType).list.sort
+        /*      const sortObj = (this[type] as ModuleType).list.sort
       const defaultSortKey = Object.keys(sortObj).find(
         (item) => sortObj[item].default === true,
       )
@@ -258,31 +252,41 @@ export const useRootStore = defineStore("rootStore", {
         sortDescItem = !!(query.sortDesc === "true")
       } else {
         sortDescItem = defaultSort[0].value[1]
+      } */
       }
     },
 
     setFiltersCount(type: string) {
-      const filters = (this[type] as ModuleType).list.filters
-      const filtersCount = Object.keys(filters)
+      let filtersCount = 0 as number
+      Object.keys((this[type] as ModuleType).list.filters)
         // remove empty values
-        .filter(
-          (filter) =>
-            (typeof filters[filter] === "boolean" &&
-              filters[filter] !== null &&
-              filters[filter] !== undefined) ||
-            (Array.isArray(filters[filter]) && filters[filter].length) ||
-            (typeof filters[filter] === "object" &&
-              Object.keys(filters[filter]).length),
-        ).length
+        .forEach((filter) => {
+          console.log("filter: ", filter) /* 
+          console.log("filters[filter]?.value: ", filters[filter].value)
+          */ /*  console.log(
+            'typeof filters[filter]?.value !== "undefined": ',
+            typeof filters[filter]?.value !== "undefined",
+          ) */
+          if (
+            (this[type] as ModuleType).list.filters[filter]?.value?.length &&
+            typeof (this[type] as ModuleType).list.filters[filter]?.value !==
+              "undefined"
+          ) {
+            filtersCount++
+          }
+          return filtersCount
+        })
+
+      console.log("filtersCount: ", filtersCount)
       ;(this[type] as ModuleType).list.filtersCount = filtersCount
     },
     setBlankFilterLoad(type: string) {
       ;(this[type] as ModuleType).loading = false
     },
-    setDefaults(){
+    setDefaults() {
       // lang
-      const lang = localStorage.getItem('lang')
-   /*    if(lang)i18n.global.locale = lang; */
+      const lang = localStorage.getItem("lang")
+      /*    if(lang)i18n.global.locale = lang; */
       // dark mode
 
       // event
@@ -290,7 +294,6 @@ export const useRootStore = defineStore("rootStore", {
       // news
       // project
       // fellowships
-
     },
     resetState(type: string) {
       this.resetFilters = true
@@ -334,24 +337,39 @@ export const useRootStore = defineStore("rootStore", {
       ;(this[type] as ModuleType).list.sortBy = [value[0]] as string[]
       ;(this[type] as ModuleType).list.sortDesc = [value[1]] as number[]
       this.page = 1
+      this.updateLocalStorage(type + "_sort", value.join("_"))
       this.update(type)
     },
     updateView({ value, type }: { value: string; type: string }) {
-      (this[type] as ModuleType).list.view =  (this[type] as ModuleType).list.views[value] as Views;
+      ;(this[type] as ModuleType).list.view = {
+        ...((this[type] as ModuleType).list.views[value] as Views),
+        name: value,
+      }
+      this.updateLocalStorage(type + "_view", value)
       this.update(type)
     },
-    updateFilters({
-      filters,
-    }: {
-      filters: Record<string, any[]>
-      type: string
-    }) {
-      if (filters[Object.keys(filters)[0]].length)
-        (this[type] as ModuleType).loading.push(Object.keys(filters)[0])
-      ;(this[type] as ModuleType).list.filters[Object.keys(filters)[0]] =
-        filters[Object.keys(filters)[0]]
-      this.page = 1
+    updateLocalStorage(key: string, value: string) {
+      const local = JSON.parse(localStorage.getItem("PARIS_IAS")) || {}
+      local[key] = value
+      localStorage.setItem("PARIS_IAS", JSON.stringify(local))
+    },
+    updateFilter(key: string, val: any, type: string) {
+      console.log("update filter: ", { key, val, type })
+      ;(this[type] as ModuleType).list.filters[key].value = val
+      const router = useRouter()
 
+      // Update the route query with the new filter
+      console.log(
+        "router.currentRoute.value.query: ",
+        router.currentRoute.value.query,
+      )
+      const query = {
+        ...router.currentRoute.value.query,
+        [key]: Array.isArray(val) ? JSON.stringify(val) : val,
+      }
+      router.push({ query })
+
+      this.page = 1
       this.update(type)
     },
     updateItemsPerPage({ value, type }: { value: number; type: string }) {
@@ -362,6 +380,13 @@ export const useRootStore = defineStore("rootStore", {
     },
     updatePage({ page, type }: { page: number; type: string }) {
       this.page = page
+      const router = useRouter()
+
+      const query = {
+        ...router.currentRoute.value.query,
+        page,
+      }
+      router.push({ query })
       this.update(type)
     },
     updateSearch({ search, type }: { search: any; type: string }) {
@@ -371,7 +396,6 @@ export const useRootStore = defineStore("rootStore", {
       this.update(type)
     },
     async update(type: string, lang: string = "en") {
-      console.log("type: ", type + "/" + lang)
       const target = type + "/" + lang + "/"
       this.setLoading(true)
       ;(this[type] as ModuleType).loading = true
@@ -476,6 +500,7 @@ export const useRootStore = defineStore("rootStore", {
       }
 
       const sortBy = (this[type] as ModuleType).list.sortBy
+      console.log("sortBy: ", sortBy)
       const sortByItem = (sortBy as string[])[0]
 
       const sortDesc = (this[type] as ModuleType).list.sortDesc
@@ -492,13 +517,15 @@ export const useRootStore = defineStore("rootStore", {
       console.log("itemsPerPage: ", itemsPerPage) */
       console.log("target: ", target)
 
-      const items = await queryContent(target)
-        /*  .where(pipeline) */
-        .sort({ [sortArray[0]]: sortArray[1] })
-        /*  .sort({ [sortArray[2]]: sortArray[3] }) */
-        .skip(skipNumber())
-        .limit(itemsPerPage)
-        .find()
+      const items = (this.search as string)?.length
+        ? await searchContent(this.search as string)
+        : await queryContent(target)
+            /*  .where(pipeline) */
+            .sort({ [sortArray[0]]: sortArray[1] })
+            /*  .sort({ [sortArray[2]]: sortArray[3] }) */
+            .skip(skipNumber())
+            .limit(itemsPerPage)
+            .find()
       /*       console.log("items: ", items); */
       const viewsObj = (this[type] as ModuleType).list.views as Record<
         string,

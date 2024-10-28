@@ -8,6 +8,19 @@ export const formatDate = (dateStr: string, locale: string): string => {
   })
 }
 
+export const getLocalizedDate = (dateIso: string): string => {
+  const { $i18n } = useNuxtApp()
+  return new Date(dateIso).toLocaleDateString(
+    $i18n.localeProperties.value.language,
+    {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    },
+  )
+}
+
 export const getDetailedFormatedDate = (
   dateStr: string,
   locale: string,

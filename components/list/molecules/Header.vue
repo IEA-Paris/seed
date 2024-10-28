@@ -14,25 +14,34 @@
         {{ $t("new-x", { item: $tc("x-" + type, 1) }) }}
       </v-btn> -->
       <div class="d-flex">
+        <ListAtomsFiltersMenu
+          :open="filtersOpen"
+          @open="filtersOpen = $event"
+        />
         <v-spacer></v-spacer>
-        <ListMoleculesFilters :type="type" />
         <ListAtomsViewMenu :type="type" />
         <ListAtomsSortMenu :type="type" />
       </div>
+      <v-expand-transition>
+        <div v-if="filtersOpen" class="mb-7">
+          <ListMoleculesFilters :type="type" /></div
+      ></v-expand-transition>
+      <ListAtomsSearchInput :type="type" />
       <ListAtomsSearchString :type="type" />
-
-      <ListAtomsSearchInput :type="type"
-    /></v-col>
+    </v-col>
   </v-row>
 </template>
 
 <script setup>
-import { useRootStore } from "~/store/root";
-const rootStore = useRootStore();
-
-import { useDisplay } from "vuetify";
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
+const route = useRoute()
+import { useDisplay } from "vuetify"
 const { name, mdAndDown, md, xl, lg, smAndDown, mdAndUp, lgAndUp } =
-  useDisplay();
+  useDisplay()
+
+const filtersOpen = ref(!!Object.keys(route.query)?.length)
+console.log("!!route.query?.length: ", !!Object.keys(route.query)?.length)
 
 const props = defineProps({
   type: {
@@ -40,7 +49,7 @@ const props = defineProps({
     required: false,
     default: "",
   },
-});
+})
 // const route = useRoute()
-const localePath = useLocalePath();
+const localePath = useLocalePath()
 </script>

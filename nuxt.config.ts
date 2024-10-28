@@ -173,37 +173,13 @@ export default defineNuxtConfig({
     } /* 
     customRoutes: "config",
     pages: {
-      "/about/institute": {
-        fr: "/a-propos/institut",
-      },
-      "/about/scientific_policy": {
-        fr: "/a-propos/politique-scientifique",
-      },
-      "/about/network": {
-        fr: "/a-propos/reseau",
-      },
-      "/activities/fellowships": {
-        fr: "/activites/residences",
-      },
-      "/activities/programs": {
-        fr: "/activites/programmes",
-      },
-      "/activities/events": {
-        fr: "/activites/evenements",
-      },
-      "/people/team": {
-        fr: "/equipe",
-      },
-      "/people/scientific-advisory-board": {
-        fr: "/conseil-scientifique",
-      },
-    }, */,
+   
     // https://v8.i18n.nuxtjs.org/options/vue-i18n
   },
 
   pwa: {
     //https://vite-pwa-org.netlify.app/frameworks/nuxt.html
-    /* PWA options */
+    /* PWA options */,
   },
 
   robots: {

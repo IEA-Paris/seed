@@ -1,6 +1,6 @@
 <template>
   <v-divider v-if="index > 0"></v-divider>
-  <v-row class="my-8 px-sm-12 px-md-4" no-gutters>
+  <v-row class="my-8 px-4" no-gutters>
     <v-col cols="12" md="1">
       <MiscAtomsDateStamp
         :loading="rootStore.events.loading"
@@ -8,9 +8,9 @@
         class="pr-6 mt-md-2"
       />
     </v-col>
-    <v-col cols="12" md="8" class="px-md-6 mt-6 mt-md-0">
+    <v-col cols="12" md="7" class="px-md-6 mt-6 mt-md-0">
       <v-row no-gutters>
-        <v-col cols="12" lg="9" class="pr-lg-6">
+        <v-col cols="12" class="pr-lg-6">
           <v-skeleton-loader
             v-if="rootStore.loading || rootStore.events.loading"
             :type="
@@ -41,55 +41,32 @@
             <div class="mt-2 text-h6 text-overline font-weight-black">
               {{ $t("events.categories." + item.category) }}
             </div>
-            <p
-              class="text-body-1 clamped-text text-wrap"
-              :style="
-                '-webkit-line-clamp:' +
-                [5, 5, 3, 4, 8, 8][
-                  ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-                ]
+
+            <nuxt-link
+              :to="
+                localePath({
+                  name: 'activities-events-slug',
+                  params: { slug: getSlugFromPath(item._path) },
+                })
               "
+              class="text-black"
             >
-              {{ item.description }}
-            </p>
+              <p
+                class="text-wrap clamped-text"
+                :style="
+                  '-webkit-line-clamp:' +
+                  [5, 5, 5, 10, 12, 14][
+                    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+                  ]
+                "
+              >
+                {{ item.description }}
+              </p></nuxt-link
+            >
+
             <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">
               <EventsBadges :item></EventsBadges>
             </div>
-          </div>
-        </v-col>
-
-        <v-col cols="12" lg="3">
-          <v-skeleton-loader
-            v-if="rootStore.loading || rootStore.events.loading"
-            type="text,paragraph, text, paragraph"
-          >
-          </v-skeleton-loader>
-
-          <div v-else>
-            <!-- <div class="text-overline">
-              {{ $t("date-and-time") }}
-            </div>
-            <div class="text-body-1">
-              <template v-if="item.date_text && item.date_text.length">
-                {{ item.date_text }}
-              </template>
-              <template v-else>
-                {{ formatDate(item.start, locale) }}
-              </template>
-            </div> -->
-            <template v-if="item.location">
-              <div class="text-overline mt-6">
-                {{ $t("location") }}
-              </div>
-              <div class="text-body-1">
-                <template v-if="item.eventType === 0">
-                  {{ $t("online") }}
-                </template>
-                <template v-else>
-                  {{ item.location }}
-                </template>
-              </div>
-            </template>
           </div>
         </v-col>
       </v-row>
@@ -113,20 +90,12 @@
         </v-col>
       </v-row>
     </v-col>
-    <v-col cols="12" md="3">
-      <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.events.loading"
-        height="100%"
-        type="image"
-        class="d-flex align-start px-4"
-      >
-      </v-skeleton-loader>
+    <v-col cols="12" md="4">
       <MiscAtomsImageContainer
         cover
-        v-else
-        :link="item.title"
+        :name="item.title"
         :slug="getSlugFromPath(item._path)"
-        name="activities-events-slug"
+        link="activities-events-slug"
         :loading="rootStore.events.loading"
         :src="item.image"
         :ratio="1 / 1"

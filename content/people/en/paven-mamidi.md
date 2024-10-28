@@ -21,11 +21,11 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  fellow: true
-  vintage:
-    - year: 2024
-      name: rolling-call-for-fellows
-      theme: "Conception d'une expérience comportementale pour mesurer le coût de l'autonomie due à l'IA prédictive et au nudging"
+  fellows: true
+  # vintage:
+  #   - year: 2024
+  #     name: rolling-call-for-fellows
+  #     theme: "Conception d'une expérience comportementale pour mesurer le coût de l'autonomie due à l'IA prédictive et au nudging"
 relatedProjects:
   - title: "Positive Future"
     shortDescription: "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100"
@@ -39,7 +39,7 @@ relatedProjects:
     shortDescription: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     description: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     url: "https://thesocioscope.org/"
-    image:  "/images/logo_typo_black.svg"
+    image: "/images/logo_typo_black.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"
@@ -114,22 +114,3 @@ relatedNews:
 ---
 
 Pavan is an empirically informed senior advisor in the policy space, and a dedicated teacher, who believes in democratizing education, and demystifying complex ideas, and communicating them effectively to management and policy students. Substantively, he pursues two streams of professional work and scholarship - law/policy, and applied behavior science. He currently serves as the Director of the Centre for Social and Behaviour Change at Ashoka University, and also works closely with Niti Aayog. He has led the initiative to set up India’s first Nudge Unit, the Behavioral Insights Unit of India, which is an embedded team out of Niti. He has also helped set up a Behavioral Insights Units for the states of Uttar Pradesh, and Bihar. His main work focuses on development related issues in education, health, nutrition, and gender. Additionally, Pavan takes immense pride in cooking rural Telangana food, and believes that the green chilly is good for the soul, and builds character. He has a Doctor of Philosophy (Ph.D.) from the University of Oxford, a Masters (LL.M.) from Harvard Law School, and a highly subsidized and an inexpensive Bachelor's in Mathematics from the finest public institution in the world - Osmania University!
-
-### Research Interests
-
-Behavioral science for policy, privacy, AI, philosophy of science.
-
-Research project
-
-**Designing a behavioural experiment to measure the cost of autonomy due to predictive AI and nudging
-**
-
-The extensive use of behavioural nudging, and AI to segment citizens into various personas, and target interventions to produce behaviour changes are likely to result in a loss of "surprisingness" and autonomy in the lives of humans. How do we reconcile the brilliant promise of AI, with social and psychological costs of loss in autonomy and privacy?
-
-### Key publications
-
-Dhami, S., Wei, M., & Mamidi, P.,"Religious identity, trust, reciprocity, and Prosociality: Theory and evidence", _Journal of Development Economics_, 166, 103192, 2024;
-
-Shashidhara, S., Mamidi, P., Vaidya, S., & Daral, I, "Using machine learning prediction to create a 15-question IPV measurement tool", _Journal of interpersonal violence_, 39(1-2), 11-34, 2024;
-
-Spamann, Holger, Lars Klöhn, Christophe Jamin, Vikramaditya Khanna, John Zhuang Liu, Pavan Mamidi, Alexander Morell, and Ivan Reidel, _"Judges in the Lab: No Precedent Effects, No Common/Civil Law Differences", Journal of Legal Analysis_ 13, no. 1 : 110-126, 2021.

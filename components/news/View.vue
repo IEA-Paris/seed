@@ -1,5 +1,4 @@
 <template>
-  <!--  {{ name }} -->
   <v-row>
     <v-col
       cols="12"
@@ -11,6 +10,10 @@
         :type="['heading', 'heading'][['xs', 'sm'].indexOf(name || 'sm')]"
       ></v-skeleton-loader>
       <template v-else>
+        <v-chip class="mb-4">{{
+          $t("news.categories." + item.category)
+        }}</v-chip>
+        <br />
         {{ item.title }}
       </template>
     </v-col>
@@ -36,22 +39,25 @@
         v-if="rootStore.loading || rootStore.news.loading"
         :type="
           [
-            'avatar, paragraph',
-            'avatar, paragraph',
-            'heading, ossein,	avatar, text, ossein, chip@3',
-            'heading, ossein,	avatar, text, ossein, chip@3',
-            'heading, ossein, avatar, text, ossein, chip@3',
+            'text, chip@4',
+            'text, chip@4',
+            'heading, text',
+            'heading, text',
+            'heading, text',
             'heading',
           ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
         "
       ></v-skeleton-loader>
 
-      <div v-else class="mx-4 mx-md-0 d-flex flex-column justify-md-end">
+      <div v-else class="mx-4 mx-md-0 justify-md-end">
+        <v-chip class="mb-4" v-if="mdAndUp">{{
+          $t("news.categories." + item.category)
+        }}</v-chip>
         <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
           {{ item.title }}
         </div>
         <div
-          class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-6"
+          class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-4 mx-md-6"
         >
           <!-- <MiscAtomsDateStamp
               :loading="rootStore.news.loading"
@@ -60,9 +66,7 @@
             /> -->
 
           <div class="ml-md-n6">
-            <div
-              class="text-body-2 text-lg-body-1 text-black mt-4 mt-sm-4 mt-md-0 mb-md-n4 ml-md-0"
-            >
+            <div class="text-body-2 text-lg-body-1 text-black">
               <!--    TODO use a proper & conditional formatting of names (depending on number of authors) -->
               {{
                 $t("by-author", [
@@ -70,9 +74,10 @@
                 ])
               }}
             </div>
-            <div class="mt-lg-n1">
+            <div class="" v-if="smAndDown">
               <MiscMoleculesChipContainer
                 :items="item.tags"
+                class="mt-4"
               ></MiscMoleculesChipContainer>
             </div>
           </div>
@@ -86,20 +91,17 @@
       <v-skeleton-loader
         v-if="rootStore.loading || rootStore.news.loading"
         :type="
-          [
-            'image, text@3, ossein, button',
-            'image, text@3, ossein, button',
-            'image, text@3, ossein, button',
-            'image, text@3, ossein, button',
-          ][['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
+          ['chip@2', 'chip@3', 'chip@4', 'chip@5'][
+            ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+          ]
         "
       ></v-skeleton-loader>
       <template v-else>
-        <div class="mt-2 mx-n6 mx-sm-0" v-if="mdAndUp">
-          <ActionsSmallContainer
-            :action="action"
-            :ratio="1"
-          ></ActionsSmallContainer>
+        <div class="mt-2 mx-sm-6" v-if="mdAndUp">
+          <MiscMoleculesChipContainer
+            :items="item.tags"
+            class="mt-4"
+          ></MiscMoleculesChipContainer>
         </div>
       </template>
     </v-col>
@@ -113,7 +115,7 @@
         "
       ></v-skeleton-loader>
       <template v-else>
-        <ContentRenderer :value="item" class="mt-md-n2 mx-10 mx-md-0" />
+        <ContentRenderer :value="item" class="mt-md-n2 mx-4 mx-sm-8 mx-md-0" />
       </template>
     </v-col>
   </v-row>

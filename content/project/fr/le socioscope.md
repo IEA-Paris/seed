@@ -1,8 +1,9 @@
 ---
-title: The Socioscope
+title: "Le Socioscope"
 url: "https://thesocioscope.org/"
 date: 2024-05-12T00:00:00.000Z
 color: "#000000"
+subtitle: "Travaillons ensemble pour faire de notre monde un endroit meilleur et plus durable."
 image: "/images/logo_typo_black.svg"
 relatedNews:
   - bookingState: "Publié"
@@ -115,21 +116,22 @@ tags:
     createdAt: "2024-05-30T00:00:00.000Z"
     updatedAt: "2024-08-30T00:00:00.000Z"
 ---
+
 **Le Socioscope** s'attache à comprendre comment rendre notre monde plus durable, en particulier dans le domaine de l'alimentation. Nous avons pour mission de comprendre ce qui fonctionne sur le terrain partout dans le monde.
 
-*Notre action:*
+_Notre action:_
 
 Nous nous intéressons de près à ce que font les projets locaux pour changer les choses. Nous parlons aux gens, créons des vidéos et apprenons tout ce que nous pouvons sur la façon dont ces projets améliorent les choses. Ensuite, nous utilisons des outils d'intelligence articifielle pour donner un sens à tout cela et voir ce qui fait vraiment la différence.
 
-*Notre histoire:*
+_Notre histoire:_
 
 Le Socioscope a débuté avec l'[Institut d'études avancées de Paris](https://www.paris-iea.fr/en/) et le [Vienna Complexity Science Hub](https://csh.ac.at/). Après avoir testé nos idées dans neuf pays et avec 60 projets, nous avons obtenu le soutien nécessaire pour nous étendre à 600 projets sur quatre continents.
 
-*Notre plateforme*
+_Notre plateforme:_
 
 Notre site web, The Socioscope, est comme une grande bibliothèque en ligne où vous pouvez découvrir tous les projets qui changent la façon dont nous pensons à l'alimentation. C'est un endroit où l'on peut présenter des projets intéressants, entrer en contact avec d'autres personnes et partager des idées. Que vous soyez chef de projet ou simplement curieux, il y en a pour tous les goûts.
 
-*Participez:*
+_Participez:_
 
 Nous voulons que chacun fasse partie de la solution. Que vous dirigiez un projet ou que vous souhaitiez simplement en savoir plus, vous êtes le bienvenu ici. Notre site web est facile à utiliser, de sorte que [vous pouvez partager ce que vous faites en quelques minutes seulement](https://thesocioscope.org/register).
 

@@ -35,7 +35,7 @@ h6,
 
 // The variables you want to modify
 // $font-size-root: 20px;
-$fortnightly-font-size: 16;
+$fortnightly-font-size: 18;
 $fortnightly-heading-font-style: italic;
 // Preset variables
 $body-font-family: "Open sans", sans-serif;
@@ -44,62 +44,74 @@ $btn-font-weight: 700;
 $heading-font-family: "Bodoni Moda", sans-serif;
 
 $headings: (
-  "h1": ("font-family": $heading-font-family,
+  "h1": (
+    "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(96 / $fortnightly-font-size)}rem,
     "weight": 900,
   ),
-  "h2": ("font-family": $body-font-family,
+  "h2": (
+    "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(60 / $fortnightly-font-size)}rem,
     "weight": 300,
   ),
-  "h3": ("font-family": $heading-font-family,
+  "h3": (
+    "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(48 / $fortnightly-font-size)}rem,
     "weight": 900,
   ),
-  "h4": ("font-family": $body-font-family,
+  "h4": (
+    "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(34 / $fortnightly-font-size)}rem,
     "weight": 400,
   ),
-  "h5": ("font-family": $body-font-family,
+  "h5": (
+    "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(24 / $fortnightly-font-size)}rem,
     "weight": 400,
   ),
-  "h6": ("font-family": $heading-font-family,
+  "h6": (
+    "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(20 / $fortnightly-font-size)}rem,
     "weight": 700,
   ),
-  "subtitle-1": ("font-family": $body-font-family,
+  "subtitle-1": (
+    "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(16 / $fortnightly-font-size)}rem,
     "weight": 500,
   ),
-  "subtitle-2": ("font-family": $heading-font-family,
+  "subtitle-2": (
+    "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(14 / $fortnightly-font-size)}rem,
     "weight": 500,
   ),
-  "body-1": ("font-family": $heading-font-family,
+  "body-1": (
+    "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(16 / $fortnightly-font-size)}rem,
     "weight": 400,
   ),
-  "body-2": ("font-family": $body-font-family,
+  "body-2": (
+    "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(14 / $fortnightly-font-size)}rem,
     "weight": 400,
   ),
-  "caption": ("font-family": $heading-font-family,
+  "caption": (
+    "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(12 / $fortnightly-font-size)}rem,
     "weight": 400,
   ),
-  "overline": ("font-family": $body-font-family,
+  "overline": (
+    "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(10 / $fortnightly-font-size)}rem,
     "weight": 700,
@@ -162,37 +174,37 @@ $stepper-elevation: 0;
 }
 
 @supports (scroll-snap-align: start) {
-  @media screen and (min-width: 700px) { // TODO: come up with a more suited media query
-  .scroller {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    overflow-x: hidden;
+  @media screen and (min-width: 700px) {
+    // TODO: come up with a more suited media query
+    .scroller {
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      overflow-x: hidden;
 
-    section,
-    .carousel {
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
+      section,
+      .carousel {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
 
-      scroll-padding-top: 64px;
-      scroll-padding-bottom: 100vh;
+        scroll-padding-top: 64px;
+        scroll-padding-bottom: 100vh;
+      }
     }
   }
 }
-}
-  .scroller {
-    height: calc(100vh - 64px); // to match screen height minus toolbar height
+.scroller {
+  height: calc(100vh - 64px); // to match screen height minus toolbar height
 
-
-    section {
-      height: calc(100vh - 64px);
-      display: flex;
-      align-items: center;
-    }
-
-    .carousel {
-      height: calc(100vh - 64px);
-    }
+  section {
+    height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
   }
+
+  .carousel {
+    height: calc(100vh - 64px);
+  }
+}
 
 // FF print fix
 /* @media print {
@@ -246,7 +258,7 @@ $stepper-elevation: 0;
 h1 {
   font-weight: 600;
   line-height: 2.6rem;
-  font-size: 34px;
+  font-size: 45px;
   padding-bottom: 0.4rem;
   margin-bottom: 1em;
   margin-top: 2rem;
@@ -268,15 +280,16 @@ h3 {
   margin-top: 1.5rem;
   margin-bottom: 0.6em;
   padding-bottom: 0.1rem;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 p {
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: 15px;
   margin-top: 10px;
   word-spacing: 2px;
   line-height: 28px;
+  max-width: 80ch;
 }
 
 p code,
@@ -309,8 +322,11 @@ ul {
   padding-inline-start: 40px;
 }
 
-li {}
-
+li {
+}
+.sliding-item:hover .sliding-item-title {
+  text-decoration: underline;
+}
 .v-application code {
   all: initial;
   all: unset;
@@ -328,7 +344,7 @@ li {}
   border-radius: 6px;
 }
 
-.nuxt-content-highlight>.filename {
+.nuxt-content-highlight > .filename {
   font-family: Lato;
   right: 0;
   top: 0;

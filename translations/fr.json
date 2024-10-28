@@ -77,6 +77,9 @@
   "invalid-doi-code": "DOI invalide",
   "invalid-date": "Le format de date n'est pas valide",
   "invalid-orcid": "Votre numéro ORCID n'est pas valide",
+  "fellowship": {
+    "register": "S'inscrire à cette bourse"
+  },
   "events": {
     "register": "Inscrivez vous à cet évènement",
     "key": "Évènements",
@@ -108,8 +111,7 @@
     "sab": "sab",
     "board": "conseil",
     "fellow": "fellow",
-    "sponsor": "sponsor",
-    "vintage": "vintage"
+    "sponsor": "sponsor"
   },
   "0-1-found-page-2-of-3": "Aucun {1} trouvé. \nPage {2} sur {3} | {0} {1} trouvé. \nPage {2} sur {3} | {0} {1} trouvés. \nPage {2} sur {3} ",
   "biography": "Biographie",
@@ -126,6 +128,18 @@
     "news": "nouvelles | \nnouvelles | \nnouvelles",
     "people": "personne | \npersonne | \npersonnes",
     "project": "projet | \nprojet | \nprojets"
+  },
+  "news": {
+    "key": "Actualités",
+    "categories": [
+      "communiqué de presse",
+      "Vie de l'institut",
+      "Rapport",
+      "Article",
+      "Entretien",
+      "Opinion",
+      "Article de blog"
+    ]
   },
   "list": {
     "by-date-most-recent-first": "Dernier",
@@ -172,11 +186,18 @@
   "outside-event": "Événement extérieur",
   "event-full": "Événement complet",
   "visit-this-project-website": "Site Web du projet",
-  "see-more": "Voir plus",  
+  "see-more": "Voir plus",
   "share-on": "Partagez sur {network}",
   "share-this-on": "Jetez un oeil à {item}",
   "paris-institute-for-advanced-study": "Institut d'études avancées de Paris",
   "visit": "Modalités d'accès",
-  "view-larger-map":"Voir sur une carte en plein écran"
-
+  "view-larger-map": "Voir sur une carte en plein écran",
+  "hybrid-event": "Événement hybride",
+  "vintage": "Année",
+  "short-stay": "Séjour court",
+  "long-stay": "Séjour long",
+  "in-groups": "En groupe",
+  "opening-applications-on-0": "Ouverture aux candidatures le {0}",
+  "applications-closed-since-0": "Inscriptions fermées depuis le {0}",
+  "register-until-0": "Candidatez jusqu'au {0}"
 }

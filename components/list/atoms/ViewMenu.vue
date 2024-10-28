@@ -7,13 +7,12 @@
             x-large
             tile
             flat
-            icon
+            :icon="'mdi-' + current?.icon || defaultView?.icon"
             :class="{
               'mt-3': isXsDisplay,
             }"
             v-bind="mergeProps(menu, tooltip)"
           >
-            <v-icon>mdi-{{ current?.icon || defaultView?.icon }}</v-icon>
           </v-btn>
         </template>
         <div
@@ -25,18 +24,18 @@
       </v-tooltip>
     </template>
     <v-list density="compact">
-      <template v-for="(value, key,  index) in items"
-      :key="index"
+      <v-list-item
+        v-for="(value, key, index) in items"
+        :key="index"
+        @click="updateView(value.name || key)"
       >
-        <v-list-item
-          @click="updateView(value.name || key)"
-        >
-          <template v-slot:prepend>
-            <v-icon>mdi-{{ value.icon }}</v-icon>
-          </template>
-          <v-list-item-title >{{ $t('list.' + (value.name || key)) }}</v-list-item-title>
-        </v-list-item></template
-      >
+        <template v-slot:prepend>
+          <v-icon>mdi-{{ value.icon }}</v-icon>
+        </template>
+        <v-list-item-title>{{
+          $t("list." + (value.name || key))
+        }}</v-list-item-title>
+      </v-list-item>
     </v-list>
   </v-menu>
 </template>
@@ -68,7 +67,6 @@ const items = ref(rootStore[props.type].list.views)
 const current = ref(rootStore[props.type].list.view)
 
 const updateView = async (value) => {
-  console.log('value: ', value);
   await rootStore.updateView({ value, type: props.type })
 }
 

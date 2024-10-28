@@ -1,29 +1,26 @@
 <template>
-  <v-card
-    flat
-    class="pa-6"
-    :to="localePath('/people/' + slugify(item.lastname + ' ' + item.firstname))"
-    v-motion-fade-visible
-    style="width:100%"
-  >
+  <v-sheet class="pa-2 sliding-item">
     <MiscAtomsImageContainer
       cover
       :loading="rootStore.people.loading"
       :src="item.image"
       :ratio="1 / 1"
-      :link="item.firstname + ' ' + item.lastname"
-      name="people-slug"
+      :name="item.firstname + ' ' + item.lastname"
+      link="people-slug"
+      :slug="getSlugFromPath(item._path)"
     />
-    <v-card-title class="mt-3 pl-0 text-left">{{
-      item.firstname + " " + item.lastname
-    }}</v-card-title>
-    <v-card-text
+    <div
+      class="mt-3 pl-0 text-left text-h5 text-md-h4 font-weight-medium sliding-item-title"
+    >
+      {{ item.firstname + " " + item.lastname }}
+    </div>
+    <!--     <v-card-text
       class="text-subtitle text-left text-disabled"
       style="max-width: 240px"
     >
       {{ item.specialty }}
-    </v-card-text>
-  </v-card>
+    </v-card-text> -->
+  </v-sheet>
 </template>
 <script setup>
 // import { useDisplay } from "vuetify"

@@ -17,7 +17,7 @@ export const requiredRules = (value) => {
       value !== false &&
       (Array.isArray(value) || typeof value === "string"
         ? value.length > 0
-        : true)
+        : true),
   )
   return (
     value !== undefined &&
@@ -31,7 +31,6 @@ export const requiredRules = (value) => {
 
 export const alphaRules = (value) => !value || alphaRegex.test(value)
 export const minRules = (min) => (value) => {
-  console.log("min", min)
   return !value || value.length >= min
 }
 export const maxRules = (max) => (value) => !value || value.length <= max

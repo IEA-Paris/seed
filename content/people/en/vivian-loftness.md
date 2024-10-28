@@ -21,11 +21,11 @@ socials:
   scholar: "123"
   researchgate: "123"
 groups:
-  fellow: true
-  vintage:
-    - year: 2024
-      name: rolling-call-for-fellows
-      theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
+  fellows: true
+  # vintage:
+  #   - year: 2024
+  #     name: rolling-call-for-fellows
+  #     theme: "La pêche à petite échelle dans les pays du Sud : son importance, même pour l'Europe"
 relatedProjects:
   - title: "Positive Future"
     shortDescription: "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100"
@@ -39,7 +39,7 @@ relatedProjects:
     shortDescription: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     description: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     url: "https://thesocioscope.org/"
-    image:  "/images/logo_typo_black.svg"
+    image: "/images/logo_typo_black.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"
@@ -114,30 +114,3 @@ relatedNews:
 ---
 
 Vivian Loftness, FAIA, is Paul Mellon Chair and University Professor at Carnegie Mellon University. She is a researcher, author and educator, with over forty years of building science research for industry and government. Editor of the 2013 and 2020 Springer Encyclopedia on Sustainable Built Environments, she has published on climate and regionalism, environmental sustainability, advanced building systems integration, and design for performance in the workplace of the future. She is an elected Fellow of the American Institute of Architects, the US Green Building Council, New Buildings Institute, and Design Futures Council. Vivian has been recognized as one of 13 Stars of Building Science by the Building Research Establishment in the UK, received the Award of Distinction from AIA Pennsylvania and NESEA, holds a National Educator Honor Award from the American Institute of Architecture Students, and a "Sacred Tree" Award from the US Green Building Council. Vivian Loftness has a Bachelor of Science and a Master of Architecture from MIT. In June 2025, she joins the IAS for a one-month writing residency.
-
-### Research interests
-
-Climate and regionalism, environmental sustainability, advanced building systems integration, and design for performance in the workplace of the future
-
-Research project
-
-**The critical role of the built environment for a carbon neutral future**
-
-Strategic investment in the design of Buildings, Communities and Grids are as critical as clean energy supplies and electric infrastructures to meet our global commitments to achieve decarbonization by 2050. This project is driven to quantify that the building sector is the biggest "end use sector" in the carbon equation and can have the greatest impact on minimizing carbon energy demand and optimizing energy supply, while providing measurable gains for productivity, health, and environmental quality.
-
-In the United States, commercial and residential buildings use 70% of total US electricity and are responsible for over 35% of total U.S. greenhouse gas emissions \[EIA 2022\], compounded by embodied carbon from the industrial sector and land use patterns that amplify transportation carbon generation. At the building level, this project explores the carbon potential of accelerating residential and commercial building retrofits and weatherization, appliance and equipment standards, carbon neutral building codes, and investments in innovations to reduce embodied and operational carbon as well as other greenhouse gas pollutants.
-
-The project goes beyond building decarbonization to capture the substantial gains towards net zero that can only be achieved at the community and regional design level. A decarbonized future requires design and policy to ensure: Field, forest and soil preservation through urban growth boundaries and transit-oriented development; Electrification deliberately bundled with building energy efficiency and transportation choices including walking; Smart surfaces for heat and carbon reduction as well as equity; and Innovation, research, and rapid development of district energy through grid-interactive electrified buildings with thermal energy distribution and storage systems.
-
-Finally, the project will outline the critical need for designing a 'grid of grids', anticipating the spatial distribution of energy infrastructures that fully integrate buildings and communities of buildings. Smart buildings are key to stabilizing the grid through investment in next generation technologies and integrated systems. Electric and thermal energy storage will be critical for addressing the shift in peak energy demands that accompany full electrification. Distributed and community owned renewable energy generation will be critical for resiliency in the face of climate change. The potential for buildings and communities of buildings to eliminate peak energy demands through load shifting, and to meet all demands with on-site renewables in combination with battery and thermal energy storage, is key to a net zero future.
-
-Investing in planning, design, construction, operation, and disposition of urban, suburban, and rural buildings, communities and grids is the most cost effective path to carbon neutrality while improving quality of life with equity and advancing resiliency in the face of climate change.
-
-### Key publications
-
-Loftness, V. and M. Snyder, "Sustainable and Healthy Built Environments", *Encyclopedia on Sustainable Built Environments,* Springer, 2020.
-
-Loftness, V and C. Martin, "Building Policies and Actions for Rapid Decarbonization in the US", _Accelerating Decarbonization,_ National Academy of Sciences, 2023.
-<https://www.nationalacademies.org/our-work/accelerating-decarbonization-in-the-united-states-technology-policy-and-societal-dimensions.>
-
-Volker Hartkopf and Vivian Loftness, "The Robert L. Preger Intelligent Workplace, a Transformative Living Laboratory at Carnegie Mellon University", in _Facilities Management: Concept, Realization, Vision -- A Global Perspective_. Edmond P. Rondeau (Editor), Michaela Hellerforth (Editor), January 2024, Wiley Publications.

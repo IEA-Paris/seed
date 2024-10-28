@@ -1,5 +1,4 @@
 {
-  "foo": "bar",
   "french": "French",
   "english": "English",
   "about": "About",
@@ -91,6 +90,7 @@
     "rss": "RSS",
     "github": "Visit our Github repositories"
   },
+  "fellowship-register": "Register to this fellowship",
   "events": {
     "register": "Register to this event",
     "register-me": "Register",
@@ -103,7 +103,25 @@
       "Fellow's presentation"
     ]
   },
+  "news": {
+    "key": "News",
+    "categories": [
+      "Press release",
+      "Interview",
+      "Article",
+      "Opinion",
+      "Report",
+      "Blog post",
+      "Life at the institute"
+    ]
+  },
   "list": {
+    "0-items-found": "No {1} found.|{0} {1} found.|{0} {1} found.",
+    "0-items-found-searching-for": "No {1} found searching for \"{search}\".|1 {1} found searching for \"{2}\". | {n} {1} found searching for \"{search}\".",
+    "0-items-found-with-1-filter": "No {1} found with {2} filters.|1 {1} found with {2} filters. | {0} {1} found with {2} filters.",
+    "0-items-found-searching-for-with-1-filter": "{1} found searching for \"{2}\" with {3} filters.| {0} {1} found searching for \"{2}\" with {3} filters. | {0} {1} found searching for \"{2}\" with {3} filters.",
+    "page-0-of-1": "Page {0} of {1}",
+
     "search-type": "Search {0}",
     "tiles": "Tiles",
     "list": "List",
@@ -119,7 +137,154 @@
     "by-date-oldest-first": "Oldest",
     "by-date-most-recent-first": "Latest",
     "by-name-from-z-to-a": "By Name, from Z to A",
-    "by-name-from-a-to-z": "By Name, from A to Z"
+    "by-name-from-a-to-z": "By Name, from A to Z",
+    "filters": {
+      "people": {
+        "categories": {
+          "team": "Team",
+          "scientific-advisory-board": "Scientific Advisory Board",
+          "board-of-directors": "Board of directors",
+          "fellows": "Fellows",
+          "sponsor": "Sponsor"
+        },
+        "vintage": {
+          "2011": "2011",
+          "2012": "2012",
+          "2013": "2013",
+          "2014": "2014",
+          "2015": "2015",
+          "2016": "2016",
+          "2017": "2017",
+          "2018": "2018",
+          "2019": "2019",
+          "2020": "2020",
+          "2021": "2021",
+          "2022": "2022",
+          "2023": "2023",
+          "2024": "2024"
+        },
+        "program": {
+          "paris-ias-ideas": "Paris IAS Ideas",
+          "pop": "Program Oxford-Paris",
+          "fias": "French Institutes for Advanced Study",
+          "cat": "Constructive Advanced Thinking"
+        },
+        "discipline": {
+          "history": "History",
+          "philosophy": "Philosophy",
+          "sociology": "Sociology",
+          "economics": "Economics",
+          "law": "Law",
+          "political-science": "Political Science",
+          "geography": "Geography",
+          "psychology": "Psychology",
+          "education": "Education",
+          "communication": "Communication",
+          "management": "Management",
+          "marketing": "Marketing",
+          "finance": "Finance"
+        },
+        "member": {
+          "paris-1": "Paris 1"
+        }
+      },
+      "news": {
+        "category": {
+          "press-release": "Press release",
+          "interview": "Interview",
+          "article": "Article",
+          "opinion": "Opinion",
+          "report": "Report",
+          "blog-post": "Blog post",
+          "life-at-the-institute": "Life at the institute"
+        },
+        "tags": {
+          "WPRN": "WPRN",
+          "WPRN-2021": "WPRN 2021",
+          "Socioscope": "Socioscope"
+        }
+      },
+      "project": {
+        "status": {
+          "planned": "Planned",
+          "ongoing": "Ongoing",
+          "finished": "Finished",
+          "cancelled": "Cancelled"
+        }
+      },
+      "events": {
+        "status": {
+          "planned": "Planned",
+          "ongoing": "Ongoing",
+          "finished": "Finished",
+          "cancelled": "Cancelled"
+        },
+        "category": {
+          "lecture": "Lecture",
+          "seminar": "Seminar",
+          "conference": "Conference",
+          "colloquium": "Colloquium",
+          "fellow-presentation": "Fellow's presentation"
+        },
+        "organiserCategory": ["Paris IAS", "Fellow", "External"],
+        "disciplines": {
+          "history": "History",
+          "philosophy": "Philosophy",
+          "sociology": "Sociology",
+          "economics": "Economics",
+          "law": "Law",
+          "political-science": "Political Science",
+          "geography": "Geography",
+          "psychology": "Psychology",
+          "education": "Education",
+          "communication": "Communication",
+          "management": "Management",
+          "marketing": "Marketing",
+          "finance": "Finance"
+        },
+        "fellowship": {
+          "paris-ias-ideas": "Paris IAS Ideas",
+          "pop": "Program Oxford-Paris",
+          "fias": "French Institutes for Advanced Study",
+          "cat": "Constructive Advanced Thinking"
+        },
+        "online": "Online",
+        "past": "Past",
+        "outside": "Outside"
+      },
+      "fellowship": {
+        "status": {
+          "planned": "Planned",
+          "ongoing": "Ongoing",
+          "finished": "Finished",
+          "cancelled": "Cancelled"
+        },
+        "duration": {
+          "short-stay": "Short stay",
+          "long-stay": "Long stay",
+          "in-groups": "In group"
+        },
+        "affiliation": {
+          "paris-1": "Paris 1",
+          "paris-2": "Paris 2"
+        },
+        "discipline": {
+          "history": "History",
+          "philosophy": "Philosophy",
+          "sociology": "Sociology",
+          "economics": "Economics",
+          "law": "Law",
+          "political-science": "Political Science",
+          "geography": "Geography",
+          "psychology": "Psychology",
+          "education": "Education",
+          "communication": "Communication",
+          "management": "Management",
+          "marketing": "Marketing",
+          "finance": "Finance"
+        }
+      }
+    }
   },
   "live-stream-available": "Live stream available",
   "date-et-heure": "Date and Time",
@@ -129,8 +294,6 @@
   "inscription-ouverte": "Registration Open",
   "inscription-gratuite-et-obligatoire": " Free and mandatory registration",
   "presentation": "Presentation",
-  "presentation-0": "presentation",
-  "presentation-1": "presentation",
   "programme": "Programme",
   "programme-pdf": "The Programm (PDF)",
   "resumes-des-presentations": "Presentation summaries",
@@ -142,24 +305,17 @@
     "project": "Related projects"
   },
   "by-author": "By {0}",
-  "0-1-found-page-2-of-3": "{0} {1} found. Page {2} of {3}",
   "items": {
-    "events": "event | event | events",
-    "news": "news | news | news",
-    "project": "project | project | projects",
-    "fellow": "fellow | fellow | fellows",
-    "people": "person | person | people",
-    "fellowship": "fellowship | fellowship | fellowships"
+    "events": "Event | Events",
+    "news": "News | News",
+    "project": "Project | Projects",
+    "fellow": "Fellow | Fellows",
+    "people": "No one | People | People",
+    "fellowship": "Fellowship | Fellowships | {0} Fellowships"
   },
+  "fellowship": "Fellowship | Fellowships",
   "positions-and-affiliations": "Positions and Affiliations",
   "from {0} to {1}": "from {0} to {1}",
-  "groups": {
-    "team": "team",
-    "sab": "Scientific Advisory Board",
-    "board": "Board of directors",
-    "fellow": "Fellow",
-    "sponsor": "Sponsor"
-  },
   "biography": "Biography",
   "check-the-wikipedia-page-of-the-author": "Check the wikipedia page",
   "get-in-touch-on-linkedin": "Contact on Linkedin",
@@ -174,8 +330,19 @@
   "visit-this-project-website": "Project Website",
   "see-more": "See more",
   "share-on": "Share this on {network}",
-  "share-this-on": "Have a look at {item}",
+  "share-this-on": "Have a look at {1}",
   "paris-institute-for-advanced-study": "Paris Institute for Advanced Study",
   "visit": "Visit us",
-  "view-larger-map":"View on a larger map"
+  "view-larger-map": "View on a larger map",
+  "visit-the-project-website": "Visit the project website",
+  "filters": "Filters",
+  "open-the-filter-panel": "Open the filter panel",
+  "close-the-filter-panel": "Close the filter panel",
+  "vintage": "Year",
+  "short-stay": "Short stay",
+  "long-stay": "Long stay",
+  "in-groups": "In group",
+  "opening-applications-on-0": "Open to applications on {0}",
+  "applications-closed-since-0": "Applications closed since {0}",
+  "register-until-0": "Register until {0}"
 }
