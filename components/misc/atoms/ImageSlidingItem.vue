@@ -12,22 +12,13 @@
     >
       {{ item.caption }}
     </div>
-    <!--     <v-card-text
-      class="text-subtitle text-left text-disabled"
-      style="max-width: 240px"
-    >
-      {{ item.specialty }}
-    </v-card-text> -->
   </v-sheet>
 </template>
 <script setup>
-// import { useDisplay } from "vuetify"
-// const { smAndUp } = useDisplay()
-
 const localePath = useLocalePath()
 const props = defineProps({
   item: Object,
-  loading: Boolean
+  loading: Boolean,
 })
 </script>
 <style lang="scss"></style>

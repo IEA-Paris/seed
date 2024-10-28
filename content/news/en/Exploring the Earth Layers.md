@@ -111,23 +111,23 @@ relatedPeople:
     role: "Renewable Energy Expert"
 
 gallery:
-  - url: "/images/renewable.jpg"
+  - url: "/images/agriculture_ai.jpg"
     alt:
-    caption: "Exploring the Earth's Layers"
+    caption: "Artificial Intelligence Transforming Modern Agriculture"
     copyright:
     license:
     licenseUrl:
     backgroundColor:
-  - url: "/images/renewable.jpg"
+  - url: "/images/cybersecurity.jpg"
     alt:
-    caption: "Exploring the Earth's Layers"
+    caption: "Strengthening Cybersecurity in the Digital Era"
     copyright:
     license:
     licenseUrl:
     backgroundColor:
-  - url: "/images/renewable.jpg"
+  - url: "/images/ai_healthcare.jpg"
     alt:
-    caption: "Exploring the Earth's Layers"
+    caption: "Revolutionizing Healthcare with Artificial Intelligence"
     copyright:
     license:
     licenseUrl:

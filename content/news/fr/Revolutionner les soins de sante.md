@@ -109,23 +109,23 @@ relatedPeople:
     role: "Panéliste"
 
 gallery:
-  - url: "/images/logo_typo_black.svg"
+  - url: "/images/agriculture_ai.jpg"
     alt:
-    caption: "Exploring the Earth's Layers"
+    caption: "L'intelligence artificielle transforme l'agriculture moderne"
     copyright:
     license:
     licenseUrl:
     backgroundColor:
-  - url: "/images/logo_typo_black.svg"
+  - url: "/images/cybersecurity.jpg"
     alt:
-    caption: "Exploring the Earth's Layers"
+    caption: "Renforcer la cybersécurité à l'ère numérique"
     copyright:
     license:
     licenseUrl:
     backgroundColor:
-  - url: "/images/logo_typo_black.svg"
+  - url: "/images/ai_healthcare.jpg"
     alt:
-    caption: "Exploring the Earth's Layers"
+    caption: "Révolutionner les soins de santé grâce à l'intelligence artificielle"
     copyright:
     license:
     licenseUrl:

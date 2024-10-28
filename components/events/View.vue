@@ -257,6 +257,24 @@
         ></ActionsSmallContainer>
       </v-col>
     </v-row>
+
+    <!-- DIVIDERS -->
+    <v-responsive class="mx-auto my-9" width="120">
+      <v-divider class="mb-1" />
+      <v-divider />
+    </v-responsive>
+    <MiscAtomsSlidingCarousel
+      :items="item.gallery"
+      type="MiscAtomsImage"
+      ref="MiscAtomsImage"
+      key="MiscAtomsImage"
+      :loading="false"
+    >
+    </MiscAtomsSlidingCarousel>
+    <v-responsive class="mx-auto my-9" width="120">
+      <v-divider class="mb-1" />
+      <v-divider />
+    </v-responsive>
     <v-row>
       <v-col cols="12" md="4">
         <MiscMoleculesRelatedItems

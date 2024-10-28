@@ -130,6 +130,29 @@ relatedPeople:
     lastname: "Pauly"
     image: "images/Pauly.jpg"
     role: "Panéliste"
+
+gallery:
+  - url: "/images/renewable.jpg"
+    alt:
+    caption: "Exploiter les énergies renouvelables pour un avenir durable"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/disaster.jpg"
+    alt:
+    caption: "Intégrer l’énergie solaire et éolienne dans les réseaux énergétiques modernes"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/news_image.jpg"
+    alt:
+    caption: "Des innovations favorisant des solutions énergétiques propres et renouvelables"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 **Mars 2026**
