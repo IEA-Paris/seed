@@ -97,7 +97,7 @@ files: ""
 video: ""
 fellowshipType: 0
 disciplines:
-  - name: "Neurosciences"
+  - name: "All disciplines"
 ---
 Created in 2019 by the Paris IAS and supported by several institutes for advanced study in Europe, the CAT (Constructive Advanced Thinking) initiative aims to foster networks of excellent early-career researchers dedicated to developing new ideas for understanding and addressing current and emerging societal challenges, and to help transform these ideas into real-world action. Although it has a strong focus on the societal relevance of the projects, the CAT program is entirely non-thematic. The program supports basic research and promotes openness to non-academic actors (industry, policy makers, NGOs...) willing to support or engage in innovative research initiatives.
 The CAT program helps groups of 3 to 5 people, led by an early-career researcher from any discipline, and possibly including PhD students, to work on their project for up to 3 years. In order to allow them to exchange and mature their ideas, the groups have the opportunity to meet for short stays (two weeks maximum) in the participating institutes, and to be put in contact with local residents and research communities.

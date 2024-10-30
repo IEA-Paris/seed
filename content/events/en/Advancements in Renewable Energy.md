@@ -12,7 +12,7 @@ category: 1
 description: "As the global push for sustainable energy continues, artificial intelligence is playing a pivotal role in optimizing renewable energy systems. This event will feature discussions on the integration of AI with renewable energy technologies, highlighting cutting-edge research and practical applications. Speakers include Dr. Rachel Evans, an expert in renewable energy systems, and Dr. Samuel Green, a pioneer in AI-driven energy solutions. The event will be moderated by Prof. Laura Smith, Director of Energy Research at Stanford University."
 
 location: "Stanford University, 450 Serra Mall, Stanford, CA, USA"
-image: "images/renewable.jpg"
+image: "/images/renewable.jpg"
 type: 0
 files:
   [
@@ -51,7 +51,7 @@ relatedProjects:
     shortDescription: "The World Pandemic Research Network (WPRN) is dedicated to facilitating international collaboration in pandemic research"
     description: "It focuses on generating knowledge, data, and tools that can be shared across nations to better understand and combat pandemics. Through partnerships with institutions like the Institut d'Études Avancées de Paris (Paris IAS), WPRN brings together leading experts to address the complex challenges posed by global health crises"
     url: "https://wprn.org"
-    image: "images/logos/wprn_logo.png"
+    image: "/images/logos/wprn_logo.png"
     video: ""
     color: ""
     date: "2024-01-05T12:00:00.000+00:00"
@@ -60,7 +60,7 @@ relatedEvents:
   - bookingState: "Confirmed"
     createdAt: "2023-05-20T10:00:00.000+00:00"
     description: "Artificial Intelligence is emerging as a powerful tool in the fight against climate change"
-    image: "images/climat_1.jpg"
+    image: "/images/climat_1.jpg"
     name: "AI and Climate Change"
     outside: "No"
     start: "2023-06-20T09:00:00.000+00:00"
@@ -71,7 +71,7 @@ relatedEvents:
   - bookingState: "Pending"
     createdAt: "2023-06-10T12:30:00.000+00:00"
     description: "Exploring the use of AI in disaster management and resilience planning"
-    image: "images/disaster.jpg"
+    image: "/images/disaster.jpg"
     name: "AI in Disaster Management"
     outside: "No"
     start: "2023-07-05T10:00:00.000+00:00"
@@ -95,7 +95,7 @@ relatedNews:
   - bookingState: "Published"
     createdAt: "2024-01-15T14:00:00.000Z"
     description: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
-    image: "images/mars_image.jpg"
+    image: "/images/mars_image.jpg"
     name: "Mitigating Climate Change"
     start: "2024-01-20T12:00:00.000Z"
     state: "Published"
@@ -106,7 +106,7 @@ relatedNews:
   - bookingState: "Published"
     createdAt: "2023-12-12T11:00:00.000Z"
     description: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"
-    image: "images/IA_image.jpg"
+    image: "/images/IA_image.jpg"
     name: "Revolutionizing Healthcare"
     start: "2023-12-15T09:30:00.000Z"
     state: "Published"
@@ -117,15 +117,15 @@ relatedNews:
 relatedPeople:
   - firstname: "Paven"
     lastname: "Mamidi"
-    image: "images/Mamidi.jpg"
+    image: "/images/Mamidi.jpg"
     role: "Workshop Facilitator"
   - firstname: "Vivian"
     lastname: "Loftness"
-    image: "images/Loftness.jpeg"
+    image: "/images/Loftness.jpeg"
     role: "Keynote Speaker"
   - firstname: "Daniel"
     lastname: "Pauly"
-    image: "images/Pauly.jpg"
+    image: "/images/Pauly.jpg"
     role: "Panelist"
 ---
 
