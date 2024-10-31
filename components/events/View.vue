@@ -106,22 +106,25 @@
           </div>
 
           <div class="mt-md-4 mt-lg-6 mt-xl-8">
-            <EventsRegisterModal
-              ><v-btn
-                color="grey-lighten-3"
-                flat
-                tile
-                size="small"
-                class="my-2"
+            <EventsRegisterModal>
+              <template v-slot:activator="activatorProps"
+                ><v-btn
+                  color="grey-lighten-3"
+                  v-bind="activatorProps"
+                  flat
+                  tile
+                  size="small"
+                  class="my-2"
+                >
+                  <template v-slot:append>
+                    <v-icon class="text-green" size="x-large">
+                      mdi-circle-medium</v-icon
+                    >
+                  </template>
+                  {{ $t("inscription-ouverte") }}
+                </v-btn></template
               >
-                <template v-slot:append>
-                  <v-icon class="text-green" size="x-large">
-                    mdi-circle-medium</v-icon
-                  >
-                </template>
-                {{ $t("inscription-ouverte") }}
-              </v-btn></EventsRegisterModal
-            >
+            </EventsRegisterModal>
           </div>
 
           <v-sheet class="mt-md-0 mt-lg-2 mt-xl-4">
