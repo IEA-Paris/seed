@@ -31,5 +31,7 @@ const props = defineProps({
   item: { type: Object, required: true },
   loading: { type: Boolean, required: true },
 })
+
+console.log("IMAGE_PEOPLE", props.item.image, props.loading)
 </script>
 <style lang="scss"></style>
