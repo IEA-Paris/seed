@@ -66,6 +66,26 @@
               "
             ></v-skeleton-loader>
             <ContentRenderer v-else :value="item" />
+
+            <v-responsive class="mx-auto my-9" width="120">
+              <v-divider class="mb-1" />
+              <v-divider />
+            </v-responsive>
+
+            <v-responsive class="mx-auto my-9" width="120">
+              <v-divider class="mb-1" />
+              <v-divider />
+            </v-responsive>
+
+            <!-- <MiscAtomsSlidingCarousel
+              :items="item.gallery"
+              type="MiscAtomsImage"
+              ref="MiscAtomsImage"
+              key="MiscAtomsImage"
+              :loading="false"
+            >
+            </MiscAtomsSlidingCarousel> -->
+
             <v-expansion-panels
               outlined
               flat

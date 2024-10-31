@@ -101,7 +101,7 @@
           key="events"
           ref="events"
           type="events"
-        :loading="false"
+          :loading="false"
         >
           {{ $t("upcoming-events") }}
         </MiscAtomsSlidingCarousel>
@@ -148,7 +148,7 @@
           key="people"
           lazy
           ref="fellows"
-        :loading="false"
+          :loading="false"
         >
           {{ $t("discover-our-0-news", [academicYear]) }}
         </MiscAtomsSlidingCarousel></v-container
@@ -202,7 +202,6 @@ const { data: upcomingEvents } = await useAsyncData("event-list", () =>
     .limit(12)
     .find(),
 )
-console.log("upcomingEvents", upcomingEvents)
 const { data: upcomingFellows } = await useAsyncData("fellow-list", () =>
   queryContent("/people/" + locale.value)
     // .where({ outside: false })
@@ -210,6 +209,9 @@ const { data: upcomingFellows } = await useAsyncData("fellow-list", () =>
     .limit(12)
     .find(),
 )
+
+console.log("upcomingFellows", upcomingFellows)
+
 onMounted(() => {
   // init defaults from a possible previous session
   rootStore.setDefaults()

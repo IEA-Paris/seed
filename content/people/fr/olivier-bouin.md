@@ -1,5 +1,7 @@
 ---
 image: "images/bouin.jpg"
+start: 2024-10-10T09:00:00.000Z
+stop: 2024-10-10T17:00:00.000Z
 firstname: Olivier
 lastname: Bouin
 affiliations:
@@ -36,7 +38,7 @@ relatedProjects:
     shortDescription: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation"
     description: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation"
     url: "https://thesocioscope.org/"
-    image:  "/images/logo_typo_black.svg"
+    image: "/images/logo_typo_black.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"

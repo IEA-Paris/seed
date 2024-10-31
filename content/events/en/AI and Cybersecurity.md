@@ -10,7 +10,7 @@ bookingState: 2
 description: "As cyber threats evolve in complexity, Artificial Intelligence is becoming a critical tool in enhancing cybersecurity. This event will explore how AI is being used to detect, prevent, and respond to cyberattacks, and how it shapes the future of digital security. Key speakers include Dr. Michael Reynolds, a cybersecurity expert from MIT, and Dr. Leila Ahmed, a specialist in AI-driven security from the European Cybersecurity Agency. Moderated by Prof. Angela Liu, Director of Cybersecurity Research at Oxford University."
 
 location: "Online Event"
-image: "images/cybersecurity.jpg"
+image: "/images/cybersecurity.jpg"
 outside: false
 type: 0
 files:
@@ -50,7 +50,7 @@ relatedProjects:
     shortDescription: "The World Pandemic Research Network (WPRN) is dedicated to facilitating international collaboration in pandemic research"
     description: "It focuses on generating knowledge, data, and tools that can be shared across nations to better understand and combat pandemics. Through partnerships with institutions like the Institut d'Études Avancées de Paris (Paris IAS), WPRN brings together leading experts to address the complex challenges posed by global health crises"
     url: "https://wprn.org"
-    image: "images/logos/wprn_logo.png"
+    image: "/images/logos/wprn_logo.png"
     video: ""
     color: ""
     date: "2024-01-05T12:00:00.000+00:00"
@@ -59,7 +59,7 @@ relatedEvents:
   - bookingState: "Pending"
     createdAt: "2023-08-05T11:30:00.000+00:00"
     description: "An immersive field trip showcasing AI-driven agriculture technologies"
-    image: "images/agriculture_ai.jpg"
+    image: "/images/agriculture_ai.jpg"
     name: "AI in Sustainable Agriculture"
     outside: "Yes"
     start: "2023-10-05T07:30:00.000+00:00"
@@ -70,7 +70,7 @@ relatedEvents:
   - bookingState: "Confirmed"
     createdAt: "2023-08-10T10:15:00.000+00:00"
     description: "Panel discussion with AI ethics experts on privacy and security in the digital age"
-    image: "images/privacy_ai.jpg"
+    image: "/images/privacy_ai.jpg"
     name: "AI, Privacy, and Data Security"
     outside: "No"
     start: "2023-10-15T14:00:00.000+00:00"
@@ -94,7 +94,7 @@ relatedNews:
   - bookingState: "Published"
     createdAt: "2024-01-15T14:00:00.000Z"
     description: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
-    image: "images/mars_image.jpg"
+    image: "/images/mars_image.jpg"
     name: "Mitigating Climate Change"
     start: "2024-01-20T12:00:00.000Z"
     state: "Published"
@@ -105,7 +105,7 @@ relatedNews:
   - bookingState: "Published"
     createdAt: "2023-12-12T11:00:00.000Z"
     description: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"
-    image: "images/IA_image.jpg"
+    image: "/images/IA_image.jpg"
     name: "Revolutionizing Healthcare"
     start: "2023-12-15T09:30:00.000Z"
     state: "Published"
@@ -116,15 +116,15 @@ relatedNews:
 relatedPeople:
   - firstname: "Paven"
     lastname: "Mamidi"
-    image: "images/Mamidi.jpg"
+    image: "/images/Mamidi.jpg"
     role: "Workshop Facilitator"
   - firstname: "Vivian"
     lastname: "Loftness"
-    image: "images/Loftness.jpeg"
+    image: "/images/Loftness.jpeg"
     role: "Keynote Speaker"
   - firstname: "Daniel"
     lastname: "Pauly"
-    image: "images/Pauly.jpg"
+    image: "/images/Pauly.jpg"
     role: "Panelist"
 
 gallery:

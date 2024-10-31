@@ -10,7 +10,7 @@
         cover
         :ratio="1"
         :src="item.image"
-        link="activities-events-slug"
+        link="people-slug"
         :slug="getSlugFromPath(item._path)"
         :loading="loading"
       >
