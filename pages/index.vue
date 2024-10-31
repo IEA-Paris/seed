@@ -3,138 +3,81 @@
     >ext</v-btn
   > -->
   <div class="scroller">
-    <HomeCarousel
-      v-if="carousel"
-      class="carousel"
-      :featured="featured"
-    ></HomeCarousel>
-    <HomeCarouselAlt
-      v-else
-      class="carousel"
-      :featured="featured"
-    ></HomeCarouselAlt>
+    <HomeCarousel v-if="carousel" class="carousel" :featured="featured"></HomeCarousel>
+    <HomeCarouselAlt v-else class="carousel" :featured="featured"></HomeCarouselAlt>
     <div class="d-flex justify-center mt-n12">
       <v-switch label="" v-model="carousel"></v-switch>
-      <v-btn
-        color="default"
-        icon
-        flat
-        @click="about?.$el.scrollIntoView({ behavior: 'smooth' })"
-        variant="outlined"
-      >
+      <v-btn color="default" icon flat @click="about?.$el.scrollIntoView({ behavior: 'smooth' })" variant="outlined">
         <v-icon>mdi-chevron-down</v-icon>
       </v-btn>
     </div>
     <section class="d-flex flex-column justify-center dark">
       <v-container fluid>
-        <v-row
-          class="d-flex align-center justify-center"
-          ref="about"
-          no-gutters
-        >
+        <v-row class="d-flex align-center justify-center" ref="about" no-gutters>
           <v-col cols="12" md="6" class="d-flex justify-end my-6">
-            <div
-              v-motion
-              :initial="{
-                opacity: 0,
-                x: -100,
-              }"
-              :enter="{
-                opacity: 1,
-                x: 0,
-                transition: {
-                  type: 'slide',
-                  stiffness: '100',
-                  delay: 500,
-                },
-              }"
-              class="text-h4 text-sm-h3 text-md-h2 pr-6"
-              :class="mdAndUp ? 'text-right' : 'text-left'"
-              :style="mdAndUp ? 'max-width: 500px' : 'padding: 0 24px'"
-            >
+            <div v-motion :initial="{
+              opacity: 0,
+              x: -100,
+            }" :enter="{
+              opacity: 1,
+              x: 0,
+              transition: {
+                type: 'slide',
+                stiffness: '100',
+                delay: 500,
+              },
+            }" class="text-h4 text-sm-h3 text-md-h2 pr-6" :class="mdAndUp ? 'text-right' : 'text-left'"
+              :style="mdAndUp ? 'max-width: 500px' : 'padding: 0 24px'">
               {{ $t("moto") }}
             </div>
           </v-col>
           <v-col cols="12" md="6" class="my-6">
-            <div
-              v-motion
-              :initial="{
-                opacity: 0,
-                x: 100,
-              }"
-              :enter="{
-                opacity: 1,
-                x: 0,
-                transition: {
-                  type: 'slide',
-                  stiffness: '100',
-                  delay: 1000,
-                },
-              }"
-              color="transparent"
-              flat
-              id="presentation"
+            <div v-motion :initial="{
+              opacity: 0,
+              x: 100,
+            }" :enter="{
+              opacity: 1,
+              x: 0,
+              transition: {
+                type: 'slide',
+                stiffness: '100',
+                delay: 1000,
+              },
+            }" color="transparent" flat id="presentation"
               class="d-flex align-center justify-center px-6 pb-6 pt-0 mt-md-6 presentation-pitch"
-              style="max-width: 600px"
-            >
+              style="max-width: 600px">
               <ContentDoc :path="presentation" />
             </div>
           </v-col>
         </v-row>
       </v-container>
       <div class="d-flex justify-center">
-        <v-btn
-          color="default"
-          icon
-          flat
-          @click="events?.$el.scrollIntoView({ behavior: 'smooth' })"
-          variant="outlined"
-        >
+        <v-btn color="default" icon flat @click="events?.$el.scrollIntoView({ behavior: 'smooth' })" variant="outlined">
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </div>
     </section>
     <section class="d-flex flex-column justify-center align-center">
       <v-container>
-        <MiscAtomsSlidingCarousel
-          :items="upcomingEvents"
-          key="events"
-          ref="events"
-          type="events"
-        :loading="false"
-        >
+        <MiscAtomsSlidingCarousel :items="upcomingEvents" key="events" ref="events" type="events" :loading="false">
           {{ $t("upcoming-events") }}
         </MiscAtomsSlidingCarousel>
         <div class="d-flex justify-center">
-          <v-btn
-            color="default"
-            icon
-            flat
-            @click="numbers?.$el.scrollIntoView({ behavior: 'smooth' })"
-            class="justify-self-center"
-            variant="outlined"
-          >
+          <v-btn color="default" icon flat @click="numbers?.$el.scrollIntoView({ behavior: 'smooth' })"
+            class="justify-self-center" variant="outlined">
             <v-icon>mdi-chevron-down</v-icon>
           </v-btn>
-        </div></v-container
-      >
+        </div>
+      </v-container>
     </section>
     <section class="d-flex flex-column justify-center dark">
       <v-container>
-        <v-row
-          class="d-flex align-center justify-center flex-column"
-          ref="numbers"
-        >
+        <v-row class="d-flex align-center justify-center flex-column" ref="numbers">
           <v-col cols="12" md="10" class="justify-center">
             <HomeCountUpStats></HomeCountUpStats>
           </v-col>
-          <v-btn
-            color="default"
-            icon
-            flat
-            @click="fellows?.$el.scrollIntoView({ behavior: 'smooth' })"
-            variant="outlined"
-          >
+          <v-btn color="default" icon flat @click="fellows?.$el.scrollIntoView({ behavior: 'smooth' })"
+            variant="outlined">
             <v-icon>mdi-chevron-down</v-icon>
           </v-btn>
         </v-row>
@@ -142,17 +85,10 @@
     </section>
     <section class="d-flex flex-column justify-center align-center">
       <v-container>
-        <MiscAtomsSlidingCarousel
-          :items="upcomingFellows"
-          type="people"
-          key="people"
-          lazy
-          ref="fellows"
-        :loading="false"
-        >
+        <MiscAtomsSlidingCarousel :items="upcomingFellows" type="people" key="people" ref="fellows" :loading="false">
           {{ $t("discover-our-0-news", [academicYear]) }}
-        </MiscAtomsSlidingCarousel></v-container
-      >
+        </MiscAtomsSlidingCarousel>
+      </v-container>
     </section>
     <NavigationFooter isSnapScroll />
   </div>
@@ -219,6 +155,7 @@ onMounted(() => {
 .presentation-pitch p {
   font-size: 1.2rem;
 }
+
 .dark {
   background-color: #0b0b0b;
   color: white;
