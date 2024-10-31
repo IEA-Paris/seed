@@ -77,14 +77,16 @@
               <v-divider />
             </v-responsive>
 
-            <!-- <MiscAtomsSlidingCarousel
-              :items="item.gallery"
-              type="MiscAtomsImage"
-              ref="MiscAtomsImage"
-              key="MiscAtomsImage"
+            <MiscAtomsSlidingCarousel
+              :items="upcomingFellows"
+              type="people"
+              key="people"
+              lazy
+              ref="fellows"
               :loading="false"
             >
-            </MiscAtomsSlidingCarousel> -->
+              {{ $t("discover-our-0-news") }}
+            </MiscAtomsSlidingCarousel>
 
             <v-expansion-panels
               outlined
@@ -140,6 +142,14 @@ const props = defineProps({
     required: true,
   },
 })
+
+const { data: upcomingFellows } = await useAsyncData("fellow-list", () =>
+  queryContent("/people/" + locale.value)
+    // .where({ outside: false })
+    // .sort("date", "desc")
+    .limit(12)
+    .find(),
+)
 
 const fellowshipType = ref([
   ...(props.item.fellowshipType === 2

@@ -8,7 +8,7 @@
       :name="caption"
     />
     <div
-      class="mt-3 pl-0 text-left text-h5 font-weight-medium sliding-item-title"
+      class="mt-3 pl-0 text-left text-subtitle-2 font-weight-medium sliding-item-title"
     >
       {{ item.caption }}
     </div>
