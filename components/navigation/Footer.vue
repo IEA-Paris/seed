@@ -87,6 +87,7 @@
                   ></small
                 >
               </v-col>
+
               <v-col cols="12" sm="6" class="pt-0">
                 <v-row justify="center" no-gutters>
                   <v-col cols="12" sm="6">
@@ -134,7 +135,8 @@
                         ></v-list-item-title>
                       </v-list-item>
                     </v-list>
-                  </v-col class="pt-3">
+                  </v-col>
+                  <v-col class="pt-3">
                     <MiscAtomsSocials
                       dark
                       :socials="config.socials"
