@@ -66,6 +66,7 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
+import { getSlugFromPath } from "~/composables/useUtils"
 const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay()
 
 const props = defineProps({

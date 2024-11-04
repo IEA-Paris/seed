@@ -123,6 +123,7 @@
 
 <script setup>
 import { useRootStore } from "~/store/root"
+import { getSlugFromPath } from "~/composables/useUtils"
 import { useDisplay } from "vuetify"
 const localePath = useLocalePath()
 const rootStore = useRootStore()

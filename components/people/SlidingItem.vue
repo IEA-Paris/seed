@@ -1,8 +1,9 @@
 <template>
   <v-sheet class="d-flex sliding-item">
     <MiscAtomsDateStamp
-      :date="item.start"
-      :loading="props.loading"
+      :dateStart="item.start"
+      :dateStop="item.stop"
+      :loading="loading"
       class="mr-6"
     ></MiscAtomsDateStamp>
     <div class="d-flex-flex-column">
@@ -26,12 +27,11 @@
 <script setup>
 // import { useDisplay } from "vuetify"
 // const { smAndUp } = useDisplay()
+import { getSlugFromPath } from "~/composables/useUtils"
 
 const props = defineProps({
   item: { type: Object, required: true },
   loading: { type: Boolean, required: true },
 })
-
-console.log("IMAGE_PEOPLE", props.item.image, props.loading)
 </script>
 <style lang="scss"></style>
