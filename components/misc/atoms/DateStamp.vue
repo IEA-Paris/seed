@@ -33,7 +33,10 @@
 <script setup>
 import { useDisplay } from "vuetify"
 const { smAndUp, mdAndUp, name } = useDisplay()
-import { getDetailedFormatedDate } from "~/composables/useUtils"
+import {
+  getDetailedFormatedDate,
+  formatDateValue,
+} from "~/composables/useUtils"
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
 
@@ -65,8 +68,6 @@ const showDateStop = computed(() => {
   const dateStopFormatted = formatDateValue(props.dateStop)
   return dateStopFormatted > dateStartFormatted
 })
-
-console.log("Toto", showDateStop.value)
 </script>
 <style lang="scss" scoped>
 .date-stamp {
