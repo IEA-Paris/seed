@@ -1,6 +1,6 @@
 <template>
   <v-row no-gutters>
-    <v-col class="ml-n4">
+    <v-col>
       <template v-for="(value, key, index) in socials" :key="key + value">
         <v-tooltip :location="location">
           <template v-slot:activator="{ props }">

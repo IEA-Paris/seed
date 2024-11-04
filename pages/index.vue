@@ -1,8 +1,9 @@
 <template>
-  <!--   <v-btn color="success" @click="rootStore.setLoading(!rootStore.loading)"
+
+  <div class="scroller">
+      <!--   <v-btn color="success" @click="rootStore.setLoading(!rootStore.loading)"
     >ext</v-btn
   > -->
-  <div class="scroller">
     <HomeCarousel v-if="carousel" class="carousel" :featured="featured"></HomeCarousel>
     <HomeCarouselAlt v-else class="carousel" :featured="featured"></HomeCarouselAlt>
     <div class="d-flex justify-center mt-n12">
@@ -85,7 +86,8 @@
     </section>
     <section class="d-flex flex-column justify-center align-center">
       <v-container>
-        <MiscAtomsSlidingCarousel :items="upcomingFellows" type="people" key="people" ref="fellows" :loading="false">
+        <MiscAtomsSlidingCarousel :items="upcomingFellows" type="people" key="upcomingFellows" lazy ref="fellows" 
+          :loading="false">
           {{ $t("discover-our-0-news", [academicYear]) }}
         </MiscAtomsSlidingCarousel>
       </v-container>
@@ -138,7 +140,6 @@ const { data: upcomingEvents } = await useAsyncData("event-list", () =>
     .limit(12)
     .find(),
 )
-console.log("upcomingEvents", upcomingEvents)
 const { data: upcomingFellows } = await useAsyncData("fellow-list", () =>
   queryContent("/people/" + locale.value)
     // .where({ outside: false })
@@ -146,6 +147,8 @@ const { data: upcomingFellows } = await useAsyncData("fellow-list", () =>
     .limit(12)
     .find(),
 )
+
+
 onMounted(() => {
   // init defaults from a possible previous session
   rootStore.setDefaults()

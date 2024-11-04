@@ -1,6 +1,6 @@
 <template>
   <v-skeleton-loader
-    v-if="rootStore.loading || loading"
+    v-if="loading"
     max-width="120px"
     class="d-flex flex-row flex-md-column align-center align-md-end"
     :type="

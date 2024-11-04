@@ -2,7 +2,7 @@
   <v-sheet class="d-flex sliding-item">
     <MiscAtomsDateStamp
       :date="item.start"
-      :loading="loading"
+      :loading="props.loading"
       class="mr-6"
     ></MiscAtomsDateStamp>
     <div class="d-flex-flex-column">
@@ -10,7 +10,7 @@
         cover
         :ratio="1"
         :src="item.image"
-        link="activities-events-slug"
+        link="people-slug"
         :slug="getSlugFromPath(item._path)"
         :loading="loading"
       >
@@ -31,5 +31,7 @@ const props = defineProps({
   item: { type: Object, required: true },
   loading: { type: Boolean, required: true },
 })
+
+console.log("IMAGE_PEOPLE", props.item.image, props.loading)
 </script>
 <style lang="scss"></style>

@@ -66,6 +66,28 @@
               "
             ></v-skeleton-loader>
             <ContentRenderer v-else :value="item" />
+
+            <v-responsive class="mx-auto my-9" width="120">
+              <v-divider class="mb-1" />
+              <v-divider />
+            </v-responsive>
+
+            <v-responsive class="mx-auto my-9" width="120">
+              <v-divider class="mb-1" />
+              <v-divider />
+            </v-responsive>
+
+            <MiscAtomsSlidingCarousel
+              :items="upcomingFellows"
+              type="people"
+              key="people"
+              lazy
+              ref="fellows"
+              :loading="false"
+            >
+              {{ $t("discover-our-0-news") }}
+            </MiscAtomsSlidingCarousel>
+
             <v-expansion-panels
               outlined
               flat
@@ -120,6 +142,14 @@ const props = defineProps({
     required: true,
   },
 })
+
+const { data: upcomingFellows } = await useAsyncData("fellow-list", () =>
+  queryContent("/people/" + locale.value)
+    // .where({ outside: false })
+    // .sort("date", "desc")
+    .limit(12)
+    .find(),
+)
 
 const fellowshipType = ref([
   ...(props.item.fellowshipType === 2

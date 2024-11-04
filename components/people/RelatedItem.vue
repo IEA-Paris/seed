@@ -2,7 +2,7 @@
   <v-sheet
     :to="
       localePath({
-        name: 'activities-events-slug',
+        name: 'people-slug',
         params: { slug: slugify(item.firstname + item.lastname) }, //TODO à modifier
       })
     "
@@ -11,11 +11,11 @@
       <v-col cols="3" v-if="lgAndUp">
         <MiscAtomsImageContainer
           cover
-          :loading="rootStore.people.loading"
+          :loading="rootStore.loading"
           :src="item.image"
           :ratio="1 / 1"
           :link="item.firstname + item.lastname"
-          :name="activities - events - slug"
+          :name="people - slug"
         />
       </v-col>
       <v-col cols="12" lg="9">

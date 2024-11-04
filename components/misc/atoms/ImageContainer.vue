@@ -7,7 +7,7 @@
   - Add conditional overlays slots (top left/right, bottom left/right/center for date, caption, copyright)-->
 
     <v-skeleton-loader
-      v-if="rootStore.loading || loading"
+      v-if="loading"
       height="100%"
       type="image"
     ></v-skeleton-loader>

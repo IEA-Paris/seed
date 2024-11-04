@@ -50,26 +50,23 @@
         }"
         ref="swiper"
       >
-        <template
-          v-if="loading"
-          v-for="(item, index) in items"
-        >
+        <template v-if="loading" v-for="(item, index) in items">
           LOADING
         </template>
         <SwiperSlide
           v-else
           v-for="(item, index) in items"
-          :key="index + props.type"
+          :key="index + type"
           :style="'width: ' + computedWidth + 'px'"
           :width="computedWidth"
         >
           <component
-            :key="index + props.type"
-            :is="capitalize(props.type) + 'SlidingItem'"
+            :key="index + type"
+            :is="capitalize(type) + 'SlidingItem'"
             :index="index"
             :item="item"
-            lazy
             :width="computedWidth"
+            :loading="loading"
           />
         </SwiperSlide>
       </Swiper>
@@ -126,7 +123,7 @@ const props = defineProps({
     required: true,
   },
   items: { type: Array, required: true },
-  loading: {type: Boolean, default: false}
+  loading: { type: Boolean, default: false },
 })
 
 /* const { data, error } = await useAsyncData(props.type, () =>
@@ -163,7 +160,7 @@ const computedWidth = computed(() => {
 })
 
 onMounted(() => {
-  console.log("Resolved Item", capitalize(props.type) + 'SlidingItem');
+  console.log("Resolved Item", capitalize(props.type) + "SlidingItem")
 })
 </script>
 <style scoped>

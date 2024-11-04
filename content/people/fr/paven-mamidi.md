@@ -1,5 +1,7 @@
 ---
 image: "/images/Mamidi.jpg"
+start: 2024-10-10T09:00:00.000Z
+stop: 2024-10-10T17:00:00.000Z
 firstname: Paven
 lastname: Mamidi
 affiliations:

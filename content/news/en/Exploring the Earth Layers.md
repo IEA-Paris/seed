@@ -97,17 +97,17 @@ category: 3
 relatedPeople:
   - firstname: "Antoine"
     lastname: "Cordelois"
-    image: "images/antoine_cordelois.jpg"
+    image: "/images/antoine_cordelois.jpg"
     role: "Lead Climate Scientist"
 
   - firstname: "Saadi"
     lastname: "Lahlou"
-    image: "images/lahlou_saadi.jpg"
+    image: "/images/lahlou_saadi.jpg"
     role: "AI Research Lead"
 
   - firstname: "Paulius"
     lastname: "Yamin"
-    image: "images/Paulius_Yamin.jpg"
+    image: "/images/Paulius_Yamin.jpg"
     role: "Renewable Energy Expert"
 
 gallery:
