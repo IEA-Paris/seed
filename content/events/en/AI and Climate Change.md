@@ -6,7 +6,7 @@ state: 3
 bookingState: 2
 stream: 0GdITtX_grA
 start: 2024-06-18T10:00:00.000Z
-stop: 2024-06-18T17:30:00.000Z
+stop:
 eventType: 0
 category: 0
 description: "Artificial Intelligence is emerging as a powerful tool in the fight against climate change. This event will explore how AI can help in reducing carbon emissions, predicting climate patterns, and developing sustainable solutions for the future. Key speakers include Dr. Emma Davis, a climate scientist and AI researcher at the University of Oxford, and Dr. Carlos Gutierrez, a member of the International Panel on Climate Change (IPCC). Moderated by Prof. Elena Rossi, Director of the Environmental Research Lab at MIT."

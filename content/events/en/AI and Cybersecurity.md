@@ -1,8 +1,8 @@
 ---
 name: "AI and Cybersecurity: Protecting the Digital Future"
 subtitle: "In collaboration with MIT and the European Cybersecurity Agency"
-start: 2025-10-12T09:00:00.000
-stop: 2025-10-12T18:00:00.000
+start: 2024-10-12T09:00:00.000
+stop: 2024-10-13T18:00:00.000
 eventType: 2
 category: 2
 state: 1

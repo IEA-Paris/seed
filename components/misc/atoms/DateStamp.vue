@@ -14,10 +14,21 @@
     v-else
     class="date-stamp d-flex flex-md-column text-md-right align-center align-md-end"
   >
-    <span class="day"> {{ detailedDate.day }}</span>
+    <span class="day"> {{ detailedDateStart.day }}</span>
     <span class="month-year">
-      {{ detailedDate.month }}<br />
-      {{ detailedDate.year }}
+      {{ detailedDateStart.month }}<br />
+      {{ detailedDateStart.year }}
+    </span>
+    <span v-if="detailedDateStop">&ndash;</span>
+    <span v-if="detailedDateStop && detailedDateStop.day" class="day-stop">
+      {{ detailedDateStop.day }}</span
+    >
+    <span
+      v-if="detailedDateStop && detailedDateStop.month && detailedDateStop.year"
+      class="month-year-stop"
+    >
+      {{ detailedDateStop.month }}<br />
+      {{ detailedDateStop.year }}
     </span>
   </div>
 </template>
@@ -31,7 +42,10 @@ const rootStore = useRootStore()
 
 const { locale } = useI18n()
 const props = defineProps({
-  date: {
+  dateStart: {
+    type: String,
+  },
+  dateStop: {
     type: String,
   },
   loading: {
@@ -41,7 +55,13 @@ const props = defineProps({
   },
 })
 
-const detailedDate = ref(getDetailedFormatedDate(props.date, locale.value))
+const detailedDateStart = computed(() =>
+  getDetailedFormatedDate(props.dateStart, locale.value),
+)
+
+const detailedDateStop = computed(() =>
+  props.dateStop ? getDetailedFormatedDate(props.dateStop, locale.value) : null,
+)
 </script>
 <style lang="scss" scoped>
 .date-stamp {
@@ -54,6 +74,17 @@ const detailedDate = ref(getDetailedFormatedDate(props.date, locale.value))
   .month-year {
     padding-left: 0.5rem;
     font-size: 1rem;
+    line-height: 1.2rem;
+  }
+
+  .day-stop {
+    font-size: 2rem;
+    line-height: 2rem;
+    font-family: "Bodoni Moda", sans-serif;
+  }
+  .month-year-stop {
+    padding-left: 0.5rem;
+    font-size: 0.8rem;
     line-height: 1.2rem;
   }
 }
