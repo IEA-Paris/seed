@@ -15,7 +15,7 @@
               <v-icon :color="dark ? 'white' : 'black'">
                 {{ getProfileIcon(key) }}</v-icon
               >
-              <div v-if="labelled" class="text-overline text-muted ml-3">
+              <div v-if="labelled" class="text-uppercase text-muted ml-3">
                 {{ key }}
               </div>
             </v-btn>

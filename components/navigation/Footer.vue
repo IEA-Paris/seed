@@ -10,7 +10,7 @@
       <v-container class="d-flex flex-column justify-space-between h-100 mt-12">
         <v-row justify="center" no-gutters>
           <v-col cols="12" lg="10" class="mt-12">
-            <v-row  justify="center">
+            <v-row justify="center">
               <v-col cols="12" sm="6">
                 <nuxt-link
                   :to="localePath('/')"
@@ -26,7 +26,7 @@
                 </nuxt-link>
               </v-col>
               <v-col cols="12" sm="6" class="mt-12 pl-md-6">
-                <div class="overline">
+                <div class="uppercase">
                   {{ $t("subscribe-to-our-newsletter") }}
                 </div>
                 <v-text-field
@@ -44,7 +44,6 @@
             </v-row>
             <v-row justify="center" class="mt-0">
               <v-col cols="12" sm="6" :order="smAndDown ? 'last' : ''">
-               
                 <div class="text-subtitle-2 font-weight-medium mb-6">
                   <div>{{ config.full_name }}</div>
 
@@ -89,9 +88,8 @@
                 >
               </v-col>
               <v-col cols="12" sm="6" class="pt-0">
-                
-                <v-row justify="center" no-gutters  >
-                  <v-col cols="12" sm="6" >
+                <v-row justify="center" no-gutters>
+                  <v-col cols="12" sm="6">
                     <v-list bg-color="transparent">
                       <v-list-item :to="localePath('/about/institute')" nuxt>
                         <v-list-item-title
@@ -136,8 +134,7 @@
                         ></v-list-item-title>
                       </v-list-item>
                     </v-list>
-                  </v-col>
-                  <v-col cols="12" sm="6" class="pt-0">
+                  </v-col class="pt-3">
                     <MiscAtomsSocials
                       dark
                       :socials="config.socials"
@@ -147,7 +144,6 @@
                 </v-row>
               </v-col>
             </v-row>
-        
           </v-col>
         </v-row>
         <v-row
