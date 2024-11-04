@@ -19,18 +19,14 @@
       {{ detailedDateStart.month }}<br />
       {{ detailedDateStart.year }}
     </span>
-    <template  v-if="detailedDateStop">
-    <span>&ndash;</span>
-    <span class="day-stop">
-      {{ detailedDateStop.day }}</span
-    >
-    <span
-      class="month-year-stop"
-    >
-      {{ detailedDateStop.month }}<br />
-      {{ detailedDateStop.year }}
-    </span>
-  </template>
+    <template v-if="showDateStop">
+      <span>&ndash;</span>
+      <span class="day-stop"> {{ detailedDateStop.day }}</span>
+      <span class="month-year-stop">
+        {{ detailedDateStop.month }}<br />
+        {{ detailedDateStop.year }}
+      </span>
+    </template>
   </div>
 </template>
 
@@ -61,9 +57,16 @@ const detailedDateStart = computed(() =>
 )
 
 const detailedDateStop = computed(() =>
- /// props.dateStop && ( props.dateStop > )? getDetailedFormatedDate(props.dateStop, locale.value) : false,
-  props.dateStop ? getDetailedFormatedDate(props.dateStop, locale.value) : false,
+  getDetailedFormatedDate(props.dateStop, locale.value),
 )
+
+const showDateStop = computed(() => {
+  const dateStartFormatted = formatDateValue(props.dateStart)
+  const dateStopFormatted = formatDateValue(props.dateStop)
+  return dateStopFormatted > dateStartFormatted
+})
+
+console.log("Toto", showDateStop.value)
 </script>
 <style lang="scss" scoped>
 .date-stamp {

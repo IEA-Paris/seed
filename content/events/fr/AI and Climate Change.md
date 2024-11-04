@@ -6,7 +6,7 @@ state: 3
 bookingState: 2
 stream: 0GdITtX_grA
 start: 2024-06-18T10:00:00.000Z
-stop:
+stop: 2024-06-18T17:00:00.000Z
 eventType: 0
 category: 0
 description: "L'intelligence artificielle émerge comme un outil puissant dans la lutte contre le changement climatique. Cet événement explorera comment l'IA peut contribuer à réduire les émissions de carbone, à prévoir les modèles climatiques et à développer des solutions durables pour l'avenir. Les principaux intervenants incluent la Dr Emma Davis, climatologue et chercheuse en IA à l'Université d'Oxford, et le Dr Carlos Gutierrez, membre du Groupe d'experts intergouvernemental sur l'évolution du climat (GIEC). L'événement sera modéré par la Professeure Elena Rossi, Directrice du Laboratoire de recherche environnementale au MIT."
