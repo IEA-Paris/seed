@@ -145,7 +145,7 @@ const computedWidth = computed(() => {
   let modifier = 1
   switch (props.type) {
     case "events":
-      modifier = 1.3
+      modifier = 1.4
       break
     case "people":
       break

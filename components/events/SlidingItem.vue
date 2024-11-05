@@ -1,10 +1,11 @@
 <template>
-  <v-sheet class="d-flex sliding-item flex-column flex-row-md">
+  <v-sheet class="d-flex sliding-item flex-column">
     <MiscAtomsDateStamp
       :dateStart="item.start"
       :dateStop="item.stop"
       :loading="loading"
       class="mr-4"
+      style="max-width: 80px"
     ></MiscAtomsDateStamp>
     <MiscAtomsImageContainer
       cover
