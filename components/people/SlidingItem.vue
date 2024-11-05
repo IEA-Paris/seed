@@ -1,12 +1,6 @@
 <template>
   <v-sheet class="d-flex sliding-item">
-    <MiscAtomsDateStamp
-      :dateStart="item.start"
-      :dateStop="item.stop"
-      :loading="loading"
-      class="mr-6"
-    ></MiscAtomsDateStamp>
-    <div class="d-flex-flex-column">
+    <div class="d-flex-flex-column flex-grow-1">
       <MiscAtomsImageContainer
         cover
         :ratio="1"
@@ -19,7 +13,7 @@
       <div
         class="mt-6 pl-0 text-h5 text-md-h4 font-weight-medium sliding-item-title"
       >
-        {{ item.name }}
+        {{ item.firstname + " " + item.lastname }}
       </div>
     </div>
   </v-sheet>

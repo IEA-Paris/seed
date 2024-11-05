@@ -80,6 +80,7 @@
     "register": "S'inscrire à cette bourse"
   },
   "events": {
+    "see-more": "See more events",
     "register": "Inscrivez vous à cet évènement",
     "key": "Évènements",
     "categories": [
@@ -200,5 +201,5 @@
   "applications-closed-since-0": "Inscriptions fermées depuis le {0}",
   "register-until-0": "Candidatez jusqu'au {0}",
   "register": "s'enregistrer",
-  "discover-our-0-news": "Découvrez nos actualités {0}"
+  "discover-our-0-fellows": "Discover our {0} Fellows"
 }

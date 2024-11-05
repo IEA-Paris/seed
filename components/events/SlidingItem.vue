@@ -4,9 +4,9 @@
       :dateStart="item.start"
       :dateStop="item.stop"
       :loading="loading"
-      class="mr-6"
+      class="mr-4"
     ></MiscAtomsDateStamp>
-    <div class="d-flex-flex-column">
+    <div class="d-flex-flex-column flex-grow-1">
       <MiscAtomsImageContainer
         cover
         :ratio="1"
@@ -31,7 +31,7 @@ import { getSlugFromPath } from "~/composables/useUtils"
 
 const props = defineProps({
   item: { type: Object, required: true },
-  loading: { type: Boolean, required: true },
+  loading: { type: Boolean, required: true, default: false },
 })
 </script>
 <style lang="scss"></style>

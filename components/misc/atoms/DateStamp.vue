@@ -19,19 +19,19 @@
       {{ detailedDateStart.month }}<br />
       {{ detailedDateStart.year }}
     </span>
-    <template v-if="showDateStop">
-      <span>&ndash;</span>
+    <template v-if="showDateStop" class="month-year">
+      &ndash;
       <template v-if="mdAndUp">
-        <span class="day-stop"> {{ detailedDateStop.day }}</span>
-        <span class="month-year-stop">
+        <span class="font-weight-black"> {{ detailedDateStop.day }}</span>
+        <span>
           {{ detailedDateStop.month }}<br />
           {{ detailedDateStop.year }}
         </span>
       </template>
 
       <template v-if="smAndDown">
-        <span class="day"> {{ detailedDateStop.day }}</span>
-        <span class="month-year">
+        <span> {{ detailedDateStop.day }}</span>
+        <span>
           {{ detailedDateStop.month }}<br />
           {{ detailedDateStop.year }}
         </span>
@@ -90,17 +90,6 @@ const showDateStop = computed(() => {
   .month-year {
     padding-left: 0.5rem;
     font-size: 1rem;
-    line-height: 1.2rem;
-  }
-
-  .day-stop {
-    font-size: 2rem;
-    line-height: 2rem;
-    font-family: "Bodoni Moda", sans-serif;
-  }
-  .month-year-stop {
-    padding-left: 0.5rem;
-    font-size: 0.8rem;
     line-height: 1.2rem;
   }
 }

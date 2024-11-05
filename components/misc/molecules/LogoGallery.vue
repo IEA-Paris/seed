@@ -47,7 +47,7 @@ const props = defineProps({
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .logo-container {
   max-height: calc(100vh - 64px);
 }
