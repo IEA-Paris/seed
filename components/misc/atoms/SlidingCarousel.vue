@@ -145,7 +145,7 @@ const computedWidth = computed(() => {
   let modifier = 1
   switch (props.type) {
     case "events":
-      modifier = 1.3
+      modifier = 1.1
       break
     case "people":
       break
@@ -155,7 +155,7 @@ const computedWidth = computed(() => {
       break
   }
   return (
-    [200, 250, 300, 330, 400, 400][
+    [250, 300, 350, 380, 430, 460][
       ["xs", "sm", "md", "lg", "xl", "xxl"].indexOf(name.value || "md")
     ] * modifier
   )
