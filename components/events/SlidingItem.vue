@@ -1,25 +1,35 @@
 <template>
-  <v-sheet class="d-flex sliding-item flex-column">
+  <v-sheet class="d-flex sliding-item flex-md-row flex-column px-6 px-md-0">
     <MiscAtomsDateStamp
       :dateStart="item.start"
       :dateStop="item.stop"
       :loading="loading"
-      class="mr-4"
-      style="max-width: 80px"
+      class="mr-4 mb-6 mb-md-0"
     ></MiscAtomsDateStamp>
-    <MiscAtomsImageContainer
-      cover
-      :ratio="1"
-      :src="item.image"
-      link="activities-events-slug"
-      :slug="getSlugFromPath(item._path)"
-      :loading="loading"
-    >
-    </MiscAtomsImageContainer>
     <div
-      class="mt-6 pl-0 text-h5 text-md-h4 font-weight-medium sliding-item-title"
+      class="d-flex flex-column"
+      :style="
+        'width:' +
+        [250, 300, 350, 380, 430, 460][
+          ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+        ] +
+        'px;'
+      "
     >
-      {{ item.name }}
+      <MiscAtomsImageContainer
+        cover
+        :ratio="1"
+        :src="item.image"
+        link="activities-events-slug"
+        :slug="getSlugFromPath(item._path)"
+        :loading="loading"
+      >
+      </MiscAtomsImageContainer>
+      <div
+        class="mt-6 pl-0 text-h5 text-md-h4 font-weight-medium sliding-item-title"
+      >
+        {{ item.name }}
+      </div>
     </div>
   </v-sheet>
 </template>
@@ -27,6 +37,8 @@
 // import { useDisplay } from "vuetify"
 // const { smAndUp } = useDisplay()
 import { getSlugFromPath } from "~/composables/useUtils"
+import { useDisplay } from "vuetify"
+const { name, mdAndUp } = useDisplay()
 
 const props = defineProps({
   item: { type: Object, required: true },
