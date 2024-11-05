@@ -8,17 +8,28 @@
             <v-row no-gutters>
               <v-col cols="4" v-if="smAndUp">
                 <v-card class="d-flex align-center justify-center">
-                  <v-img aspect-ratio="1/1" src="/images/Paulius_Yamin.jpg"></v-img></v-card>
+                  <v-img
+                    aspect-ratio="1/1"
+                    src="/images/Paulius_Yamin.jpg"
+                  ></v-img
+                ></v-card>
               </v-col>
               <v-col cols="12" sm="8">
                 <v-card class="d-flex align-center justify-center">
                   <ContentDoc :path="scientificPolicy" />
-                </v-card> </v-col></v-row></v-col></v-row></v-container>
+                </v-card> </v-col></v-row></v-col></v-row
+      ></v-container>
     </section>
     <section class="dark">
       <v-row>
         <v-col cols="12" class="d-flex align-center justify-center">
-          <MiscAtomsSlidingCarousel type="people" :loading="false">
+          <MiscAtomsSlidingCarousel
+            key="scientificAdvisoryBoard"
+            :items="scientificAdvisoryBoard"
+            type="people"
+            :loading="false"
+            :dark="true"
+          >
             <div class="text-h2">
               {{ $t("scientific-advisory-board") }}
             </div>
@@ -29,16 +40,24 @@
     <section>
       <v-row>
         <v-col cols="4" v-if="smAndUp">
-          <v-card class="d-flex align-center justify-center" height="400" :to="localePath('reports')" link>
-            Link to annual reports</v-card>
+          <v-card
+            class="d-flex align-center justify-center"
+            height="400"
+            :to="localePath('reports')"
+            link
+          >
+            Link to annual reports</v-card
+          >
         </v-col>
         <v-col cols="4" v-if="smAndUp">
           <v-card class="d-flex align-center justify-center" height="400" link>
-            Link to fellows (?)</v-card>
+            Link to fellows (?)</v-card
+          >
         </v-col>
         <v-col cols="4" v-if="smAndUp">
           <v-card class="d-flex align-center justify-center" height="400" link>
-            Link to proceedings (?)</v-card>
+            Link to proceedings (?)</v-card
+          >
         </v-col>
       </v-row>
     </section>
@@ -55,6 +74,16 @@ const { locale } = useI18n()
 console.log(locale.value)
 
 const scientificPolicy = "/pages/" + locale.value + "/scientific_policy"
+
+const { data: scientificAdvisoryBoard } = await useAsyncData(
+  "scientific-advisory-board",
+  () =>
+    queryContent("/people/" + locale.value)
+      // .where({ outside: false })
+      // .sort("date", "desc")
+      .limit(12)
+      .find(),
+)
 definePageMeta({
   layout: "about",
   /*   documentDriven: {

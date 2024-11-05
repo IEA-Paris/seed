@@ -7,11 +7,13 @@
       :class="{ 'fill-height': isSnapScroll }"
       style="background-color: black"
     >
-      <v-container class="d-flex flex-column justify-space-between h-100 mt-12">
+      <v-container
+        class="d-flex flex-column justify-space-between h-100 mt-md-12"
+      >
         <v-row justify="center" no-gutters>
           <v-col cols="12" lg="10" class="mt-12">
             <v-row justify="center">
-              <v-col cols="12" sm="6">
+              <v-col cols="12" md="6">
                 <nuxt-link
                   :to="localePath('/')"
                   style="transition: all 500ms ease 0s"
@@ -25,7 +27,7 @@
                   ></v-img>
                 </nuxt-link>
               </v-col>
-              <v-col cols="12" sm="6" class="mt-12 pl-md-6">
+              <v-col cols="12" md="6" class="mt-md-12 pl-6">
                 <div class="uppercase">
                   {{ $t("subscribe-to-our-newsletter") }}
                 </div>
@@ -43,7 +45,7 @@
               </v-col>
             </v-row>
             <v-row justify="center" class="mt-0">
-              <v-col cols="12" sm="6" :order="smAndDown ? 'last' : ''">
+              <v-col cols="12" md="6" :order="smAndDown ? 'last' : ''">
                 <div class="text-subtitle-2 font-weight-medium mb-6">
                   <div>{{ config.full_name }}</div>
 
@@ -88,7 +90,7 @@
                 >
               </v-col>
 
-              <v-col cols="12" sm="6" class="pt-0">
+              <v-col cols="12" md="6" class="pt-0">
                 <v-row justify="center" no-gutters>
                   <v-col cols="12" sm="6">
                     <v-list bg-color="transparent">

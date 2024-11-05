@@ -202,5 +202,8 @@
   "register-until-0": "Candidatez jusqu'au {0}",
   "register": "s'enregistrer",
   "discover-our-0-fellows": "Discover our {0} Fellows",
-  "gallery": "Gallerie"
+  "gallery": "Gallerie",
+  "MiscAtomsImage": {
+    "see-more": "Voir plus"
+  }
 }

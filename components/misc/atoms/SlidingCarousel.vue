@@ -66,10 +66,11 @@
             :item="item"
             :width="computedWidth"
             :loading="loading"
+            :dark="dark"
           />
         </SwiperSlide>
       </Swiper>
-      <div class="d-flex justify-end mt-12">
+      <div class="d-flex justify-end mt-12" v-if="more">
         <v-btn class="ml-auto" variant="flat">{{
           $t(type + ".see-more")
         }}</v-btn>
@@ -123,6 +124,8 @@ const props = defineProps({
   },
   items: { type: Array, required: true },
   loading: { type: Boolean, default: false },
+  dark: { type: Boolean, default: false },
+  more: { type: Boolean, default: true },
 })
 
 /* const { data, error } = await useAsyncData(props.type, () =>

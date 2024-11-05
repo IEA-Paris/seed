@@ -1,7 +1,7 @@
 <template>
   <!--  {{ name }} -->
   <v-row justify="center">
-    <v-col cols="12" sm="11" md="8" lg="8" xl="6">
+    <v-col cols="12" sm="11" md="10" lg="9" xl="8">
       <v-row class="justify-center" v-if="item.image && item.image.length">
         <v-col cols="12" sm="10" md="6" lg="4" xl="3" class="text-center">
           <!--   FELLOWSHIP IMAGE -->
@@ -14,7 +14,7 @@
         </v-col>
       </v-row>
       <v-row justify="center">
-        <v-col cols="12" sm="11" md="10">
+        <v-col cols="12">
           <v-skeleton-loader
             v-if="rootStore.loading || rootStore.fellowship.loading"
             :type="
@@ -72,22 +72,6 @@
               <v-divider />
             </v-responsive>
 
-            <v-responsive class="mx-auto my-9" width="120">
-              <v-divider class="mb-1" />
-              <v-divider />
-            </v-responsive>
-
-            <MiscAtomsSlidingCarousel
-              :items="upcomingFellows"
-              type="people"
-              key="people"
-              lazy
-              ref="fellows"
-              :loading="false"
-            >
-              {{ $t("discover-our-0-news") }}
-            </MiscAtomsSlidingCarousel>
-
             <v-expansion-panels
               outlined
               flat
@@ -101,12 +85,13 @@
                 v-for="(value, key) in Object.keys(item.fellowshipDetails)"
                 :key="key + value"
                 class="border-thin text-black"
-                :color="key === accordeon ? 'black' : 'white'"
+                :color="key === accordeon ? 'light-grey' : 'white'"
               >
                 <v-expansion-panel-title
                   collapse-icon="mdi-minus"
                   expand-icon="mdi-plus"
                   class="text-h6"
+                  :class="{ 'font-weight-black': key === accordeon }"
                 >
                   {{ $t(value) }}
                 </v-expansion-panel-title>
@@ -118,6 +103,24 @@
                 </v-expansion-panel-text>
               </v-expansion-panel>
             </v-expansion-panels>
+
+            <v-responsive class="mx-auto my-9" width="120">
+              <v-divider class="mb-1" />
+              <v-divider />
+            </v-responsive>
+
+            <MiscAtomsSlidingCarousel
+              :items="upcomingFellows"
+              type="people"
+              key="people"
+              lazy
+              ref="fellows"
+              :loading="false"
+            >
+              <div :class="mdAndUp ? 'text-h5' : 'text-h6'">
+                {{ $t("this-fellowship-alumni") }}
+              </div>
+            </MiscAtomsSlidingCarousel>
           </div>
         </v-col>
       </v-row>

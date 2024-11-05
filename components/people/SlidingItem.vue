@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="d-flex sliding-item">
+  <v-sheet class="d-flex sliding-item" :color="dark ? 'transparent' : 'white'">
     <div class="d-flex-flex-column flex-grow-1">
       <MiscAtomsImageContainer
         cover
@@ -12,6 +12,7 @@
       </MiscAtomsImageContainer>
       <div
         class="mt-6 pl-0 text-h5 text-md-h4 font-weight-medium sliding-item-title"
+        :style="{ color: dark ? 'white' : 'black' }"
       >
         {{ item.firstname + " " + item.lastname }}
       </div>
@@ -26,6 +27,7 @@ import { getSlugFromPath } from "~/composables/useUtils"
 const props = defineProps({
   item: { type: Object, required: true },
   loading: { type: Boolean, required: true },
+  dark: { type: Boolean, default: false },
 })
 </script>
 <style lang="scss"></style>

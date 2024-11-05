@@ -349,5 +349,9 @@
   "register-until-0": "Register until {0}",
   "register": "register",
   "discover-our-0-fellows": "Discover our {0} Fellows",
-  "gallery": "Gallery"
+  "gallery": "Gallery",
+  "this-fellowship-alumni": "This fellowship alumni",
+  "MiscAtomsImage": {
+    "see-more": "See more"
+  }
 }
