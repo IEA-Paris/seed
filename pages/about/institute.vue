@@ -5,7 +5,13 @@
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="8" xl="6" class="justify-center">
-            <v-sheet class="d-flex align-center justify-center flex-row pa-12">
+            <div
+              :class="mdAndUp ? 'text-h2' : 'text-h4'"
+              class="mb-6 mb-md-12 pl-4"
+            >
+              {{ $t("hosting-excellence") }}
+            </div>
+            <v-sheet class="d-flex align-center justify-center flex-row">
               <ContentDoc :path="presentation" />
             </v-sheet> </v-col></v-row
       ></v-container>

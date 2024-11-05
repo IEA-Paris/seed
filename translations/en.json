@@ -21,6 +21,7 @@
   "pressroom": "Pressroom",
   "support": "Support us",
   "subscribe-to-our-newsletter": "Subscribe to our newsletter",
+  "become-a-patron": "Become a patron",
   "email": "Email",
   "subscribe": "Subscribe",
   "tos": "Terms of Service",
@@ -89,7 +90,6 @@
     "rss": "RSS",
     "github": "Visit our Github repositories"
   },
-  "fellowship-register": "Register to this fellowship",
   "events": {
     "register": "Register to this event",
     "register-me": "Register",
@@ -100,7 +100,8 @@
       "Conference",
       "Colloquium",
       "Fellow's presentation"
-    ]
+    ],
+    "see-more": "See more events"
   },
   "news": {
     "key": "News",
@@ -315,6 +316,7 @@
     "people": "No one | People | People",
     "fellowship": "Fellowship | Fellowships | {0} Fellowships"
   },
+  "fellowship-register": "Candidate to this fellowship program",
   "fellowship": "Fellowship | Fellowships",
   "positions-and-affiliations": "Positions and Affiliations",
   "from {0} to {1}": "from {0} to {1}",
@@ -351,7 +353,20 @@
   "discover-our-0-fellows": "Discover our {0} Fellows",
   "gallery": "Gallery",
   "this-fellowship-alumni": "This fellowship alumni",
+  "our-partners": "Our partners",
+  "our-sponsors": "Our patrons",
   "MiscAtomsImage": {
     "see-more": "See more"
-  }
+  },
+  "meet-our-network": "Meet our network",
+  "0-1-found-page-2-of-3": "No {1} found. \nPage {2} of {3} | {0} {1} found. \nPage {2} of {3} | {0} {1} found. \nPage {2} of {3} ",
+  "groups": {
+    "board": "Advisory board",
+    "fellow": "Fellow",
+    "sab": "Scientific Advisory Board",
+    "sponsor": "Patron",
+    "team": "Team"
+  },
+  "presentation-0": "presentation",
+  "hosting-excellence": "Hosting excellence"
 }
