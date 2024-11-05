@@ -97,7 +97,7 @@ files: ""
 video: ""
 fellowshipType: 1
 disciplines:
-  - name: "Neurosciences"
+  - name: "All disciplines"
 ---
 Launched in September 2023, the one-month writing residencies enable outstanding SSH researchers to work on an article that presents the "definitive" version of an idea or concept they've been working on but haven't had the opportunity to formalize in a clear, widely accessible publication. The program is also open to professionals who have recently held positions of high responsibility and who will formalize their experience in a publication. In both cases, we select ideas and concepts that have the potential to become influential pieces beyond their own discipline.
 
@@ -105,12 +105,12 @@ No unsolicited applications are accepted for this program: candidates are identi
 
 Among them :
 
--   Helga Nowotny
--   John Krumm
--   Uichol Kim
--   Leslie-Anne Duvic-Paoli
--   Colette Colligan
--   Leor Zmigrod
--   Jonathan Glasser
--   Lina Restrepo-Plaza
--   and 19 other leading researchers in the social sciences and humanities from around the world.
+- Helga Nowotny
+- John Krumm
+- Uichol Kim
+- Leslie-Anne Duvic-Paoli
+- Colette Colligan
+- Leor Zmigrod
+- Jonathan Glasser
+- Lina Restrepo-Plaza
+- and 19 other leading researchers in the social sciences and humanities from around the world.
