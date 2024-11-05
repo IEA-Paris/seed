@@ -22,14 +22,14 @@
     <template v-if="showDateStop" class="month-year">
       &ndash;
       <template v-if="mdAndUp">
-        <span class="font-weight-black"> {{ detailedDateStop.day }}</span>
+        <span class="font-weight-bold"> {{ detailedDateStop.day }}</span>
         <span>
           {{ detailedDateStop.month }}<br />
           {{ detailedDateStop.year }}
         </span>
       </template>
 
-      <template v-if="smAndDown">
+      <template v-else>
         <span> {{ detailedDateStop.day }}</span>
         <span>
           {{ detailedDateStop.month }}<br />

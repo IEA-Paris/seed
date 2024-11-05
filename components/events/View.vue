@@ -287,7 +287,11 @@
       ref="MiscAtomsImage"
       key="MiscAtomsImage"
       :loading="false"
+      :more="false"
     >
+      <div :class="mdAndUp ? 'text-h5' : 'text-h6'">
+        {{ $t("gallery") }}
+      </div>
     </MiscAtomsSlidingCarousel>
     <v-responsive class="mx-auto my-9" width="120">
       <v-divider class="mb-1" />

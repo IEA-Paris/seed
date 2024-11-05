@@ -103,7 +103,9 @@
           type="events"
           :loading="false"
         >
-          {{ $t("upcoming-events") }}
+          <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
+            {{ $t("upcoming-events") }}
+          </div>
         </MiscAtomsSlidingCarousel>
         <div class="d-flex justify-center">
           <v-btn
@@ -149,7 +151,9 @@
           ref="fellows"
           :loading="false"
         >
-          {{ $t("discover-our-0-fellows", [academicYear]) }}
+          <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
+            {{ $t("discover-our-0-fellows", [academicYear]) }}
+          </div>
         </MiscAtomsSlidingCarousel>
       </v-container>
     </section>

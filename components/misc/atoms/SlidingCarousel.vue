@@ -2,9 +2,8 @@
   <v-row class="d-flex align-center justify-center" no-gutters>
     <v-col cols="12" lg="10" class="justify-center">
       <div class="d-flex align-center pb-8 justify-space-between" no-gutters>
-        <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
-          <slot></slot>
-        </div>
+        <slot></slot>
+
         <v-spacer></v-spacer>
         <!--     <div class="text-h6 font-weight-black d-flex align-center mx-6">
               {{ model + 1 }}/{{ items.length || 0 }}
