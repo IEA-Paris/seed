@@ -19,25 +19,34 @@
       {{ detailedDateStart.month }}<br />
       {{ detailedDateStart.year }}
     </span>
-    <template  v-if="detailedDateStop">
+    <template v-if="showDateStop">
       <span>&ndash;</span>
-      <span class="day-stop">
-        {{ detailedDateStop.day }}</span
-      >
-      <span
-        class="month-year-stop"
-      >
-        {{ detailedDateStop.month }}<br />
-        {{ detailedDateStop.year }}
-      </span>
-  </template>
+      <template v-if="mdAndUp">
+        <span class="day-stop"> {{ detailedDateStop.day }}</span>
+        <span class="month-year-stop">
+          {{ detailedDateStop.month }}<br />
+          {{ detailedDateStop.year }}
+        </span>
+      </template>
+
+      <template v-if="smAndDown">
+        <span class="day"> {{ detailedDateStop.day }}</span>
+        <span class="month-year">
+          {{ detailedDateStop.month }}<br />
+          {{ detailedDateStop.year }}
+        </span>
+      </template>
+    </template>
   </div>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
-const { smAndUp, mdAndUp, name } = useDisplay()
-import { getDetailedFormatedDate } from "~/composables/useUtils"
+const { smAndDown, smAndUp, mdAndUp, name } = useDisplay()
+import {
+  getDetailedFormatedDate,
+  formatDateValue,
+} from "~/composables/useUtils"
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
 
@@ -61,9 +70,14 @@ const detailedDateStart = computed(() =>
 )
 
 const detailedDateStop = computed(() =>
- /// props.dateStop && ( props.dateStop > )? getDetailedFormatedDate(props.dateStop, locale.value) : false,
-  props.dateStop ? getDetailedFormatedDate(props.dateStop, locale.value) : false,
+  getDetailedFormatedDate(props.dateStop, locale.value),
 )
+
+const showDateStop = computed(() => {
+  const dateStartFormatted = formatDateValue(props.dateStart, locale.value)
+  const dateStopFormatted = formatDateValue(props.dateStop, locale.value)
+  return dateStopFormatted > dateStartFormatted
+})
 </script>
 <style lang="scss" scoped>
 .date-stamp {

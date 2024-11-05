@@ -70,6 +70,7 @@
 <script setup>
 import { useRootStore } from "~/store/root"
 import { useDisplay } from "vuetify"
+import { getSlugFromPath } from "~/composables/useUtils"
 const { name, mdAndUp } = useDisplay()
 const localePath = useLocalePath()
 const rootStore = useRootStore()

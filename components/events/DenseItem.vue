@@ -31,6 +31,7 @@
 <script setup>
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
+import { getSlugFromPath } from "~/composables/useUtils"
 
 const { locale } = useI18n()
 const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay()

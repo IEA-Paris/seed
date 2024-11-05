@@ -87,6 +87,7 @@
                   ></small
                 >
               </v-col>
+
               <v-col cols="12" sm="6" class="pt-0">
                 <v-row justify="center" no-gutters>
                   <v-col cols="12" sm="6">

@@ -82,6 +82,7 @@
 
 <script setup>
 import { useRootStore } from "~/store/root"
+import { getSlugFromPath } from "~/composables/useUtils"
 const rootStore = useRootStore()
 const router = useRouter()
 const localePath = useLocalePath()
