@@ -20,16 +20,16 @@
       {{ detailedDateStart.year }}
     </span>
     <template  v-if="detailedDateStop">
-    <span>&ndash;</span>
-    <span class="day-stop">
-      {{ detailedDateStop.day }}</span
-    >
-    <span
-      class="month-year-stop"
-    >
-      {{ detailedDateStop.month }}<br />
-      {{ detailedDateStop.year }}
-    </span>
+      <span>&ndash;</span>
+      <span class="day-stop">
+        {{ detailedDateStop.day }}</span
+      >
+      <span
+        class="month-year-stop"
+      >
+        {{ detailedDateStop.month }}<br />
+        {{ detailedDateStop.year }}
+      </span>
   </template>
   </div>
 </template>

@@ -134,7 +134,8 @@
                         ></v-list-item-title>
                       </v-list-item>
                     </v-list>
-                  </v-col class="pt-3">
+                  </v-col>
+                  <v-col class="pt-3">
                     <MiscAtomsSocials
                       dark
                       :socials="config.socials"
