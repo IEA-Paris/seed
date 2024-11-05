@@ -1,8 +1,8 @@
 ---
 name: "AI and Cybersecurity: Protecting the Digital Future"
 subtitle: "In collaboration with MIT and the European Cybersecurity Agency"
-start: 2025-10-12T09:00:00.000
-stop: 2025-10-12T18:00:00.000
+start: 2024-10-12T09:00:00.000Z
+stop: 2024-10-13T18:00:00.000Z
 eventType: 2
 category: 2
 state: 1
@@ -126,6 +126,29 @@ relatedPeople:
     lastname: "Pauly"
     image: "/images/Pauly.jpg"
     role: "Panelist"
+
+gallery:
+  - url: "/images/renewable.jpg"
+    alt:
+    caption: "Harnessing Renewable Energy for a Sustainable Future"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/disaster.jpg"
+    alt:
+    caption: "Integrating Solar and Wind Power in Modern Energy Grids"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/news_image.jpg"
+    alt:
+    caption: "Innovations Driving Clean and Renewable Energy Solutions"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 **March 2026**

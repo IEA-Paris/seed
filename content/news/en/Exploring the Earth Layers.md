@@ -28,6 +28,7 @@ tags:
 published: true
 pinned: true
 title: "Exploring the Earth's Layers: A Journey into Geology"
+description: "Dive into the fascinating world of geology, exploring the Earth's structure"
 date: 2023-06-10T18:00:00.000+00:00
 authors:
   - firstname: "Marie"
@@ -56,7 +57,7 @@ relatedProjects:
     shortDescription: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     description: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     url: "https://thesocioscope.org/"
-    image: "/images/logo_typo_black.svg"
+    image: "/images/renewable.jpg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"
@@ -108,6 +109,29 @@ relatedPeople:
     lastname: "Yamin"
     image: "/images/Paulius_Yamin.jpg"
     role: "Renewable Energy Expert"
+
+gallery:
+  - url: "/images/agriculture_ai.jpg"
+    alt:
+    caption: "Artificial Intelligence Transforming Modern Agriculture"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/cybersecurity.jpg"
+    alt:
+    caption: "Strengthening Cybersecurity in the Digital Era"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/ai_healthcare.jpg"
+    alt:
+    caption: "Revolutionizing Healthcare with Artificial Intelligence"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 Marie Dupuis, a geologist from Université de Grenoble, takes us on a journey through the Earth's geological layers. From tectonics to sedimentology, she explores how the Earth's structure has evolved over time.

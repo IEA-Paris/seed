@@ -53,6 +53,7 @@ const rootStore = useRootStore()
 
 import { useDisplay } from "vuetify"
 // import { FellowshipBadges } from "#build/components"
+import { getSlugFromPath } from "~/composables/useUtils"
 const { smAndUp, mdAndUp, name } = useDisplay()
 const localePath = useLocalePath()
 const props = defineProps({

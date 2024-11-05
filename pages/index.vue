@@ -1,8 +1,8 @@
 <template>
-  <!--   <v-btn color="success" @click="rootStore.setLoading(!rootStore.loading)"
+  <div class="scroller">
+    <!--   <v-btn color="success" @click="rootStore.setLoading(!rootStore.loading)"
     >ext</v-btn
   > -->
-  <div class="scroller">
     <HomeCarousel
       v-if="carousel"
       class="carousel"
@@ -101,8 +101,11 @@
           key="events"
           ref="events"
           type="events"
+          :loading="false"
         >
-          {{ $t("upcoming-events") }}
+          <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
+            {{ $t("upcoming-events") }}
+          </div>
         </MiscAtomsSlidingCarousel>
         <div class="d-flex justify-center">
           <v-btn
@@ -115,8 +118,8 @@
           >
             <v-icon>mdi-chevron-down</v-icon>
           </v-btn>
-        </div></v-container
-      >
+        </div>
+      </v-container>
     </section>
     <section class="d-flex flex-column justify-center dark">
       <v-container>
@@ -141,10 +144,18 @@
     </section>
     <section class="d-flex flex-column justify-center align-center">
       <v-container>
-        <MiscAtomsSlidingCarousel type="people" key="people" lazy ref="fellows">
-          {{ $t("discover-our-0-fellows", [academicYear]) }}
-        </MiscAtomsSlidingCarousel></v-container
-      >
+        <MiscAtomsSlidingCarousel
+          :items="upcomingFellows"
+          type="people"
+          key="upcomingFellows"
+          ref="fellows"
+          :loading="false"
+        >
+          <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
+            {{ $t("discover-our-0-fellows", [academicYear]) }}
+          </div>
+        </MiscAtomsSlidingCarousel>
+      </v-container>
     </section>
     <NavigationFooter isSnapScroll />
   </div>
@@ -194,6 +205,14 @@ const { data: upcomingEvents } = await useAsyncData("event-list", () =>
     .limit(12)
     .find(),
 )
+const { data: upcomingFellows } = await useAsyncData("fellow-list", () =>
+  queryContent("/people/" + locale.value)
+    // .where({ outside: false })
+    // .sort("date", "desc")
+    .limit(12)
+    .find(),
+)
+
 onMounted(() => {
   // init defaults from a possible previous session
   rootStore.setDefaults()
@@ -203,6 +222,7 @@ onMounted(() => {
 .presentation-pitch p {
   font-size: 1.2rem;
 }
+
 .dark {
   background-color: #0b0b0b;
   color: white;

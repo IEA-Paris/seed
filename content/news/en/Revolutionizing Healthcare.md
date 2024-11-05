@@ -28,6 +28,7 @@ tags:
 published: true
 pinned: true
 title: "Revolutionizing Healthcare: Advances in Biotechnology and Genetics"
+description: "Explore cutting-edge innovations in biotechnology and genetics that are transforming healthcare"
 date: 2024-01-15T14:00:00.000+00:00
 authors:
   - firstname: "Alice"
@@ -56,7 +57,7 @@ relatedProjects:
     shortDescription: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     description: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     url: "https://thesocioscope.org/"
-    image:  "/images/logo_typo_black.svg"
+    image: "/images/logo_typo_black.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"
@@ -106,6 +107,29 @@ relatedPeople:
     lastname: "Pauly"
     image: "/images/Pauly.jpg"
     role: "Panelist"
+
+gallery:
+  - url: "/images/agriculture_ai.jpg"
+    alt:
+    caption: "Artificial Intelligence Transforming Modern Agriculture"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/cybersecurity.jpg"
+    alt:
+    caption: "Strengthening Cybersecurity in the Digital Era"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/ai_healthcare.jpg"
+    alt:
+    caption: "Revolutionizing Healthcare with Artificial Intelligence"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 Alice Bernard, a geneticist at the **Genomics Research Institute**, is at the cutting edge of **CRISPR technology** and its applications in healthcare. Her work includes researching the use of **gene editing** to treat genetic disorders and pioneering **synthetic biology** techniques for new medical treatments.

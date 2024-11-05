@@ -108,7 +108,31 @@ tags:
     icon: null
     createdAt: "2024-02-20T00:00:00.000Z"
     updatedAt: "2024-04-01T00:00:00.000Z"
+
+gallery:
+  - url: "/images/renewable.jpg"
+    alt:
+    caption: "Harnessing Renewable Energy for a Sustainable Future"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/disaster.jpg"
+    alt:
+    caption: "Integrating Solar and Wind Power in Modern Energy Grids"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/news_image.jpg"
+    alt:
+    caption: "Innovations Driving Clean and Renewable Energy Solutions"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
+
 This 4th edition of ICA explores fundamental interdisciplinary questions at the intersection of cognitive science, neuroscience, and artificial intelligence. Decisive advances have been made during the past decades in the analysis of brain activity and its behavioral counterparts, as well as in the information processing sciences. Complementarities between neuroscience/cognitive science and artificial intelligence provide grounds for exploring synergies and raising ethical questions between these disciplines that hold tremendous challenges and opportunities for societal progress.
 
 On the occasion of the visit of high-level researchers, the organizing institutions plan in parallel a set of "side events" open to all.

@@ -24,6 +24,7 @@ import { useRootStore } from "~/store/root"
 
 const { locale } = useI18n()
 const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay()
+import { getSlugFromPath } from "~/composables/useUtils"
 const localePath = useLocalePath()
 const rootStore = useRootStore()
 const props = defineProps({

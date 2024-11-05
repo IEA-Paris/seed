@@ -23,11 +23,17 @@
     <section class="dark">
       <v-row>
         <v-col cols="12" class="d-flex align-center justify-center">
-          <MiscAtomsSlidingCarousel type="people"
-            ><div class="text-h2">
-              {{ $t("scientific-advisory-board") }}
-            </div></MiscAtomsSlidingCarousel
+          <MiscAtomsSlidingCarousel
+            key="scientificAdvisoryBoard"
+            :items="scientificAdvisoryBoard"
+            type="people"
+            :loading="false"
+            :dark="true"
           >
+            <div class="text-h2">
+              {{ $t("scientific-advisory-board") }}
+            </div>
+          </MiscAtomsSlidingCarousel>
         </v-col>
       </v-row>
     </section>
@@ -68,6 +74,16 @@ const { locale } = useI18n()
 console.log(locale.value)
 
 const scientificPolicy = "/pages/" + locale.value + "/scientific_policy"
+
+const { data: scientificAdvisoryBoard } = await useAsyncData(
+  "scientific-advisory-board",
+  () =>
+    queryContent("/people/" + locale.value)
+      // .where({ outside: false })
+      // .sort("date", "desc")
+      .limit(12)
+      .find(),
+)
 definePageMeta({
   layout: "about",
   /*   documentDriven: {

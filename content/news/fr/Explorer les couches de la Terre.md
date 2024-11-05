@@ -28,6 +28,7 @@ tags:
 published: true
 pinned: true
 title: "Explorer les couches de la Terre : Un voyage à travers la géologie"
+description: "Découvrez des stratégies concrètes pour lutter contre le changement climatique, en mettant l'accent sur les énergies durables, les politiques environnementales et les technologies innovantes"
 date: 2023-06-10T18:00:00.000+00:00
 authors:
   - firstname: "Marie"
@@ -56,7 +57,7 @@ relatedProjects:
     shortDescription: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en matière d'alimentation."
     description: "Le Socioscope vise à comprendre comment rendre notre monde plus durable, en particulier en matière d'alimentation."
     url: "https://thesocioscope.org/"
-    image:  "/images/logo_typo_black.svg"
+    image: "/images/logo_typo_black.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"
@@ -108,6 +109,29 @@ relatedPeople:
     lastname: "Yamin"
     image: "/images/Paulius_Yamin.jpg"
     role: "Expert en énergies renouvelables"
+
+gallery:
+  - url: "/images/agriculture_ai.jpg"
+    alt:
+    caption: "L'intelligence artificielle transforme l'agriculture moderne"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/cybersecurity.jpg"
+    alt:
+    caption: "Renforcer la cybersécurité à l'ère numérique"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/ai_healthcare.jpg"
+    alt:
+    caption: "Révolutionner les soins de santé grâce à l'intelligence artificielle"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 Marie Dupuis, géologue à l'Université de Grenoble, nous emmène dans un voyage à travers les couches géologiques de la Terre. De la tectonique à la sédimentologie, elle explore comment la structure de la Terre a évolué au fil du temps.

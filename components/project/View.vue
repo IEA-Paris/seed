@@ -81,6 +81,24 @@
       <ContentRenderer v-else :value="item" class="mt-md-n2 mx-10 mx-md-0" />
     </v-col>
   </v-row>
+
+  <!-- DIVIDERS -->
+  <v-responsive class="mx-auto my-9" width="120">
+    <v-divider class="mb-1" />
+    <v-divider />
+  </v-responsive>
+  <MiscAtomsSlidingCarousel
+    :items="item.gallery"
+    type="MiscAtomsImage"
+    ref="MiscAtomsImage"
+    key="MiscAtomsImage"
+    :loading="false"
+    :more="false"
+  >
+    <div :class="mdAndUp ? 'text-h5' : 'text-h6'">
+      {{ $t("gallery") }}
+    </div>
+  </MiscAtomsSlidingCarousel>
   <!-- DIVIDERS -->
   <v-responsive class="mx-auto my-9" width="120">
     <v-divider class="mb-1" />

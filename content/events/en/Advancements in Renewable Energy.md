@@ -6,7 +6,7 @@ outside: true
 bookingState: 1
 date_text: 10 October 2024
 start: 2024-10-10T09:00:00.000Z
-stop: 2024-10-10T17:00:00.000Z
+stop: 2024-10-12T17:00:00.000Z
 eventType: 1
 category: 1
 description: "As the global push for sustainable energy continues, artificial intelligence is playing a pivotal role in optimizing renewable energy systems. This event will feature discussions on the integration of AI with renewable energy technologies, highlighting cutting-edge research and practical applications. Speakers include Dr. Rachel Evans, an expert in renewable energy systems, and Dr. Samuel Green, a pioneer in AI-driven energy solutions. The event will be moderated by Prof. Laura Smith, Director of Energy Research at Stanford University."
@@ -127,6 +127,29 @@ relatedPeople:
     lastname: "Pauly"
     image: "/images/Pauly.jpg"
     role: "Panelist"
+
+gallery:
+  - url: "/images/renewable.jpg"
+    alt:
+    caption: "Harnessing Renewable Energy for a Sustainable Future"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/disaster.jpg"
+    alt:
+    caption: "Integrating Solar and Wind Power in Modern Energy Grids"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/news_image.jpg"
+    alt:
+    caption: "Innovations Driving Clean and Renewable Energy Solutions"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 **January 2025**
