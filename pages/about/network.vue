@@ -4,72 +4,48 @@
       <NavigationBreadcrumbs class="d-flex align-start"></NavigationBreadcrumbs>
       <v-container>
         <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" md="10" lg="9" xl="8">
-            <v-row no-gutters>
-              <v-col cols="12" sm="3">
-                <v-sheet
-                  class="d-flex align-center justify-center"
-                  height="400"
-                >
-                  <v-img
-                    height="400"
-                    fit="contain"
-                    :aspectRatio="1 / 1"
-                    src="/images/durandcecile.jpg"
-                  ></v-img
-                ></v-sheet>
-              </v-col>
-              <v-col cols="12" sm="9">
-                <v-sheet
-                  class="d-flex align-center justify-center"
-                  height="250"
-                  link
-                >
+          <v-col cols="12">
+            <v-row no-gutters>             
+              <v-col cols="12">
+        <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
+          {{ $t('meet-our-network') }}</div>
                   <ContentDoc :path="network" />
-                </v-sheet>
               </v-col>
             </v-row>
           </v-col> </v-row
       ></v-container>
     </section>
 
-    <section class="dark">
+    <section >
       <v-container>
-        <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" md="10" lg="9" xl="8">
+        <v-row class="d-flex align-center justify-center flex-column">
+          <v-col cols="12">
+            <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
+              {{ $t('our-members') }}</div>
             <v-row no-gutters>
-              <v-col cols="12" sm="6">
-                <v-sheet
-                  class="d-flex align-center justify-center"
-                  :to="localePath('/support')"
-                  link
-                >
-                  <ContentDoc :path="partners" /> </v-sheet
-              ></v-col>
-              <v-col cols="12" sm="6">
-                <v-sheet class="d-flex align-center justify-center">
-                  List of partners</v-sheet
-                >
-              </v-col>
+              
+             
+              <v-col cols="12" sm="8">
+                  <MiscMoleculesLogoGallery
+                  :items="membersData"
+                ></MiscMoleculesLogoGallery>
+              </v-col> <v-col cols="12" sm="4">
+              
+              <ContentDoc :path="members" /> </v-col>
             </v-row>
           </v-col>
         </v-row>
       </v-container>
     </section>
     <section>
-      <v-container fluid>
+      <v-container >
         <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" md="10" lg="9" xl="8">
+          <v-col cols="12">
+            <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
+              {{ $t('our-partners') }}</div>
             <v-row no-gutters>
-              <v-col cols="12" sm="8">
-                <v-sheet class="d-flex align-center justify-center">
-                  List of sponsors</v-sheet
-                >
-                <MiscMoleculesLogoGallery
-                  :items="logos"
-                ></MiscMoleculesLogoGallery>
-              </v-col>
-              <v-col cols="4" v-show="smAndUp">
+      
+              <v-col cols="12" sm="4" v-show="smAndUp">
                 <v-sheet
                   class="d-flex align-center justify-center"
                   :to="localePath('/support')"
@@ -79,25 +55,52 @@
                     :action="action"
                     :ratio="1"
                   ></ActionsSmallContainer></v-sheet
-              ></v-col> </v-row
+              ></v-col> 
+              <v-col cols="12" sm="8">
+                <MiscMoleculesLogoGallery
+                  :items="partnersData"
+                ></MiscMoleculesLogoGallery>
+              </v-col></v-row
           ></v-col> </v-row
       ></v-container>
     </section>
 
     <section class="dark">
       <v-container>
-        <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" md="10" lg="9" xl="8">
-            <div class="d-flex align-center justify-center flex-column">
-              <h3>{{ $t("our-members") }}</h3>
-            </div>
-            <MiscMoleculesLogoGallery
-              :items="logos"
-              class="logo-container"
-            ></MiscMoleculesLogoGallery
-          ></v-col>
-        </v-row>
+        <v-row class="d-flex align-center justify-center flex-column">
+            <v-col cols="12" :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
+              {{ $t('our-sponsors') }}</v-col>
+              
+             
+              <v-col cols="12" 
+              
+              v-if="sponsorsData&&sponsorsData.length"
+              sm="8" >
+                  <MiscMoleculesLogoGallery
+                  
+                  :items="sponsorsData"
+                ></MiscMoleculesLogoGallery>
+              </v-col>
+              <v-col cols="12" 
+              v-else
+              sm="8" >
+            </v-col>
+              <v-col cols="12" :sm="sponsorsData&&sponsorsData.length?4:12">
+              
+              <ContentDoc :path="sponsors" /> 
+              <v-btn  variant="outlined" tile>{{ $t('become-a-patron') }}</v-btn>
+            
+            </v-col>
+            </v-row>
       </v-container>
+    </section>
+    <section>
+      <v-container fluid>
+        <v-row class="d-flex align-center justify-center">
+          <v-col cols="12">
+            Extra Slot
+          </v-col> </v-row
+      ></v-container>
     </section>
     <NavigationFooter isSnapScroll />
   </div>
@@ -122,14 +125,22 @@ const { data: action } = await useAsyncData("actions", () =>
     .find(),
 )
 
-const { data: logosData } = await useAsyncData("logos", () =>
-  queryContent("/logos/" + locale.value)
-    .only(["picture", "title", "url"])
+const { data: membersData } = await useAsyncData("members", () =>
+  queryContent("/members/" + locale.value)
     .find(),
 )
-const partners = "/pages/" + locale.value + "/partners"
+const { data: partnersData } = await useAsyncData("partners", () =>
+  queryContent("/partners/" + locale.value)
+    .find(),
+)
+const { data: sponsorsData } = await useAsyncData("sponsors", () =>
+  queryContent("/sponsors/" + locale.value)
+    .find(),
+)
+const sponsors = "/pages/" + locale.value + "/network_sponsors"
+const members = "/pages/" + locale.value + "/network_members"
+const partners = "/pages/" + locale.value + "/network_partners"
 const network = "/pages/" + locale.value + "/network"
-const logos = !logosData || !logosData.value ? undefined : logosData.value
 </script>
 
 <style lang="scss" scoped></style>

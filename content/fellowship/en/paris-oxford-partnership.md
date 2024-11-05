@@ -98,7 +98,7 @@ files: ""
 video: ""
 fellowshipType: 0
 disciplines:
-  - name: "Mathematics"
+  - name: "All disciplines"
 ---
 As part of the agreement established between the University of Paris, the CNRS, and the University of Oxford to promote interdisciplinary research in the humanities and social sciences, the Paris IAS welcomes Oxford scholars for short stays (one to two months).
 These scholars, who must conduct their research in collaboration with colleagues from the University of Paris or the Sorbonne Paris-Cité Alliance, are selected jointly by the university, the CNRS, and the Paris IAS. They benefit from the same conditions of residence as IAS researchers and can thus develop their research work within a leading international and interdisciplinary community.

@@ -97,6 +97,7 @@ files: ""
 video: ""
 fellowshipType: 0
 disciplines:
-  - name: "Neurosciences"
+  - name: "Humanities"
+  - name: "Social Sciences"
 ---
 The Chair "Major Societal Changes: Environmental Transition / AI" created with Sorbonne University gives the opportunity to high-level international researchers in the humanities and social sciences to develop or pursue an innovative research project to advance knowledge on the societal impacts and ethical dimensions of major global changes, and in particular environmental transition or artificial intelligence during a 10-month research residency or two 5-month residencies at the Paris IAS.

@@ -3,7 +3,7 @@ title: World Pandemic Research Network
 url: "https://wprn.org"
 subtitle: Societal impacts and aftermath of Covid-19
 date: 2023-10-04T00:00:00.000Z
-image: "images/logos/wprn_logo.png"
+image: "/images/logos/wprn_logo.png"
 color: "#ffffff"
 
 relatedNews:
@@ -22,7 +22,7 @@ relatedNews:
   - bookingState: "Published"
     createdAt: "2024-01-15T14:00:00.000Z"
     description: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
-    image: "images/mars_image.jpg"
+    image: "/images/mars_image.jpg"
     name: "Mitigating Climate Change"
     outside: "Yes"
     start: "2024-01-20T12:00:00.000Z"
@@ -34,7 +34,7 @@ relatedNews:
   - bookingState: "Published"
     createdAt: "2023-12-12T11:00:00.000Z"
     description: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"
-    image: "images/IA_image.jpg"
+    image: "/images/IA_image.jpg"
     name: "Revolutionizing Healthcare"
     outside: "No"
     start: "2023-12-15T09:30:00.000Z"
@@ -47,7 +47,7 @@ relatedEvents:
   - bookingState: "Confirmed"
     createdAt: "2023-05-20T10:00:00.000+00:00"
     description: "In collaboration with Stanford University and the International Energy Agency"
-    image: "images/renewable.jpg"
+    image: "/images/renewable.jpg"
     name: "Advancements in Renewable Energy and AI Integration"
     outside: "Yes"
     start: "2023-06-15T08:00:00.000+00:00"
@@ -58,7 +58,7 @@ relatedEvents:
   - bookingState: "Confirmed"
     createdAt: "2023-05-20T10:00:00.000+00:00"
     description: "Artificial Intelligence is emerging as a powerful tool in the fight against climate change"
-    image: "images/climat.jpg"
+    image: "/images/climat.jpg"
     name: "AI and Climate Change"
     outside: "No"
     start: "2023-06-20T09:00:00.000+00:00"
@@ -70,19 +70,19 @@ relatedEvents:
 relatedPeople:
   - firstname: "Antoine"
     lastname: "Cordelois"
-    image: "images/antoine_cordelois.jpg"
+    image: "/images/antoine_cordelois.jpg"
     role: "Speaker"
     biography: "The Institut d'Études Avancées de Paris is a transdisciplinary research center focused on advancing global scientific collaborations."
 
   - firstname: "Saadi"
     lastname: "Lahlou"
-    image: "images/lahlou_saadi.jpg"
+    image: "/images/lahlou_saadi.jpg"
     role: "Researcher"
     biography: "Georges Leblanc is a senior researcher specializing in viral epidemiology with a focus on global health initiatives."
 
   - firstname: "Paulius"
     lastname: "Yamin"
-    image: "images/Paulius_Yamin.jpg"
+    image: "/images/Paulius_Yamin.jpg"
     role: "Organizer"
     biography: "Amelio Duffour is an expert in artificial intelligence and machine learning, currently leading projects on AI applications in healthcare."
 
