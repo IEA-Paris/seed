@@ -73,7 +73,7 @@ relatedPeople:
     role: "Animateur d'atelier"
   - firstname: "Vivian"
     lastname: "Loftness"
-    image: "images/Loftness.jpeg"
+    image: "/images/Loftness.jpeg"
     role: "Conférencière principale"
   - firstname: "Daniel"
     lastname: "Pauly"

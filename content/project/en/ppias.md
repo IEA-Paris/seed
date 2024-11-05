@@ -73,7 +73,7 @@ relatedPeople:
     role: "Workshop Facilitator"
   - firstname: "Vivian"
     lastname: "Loftness"
-    image: "images/Loftness.jpeg"
+    image: "/images/Loftness.jpeg"
     role: "Keynote Speaker"
   - firstname: "Daniel"
     lastname: "Pauly"

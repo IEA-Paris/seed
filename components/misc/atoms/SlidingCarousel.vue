@@ -1,5 +1,5 @@
 <template>
-  <v-row class="d-flex align-center justify-center" no-gutters>
+  <v-row class="d-flex align-center" no-gutters>
     <v-col cols="12" lg="10" class="justify-center">
       <div class="d-flex align-center pb-8 justify-space-between" no-gutters>
         <slot></slot>
