@@ -64,4 +64,13 @@ export const slugify = (str: string) => {
 
   return str
 }
+
 export const getSlugFromPath = (str: string) => str.split("/").pop()
+
+export const formatDateValue = (
+  date: string | Date,
+  locale: string,
+): string => {
+  const formattedDate = new Date(date)
+  return formattedDate.toLocaleDateString(locale)
+}

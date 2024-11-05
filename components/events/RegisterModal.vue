@@ -1,19 +1,7 @@
 <template>
   <v-dialog max-width="500">
     <template v-slot:activator="{ props: activatorProps }">
-      <v-btn
-        color="grey-lighten-3"
-        flat
-        rounded="0"
-        size="small"
-        v-bind="activatorProps"
-        class="my-2"
-      >
-        <template v-slot:append>
-          <v-icon class="text-green" size="x-large"> mdi-circle-medium</v-icon>
-        </template>
-        {{ $t("inscription-ouverte") }}
-      </v-btn>
+      <slot name="activator" v-bind="activatorProps"></slot>
     </template>
 
     <template v-slot:default="{ isActive }">

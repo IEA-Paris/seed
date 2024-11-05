@@ -4,7 +4,8 @@
     <v-col cols="12" md="1">
       <MiscAtomsDateStamp
         :loading="rootStore.events.loading"
-        :date="item.start"
+        :dateStart="item.start"
+        :dateStop="item.stop"
         class="pr-6 mt-md-2"
       />
     </v-col>
@@ -106,6 +107,7 @@
 <script setup>
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
+import { getSlugFromPath } from "~/composables/useUtils"
 const { locale } = useI18n()
 const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay()
 const localePath = useLocalePath()

@@ -109,6 +109,29 @@ tags:
     icon: null
     createdAt: "2024-02-20T00:00:00.000Z"
     updatedAt: "2024-04-01T00:00:00.000Z"
+
+gallery:
+  - url: "/images/renewable.jpg"
+    alt:
+    caption: "Harnessing Renewable Energy for a Sustainable Future"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/disaster.jpg"
+    alt:
+    caption: "Integrating Solar and Wind Power in Modern Energy Grids"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/news_image.jpg"
+    alt:
+    caption: "Innovations Driving Clean and Renewable Energy Solutions"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 The [**Paris Institute for Advanced Study**](https://www.paris-iea.fr/en/ "Paris IAS") (Paris IAS) is a transdisciplinary research center that welcomes researchers from all over the world in the fields of humanities and social sciences. It is also open to other disciplines, in particular the life sciences, for projects involving the humanities and social sciences.

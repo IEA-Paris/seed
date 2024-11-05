@@ -1,13 +1,12 @@
 <template>
-  <v-row class="d-flex align-center justify-center" no-gutters>
+  <v-row class="d-flex align-center" no-gutters>
     <v-col cols="12" lg="10" class="justify-center">
       <div class="d-flex align-center pb-8 justify-space-between" no-gutters>
-        <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
-          <slot></slot>
-        </div>
+        <slot></slot>
+
         <v-spacer></v-spacer>
         <!--     <div class="text-h6 font-weight-black d-flex align-center mx-6">
-              {{ model + 1 }}/{{ rootStore[props.type].list.items.length || 0 }}
+              {{ model + 1 }}/{{ items.length || 0 }}
             </div> -->
         <div class="d-flex flex-row">
           <v-btn-toggle>
@@ -22,7 +21,7 @@
             <v-btn
               tile
               variant="outlined"
-              :disabled="model === rootStore[props.type].list.items.length - 1"
+              :disabled="model === items.length - 1"
               flat
               icon="mdi-chevron-right"
               @click="model++"
@@ -50,30 +49,28 @@
         }"
         ref="swiper"
       >
-        <template
-          v-if="rootStore.loading || rootStore[props.type].loading"
-          v-for="(item, index) in rootStore[props.type].list.items"
-        >
+        <template v-if="loading" v-for="(item, index) in items">
           LOADING
         </template>
         <SwiperSlide
           v-else
-          v-for="(item, index) in rootStore[props.type].list.items"
-          :key="index + props.type"
+          v-for="(item, index) in items"
+          :key="index + type"
           :style="'width: ' + computedWidth + 'px'"
           :width="computedWidth"
         >
           <component
-            :key="index + props.type"
-            :is="capitalize(props.type) + 'SlidingItem'"
+            :key="index + type"
+            :is="capitalize(type) + 'SlidingItem'"
             :index="index"
             :item="item"
-            lazy
             :width="computedWidth"
+            :loading="loading"
+            :dark="dark"
           />
         </SwiperSlide>
       </Swiper>
-      <div class="d-flex justify-end mt-12">
+      <div class="d-flex justify-end mt-12" v-if="more">
         <v-btn class="ml-auto" variant="flat">{{
           $t(type + ".see-more")
         }}</v-btn>
@@ -91,10 +88,8 @@ TODO: make it similar to radcliffe :
 */
 import { capitalize } from "~/composables/useUtils"
 import { useDisplay } from "vuetify"
-import { useRootStore } from "~/store/root"
 const { locale } = useI18n()
 const { name, mdAndUp } = useDisplay()
-const rootStore = useRootStore()
 const model = ref(0)
 const swiperBreakpoints = ref({
   320: {
@@ -127,12 +122,12 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  items: { type: Array, required: true },
+  loading: { type: Boolean, default: false },
+  dark: { type: Boolean, default: false },
+  more: { type: Boolean, default: true },
 })
-try {
-  await rootStore.update(props.type, locale.value)
-} catch (error) {
-  console.log("error: ", error)
-}
+
 /* const { data, error } = await useAsyncData(props.type, () =>
 )
 console.log("error: ", error) */
@@ -154,6 +149,8 @@ const computedWidth = computed(() => {
       break
     case "people":
       break
+    case "image":
+      break
     default:
       break
   }
@@ -162,6 +159,10 @@ const computedWidth = computed(() => {
       ["xs", "sm", "md", "lg", "xl", "xxl"].indexOf(name.value || "md")
     ] * modifier
   )
+})
+
+onMounted(() => {
+  console.log("Resolved Item", capitalize(props.type) + "SlidingItem")
 })
 </script>
 <style scoped>

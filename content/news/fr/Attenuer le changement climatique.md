@@ -28,6 +28,7 @@ tags:
 published: true
 pinned: true
 title: "Atténuer le changement climatique : Une feuille de route vers un avenir durable"
+description: "Plongez dans le monde fascinant de la géologie, en explorant la structure de la Terre"
 date: 2023-02-22T19:00:00.000+00:00
 authors:
   - firstname: "Laura"
@@ -56,7 +57,7 @@ relatedProjects:
     shortDescription: "Le Socioscope est dédié à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation."
     description: "Le Socioscope est dédié à comprendre comment rendre notre monde plus durable, en particulier en ce qui concerne l'alimentation."
     url: "https://thesocioscope.org/"
-    image:  "/images/logo_typo_black.svg"
+    image: "/images/logo_typo_black.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"
@@ -106,6 +107,29 @@ relatedPeople:
     lastname: "Pauly"
     image: "/images/Pauly.jpg"
     role: "Panéliste"
+
+gallery:
+  - url: "/images/agriculture_ai.jpg"
+    alt:
+    caption: "L'intelligence artificielle transforme l'agriculture moderne"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/cybersecurity.jpg"
+    alt:
+    caption: "Renforcer la cybersécurité à l'ère numérique"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/ai_healthcare.jpg"
+    alt:
+    caption: "Révolutionner les soins de santé grâce à l'intelligence artificielle"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 Laura Bouchard, scientifique spécialisée en environnement à l'Institut Mondial de l'Environnement, est à la tête des solutions en énergie renouvelable et du développement durable. Son travail couvre des projets visant à réduire les émissions de carbone et à créer des villes plus vertes et résilientes.

@@ -54,7 +54,7 @@
       <v-col cols="12" lg="3" v-if="lgAndUp"> </v-col>
     </v-row>
 
-    <v-row class="mt-md-8 mt-lg-10 mt-xl-12">
+    <v-row class="mt-md-3 mt-lg-10 mt-xl-12">
       <v-col
         class="d-flex flex-column"
         cols="12"
@@ -105,7 +105,29 @@
             ></v-responsive>
           </div>
 
-          <v-sheet class="mt-md-8 mt-lg-10 mt-xl-12">
+          <div class="mt-md-4 mt-lg-6 mt-xl-8">
+            <EventsRegisterModal>
+              <template v-slot:activator="activatorProps"
+                ><v-btn
+                  color="grey-lighten-3"
+                  v-bind="activatorProps"
+                  flat
+                  tile
+                  size="small"
+                  class="my-2"
+                >
+                  <template v-slot:append>
+                    <v-icon class="text-green" size="x-large">
+                      mdi-circle-medium</v-icon
+                    >
+                  </template>
+                  {{ $t("inscription-ouverte") }}
+                </v-btn></template
+              >
+            </EventsRegisterModal>
+          </div>
+
+          <v-sheet class="mt-md-0 mt-lg-2 mt-xl-4">
             <v-list>
               <v-list-subheader class="text-overline font-weight-bold">{{
                 $t("document")
@@ -253,6 +275,28 @@
         ></ActionsSmallContainer>
       </v-col>
     </v-row>
+
+    <!-- DIVIDERS -->
+    <v-responsive class="mx-auto my-9" width="120">
+      <v-divider class="mb-1" />
+      <v-divider />
+    </v-responsive>
+    <MiscAtomsSlidingCarousel
+      :items="item.gallery"
+      type="MiscAtomsImage"
+      ref="MiscAtomsImage"
+      key="MiscAtomsImage"
+      :loading="false"
+      :more="false"
+    >
+      <div :class="mdAndUp ? 'text-h5' : 'text-h6'">
+        {{ $t("gallery") }}
+      </div>
+    </MiscAtomsSlidingCarousel>
+    <v-responsive class="mx-auto my-9" width="120">
+      <v-divider class="mb-1" />
+      <v-divider />
+    </v-responsive>
     <v-row>
       <v-col cols="12" md="4">
         <MiscMoleculesRelatedItems

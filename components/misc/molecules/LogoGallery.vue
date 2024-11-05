@@ -100,7 +100,7 @@ const swiperBreakpoints = ref({
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .logo-container {
   height: 100%;
   padding: 0 1em 0 0;

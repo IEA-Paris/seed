@@ -7,7 +7,7 @@
   - Add conditional overlays slots (top left/right, bottom left/right/center for date, caption, copyright)-->
 
     <v-skeleton-loader
-      v-if="rootStore.loading || loading"
+      v-if="loading"
       height="100%"
       type="image"
     ></v-skeleton-loader>
@@ -27,7 +27,7 @@
           <!--  TODO debug why the picture is not displaying/sizing properly -->
           <v-img
             :aspect-ratio="ratio"
-            class="img-animation"
+            :class="{ 'img-animation': animate }"
             :lazy-src="img(src, { width: 10, quality: 70 })"
             :src="img(src, { width, quality: 70 })"
             :srcset="_srcset.srcset"
@@ -64,6 +64,7 @@ const props = defineProps({
   caption: { type: String, default: "" },
   slug: { type: String, default: "" },
   link: { type: String, default: "" },
+  animate: { type: Boolean, default: true },
 })
 const _srcset = computed(() => {
   return img.getSizes(props.src, {

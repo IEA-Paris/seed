@@ -64,6 +64,7 @@
 </template>
 <script setup>
 import { useDisplay } from "vuetify"
+import { getSlugFromPath } from "~/composables/useUtils"
 const { mdAndUp } = useDisplay()
 
 const selected = ref(0)

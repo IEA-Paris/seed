@@ -56,6 +56,10 @@
         <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
           {{ item.title }}
         </div>
+
+        <div class="d-flex text-wrap text-h6 text-black mt-3" v-if="mdAndUp">
+          {{ item.description }}
+        </div>
         <div
           class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-4 mx-md-6"
         >
@@ -123,8 +127,26 @@
   <!-- DIVIDERS -->
   <v-responsive class="mx-auto my-9" width="120">
     <v-divider class="mb-1" />
-    <v-divider /> </v-responsive
-  ><v-row>
+    <v-divider />
+  </v-responsive>
+  <MiscAtomsSlidingCarousel
+    :items="item.gallery"
+    type="MiscAtomsImage"
+    ref="MiscAtomsImage"
+    key="MiscAtomsImage"
+    :loading="false"
+    :more="false"
+  >
+    <div :class="mdAndUp ? 'text-h5' : 'text-h6'">
+      {{ $t("gallery") }}
+    </div>
+  </MiscAtomsSlidingCarousel>
+  <!-- DIVIDERS -->
+  <v-responsive class="mx-auto my-9" width="120">
+    <v-divider class="mb-1" />
+    <v-divider />
+  </v-responsive>
+  <v-row>
     <!-- RELATED ITEMS -->
     <v-col cols="12" md="4">
       <MiscMoleculesRelatedItems
@@ -161,6 +183,12 @@ const props = defineProps({
   },
 })
 
+const today = new Date()
+const academicYear = ref(
+  today.getMonth() > 6
+    ? today.getFullYear() + "-" + (today.getFullYear() + 1)
+    : today.getFullYear() - 1 + "-" + today.getFullYear(),
+)
 const { data: action } = await useAsyncData("actions", () =>
   queryContent("/actions/" + locale.value)
     .limit(1)
