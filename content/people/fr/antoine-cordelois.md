@@ -1,5 +1,5 @@
 ---
-image: "images/antoine_cordelois.jpg"
+image: "/images/antoine_cordelois.jpg"
 firstname: Antoine
 lastname: Cordelois
 affiliations:
