@@ -11,10 +11,10 @@ export default {
   subtitle: "Paris Institute for Advanced Study",
   description: "Paris Institute for Advanced Study",
   splash_title: "Paris Institute for Advanced Study",
-  recaptcha: "6Lc_xuUUAAAAALwowUq0cC0wFtFnZ2NCi3UH4i1j",
+  recaptcha: "6Lc_xuUUAAAAALwowUq0cC0wFtFnZ2NCi3UH4i1j", // TODO: rm -> fetch from GPG secrets / SSM
   graphqlEndpoint:
-    "https://n6qlmrmuybdrldzerh6qudsai4.appsync-api.eu-west-2.amazonaws.com/graphql",
-  graphqlApiKey: "da2-5q3rpaubfzhntc2kcz6re6ndp4",
+    "https://zrbt5babybbatlzok3ezzn4o4q.appsync-api.eu-west-2.amazonaws.com/graphql", // TODO: rm -> fetch from SSM
+  graphqlApiKey: "XXXXXXXXXXXXXXXX", // TODO: rm -> fetch from SSM
   keywords: "open source, open science, science, vuejs, nuxt, vuetify, vuex",
   url: "https://paris.pias.science",
   logo: "/logo.png",

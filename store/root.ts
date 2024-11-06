@@ -2,8 +2,10 @@
 import lists from '~/assets/data/lists' */
 
 /* import api from "~/server/api/github" */
-import config from "~/static.config"
 import { defineStore } from "pinia"
+      
+
+// import listEvents from '~/graphql/queries/events';
 
 import {
   Views,
@@ -14,6 +16,7 @@ import {
   project,
   fellowship,
 } from "@paris-ias/data"
+
 interface InputParams {
   key?: any | string
   level?: string[] | number[] | number | any
@@ -21,6 +24,114 @@ interface InputParams {
   category?: string
   defaults?: any | null
   value?: any
+}
+
+
+const LIST_PEOPLE_QUERY = gql`
+  query listFellows($filters: ListFellowsInput = {}, $appId: ID = "apex") {
+    listFellows(appId: $appId, filters: $filters) {
+      total
+      items {
+        id
+        firstname
+        lastname
+        image
+        socials {
+          website
+          wikipedia
+          orcid
+          linkedin
+          twitter
+          instagram
+          scholar
+          researchgate
+          mendeley
+          idRef
+        }
+        biography
+      }
+    }
+  }
+`;
+
+const LIST_EVENTS_QUERY = gql`
+  query listEvents($filters: ListEventsInput = {}, $appId: ID = "apex") {
+    listEvents(appId: $appId, filters: $filters) {
+      total
+      items {
+        appId
+        availableSlots
+        bookingState
+        date
+        delay
+        description
+        id
+        image
+        name
+        place {
+          address
+          id
+          name
+          url
+        }
+        slots {
+          email
+          firstname
+          institution
+          lang
+          lastname
+        }
+        state
+        type
+        url
+        totalSlots
+      }
+    }
+  }
+`;
+
+export async function fetchEvents() {
+  const variables = { 
+    "filters": {
+      "options": {
+        "limit": 10,
+        "skip": 0,
+        "sortDesc": [
+          true
+        ],
+        "sortBy": [],
+        "search": ""
+      }
+    },
+    "appId": "iea"
+  };
+  const { data: { value: events} } = await useAsyncQuery(LIST_EVENTS_QUERY, variables);
+
+  console.log('EVENTS: ', events);
+
+  return events;
+}
+
+export async function fetchPeople() {
+  const variables = { 
+    "filters": {
+      "options": {
+        "limit": 10,
+        "skip": 0,
+        "sortDesc": [
+          true
+        ],
+        "sortBy": [],
+        "search": ""
+      }
+    },
+    "appId": "iea"
+  };
+  const { data: { value: people} } = await useAsyncQuery(LIST_PEOPLE_QUERY, variables);
+
+  console.log('PEOPLE: ', people);
+
+  return people;
 }
 
 export const useRootStore = defineStore("rootStore", {
@@ -396,6 +507,14 @@ export const useRootStore = defineStore("rootStore", {
       this.update(type)
     },
     async update(type: string, lang: string = "en") {
+
+
+      // console.log('========== calling graphql query');
+      
+
+      // console.log('graphql data: ', data);
+
+
       const target = type + "/" + lang + "/"
       this.setLoading(true)
       ;(this[type] as ModuleType).loading = true
@@ -517,7 +636,7 @@ export const useRootStore = defineStore("rootStore", {
       console.log("itemsPerPage: ", itemsPerPage) */
       console.log("target: ", target)
 
-      const items = (this.search as string)?.length
+      const mdItems = (this.search as string)?.length
         ? await searchContent(this.search as string)
         : await queryContent(target)
             /*  .where(pipeline) */
@@ -526,7 +645,35 @@ export const useRootStore = defineStore("rootStore", {
             .skip(skipNumber())
             .limit(itemsPerPage)
             .find()
-      /*       console.log("items: ", items); */
+
+
+      let items;
+
+      if ((this[type] as ModuleType).source === "md") {
+
+        switch (type) {
+          case 'events':
+            items = (await fetchEvents())['listEvents']['items']
+              .map((e: any) => ({ ...e, _path: '/' + e['id']}));
+            break;
+          case 'people':
+            items = (await fetchPeople())['listFellows']['items']
+              .map((e: any) => ({
+                ...e,
+                _path: '/' + e['id'],
+                title: e['firstname'] + ' ' + e['lastname'],
+                relatedProjects: [],
+                relatedEvents: [],
+                relatedNews: [],
+                description: e['biography'],
+              }));
+            break;
+        } 
+
+      } else {
+        items = mdItems;
+        console.log('MDitems: ', items);
+      }
       const viewsObj = (this[type] as ModuleType).list.views as Record<
         string,
         Views
