@@ -18,14 +18,14 @@
         >
           <div class="d-flex flex-column flex-grow-1">
             <div class="d-flex flex-grow-1 align-start">
-              <v-img
+              <!-- <v-img
                 class="mr-2 mt-4 logo-container-white"
-                src="/logo_w.png"
+                src="/logo.png"
                 contain
                 max-height="120"
                 max-width="120"
                 style="cursor: pointer"
-              ></v-img>
+              ></v-img> -->
               <v-spacer></v-spacer>
               <v-btn
                 variant="flat"
@@ -48,7 +48,7 @@
                 <v-list-item
                   v-for="(item, i) in config.sitemap.footer"
                   :key="i"
-                  :to="item.path"
+                  :href="item.path"
                   @click="isActive.value = false"
                 >
                   <v-list-item-title
@@ -62,55 +62,38 @@
               </v-list>
             </div>
           </v-col>
+
           <!-- MAIN MENU -->
           <v-col cols="12" md="4">
             <v-divider style="border-color: white"></v-divider>
             <v-list dark bg-color="transparent" color="black">
-              <template
-                v-for="(link, index) in config.sitemap.main"
+              <v-list-item
+                v-for="(item, index) in config.sitemap.main"
                 :key="index"
+                :href="item.path"
+                @click="isActive.value = false"
               >
-                <v-list-item
-                  :to="localePath(link.path)"
-                  @click="isActive.value = false"
+                <v-list-item-title
+                  class="text-uppercase text-button mb-6"
+                  v-text="$t(item.text)"
                 >
-                  <v-list-item-title class="text-uppercase text-h5 mt-3 mb-6">
-                    {{ $t(link.text) }}
-                  </v-list-item-title>
-                </v-list-item>
+                </v-list-item-title>
                 <v-divider
                   v-if="index < config.sitemap.main.length - 1"
                 ></v-divider>
-              </template>
+              </v-list-item>
             </v-list>
           </v-col>
+
           <!-- SOCIAL ICONS -->
           <v-col cols="12" md="4" order="last">
             <v-divider></v-divider>
             <div class="overline ma-3">{{ $t("follow-us") }}</div>
-            <v-tooltip
-              v-for="(item, index) in config.socials"
-              :key="index"
-              location="bottom"
-            >
-              <template #activator="{ on }">
-                <v-btn
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  :href="item.url"
-                  variant="outlined"
-                  dark
-                  icon
-                  color="grey"
-                  class="ma-3"
-                  v-on="on"
-                >
-                  <!-- variant="outlined" -->
-                  <v-icon color="white">mdi-{{ item.icon }}</v-icon>
-                </v-btn>
-              </template>
-              <span>{{ $t(item.text) }}</span>
-            </v-tooltip>
+            <MiscAtomsSocials
+              dark
+              :socials="config.socials"
+              labelled
+            ></MiscAtomsSocials>
           </v-col>
         </v-row>
       </v-card>
