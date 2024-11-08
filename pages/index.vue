@@ -3,35 +3,10 @@
     <!--   <v-btn color="success" @click="rootStore.setLoading(!rootStore.loading)"
     >ext</v-btn
   > -->
-    <HomeCarousel
-      v-if="carousel"
-      class="carousel"
-      :featured="featured"
-    ></HomeCarousel>
-    <HomeCarouselAlt
-      v-else
-      class="carousel"
-      :featured="featured"
-    ></HomeCarouselAlt>
-    <div class="d-flex justify-center mt-n12">
-      <v-switch label="" v-model="carousel"></v-switch>
-      <v-btn
-        color="default"
-        icon
-        flat
-        @click="about?.$el.scrollIntoView({ behavior: 'smooth' })"
-        variant="outlined"
-      >
-        <v-icon>mdi-chevron-down</v-icon>
-      </v-btn>
-    </div>
+
     <section class="d-flex flex-column justify-center dark">
       <v-container fluid>
-        <v-row
-          class="d-flex align-center justify-center"
-          ref="about"
-          no-gutters
-        >
+        <v-row class="d-flex justify-center" ref="about">
           <v-col cols="12" md="6" class="d-flex justify-end my-6">
             <div
               v-motion
@@ -55,7 +30,7 @@
               {{ $t("moto") }}
             </div>
           </v-col>
-          <v-col cols="12" md="6" class="my-6">
+          <v-col cols="12" md="6" class="my-6 d-flex align-end">
             <div
               v-motion
               :initial="{
@@ -71,13 +46,27 @@
                   delay: 1000,
                 },
               }"
-              color="transparent"
-              flat
               id="presentation"
-              class="d-flex align-center justify-center px-6 pb-6 pt-0 mt-md-6 presentation-pitch"
+              class="presentation-pitch f-flex justify-end align-end"
               style="max-width: 600px"
             >
-              <ContentDoc :path="presentation" />
+              <!--     <v-img
+                src="/logo_b&w.svg"
+                contain
+                width="150"
+                class="ma-6"
+              ></v-img> -->
+              <ListAtomsSearchInput
+                type="events"
+                :loading="false"
+                class="mb-6 light"
+              ></ListAtomsSearchInput>
+              <v-btn-toggle tile variant="outlined" divided theme="dark">
+                <v-btn>{{ $t("events.key") }}</v-btn>
+                <v-btn>{{ $t("fellows") }}</v-btn>
+                <v-btn>{{ $t("projects") }}</v-btn>
+                <v-btn>{{ $t("publications") }}</v-btn>
+              </v-btn-toggle>
             </div>
           </v-col>
         </v-row>
@@ -121,42 +110,7 @@
         </div>
       </v-container>
     </section>
-    <section class="d-flex flex-column justify-center dark">
-      <v-container>
-        <v-row
-          class="d-flex align-center justify-center flex-column"
-          ref="numbers"
-        >
-          <v-col cols="12" md="10" class="justify-center">
-            <HomeCountUpStats></HomeCountUpStats>
-          </v-col>
-          <v-btn
-            color="default"
-            icon
-            flat
-            @click="fellows?.$el.scrollIntoView({ behavior: 'smooth' })"
-            variant="outlined"
-          >
-            <v-icon>mdi-chevron-down</v-icon>
-          </v-btn>
-        </v-row>
-      </v-container>
-    </section>
-    <section class="d-flex flex-column justify-center align-center">
-      <v-container>
-        <MiscAtomsSlidingCarousel
-          :items="upcomingFellows"
-          type="people"
-          key="upcomingFellows"
-          ref="fellows"
-          :loading="false"
-        >
-          <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
-            {{ $t("discover-our-0-fellows", [academicYear]) }}
-          </div>
-        </MiscAtomsSlidingCarousel>
-      </v-container>
-    </section>
+
     <NavigationFooter isSnapScroll />
   </div>
 </template>
@@ -226,5 +180,9 @@ onMounted(() => {
 .dark {
   background-color: #0b0b0b;
   color: white;
+}
+.light {
+  color: #0b0b0b;
+  background-color: white;
 }
 </style>

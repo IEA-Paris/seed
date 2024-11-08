@@ -13,6 +13,7 @@ import {
   people,
   project,
   fellowship,
+  publications
 } from "@paris-ias/data"
 interface InputParams {
   key?: any | string
@@ -38,6 +39,7 @@ export const useRootStore = defineStore("rootStore", {
     people,
     project,
     fellowship,
+    publications
   }),
 
   actions: {

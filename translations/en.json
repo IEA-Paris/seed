@@ -211,6 +211,14 @@
           "cancelled": "Cancelled"
         }
       },
+      "publications": {
+        "type": {
+          "podcast": "Podcast",
+          "video": "Video",
+          "article": "Article",
+          "book": "Book"
+        }
+      },
       "events": {
         "status": {
           "planned": "Planned",
@@ -314,7 +322,8 @@
     "project": "Project | Projects",
     "fellow": "Fellow | Fellows",
     "people": "No one | People | People",
-    "fellowship": "Fellowship | Fellowships | {0} Fellowships"
+    "fellowship": "Fellowship | Fellowships | {0} Fellowships",
+    "publications": "Publication | Publications | {0} Publications"
   },
   "fellowship-register": "Candidate to this fellowship program",
   "fellowship": "Fellowship | Fellowships",

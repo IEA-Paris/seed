@@ -1,19 +1,20 @@
 <template>
-  <v-sheet class="d-flex sliding-item flex-md-row flex-column px-6 px-md-0">
+  <v-sheet class="d-flex sliding-item flex-md-row flex-column px-6">
     <MiscAtomsDateStamp
       :dateStart="item.start"
       :dateStop="item.stop"
       :loading="loading"
       class="mr-4 mb-6 mb-md-0"
+      style="min-width: 70px"
     ></MiscAtomsDateStamp>
     <div
       class="d-flex flex-column"
       :style="
-        'width:' +
+        'min-width:' +
         [250, 300, 350, 380, 430, 460][
           ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
         ] +
-        'px;'
+        'px!important;'
       "
     >
       <MiscAtomsImageContainer

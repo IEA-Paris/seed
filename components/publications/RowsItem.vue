@@ -3,10 +3,10 @@
     <MiscAtomsImageContainer
       contain
       :src="item.image"
-      :loading="rootStore.project.loading"
+      :loading="rootStore.publications.loading"
       :ratio="1 / 1"
       :title="item.title"
-      link="activities-projects-slug"
+      link="activities-publications-slug"
       :slug="getSlugFromPath(item._path)"
     >
     </MiscAtomsImageContainer>
@@ -21,7 +21,7 @@
     v-ripple
     @click="
       router.push(
-        localePath('/activities/projects/' + getSlugFromPath(item._path)),
+        localePath('/activities/publications/' + getSlugFromPath(item._path)),
       )
     "
   >
@@ -51,7 +51,7 @@
         tile
         :to="
           localePath({
-            name: 'project-slug',
+            name: 'publications-slug',
             params: { slug: getSlugFromPath(item._path) },
           })
         "
@@ -73,7 +73,7 @@
             ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
           ]
         "
-        >{{ $t("visit-the-project-website") }}</v-btn
+        >{{ $t("visit-the-publications-website") }}</v-btn
       >
     </template>
   </v-col>

@@ -165,6 +165,7 @@ export default {
             text: "events.key",
             path: "/activities/events",
           },
+          { text: "publications", path: "/activities/publications" },
         ],
       },
       {
