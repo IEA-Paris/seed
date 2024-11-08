@@ -47,7 +47,7 @@
               <v-list dark color="black" bg-color="transparent">
                 <v-list-item
                   v-for="(item, i) in config.sitemap.footer"
-                  :key="i"
+                  :key="item.text + i"
                   :href="item.path"
                   @click="isActive.value = false"
                 >
@@ -67,21 +67,45 @@
           <v-col cols="12" md="4">
             <v-divider style="border-color: white"></v-divider>
             <v-list dark bg-color="transparent" color="black">
-              <v-list-item
-                v-for="(item, index) in config.sitemap.main"
-                :key="index"
-                :href="item.path"
-                @click="isActive.value = false"
-              >
-                <v-list-item-title
-                  class="text-uppercase text-button mb-6"
-                  v-text="$t(item.text)"
+              <template v-for="(item, index) in config.sitemap.main">
+                <v-list-group
+                  v-if="item.children && item.children.length"
+                  :value="{ props }"
                 >
-                </v-list-item-title>
-                <v-divider
-                  v-if="index < config.sitemap.main.length - 1"
-                ></v-divider>
-              </v-list-item>
+                  <template v-slot:activator="{ props }">
+                    <v-list-item
+                      class="text-uppercase text-button mb-6"
+                      v-bind="props"
+                    >
+                      <v-list-item-title
+                        class="text-uppercase text-button mb-6"
+                        v-text="$t(item.text)"
+                      ></v-list-item-title>
+                    </v-list-item>
+                  </template>
+                  <v-list-item
+                    v-for="(child, i) in item.children"
+                    :key="child.text + i"
+                    :title="$t(child.text)"
+                    :value="child.text"
+                  ></v-list-item>
+                </v-list-group>
+                <v-list-item
+                  :key="item.text + index"
+                  v-else
+                  :href="item.path"
+                  @click="isActive.value = false"
+                >
+                  <v-list-item-title
+                    class="text-uppercase text-button mb-6"
+                    v-text="$t(item.text)"
+                  >
+                  </v-list-item-title>
+                  <v-divider
+                    v-if="index < config.sitemap.main.length - 1"
+                  ></v-divider>
+                </v-list-item>
+              </template>
             </v-list>
           </v-col>
 
