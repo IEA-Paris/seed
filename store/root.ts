@@ -649,7 +649,7 @@ export const useRootStore = defineStore("rootStore", {
 
       let items;
 
-      if ((this[type] as ModuleType).source === "md") {
+      if ((this[type] as ModuleType).source === "gql") {
 
         switch (type) {
           case 'events':
