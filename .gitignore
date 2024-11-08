@@ -105,3 +105,6 @@ assets/generated
 
 #local history vscode plugin (aka life-saver)
 .history
+
+#templated
+static.config.ts
