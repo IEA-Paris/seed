@@ -183,7 +183,7 @@ export default {
       },
       {
         text: "news",
-        path: "/news",
+        // path: "/news",
       },
     ],
     footer: [

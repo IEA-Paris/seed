@@ -27,7 +27,7 @@
                 style="cursor: pointer"
               ></v-img> -->
               <v-spacer></v-spacer>
-              <v-btn
+              <!-- <v-btn
                 variant="flat"
                 size="x-large"
                 class="ma-2 mr-2 mb-4"
@@ -35,7 +35,7 @@
                 @click="isActive.value = false"
               >
                 <v-icon>mdi-close</v-icon>
-              </v-btn>
+              </v-btn> -->
             </div>
           </div>
         </v-app-bar>
@@ -48,13 +48,15 @@
                 <v-list-item
                   v-for="(item, i) in config.sitemap.footer"
                   :key="item.text + i"
-                  :href="item.path"
                   @click="isActive.value = false"
                 >
-                  <v-list-item-title
-                    class="text-uppercase text-button mb-6"
-                    v-text="$t(item.text)"
-                  ></v-list-item-title>
+                  <nuxt-link :to="localePath(item.path)" class="no-decoration"
+                    ><v-list-item-title
+                      class="text-uppercase text-button mb-6"
+                      v-text="$t(item.text)"
+                    ></v-list-item-title
+                  ></nuxt-link>
+
                   <v-divider
                     v-if="i < config.sitemap.footer.length - 1"
                   ></v-divider>
@@ -66,33 +68,30 @@
           <!-- MAIN MENU -->
           <v-col cols="12" md="4">
             <v-divider style="border-color: white"></v-divider>
-            <v-list dark bg-color="transparent" color="black">
+            <v-list dark bg-color="transparent">
               <template v-for="(item, index) in config.sitemap.main">
                 <v-list-group
                   v-if="item.children && item.children.length"
-                  :value="{ props }"
+                  :value="$t(item.text)"
                 >
                   <template v-slot:activator="{ props }">
                     <v-list-item
                       class="text-uppercase text-button mb-6"
                       v-bind="props"
-                    >
-                      <v-list-item-title
-                        class="text-uppercase text-button mb-6"
-                        v-text="$t(item.text)"
-                      ></v-list-item-title>
-                    </v-list-item>
+                      :title="$t(item.text)"
+                    ></v-list-item>
                   </template>
+
                   <v-list-item
                     v-for="(child, i) in item.children"
                     :key="child.text + i"
                     :title="$t(child.text)"
-                    :value="child.text"
+                    :value="$t(child.text)"
                   ></v-list-item>
                 </v-list-group>
                 <v-list-item
-                  :key="item.text + index"
                   v-else
+                  :key="item.text + index"
                   :href="item.path"
                   @click="isActive.value = false"
                 >
@@ -101,10 +100,10 @@
                     v-text="$t(item.text)"
                   >
                   </v-list-item-title>
-                  <v-divider
-                    v-if="index < config.sitemap.main.length - 1"
-                  ></v-divider>
                 </v-list-item>
+                <v-divider
+                  v-if="index < config.sitemap.main.length - 1"
+                ></v-divider>
               </template>
             </v-list>
           </v-col>
@@ -132,6 +131,10 @@ const config = useAppConfig()
 const { smAndDown, mdAndUp } = useDisplay()
 </script>
 <style scoped>
+.no-decoration {
+  text-decoration: none;
+  color: inherit;
+}
 .v-app-bar--is-scrolled .menu-logo-text {
   position: relative;
   max-width: 150px !important;
