@@ -75,31 +75,41 @@
                   :value="$t(item.text)"
                 >
                   <template v-slot:activator="{ props }">
-                    <v-list-item
-                      class="text-uppercase text-button mb-6"
-                      v-bind="props"
-                      :title="$t(item.text)"
+                    <v-list-item v-bind="props">
+                      <v-list-item-title
+                        class="text-uppercase text-button mb-6"
+                        v-text="$t(item.text)"
+                      ></v-list-item-title
                     ></v-list-item>
                   </template>
 
                   <v-list-item
                     v-for="(child, i) in item.children"
                     :key="child.text + i"
-                    :title="$t(child.text)"
                     :value="$t(child.text)"
-                  ></v-list-item>
+                  >
+                    <nuxt-link
+                      :to="localePath(child.path)"
+                      class="no-decoration"
+                      ><v-list-item-title
+                        class="text-uppercase text-button mb-6"
+                        v-text="$t(child.text)"
+                      ></v-list-item-title
+                    ></nuxt-link>
+                  </v-list-item>
                 </v-list-group>
                 <v-list-item
                   v-else
                   :key="item.text + index"
-                  :href="item.path"
                   @click="isActive.value = false"
                 >
-                  <v-list-item-title
-                    class="text-uppercase text-button mb-6"
-                    v-text="$t(item.text)"
-                  >
-                  </v-list-item-title>
+                  <nuxt-link :to="localePath(item.path)" class="no-decoration">
+                    <v-list-item-title
+                      class="text-uppercase text-button mb-6"
+                      v-text="$t(item.text)"
+                    >
+                    </v-list-item-title>
+                  </nuxt-link>
                 </v-list-item>
                 <v-divider
                   v-if="index < config.sitemap.main.length - 1"
