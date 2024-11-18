@@ -64,6 +64,8 @@ const props = defineProps({
 })
 const items = ref(rootStore[props.type].list.views)
 
+console.log("items", items)
+
 const current = ref(rootStore[props.type].list.view)
 
 const updateView = async (value) => {
