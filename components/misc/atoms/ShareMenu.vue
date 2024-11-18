@@ -1,40 +1,35 @@
 <template>
-     <v-menu>
-      <template v-slot:activator="{ props: menu }">
+  <v-menu>
+    <template v-slot:activator="{ props: menu }">
       <v-tooltip location="top">
         <template v-slot:activator="{ props: tooltip }">
-        <v-btn
-          variant="outlined"
-          v-bind="mergeProps(menu, tooltip)"
-          >
-        <v-icon >mdi-share-variant</v-icon>
-        </v-btn>
-      </template>
-        <div
-          v-html="$t('share')"
-        ></div>
+          <v-btn variant="outlined" v-bind="mergeProps(menu, tooltip)">
+            <v-icon>mdi-share-variant</v-icon>
+          </v-btn>
+        </template>
+        <div v-html="$t('share')"></div>
       </v-tooltip>
     </template>
-      <v-list>
-        <v-list-item
-          v-for="(network, index) in networks"
-          :key="network"
-          :value="network"
-        >
-        <SocialShare
+    <v-list>
+      <v-list-item
+        v-for="(network, index) in networks"
         :key="network"
-        class="text-black"
-        :network="network"
-        :title="$t('share-this-on', { item: item.title })"
-        :aria-label="$t('share-on', { network: network })"
-        :image="item.image"
-        :hashtags="item.tags.map(tag => tag.name)"
-        :url="config.url + route.fullPath"
-        ><template #label>{{  network }}</template>
-      </SocialShare>
-        </v-list-item>
-      </v-list>
-     </v-menu>
+        :value="network"
+      >
+        <SocialShare
+          :key="network"
+          class="text-black"
+          :network="network"
+          :title="$t('share-this-on', { item: item.title })"
+          :aria-label="$t('share-on', { network: network })"
+          :image="item.image"
+          :hashtags="item.tags.map((tag) => tag.name)"
+          :url="config.url + route.fullPath"
+          ><template #label>{{ network }}</template>
+        </SocialShare>
+      </v-list-item>
+    </v-list>
+  </v-menu>
 </template>
 <script setup>
 import { useDisplay } from "vuetify"
@@ -44,13 +39,24 @@ import { mergeProps } from "vue"
 const route = useRoute()
 
 const props = defineProps({
-    networks: {
-        type: Array,
-        default: ['facebook', 'twitter', 'linkedin', 'email', 'pinterest', 'reddit', 'whatsapp', 'pocket']
-    },
-    item: {
-        type: Object,
-        required: true
-    }
+  networks: {
+    type: Array,
+    default: [
+      "facebook",
+      "twitter",
+      "linkedin",
+      "email",
+      "pinterest",
+      "reddit",
+      "whatsapp",
+      "pocket",
+    ],
+  },
+  item: {
+    type: Object,
+    required: true,
+  },
 })
+
+console.log("PRPOS", props.item)
 </script>

@@ -2184,10 +2184,10 @@
     "@parcel/watcher-win32-ia32" "2.4.1"
     "@parcel/watcher-win32-x64" "2.4.1"
 
-"@paris-ias/data@^1.1.20":
-  version "1.1.20"
-  resolved "https://registry.yarnpkg.com/@paris-ias/data/-/data-1.1.20.tgz#8a441d1903317edd050174d630593bc4e0c9d96d"
-  integrity sha512-HuCdWNOtI91AHCAVmN2suBD4nIqtdeZRwX2GDA2knPJVWAfIuENOqvASbu0NtcB3ELYvNsZOpwHZcfQxqmLo6Q==
+"@paris-ias/data@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@paris-ias/data/-/data-1.3.0.tgz#02177bbf9232af9a831c3d0837546d0ff4df2b2a"
+  integrity sha512-vV5oBSvgwuJHBCHO8L0G7bBRiEDzKLNVJbf6jNOGmeMfJZcPeLVAqxMlXZKOARqm/FLHMdE1ULIJ/IqRJ/fmVw==
   dependencies:
     ts-node "^10.9.2"
 
@@ -2477,6 +2477,14 @@
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/@socket.io/component-emitter/-/component-emitter-3.1.2.tgz#821f8442f4175d8f0467b9daf26e3a18e2d02af2"
   integrity sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==
+
+"@stefanobartoletti/nuxt-social-share@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@stefanobartoletti/nuxt-social-share/-/nuxt-social-share-1.2.0.tgz#02f62568db4c91a432b5b74f3d47b950d821390e"
+  integrity sha512-iehssGh971g49CFU3A9leUpAgrLMb9gPFIO7OORyh6ghclc6HNr7QaGnOXihAM0VTJRIqiL3f3AEMiAvwT79Kg==
+  dependencies:
+    "@nuxt/kit" "^3.13.2"
+    defu "^6.1.4"
 
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"
