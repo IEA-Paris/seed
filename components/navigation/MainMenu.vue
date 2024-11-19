@@ -8,38 +8,21 @@
     <!-- APP BAR WITH LOGO -->
     <template #default="{ isActive }">
       <v-card dark color="black">
-        <v-app-bar
-          color="transparent"
-          clipped
-          flat
-          density="prominent"
-          hide-on-scroll
-          height="140"
-        >
-          <div class="d-flex flex-column flex-grow-1">
-            <div class="d-flex flex-grow-1 align-start">
-              <!-- <v-img
-                class="mr-2 mt-4 logo-container-white"
-                src="/logo.png"
-                contain
-                max-height="120"
-                max-width="120"
-                style="cursor: pointer"
-              ></v-img> -->
-              <v-spacer></v-spacer>
-              <!-- <v-btn
-                variant="flat"
-                size="x-large"
-                class="ma-2 mr-2 mb-4"
-                tile
-                @click="isActive.value = false"
-              >
-                <v-icon>mdi-close</v-icon>
-              </v-btn> -->
-            </div>
-          </div>
-        </v-app-bar>
-        <v-row class="ml-2 mt-6">
+        <div class="d-flex">
+          <NavigationLogo dark class="mt-3 ml-2"></NavigationLogo>
+
+          <v-spacer></v-spacer>
+          <v-btn
+            color="black"
+            class="h-100 mr-1"
+            tile
+            @click="isActive.value = false"
+          >
+            <v-icon size="x-large">mdi-close</v-icon>
+          </v-btn>
+        </div>
+
+        <v-row class="ml-2 mt-6" :no-gutters="xs">
           <v-col cols="12" md="4" :order="smAndDown ? 'last' : 'first'">
             <!-- SMALL PAGES LINKS (FOOTER) -->
             <div :class="{ 'ml-6': mdAndUp }">
@@ -52,7 +35,7 @@
                 >
                   <nuxt-link :to="localePath(item.path)" class="no-decoration"
                     ><v-list-item-title
-                      class="text-uppercase text-button mb-6"
+                      class="text-uppercase"
                       v-text="$t(item.text)"
                     ></v-list-item-title
                   ></nuxt-link>
@@ -75,9 +58,9 @@
                   :value="$t(item.text)"
                 >
                   <template v-slot:activator="{ props }">
-                    <v-list-item v-bind="props">
+                    <v-list-item v-bind="props" class="">
                       <v-list-item-title
-                        class="text-uppercase text-button mb-6"
+                        class="text-uppercase text-button font-weight-bold"
                         v-text="$t(item.text)"
                       ></v-list-item-title
                     ></v-list-item>
@@ -92,7 +75,7 @@
                       :to="localePath(child.path)"
                       class="no-decoration"
                       ><v-list-item-title
-                        class="text-uppercase text-button mb-6"
+                        class="text-uppercase text-button"
                         v-text="$t(child.text)"
                       ></v-list-item-title
                     ></nuxt-link>
@@ -105,7 +88,7 @@
                 >
                   <nuxt-link :to="localePath(item.path)" class="no-decoration">
                     <v-list-item-title
-                      class="text-uppercase text-button mb-6"
+                      class="text-uppercase text-button font-weight-bold"
                       v-text="$t(item.text)"
                     >
                     </v-list-item-title>
@@ -122,11 +105,7 @@
           <v-col cols="12" md="4" order="last">
             <v-divider></v-divider>
             <div class="overline ma-3">{{ $t("follow-us") }}</div>
-            <MiscAtomsSocials
-              dark
-              :socials="config.socials"
-              labelled
-            ></MiscAtomsSocials>
+            <MiscAtomsSocials dark :socials="config.socials"></MiscAtomsSocials>
           </v-col>
         </v-row>
       </v-card>
@@ -138,7 +117,7 @@ import { useDisplay } from "vuetify"
 // import sitemap from "~/assets/data/sitemap"
 // import socials from "~/assets/data/social"
 const config = useAppConfig()
-const { smAndDown, mdAndUp } = useDisplay()
+const { xs, smAndDown, mdAndUp } = useDisplay()
 </script>
 <style scoped>
 .no-decoration {
