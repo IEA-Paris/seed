@@ -1,7 +1,19 @@
 <template>
   <v-dialog max-width="500">
     <template v-slot:activator="{ props: activatorProps }">
-      <slot name="activator" v-bind="activatorProps"></slot>
+      <v-btn
+        color="grey-lighten-3"
+        flat
+        rounded="0"
+        size="small"
+        v-bind="activatorProps"
+        class="my-2"
+      >
+        <template v-slot:append>
+          <v-icon class="text-green" size="x-large"> mdi-circle-medium</v-icon>
+        </template>
+        {{ $t("register-until-0", [getLocalizedDate(item.applicationStop)]) }}
+      </v-btn>
     </template>
 
     <template v-slot:default="{ isActive }">

@@ -126,6 +126,7 @@
     "list": "List",
     "rows": "Rows",
     "dense": "Dense",
+    "expanded": "Expanded",
     "pls-x-more": "+ {0} more",
     "view-mode": "View mode: ",
     "sort-mode": "Sort mode: ",

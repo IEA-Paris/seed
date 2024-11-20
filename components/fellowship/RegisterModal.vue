@@ -1,7 +1,7 @@
 <template>
   <v-dialog max-width="500">
     <template v-slot:activator="{ props: activatorProps }">
-      <v-slot></v-slot>
+      <v-btn v-bind="activatorProps" color="success">text</v-btn>
     </template>
 
     <template v-slot:default="{ isActive }">
