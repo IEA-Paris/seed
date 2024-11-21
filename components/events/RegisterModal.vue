@@ -12,7 +12,7 @@
         <template v-slot:append>
           <v-icon class="text-green" size="x-large"> mdi-circle-medium</v-icon>
         </template>
-        {{ $t("register-until-0", [getLocalizedDate(item.applicationStop)]) }}
+        <!--       {{ $t("register-until-0", /* [getLocalizedDate(item.applicationStop)])  */}} -->
       </v-btn>
     </template>
 
