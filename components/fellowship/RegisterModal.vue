@@ -1,7 +1,9 @@
 <template>
   <v-dialog max-width="500">
     <template v-slot:activator="{ props: activatorProps }">
-      <v-btn v-bind="activatorProps" color="success">text</v-btn>
+      <v-btn v-bind="activatorProps" variant="outlined" class="text-overline"
+        >Open to applications on Tuesday, December 31, 2024</v-btn
+      >
     </template>
 
     <template v-slot:default="{ isActive }">
