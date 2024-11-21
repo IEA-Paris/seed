@@ -7,12 +7,8 @@
         rounded="0"
         size="small"
         v-bind="activatorProps"
-        class="my-2"
       >
-        <template v-slot:append>
-          <v-icon class="text-green" size="x-large"> mdi-circle-medium</v-icon>
-        </template>
-        <!--       {{ $t("register-until-0", /* [getLocalizedDate(item.applicationStop)])  */}} -->
+        {{ $t("register-until-0") }}
       </v-btn>
     </template>
 
@@ -37,6 +33,12 @@
   </v-dialog>
 </template>
 
-<script setup lang="ts"></script>
+<script setup>
+const props = defineProps({
+  item: { type: Object, required: true },
+})
 
-<style lang="scss" scoped></style>
+console.log("prpos", props.item)
+
+// [getLocalizedDate(item.stop)]
+</script>
