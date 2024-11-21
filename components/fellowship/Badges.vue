@@ -7,6 +7,7 @@
 
   <FellowshipRegisterModal
     :item="item"
+    :view="view"
     v-else-if="registrationStatus === 1"
     class="mr-2"
   >
@@ -31,6 +32,7 @@ const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay()
 
 const props = defineProps({
   item: { type: Object, required: true },
+  view: { type: Boolean, required: false, default: false },
 })
 
 const registrationStatus = computed(() => {
