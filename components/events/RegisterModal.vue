@@ -1,14 +1,10 @@
 <template>
   <v-dialog max-width="500">
     <template v-slot:activator="{ props: activatorProps }">
-      <v-btn
-        color="grey-lighten-3"
-        flat
-        rounded="0"
-        size="small"
-        v-bind="activatorProps"
-      >
-        {{ $t("register-until-0") }}
+      <v-btn variant="outlined" tile v-bind="activatorProps" size="small">
+        <div class="text-wrap">
+          {{ $t("register-until-0", [getLocalizedDate(item.stop)]) }}
+        </div>
       </v-btn>
     </template>
 
@@ -37,8 +33,4 @@
 const props = defineProps({
   item: { type: Object, required: true },
 })
-
-console.log("prpos", props.item)
-
-// [getLocalizedDate(item.stop)]
 </script>

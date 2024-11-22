@@ -3,6 +3,7 @@
     <template v-slot:activator="{ props: activatorProps }">
       <v-btn
         v-bind="activatorProps"
+        tile
         :variant="view ? 'outlined' : 'text'"
         class="text-overline"
       >

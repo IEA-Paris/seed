@@ -89,8 +89,33 @@
             </div>
           </div>
 
+          <div class="mt-md-4 mt-lg-6 mt-xl-8 text-center">
+            <v-menu transition="scroll-y-reverse-transition">
+              <template v-slot:activator="{ props }">
+                <v-btn variant="outlined" tile v-bind="props" size="small">
+                  View on Maps
+                </v-btn>
+              </template>
+              <v-responsive :aspect-ratio="1 / 1">
+                <iframe
+                  title="openstreetmap"
+                  width="100%"
+                  height="100%"
+                  absolute
+                  frameborder="0"
+                  scrolling="no"
+                  marginheight="0"
+                  marginwidth="0"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=2.356580793857575%2C48.850586483414915%2C2.361644804477692%2C48.85278204589751&amp;layer=mapnik&amp;marker=48.851684276691216%2C2.359112799167633"
+                  @click="redirectToMap(2.35911, 48.85168)"
+                  @keyup.enter="redirectToMap(2.35911, 48.85168)"
+                ></iframe
+              ></v-responsive>
+            </v-menu>
+          </div>
+
           <div class="mt-md-4 mt-lg-6 mt-xl-8">
-            <EventsRegisterModal>
+            <EventsRegisterModal :item="item">
               <template v-slot:activator="activatorProps"
                 ><v-btn
                   color="grey-lighten-3"
@@ -189,7 +214,7 @@
         ></v-skeleton-loader>
 
         <template v-else>
-          <div class="ml-md-8 ml-lg-10 ml-xl-12" v-if="mdAndUp">
+          <div class="ml-md-8 ml-lg-10 ml-xl-12">
             <v-expansion-panels
               outlined
               flat
@@ -200,6 +225,7 @@
               v-model="panel"
             >
               <v-expansion-panel
+                :value="panel[0]"
                 class="border-thin text-black"
                 :color="key === accordeon ? 'light-grey' : 'white'"
               >
@@ -260,8 +286,6 @@
               </v-expansion-panel>
             </v-expansion-panels>
           </div>
-
-          <div v-if="smAndDown"></div>
         </template>
       </v-col>
     </v-row>

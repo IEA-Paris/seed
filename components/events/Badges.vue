@@ -74,6 +74,8 @@ const streamAvailable = ref()
 const registrationOpen = () => {
   return item.start < new Date().now() && availableSlots > 0
 }
+
+console.log("XXXX", props.item)
 </script>
 
 <style lang="scss" scoped></style>
