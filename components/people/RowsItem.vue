@@ -52,16 +52,23 @@
           "
           class="text-wrap text-h4 text-black"
         >
-          <ContentRenderer
-            :value="item"
-            class="text-body-1 clamped-text mt-n3"
-            :style="
+          <template v-if="item._source === 'content'">
+            <ContentRenderer
+              :value="item"
+              class="text-body-1 clamped-text mt-n3"
+              :style="
               '-webkit-line-clamp:' +
               [5, 5, 3, 6, 9, 9][
                 ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
               ]
-            "
-          />
+              "
+            />
+          </template>
+          <template v-else>
+            <div class="text-body-1 clamped-text mt-n3">
+              {{ item.biography }}
+            </div>
+          </template>
         </NuxtLink>
       </div>
     </v-col>

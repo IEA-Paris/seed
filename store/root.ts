@@ -28,8 +28,8 @@ interface InputParams {
 
 
 const LIST_PEOPLE_QUERY = gql`
-  query listFellows($filters: ListFellowsInput = {}, $appId: ID = "apex") {
-    listFellows(appId: $appId, filters: $filters) {
+  query listPeople($filters: ListPeopleInput = {}, $appId: ID = "apex") {
+    listPeople(appId: $appId, filters: $filters) {
       total
       items {
         id
@@ -62,9 +62,16 @@ const LIST_EVENTS_QUERY = gql`
         appId
         availableSlots
         bookingState
-        date
+        category
         delay
         description
+        disciplines {
+          name
+        }
+        discussants {
+          firstname
+          lastname
+        }
         id
         image
         name
@@ -74,13 +81,14 @@ const LIST_EVENTS_QUERY = gql`
           name
           url
         }
-        slots {
+        eventSlots {
           email
           firstname
           institution
           lang
           lastname
         }
+        start
         state
         type
         url
@@ -90,19 +98,9 @@ const LIST_EVENTS_QUERY = gql`
   }
 `;
 
-export async function fetchEvents() {
+export async function fetchEvents(filters: Object) {
   const variables = { 
-    "filters": {
-      "options": {
-        "limit": 10,
-        "skip": 0,
-        "sortDesc": [
-          true
-        ],
-        "sortBy": [],
-        "search": ""
-      }
-    },
+    filters, 
     "appId": "iea"
   };
   const { data: { value: events} } = await useAsyncQuery(LIST_EVENTS_QUERY, variables);
@@ -112,19 +110,9 @@ export async function fetchEvents() {
   return events;
 }
 
-export async function fetchPeople() {
+export async function fetchPeople(filters: Object) {
   const variables = { 
-    "filters": {
-      "options": {
-        "limit": 10,
-        "skip": 0,
-        "sortDesc": [
-          true
-        ],
-        "sortBy": [],
-        "search": ""
-      }
-    },
+    filters,
     "appId": "iea"
   };
   const { data: { value: people} } = await useAsyncQuery(LIST_PEOPLE_QUERY, variables);
@@ -508,12 +496,14 @@ export const useRootStore = defineStore("rootStore", {
     },
     async update(type: string, lang: string = "en") {
 
+    // TODO REMOVE !!
+    (this[type] as ModuleType).source = "gql";
+    // -------------------
 
       // console.log('========== calling graphql query');
       
 
       // console.log('graphql data: ', data);
-
 
       const target = type + "/" + lang + "/"
       this.setLoading(true)
@@ -592,12 +582,55 @@ export const useRootStore = defineStore("rootStore", {
       }
       /*  console.log("pipeline: ", pipeline)
        */
-      const count = await queryContent(target).where(pipeline).count()
-      const totalItems = count
-      /*   console.log("totalItems: ", totalItems) */
+
+      let items;
+      let totalItems: number = 0;
 
       const itemsPerPageValue = (this[type] as ModuleType).list
         ?.itemsPerPage as number
+
+      if ((this[type] as ModuleType).source === "gql") {
+
+        const gqlFilters = {
+          options: {
+            limit: itemsPerPageValue,
+            skip: (this.page as number - 1) * itemsPerPageValue,
+            sortDesc: [true], // TODO: why is it an array ?
+            sortBy: [],
+            search: this.search
+          }
+        };
+
+        switch (type) {
+          case 'events':
+            const events = (await fetchEvents(gqlFilters) as any)['listEvents'];
+            items = events['items']
+              .map((e: any) => ({ ...e, _path: '/' + e['id']}));
+            totalItems = events['total']
+            break;
+          case 'people':
+            const people = (await fetchPeople(gqlFilters) as any)['listPeople'];
+            items = people['items']
+              .map((e: any) => ({
+                ...e,
+                _path: '/' + e['id'],
+                title: e['firstname'] + ' ' + e['lastname'],
+                relatedProjects: [],
+                relatedEvents: [],
+                relatedNews: [],
+                description: e['biography'],
+              }));
+            totalItems = people['total']
+            break;
+        }
+      } else {
+
+        const count = await queryContent(target).where(pipeline).count();
+        totalItems = count;
+        /*   console.log("totalItems: ", totalItems) */
+      }
+
+
       const lastPage = Math.ceil(totalItems / itemsPerPageValue)
 
       const lastPageCount =
@@ -636,43 +669,16 @@ export const useRootStore = defineStore("rootStore", {
       console.log("itemsPerPage: ", itemsPerPage) */
       console.log("target: ", target)
 
-      const mdItems = (this.search as string)?.length
-        ? await searchContent(this.search as string)
-        : await queryContent(target)
-            /*  .where(pipeline) */
-            .sort({ [sortArray[0]]: sortArray[1] })
-            /*  .sort({ [sortArray[2]]: sortArray[3] }) */
-            .skip(skipNumber())
-            .limit(itemsPerPage)
-            .find()
-
-
-      let items;
-
-      if ((this[type] as ModuleType).source === "gql") {
-
-        switch (type) {
-          case 'events':
-            items = (await fetchEvents())['listEvents']['items']
-              .map((e: any) => ({ ...e, _path: '/' + e['id']}));
-            break;
-          case 'people':
-            items = (await fetchPeople())['listFellows']['items']
-              .map((e: any) => ({
-                ...e,
-                _path: '/' + e['id'],
-                title: e['firstname'] + ' ' + e['lastname'],
-                relatedProjects: [],
-                relatedEvents: [],
-                relatedNews: [],
-                description: e['biography'],
-              }));
-            break;
-        } 
-
-      } else {
-        items = mdItems;
-        console.log('MDitems: ', items);
+      if ((this[type] as ModuleType).source === "md") {
+        items = (this.search as string)?.length
+          ? await searchContent(this.search as string)
+          : await queryContent(target)
+              /*  .where(pipeline) */
+              .sort({ [sortArray[0]]: sortArray[1] })
+              /*  .sort({ [sortArray[2]]: sortArray[3] }) */
+              .skip(skipNumber())
+              .limit(itemsPerPage)
+              .find()
       }
       const viewsObj = (this[type] as ModuleType).list.views as Record<
         string,
