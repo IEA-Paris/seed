@@ -106,6 +106,7 @@ export default defineNuxtConfig({
     //https://nuxt.com/docs/getting-started/testing
     "@nuxt/test-utils/module",
     /*     "@nuxtjs/html-validator", */
+    "@stefanobartoletti/nuxt-social-share",
   ],
 
   pinia: {

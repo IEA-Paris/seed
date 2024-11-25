@@ -26,11 +26,16 @@
         :loading="loading"
       >
       </MiscAtomsImageContainer>
-      <div
-        class="mt-6 pl-0 text-h5 text-md-h4 font-weight-medium sliding-item-title"
+      <a
+        class="mt-6 pl-0 text-h5 text-md-h4 font-weight-medium sliding-item-title cursor-pointer"
+        :href="
+          localePath('activities-events-slug', {
+            slug: slugify(item._path),
+          })
+        "
       >
         {{ item.name }}
-      </div>
+      </a>
     </div>
   </v-sheet>
 </template>

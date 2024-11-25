@@ -1,12 +1,22 @@
 name: ci
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+      - staging
+      - develop
+
+env:
+
+  AWS_REGION: eu-west-2
+  ENV: ${{ github.ref == 'refs/heads/staging' && 'stage' || github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
+  AWS_ACCESS_KEY_ID: ${{ github.ref == 'refs/heads/staging' && secrets.AWS_ACCESS_KEY_ID_STAGE || github.ref == 'refs/heads/main' && secrets.AWS_ACCESS_KEY_ID_PROD || secrets.AWS_ACCESS_KEY_ID_DEV }}
+  AWS_SECRET_ACCESS_KEY: ${{ github.ref == 'refs/heads/staging' && secrets.AWS_SECRET_ACCESS_KEY_STAGE || github.ref == 'refs/heads/main' && secrets.AWS_SECRET_ACCESS_KEY_PROD || secrets.AWS_SECRET_ACCESS_KEY_DEV }}
+
+  TF_VERSION: 1.9.7
+  TG_VERSION: 0.67.15
 
 # Allow one concurrent deployment
 concurrency:
@@ -26,20 +36,52 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@main
 
+      - name: Setup Terragrunt
+        uses: autero1/action-terragrunt@v0.1.0
+        with:
+          terragrunt_version: ${{ env.TG_VERSION }}
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
       - name: "Setup Terraform"
-        if: github.event.inputs.forceInfraJob != '' || steps.skip-infra.outputs.skip != 'true'
         uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: 1.5.6
+          terraform_version: ${{ env.TF_VERSION }} 
 
-      - name: Setup AWS credentials [dev]
+      - name: "AWS Creds"
         run: |
-          aws configure set region ${{ env.REGION }} --profile ${{ env.PROFILE_NAME }}
-          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID_DEV }} --profile ${{ env.PROFILE_NAME }}
-          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }} --profile ${{ env.PROFILE_NAME }}
-        env:
-          PROFILE_NAME: dev
-          REGION: eu-west-3
+          mkdir -p ~/.aws/
+          cat << EOF > ~/.aws/credentials
+          [dev]
+          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_DEV }}
+          aws_secret_access_key = ${{ secrets.AWS_SECRET_KEY_DEV }}
+
+          [stage]
+          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_STAGE }}
+          aws_secret_access_key = ${{ secrets.AWS_SECRET_KEY_STAGE }}
+
+          [prod]
+          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_PROD }}
+          aws_secret_access_key = ${{ secrets.AWS_SECRET_KEY_PROD }}
+
+          [apex]
+          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_APEX }}
+          aws_secret_access_key = ${{ secrets.AWS_SECRET_KEY_APEX }}
+          EOF
+
+          cat << EOF > ~/.aws/config
+          [profile dev]
+          region = ${{ env.AWS_REGION }}
+
+          [profile stage]
+          region = ${{ env.AWS_REGION }}
+
+          [profile prod]
+          region = ${{ env.AWS_REGION }}
+
+          [profile apex]
+          region = ${{ env.AWS_REGION }}
+          EOF
 
       - name: "Terraform Apply"
         run: AWS_PROFILE=dev yarn deploy:infra
@@ -83,8 +125,8 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: yarn
 
-      # - name: Generate
-      #   run: yarn run generate
+      - name: Generate
+        run: yarn run generate
 
       #  - name: Run linter 👀
       #   run: yarn lint
@@ -92,15 +134,56 @@ jobs:
       #      - name: Run tests 🧪
       #        run: yarn test
 
-      # - name: 🤫 Setting up AWS credentials
-      #   uses: "aws-actions/configure-aws-credentials@v1"
-      #   with:
-      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
-      #     aws-secret-access-key: ${{  secrets.AWS_SECRET_ACCESS_KEY_DEV }}
-      #     aws-region: eu-west-3
 
-      # - name: Deploy static site to S3 bucket
-      #   run: aws s3 sync $DIST_DIR $S3_BUCKET --delete  --exclude ".*" --size-only
-      #   env:
-      #     DIST_DIR: .output/public/
-      #     S3_BUCKET: s3://dev-website-iea-paris
+      - name: "AWS Creds"
+        run: |
+          mkdir -p ~/.aws/
+          cat << EOF > ~/.aws/credentials
+          [dev]
+          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
+          aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
+
+          [stage]
+          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID_STAGE }}
+          aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY_STAGE }}
+
+          [prod]
+          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+          aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
+
+          [apex]
+          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID_APEX }}
+          aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY_APEX }}
+          EOF
+
+          cat << EOF > ~/.aws/config
+          [profile dev]
+          region = ${{ env.AWS_REGION }}
+
+          [profile stage]
+          region = ${{ env.AWS_REGION }}
+
+          [profile prod]
+          region = ${{ env.AWS_REGION }}
+
+          [profile apex]
+          region = ${{ env.AWS_REGION }}
+          EOF
+
+      - name: Deploy static site to S3 bucket
+        run: aws s3 sync $DIST_DIR $S3_BUCKET s3://${env.ENV}-website-iea-paris --delete  --exclude ".*" --size-only
+        env:
+          DIST_DIR: .output/public/
+
+      - name: Get CloudFront Distribution ID
+        id: get-distribution-id
+        run: |
+          export BUCKET_NAME="${{ env.ENV }}-website-iea-paris"
+          DISTRIBUTION_ID=$(aws cloudfront list-distributions \
+            --query "DistributionList.Items[?Origins.Items[?contains(DomainName, '${BUCKET_NAME}.s3')]].Id" \
+            --output text)
+          echo "distribution_id=$DISTRIBUTION_ID" >> $GITHUB_OUTPUT
+
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ steps.get-distribution-id.outputs.distribution_id }} --paths "/*"

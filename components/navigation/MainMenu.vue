@@ -8,38 +8,21 @@
     <!-- APP BAR WITH LOGO -->
     <template #default="{ isActive }">
       <v-card dark color="black">
-        <v-app-bar
-          color="transparent"
-          clipped
-          flat
-          density="prominent"
-          hide-on-scroll
-          height="140"
-        >
-          <div class="d-flex flex-column flex-grow-1">
-            <div class="d-flex flex-grow-1 align-start">
-              <v-img
-                class="mr-2 mt-4 logo-container-white"
-                src="/logo_w.png"
-                contain
-                max-height="120"
-                max-width="120"
-                style="cursor: pointer"
-              ></v-img>
-              <v-spacer></v-spacer>
-              <v-btn
-                variant="flat"
-                size="x-large"
-                class="ma-2 mr-2 mb-4"
-                tile
-                @click="isActive.value = false"
-              >
-                <v-icon>mdi-close</v-icon>
-              </v-btn>
-            </div>
-          </div>
-        </v-app-bar>
-        <v-row class="ml-2 mt-6">
+        <div class="d-flex">
+          <NavigationLogo dark class="mt-3 ml-2"></NavigationLogo>
+
+          <v-spacer></v-spacer>
+          <v-btn
+            color="black"
+            class="h-100 mr-1"
+            tile
+            @click="isActive.value = false"
+          >
+            <v-icon size="x-large">mdi-close</v-icon>
+          </v-btn>
+        </div>
+
+        <v-row class="ml-2 mt-6" :no-gutters="xs">
           <v-col cols="12" md="4" :order="smAndDown ? 'last' : 'first'">
             <!-- SMALL PAGES LINKS (FOOTER) -->
             <div :class="{ 'ml-6': mdAndUp }">
@@ -47,14 +30,16 @@
               <v-list dark color="black" bg-color="transparent">
                 <v-list-item
                   v-for="(item, i) in config.sitemap.footer"
-                  :key="i"
-                  :to="item.path"
+                  :key="item.text + i"
                   @click="isActive.value = false"
                 >
-                  <v-list-item-title
-                    class="text-uppercase text-button mb-6"
-                    v-text="$t(item.text)"
-                  ></v-list-item-title>
+                  <nuxt-link :to="localePath(item.path)" class="no-decoration"
+                    ><v-list-item-title
+                      class="text-uppercase"
+                      v-text="$t(item.text)"
+                    ></v-list-item-title
+                  ></nuxt-link>
+
                   <v-divider
                     v-if="i < config.sitemap.footer.length - 1"
                   ></v-divider>
@@ -62,21 +47,52 @@
               </v-list>
             </div>
           </v-col>
+
           <!-- MAIN MENU -->
           <v-col cols="12" md="4">
             <v-divider style="border-color: white"></v-divider>
-            <v-list dark bg-color="transparent" color="black">
-              <template
-                v-for="(link, index) in config.sitemap.main"
-                :key="index"
-              >
+            <v-list dark bg-color="transparent">
+              <template v-for="(item, index) in config.sitemap.main">
+                <v-list-group
+                  v-if="item.children && item.children.length"
+                  :value="$t(item.text)"
+                >
+                  <template v-slot:activator="{ props }">
+                    <v-list-item v-bind="props" class="">
+                      <v-list-item-title
+                        class="text-uppercase text-button font-weight-bold"
+                        v-text="$t(item.text)"
+                      ></v-list-item-title
+                    ></v-list-item>
+                  </template>
+
+                  <v-list-item
+                    v-for="(child, i) in item.children"
+                    :key="child.text + i"
+                    :value="$t(child.text)"
+                  >
+                    <nuxt-link
+                      :to="localePath(child.path)"
+                      class="no-decoration"
+                      ><v-list-item-title
+                        class="text-uppercase text-button"
+                        v-text="$t(child.text)"
+                      ></v-list-item-title
+                    ></nuxt-link>
+                  </v-list-item>
+                </v-list-group>
                 <v-list-item
-                  :to="localePath(link.path)"
+                  v-else
+                  :key="item.text + index"
                   @click="isActive.value = false"
                 >
-                  <v-list-item-title class="text-uppercase text-h5 mt-3 mb-6">
-                    {{ $t(link.text) }}
-                  </v-list-item-title>
+                  <nuxt-link :to="localePath(item.path)" class="no-decoration">
+                    <v-list-item-title
+                      class="text-uppercase text-button font-weight-bold"
+                      v-text="$t(item.text)"
+                    >
+                    </v-list-item-title>
+                  </nuxt-link>
                 </v-list-item>
                 <v-divider
                   v-if="index < config.sitemap.main.length - 1"
@@ -84,33 +100,12 @@
               </template>
             </v-list>
           </v-col>
+
           <!-- SOCIAL ICONS -->
           <v-col cols="12" md="4" order="last">
             <v-divider></v-divider>
             <div class="overline ma-3">{{ $t("follow-us") }}</div>
-            <v-tooltip
-              v-for="(item, index) in config.socials"
-              :key="index"
-              location="bottom"
-            >
-              <template #activator="{ on }">
-                <v-btn
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  :href="item.url"
-                  variant="outlined"
-                  dark
-                  icon
-                  color="grey"
-                  class="ma-3"
-                  v-on="on"
-                >
-                  <!-- variant="outlined" -->
-                  <v-icon color="white">mdi-{{ item.icon }}</v-icon>
-                </v-btn>
-              </template>
-              <span>{{ $t(item.text) }}</span>
-            </v-tooltip>
+            <MiscAtomsSocials dark :socials="config.socials"></MiscAtomsSocials>
           </v-col>
         </v-row>
       </v-card>
@@ -122,9 +117,13 @@ import { useDisplay } from "vuetify"
 // import sitemap from "~/assets/data/sitemap"
 // import socials from "~/assets/data/social"
 const config = useAppConfig()
-const { smAndDown, mdAndUp } = useDisplay()
+const { xs, smAndDown, mdAndUp } = useDisplay()
 </script>
 <style scoped>
+.no-decoration {
+  text-decoration: none;
+  color: inherit;
+}
 .v-app-bar--is-scrolled .menu-logo-text {
   position: relative;
   max-width: 150px !important;

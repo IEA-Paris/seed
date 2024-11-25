@@ -126,6 +126,7 @@
     "list": "List",
     "rows": "Rows",
     "dense": "Dense",
+    "expanded": "Expanded",
     "pls-x-more": "+ {0} more",
     "view-mode": "View mode: ",
     "sort-mode": "Sort mode: ",
@@ -378,5 +379,7 @@
   },
   "presentation-0": "presentation",
   "hosting-excellence": "Hosting excellence",
-  "building-bridges": "Building bridges"
+  "building-bridges": "Building bridges",
+  "follow-us": "Follow us",
+  "show-on-map": "Show on map"
 }
