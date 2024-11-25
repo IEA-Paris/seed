@@ -89,31 +89,6 @@
             </div>
           </div>
 
-          <div class="mt-md-4 mt-lg-6 mt-xl-8 text-center">
-            <v-menu transition="scroll-y-reverse-transition">
-              <template v-slot:activator="{ props }">
-                <v-btn variant="outlined" tile v-bind="props" size="small">
-                  View on Maps
-                </v-btn>
-              </template>
-              <v-responsive :aspect-ratio="1 / 1">
-                <iframe
-                  title="openstreetmap"
-                  width="100%"
-                  height="100%"
-                  absolute
-                  frameborder="0"
-                  scrolling="no"
-                  marginheight="0"
-                  marginwidth="0"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=2.356580793857575%2C48.850586483414915%2C2.361644804477692%2C48.85278204589751&amp;layer=mapnik&amp;marker=48.851684276691216%2C2.359112799167633"
-                  @click="redirectToMap(2.35911, 48.85168)"
-                  @keyup.enter="redirectToMap(2.35911, 48.85168)"
-                ></iframe
-              ></v-responsive>
-            </v-menu>
-          </div>
-
           <div class="mt-md-4 mt-lg-6 mt-xl-8">
             <EventsRegisterModal :item="item">
               <template v-slot:activator="activatorProps"
@@ -124,6 +99,7 @@
                   tile
                   size="small"
                   class="my-2"
+                  style="height: auto"
                 >
                   <template v-slot:append>
                     <v-icon class="text-green" size="x-large">

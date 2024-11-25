@@ -1,7 +1,16 @@
 <template>
   <v-dialog max-width="500">
     <template v-slot:activator="{ props: activatorProps }">
-      <v-btn variant="outlined" tile v-bind="activatorProps" size="small">
+      <v-btn
+        variant="outlined"
+        tile
+        v-bind="activatorProps"
+        size="small"
+        prepend-icon="mdi-circle-medium"
+      >
+        <template v-slot:prepend>
+          <v-icon size="large" color="success"></v-icon>
+        </template>
         <div class="text-wrap">
           {{ $t("register-until-0", [getLocalizedDate(item.stop)]) }}
         </div>
