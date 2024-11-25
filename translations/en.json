@@ -126,6 +126,7 @@
     "list": "List",
     "rows": "Rows",
     "dense": "Dense",
+    "expanded": "Expanded",
     "pls-x-more": "+ {0} more",
     "view-mode": "View mode: ",
     "sort-mode": "Sort mode: ",
@@ -368,5 +369,7 @@
     "team": "Team"
   },
   "presentation-0": "presentation",
-  "hosting-excellence": "Hosting excellence"
+  "hosting-excellence": "Hosting excellence",
+  "follow-us": "Follow us",
+  "show-on-map": "Show on map"
 }

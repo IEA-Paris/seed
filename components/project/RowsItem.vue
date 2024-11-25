@@ -86,6 +86,9 @@ import { getSlugFromPath } from "~/composables/useUtils"
 const rootStore = useRootStore()
 const router = useRouter()
 const localePath = useLocalePath()
+import { useDisplay } from "vuetify"
+const { name, mdAndUp, smAndDown } = useDisplay()
+
 const props = defineProps({
   item: {
     type: Object,
