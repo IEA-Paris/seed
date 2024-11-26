@@ -3,8 +3,7 @@ title: "Paris Oxford Partnership (POP)"
 applicationStart: "2024-12-31T09:00:00.000Z"
 fellowshipStart: "2024-02-01T09:00:00.000Z"
 contact: "events@energy-ai.org"
-description: "Dans le cadre de l’accord établi entre l’Université de Paris, le CNRS et l’Université d’Oxford pour favoriser la recherche interdisciplinaire en sciences humaines et sociales, l’IEA de Paris accueille des chercheurs d’Oxford pour des séjours courts (un à deux mois).
-Ces universitaires, qui doivent mener leur recherche en collaboration avec des collègues d’Université de Paris ou de l’Alliance Sorbonne Paris-Cité, sont sélectionnés conjointement par l’université, le CNRS et l’IEA de Paris. Ils bénéficient des mêmes conditions de résidence que les chercheurs de l’IEA et peuvent ainsi développer un travail de recherche au sein d’une communauté internationale et interdisciplinaire de pointe."
+description: "Dans le cadre de l’accord établi entre l’Université de Paris, le CNRS et l’Université d’Oxford pour favoriser la recherche interdisciplinaire en sciences humaines et sociales, l’IEA de Paris accueille des chercheurs d’Oxford pour des séjours courts (un à deux mois). Ces universitaires, qui doivent mener leur recherche en collaboration avec des collègues d’Université de Paris ou de l’Alliance Sorbonne Paris-Cité, sont sélectionnés conjointement par l’université, le CNRS et l’IEA de Paris. Ils bénéficient des mêmes conditions de résidence que les chercheurs de l’IEA et peuvent ainsi développer un travail de recherche au sein d’une communauté internationale et interdisciplinaire de pointe."
 fellowshipDetails:
   selectionProcess: |-
         CANDIDATURES 
