@@ -57,15 +57,23 @@
                 class="ma-6"
               ></v-img> -->
               <ListAtomsSearchInput
-                type="events"
+                type="all"
                 :loading="false"
                 class="mb-6 light"
               ></ListAtomsSearchInput>
               <v-btn-toggle tile variant="outlined" divided theme="dark">
-                <v-btn>{{ $t("events.key") }}</v-btn>
-                <v-btn>{{ $t("fellows") }}</v-btn>
-                <v-btn>{{ $t("projects") }}</v-btn>
-                <v-btn>{{ $t("publications") }}</v-btn>
+                <v-btn :to="localePath('activities-events')">{{
+                  $t("events.key")
+                }}</v-btn>
+                <v-btn :href="localePath('/people?categories=fellows')">{{
+                  $t("fellows")
+                }}</v-btn>
+                <v-btn :href="localePath('activities-projects')">{{
+                  $t("projects")
+                }}</v-btn>
+                <v-btn :href="localePath('activities-publications')">{{
+                  $t("publications")
+                }}</v-btn>
               </v-btn-toggle>
             </div>
           </v-col>
@@ -136,33 +144,18 @@ const carousel = ref(true)
 const about = ref(null)
 const events = ref(null)
 const numbers = ref(null)
-const fellows = ref(null)
 
 const today = new Date()
-const academicYear = ref(
+/* const academicYear = ref(
   today.getMonth() > 6
     ? today.getFullYear() + "-" + (today.getFullYear() + 1)
     : today.getFullYear() - 1 + "-" + today.getFullYear(),
-)
-const { data: featured } = await useAsyncData("featured-list", () =>
-  queryContent("/news/" + locale.value)
-    .where({ pinned: true })
-    .sort("date", "desc")
-    .limit(3)
-    .find(),
-)
+) */
 
 const { data: upcomingEvents } = await useAsyncData("event-list", () =>
   queryContent("/events/" + locale.value)
     .where({ outside: false })
     .sort("date", "desc")
-    .limit(12)
-    .find(),
-)
-const { data: upcomingFellows } = await useAsyncData("fellow-list", () =>
-  queryContent("/people/" + locale.value)
-    // .where({ outside: false })
-    // .sort("date", "desc")
     .limit(12)
     .find(),
 )

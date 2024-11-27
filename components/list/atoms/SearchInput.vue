@@ -28,12 +28,17 @@
       <v-list
         lines="three"
         item-props
-        :items="results"
         style="max-height: 300px"
         class="overflow-y-auto"
       >
-        <template v-slot:subtitle="{ subtitle }">
-          <div v-html="subtitle"></div>
+        <template v-for="(item, index) in results">
+          <v-list-subheader v-if="item.type && item.type === 'subheader'">{{
+            item.title
+          }}</v-list-subheader>
+          <v-divider
+            v-else-if="item.type && item.type === 'divider'"
+          ></v-divider>
+          <ListAtomsSearchItem v-else :index :item></ListAtomsSearchItem>
         </template>
       </v-list>
     </v-menu>
@@ -98,7 +103,7 @@ const results = ref([
     subtitle:
       '<span class="text-primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
   },
-  { type: "subheader", title: "Events" },
+  { type: "subheader", title: "Publications" },
   {
     prependAvatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
     title: "Brunch this weekend?",
