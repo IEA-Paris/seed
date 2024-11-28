@@ -171,7 +171,7 @@ jobs:
           EOF
 
       - name: Deploy static site to S3 bucket
-        run: aws s3 sync $DIST_DIR $S3_BUCKET s3://${env.ENV}-website-iea-paris --delete  --exclude ".*" --size-only
+        run: aws s3 sync $DIST_DIR $S3_BUCKET s3://${{env.ENV}}-website-iea-paris --delete  --exclude ".*" --size-only
         env:
           DIST_DIR: .output/public/
 
