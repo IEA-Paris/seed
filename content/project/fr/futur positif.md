@@ -21,7 +21,7 @@ relatedNews:
   - bookingState: "Publié"
     createdAt: "2024-01-15T14:00:00.000Z"
     description: "La quantité totale de gaz à effet de serre produits par les activités humaines, mesurée en équivalents dioxyde de carbone."
-    image: "images/mars_image.jpg"
+    image: "/images/mars_image.jpg"
     name: "Atténuer le changement climatique"
     outside: "Oui"
     start: "2024-01-20T12:00:00.000Z"
@@ -33,7 +33,7 @@ relatedNews:
   - bookingState: "Publié"
     createdAt: "2023-12-12T11:00:00.000Z"
     description: "Un domaine multidisciplinaire qui applique les principes de l'ingénierie à la médecine et à la biologie à des fins de soins de santé."
-    image: "images/IA_image.jpg"
+    image: "/images/IA_image.jpg"
     name: "Révolutionner les soins de santé"
     outside: "Non"
     start: "2023-12-15T09:30:00.000Z"
@@ -46,7 +46,7 @@ relatedEvents:
   - bookingState: "Confirmé"
     createdAt: "2023-05-20T10:00:00.000+00:00"
     description: "En collaboration avec l'Université de Stanford et l'Agence Internationale de l'Énergie."
-    image: "images/renewable.jpg"
+    image: "/images/renewable.jpg"
     name: "Avancées dans les énergies renouvelables et l'intégration de l'IA"
     outside: "Oui"
     start: "2023-06-15T08:00:00.000+00:00"
@@ -57,7 +57,7 @@ relatedEvents:
   - bookingState: "Confirmé"
     createdAt: "2023-05-20T10:00:00.000+00:00"
     description: "L'intelligence artificielle émerge comme un outil puissant dans la lutte contre le changement climatique."
-    image: "images/climat.jpg"
+    image: "/images/climat.jpg"
     name: "IA et changement climatique"
     outside: "Non"
     start: "2023-06-20T09:00:00.000+00:00"
@@ -69,15 +69,15 @@ relatedEvents:
 relatedPeople:
   - firstname: "Paven"
     lastname: "Mamidi"
-    image: "images/Mamidi.jpg"
+    image: "/images/Mamidi.jpg"
     role: "Animateur d'atelier"
   - firstname: "Vivian"
     lastname: "Loftness"
-    image: "images/Loftness.jpeg"
+    image: "/images/Loftness.jpeg"
     role: "Conférencière principale"
   - firstname: "Daniel"
     lastname: "Pauly"
-    image: "images/Pauly.jpg"
+    image: "/images/Pauly.jpg"
     role: "Panéliste"
 
 tags:
@@ -110,6 +110,29 @@ tags:
     icon: null
     createdAt: "2024-02-20T00:00:00.000Z"
     updatedAt: "2024-04-01T00:00:00.000Z"
+
+gallery:
+  - url: "/images/renewable.jpg"
+    alt:
+    caption: "Harnessing Renewable Energy for a Sustainable Future"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/disaster.jpg"
+    alt:
+    caption: "Integrating Solar and Wind Power in Modern Energy Grids"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/news_image.jpg"
+    alt:
+    caption: "Innovations Driving Clean and Renewable Energy Solutions"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 L'initiative Futur Positif, soutenue par l'Institut d'études avancées de Paris et la Fondation 2100, vise à faire connaître les travaux de prospective, afin de permettre à chacun d'imaginer un avenir vivable et souhaitable, mais réaliste, et de partager des visions positives et inspirantes du monde de demain.

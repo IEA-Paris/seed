@@ -21,6 +21,7 @@
   "pressroom": "Pressroom",
   "support": "Support us",
   "subscribe-to-our-newsletter": "Subscribe to our newsletter",
+  "become-a-patron": "Become a patron",
   "email": "Email",
   "subscribe": "Subscribe",
   "tos": "Terms of Service",
@@ -57,7 +58,6 @@
   "applicationMaterials": "Application materials",
   "selectionProcess": "Selection process",
   "researchSupport": "Research Support",
-  "discover-our-0-fellows": "Discover our {0} fellows",
   "registration-open": "Registration open",
   "date-and-time": "Date & Time",
   "by-the-numbers": "By the numbers",
@@ -90,7 +90,6 @@
     "rss": "RSS",
     "github": "Visit our Github repositories"
   },
-  "fellowship-register": "Register to this fellowship",
   "events": {
     "register": "Register to this event",
     "register-me": "Register",
@@ -101,7 +100,8 @@
       "Conference",
       "Colloquium",
       "Fellow's presentation"
-    ]
+    ],
+    "see-more": "See more events"
   },
   "news": {
     "key": "News",
@@ -121,7 +121,6 @@
     "0-items-found-with-1-filter": "No {1} found with {2} filters.|1 {1} found with {2} filters. | {0} {1} found with {2} filters.",
     "0-items-found-searching-for-with-1-filter": "{1} found searching for \"{2}\" with {3} filters.| {0} {1} found searching for \"{2}\" with {3} filters. | {0} {1} found searching for \"{2}\" with {3} filters.",
     "page-0-of-1": "Page {0} of {1}",
-
     "search-type": "Search {0}",
     "tiles": "Tiles",
     "list": "List",
@@ -226,7 +225,11 @@
           "colloquium": "Colloquium",
           "fellow-presentation": "Fellow's presentation"
         },
-        "organiserCategory": ["Paris IAS", "Fellow", "External"],
+        "organiserCategory": [
+          "Paris IAS",
+          "Fellow",
+          "External"
+        ],
         "disciplines": {
           "history": "History",
           "philosophy": "Philosophy",
@@ -313,6 +316,7 @@
     "people": "No one | People | People",
     "fellowship": "Fellowship | Fellowships | {0} Fellowships"
   },
+  "fellowship-register": "Candidate to this fellowship program",
   "fellowship": "Fellowship | Fellowships",
   "positions-and-affiliations": "Positions and Affiliations",
   "from {0} to {1}": "from {0} to {1}",
@@ -344,5 +348,25 @@
   "in-groups": "In group",
   "opening-applications-on-0": "Open to applications on {0}",
   "applications-closed-since-0": "Applications closed since {0}",
-  "register-until-0": "Register until {0}"
+  "register-until-0": "Register until {0}",
+  "register": "register",
+  "discover-our-0-fellows": "Discover our {0} Fellows",
+  "gallery": "Gallery",
+  "this-fellowship-alumni": "This fellowship alumni",
+  "our-partners": "Our partners",
+  "our-sponsors": "Our patrons",
+  "MiscAtomsImage": {
+    "see-more": "See more"
+  },
+  "meet-our-network": "Meet our network",
+  "0-1-found-page-2-of-3": "No {1} found. \nPage {2} of {3} | {0} {1} found. \nPage {2} of {3} | {0} {1} found. \nPage {2} of {3} ",
+  "groups": {
+    "board": "Advisory board",
+    "fellow": "Fellow",
+    "sab": "Scientific Advisory Board",
+    "sponsor": "Patron",
+    "team": "Team"
+  },
+  "presentation-0": "presentation",
+  "hosting-excellence": "Hosting excellence"
 }

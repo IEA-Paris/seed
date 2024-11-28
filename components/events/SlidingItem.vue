@@ -1,18 +1,28 @@
 <template>
-  <v-sheet class="d-flex sliding-item">
+  <v-sheet class="d-flex sliding-item flex-md-row flex-column px-6 px-md-0">
     <MiscAtomsDateStamp
-      :date="item.start"
-      :loading="rootStore.events.loading"
-      class="mr-6"
+      :dateStart="item.start"
+      :dateStop="item.stop"
+      :loading="loading"
+      class="mr-4 mb-6 mb-md-0"
     ></MiscAtomsDateStamp>
-    <div class="d-flex-flex-column">
+    <div
+      class="d-flex flex-column"
+      :style="
+        'width:' +
+        [250, 300, 350, 380, 430, 460][
+          ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+        ] +
+        'px;'
+      "
+    >
       <MiscAtomsImageContainer
         cover
         :ratio="1"
         :src="item.image"
         link="activities-events-slug"
         :slug="getSlugFromPath(item._path)"
-        :loading="rootStore.events.loading"
+        :loading="loading"
       >
       </MiscAtomsImageContainer>
       <div
@@ -26,12 +36,13 @@
 <script setup>
 // import { useDisplay } from "vuetify"
 // const { smAndUp } = useDisplay()
-const localePath = useLocalePath()
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
+import { getSlugFromPath } from "~/composables/useUtils"
+import { useDisplay } from "vuetify"
+const { name, mdAndUp } = useDisplay()
 
 const props = defineProps({
-  item: Object,
+  item: { type: Object, required: true },
+  loading: { type: Boolean, required: true, default: false },
 })
 </script>
 <style lang="scss"></style>

@@ -9,16 +9,16 @@
         >
           {{ $t("list.filters.people.categories." + route.query.categories) }}
         </div>
-        <div v-if="route.query.categories === 'fellows'">
+        <div v-show="route.query.categories === 'fellows'">
           <ContentDoc :path="fellows" />
         </div>
-        <div v-if="route.query.categories === 'scientific-advisory-board'">
+        <div v-show="route.query.categories === 'scientific-advisory-board'">
           <ContentDoc :path="sab" />
         </div>
-        <div v-if="route.query.categories === 'team'">
+        <div v-show="route.query.categories === 'team'">
           <ContentDoc :path="team" />
         </div>
-        <div v-if="route.query.categories === 'board-of-directors'">
+        <div v-show="route.query.categories === 'board-of-directors'">
           <ContentDoc :path="board" />
         </div>
       </div>

@@ -28,6 +28,7 @@ tags:
 published: true
 pinned: true
 title: "Mitigating Climate Change: A Roadmap to a Sustainable Future"
+description: "Discover actionable strategies for combating climate change, focusing on sustainable energy, environmental policies, and innovative technologies"
 date: 2023-02-22T19:00:00.000+00:00
 authors:
   - firstname: "Laura"
@@ -41,7 +42,7 @@ authors:
 url: ""
 audio:
   - "5432167890"
-image: "images/mars_image.jpg"
+image: "/images/mars_image.jpg"
 
 relatedProjects:
   - title: "Positive Future"
@@ -56,7 +57,7 @@ relatedProjects:
     shortDescription: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     description: "The Socioscope is all about understanding how we make our world more sustainable, especially when it comes to food"
     url: "https://thesocioscope.org/"
-    image:  "/images/logo_typo_black.svg"
+    image: "/images/logo_typo_black.svg"
     video: ""
     color: ""
     date: "2023-12-10T14:00:00.000+00:00"
@@ -64,7 +65,7 @@ relatedProjects:
     shortDescription: "The World Pandemic Research Network (WPRN) is dedicated to facilitating international collaboration in pandemic research"
     description: "It focuses on generating knowledge, data, and tools that can be shared across nations to better understand and combat pandemics. Through partnerships with institutions like the Institut d'Études Avancées de Paris (Paris IAS), WPRN brings together leading experts to address the complex challenges posed by global health crises"
     url: "https://wprn.org"
-    image: "images/logos/wprn_logo.png"
+    image: "/images/logos/wprn_logo.png"
     video: ""
     color: ""
     date: "2024-01-05T12:00:00.000+00:00"
@@ -73,7 +74,7 @@ relatedEvents:
   - bookingState: "Confirmed"
     createdAt: "2023-05-20T10:00:00.000+00:00"
     description: "In collaboration with Stanford University and the International Energy Agency"
-    image: "images/renewable.jpg"
+    image: "/images/renewable.jpg"
     name: "Advancements in Renewable Energy and AI Integration"
     outside: "Yes"
     start: "2023-06-15T08:00:00.000+00:00"
@@ -84,7 +85,7 @@ relatedEvents:
   - bookingState: "Confirmed"
     createdAt: "2023-05-20T10:00:00.000+00:00"
     description: "Artificial Intelligence is emerging as a powerful tool in the fight against climate change"
-    image: "images/climat.jpg"
+    image: "/images/climat.jpg"
     name: "AI and Climate Change"
     outside: "No"
     start: "2023-06-20T09:00:00.000+00:00"
@@ -106,6 +107,29 @@ relatedPeople:
     lastname: "Pauly"
     image: "/images/Pauly.jpg"
     role: "Panelist"
+
+gallery:
+  - url: "/images/agriculture_ai.jpg"
+    alt:
+    caption: "Artificial Intelligence Transforming Modern Agriculture"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/cybersecurity.jpg"
+    alt:
+    caption: "Strengthening Cybersecurity in the Digital Era"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/ai_healthcare.jpg"
+    alt:
+    caption: "Revolutionizing Healthcare with Artificial Intelligence"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 Laura Bouchard, an environmental scientist at the Global Environmental Institute, is leading the charge in renewable energy solutions and sustainable development. Her work spans across projects aimed at reducing carbon emissions and creating greener, more resilient cities.

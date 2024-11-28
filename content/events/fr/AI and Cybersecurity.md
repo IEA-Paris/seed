@@ -11,7 +11,7 @@ bookingState: 2
 description: "À mesure que les menaces cybernétiques évoluent en complexité, l'intelligence artificielle devient un outil essentiel pour renforcer la cybersécurité. Cet événement explorera comment l'IA est utilisée pour détecter, prévenir et répondre aux cyberattaques, et comment elle façonne l'avenir de la sécurité numérique. Les principaux intervenants incluent le Dr Michael Reynolds, expert en cybersécurité du MIT, et la Dr Leila Ahmed, spécialiste en sécurité basée sur l'IA à l'Agence Européenne de Cybersécurité. L'événement sera modéré par la Professeure Angela Liu, Directrice de la Recherche en Cybersécurité à l'Université d'Oxford."
 
 location: "Événement en ligne"
-image: "images/cybersecurity.jpg"
+image: "/images/cybersecurity.jpg"
 outside: false
 type: 0
 files:
@@ -51,7 +51,7 @@ relatedProjects:
     shortDescription: "Le Réseau Mondial de Recherche sur les Pandémies (WPRN) se consacre à faciliter la collaboration internationale en matière de recherche sur les pandémies."
     description: "Il se concentre sur la génération de connaissances, de données et d'outils pouvant être partagés entre les nations pour mieux comprendre et combattre les pandémies. Grâce à des partenariats avec des institutions telles que l'Institut d'Études Avancées de Paris (Paris IAS), le WPRN réunit des experts de premier plan pour relever les défis complexes posés par les crises sanitaires mondiales."
     url: "https://wprn.org"
-    image: "images/logos/wprn_logo.png"
+    image: "/images/logos/wprn_logo.png"
     video: ""
     color: ""
     date: "2024-01-05T12:00:00.000+00:00"
@@ -60,7 +60,7 @@ relatedEvents:
   - bookingState: "En attente"
     createdAt: "2023-08-05T11:30:00.000+00:00"
     description: "Une sortie immersive montrant les technologies agricoles pilotées par l'IA"
-    image: "images/agriculture_ai.jpg"
+    image: "/images/agriculture_ai.jpg"
     name: "L'IA dans l'agriculture durable"
     outside: "Oui"
     start: "2023-10-05T07:30:00.000+00:00"
@@ -71,7 +71,7 @@ relatedEvents:
   - bookingState: "Confirmé"
     createdAt: "2023-08-10T10:15:00.000+00:00"
     description: "Table ronde avec des experts en éthique de l'IA sur la confidentialité et la sécurité à l'ère numérique"
-    image: "images/privacy_ai.jpg"
+    image: "/images/privacy_ai.jpg"
     name: "IA, confidentialité et sécurité des données"
     outside: "Non"
     start: "2023-10-15T14:00:00.000+00:00"
@@ -96,7 +96,7 @@ relatedNews:
   - bookingState: "Publié"
     createdAt: "2024-01-15T14:00:00.000Z"
     description: "La quantité totale de gaz à effet de serre produite par les activités humaines, mesurée en équivalents dioxyde de carbone."
-    image: "images/mars_image.jpg"
+    image: "/images/mars_image.jpg"
     name: "Atténuer le changement climatique"
     outside: "Oui"
     start: "2024-01-20T12:00:00.000Z"
@@ -108,7 +108,7 @@ relatedNews:
   - bookingState: "Publié"
     createdAt: "2023-12-12T11:00:00.000Z"
     description: "Un domaine multidisciplinaire qui applique les principes de l'ingénierie à la médecine et à la biologie à des fins de soins de santé."
-    image: "images/IA_image.jpg"
+    image: "/images/IA_image.jpg"
     name: "Révolutionner les soins de santé"
     outside: "Non"
     start: "2023-12-15T09:30:00.000Z"
@@ -120,16 +120,39 @@ relatedNews:
 relatedPeople:
   - firstname: "Paven"
     lastname: "Mamidi"
-    image: "images/Mamidi.jpg"
+    image: "/images/Mamidi.jpg"
     role: "Animateur d'atelier"
   - firstname: "Vivian"
     lastname: "Loftness"
-    image: "images/Loftness.jpeg"
+    image: "/images/Loftness.jpeg"
     role: "Conférencière principale"
   - firstname: "Daniel"
     lastname: "Pauly"
-    image: "images/Pauly.jpg"
+    image: "/images/Pauly.jpg"
     role: "Panéliste"
+
+gallery:
+  - url: "/images/renewable.jpg"
+    alt:
+    caption: "Exploiter les énergies renouvelables pour un avenir durable"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/disaster.jpg"
+    alt:
+    caption: "Intégrer l’énergie solaire et éolienne dans les réseaux énergétiques modernes"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/news_image.jpg"
+    alt:
+    caption: "Des innovations favorisant des solutions énergétiques propres et renouvelables"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 **Mars 2026**

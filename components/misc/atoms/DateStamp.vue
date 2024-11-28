@@ -1,6 +1,6 @@
 <template>
   <v-skeleton-loader
-    v-if="rootStore.loading || loading"
+    v-if="loading"
     max-width="120px"
     class="d-flex flex-row flex-md-column align-center align-md-end"
     :type="
@@ -14,24 +14,48 @@
     v-else
     class="date-stamp d-flex flex-md-column text-md-right align-center align-md-end"
   >
-    <span class="day"> {{ detailedDate.day }}</span>
+    <span class="day"> {{ detailedDateStart.day }}</span>
     <span class="month-year">
-      {{ detailedDate.month }}<br />
-      {{ detailedDate.year }}
+      {{ detailedDateStart.month }}<br />
+      {{ detailedDateStart.year }}
     </span>
+    <template v-if="showDateStop">
+      <span>&ndash;</span>
+      <template v-if="mdAndUp">
+        <span class="month-year"> {{ detailedDateStop.day }}</span>
+        <span class="month-year">
+          {{ detailedDateStop.month }}<br />
+          {{ detailedDateStop.year }}
+        </span>
+      </template>
+
+      <template v-if="smAndDown">
+        <span class="day"> {{ detailedDateStop.day }}</span>
+        <span class="month-year">
+          {{ detailedDateStop.month }}<br />
+          {{ detailedDateStop.year }}
+        </span>
+      </template>
+    </template>
   </div>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
-const { smAndUp, mdAndUp, name } = useDisplay()
-import { getDetailedFormatedDate } from "~/composables/useUtils"
+const { smAndDown, smAndUp, mdAndUp, name } = useDisplay()
+import {
+  getDetailedFormatedDate,
+  formatDateValue,
+} from "~/composables/useUtils"
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
 
 const { locale } = useI18n()
 const props = defineProps({
-  date: {
+  dateStart: {
+    type: String,
+  },
+  dateStop: {
     type: String,
   },
   loading: {
@@ -41,7 +65,19 @@ const props = defineProps({
   },
 })
 
-const detailedDate = ref(getDetailedFormatedDate(props.date, locale.value))
+const detailedDateStart = computed(() =>
+  getDetailedFormatedDate(props.dateStart, locale.value),
+)
+
+const detailedDateStop = computed(() =>
+  getDetailedFormatedDate(props.dateStop, locale.value),
+)
+
+const showDateStop = computed(() => {
+  const dateStartFormatted = formatDateValue(props.dateStart, locale.value)
+  const dateStopFormatted = formatDateValue(props.dateStop, locale.value)
+  return dateStopFormatted > dateStartFormatted
+})
 </script>
 <style lang="scss" scoped>
 .date-stamp {
@@ -54,6 +90,17 @@ const detailedDate = ref(getDetailedFormatedDate(props.date, locale.value))
   .month-year {
     padding-left: 0.5rem;
     font-size: 1rem;
+    line-height: 1.2rem;
+  }
+
+  .day-stop {
+    font-size: 2rem;
+    line-height: 2rem;
+    font-family: "Bodoni Moda", sans-serif;
+  }
+  .month-year-stop {
+    padding-left: 0.5rem;
+    font-size: 0.8rem;
     line-height: 1.2rem;
   }
 }

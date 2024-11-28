@@ -312,7 +312,7 @@ export const useRootStore = defineStore("rootStore", {
       const { currentRoute } = useRouter()
       const query = currentRoute.value.query
       if (query?.length) {
-        const filters = JSON.parse(query as string)
+        const filters = JSON.parse(query as any)
         Object.keys(filters).forEach((filter) => {
           if (
             Object.keys((this[type] as ModuleType).list.filters).includes(
@@ -441,14 +441,14 @@ export const useRootStore = defineStore("rootStore", {
     },
     updateView({ value, type }: { value: string; type: string }) {
       ;(this[type] as ModuleType).list.view = {
-        ...((this[type] as ModuleType).list.views[value] as Views),
+        ...((this[type] as any).list.views[value] as Views),
         name: value,
       }
       this.updateLocalStorage(type + "_view", value)
       this.update(type)
     },
     updateLocalStorage(key: string, value: string) {
-      const local = JSON.parse(localStorage.getItem("PARIS_IAS")) || {}
+      const local = JSON.parse(localStorage.getItem("PARIS_IAS") as any) || {}
       local[key] = value
       localStorage.setItem("PARIS_IAS", JSON.stringify(local))
     },

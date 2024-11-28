@@ -1,6 +1,6 @@
 <template>
   <v-row no-gutters>
-    <v-col class="ml-n4">
+    <v-col>
       <template v-for="(value, key, index) in socials" :key="key + value">
         <v-tooltip :location="location">
           <template v-slot:activator="{ props }">
@@ -15,7 +15,7 @@
               <v-icon :color="dark ? 'white' : 'black'">
                 {{ getProfileIcon(key) }}</v-icon
               >
-              <div v-if="labelled" class="text-overline text-muted ml-3">
+              <div v-if="labelled" class="text-uppercase text-muted ml-3">
                 {{ key }}
               </div>
             </v-btn>

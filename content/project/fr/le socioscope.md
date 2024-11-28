@@ -21,7 +21,7 @@ relatedNews:
   - bookingState: "Publié"
     createdAt: "2024-01-15T14:00:00.000Z"
     description: "La quantité totale de gaz à effet de serre produite par les activités humaines, mesurée en équivalents dioxyde de carbone."
-    image: "images/mars_image.jpg"
+    image: "/images/mars_image.jpg"
     name: "Atténuer le changement climatique"
     outside: "Oui"
     start: "2024-01-20T12:00:00.000Z"
@@ -33,7 +33,7 @@ relatedNews:
   - bookingState: "Publié"
     createdAt: "2023-12-12T11:00:00.000Z"
     description: "Un domaine multidisciplinaire qui applique les principes de l'ingénierie à la médecine et à la biologie à des fins de soins de santé."
-    image: "images/IA_image.jpg"
+    image: "/images/IA_image.jpg"
     name: "Révolutionner les soins de santé"
     outside: "Non"
     start: "2023-12-15T09:30:00.000Z"
@@ -46,7 +46,7 @@ relatedEvents:
   - bookingState: "Confirmé"
     createdAt: "2023-05-20T10:00:00.000+00:00"
     description: "En collaboration avec l'Université de Stanford et l'Agence Internationale de l'Énergie."
-    image: "images/renewable.jpg"
+    image: "/images/renewable.jpg"
     name: "Avancées dans les énergies renouvelables et l'intégration de l'IA"
     outside: "Oui"
     start: "2023-06-15T08:00:00.000+00:00"
@@ -57,7 +57,7 @@ relatedEvents:
   - bookingState: "Confirmé"
     createdAt: "2023-05-20T10:00:00.000+00:00"
     description: "L'intelligence artificielle émerge comme un outil puissant dans la lutte contre le changement climatique."
-    image: "images/climat.jpg"
+    image: "/images/climat.jpg"
     name: "IA et changement climatique"
     outside: "Non"
     start: "2023-06-20T09:00:00.000+00:00"
@@ -69,19 +69,19 @@ relatedEvents:
 relatedPeople:
   - firstname: "Antoine"
     lastname: "Cordelois"
-    image: "images/antoine_cordelois.jpg"
+    image: "/images/antoine_cordelois.jpg"
     role: "Principal Chercheur en Climatologie"
     biography: "Laura Martinez est une climatologue renommée spécialisée dans les études atmosphériques et les effets à long terme du changement climatique sur les schémas météorologiques mondiaux."
 
   - firstname: "Saadi"
     lastname: "Lahlou"
-    image: "images/lahlou_saadi.jpg"
+    image: "/images/lahlou_saadi.jpg"
     role: "Responsable de la Recherche en IA"
     biography: "Saadi Lahlou dirige l'équipe de recherche en IA au GCCI, se concentrant sur les modèles prédictifs des impacts du changement climatique à l'aide de techniques d'apprentissage automatique."
 
   - firstname: "Paulius"
     lastname: "Yamin"
-    image: "images/Paulius_Yamin.jpg"
+    image: "/images/Paulius_Yamin.jpg"
     role: "Expert en Énergies Renouvelables"
     biography: "Paulius Yamin est un expert en solutions d'énergies renouvelables et en innovations technologiques durables, plaidant pour l'adoption mondiale de l'énergie propre."
 
@@ -115,6 +115,29 @@ tags:
     icon: null
     createdAt: "2024-05-30T00:00:00.000Z"
     updatedAt: "2024-08-30T00:00:00.000Z"
+
+gallery:
+  - url: "/images/renewable.jpg"
+    alt:
+    caption: "Harnessing Renewable Energy for a Sustainable Future"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/disaster.jpg"
+    alt:
+    caption: "Integrating Solar and Wind Power in Modern Energy Grids"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/news_image.jpg"
+    alt:
+    caption: "Innovations Driving Clean and Renewable Energy Solutions"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
 
 **Le Socioscope** s'attache à comprendre comment rendre notre monde plus durable, en particulier dans le domaine de l'alimentation. Nous avons pour mission de comprendre ce qui fonctionne sur le terrain partout dans le monde.

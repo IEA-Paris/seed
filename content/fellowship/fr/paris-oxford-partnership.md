@@ -94,7 +94,7 @@ fellow: ""
 url: "https://www.energy-ai.org/symposium-2024"
 applicationStop: "2024-11-30T09:00:00.000Z"
 fellowshipStop: "2024-11-05T09:00:00.000Z"
-image: "images/ai-renewable-symposium.jpg"
+image: "/images/climat.jpg"
 publicationDate: 2023-12-15T09:00:00.000Z
 summary: "Explore the transformative impact of AI on renewable energy technologies."
 files: ""

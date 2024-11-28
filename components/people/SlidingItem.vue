@@ -1,36 +1,33 @@
 <template>
-  <v-sheet class="pa-2 sliding-item">
-    <MiscAtomsImageContainer
-      cover
-      :loading="rootStore.people.loading"
-      :src="item.image"
-      :ratio="1 / 1"
-      :name="item.firstname + ' ' + item.lastname"
-      link="people-slug"
-      :slug="getSlugFromPath(item._path)"
-    />
-    <div
-      class="mt-3 pl-0 text-left text-h5 text-md-h4 font-weight-medium sliding-item-title"
-    >
-      {{ item.firstname + " " + item.lastname }}
+  <v-sheet class="d-flex sliding-item" :color="dark ? 'transparent' : 'white'">
+    <div class="d-flex-flex-column flex-grow-1">
+      <MiscAtomsImageContainer
+        cover
+        :ratio="1"
+        :src="item.image"
+        link="people-slug"
+        :slug="getSlugFromPath(item._path)"
+        :loading="loading"
+      >
+      </MiscAtomsImageContainer>
+      <div
+        class="mt-6 pl-0 text-h5 text-md-h4 font-weight-medium sliding-item-title"
+        :style="{ color: dark ? 'white' : 'black' }"
+      >
+        {{ item.firstname + " " + item.lastname }}
+      </div>
     </div>
-    <!--     <v-card-text
-      class="text-subtitle text-left text-disabled"
-      style="max-width: 240px"
-    >
-      {{ item.specialty }}
-    </v-card-text> -->
   </v-sheet>
 </template>
 <script setup>
 // import { useDisplay } from "vuetify"
 // const { smAndUp } = useDisplay()
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
+import { getSlugFromPath } from "~/composables/useUtils"
 
-const localePath = useLocalePath()
 const props = defineProps({
-  item: Object,
+  item: { type: Object, required: true },
+  loading: { type: Boolean, required: true },
+  dark: { type: Boolean, default: false },
 })
 </script>
 <style lang="scss"></style>

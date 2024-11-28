@@ -20,7 +20,7 @@ relatedNews:
   - bookingState: "Published"
     createdAt: "2024-01-15T14:00:00.000Z"
     description: "The total amount of greenhouse gases produced by human activities, measured in carbon dioxide equivalents"
-    image: "images/mars_image.jpg"
+    image: "/images/mars_image.jpg"
     name: "Mitigating Climate Change"
     outside: "Yes"
     start: "2024-01-20T12:00:00.000Z"
@@ -32,7 +32,7 @@ relatedNews:
   - bookingState: "Published"
     createdAt: "2023-12-12T11:00:00.000Z"
     description: "A multidisciplinary field that applies engineering principles to medicine and biology for healthcare purposes"
-    image: "images/IA_image.jpg"
+    image: "/images/IA_image.jpg"
     name: "Revolutionizing Healthcare"
     outside: "No"
     start: "2023-12-15T09:30:00.000Z"
@@ -45,7 +45,7 @@ relatedEvents:
   - bookingState: "Confirmed"
     createdAt: "2023-05-20T10:00:00.000+00:00"
     description: "In collaboration with Stanford University and the International Energy Agency"
-    image: "images/renewable.jpg"
+    image: "/images/renewable.jpg"
     name: "Advancements in Renewable Energy and AI Integration"
     outside: "Yes"
     start: "2023-06-15T08:00:00.000+00:00"
@@ -56,7 +56,7 @@ relatedEvents:
   - bookingState: "Confirmed"
     createdAt: "2023-05-20T10:00:00.000+00:00"
     description: "Artificial Intelligence is emerging as a powerful tool in the fight against climate change"
-    image: "images/climat.jpg"
+    image: "/images/climat.jpg"
     name: "AI and Climate Change"
     outside: "No"
     start: "2023-06-20T09:00:00.000+00:00"
@@ -68,15 +68,15 @@ relatedEvents:
 relatedPeople:
   - firstname: "Paven"
     lastname: "Mamidi"
-    image: "images/Mamidi.jpg"
+    image: "/images/Mamidi.jpg"
     role: "Workshop Facilitator"
   - firstname: "Vivian"
     lastname: "Loftness"
-    image: "images/Loftness.jpeg"
+    image: "/images/Loftness.jpeg"
     role: "Keynote Speaker"
   - firstname: "Daniel"
     lastname: "Pauly"
-    image: "images/Pauly.jpg"
+    image: "/images/Pauly.jpg"
     role: "Panelist"
 tags:
   - name: "Marine Conservation"
@@ -108,9 +108,32 @@ tags:
     icon: null
     createdAt: "2024-02-20T00:00:00.000Z"
     updatedAt: "2024-04-01T00:00:00.000Z"
+
+gallery:
+  - url: "/images/renewable.jpg"
+    alt:
+    caption: "Harnessing Renewable Energy for a Sustainable Future"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/disaster.jpg"
+    alt:
+    caption: "Integrating Solar and Wind Power in Modern Energy Grids"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
+  - url: "/images/news_image.jpg"
+    alt:
+    caption: "Innovations Driving Clean and Renewable Energy Solutions"
+    copyright:
+    license:
+    licenseUrl:
+    backgroundColor:
 ---
-Le dispositif cifre
--------------------
+
+## Le dispositif cifre
 
 Le dispositif des Conventions industrielles de formations par la recherche (CIFRE), géré par l'[Association nationale de la recherche et de la technologie (ANRT)](http://www.anrt.asso.fr/fr/cifre-7843) pour le compte du ministère chargé de l'Enseignement supérieur, de la Recherche et de l'Innovation, est un dispositif d'aide à l'embauche permettant le recrutement de doctorant.e.s par des entreprises ou collectivités territoriales, durant la réalisation de leur thèse.
 
@@ -122,8 +145,7 @@ L'objectif de ce dispositif est double :
 
 - encourager les projets de collaboration entre laboratoires de recherche et entreprises, ou collectivités.
 
-L'action de la Ville de Paris pour les cifre
---------------------------------------------
+## L'action de la Ville de Paris pour les cifre
 
 [La Ville de Paris](https://www.paris.fr/pages/cifre-un-dispositif-d-accueil-de-doctorants-a-paris-candidatez-en-ligne-4222/), dans le cadre du dispositif CIFRE, accueille au sein de ses services des doctorant-e-s dont le sujet de thèse porte sur les questions prioritaires de la municipalité.
 
@@ -137,8 +159,7 @@ Intégré.e.s dans un service municipal dont l'activité concerne directement le
 
 ​
 
-Le rôle de l'IEA de Paris
--------------------------
+## Le rôle de l'IEA de Paris
 
 Partenaire de la Ville de Paris, et soucieux d'expérimenter toujours plus les nouveaux formats possibles de collaborations intersectorielles, l'IEA de Paris accompagne la municipalité dans sa réflexion sur l'amélioration constante de ce dispositif, premier lieu d'acculturation des chercheurs aux problématiques du monde extra-académique.
 

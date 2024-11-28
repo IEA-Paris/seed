@@ -47,7 +47,6 @@ jobs:
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: ${{ env.TF_VERSION }} 
-            
       - name: "AWS Creds"
         run: |
           mkdir -p ~/.aws/
@@ -67,6 +66,7 @@ jobs:
           [apex]
           aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_APEX }}
           aws_secret_access_key = ${{ secrets.AWS_SECRET_KEY_APEX }}
+
           EOF
 
           cat << EOF > ~/.aws/config
@@ -84,7 +84,7 @@ jobs:
           EOF
 
       - name: "Terraform Apply"
-        run: AWS_PROFILE=dev yarn deploy:infra
+        run: yarn deploy:infra
 
   frontend:
     needs: [infra]
@@ -174,3 +174,17 @@ jobs:
         run: aws s3 sync $DIST_DIR $S3_BUCKET s3://${env.ENV}-website-iea-paris --delete  --exclude ".*" --size-only
         env:
           DIST_DIR: .output/public/
+
+
+      - name: Get CloudFront Distribution ID
+        id: get-distribution-id
+        run: |
+          export BUCKET_NAME="${{ env.ENV }}-website-iea-paris"
+          DISTRIBUTION_ID=$(aws cloudfront list-distributions \
+            --query "DistributionList.Items[?Origins.Items[?contains(DomainName, '${BUCKET_NAME}.s3')]].Id" \
+            --output text)
+          echo "distribution_id=$DISTRIBUTION_ID" >> $GITHUB_OUTPUT
+
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ steps.get-distribution-id.outputs.distribution_id }} --paths "/*"
