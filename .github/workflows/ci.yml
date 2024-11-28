@@ -52,20 +52,20 @@ jobs:
           mkdir -p ~/.aws/
           cat << EOF > ~/.aws/credentials
           [dev]
-          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_DEV }}
-          aws_secret_access_key = ${{ secrets.AWS_SECRET_KEY_DEV }}
+          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
+          aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
 
           [stage]
-          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_STAGE }}
-          aws_secret_access_key = ${{ secrets.AWS_SECRET_KEY_STAGE }}
+          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID_STAGE }}
+          aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY_STAGE }}
 
           [prod]
-          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_PROD }}
-          aws_secret_access_key = ${{ secrets.AWS_SECRET_KEY_PROD }}
+          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+          aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
 
           [apex]
-          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_APEX }}
-          aws_secret_access_key = ${{ secrets.AWS_SECRET_KEY_APEX }}
+          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID_APEX }}
+          aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY_APEX }}
 
           EOF
 
