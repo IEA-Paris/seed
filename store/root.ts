@@ -15,6 +15,7 @@ import {
   people,
   project,
   fellowship,
+  publications
 } from "@paris-ias/data"
 
 interface InputParams {
@@ -90,6 +91,7 @@ const LIST_EVENTS_QUERY = gql`
         }
         start
         state
+        title
         type
         url
         totalSlots
@@ -137,6 +139,7 @@ export const useRootStore = defineStore("rootStore", {
     people,
     project,
     fellowship,
+    publications
   }),
 
   actions: {

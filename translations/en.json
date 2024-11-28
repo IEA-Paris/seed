@@ -126,6 +126,7 @@
     "list": "List",
     "rows": "Rows",
     "dense": "Dense",
+    "expanded": "Expanded",
     "pls-x-more": "+ {0} more",
     "view-mode": "View mode: ",
     "sort-mode": "Sort mode: ",
@@ -209,6 +210,14 @@
           "ongoing": "Ongoing",
           "finished": "Finished",
           "cancelled": "Cancelled"
+        }
+      },
+      "publications": {
+        "type": {
+          "podcast": "Podcast",
+          "video": "Video",
+          "article": "Article",
+          "book": "Book"
         }
       },
       "events": {
@@ -314,7 +323,8 @@
     "project": "Project | Projects",
     "fellow": "Fellow | Fellows",
     "people": "No one | People | People",
-    "fellowship": "Fellowship | Fellowships | {0} Fellowships"
+    "fellowship": "Fellowship | Fellowships | {0} Fellowships",
+    "publications": "Publication | Publications | {0} Publications"
   },
   "fellowship-register": "Candidate to this fellowship program",
   "fellowship": "Fellowship | Fellowships",
@@ -368,5 +378,8 @@
     "team": "Team"
   },
   "presentation-0": "presentation",
-  "hosting-excellence": "Hosting excellence"
+  "hosting-excellence": "Hosting excellence",
+  "building-bridges": "Building bridges",
+  "follow-us": "Follow us",
+  "show-on-map": "Show on map"
 }

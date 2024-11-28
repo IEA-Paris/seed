@@ -8,7 +8,7 @@
         fit="contain"
         format="webp"
         preload
-        :src="appConfig.logo"
+        :src="dark ? appConfig.logo.dark : appConfig.logo.light"
       ></v-img> </nuxt-link
   ></v-app-bar-nav-icon>
 </template>
@@ -17,6 +17,14 @@ import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
 const appConfig = useAppConfig()
 const localePath = useLocalePath()
+
+const props = defineProps({
+  dark: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+})
 </script>
 <style lang="scss">
 .logo:link,
