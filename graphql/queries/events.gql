@@ -1,3 +1,42 @@
-mutation BookEvent($itemId: ID!, $slot: SlotInput!) {
-  bookEvent(itemId: $itemId, slot: $slot)
+query listEvents(
+  $filter: EventFilterInput
+  $pagination: PaginationInput
+  $sort: SortInput
+) {
+  events(filter: $filter, pagination: $pagination, sort: $sort) {
+    name
+    description
+    start
+    stop
+    location {
+      name
+      city
+      country
+    }
+    speakers {
+      firstname
+      lastname
+    }
+  }
+}
+
+query getEvent($name: String!) {
+  event(name: $name) {
+    name
+    description
+    start
+    stop
+    location {
+      name
+      city
+      country
+    }
+    speakers {
+      firstname
+      lastname
+    }
+    tags {
+      name
+    }
+  }
 }

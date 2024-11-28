@@ -2,8 +2,10 @@
 import lists from '~/assets/data/lists' */
 
 /* import api from "~/server/api/github" */
-import config from "~/static.config"
 import { defineStore } from "pinia"
+      
+
+// import listEvents from '~/graphql/queries/events';
 
 import {
   Views,
@@ -14,6 +16,7 @@ import {
   project,
   fellowship,
 } from "@paris-ias/data"
+
 interface InputParams {
   key?: any | string
   level?: string[] | number[] | number | any
@@ -21,6 +24,102 @@ interface InputParams {
   category?: string
   defaults?: any | null
   value?: any
+}
+
+
+const LIST_PEOPLE_QUERY = gql`
+  query listPeople($filters: ListPeopleInput = {}, $appId: ID = "apex") {
+    listPeople(appId: $appId, filters: $filters) {
+      total
+      items {
+        id
+        firstname
+        lastname
+        image
+        socials {
+          website
+          wikipedia
+          orcid
+          linkedin
+          twitter
+          instagram
+          scholar
+          researchgate
+          mendeley
+          idRef
+        }
+        biography
+      }
+    }
+  }
+`;
+
+const LIST_EVENTS_QUERY = gql`
+  query listEvents($filters: ListEventsInput = {}, $appId: ID = "apex") {
+    listEvents(appId: $appId, filters: $filters) {
+      total
+      items {
+        appId
+        availableSlots
+        bookingState
+        category
+        delay
+        description
+        disciplines {
+          name
+        }
+        discussants {
+          firstname
+          lastname
+        }
+        id
+        image
+        name
+        place {
+          address
+          id
+          name
+          url
+        }
+        eventSlots {
+          email
+          firstname
+          institution
+          lang
+          lastname
+        }
+        start
+        state
+        type
+        url
+        totalSlots
+      }
+    }
+  }
+`;
+
+export async function fetchEvents(filters: Object) {
+  const variables = { 
+    filters, 
+    "appId": "iea"
+  };
+  const { data: { value: events} } = await useAsyncQuery(LIST_EVENTS_QUERY, variables);
+
+  console.log('EVENTS: ', events);
+
+  return events;
+}
+
+export async function fetchPeople(filters: Object) {
+  const variables = { 
+    filters,
+    "appId": "iea"
+  };
+  const { data: { value: people} } = await useAsyncQuery(LIST_PEOPLE_QUERY, variables);
+
+  console.log('PEOPLE: ', people);
+
+  return people;
 }
 
 export const useRootStore = defineStore("rootStore", {
@@ -396,6 +495,16 @@ export const useRootStore = defineStore("rootStore", {
       this.update(type)
     },
     async update(type: string, lang: string = "en") {
+
+    // TODO REMOVE !!
+    (this[type] as ModuleType).source = "gql";
+    // -------------------
+
+      // console.log('========== calling graphql query');
+      
+
+      // console.log('graphql data: ', data);
+
       const target = type + "/" + lang + "/"
       this.setLoading(true)
       ;(this[type] as ModuleType).loading = true
@@ -473,12 +582,55 @@ export const useRootStore = defineStore("rootStore", {
       }
       /*  console.log("pipeline: ", pipeline)
        */
-      const count = await queryContent(target).where(pipeline).count()
-      const totalItems = count
-      /*   console.log("totalItems: ", totalItems) */
+
+      let items;
+      let totalItems: number = 0;
 
       const itemsPerPageValue = (this[type] as ModuleType).list
         ?.itemsPerPage as number
+
+      if ((this[type] as ModuleType).source === "gql") {
+
+        const gqlFilters = {
+          options: {
+            limit: itemsPerPageValue,
+            skip: (this.page as number - 1) * itemsPerPageValue,
+            sortDesc: [true], // TODO: why is it an array ?
+            sortBy: [],
+            search: this.search
+          }
+        };
+
+        switch (type) {
+          case 'events':
+            const events = (await fetchEvents(gqlFilters) as any)['listEvents'];
+            items = events['items']
+              .map((e: any) => ({ ...e, _path: '/' + e['id']}));
+            totalItems = events['total']
+            break;
+          case 'people':
+            const people = (await fetchPeople(gqlFilters) as any)['listPeople'];
+            items = people['items']
+              .map((e: any) => ({
+                ...e,
+                _path: '/' + e['id'],
+                title: e['firstname'] + ' ' + e['lastname'],
+                relatedProjects: [],
+                relatedEvents: [],
+                relatedNews: [],
+                description: e['biography'],
+              }));
+            totalItems = people['total']
+            break;
+        }
+      } else {
+
+        const count = await queryContent(target).where(pipeline).count();
+        totalItems = count;
+        /*   console.log("totalItems: ", totalItems) */
+      }
+
+
       const lastPage = Math.ceil(totalItems / itemsPerPageValue)
 
       const lastPageCount =
@@ -517,16 +669,17 @@ export const useRootStore = defineStore("rootStore", {
       console.log("itemsPerPage: ", itemsPerPage) */
       console.log("target: ", target)
 
-      const items = (this.search as string)?.length
-        ? await searchContent(this.search as string)
-        : await queryContent(target)
-            /*  .where(pipeline) */
-            .sort({ [sortArray[0]]: sortArray[1] })
-            /*  .sort({ [sortArray[2]]: sortArray[3] }) */
-            .skip(skipNumber())
-            .limit(itemsPerPage)
-            .find()
-      /*       console.log("items: ", items); */
+      if ((this[type] as ModuleType).source === "md") {
+        items = (this.search as string)?.length
+          ? await searchContent(this.search as string)
+          : await queryContent(target)
+              /*  .where(pipeline) */
+              .sort({ [sortArray[0]]: sortArray[1] })
+              /*  .sort({ [sortArray[2]]: sortArray[3] }) */
+              .skip(skipNumber())
+              .limit(itemsPerPage)
+              .find()
+      }
       const viewsObj = (this[type] as ModuleType).list.views as Record<
         string,
         Views

@@ -11,10 +11,9 @@ export default {
   subtitle: "Paris Institute for Advanced Study",
   description: "Paris Institute for Advanced Study",
   splash_title: "Paris Institute for Advanced Study",
-  recaptcha: "6Lc_xuUUAAAAALwowUq0cC0wFtFnZ2NCi3UH4i1j",
-  graphqlEndpoint:
-    "https://n6qlmrmuybdrldzerh6qudsai4.appsync-api.eu-west-2.amazonaws.com/graphql",
-  graphqlApiKey: "da2-5q3rpaubfzhntc2kcz6re6ndp4",
+  recaptcha: "6Lc_xuUUAAAAALwowUq0cC0wFtFnZ2NCi3UH4i1j", // TODO: rm -> fetch from GPG secrets / SSM
+  graphqlEndpoint: '{{ (ds "ssm" "/apex-repo/api/endpoint" ).Value }}',
+  graphqlApiKey: '{{ (ds "ssm" "/apex-repo/api/key" ).Value }}',
   keywords: "open source, open science, science, vuejs, nuxt, vuetify, vuex",
   url: "https://paris.pias.science",
   logo: "/logo.png",
