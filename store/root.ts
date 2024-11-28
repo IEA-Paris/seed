@@ -15,6 +15,7 @@ import {
   people,
   project,
   fellowship,
+  publications
 } from "@paris-ias/data"
 
 interface InputParams {
@@ -137,6 +138,7 @@ export const useRootStore = defineStore("rootStore", {
     people,
     project,
     fellowship,
+    publications
   }),
 
   actions: {

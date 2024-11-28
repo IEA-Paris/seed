@@ -3,9 +3,10 @@ title: "Rolling Call for 10 months fellowships"
 applicationStart: "2024-03-01T10:00:00.000Z"
 fellowshipStart: "2024-04-01T10:00:00.000Z"
 contact: climate.ai@future-perspectives.org
-description: "Les projets de recherche proposés à l’IEA de Paris peuvent s’inscrire dans toutes les disciplines et thématiques des sciences humaines et sociales (SHS). Ils doivent avoir une forte dimension interdisciplinaire.
+description: |-
+      Les projets de recherche proposés à l’IEA de Paris peuvent s’inscrire dans toutes les disciplines et thématiques des sciences humaines et sociales (SHS). Ils doivent avoir une forte dimension interdisciplinaire.
 
-Le critère de sélection premier est l’excellence du projet et de son porteur. L’IEA vise avant tout à soutenir des projets originaux (méthodes, interdisciplinarité, innovation théorique…), qui font significativement progresser l’état de l’art et offrent des perspectives innovantes sur le fonctionnement des humains et des sociétés. L’impact de la recherche au-delà de la discipline et/ou du champ académique est également un critère de sélection essentiel."
+      Le critère de sélection premier est l’excellence du projet et de son porteur. L’IEA vise avant tout à soutenir des projets originaux (méthodes, interdisciplinarité, innovation théorique…), qui font significativement progresser l’état de l’art et offrent des perspectives innovantes sur le fonctionnement des humains et des sociétés. L’impact de la recherche au-delà de la discipline et/ou du champ académique est également un critère de sélection essentiel.
 fellowshipDetails:
   selectionProcess: |-
         CANDIDATURES 

@@ -3,8 +3,7 @@ title: "The Brain, Culture and Society Program"
 applicationStart: "2024-05-01T08:30:00.000Z"
 fellowshipStart: "2024-06-15T08:30:00.000Z"
 contact: "smartcities@innovation-hub.org"
-description: "The Paris IAS promotes a specific program to link mind and brain, humanities and social sciences and neurosciences. Particular attention is paid to topics related to major societal challenges: child development, ageing, health, education and learning, addictions, the effect of new digital and information technologies, tolerance, aggressiveness, fanaticism, etc.
-The aim of this dialogue is to enable the humanities and social sciences, as well as the brain sciences, to renew their perspectives on classical objects and to open new fields of research with bold and innovative interdisciplinary approaches."
+description: "The Paris IAS promotes a specific program to link mind and brain, humanities and social sciences and neurosciences. Particular attention is paid to topics related to major societal challenges: child development, ageing, health, education and learning, addictions, the effect of new digital and information technologies, tolerance, aggressiveness, fanaticism, etc. The aim of this dialogue is to enable the humanities and social sciences, as well as the brain sciences, to renew their perspectives on classical objects and to open new fields of research with bold and innovative interdisciplinary approaches."
 fellowshipDetails:
   selectionProcess: |-
       APPLICATIONS
@@ -100,6 +99,7 @@ fellowshipType: 0
 disciplines:
   - name: "Neurosciences"
 ---
+
 The Paris IAS promotes a specific program to link mind and brain, humanities and social sciences and neurosciences. Particular attention is paid to topics related to major societal challenges: child development, ageing, health, education and learning, addictions, the effect of new digital and information technologies, tolerance, aggressiveness, fanaticism, etc.
 The aim of this dialogue is to enable the humanities and social sciences, as well as the brain sciences, to renew their perspectives on classical objects and to open new fields of research with bold and innovative interdisciplinary approaches.
 **[*More information*](https://www.paris-iea.fr/en/events-feed/22964-brain-culture-and-society-program)

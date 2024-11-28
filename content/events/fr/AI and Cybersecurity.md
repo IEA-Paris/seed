@@ -2,8 +2,8 @@
 name: "IA et cybersécurité : Protéger l'avenir numérique"
 subtitle: "En collaboration avec le MIT et l'Agence Européenne de Cybersécurité"
 date_text: 10 avril 2026
-start: 2026-04-10T09:00:00.000Z
-stop: 2026-04-10T18:00:00.000Z
+start: "2026-04-10T09:00:00.000Z"
+stop: "2026-04-10T18:00:00.000Z"
 eventType: 2
 category: 2
 state: 1

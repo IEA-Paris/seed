@@ -16,7 +16,7 @@
     <section dark>
       <v-container>
         <v-row class="d-flex align-center justify-center flex-column">
-          <v-col cols="12" sm="10" md="8">
+          <v-col cols="12">
             <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6 mb-md-12">
               {{ $t("our-members") }}
             </div>
@@ -35,21 +35,21 @@
     <section>
       <v-container>
         <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" sm="10" md="8">
+          <v-col cols="12">
             <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6 mb-md-12">
               {{ $t("our-partners") }}
             </div>
             <v-row no-gutters>
-              <v-col cols="12" sm="6" lg="4">
+              <v-col cols="12" sm="6" lg="6">
                 <ContentDoc :path="partners" />
               </v-col>
 
-              <v-col cols="12" sm="6" lg="5">
+              <v-col cols="12" sm="6" lg="6">
                 <MiscMoleculesLogoGallery
                   :items="partnersData"
                 ></MiscMoleculesLogoGallery>
               </v-col>
-              <v-col cols="12" lg="3" v-show="lgAndUp">
+              <!--   <v-col cols="12" lg="3" v-show="lgAndUp">
                 <v-sheet
                   class="d-flex align-center justify-center"
                   :to="localePath('/support')"
@@ -58,9 +58,11 @@
                   <ActionsSmallContainer
                     :action="action"
                     :ratio="1"
-                  ></ActionsSmallContainer></v-sheet></v-col></v-row
-          ></v-col> </v-row
-      ></v-container>
+                  ></ActionsSmallContainer></v-sheet></v-col> --></v-row
+            ></v-col
+          >
+        </v-row></v-container
+      >
     </section>
 
     <section class="dark">

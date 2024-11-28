@@ -3,11 +3,12 @@ title: "Rolling Call for 10 months fellowships"
 applicationStart: "2024-03-01T10:00:00.000Z"
 fellowshipStart: "2024-04-01T10:00:00.000Z"
 contact: climate.ai@future-perspectives.org
-description: "Research projects proposed at the Paris IAS can be in all disciplines and themes of the humanities and social sciences and must have an interdisciplinary dimension.
+description: |-
+      Research projects proposed at the Paris IAS can be in all disciplines and themes of the humanities and social sciences and must have an interdisciplinary dimension.
 
-The essential selection criterion is the excellence of the project and its leader. The Paris IAS aims above all to support original projects (methods, interdisciplinarity, theoretical innovation...), which significantly advance the state of the art. The impact of the research beyond the discipline and/or the academic field is also taken into account.
+      The essential selection criterion is the excellence of the project and its leader. The Paris IAS aims above all to support original projects (methods, interdisciplinarity, theoretical innovation...), which significantly advance the state of the art. The impact of the research beyond the discipline and/or the academic field is also taken into account.
 
-The Paris IAS also supports work aimed at addressing major and urgent threats to the future of our societies, giving researchers complete freedom to choose the theme, on the sole condition that they respond to these vital issues through fundamental research or intersectoral collaborative projects (associating non-academic actors: the political, economic, and associative worlds)."
+      The Paris IAS also supports work aimed at addressing major and urgent threats to the future of our societies, giving researchers complete freedom to choose the theme, on the sole condition that they respond to these vital issues through fundamental research or intersectoral collaborative projects (associating non-academic actors: the political, economic, and associative worlds).
 fellowshipDetails:
   selectionProcess: |-
       APPLICATIONS

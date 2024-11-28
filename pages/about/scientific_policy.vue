@@ -21,21 +21,23 @@
       ></v-container>
     </section>
     <section class="dark">
-      <v-row>
-        <v-col cols="12" class="d-flex align-center justify-center">
-          <MiscAtomsSlidingCarousel
-            key="scientificAdvisoryBoard"
-            :items="scientificAdvisoryBoard"
-            type="people"
-            :loading="false"
-            :dark="true"
-          >
-            <div class="text-h2">
-              {{ $t("scientific-advisory-board") }}
-            </div>
-          </MiscAtomsSlidingCarousel>
-        </v-col>
-      </v-row>
+      <v-container>
+        <v-row class="d-flex">
+          <v-col cols="12" md="10" lg="8" xl="6" class="justify-center">
+            <MiscAtomsSlidingCarousel
+              key="scientificAdvisoryBoard"
+              :items="scientificAdvisoryBoard"
+              type="people"
+              :loading="false"
+              :dark="true"
+            >
+              <div class="text-h2">
+                {{ $t("scientific-advisory-board") }}
+              </div>
+            </MiscAtomsSlidingCarousel>
+          </v-col>
+        </v-row></v-container
+      >
     </section>
     <section>
       <v-row>
