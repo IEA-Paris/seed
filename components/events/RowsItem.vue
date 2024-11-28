@@ -87,7 +87,7 @@
           >
           </v-skeleton-loader>
 
-          <div v-else><EventsBadges :item></EventsBadges></div>
+          <div v-else><EventsBadges :item="item"></EventsBadges></div>
         </v-col>
       </v-row>
     </v-col>

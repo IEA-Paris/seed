@@ -94,27 +94,27 @@ const model = ref(0)
 const swiperBreakpoints = ref({
   320: {
     slidesPerView: "auto",
-    spaceBetween: 10,
+    spaceBetween: 15,
   },
   480: {
     slidesPerView: "auto",
-    spaceBetween: 20,
+    spaceBetween: 22,
   },
   640: {
     slidesPerView: "auto",
-    spaceBetween: 20,
+    spaceBetween: 25,
   },
   960: {
     slidesPerView: "auto",
-    spaceBetween: 20,
+    spaceBetween: 28,
   },
   1280: {
     slidesPerView: "auto",
-    spaceBetween: 20,
+    spaceBetween: 31,
   },
   1920: {
     slidesPerView: "auto",
-    spaceBetween: 20,
+    spaceBetween: 35,
   },
 })
 const props = defineProps({
