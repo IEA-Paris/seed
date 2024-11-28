@@ -2,7 +2,7 @@
   <div
     class="expanded-item mb-4"
     :class="expanded ? 'expanded' : 'collapsed'"
-    @click="expanded = !expanded"
+    @click="(expanded = !expanded)"
   >
     <v-row>
       <v-col cols="12" :md="expanded ? '4' : '2'">
@@ -99,14 +99,20 @@ const props = defineProps({
 .expanded-item {
   cursor: pointer;
   overflow: hidden;
-  transition: max-height 0.9s ease;
-}
+  position: relative;
+  transition:
+    transform 1s ease-in-out,
+    opacity 1s ease-in-out;
 
-.expanded-item.expanded {
-  max-height: 1000px;
-}
+  &.expanded {
+    transform: scale(1);
+    opacity: 1;
+  }
 
-.expanded-item.collapsed {
-  max-height: 130px;
+  &.collapsed {
+    transform: scale(0.98);
+    opacity: 1;
+    height: 200px;
+  }
 }
 </style>
