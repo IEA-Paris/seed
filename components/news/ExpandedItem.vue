@@ -5,7 +5,7 @@
     @click="(expanded = !expanded)"
   >
     <v-row>
-      <v-col cols="12" :md="expanded ? '4' : '2'">
+      <v-col cols="12" :md="expanded ? '4' : '2'" class="animated-col">
         <MiscAtomsImageContainer
           cover
           :loading="rootStore.loading"
@@ -78,41 +78,40 @@ const props = defineProps({
   },
 })
 </script>
-<!-- 
-<style lang="scss">
+
+<style>
 .expanded-item {
-  cursor: pointer;
-
-  transition: all 1.9s ease-in-out;
-}
-
-.expanded-item.expanded {
-  height: auto;
-}
-.expanded-item.collapsed {
-  height: 100px;
   overflow: hidden;
-}
-</style> -->
-
-<style lang="scss">
-.expanded-item {
-  cursor: pointer;
-  overflow: hidden;
-  position: relative;
-  transition:
-    transform 1s ease-in-out,
-    opacity 1s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
   &.expanded {
-    transform: scale(1);
-    opacity: 1;
+    .v-col:first-child {
+      flex: 0 0 33.333%;
+      max-width: 33.333%;
+    }
+
+    .v-col:last-child {
+      flex: 0 0 66.666%;
+      max-width: 66.666%;
+    }
   }
 
   &.collapsed {
-    transform: scale(0.98);
-    opacity: 1;
-    height: 200px;
+    .v-col:first-child {
+      flex: 0 0 16.666%;
+      max-width: 16.666%;
+    }
+
+    .v-col:last-child {
+      flex: 0 0 83.333%;
+      max-width: 83.333%;
+    }
+  }
+
+  .animated-col {
+    transition:
+      flex 0.3s ease-in-out,
+      max-width 0.3s ease-in-out;
   }
 }
 </style>
