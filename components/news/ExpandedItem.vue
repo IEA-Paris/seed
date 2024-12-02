@@ -13,13 +13,14 @@
           :ratio="1 / 1"
         />
       </v-col>
-      <v-col class="text-h5" cols="12" :md="expanded ? '8' : '10'">
+      <v-col class="text-h5" cols="12" :md="expanded ? '7' : '8'">
         <template v-if="expanded">
-          <div class="text-h3">
+          <div class="text-h4">
             {{ item.title }}
           </div>
 
           <MiscMoleculesChipContainer
+            v-if="lgAndUp"
             :items="item.tags"
             class="fade-in"
           ></MiscMoleculesChipContainer>
@@ -29,7 +30,7 @@
             class="text-body-1 clamped-text"
             :style="
               '-webkit-line-clamp:' +
-              [5, 5, 4, 7, 8, 10][
+              [5, 5, 3, 6, 9, 11][
                 ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
               ]
             "
@@ -39,7 +40,6 @@
             class="mt-4"
             variant="outlined"
             tile
-            size="small"
             :to="
               localePath({
                 name: 'news-slug',
@@ -60,11 +60,20 @@
             class="text-body-1 clamped-text"
             :style="
               '-webkit-line-clamp:' +
-              [5, 5, 4, 7, 6, 8][
+              [5, 5, 2, 4, 6, 8][
                 ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
               ]
             "
         /></template>
+      </v-col>
+
+      <v-col
+        v-if="mdAndUp"
+        class="d-flex justify-center align-center"
+        cols="12"
+        :md="expanded ? '1' : '2'"
+      >
+        <v-btn flat :icon="expanded ? 'mdi-minus' : 'mdi-plus'"></v-btn>
       </v-col>
     </v-row>
   </div>
@@ -76,7 +85,7 @@ import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
 const expanded = ref(false)
-const { name } = useDisplay()
+const { name, mdAndUp, lgAndUp } = useDisplay()
 const props = defineProps({
   item: {
     type: Object,
