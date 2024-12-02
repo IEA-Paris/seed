@@ -14,12 +14,16 @@
         />
       </v-col>
       <v-col class="text-h5" cols="12" :md="expanded ? '8' : '10'">
-        {{ item.title }}
-
         <template v-if="expanded">
+          <div class="text-h3">
+            {{ item.title }}
+          </div>
+
           <MiscMoleculesChipContainer
             :items="item.tags"
+            class="fade-in"
           ></MiscMoleculesChipContainer>
+
           <ContentRenderer
             :value="item"
             class="text-body-1 clamped-text"
@@ -48,12 +52,15 @@
         </template>
 
         <template v-else>
+          <div>
+            {{ item.title }}
+          </div>
           <ContentRenderer
             :value="item"
             class="text-body-1 clamped-text"
             :style="
               '-webkit-line-clamp:' +
-              [5, 5, 4, 7, 8, 10][
+              [5, 5, 4, 7, 6, 8][
                 ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
               ]
             "
@@ -64,9 +71,12 @@
 </template>
 
 <script setup>
+import { useDisplay } from "vuetify"
+
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
 const expanded = ref(false)
+const { name } = useDisplay()
 const props = defineProps({
   item: {
     type: Object,
@@ -79,7 +89,7 @@ const props = defineProps({
 })
 </script>
 
-<style>
+<style lang="scss" scoped>
 .expanded-item {
   overflow: hidden;
   transition: all 0.3s ease-in-out;
@@ -112,6 +122,21 @@ const props = defineProps({
     transition:
       flex 0.3s ease-in-out,
       max-width 0.3s ease-in-out;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 }
 </style>
