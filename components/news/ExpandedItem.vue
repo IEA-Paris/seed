@@ -1,87 +1,104 @@
 <template>
-  <div
-    class="expanded-item mb-4"
+  <v-row
+    v-ripple
+    class="expanded-item my-6 cursor-pointer"
     :class="expanded ? 'expanded' : 'collapsed'"
-    @click="(expanded = !expanded)"
+    @click="expanded = !expanded"
   >
-    <v-row>
-      <v-col cols="12" :md="expanded ? '4' : '2'" class="animated-col">
-        <MiscAtomsImageContainer
-          cover
-          :loading="rootStore.loading"
-          :src="item.image"
-          :ratio="1 / 1"
-        />
-      </v-col>
-      <v-col class="text-h5" cols="12" :md="expanded ? '7' : '8'">
-        <template v-if="expanded">
-          <div class="text-h4">
-            {{ item.title }}
-          </div>
-
-          <MiscMoleculesChipContainer
-            v-if="lgAndUp"
-            :items="item.tags"
-            class="fade-in"
-          ></MiscMoleculesChipContainer>
-
-          <ContentRenderer
-            :value="item"
-            class="text-body-1 clamped-text"
-            :style="
-              '-webkit-line-clamp:' +
-              [5, 5, 3, 6, 9, 11][
-                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-              ]
-            "
-          />
-
-          <v-btn
-            class="mt-4"
-            variant="outlined"
-            tile
-            :to="
+    <v-col
+      cols="12"
+      :md="expanded ? '4' : '2'"
+      class="animated-col"
+      @click.prevent="
+        expanded
+          ? router.push(
               localePath({
                 name: 'news-slug',
                 params: { slug: getSlugFromPath(item._path) },
-              })
-            "
-          >
-            {{ $t("read-more") }}
-          </v-btn>
-        </template>
-
-        <template v-else>
-          <div>
-            {{ item.title }}
-          </div>
-          <ContentRenderer
-            :value="item"
-            class="text-body-1 clamped-text"
-            :style="
-              '-webkit-line-clamp:' +
-              [5, 5, 2, 4, 6, 8][
-                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-              ]
-            "
-        /></template>
-      </v-col>
-
-      <v-col
-        v-if="mdAndUp"
-        class="d-flex justify-center align-center"
-        cols="12"
-        :md="expanded ? '1' : '2'"
+              }),
+            )
+          : null
+      "
+    >
+      <MiscAtomsImageContainer
+        cover
+        :loading="rootStore.loading"
+        :src="item.image"
+        :ratio="1 / 1"
+      />
+    </v-col>
+    <v-col class="text-h5" cols="12" :md="expanded ? '8' : '9'">
+      <div
+        :class="expanded ? 'text-h4' : 'text-h5'"
+        @click.prevent="
+          expanded
+            ? router.push(
+                localePath({
+                  name: 'news-slug',
+                  params: { slug: getSlugFromPath(item._path) },
+                }),
+              )
+            : null
+        "
       >
-        <v-btn flat :icon="expanded ? 'mdi-minus' : 'mdi-plus'"></v-btn>
-      </v-col>
-    </v-row>
-  </div>
+        {{ item.title }}
+      </div>
+      <v-expand-transition v-if="lgAndUp">
+        <div v-show="expanded">
+          <MiscMoleculesChipContainer
+            :items="item.tags"
+          ></MiscMoleculesChipContainer>
+        </div>
+      </v-expand-transition>
+      <ContentRenderer
+        :value="item"
+        class="text-body-1 clamped-text"
+        :style="
+          '-webkit-line-clamp:' +
+          (expanded ? [5, 5, 3, 6, 9, 11] : [5, 5, 2, 4, 6, 8])[
+            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+          ]
+        "
+      />
+
+      <v-expand-transition>
+        <v-btn
+          class="mt-4"
+          variant="outlined"
+          v-show="expanded"
+          tile
+          @click.prevent="
+            router.push(
+              localePath({
+                name: 'news-slug',
+                params: { slug: getSlugFromPath(item._path) },
+              }),
+            )
+          "
+        >
+          {{ $t("read-more") }}
+        </v-btn>
+      </v-expand-transition>
+    </v-col>
+
+    <!--     <v-col
+      v-if="mdAndUp"
+      class="d-flex justify-start align-start"
+      cols="12"
+      :md="expanded ? '1' : '2'"
+    >
+      <v-btn flat tile size="x-large">
+        <v-icon size="x-large">{{
+          expanded ? "mdi-minus" : "mdi-plus"
+        }}</v-icon></v-btn
+      >
+    </v-col> -->
+  </v-row>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
-
+const router = useRouter()
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
 const expanded = ref(false)
