@@ -12,7 +12,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "deploy:infra": "cd ./infra && terraform init && terraform apply",
-    "template": "AWS_TIMEOUT=${AWS_TIMEOUT:-9000} GMPL_BIN=$(command -v gomplate || echo $(git rev-parse --show-toplevel)/node_modules/.bin/gomplate); $GMPL_BIN -d ssm=aws+smp: -f templates/static.config.ts.tmpl --out static.config.ts",
+    "template": "gomplate --verbose -d ssm=aws+smp: -f templates/static.config.ts.tmpl --out static.config.ts",
     "postinstall:gomplate": "command -v gomplate || [ -e $(yarn bin)/gomplate ] || ( curl -L https://github.com/hairyhenderson/gomplate/releases/download/v3.7.0/gomplate_linux-amd64 -o $(yarn bin)/gomplate && chmod +x $(yarn bin)/gomplate )"
   },
   "devDependencies": {
