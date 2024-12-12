@@ -11,9 +11,15 @@
     "generate": "yarn template && nuxt generate --host",
     "preview": "yarn template && nuxt preview",
     "deploy:infra": "cd ./infra && terraform init && terraform apply",
-    "template": "AWS_TIMEOUT=${AWS_TIMEOUT:-9000} GMPL_BIN=$(command -v gomplate || echo $(git rev-parse --show-toplevel)/node_modules/.bin/gomplate); $GMPL_BIN -d ssm=aws+smp: -f templates/static.config.ts.tmpl --out static.config.ts",
+
+    "template": "yarn is-windows && yarn template:windows || yarn template:unix ",
+    "template:unix": "export AWS_TIMEOUT=${AWS_TIMEOUT:-9000}; export GMPL_BIN=$(command -v gomplate || echo $(git rev-parse --show-toplevel)/node_modules/.bin/gomplate); $GMPL_BIN -d ssm=aws+smp: -f templates/static.config.ts.tmpl --out static.config.ts",
+    "template:windows": "gomplate -d ssm=aws+smp: -f templates/static.config.ts.tmpl --out static.config.ts",
+
     "postinstall": "yarn postinstall:gomplate && yarn template && nuxt prepare",
-    "postinstall:gomplate": "command -v gomplate || [ -e $(yarn bin)/gomplate ] || ( curl -L https://github.com/hairyhenderson/gomplate/releases/download/v3.7.0/gomplate_linux-amd64 -o $(yarn bin)/gomplate && chmod +x $(yarn bin)/gomplate )"
+    "postinstall:gomplate": "yarn is-windows || yarn postinstall:gomplate:unix",
+    "postinstall:gomplate:unix": "command -v gomplate || [ -e $(yarn bin)/gomplate ] || ( curl -L https://github.com/hairyhenderson/gomplate/releases/download/v3.7.0/gomplate_linux-amd64 -o $(yarn bin)/gomplate && chmod +x $(yarn bin)/gomplate )",
+    "is-windows": "node -p \"process.platform === 'win32' ? process.exit(0) : process.exit(1)\""
   },
   "devDependencies": {
     "@nuxt/content": "^2.13.2",
