@@ -60,6 +60,7 @@ export async function fetchEvents(filters: Object) {
     filters,
     appId: "iea",
   }
+  console.log("listEvents: ", listEvents)
   const {
     data: { value: events },
   } = await useAsyncQuery(listEvents, variables)
