@@ -37,7 +37,7 @@
               "
               class="text-h4 text-black text-wrap mt-4"
             >
-              {{ item.title }}
+              {{ item.name }}
             </nuxt-link>
             <div class="mt-2 text-h6 text-overline font-weight-black">
               {{ $t("events.categories." + item.category) }}
@@ -61,7 +61,7 @@
                   ]
                 "
               >
-                {{ item.description }}
+              <ContentRendererMarkdown :value="renderedMarkdown" />
               </p></nuxt-link
             >
 
@@ -108,10 +108,12 @@
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
 import { getSlugFromPath } from "~/composables/useUtils"
+import markdownParser from '@nuxt/content/transformers/markdown'
 const { locale } = useI18n()
 const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay()
 const localePath = useLocalePath()
 const rootStore = useRootStore()
+
 const props = defineProps({
   item: {
     type: Object,
@@ -122,4 +124,5 @@ const props = defineProps({
     required: true,
   },
 })
+const renderedMarkdown = await markdownParser.parse('description', props.item.description)
 </script>
