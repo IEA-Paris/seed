@@ -52,7 +52,6 @@ const listEventsQuery = gql`
         }
         start
         state
-        title
         type
         url
         totalSlots

@@ -19,7 +19,7 @@
       {{ detailedDateStart.month }}<br />
       {{ detailedDateStart.year }}
     </span>
-    <template v-if="showDateStop">
+    <template v-if="showDateStop && detailedDateStop.day">
       <span>&ndash;</span>
       <template v-if="mdAndUp">
         <span class="month-year"> {{ detailedDateStop.day }}</span>
