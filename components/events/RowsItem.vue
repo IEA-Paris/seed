@@ -3,6 +3,7 @@
   <v-row class="my-8 px-4" no-gutters>
     <v-col cols="12" md="1">
       <MiscAtomsDateStamp
+        v-if="item.start"
         :loading="rootStore.events.loading"
         :dateStart="item.start"
         :dateStop="item.stop"

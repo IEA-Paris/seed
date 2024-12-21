@@ -4,8 +4,6 @@ import lists from '~/assets/data/lists' */
 /* import api from "~/server/api/github" */
 import { defineStore } from "pinia"
 
-// import listEvents from '~/graphql/queries/events';
-
 import {
   Views,
   ModuleType,
@@ -18,7 +16,50 @@ import {
 } from "@paris-ias/data"
 
 import { listEvents } from "~/graphql/queries/events"
-
+const listEventsQuery = gql`
+  query listEvents($filters: ListEventsInput = {}, $appId: ID = "apex") {
+    listEvents(appId: $appId, filters: $filters) {
+      total
+      items {
+        appId
+        availableSlots
+        bookingState
+        category
+        delay
+        description
+        disciplines {
+          name
+        }
+        discussants {
+          firstname
+          lastname
+        }
+        id
+        image
+        name
+        place {
+          address
+          id
+          name
+          url
+        }
+        eventSlots {
+          email
+          firstname
+          institution
+          lang
+          lastname
+        }
+        start
+        state
+        title
+        type
+        url
+        totalSlots
+      }
+    }
+  }
+`
 interface InputParams {
   key?: any | string
   level?: string[] | number[] | number | any
@@ -56,14 +97,15 @@ const LIST_PEOPLE_QUERY = gql`
 `
 
 export async function fetchEvents(filters: Object) {
+  console.log("calling fethc event")
   const variables = {
     filters,
     appId: "iea",
   }
-  console.log("listEvents: ", listEvents)
+  console.log("listEvents: ", listEventsQuery)
   const {
     data: { value: events },
-  } = await useAsyncQuery(listEvents, variables)
+  } = await useAsyncQuery(listEventsQuery, variables)
 
   console.log("EVENTS: ", events)
 
@@ -564,12 +606,13 @@ export const useRootStore = defineStore("rootStore", {
         switch (type) {
           case "events":
             const events = ((await fetchEvents(gqlFilters)) as any)[
-              "listEvents"
+              "listEventsQuery"
             ]
             items = events["items"].map((e: any) => ({
               ...e,
               _path: "/" + e["id"],
             }))
+            console.log("items: ", items)
             totalItems = events["total"]
             break
           case "people":
