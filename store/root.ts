@@ -49,6 +49,19 @@ const LIST_PEOPLE_QUERY = gql`
           mendeley
           idRef
         }
+        groups {
+          team
+          sab
+          board
+          fellow
+          sponsor
+          vintage {
+            name
+            year
+            theme
+            url
+          }
+        }
         biography
       }
     }
