@@ -3,7 +3,7 @@ import lists from '~/assets/data/lists' */
 
 /* import api from "~/server/api/github" */
 import { defineStore } from "pinia"
-
+import { isProxy, toRaw } from "vue"
 import {
   Views,
   ModuleType,
@@ -604,9 +604,10 @@ export const useRootStore = defineStore("rootStore", {
 
         switch (type) {
           case "events":
-            const events = ((await fetchEvents(gqlFilters)) as any)[
-              "listEventsQuery"
-            ]
+            const events = toRaw(await fetchEvents(gqlFilters))[
+              "listEvents"
+            ] as any
+            console.log("events: ", events)
             items = events["items"].map((e: any) => ({
               ...e,
               _path: "/" + e["id"],

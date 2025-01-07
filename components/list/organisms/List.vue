@@ -137,7 +137,7 @@ const display = computed({
 try {
   await rootStore.update(props.type, locale.value)
 } catch (error) {
-  console.log("error: ", error)
+  console.log("error fetching update list: ", error)
 }
 /* const { data, error } = await useAsyncData(props.type, () =>
 )

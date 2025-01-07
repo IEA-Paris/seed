@@ -33,12 +33,12 @@
               :to="
                 localePath({
                   name: 'activities-events-slug',
-                  params: { slug: getSlugFromPath(item._path) },
+                  params: { slug: getSlugFromPath(item._path || '') },
                 })
               "
               class="text-h4 text-black text-wrap mt-4"
             >
-              {{ item.name }}
+              {{ item.name || item.title }}
             </nuxt-link>
             <div class="mt-2 text-h6 text-overline font-weight-black">
               {{ $t("events.categories." + item.category) }}
@@ -48,7 +48,7 @@
               :to="
                 localePath({
                   name: 'activities-events-slug',
-                  params: { slug: getSlugFromPath(item._path) },
+                  params: { slug: getSlugFromPath(item._path || '') },
                 })
               "
               class="text-black"
@@ -62,9 +62,8 @@
                   ]
                 "
               >
-              <ContentRendererMarkdown :value="renderedMarkdown" />
-              </p></nuxt-link
-            >
+                <ContentRendererMarkdown :value="renderedMarkdown" /></p
+            ></nuxt-link>
 
             <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">
               <EventsBadges :item></EventsBadges>
@@ -96,7 +95,7 @@
       <MiscAtomsImageContainer
         cover
         :name="item.title"
-        :slug="getSlugFromPath(item._path)"
+        :slug="getSlugFromPath(item._path || '')"
         link="activities-events-slug"
         :loading="rootStore.events.loading"
         :src="item.image"
@@ -109,7 +108,7 @@
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
 import { getSlugFromPath } from "~/composables/useUtils"
-import markdownParser from '@nuxt/content/transformers/markdown'
+import markdownParser from "@nuxt/content/transformers/markdown"
 const { locale } = useI18n()
 const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay()
 const localePath = useLocalePath()
@@ -125,5 +124,7 @@ const props = defineProps({
     required: true,
   },
 })
-const renderedMarkdown = await markdownParser.parse('description', props.item.description)
+const renderedMarkdown = props.item?.description
+  ? await markdownParser.parse("description", props.item.description)
+  : ""
 </script>
