@@ -15,50 +15,9 @@ import {
   publications,
 } from "@paris-ias/data"
 
-import { listEvents } from "~/graphql/queries/events"
-const listEventsQuery = gql`
-  query listEvents($filters: ListEventsInput = {}, $appId: ID = "apex") {
-    listEvents(appId: $appId, filters: $filters) {
-      total
-      items {
-        appId
-        availableSlots
-        bookingState
-        category
-        delay
-        description
-        disciplines {
-          name
-        }
-        discussants {
-          firstname
-          lastname
-        }
-        id
-        image
-        name
-        place {
-          address
-          id
-          name
-          url
-        }
-        eventSlots {
-          email
-          firstname
-          institution
-          lang
-          lastname
-        }
-        start
-        state
-        type
-        url
-        totalSlots
-      }
-    }
-  }
-`
+import LIST_EVENTS from "~/graphql/queries/events.gql"
+import LIST_PEOPLE from "~/graphql/queries/people.gql"
+
 interface InputParams {
   key?: any | string
   level?: string[] | number[] | number | any
@@ -66,63 +25,6 @@ interface InputParams {
   category?: string
   defaults?: any | null
   value?: any
-}
-
-const LIST_PEOPLE_QUERY = gql`
-  query listPeople($filters: ListPeopleInput = {}, $appId: ID = "apex") {
-    listPeople(appId: $appId, filters: $filters) {
-      total
-      items {
-        id
-        firstname
-        lastname
-        image
-        socials {
-          website
-          wikipedia
-          orcid
-          linkedin
-          twitter
-          instagram
-          scholar
-          researchgate
-          mendeley
-          idRef
-        }
-        biography
-      }
-    }
-  }
-`
-
-export async function fetchEvents(filters: Object) {
-  console.log("calling fethc event")
-  const variables = {
-    filters,
-    appId: "iea",
-  }
-  console.log("listEvents: ", listEventsQuery)
-  const {
-    data: { value: events },
-  } = await useAsyncQuery(listEventsQuery, variables)
-
-  console.log("EVENTS: ", events)
-
-  return events
-}
-
-export async function fetchPeople(filters: Object) {
-  const variables = {
-    filters,
-    appId: "iea",
-  }
-  const {
-    data: { value: people },
-  } = await useAsyncQuery(LIST_PEOPLE_QUERY, variables)
-
-  console.log("PEOPLE: ", people)
-
-  return people
 }
 
 export const useRootStore = defineStore("rootStore", {
@@ -593,33 +495,37 @@ export const useRootStore = defineStore("rootStore", {
 
       if ((this[type] as ModuleType).source === "gql") {
         const gqlFilters = {
-          options: {
+          filters: {
             limit: itemsPerPageValue,
             skip: ((this.page as number) - 1) * itemsPerPageValue,
-            sortDesc: [true], // TODO: why is it an array ?
-            sortBy: [],
+            sortDesc: [false], // TODO: why is it an array ? => because you might need multisort with a tie breaker
+            sortBy: ["start"],
             search: this.search,
           },
+          appId: "iea",
+          lang: "en",
         }
 
         switch (type) {
           case "events":
-            const events = toRaw(await fetchEvents(gqlFilters))[
-              "listEvents"
-            ] as any
-            console.log("events: ", events)
-            items = events["items"].map((e: any) => ({
+            const {
+              data: { value: events },
+            } = await useAsyncQuery(LIST_EVENTS, gqlFilters)
+            const eventsRst = (toRaw(events) as any)["listEvents"] as any
+            console.log("eventsRsy: ", eventsRst)
+            items = eventsRst["items"].map((e: any) => ({
               ...e,
               _path: "/" + e["id"],
             }))
             console.log("items: ", items)
-            totalItems = events["total"]
+            totalItems = eventsRst["total"]
             break
           case "people":
-            const people = ((await fetchPeople(gqlFilters)) as any)[
-              "listPeople"
-            ]
-            items = people["items"].map((e: any) => ({
+            const {
+              data: { value: people },
+            } = await useAsyncQuery(LIST_PEOPLE, gqlFilters)
+            const peopleRst = (toRaw(people) as any)["listPeople"]["listPeople"]
+            items = peopleRst["items"].map((e: any) => ({
               ...e,
               _path: "/" + e["id"],
               title: e["firstname"] + " " + e["lastname"],
@@ -628,7 +534,7 @@ export const useRootStore = defineStore("rootStore", {
               relatedNews: [],
               description: e["biography"],
             }))
-            totalItems = people["total"]
+            totalItems = peopleRst["total"]
             break
         }
       } else {

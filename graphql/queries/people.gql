@@ -1,56 +1,28 @@
 query listPeople(
-  peoples(filter: $filter, pagination: $pagination, sort: $sort) {
-    firstname
-    lastname
-    biography
-    socials
-    groups {
-      team
-    }
-    image {
-      url
-      alt
-    }
-    affiliations {
-      affiliation {
-        name
-        location {
-          city
-          country
-        }
-        positions {
-          title
-        }
+  $filters: ListInput = {}
+  $appId: ID = "apex"
+  $lang: String = "en"
+) {
+  listPeople(appId: $appId, filters: $filters, lang: $lang) {
+    total
+    items {
+      id
+      firstname
+      lastname
+      image
+      socials {
+        website
+        wikipedia
+        orcid
+        linkedin
+        twitter
+        instagram
+        scholar
+        researchgate
+        mendeley
+        idRef
       }
-     
-  }
-}
-
-query getPerson($name: String!) {
-  people(name: $name) {
-     firstname
-    lastname
-    biography
-    socials
-    groups {
-      team
+      biography
     }
-    image {
-      url
-      alt
-    }
-    affiliations {
-      affiliation {
-        name
-        location {
-          city
-          country
-        }
-        positions {
-          title
-        }
-      }
-     
-  }
   }
 }

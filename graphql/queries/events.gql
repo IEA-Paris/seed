@@ -1,0 +1,45 @@
+query listEvents(
+  $filters: ListInput = {}
+  $appId: ID = "apex"
+  $lang: String = "en"
+) {
+  listEvents(appId: $appId, filters: $filters, lang: $lang) {
+    total
+    items {
+      appId
+      availableSlots
+      bookingState
+      category
+      delay
+      description
+      disciplines {
+        name
+      }
+      discussants {
+        firstname
+        lastname
+      }
+      id
+      image
+      name
+      place {
+        address
+        id
+        name
+        url
+      }
+      eventSlots {
+        email
+        firstname
+        institution
+        lang
+        lastname
+      }
+      start
+      state
+      type
+      url
+      totalSlots
+    }
+  }
+}
