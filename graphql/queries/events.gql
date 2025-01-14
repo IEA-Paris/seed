@@ -1,24 +1,19 @@
 query listEvents(
-  $filters: ListInput = {}
-  $appId: ID = "apex"
+  $options: ListInput = {}
+  $appId: ID = "iea"
   $lang: String = "en"
 ) {
-  listEvents(appId: $appId, filters: $filters, lang: $lang) {
-    total
+  listEvents(options: $options, appId: $appId, lang: $lang) {
     items {
       appId
       availableSlots
       bookingState
       category
-      delay
+      createdBy
+      date
       description
-      disciplines {
-        name
-      }
-      discussants {
-        firstname
-        lastname
-      }
+      summary
+      subtitle
       id
       image
       name
@@ -28,18 +23,13 @@ query listEvents(
         name
         url
       }
-      eventSlots {
-        email
-        firstname
-        institution
-        lang
-        lastname
-      }
-      start
       state
+      start
+      stop
+      totalSlots
       type
       url
-      totalSlots
     }
+    total
   }
 }

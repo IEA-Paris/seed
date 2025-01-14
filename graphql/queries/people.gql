@@ -1,6 +1,6 @@
 query listPeople(
   $filters: ListInput = {}
-  $appId: ID = "apex"
+  $appId: ID = "iea"
   $lang: String = "en"
 ) {
   listPeople(appId: $appId, filters: $filters, lang: $lang) {

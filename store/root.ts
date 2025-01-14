@@ -401,15 +401,6 @@ export const useRootStore = defineStore("rootStore", {
       this.update(type)
     },
     async update(type: string, lang: string = "en") {
-      // TODO REMOVE !!
-      ;(this[type] as ModuleType).source = "gql"
-      // -------------------
-
-      // console.log('========== calling graphql query');
-
-      // console.log('graphql data: ', data);
-
-      const target = type + "/" + lang + "/"
       this.setLoading(true)
       ;(this[type] as ModuleType).loading = true
       const router = useRouter()
@@ -422,7 +413,7 @@ export const useRootStore = defineStore("rootStore", {
 
       pipeline.$or = []
       // TODO maybe remove
-      for (const filter in filters) {
+      /*       for (const filter in filters) {
         // remove empty values
         if (
           !(
@@ -441,157 +432,81 @@ export const useRootStore = defineStore("rootStore", {
         const val = filters[filter]
         queryFilters[filter] = val
 
-        // convert filters into mongo-like loki query & push in the pipeline
-        /* if (
-          filters[filter] ||
-          (Array.isArray(filters[filter]) && (filters[filter] as any).length)
-        ) {
-          switch (filter) {
-            case "tag":
-            case "thematic":
-            case "discipline":
-            case "type":
-              pipeline[filter] = { $containsAny: val }
-              break
-            case "language":
-              pipeline[filter] = { $containsAny: val }
-              break
-            case "issue":
-              pipeline.issue =
-                val.length > 1
-                  ? {
-                      $in: val.map((item) => "content/issues/" + item + ".md"),
-                    }
-                  : "content/issues/" + val[0] + ".md"
-              break
-            case "years":
-              const yearsToInt = val.map((i) => +i)
-              if (["articles", "media"].includes(type)) {
-                pipeline[filter] = { $in: yearsToInt }
-              } else {
-                pipeline[filter] = { $containsAny: yearsToInt }
-              }
-              break
-            default:
-              pipeline[filter] = Array.isArray(val) ? val[0] : val
-              break
-          }
-        }*/
-      }
-
-      if (!pipeline.$or.length) {
-        delete pipeline.$or
-      } else {
-        pipeline.$or = pipeline.$or.flat()
-      }
-      /*  console.log("pipeline: ", pipeline)
-       */
-
-      let items
-      let totalItems: number = 0
+        
+      } */
 
       const itemsPerPageValue = (this[type] as ModuleType).list
         ?.itemsPerPage as number
+ // fetch the item categories
 
-      if ((this[type] as ModuleType).source === "gql") {
-        const gqlFilters = {
-          filters: {
-            limit: itemsPerPageValue,
-            skip: ((this.page as number) - 1) * itemsPerPageValue,
-            sortDesc: [false], // TODO: why is it an array ? => because you might need multisort with a tie breaker
-            sortBy: ["start"],
-            search: this.search,
+ const itemsPerPage = (this[type] as ModuleType)?.list?.itemsPerPage || 1
+
+ const sortBy = (this[type] as ModuleType).list.sortBy
+      const args = {
+        options: {
+          // skip
+          skip:  +this.page === 1 ? 0 : (+this.page - 1) * itemsPerPage,
+          // limit
+          limit: itemsPerPage,
+          // sort
+          sortBy: (this[type] as ModuleType).list.sortBy,
+          sortDesc: (this[type] as ModuleType).list.sortDesc,
+          // search (if set)
+       ...((this.search as string)?.length &&{search: this.search}),
+          // add the store module filters
+        filters: Object.keys((this[type] as ModuleType).list.filters)
+        // prune empty values
+        .filter((filter)=>(typeof((this[type] as ModuleType).list.filters[filter]?.value) !=='undefined'))
+        // assign set values to their related keys
+        .map(
+          (filter) => {
+            return {
+              [filter]: (this[type] as ModuleType).list.filters[filter].value,
+            }
           },
-          appId: "iea",
-          lang: "en",
-        }
-
-        switch (type) {
-          case "events":
-            const {
-              data: { value: events },
-            } = await useAsyncQuery(LIST_EVENTS, gqlFilters)
-            const eventsRst = (toRaw(events) as any)["listEvents"] as any
-            console.log("eventsRsy: ", eventsRst)
-            items = eventsRst["items"].map((e: any) => ({
-              ...e,
-              _path: "/" + e["id"],
-            }))
-            console.log("items: ", items)
-            totalItems = eventsRst["total"]
-            break
-          case "people":
-            const {
-              data: { value: people },
-            } = await useAsyncQuery(LIST_PEOPLE, gqlFilters)
-            const peopleRst = (toRaw(people) as any)["listPeople"]["listPeople"]
-            items = peopleRst["items"].map((e: any) => ({
-              ...e,
-              _path: "/" + e["id"],
-              title: e["firstname"] + " " + e["lastname"],
-              relatedProjects: [],
-              relatedEvents: [],
-              relatedNews: [],
-              description: e["biography"],
-            }))
-            totalItems = peopleRst["total"]
-            break
-        }
-      } else {
-        const count = await queryContent(target).where(pipeline).count()
-        totalItems = count
-        /*   console.log("totalItems: ", totalItems) */
+        )},
+        appId: "iea",
+        lang: "en",
+      }
+      console.log("args: ", args)
+      let result: any
+      switch (type) {
+        case "events":
+          console.log("fetching events");
+          const {
+            data: { value: events },
+          } = await useAsyncQuery(LIST_EVENTS, args)
+            console.log('events: ', events);
+            result = (toRaw(events) as any)["listEvents"]
+          console.log("result: ", result)
+          result.items = result["items"].map((e: any) => ({
+            ...e,
+            _path: "/" + e["id"],
+          })) as any
+          break
+        case "people":
+          const {
+            data: { value: people },
+          } = await useAsyncQuery(LIST_PEOPLE, args)
+          result = (toRaw(people) as any)["listPeople"]
+          console.log("result: ", result)
+          result.items = result["items"].map((e: any) => ({
+            ...e,
+            _path: "/" + e["id"],
+            title: e["firstname"] + " " + e["lastname"],
+            relatedProjects: [],
+            relatedEvents: [],
+            relatedNews: [],
+            description: e["biography"],
+          }))
+          break
       }
 
-      const lastPage = Math.ceil(totalItems / itemsPerPageValue)
+      ;(this[type] as ModuleType).list.items = result["items"]
+      ;(
+        this[type] as ModuleType,
+      ).list.total = result["total"]
 
-      const lastPageCount =
-        totalItems % ((this[type] as ModuleType)?.list?.itemsPerPage || 1)
-
-      const itemsPerPage = (this[type] as ModuleType)?.list?.itemsPerPage || 1
-
-      const skipNumber = () => {
-        if (+this.page === 1) {
-          return 0
-        }
-        if (+this.page === lastPage) {
-          if (lastPageCount === 0) {
-            return totalItems - itemsPerPage
-          }
-          return totalItems - lastPageCount
-        }
-        return (+this.page - 1) * itemsPerPage
-      }
-
-      const sortBy = (this[type] as ModuleType).list.sortBy
-      console.log("sortBy: ", sortBy)
-      const sortByItem = (sortBy as string[])[0]
-
-      const sortDesc = (this[type] as ModuleType).list.sortDesc
-      const sortDescItem = (sortDesc as number[])[0]
-      const sortArray = [sortByItem, sortDescItem]
-      /*       console.log("type1: ", type)
-      console.log("pipeline: ", pipeline)
-      console.log("queryContent: ", queryContent)
-      console.log("target: ", target)
-      console.log("{ [sortArray[0]]: sortArray[1] }: ", {
-        [sortArray[0]]: sortArray[1],
-      })
-      console.log("skipNumber(): ", skipNumber())
-      console.log("itemsPerPage: ", itemsPerPage) */
-      console.log("target: ", target)
-
-      if ((this[type] as ModuleType).source === "md") {
-        items = (this.search as string)?.length
-          ? await searchContent(this.search as string)
-          : await queryContent(target)
-              /*  .where(pipeline) */
-              .sort({ [sortArray[0]]: sortArray[1] })
-              /*  .sort({ [sortArray[2]]: sortArray[3] }) */
-              .skip(skipNumber())
-              .limit(itemsPerPage)
-              .find()
-      }
       const viewsObj = (this[type] as ModuleType).list.views as Record<
         string,
         Views
@@ -616,14 +531,14 @@ export const useRootStore = defineStore("rootStore", {
         ...((this.page as number) > 1 && {
           page: this.page.toString(),
         }),
-        ...(((this[type] as ModuleType).list.sortBy as string[]).length &&
+        /*    ...(((this[type] as ModuleType).list.sortBy as string[]).length &&
           sortByItem !== defaultSort.value[0] && {
             sortBy: sortByItem,
           }),
         ...(typeof sortDescItem !== "undefined" &&
           sortDescItem !== defaultSort.value[1] && {
             sortDesc: !!sortDescItem,
-          }),
+          }), */
         ...((this[type] as ModuleType).list.view &&
           (this[type] as ModuleType).list.view !== defaultView.name && {
             view: (this[type] as ModuleType).list.view,
@@ -656,13 +571,12 @@ export const useRootStore = defineStore("rootStore", {
         }) */
       }
 
-      // fetch the item categories
-
+      const lastPage = Math.ceil(result.total / itemsPerPageValue)
+      console.log("sortBy: ", sortBy)
+      const sortByItem = (sortBy as string[])[0]
       this.setFiltersCount(type)
       this.setBlankFilterLoad(type)
       /*       console.log("type2: ", type) */
-      ;(this[type] as ModuleType).list.items = items as any
-      this.total = totalItems
       this.numberOfPages = lastPage
       this.setLoading(false)
       ;(this[type] as ModuleType).loading = false
