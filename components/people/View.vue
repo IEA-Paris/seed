@@ -48,7 +48,7 @@
             </div>
             <!-- SOCIALS -->
             <div class="text-center">
-              <MiscAtomsSocials :socials="item.socials" />
+              <MiscAtomsSocials v-if="item.socials" :socials="item.socials" />
             </div>
             <!-- GROUPS -->
             <div class="mt-6 align-self-center">

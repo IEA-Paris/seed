@@ -28,8 +28,10 @@
           <v-img
             :aspect-ratio="ratio"
             :class="{ 'img-animation': animate }"
-            :lazy-src="img(src, { width: 10, quality: 70 })"
-            :src="img(src, { width, quality: 70 })"
+            :lazy-src="
+              img(src.url || 'placeholder /!\TODO', { width: 10, quality: 70 })
+            "
+            :src="img(src.url || 'placeholder /!\TODO', { width, quality: 70 })"
             :srcset="_srcset.srcset"
             :sizes="_srcset.sizes"
             :title="caption"
@@ -51,7 +53,7 @@ const rootStore = useRootStore()
 
 const props = defineProps({
   src: {
-    type: String,
+    type: Object,
     required: true,
   },
   loading: {
@@ -67,7 +69,7 @@ const props = defineProps({
   animate: { type: Boolean, default: true },
 })
 const _srcset = computed(() => {
-  return img.getSizes(props.src, {
+  return img.getSizes(props.src.url, {
     sizes: "xs:100vw sm:100vw md:100vw lg:100vw xl:100vw",
     modifiers: {
       format: "webp",

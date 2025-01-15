@@ -1,4 +1,5 @@
 import config from "./static.config"
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   sourcemap: {
@@ -202,10 +203,13 @@ export default defineNuxtConfig({
         httpEndpoint: config.graphqlEndpoint,
         httpLinkOptions: {
           headers: {
-            'x-api-key': config.graphqlApiKey
-          }
-        }
-      }
+            "x-api-key": config.graphqlApiKey,
+          },
+        },
+        inMemoryCacheOptions: {
+          addTypename: false,
+        },
+      },
     },
   },
 

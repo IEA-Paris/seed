@@ -404,14 +404,9 @@ export const useRootStore = defineStore("rootStore", {
       this.setLoading(true)
       ;(this[type] as ModuleType).loading = true
       const router = useRouter()
-      const filters = (this[type] as ModuleType)?.list?.filters || {}
-      const pipeline = {
-        // default filters
-        /* ...filters, */
-      } as any
+
       const queryFilters: any = {}
 
-      pipeline.$or = []
       // TODO maybe remove
       /*       for (const filter in filters) {
         // remove empty values
@@ -440,50 +435,39 @@ export const useRootStore = defineStore("rootStore", {
       // fetch the item categories
 
       const itemsPerPage = (this[type] as ModuleType)?.list?.itemsPerPage || 1
-      // if there is no sort set, set the default sort
-      if (!(this[type] as ModuleType).list.sortBy) {
-        const sortObj = (this[type] as ModuleType).list.sort
-        const defaultSortKey = Object.keys(sortObj).find(
-          (item) => sortObj[item].default === true,
+      const filters = Object.keys((this[type] as ModuleType).list.filters)
+        // prune empty values
+        .filter(
+          (filter) =>
+            typeof (this[type] as ModuleType).list.filters[filter]?.value !==
+            "undefined",
         )
-        const defaultSort = { ...sortObj[defaultSortKey as string]?.value }
-        console.log("defaultSort: ", defaultSort)
-        ;(this[type] as ModuleType).list.sortBy = [defaultSort[0]]
-        ;(this[type] as ModuleType).list.sortDesc = [defaultSort[1]]
-      }
+        // assign set values to their related keys
+        .map((filter) => {
+          return {
+            [filter]: (this[type] as ModuleType).list.filters[filter].value,
+          }
+        })
 
-      const args = {
-        options: {
-          // skip
-          skip: +this.page === 1 ? 0 : (+this.page - 1) * itemsPerPage,
-          // limit
-          limit: itemsPerPage,
-          // sort, array of keys and array of directions - to have x tie breakers if necessary
-          sortBy: (this[type] as ModuleType).list.sortBy,
-          sortDesc: (this[type] as ModuleType).list.sortDesc,
-          // search (if set)
-          ...((this.search as string)?.length && { search: this.search }),
-          // add the store module filters
-          filters: JSON.stringify(
-            Object.keys((this[type] as ModuleType).list.filters)
-              // prune empty values
-              .filter(
-                (filter) =>
-                  typeof (this[type] as ModuleType).list.filters[filter]
-                    ?.value !== "undefined",
-              )
-              // assign set values to their related keys
-              .map((filter) => {
-                return {
-                  [filter]: (this[type] as ModuleType).list.filters[filter]
-                    .value,
-                }
-              }),
-          ),
-        },
-        appId: "iea",
-        lang: "en",
-      }
+      const args = JSON.parse(
+        JSON.stringify({
+          options: {
+            // skip
+            skip: +this.page === 1 ? 0 : (+this.page - 1) * itemsPerPage,
+            // limit
+            limit: itemsPerPage,
+            // sort, array of keys and array of directions - to have x tie breakers if necessary
+            sortBy: (this[type] as ModuleType).list.sortBy,
+            sortDesc: (this[type] as ModuleType).list.sortDesc,
+            // search (if set)
+            ...((this.search as string)?.length && { search: this.search }),
+            // add the store module filters
+            filters,
+          },
+          appId: "iea",
+          lang: "en",
+        }),
+      )
       console.log("args: ", args)
       let result: any
       switch (type) {

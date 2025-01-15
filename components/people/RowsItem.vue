@@ -4,6 +4,7 @@
     <v-col cols="12" md="3" v-if="mdAndUp">
       <MiscAtomsImageContainer
         cover
+        v-if="item.image"
         :loading="rootStore.people.loading"
         :src="item.image"
         :ratio="1 / 1"
@@ -42,7 +43,11 @@
         >
           {{ item.title }}
         </NuxtLink>
-        <MiscAtomsSocials :socials="item.socials" class="my-2" />
+        <MiscAtomsSocials
+          v-if="item.socials"
+          :socials="item.socials"
+          class="my-2"
+        />
         <NuxtLink
           :to="
             localePath({
@@ -57,10 +62,10 @@
               :value="item"
               class="text-body-1 clamped-text mt-n3"
               :style="
-              '-webkit-line-clamp:' +
-              [5, 5, 3, 6, 9, 9][
-                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-              ]
+                '-webkit-line-clamp:' +
+                [5, 5, 3, 6, 9, 9][
+                  ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+                ]
               "
             />
           </template>

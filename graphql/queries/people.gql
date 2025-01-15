@@ -1,7 +1,7 @@
 query ListPeople(
-  $options: ListInput = {}
   $appId: ID = "iea"
   $lang: String = "en"
+  $options: ListInput = {}
 ) {
   listPeople(options: $options, appId: $appId, lang: $lang) {
     items {
