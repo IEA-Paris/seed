@@ -437,34 +437,50 @@ export const useRootStore = defineStore("rootStore", {
 
       const itemsPerPageValue = (this[type] as ModuleType).list
         ?.itemsPerPage as number
- // fetch the item categories
+      // fetch the item categories
 
- const itemsPerPage = (this[type] as ModuleType)?.list?.itemsPerPage || 1
+      const itemsPerPage = (this[type] as ModuleType)?.list?.itemsPerPage || 1
+      // if there is no sort set, set the default sort
+      if (!(this[type] as ModuleType).list.sortBy) {
+        const sortObj = (this[type] as ModuleType).list.sort
+        const defaultSortKey = Object.keys(sortObj).find(
+          (item) => sortObj[item].default === true,
+        )
+        const defaultSort = { ...sortObj[defaultSortKey as string]?.value }
+        console.log("defaultSort: ", defaultSort)
+        ;(this[type] as ModuleType).list.sortBy = [defaultSort[0]]
+        ;(this[type] as ModuleType).list.sortDesc = [defaultSort[1]]
+      }
 
- const sortBy = (this[type] as ModuleType).list.sortBy
       const args = {
         options: {
           // skip
-          skip:  +this.page === 1 ? 0 : (+this.page - 1) * itemsPerPage,
+          skip: +this.page === 1 ? 0 : (+this.page - 1) * itemsPerPage,
           // limit
           limit: itemsPerPage,
-          // sort
+          // sort, array of keys and array of directions - to have x tie breakers if necessary
           sortBy: (this[type] as ModuleType).list.sortBy,
           sortDesc: (this[type] as ModuleType).list.sortDesc,
           // search (if set)
-       ...((this.search as string)?.length &&{search: this.search}),
+          ...((this.search as string)?.length && { search: this.search }),
           // add the store module filters
-        filters: Object.keys((this[type] as ModuleType).list.filters)
-        // prune empty values
-        .filter((filter)=>(typeof((this[type] as ModuleType).list.filters[filter]?.value) !=='undefined'))
-        // assign set values to their related keys
-        .map(
-          (filter) => {
-            return {
-              [filter]: (this[type] as ModuleType).list.filters[filter].value,
-            }
-          },
-        )},
+          filters: JSON.stringify(
+            Object.keys((this[type] as ModuleType).list.filters)
+              // prune empty values
+              .filter(
+                (filter) =>
+                  typeof (this[type] as ModuleType).list.filters[filter]
+                    ?.value !== "undefined",
+              )
+              // assign set values to their related keys
+              .map((filter) => {
+                return {
+                  [filter]: (this[type] as ModuleType).list.filters[filter]
+                    .value,
+                }
+              }),
+          ),
+        },
         appId: "iea",
         lang: "en",
       }
@@ -472,40 +488,44 @@ export const useRootStore = defineStore("rootStore", {
       let result: any
       switch (type) {
         case "events":
-          console.log("fetching events");
+          console.log("fetching events")
           const {
             data: { value: events },
           } = await useAsyncQuery(LIST_EVENTS, args)
-            console.log('events: ', events);
-            result = (toRaw(events) as any)["listEvents"]
+          console.log("events: ", events.listEvents)
+          result = {
+            ...events?.listEvents,
+            items: events?.listEvents["items"].map((e: any) => ({
+              ...e,
+              _path: "/" + e["id"],
+            })) as any,
+          }
           console.log("result: ", result)
-          result.items = result["items"].map((e: any) => ({
-            ...e,
-            _path: "/" + e["id"],
-          })) as any
+
           break
         case "people":
           const {
             data: { value: people },
           } = await useAsyncQuery(LIST_PEOPLE, args)
-          result = (toRaw(people) as any)["listPeople"]
-          console.log("result: ", result)
-          result.items = result["items"].map((e: any) => ({
-            ...e,
-            _path: "/" + e["id"],
-            title: e["firstname"] + " " + e["lastname"],
-            relatedProjects: [],
-            relatedEvents: [],
-            relatedNews: [],
-            description: e["biography"],
-          }))
+          console.log('people["listPeople"]: ', people)
+          result = {
+            ...people?.listPeople,
+            items: people?.listPeople["items"].map((e: any) => ({
+              ...e,
+              _path: "/" + e["id"],
+              title: e["firstname"] + " " + e["lastname"],
+              relatedProjects: [],
+              relatedEvents: [],
+              relatedNews: [],
+              description: e["biography"],
+            })) as any,
+          }
+
           break
       }
 
       ;(this[type] as ModuleType).list.items = result["items"]
-      ;(
-        this[type] as ModuleType,
-      ).list.total = result["total"]
+      this.total = result["total"]
 
       const viewsObj = (this[type] as ModuleType).list.views as Record<
         string,
@@ -516,11 +536,6 @@ export const useRootStore = defineStore("rootStore", {
       )
       const defaultView = viewsObj[defaultViewsKey as string]
 
-      const sortObj = (this[type] as ModuleType).list.sort
-      const defaultSortKey = Object.keys(sortObj).find(
-        (item) => sortObj[item].default === true,
-      )
-      const defaultSort = sortObj[defaultSortKey as string]
       console.log("query done for type ", type)
       // update route
       const query: Record<string, any> = {
@@ -572,8 +587,6 @@ export const useRootStore = defineStore("rootStore", {
       }
 
       const lastPage = Math.ceil(result.total / itemsPerPageValue)
-      console.log("sortBy: ", sortBy)
-      const sortByItem = (sortBy as string[])[0]
       this.setFiltersCount(type)
       this.setBlankFilterLoad(type)
       /*       console.log("type2: ", type) */
