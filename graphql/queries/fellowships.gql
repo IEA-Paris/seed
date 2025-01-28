@@ -1,0 +1,59 @@
+query listFellowships(
+  $appId: ID = "iea"
+  $lang: String = "en"
+  $options: ListInput = {}
+) {
+  listFellowships(options: $options, appId: $appId, lang: $lang) {
+    items {
+      action
+      applicationStart
+      applicationStop
+      contact
+      description
+      disciplines {
+        createdAt
+        description
+        icon
+        name
+        updatedAt
+      }
+      fellow
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      member {
+        name
+        url
+        image {
+          url
+          licenseUrl
+          license
+          copyright
+          caption
+          backgroundColor
+          alt
+        }
+      }
+      summary
+      title
+      url
+      publicationDate
+      video {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+    }
+    total
+  }
+}
