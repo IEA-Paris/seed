@@ -1,0 +1,11 @@
+query listApps {
+  listApps {
+    adminId
+    description
+    id
+    logo
+    name
+    state
+    url
+  }
+}

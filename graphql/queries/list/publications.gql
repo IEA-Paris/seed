@@ -1,0 +1,107 @@
+query listPublications(
+  $appId: ID = "iea"
+  $lang: String = "en"
+  $options: ListInput = {}
+) {
+  listPublications(options: $options, appId: $appId, lang: $lang) {
+    items {
+      color
+      affiliations {
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        location {
+          alt
+          city
+          country
+          details
+          name
+          geocode {
+            lat
+            lng
+          }
+          street
+          zip
+        }
+        name
+        ror
+        url
+      }
+      date
+      description
+      files {
+        createdAt
+        file
+        hash
+        fileType
+        id
+        image
+        name
+        path
+        size
+        thumb
+        updatedAt
+        url
+      }
+      gallery {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      id
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        url
+        licenseUrl
+      }
+      relatedEvents {
+        description
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          url
+          licenseUrl
+        }
+        name
+        url
+      }
+      subtitle
+      title
+      url
+      tags {
+        createdAt
+        description
+        name
+        icon
+        updatedAt
+      }
+      video {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+    }
+    total
+  }
+}
