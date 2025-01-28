@@ -1,4 +1,4 @@
-query ListPeople(
+query listPeople(
   $appId: ID = "iea"
   $lang: String = "en"
   $options: ListInput = {}
