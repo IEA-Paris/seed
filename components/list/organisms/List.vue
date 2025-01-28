@@ -145,8 +145,6 @@ console.log("error: ", error) */
 onMounted(async () => {
   const { type, source } = props
 
-  rootStore.loadRouteQuery(type)
-
   const hasFilters =
     rootStore[type].filtersCount > 0 ||
     (route.query?.filters && Object.keys(route.query.filters).length > 0) ||

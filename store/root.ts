@@ -17,6 +17,8 @@ import {
 
 import LIST_EVENTS from "~/graphql/queries/events.gql"
 import LIST_PEOPLE from "~/graphql/queries/people.gql"
+import LIST_FELLOWSHIPS from "~/graphql/queries/fellowships.gql"
+import LIST_NEWS from "~/graphql/queries/fellowships.gql"
 
 interface InputParams {
   key?: any | string
@@ -217,16 +219,18 @@ export const useRootStore = defineStore("rootStore", {
     loadRouteQuery(type: string) {
       const { currentRoute } = useRouter()
       const query = currentRoute.value.query
-      if (query?.length) {
-        const filters = JSON.parse(query as any)
-        Object.keys(filters).forEach((filter) => {
+      if (Object.keys(query)?.length) {
+        Object.keys(query).forEach((filter) => {
           if (
             Object.keys((this[type] as ModuleType).list.filters).includes(
               filter,
             )
           )
-            (this[type] as ModuleType).list.filters[filter].value =
-              filters[filter]
+            (this[type] as ModuleType).list.filters[filter].value = (
+              this[type] as ModuleType
+            ).list.filters[filter].multiple
+              ? JSON.parse(query[filter] as string)
+              : query[filter]
         })
         /*       if (query.view) {
         ;(this[type] as ModuleType).list.view = query.view as
@@ -259,6 +263,7 @@ export const useRootStore = defineStore("rootStore", {
         sortDescItem = defaultSort[0].value[1]
       } */
       }
+      console.log("query loaded")
     },
 
     setFiltersCount(type: string) {
@@ -266,7 +271,7 @@ export const useRootStore = defineStore("rootStore", {
       Object.keys((this[type] as ModuleType).list.filters)
         // remove empty values
         .forEach((filter) => {
-          console.log("filter: ", filter) /* 
+          /*console.log("filter: ", filter)  
           console.log("filters[filter]?.value: ", filters[filter].value)
           */ /*  console.log(
             'typeof filters[filter]?.value !== "undefined": ',
@@ -407,29 +412,6 @@ export const useRootStore = defineStore("rootStore", {
 
       const queryFilters: any = {}
 
-      // TODO maybe remove
-      /*       for (const filter in filters) {
-        // remove empty values
-        if (
-          !(
-            (typeof filters[filter] === "boolean" &&
-              filters[filter] !== null &&
-              filters[filter] !== undefined) ||
-            (Array.isArray(filters[filter]) && filters[filter].length) ||
-            (typeof filters[filter] === "object" &&
-              Object.keys(filters[filter]).length)
-          )
-        ) {
-          delete filters[filter]
-          continue
-        }
-        // update route query
-        const val = filters[filter]
-        queryFilters[filter] = val
-
-        
-      } */
-
       const itemsPerPageValue = (this[type] as ModuleType).list
         ?.itemsPerPage as number
       // fetch the item categories
@@ -469,7 +451,7 @@ export const useRootStore = defineStore("rootStore", {
         }),
       )
       console.log("args: ", args)
-      let result: any
+      let result: any = {}
       switch (type) {
         case "events":
           console.log("fetching events")
@@ -505,6 +487,36 @@ export const useRootStore = defineStore("rootStore", {
             })) as any,
           }
 
+          break
+        case "fellowships":
+          const {
+            data: { value: fellowships },
+          } = await useAsyncQuery(LIST_FELLOWSHIPS, args)
+          console.log('fellowships["list"]: ', fellowships)
+          result = {
+            ...fellowships?.listFellowships,
+            items: fellowships?.listFellowships["items"].map((e: any) => ({
+              ...e,
+              _path: "/" + e["id"],
+            })) as any,
+          }
+          break
+        case "news":
+          const {
+            data: { value: news },
+          } = await useAsyncQuery(LIST_NEWS, args)
+          console.log('news["list"]: ', news)
+          result = {
+            ...news?.listNews,
+            items: news?.listNews["items"].map((e: any) => ({
+              ...e,
+              _path: "/" + e["id"],
+            })) as any,
+          }
+          break
+        case "publications":
+          break
+        case "projects":
           break
       }
 

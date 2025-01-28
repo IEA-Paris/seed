@@ -5,7 +5,7 @@
     :multiple="
       filter
         ? rootStore[type].list.filters[name]?.multiple || false
-        : rootStore[type].form[key].multiple
+        : rootStore[type].form[keyVal].multiple
     "
   ></v-select>
 </template>
@@ -13,17 +13,17 @@
 import { useRootStore } from "~/store/root"
 import { debounce } from "~/composables/debounce"
 const rootStore = useRootStore()
-const props = defineProps(["type", "key", "items", "filter", "name"])
+const props = defineProps(["type", "keyVal", "items", "filter", "name"])
 const val = computed({
   get() {
     return props.filter
       ? rootStore[props.type].list.filters[props.name]?.value || []
-      : rootStore[props.type].form[props.key]
+      : rootStore[props.type].form[props.keyVal]
   },
   set(value) {
     props.filter
       ? rootStore.updateFilter(props.name, value, props.type)
-      : rootStore.updateForm({ key: props.key, value, type: props.type })
+      : rootStore.updateForm({ key: props.keyVal, value, type: props.type })
   },
 })
 onMounted(() => {
