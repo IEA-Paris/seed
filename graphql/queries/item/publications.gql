@@ -1,0 +1,148 @@
+query getPublication(
+  $appId: ID = "iea"
+  $itemId: String = ""
+  $lang: String = "en"
+) {
+  getPublication(itemId: $itemId, appId: $appId, lang: $lang) {
+    affiliations {
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      location {
+        alt
+        city
+        country
+        details
+        geocode {
+          lat
+          lng
+        }
+        name
+        street
+        zip
+      }
+      name
+      ror
+      url
+    }
+    color
+    date
+    description
+    files {
+      createdAt
+      file
+      fileType
+      hash
+      id
+      image
+      name
+      path
+      size
+      thumb
+      updatedAt
+      url
+    }
+    gallery {
+      backgroundColor
+      alt
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    id
+    image {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    relatedEvents {
+      description
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      name
+      url
+    }
+    relatedNews {
+      description
+      id
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      name
+      url
+    }
+    relatedPeople {
+      firstname
+      id
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      lastname
+    }
+    relatedProjects {
+      description
+      id
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      title
+      url
+    }
+    subtitle
+    tags {
+      createdAt
+      description
+      icon
+      name
+      updatedAt
+    }
+    title
+    url
+    video {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+  }
+}

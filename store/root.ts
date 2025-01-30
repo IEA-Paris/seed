@@ -15,10 +15,10 @@ import {
   publications,
 } from "@paris-ias/data"
 
-import LIST_EVENTS from "~/graphql/queries/events.gql"
-import LIST_PEOPLE from "~/graphql/queries/people.gql"
-import LIST_FELLOWSHIPS from "~/graphql/queries/fellowships.gql"
-import LIST_NEWS from "~/graphql/queries/fellowships.gql"
+import LIST_EVENTS from "~/graphql/queries/list/events.gql"
+import LIST_PEOPLE from "~/graphql/queries/list/people.gql"
+import LIST_FELLOWSHIPS from "~/graphql/queries/list/fellowships.gql"
+import LIST_NEWS from "~/graphql/queries/list/news.gql"
 
 interface InputParams {
   key?: any | string
