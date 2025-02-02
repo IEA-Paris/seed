@@ -1,0 +1,98 @@
+query getNews($appId: ID = "", $itemId: String = "", $lang: String = "en") {
+  getNews(appId: $appId, itemId: $itemId, lang: $lang) {
+    category
+    color
+    date
+    description
+    featured
+    files {
+      createdAt
+      file
+      fileType
+      hash
+      id
+      image
+      name
+      path
+      size
+      thumb
+      updatedAt
+      url
+    }
+    gallery {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    image {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    relatedEvents {
+      description
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      name
+      url
+    }
+    relatedPeople {
+      firstname
+      id
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      lastname
+    }
+    relatedProject {
+      description
+      id
+      image {
+        alt
+        backgroundColor
+        caption
+        license
+        copyright
+        licenseUrl
+        url
+      }
+      name
+      url
+    }
+    relatedPublications {
+      id
+      title
+      url
+    }
+    tags {
+      createdAt
+      description
+      icon
+      name
+      updatedAt
+    }
+    title
+    url
+  }
+}

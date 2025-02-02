@@ -1,0 +1,134 @@
+query MyQuery($appId: ID = "", $lang: String = "", $itemId: String = "") {
+  getProject(appId: $appId, itemId: $itemId, lang: $lang) {
+    color
+    date
+    description
+    featured
+    files {
+      file
+      createdAt
+      fileType
+      hash
+      id
+      image
+      path
+      size
+      name
+      thumb
+      updatedAt
+      url
+    }
+    subtitle
+    title
+    url
+    video {
+      alt
+      backgroundColor
+      caption
+      copyright
+      licenseUrl
+      license
+      url
+    }
+    relatedPublications {
+      id
+      url
+      title
+    }
+    relatedPeople {
+      firstname
+      id
+      image {
+        alt
+        backgroundColor
+        copyright
+        caption
+        license
+        licenseUrl
+        url
+      }
+      lastname
+    }
+    relatedNews {
+      description
+      id
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      name
+      url
+    }
+    relatedEvents {
+      description
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      name
+      url
+    }
+    affiliations {
+      name
+      ror
+      url
+      location {
+        alt
+        city
+        country
+        details
+        name
+        street
+        zip
+        geocode {
+          lat
+          lng
+        }
+      }
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+    }
+    gallery {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    image {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    tags {
+      createdAt
+      description
+      icon
+      name
+      updatedAt
+    }
+  }
+}
