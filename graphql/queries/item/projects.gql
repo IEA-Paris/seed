@@ -1,4 +1,4 @@
-query MyQuery($appId: ID = "", $lang: String = "", $itemId: String = "") {
+query getProject($appId: ID = "iea", $lang: String = "en", $itemId: String = "") {
   getProject(appId: $appId, itemId: $itemId, lang: $lang) {
     color
     date
