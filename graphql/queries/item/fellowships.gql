@@ -1,5 +1,5 @@
 query getFellowship(
-  $appId: ID = ""
+  $appId: ID = "iea"
   $itemId: String = ""
   $lang: String = "en"
 ) {
