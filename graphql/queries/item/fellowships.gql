@@ -1,0 +1,109 @@
+query getFellowship(
+  $appId: ID = "iea"
+  $itemId: String = ""
+  $lang: String = "en"
+) {
+  getFellowship(appId: $appId, itemId: $itemId, lang: $lang) {
+    action
+    applicationStart
+    fellowshipStart
+    contact
+    url
+    applicationStop
+    fellowshipStop
+    publicationDate
+    summary
+    description
+    fellow {
+      id
+      firstname
+      lastname
+      image {
+        alt
+        caption
+        backgroundColor
+        copyright
+        license
+        licenseUrl
+        url
+      }
+    }
+    fellowshipType
+    files {
+      createdAt
+      file
+      fileType
+      hash
+      id
+      image
+      name
+      path
+      size
+      thumb
+      updatedAt
+      url
+    }
+    gallery {
+      alt
+      backgroundColor
+      caption
+      license
+      copyright
+      licenseUrl
+      url
+    }
+    image {
+      url
+      licenseUrl
+      license
+      copyright
+      caption
+      backgroundColor
+      alt
+    }
+    member {
+      name
+      ror
+      url
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      location {
+        alt
+        city
+        country
+        details
+        geocode {
+          lat
+          lng
+        }
+        name
+        street
+        zip
+      }
+    }
+    title
+    video {
+      alt
+      backgroundColor
+      caption
+      copyright
+      license
+      licenseUrl
+      url
+    }
+    disciplines {
+      description
+      createdAt
+      icon
+      name
+      updatedAt
+    }
+  }
+}
