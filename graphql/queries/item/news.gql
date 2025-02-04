@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 query getNews($appId: ID = "", $itemId: String = "", $lang: String = "en") {
-=======
-query getNews($appId: ID = "iea", $itemId: String = "", $lang: String = "en") {
->>>>>>> develop
   getNews(appId: $appId, itemId: $itemId, lang: $lang) {
     category
     color
