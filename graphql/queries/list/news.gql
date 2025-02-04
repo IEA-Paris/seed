@@ -54,7 +54,6 @@ query listNews(
           licenseUrl
           url
         }
-        name
         url
       }
       relatedPeople {
@@ -83,8 +82,8 @@ query listNews(
           licenseUrl
           url
         }
-        name
         url
+        title
       }
       relatedPublications {
         id

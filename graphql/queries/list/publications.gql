@@ -79,7 +79,7 @@ query listPublications(
           url
           licenseUrl
         }
-        name
+        title
         url
       }
       subtitle
@@ -99,6 +99,50 @@ query listPublications(
         copyright
         license
         licenseUrl
+        url
+      }
+      relatedNews {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          license
+          copyright
+          licenseUrl
+          url
+        }
+        title
+        url
+      }
+      relatedPeople {
+        firstname
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        lastname
+      }
+      relatedProjects {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          copyright
+          caption
+          license
+          licenseUrl
+          url
+        }
+        title
         url
       }
     }

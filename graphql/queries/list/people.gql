@@ -66,7 +66,6 @@ query listPeople(
       lastname
       relatedEvents {
         description
-        name
         url
         image {
           url
@@ -77,6 +76,7 @@ query listPeople(
           license
           licenseUrl
         }
+        title
       }
       relatedNews {
         description
@@ -89,8 +89,9 @@ query listPeople(
           licenseUrl
           url
         }
-        name
         url
+        title
+        id
       }
       relatedProject {
         description
@@ -103,12 +104,14 @@ query listPeople(
           licenseUrl
           url
         }
-        name
         url
+        id
+        title
       }
       relatedPublications {
         title
         url
+        id
       }
       socials {
         idRef
