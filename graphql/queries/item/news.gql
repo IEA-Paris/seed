@@ -48,7 +48,7 @@ query getNews($appId: ID = "", $itemId: String = "", $lang: String = "en") {
         licenseUrl
         url
       }
-      name
+      title
       url
     }
     relatedPeople {
@@ -77,7 +77,7 @@ query getNews($appId: ID = "", $itemId: String = "", $lang: String = "en") {
         licenseUrl
         url
       }
-      name
+      title
       url
     }
     relatedPublications {

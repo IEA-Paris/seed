@@ -78,7 +78,7 @@ query getPublication(
         licenseUrl
         url
       }
-      name
+      title
       url
     }
     relatedNews {
@@ -93,7 +93,7 @@ query getPublication(
         licenseUrl
         url
       }
-      name
+      title
       url
     }
     relatedPeople {
