@@ -168,7 +168,7 @@ const fellowshipType = ref([
 ])
 onMounted(() => {
   rootStore.fellowship.loading = false
-  console.log("fellowship item", props.item.value)
+  /*   console.log("fellowship item", props.item.value) */
 })
 </script>
 

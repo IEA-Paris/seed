@@ -43,7 +43,7 @@ const { locale, locales, messages } = useI18n()
 
 const rootStore = useRootStore()
 const props = defineProps(["type", "expanded"])
-console.log("props.type: ", props.type)
+/* console.log("props.type: ", props.type) */
 
 const ComponentName = (name) => {
   return resolveComponent(

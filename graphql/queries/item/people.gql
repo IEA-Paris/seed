@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 query getPeople($appId: ID = "", $itemId: String = "", $lang: String = "en") {
+=======
+query getPeople($appId: ID = "iea", $itemId: String = "", $lang: String = "en") {
+>>>>>>> develop
   getPeople(appId: $appId, itemId: $itemId, lang: $lang) {
     affiliations {
       affiliation {

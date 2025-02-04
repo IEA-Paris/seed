@@ -58,5 +58,5 @@ const props = defineProps({
   },
 })
 
-console.log("PRPOS", props.item)
+/* console.log("PRPOS", props.item) */
 </script>
