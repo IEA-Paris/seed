@@ -7,7 +7,6 @@
         ? rootStore[type].list.filters[name]?.multiple || false
         : rootStore[type].form[key].multiple
     "
-    v-if="computeVisibility"
   ></v-autocomplete>
 </template>
 <script setup>
@@ -27,8 +26,8 @@ const val = computed({
       : rootStore.updateForm({ key: props.key, value, type: props.type })
   },
 })
-const computeVisibility = computed(() => {
-  console.log(Object.keys(rootStore[props.type].list.filters))
+/* const computeVisibility = computed(() => {
+  /*   console.log(Object.keys(rootStore[props.type].list.filters))
   console.log("filter: ", props.name)
   console.log(
     "!rootStore[props.type].list.filters[props.name].visibility: ",
@@ -37,7 +36,7 @@ const computeVisibility = computed(() => {
   console.log(
     " rootStore[props.type].list.filters[props.name].visibility?.default: ",
     rootStore[props.type].list.filters[props.name].visibility?.default,
-  )
+  ) 
   return (
     !rootStore[props.type].list.filters[props.name].visibility ||
     rootStore[props.type].list.filters[props.name].visibility?.default ||
@@ -73,7 +72,7 @@ const computeVisibility = computed(() => {
       },
     )
   )
-})
+}) */
 onMounted(() => {
   console.log(props)
 })
