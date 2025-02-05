@@ -81,7 +81,6 @@ const props = defineProps({
   animate: { type: Boolean, default: true },
 })
 const _srcset = computed(() => {
-  console.log("typeof props.src === 'String': ", typeof props.src === "string")
   return img.getSizes(
     typeof props.src === "string" ? props.src : props.src.url,
     {

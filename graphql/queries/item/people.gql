@@ -1,4 +1,8 @@
-query getPeople($appId: ID = "iea", $itemId: String = "", $lang: String = "en") {
+query getPeople(
+  $appId: ID = "iea"
+  $itemId: String = ""
+  $lang: String = "en"
+) {
   getPeople(appId: $appId, itemId: $itemId, lang: $lang) {
     affiliations {
       affiliation {
@@ -102,7 +106,7 @@ query getPeople($appId: ID = "iea", $itemId: String = "", $lang: String = "en") 
       url
     }
     relatedPublications {
-      title
+      name
       url
     }
     socials {

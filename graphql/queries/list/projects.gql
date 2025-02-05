@@ -10,7 +10,7 @@ query listProjet(
       description
       featured
       subtitle
-      title
+      name
       url
     }
     total

@@ -107,7 +107,7 @@ query listPeople(
         url
       }
       relatedPublications {
-        title
+        name
         url
       }
       socials {

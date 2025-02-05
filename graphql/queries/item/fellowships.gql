@@ -88,7 +88,7 @@ query getFellowship(
         zip
       }
     }
-    title
+    name
     video {
       alt
       backgroundColor

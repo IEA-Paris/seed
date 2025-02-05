@@ -19,6 +19,8 @@ import LIST_EVENTS from "~/graphql/queries/list/events.gql"
 import LIST_PEOPLE from "~/graphql/queries/list/people.gql"
 import LIST_FELLOWSHIPS from "~/graphql/queries/list/fellowships.gql"
 import LIST_NEWS from "~/graphql/queries/list/news.gql"
+import LIST_PUBLICATIONS from "~/graphql/queries/list/publications.gql"
+import LIST_PROJECTS from "~/graphql/queries/list/projects.gql"
 
 interface InputParams {
   key?: any | string
@@ -454,11 +456,10 @@ export const useRootStore = defineStore("rootStore", {
       let result: any = {}
       switch (type) {
         case "events":
-          console.log("fetching events")
+          console.log("list events")
           const {
             data: { value: events },
           } = await useAsyncQuery(LIST_EVENTS, args)
-          console.log("events: ", events.listEvents)
           result = {
             ...events?.listEvents,
             items: events?.listEvents["items"].map((e: any) => ({
@@ -467,13 +468,12 @@ export const useRootStore = defineStore("rootStore", {
             })) as any,
           }
           console.log("result: ", result)
-
           break
         case "people":
+          console.log("list people")
           const {
             data: { value: people },
           } = await useAsyncQuery(LIST_PEOPLE, args)
-          console.log('people["listPeople"]: ', people)
           result = {
             ...people?.listPeople,
             items: people?.listPeople["items"].map((e: any) => ({
@@ -486,13 +486,12 @@ export const useRootStore = defineStore("rootStore", {
               description: e["biography"],
             })) as any,
           }
-
           break
         case "fellowships":
+          console.log("list fellowships")
           const {
             data: { value: fellowships },
           } = await useAsyncQuery(LIST_FELLOWSHIPS, args)
-          console.log('fellowships["list"]: ', fellowships)
           result = {
             ...fellowships?.listFellowships,
             items: fellowships?.listFellowships["items"].map((e: any) => ({
@@ -502,10 +501,10 @@ export const useRootStore = defineStore("rootStore", {
           }
           break
         case "news":
+          console.log("list news")
           const {
             data: { value: news },
           } = await useAsyncQuery(LIST_NEWS, args)
-          console.log('news["list"]: ', news)
           result = {
             ...news?.listNews,
             items: news?.listNews["items"].map((e: any) => ({
@@ -515,11 +514,33 @@ export const useRootStore = defineStore("rootStore", {
           }
           break
         case "publications":
+          console.log("list publications")
+          const {
+            data: { value: publications },
+          } = await useAsyncQuery(LIST_PUBLICATIONS, args)
+          result = {
+            ...publications?.listPublications,
+            items: publications?.listPublications["items"].map((e: any) => ({
+              ...e,
+              _path: "/" + e["id"],
+            })) as any,
+          }
           break
         case "projects":
+          console.log("list projects")
+          const {
+            data: { value: projects },
+          } = await useAsyncQuery(LIST_PROJECTS, args)
+          result = {
+            ...projects?.listProjects,
+            items: projects?.listProjects["items"].map((e: any) => ({
+              ...e,
+              _path: "/" + e["id"],
+            })) as any,
+          }
           break
       }
-
+      console.log("result: ", result)
       ;(this[type] as ModuleType).list.items = result["items"]
       this.total = result["total"]
 

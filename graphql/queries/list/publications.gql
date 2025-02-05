@@ -83,7 +83,7 @@ query listPublications(
         url
       }
       subtitle
-      title
+      name
       url
       tags {
         createdAt

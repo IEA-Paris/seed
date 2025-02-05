@@ -38,7 +38,7 @@
               "
               class="text-h4 text-black text-wrap mt-4"
             >
-              {{ item.name || item.title }}
+              {{ item.name }}
             </nuxt-link>
             <div class="mt-2 text-h6 text-overline font-weight-black">
               {{ $t("events.categories." + item.category) }}
@@ -124,7 +124,7 @@ const props = defineProps({
     required: true,
   },
 })
-const renderedMarkdown = props.item?.description
-  ? await markdownParser.parse("description", props.item.description)
+const renderedMarkdown = props.item?.subtitle
+  ? await markdownParser.parse("subtitle", props.item.subtitle)
   : ""
 </script>

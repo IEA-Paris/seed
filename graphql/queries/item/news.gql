@@ -82,7 +82,7 @@ query getNews($appId: ID = "iea", $itemId: String = "", $lang: String = "en") {
     }
     relatedPublications {
       id
-      title
+      name
       url
     }
     tags {
@@ -92,7 +92,7 @@ query getNews($appId: ID = "iea", $itemId: String = "", $lang: String = "en") {
       name
       updatedAt
     }
-    title
+    name
     url
   }
 }

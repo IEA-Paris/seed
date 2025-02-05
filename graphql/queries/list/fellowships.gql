@@ -41,7 +41,7 @@ query listFellowships(
         }
       }
       summary
-      title
+      name
       url
       publicationDate
       video {

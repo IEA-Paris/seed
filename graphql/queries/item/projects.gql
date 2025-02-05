@@ -1,4 +1,8 @@
-query getProject($appId: ID = "iea", $lang: String = "en", $itemId: String = "") {
+query getProject(
+  $appId: ID = "iea"
+  $lang: String = "en"
+  $itemId: String = ""
+) {
   getProject(appId: $appId, itemId: $itemId, lang: $lang) {
     color
     date
@@ -19,7 +23,7 @@ query getProject($appId: ID = "iea", $lang: String = "en", $itemId: String = "")
       url
     }
     subtitle
-    title
+    name
     url
     video {
       alt
@@ -33,7 +37,7 @@ query getProject($appId: ID = "iea", $lang: String = "en", $itemId: String = "")
     relatedPublications {
       id
       url
-      title
+      name
     }
     relatedPeople {
       firstname

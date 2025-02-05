@@ -122,7 +122,7 @@ query getPublication(
         licenseUrl
         url
       }
-      title
+      name
       url
     }
     subtitle
@@ -133,7 +133,7 @@ query getPublication(
       name
       updatedAt
     }
-    title
+    name
     url
     video {
       alt
