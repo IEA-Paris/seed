@@ -1,18 +1,11 @@
-query listProjet(
-  $appId: ID = "iea"
-  $lang: String = "en"
-  $options: ListInput = {}
-) {
-  listProjects(appId: $appId, lang: $lang, options: $options) {
-    items {
-      color
-      date
-      description
-      featured
-      subtitle
-      name
-      url
-    }
-    total
+query getProject($appId: ID = "", $lang: String = "", $itemId: String = "") {
+  getProject(appId: $appId, itemId: $itemId, lang: $lang) {
+    color
+    date
+    description
+    featured
+    subtitle
+    name
+    url
   }
 }
