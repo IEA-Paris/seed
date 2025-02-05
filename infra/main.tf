@@ -58,7 +58,7 @@ resource "aws_cloudfront_distribution" "this" {
   #depends_on = local.new_cert == true ? [aws_acm_certificate.this[0]] : []
 
   #web_acl_id = "${data.aws_waf_web_acl.cf.id}"
-  aliases = []
+  aliases = (var.env == "prod") ? [for dn in local.domain_names : dn] : [for dn in local.domain_names : "${var.env}.${dn}"]
   custom_error_response {
     error_caching_min_ttl = 300
     error_code            = 405
@@ -139,10 +139,9 @@ resource "aws_cloudfront_distribution" "this" {
   retain_on_delete = false
 
   viewer_certificate {
-    acm_certificate_arn            = var.certificate_arn != null ? var.certificate_arn : null
-    ssl_support_method             = var.certificate_arn != null ? "sni-only" : null
-    cloudfront_default_certificate = var.certificate_arn != null ? false : true
-    # minimum_protocol_version       = "TLSv1.2_2019" # Not working
+    acm_certificate_arn            = aws_acm_certificate.this.arn
+    ssl_support_method             = "sni-only"
+    cloudfront_default_certificate = false
   }
 
 }
