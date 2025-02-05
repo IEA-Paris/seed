@@ -8,7 +8,7 @@
       </template>
 
       <template v-slot:title="{ item }">
-        {{ $t(item.title).toUpperCase() }}
+        {{ $t(item.name).toUpperCase() }}
       </template>
     </v-breadcrumbs>
     <!--       <v-btn
@@ -54,13 +54,13 @@ const crumbs = computed(() => {
     .map((item, index) => {
       return {
         title: item,
-          href:
-            "/" +
-            route.path
-              .split("/")
-              .filter((item) => item)
-              .slice(0, index +2)
-              .join("/"),
+        href:
+          "/" +
+          route.path
+            .split("/")
+            .filter((item) => item)
+            .slice(0, index + 2)
+            .join("/"),
         disabled: false,
         exact: true,
       }

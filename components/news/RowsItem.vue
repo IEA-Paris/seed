@@ -31,13 +31,14 @@
       ></v-skeleton-loader>
 
       <template v-else>
-        <template v-if="smAndDown">
+        <template v-if="smAndDown && item.category">
           <v-chip class="mb-4">{{
             $t("news.categories." + item.category)
           }}</v-chip>
           <br
         /></template>
         <NuxtLink
+          v-if="renderedTitle && renderedTitle.body"
           :to="
             localePath({
               name: 'news-slug',
@@ -46,23 +47,35 @@
           "
           class="text-wrap text-h5 text-md-h4 text-black"
         >
-          {{ item.title }}</NuxtLink
-        >
+          <ContentRendererMarkdown :value="renderedTitle" />
+        </NuxtLink>
         <MiscMoleculesChipContainer
           :items="item.tags"
           class="mt-4"
         ></MiscMoleculesChipContainer>
         <template v-if="mdAndDown">
-          <ContentRenderer
-            :value="item"
-            class="text-body-1 clamped-text"
-            :style="
-              '-webkit-line-clamp:' +
-              [5, 5, 3, 6, 10, 10][
-                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-              ]
+          <nuxt-link
+            :to="
+              localePath({
+                name: 'activities-events-slug',
+                params: { slug: getSlugFromPath(item._path || '') },
+              })
             "
-          />
+            class="text-black"
+            v-if="renderedSummary && renderedSummary.body"
+          >
+            <p
+              class="text-body-1 text-wrap clamped-text"
+              :style="
+                '-webkit-line-clamp:' +
+                [5, 5, 3, 6, 10, 10][
+                  ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+                ]
+              "
+            >
+              <ContentRendererMarkdown :value="renderedSummary" /></p
+          ></nuxt-link>
+
           <v-btn
             class="mt-4"
             variant="outlined"
@@ -88,16 +101,28 @@
       ></v-skeleton-loader>
 
       <template v-else>
-        <ContentRenderer
-          :value="item"
-          class="text-body-1 mt-n3 clamped-text"
-          :style="
-            '-webkit-line-clamp:' +
-            [5, 5, 4, 7, 8, 10][
-              ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-            ]
+        <nuxt-link
+          :to="
+            localePath({
+              name: 'activities-events-slug',
+              params: { slug: getSlugFromPath(item._path || '') },
+            })
           "
-        />
+          class="text-black"
+          v-if="renderedSummary && renderedSummary.body"
+        >
+          <p
+            class="text-body-1 text-wrap clamped-text"
+            :style="
+              '-webkit-line-clamp:' +
+              [5, 5, 4, 7, 8, 10][
+                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+              ]
+            "
+          >
+            <ContentRendererMarkdown :value="renderedSummary" /></p
+        ></nuxt-link>
+        <p v-else></p>
         <v-btn
           class="mt-4"
           variant="outlined"
@@ -126,6 +151,7 @@
 import { useRootStore } from "~/store/root"
 import { getSlugFromPath } from "~/composables/useUtils"
 import { useDisplay } from "vuetify"
+import markdownParser from "@nuxt/content/transformers/markdown"
 const localePath = useLocalePath()
 const rootStore = useRootStore()
 const { name, smAndDown, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
@@ -139,6 +165,12 @@ const props = defineProps({
     required: true,
   },
 })
+const renderedTitle = props.item?.name
+  ? await markdownParser.parse("name", props.item.name)
+  : ""
+const renderedSummary = props.item?.summary
+  ? await markdownParser.parse("summary", props.item.summary)
+  : ""
 </script>
 
 <style></style>

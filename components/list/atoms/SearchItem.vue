@@ -1,17 +1,17 @@
 <template>
   <v-list-item
-    :to="localePath('/activities/events/' + slugify(item.title))"
+    :to="localePath('/activities/events/' + slugify(item.name))"
     class="search-item"
   >
     <template
       v-slot:item
-      :key="index.toString() + slugify(item.title)"
+      :key="index.toString() + slugify(item.name)"
     ></template>
     <template v-slot:prepend v-if="item.prependAvatar">
       <v-avatar rounded="0" :image="item.prependAvatar"> </v-avatar>
     </template>
     <template v-slot:title>
-      <div v-html="item.title" class="text-black black-text"></div>
+      <div v-html="item.name" class="text-black black-text"></div>
     </template>
     <template v-slot:subtitle>
       <div v-html="item.subtitle" class="text-black black-text"></div>
@@ -20,7 +20,7 @@
       <v-btn
         icon="mdi-open-in-new"
         variant="text"
-        :to="localePath('/activities/events/' + slugify(item.title))"
+        :to="localePath('/activities/events/' + slugify(item.name))"
         target="_blank"
       ></v-btn>
     </template>

@@ -41,7 +41,7 @@
           "
           class="text-wrap text-h5 text-md-h4 text-black mb-2"
         >
-          {{ item.title }}
+          {{ item.name }}
         </NuxtLink>
         <MiscAtomsSocials
           v-if="item.socials"
@@ -57,23 +57,9 @@
           "
           class="text-wrap text-h4 text-black"
         >
-          <template v-if="item._source === 'content'">
-            <ContentRenderer
-              :value="item"
-              class="text-body-1 clamped-text mt-n3"
-              :style="
-                '-webkit-line-clamp:' +
-                [5, 5, 3, 6, 9, 9][
-                  ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-                ]
-              "
-            />
-          </template>
-          <template v-else>
-            <div class="text-body-1 clamped-text mt-n3">
-              {{ item.biography }}
-            </div>
-          </template>
+          <div class="text-body-1 clamped-text mt-n3">
+            <ContentRendererMarkdown :value="renderedBiography" />
+          </div>
         </NuxtLink>
       </div>
     </v-col>
@@ -82,6 +68,7 @@
 <script setup>
 import { useRootStore } from "~/store/root"
 import { useDisplay } from "vuetify"
+import markdownParser from "@nuxt/content/transformers/markdown"
 import { getSlugFromPath } from "~/composables/useUtils"
 const { name, mdAndUp } = useDisplay()
 const localePath = useLocalePath()
@@ -96,4 +83,7 @@ const props = defineProps({
     required: true,
   },
 })
+const renderedBiography = props.item?.biography
+  ? await markdownParser.parse("biography", props.item.biography)
+  : ""
 </script>

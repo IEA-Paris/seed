@@ -41,7 +41,7 @@
             : null
         "
       >
-        {{ item.title }}
+        <ContentRendererMarkdown :value="renderedTitle" />
       </div>
       <v-expand-transition v-if="lgAndUp">
         <div v-show="expanded">
@@ -50,16 +50,17 @@
           ></MiscMoleculesChipContainer>
         </div>
       </v-expand-transition>
-      <ContentRenderer
-        :value="item"
-        class="text-body-1 clamped-text"
+      <p
+        class="text-body-1 text-wrap clamped-text"
         :style="
           '-webkit-line-clamp:' +
           (expanded ? [5, 5, 3, 6, 9, 11] : [5, 5, 2, 4, 6, 8])[
             ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
           ]
         "
-      />
+      >
+        <ContentRendererMarkdown :value="renderedSummary" />
+      </p>
 
       <v-expand-transition>
         <v-btn
@@ -98,6 +99,7 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
+import markdownParser from "@nuxt/content/transformers/markdown"
 const router = useRouter()
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
@@ -113,6 +115,12 @@ const props = defineProps({
     required: true,
   },
 })
+const renderedTitle = props.item?.name
+  ? await markdownParser.parse("name", props.item.name)
+  : ""
+const renderedSummary = props.item?.summary
+  ? await markdownParser.parse("summary", props.item.summary)
+  : ""
 </script>
 
 <style lang="scss" scoped>

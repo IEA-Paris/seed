@@ -3,7 +3,7 @@
     :to="
       localePath({
         name: 'activities-projects-slug',
-        params: { slug: item.title },
+        params: { slug: item.name },
       })
     "
   >
@@ -14,7 +14,7 @@
           :src="item.image"
           :loading="rootStore.loading"
           :ratio="1 / 1"
-          :link="item.title"
+          :link="item.name"
           name="activities-projects-slug"
         />
       </v-col>
@@ -25,7 +25,7 @@
         ></v-skeleton-loader>
         <template v-else>
           <div class="text-h6">
-            {{ item.title }}
+            {{ item.name }}
           </div>
           <div class="text-body-1">
             {{ item.shortDescription }}

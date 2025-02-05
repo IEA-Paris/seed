@@ -32,7 +32,7 @@
 
     <template v-else>
       <div class="text-h5 text-sm-h3 text-md-h4 text-md-h4 my-6">
-        {{ item.name }}
+        <ContentRendererMarkdown :value="renderedTitle" />
       </div>
 
       <nuxt-link
@@ -53,7 +53,7 @@
             ]
           "
         >
-          <ContentRendererMarkdown :value="renderedMarkdown" /></p
+          <ContentRendererMarkdown :value="renderedSummary" /></p
       ></nuxt-link>
 
       <v-btn
@@ -110,8 +110,11 @@ const props = defineProps({
     required: true,
   },
 })
-const renderedMarkdown = props.item?.subtitle
+const renderedSummary = props.item?.subtitle
   ? await markdownParser.parse("subtitle", props.item.subtitle)
+  : ""
+const renderedTitle = props.item?.name
+  ? await markdownParser.parse("name", props.item.name)
   : ""
 </script>
 

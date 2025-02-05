@@ -12,6 +12,7 @@ query listEvents(
       createdBy
       date
       description
+      details
       summary
       subtitle
       id

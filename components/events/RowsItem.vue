@@ -38,7 +38,10 @@
               "
               class="text-h4 text-black text-wrap mt-4"
             >
-              {{ item.name }}
+              <ContentRendererMarkdown
+                v-if="renderedTitle && renderedTitle.length"
+                :value="renderedTitle"
+              />
             </nuxt-link>
             <div class="mt-2 text-h6 text-overline font-weight-black">
               {{ $t("events.categories." + item.category) }}
@@ -52,6 +55,8 @@
                 })
               "
               class="text-black"
+              v-if="renderedSubtitle && renderedSubtitle.length"
+              :value="renderedSubtitle"
             >
               <p
                 class="text-wrap clamped-text"
@@ -62,7 +67,7 @@
                   ]
                 "
               >
-                <ContentRendererMarkdown :value="renderedMarkdown" /></p
+                <ContentRendererMarkdown /></p
             ></nuxt-link>
 
             <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">
@@ -94,7 +99,7 @@
     <v-col cols="12" md="4">
       <MiscAtomsImageContainer
         cover
-        :name="item.title"
+        :name="item.name"
         :slug="getSlugFromPath(item._path || '')"
         link="activities-events-slug"
         :loading="rootStore.events.loading"
@@ -124,7 +129,13 @@ const props = defineProps({
     required: true,
   },
 })
-const renderedMarkdown = props.item?.subtitle
+const renderedTitle = props.item?.name
+  ? await markdownParser.parse("name", props.item.name)
+  : ""
+const renderedSubtitle = props.item?.subtitle
   ? await markdownParser.parse("subtitle", props.item.subtitle)
+  : ""
+const renderedDescription = props.item?.description
+  ? await markdownParser.parse("description", props.item.description)
   : ""
 </script>

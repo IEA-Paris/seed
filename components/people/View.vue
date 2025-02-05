@@ -86,7 +86,10 @@
       >
       </v-skeleton-loader>
       <template v-else>
-        <ContentRenderer :value="item" class="my-6 flex-wrap" />
+        <ContentRendererMarkdown
+          :value="renderedBiography"
+          class="my-6 flex-wrap"
+        />
       </template>
 
       <!-- DIVIDERS -->
@@ -172,7 +175,11 @@
 <script setup>
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
+import markdownParser from "@nuxt/content/transformers/markdown"
 const rootStore = useRootStore()
 const { name, mdAndUp } = useDisplay()
 const props = defineProps({ item: { type: Object, required: true } })
+const renderedBiography = props.item?.biography
+  ? await markdownParser.parse("biography", props.item.biography)
+  : ""
 </script>

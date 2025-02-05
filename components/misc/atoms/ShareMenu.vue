@@ -20,7 +20,7 @@
           :key="network"
           class="text-black"
           :network="network"
-          :title="$t('share-this-on', { item: item.title })"
+          :title="$t('share-this-on', { item: item.name })"
           :aria-label="$t('share-on', { network: network })"
           :image="item.image"
           :hashtags="item.tags.map((tag) => tag.name)"

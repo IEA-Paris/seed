@@ -14,9 +14,11 @@
     <v-col cols="9">
       <v-row>
         <v-col cols="12" class="text-h2">
-          {{ item.title }}
+          <ContentRendererMarkdown :value="renderedTitle" />
         </v-col>
         <v-col cols="12">
+          <ContentRendererMarkdown :value="renderedSubtitle" />
+
           <v-btn color="">{{ $t("watch-the-replay") }}</v-btn>
         </v-col>
       </v-row>
@@ -29,7 +31,7 @@
         <v-col cols="3">
           <MiscAtomsOptimizedImage
             :src="item.picture"
-            :alt="item.title"
+            :alt="item.name"
             :width="150"
             :aspect-ratio="1 / 1"
             cover
@@ -62,7 +64,9 @@
         <v-col cols="3" class="text-h6">
           <v-sheet border class="pa-6 h-100">
             Inscription details
-            <v-btn color="success">Register</v-btn></v-sheet
+            <v-btn color="success">{{
+              $t("events.register-me")
+            }}</v-btn></v-sheet
           >
         </v-col>
       </v-row>
@@ -91,7 +95,7 @@
     </v-col>
     <!-- Description -->
     <v-col cols="9">
-      <ContentRenderer :value="item" />
+      <ContentRendererMarkdown :value="renderedDescription" />
     </v-col>
   </v-row>
 </template>
@@ -108,5 +112,14 @@ const props = defineProps({
     required: true,
   },
 })
+const renderedTitle = props.item?.name
+  ? await markdownParser.parse("name", props.item.name)
+  : ""
+const renderedSubtitle = props.item?.subtitle
+  ? await markdownParser.parse("subtitle", props.item.subtitle)
+  : ""
+const renderedDescription = props.item?.description
+  ? await markdownParser.parse("description", props.item.description)
+  : ""
 </script>
 <style lang="scss"></style>
