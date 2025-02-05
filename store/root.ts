@@ -526,7 +526,7 @@ export const useRootStore = defineStore("rootStore", {
             })) as any,
           }
           break
-        case "projects":
+        case "project":
           console.log("list projects")
           const {
             data: { value: projects },
