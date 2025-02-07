@@ -8,9 +8,7 @@
           height="424"
           link
         >
-          <ContentDoc
-            :path="'/pages/' + $i18n.locale + '/membership_overview'"
-          />
+          <ContentDoc :path="'/pages/' + locale + '/membership_overview'" />
         </v-card>
       </v-col>
       <v-col cols="4" v-if="smAndUp">
@@ -50,7 +48,7 @@
   </v-container>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { useDisplay } from "vuetify"
 const { smAndUp } = useDisplay()
 const localePath = useLocalePath()

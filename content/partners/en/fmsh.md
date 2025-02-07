@@ -1,7 +1,7 @@
 ---
 title: Fondation maison des sciences de l'homme (FMSH)
 url: https://www.fmsh.fr/en
-picture: FMSH.png
+picture: /images/logos/FMSH.png
 color: '#fff'
 
 ---

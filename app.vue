@@ -1,24 +1,20 @@
 <template>
-  <Transition name="layout" mode="out-in">
-    <div :key="$route.meta.layout">
-      <NuxtLayout>
-        <Transition name="page" mode="out-in">
-          <div :key="$route.fullPath">
-            <NuxtPage />
-          </div>
-        </Transition>
-      </NuxtLayout>
-    </div>
-  </Transition>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
-<script lang="ts" setup>
-const { $i18n } = useNuxtApp()
+<script setup>
 const config = useAppConfig()
+const route = useRoute()
+const { $i18n } = useNuxtApp()
 useHead({
   // as a string,
   // where `%s` is replaced with the title
   // of the current page
   title: "Welcome ",
-  titleTemplate: `%s - ${$i18n.t(config.name)}`,
+  titleTemplate: `%s - ${$i18n.t("paris_ias")}`,
+  htmlAttrs: {
+    lang: "en",
+  },
 })
 </script>

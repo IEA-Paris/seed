@@ -4,16 +4,20 @@
     role="navigation"
     aria-label="Pagination Navigation"
   >
+    <!--  TODO: switch to page as route param -->
     <v-btn
       v-if="!(hidePrevNext && firstPageSelected())"
+      :disabled="firstPageSelected()"
       min-width="35"
       height="35"
       width="35"
       :tabindex="!hidePrevNext && firstPageSelected() ? -1 : 0"
       aria-label="Previous Page"
       nuxt
-      :to="`/${type}/${currentPage - 1}`"
-      @keyup.enter="$router.push(`/${type}/${currentPage - 1}`)"
+      @click="rootStore.updatePage({ page: currentPage - 1, type: props.type })"
+      @keyup.enter="
+        rootStore.updatePage({ page: currentPage - 1, type: props.type })
+      "
     >
       <v-icon>mdi-chevron-left </v-icon>
     </v-btn>
@@ -27,12 +31,28 @@
         width="35"
         icon
         nuxt
-        :to="`/${type}/${Math.floor(
-          renderPages[index - 1].key +
-            ((renderPages[index + 1].key || totalPages) -
-              renderPages[index - 1].key) /
-              2
-        )}`"
+        @keyup.enter="
+          rootStore.updatePage({
+            page: Math.floor(
+              renderPages[index - 1].key +
+                ((renderPages[index + 1].key || totalPages) -
+                  renderPages[index - 1].key) /
+                  2,
+            ),
+            type: props.type,
+          })
+        "
+        @click="
+          rootStore.updatePage({
+            page: Math.floor(
+              renderPages[index - 1].key +
+                ((renderPages[index + 1].key || totalPages) -
+                  renderPages[index - 1].key) /
+                  2,
+            ),
+            type: props.type,
+          })
+        "
       >
         ...
       </v-btn>
@@ -40,7 +60,6 @@
         <v-btn
           :key="page.key"
           :class="{ 'active-page': page.current }"
-          :to="`/${type}/${page.value}`"
           tabindex="0"
           outlined
           min-width="35"
@@ -56,7 +75,10 @@
               ? `Current page, Page ${page.value}`
               : `Goto Page ${page.value}`
           "
-          @keyup.enter="$router.push(`/${type}/${page.value}`)"
+          @click="rootStore.updatePage({ page: page.value, type: props.type })"
+          @keyup.enter="
+            rootStore.updatePage({ page: page.value, type: props.type })
+          "
         >
           {{ page.value }}
         </v-btn>
@@ -66,13 +88,16 @@
     <v-btn
       v-if="!(hidePrevNext && lastPageSelected())"
       :tabindex="!hidePrevNext && lastPageSelected() ? -1 : 0"
+      :disabled="lastPageSelected()"
       aria-label="Next Page"
-      :to="`/${type}/${currentPage + 1}`"
+      @click="rootStore.updatePage({ page: currentPage + 1, type: props.type })"
       min-width="35"
       height="35"
       width="35"
       nuxt
-      @keyup.enter="$router.push(`/${type}/${currentPage + 1}`)"
+      @keyup.enter="
+        rootStore.updatePage({ page: currentPage + 1, type: props.type })
+      "
     >
       <v-icon>mdi-chevron-right</v-icon></v-btn
     >
@@ -80,9 +105,13 @@
 </template>
 
 <script setup>
+const route = useRoute()
+const router = useRouter()
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
 // THIS COMPONENT IS INITALLY BASED ON https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-pagination
 // AND MODIFIED TO FIT INTO OUR NEEDS (Vuetify + nuxt 3)
-const props =  defineProps({
+const props = defineProps({
   totalPages: {
     type: Number,
     required: true,
@@ -197,7 +226,7 @@ const firstPageSelected = () => {
 }
 
 const lastPageSelected = () => {
-      return props.currentPage === props.totalPages || props.totalPages === 0
+  return props.currentPage === props.totalPages || props.totalPages === 0
 }
 
 const createGap = (pageIndex) => {
@@ -208,7 +237,7 @@ const createGap = (pageIndex) => {
 }
 </script>
 
-<style lang="scss">
+<style>
 .active-page {
   background-color: #000;
   color: #f5f5f5 !important;

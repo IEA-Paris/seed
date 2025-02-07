@@ -1,35 +1,17 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col cols="12" sm="9">
-        <v-card
-          class="d-flex align-center justify-center"
-          color="grey-lighten-3"
-          height="424"
-          link
-        >
-          Overview of the upcoming events. Link to event browsing</v-card
-        >
-      </v-col>
-      <v-col cols="12" sm="3">
-        <v-card
-          class="d-flex align-center justify-center"
-          color="grey-lighten-3"
-          height="400"
-        >
-          <v-img
-            height="400"
-            fit="contain"
-            src="/images/sandrine_morvand.jpg"
-          ></v-img
-        ></v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-container style="max-width: 1200px">
+    <ListOrganismsList type="events"></ListOrganismsList
+  ></v-container>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { useDisplay } from "vuetify"
+import { useRootStore } from "~/store/root"
+
 const { smAndUp } = useDisplay()
 const localePath = useLocalePath()
+
+const rootStore = useRootStore()
+
+const data = rootStore.$state.events.list.items
 </script>

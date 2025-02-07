@@ -14,7 +14,6 @@
   "privacy": "Politique de confidentialité",
   "invalid-e-mail": "Email invalide",
   "about": "À propos",
-  "events": "Évènements",
   "people": "Personnes",
   "publications": "Publications",
   "videos": "Videos",
@@ -25,7 +24,7 @@
   "fellowships": "Résidences",
   "page-not-found": "Page introuvable",
   "network": "Réseau",
-  "programs": "Programmes",
+  "projects": "Projets",
   "proceedings": "Actes",
   "rules": {
     "at-least-0-characters": "{0} caractères minimum",
@@ -34,12 +33,342 @@
     "invalid-url": "URL invalide",
     "max-0-characters": "{0} caractères maximum",
     "numbers-and-special-characters-not-allowed": "Les chiffres et caractères spéciaux ne sont pas autorisés",
-    "required": "Requis"
+    "required": "Requis",
+    "only-digits-allowed": "Chiffres uniquement"
   },
   "resources": "Ressources",
   "sab": "Conseil scientifique",
   "scientific_policy": "Politique scientifique",
   "team": "Équipe",
   "activities": "Activités",
-  "board": "Conseil d'administration"
+  "board": "Conseil d'administration",
+  "applicationMaterials": "Documents de candidature",
+  "become-a-patron": "Devenez mécène",
+  "funding": "Financement",
+  "housing": "Logement",
+  "check-this-out": "En voir plus",
+  "fundingPeriod": "Période de financement",
+  "learn-more": "En savoir plus",
+  "meals": "Repas",
+  "our-members": "Nos membres",
+  "location": "Emplacement",
+  "privacy-policy": "Politique de confidentialité",
+  "online": "En ligne",
+  "profile": "Profil",
+  "selectionProcess": "Processus de sélection",
+  "researchSupport": "Soutien à la recherche",
+  "type": "Taper",
+  "tasks": "Tâches",
+  "date-and-time": "Date & Heure",
+  "fellow_presentation": "Présentation du résident",
+  "seminar": "Seminaire",
+  "conference": "Conférence",
+  "colloquium": "Colloque",
+  "registration-open": "Inscriptions ouvertes",
+  "by-the-numbers": "Par les chiffres",
+  "institute_life": "Vie de l'institut",
+  "more-info": "Plus d'informations",
+  "upcoming-events": "Évènements à venir",
+  "watch-the-replay": "Voir le replay",
+  "events-organized-at-paris-ias": "Événements organisés à l'IAS de Paris",
+  "fellowships-programs-and-research-projects-hosted-at-paris-ias": "Programmes de bourses et projets de recherche hébergés à l'IAS de Paris",
+  "scientific-advisory-board": "Conseil scientifique",
+  "people-attending-our-events-since-2011": "Personnes participant à nos événements depuis 2011",
+  "invalid-doi-code": "DOI invalide",
+  "invalid-date": "Le format de date n'est pas valide",
+  "invalid-orcid": "Votre numéro ORCID n'est pas valide",
+  "fellowship": {
+    "register": "S'inscrire à ce programme d'accueil"
+  },
+  "events": {
+    "see-more": "Voir plus d'évènements",
+    "register": "Inscrivez vous à cet évènement",
+    "key": "Évènements",
+    "categories": [
+      "Lecture",
+      "Seminar",
+      "Conference",
+      "Colloquium",
+      "Fellow's presentation"
+    ],
+    "register-me": "Registre"
+  },
+  "live-stream-available": "Diffusion en direct disponible",
+  "date-et-heure": "Date et Heure",
+  "details": "Plus de details",
+  "inscription-ouverte": "Inscription Ouverte",
+  "inscription-gratuite-et-obligatoire": "Inscription gratuite et obligatoire",
+  "presentation": "Presentation",
+  "programme": "Programme",
+  "programme-pdf": "Le programme (PDF)",
+  "resumes-des-presentations": "Resumés des présentations",
+  "get-in-touch-on-linkedin": "Prenez contact sur LinkedIn",
+  "visit-the-author-google-scholar-page": "Visitez la page Google Scholar de cette personne",
+  "visit-the-author-orcid-page": "Voir le profil Orcid",
+  "check-the-wikipedia-page-of-the-author": "Consultez la page wikipedia",
+  "positions-and-affiliations": "Positions et Affiliations",
+  "groups": {
+    "team": "Équipe",
+    "sab": "Conseil scientifique",
+    "board": "Conseil d'administration",
+    "fellow": "Résident",
+    "sponsor": "Sponsor"
+  },
+  "0-1-found-page-2-of-3": "Aucun {1} trouvé. \nPage {2} sur {3} | {0} {1} trouvé. \nPage {2} sur {3} | {0} {1} trouvés. \nPage {2} sur {3} ",
+  "biography": "Biographie",
+  "by-author": "Avant {0}",
+  "details-0": "Détails",
+  "document": "Documents",
+  "from {0} to {1}": "de {0} à {1}",
+  "invalid-color-code": "code couleur invalide",
+  "invalid-ror-code": "Syntaxe d'identifiant ROR invalide",
+  "items": {
+    "events": "événement | \névénement | \névénements",
+    "fellow": "camarade | \ncamarade | \nles gars",
+    "fellowship": "bourse | \nbourse | \nbourses",
+    "news": "nouvelles | \nnouvelles | \nnouvelles",
+    "people": "personne | \npersonne | \npersonnes",
+    "project": "projet | \nprojet | \nprojets"
+  },
+  "news": {
+    "key": "Actualités",
+    "categories": [
+      "communiqué de presse",
+      "Vie de l'institut",
+      "Rapport",
+      "Article",
+      "Entretien",
+      "Opinion",
+      "Article de blog"
+    ]
+  },
+  "list": {
+    "by-date-most-recent-first": "Dernier",
+    "by-date-oldest-first": "Le plus ancien",
+    "by-name-from-a-to-z": "Par nom, de A à Z",
+    "by-name-from-z-to-a": "Par nom, de Z à A",
+    "list": "Liste",
+    "dense": "Dense",
+    "pls-x-more": "{0} plus",
+    "rows": "Lignes",
+    "search-type": "Rechercher {0}",
+    "sort-mode": "Mode de tri :",
+    "tiles": "Carrelage",
+    "view-issues": "Par problème",
+    "view-list": "Liste",
+    "view-mode": "Mode d'affichage :",
+    "view-text": "Texte",
+    "view-tiles": "Matelassé",
+    "0-items-found": "Aucun {1} trouvé.|{0} {1} trouvé.|{0} {1} trouvé.",
+    "0-items-found-searching-for": "Aucun {1} trouvé à la recherche de \"{search}\".|1 {1} trouvé à la recherche de \"{2}\". \n| \n{n} {1} trouvé en recherchant \"{search}\".",
+    "0-items-found-searching-for-with-1-filter": "{1} trouvé en recherchant \"{2}\" avec {3} filtres.| \n{0} {1} trouvé en recherchant \"{2}\" avec {3} filtres. \n| \n{0} {1} trouvé en recherchant \"{2}\" avec {3} filtres.",
+    "0-items-found-with-1-filter": "Aucun {1} trouvé avec {2} filtres.|1 {1} trouvé avec {2} filtres. \n| \n{0} {1} trouvés avec {2} filtres.",
+    "filters": {
+      "events": {
+        "category": {
+          "colloquium": "Colloque",
+          "conference": "Conférence",
+          "fellow-presentation": "Présentation du boursier",
+          "lecture": "Conférence",
+          "seminar": "Séminaire"
+        },
+        "disciplines": {
+          "communication": "Communication",
+          "economics": "Économie",
+          "education": "Éducation",
+          "finance": "Finance",
+          "geography": "Géographie",
+          "history": "Histoire",
+          "law": "Loi",
+          "management": "Gestion",
+          "marketing": "Commercialisation",
+          "philosophy": "Philosophie",
+          "political-science": "Science politique",
+          "psychology": "Psychologie",
+          "sociology": "Sociologie"
+        },
+        "fellowship": {
+          "cat": "Pensée avancée et constructive",
+          "fias": "Instituts d'études avancées français",
+          "paris-ias-ideas": "Idées IAS de Paris",
+          "pop": "Programme Oxford-Paris"
+        },
+        "online": "En ligne",
+        "organiserCategory[0]": "IAS de Paris",
+        "organiserCategory[1]": "Résident",
+        "organiserCategory[2]": "Externe",
+        "outside": "Hors les murs",
+        "past": "Passé",
+        "status": {
+          "cancelled": "Annulé",
+          "finished": "Terminé",
+          "ongoing": "En cours",
+          "planned": "Prévu"
+        }
+      },
+      "fellowship": {
+        "affiliation": {
+          "paris-1": "Paris 1",
+          "paris-2": "Paris 2"
+        },
+        "discipline": {
+          "communication": "Communication",
+          "economics": "Économie",
+          "education": "Éducation",
+          "finance": "Finance",
+          "geography": "Géographie",
+          "history": "Histoire",
+          "law": "Loi",
+          "management": "Gestion",
+          "marketing": "Commercialisation",
+          "philosophy": "Philosophie",
+          "political-science": "Science politique",
+          "psychology": "Psychologie",
+          "sociology": "Sociologie"
+        },
+        "duration": {
+          "in-groups": "En groupe",
+          "long-stay": "Long séjour",
+          "short-stay": "Court séjour"
+        },
+        "status": {
+          "cancelled": "Annulé",
+          "finished": "Terminé",
+          "ongoing": "En cours",
+          "planned": "Prévu"
+        }
+      },
+      "news": {
+        "category": {
+          "article": "Article",
+          "blog-post": "Article de blog",
+          "interview": "Entretien",
+          "life-at-the-institute": "La vie de l'institut",
+          "opinion": "Opinion",
+          "press-release": "communiqué de presse",
+          "report": "Rapport"
+        },
+        "tags": {
+          "Socioscope": "Socioscope",
+          "WPRN": "WPRN",
+          "WPRN-2021": "WPRN2021"
+        }
+      },
+      "people": {
+        "categories": {
+          "board-of-directors": "Conseil d'administration",
+          "fellows": "Boursiers",
+          "scientific-advisory-board": "Conseil scientifique",
+          "sponsor": "Sponsor",
+          "team": "Équipe"
+        },
+        "discipline": {
+          "communication": "Communication",
+          "economics": "Économie",
+          "education": "Éducation",
+          "finance": "Finance",
+          "geography": "Géographie",
+          "history": "Histoire",
+          "law": "Loi",
+          "management": "Gestion",
+          "marketing": "Commercialisation",
+          "philosophy": "Philosophie",
+          "political-science": "Science politique",
+          "psychology": "Psychologie",
+          "sociology": "Sociologie"
+        },
+        "member": {
+          "paris-1": "Paris 1"
+        },
+        "program": {
+          "cat": "Constructive Advanced Thinking",
+          "fias": "Instituts d'études avancées français",
+          "paris-ias-ideas": "Paris IAS Ideas",
+          "pop": "Programme Oxford-Paris"
+        },
+        "vintage": {
+          "2011": "2011",
+          "2012": "2012",
+          "2013": "2013",
+          "2014": "2014",
+          "2015": "2015",
+          "2016": "2016",
+          "2017": "2017",
+          "2018": "2018",
+          "2019": "2019",
+          "2020": "2020",
+          "2021": "2021",
+          "2022": "2022",
+          "2023": "2023",
+          "2024": "2024"
+        }
+      },
+      "project": {
+        "status": {
+          "cancelled": "Annulé",
+          "finished": "Terminé",
+          "ongoing": "En cours",
+          "planned": "Prévu"
+        }
+      }
+    },
+    "page-0-of-1": "Page {0} sur {1}"
+  },
+  "plus-de-details": "Plus de détails",
+  "presentation-0": "présentation",
+  "presentation-1": "présentation",
+  "read-more": "En savoir plus",
+  "related": {
+    "events": "Événements liés",
+    "news": "Actualités connexes",
+    "project": "Projets associés"
+  },
+  "socials": {
+    "facebook": "Visitez notre page Facebook",
+    "github": "Visitez nos dépôts Github",
+    "instagram": "Suivez-nous sur Instagram",
+    "linkedin": "Contactez-nous sur linkedin",
+    "orcid": "Visitez la page de l'auteur Orcid",
+    "rss": "Flux RSS",
+    "scholar": "Visitez la page Google Scholar de l'auteur",
+    "twitter": "Suivez-nous sur Twitter",
+    "wikipedia": "Consultez la page wikipedia de l'auteur",
+    "youtube": "Consultez notre chaîne Youtube"
+  },
+  "organizers": "Organisateurs",
+  "documents": "Documents",
+  "moto": "Activateur d’intelligence collective, avec le meilleur de la recherche",
+  "outside-event": "Événement extérieur",
+  "event-full": "Événement complet",
+  "visit-this-project-website": "Site Web du projet",
+  "see-more": "Voir plus",
+  "share-on": "Partagez sur {network}",
+  "share-this-on": "Jetez un oeil à {item}",
+  "paris-institute-for-advanced-study": "Institut d'études avancées de Paris",
+  "visit": "Modalités d'accès",
+  "view-larger-map": "Voir sur une carte en plein écran",
+  "hybrid-event": "Événement hybride",
+  "vintage": "Année",
+  "short-stay": "Séjour court",
+  "long-stay": "Séjour long",
+  "in-groups": "En groupe",
+  "opening-applications-on-0": "Ouverture aux candidatures le {0}",
+  "applications-closed-since-0": "Inscriptions fermées depuis le {0}",
+  "register-until-0": "Candidatez jusqu'au {0}",
+  "register": "s'enregistrer",
+  "discover-our-0-fellows": "Discover our {0} Fellows",
+  "gallery": "Gallerie",
+  "MiscAtomsImage": {
+    "see-more": "Voir plus"
+  },
+  "close-the-filter-panel": "Fermer les filtres",
+  "fellowship-register": "Candidatez à ce programme d'accueil",
+  "filters": "Filtres",
+  "open-the-filter-panel": "Ouvrir les filtres",
+  "this-fellowship-alumni": "Les anciens résidents de ce programme",
+  "visit-the-project-website": "Visitez le site Web du projet",
+  "meet-our-network": "Découvrez notre réseau",
+  "our-partners": "Nos partenaires",
+  "our-sponsors": "Nos mécènes",
+  "follow-us": "Suivez-nous"
 }

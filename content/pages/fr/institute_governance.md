@@ -2,7 +2,7 @@
 title: institute governance
 page: institute
 ---
-## Créer des outils d’intelligence collective[](/people/sab)
+## Créer des outils d’intelligence collective
 
 Acteur majeur de l’innovation en sciences humaines et sociales, l’IEA développe, en partenariat avec ses membres et les autres instituts d’études avancées à l’international, des projets visant à accroître la **recherche collaborative** sur les questions complexes et les grands enjeux des transitions. 
 

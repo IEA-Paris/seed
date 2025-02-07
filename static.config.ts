@@ -2,8 +2,10 @@ export default {
   env: { NODE_ENV: "dev" },
   name: "PARIS IAS",
   full_name: "Paris Institute for Advanced Study", // set to false if there is none
+  short_name: "Paris IAS", // set to false if there is none
   full_name_html: "Paris&nbsp;Institute<br>for Advanced&nbsp;Study", // set to false if there is none
-  address: "17, Quai d'Anjou 75004 PARIS - FRANCE",
+  address: "17 Quai d'Anjou",
+  postcode_country: "75004 PARIS - FRANCE",
   phone: "+33(0)1 56 81 00 52",
   email: "publications@paris-iea.fr",
   subtitle: "Paris Institute for Advanced Study",
@@ -15,7 +17,10 @@ export default {
   graphqlApiKey: "da2-5q3rpaubfzhntc2kcz6re6ndp4",
   keywords: "open source, open science, science, vuejs, nuxt, vuetify, vuex",
   url: "https://paris.pias.science",
-  logo: "/logo.png",
+  logo: {
+    light :"/logo.png",
+    dark: "/logo_white.png",
+  },
   titleSeparator: " | ",
   lang: {
     default: "en",
@@ -140,5 +145,69 @@ export default {
       cmsLabelPrefix: "Apex CMS update",
       initialWorkflowStatus: "Draft",
     },
+  },
+
+  sitemap: {
+    main: [
+      {
+        text: "about",
+        dropdown: true,
+        children: [
+          { text: "institute", path: "/about/institute" },
+          { text: "scientific_policy", path: "/about/scientific_policy" },
+          { text: "network", path: "/about/network" },
+        ],
+      },
+      {
+        text: "activities",
+        dropdown: true,
+        children: [
+          { text: "fellowships", path: "/activities/fellowships" },
+          { text: "projects", path: "/activities/projects" },
+          {
+            text: "events.key",
+            path: "/activities/events",
+          },
+          { text: "publications", path: "/activities/publications" },
+        ],
+      },
+      {
+        text: "people",
+        dropdown: true,
+        children: [
+          { text: "fellows", path: "/people?categories=fellows" },
+          { text: "team", path: "/people?categories=team" },
+          {
+            text: "sab",
+            path: "/people?categories=scientific-advisory-board",
+          },
+          { text: "board", path: "/people?categories=board-of-directors" },
+          { text: "browse", path: "/people" },
+        ],
+      },
+      {
+        text: "news",
+        path: "/news",
+      },
+    ],
+    footer: [
+      { text: "tos", path: "/tos" },
+      { text: "contact", path: "/contact" },
+      { text: "pressroom", path: "/pressroom" },
+      { text: "newsletter", path: "/tos" },
+      { text: "about", path: "/tos" },
+      { text: "privacy_policy", path: "/tos" },
+      { text: "support", path: "/support" },
+    ],
+  },
+
+  socials: {
+    linkedin: "iea-de-paris",
+    youtube: "@IEAPARIS",
+    twitter: "ieadeparis",
+    github: "IEA-Paris",
+    facebook:
+      "Institut-d%C3%A9tudes-avanc%C3%A9es-de-Paris-IEA-de-Paris/277065215652486",
+    rss: "https://paris-iea.fr/en/rss.xml",
   },
 }

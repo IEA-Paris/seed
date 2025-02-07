@@ -1,36 +1,40 @@
 <template>
-  <v-list item-props lines="three">
-    <v-list-item
-      v-for="(event, i) in events"
-      :key="i"
+  <v-sheet v-for="(event, i) in events" :key="i" flat class="ma-6">
+    <v-row
       :value="event"
-      color="primary"
-      :to="localePath('/events/' + slugify(event.title))"
+      @click="
+        $router.push(localePath('/activities/events/' + slugify(event.title)))
+      "
+      style="cursor: pointer"
     >
-      <template v-slot:prepend>
-        <v-avatar size="40">
-          <nuxt-img
-            width="40px"
-            height="40px"
-            :src="event.picture"
-            v-if="event.picture"
-          ></nuxt-img>
-          <v-icon v-else>mdi-calendar</v-icon></v-avatar
-        >
-      </template>
-      <v-list-item-title>
-        <v-chip class="mr-2" color="primary" v-if="event.online">
+      <v-col cols="3">
+        <MiscAtomsDateStamp
+          :loading="rootStore.events.loading"
+          :date="[
+            new Date(event.start),
+            ...(event.stop ? [new Date(event.stop)] : []),
+          ]"
+        ></MiscAtomsDateStamp>
+      </v-col>
+      <v-col cols="9">
+        <v-list-item-title class="text-h6 my-3">
+          {{ event.title }}
+        </v-list-item-title>
+        <v-list-item-subtitle v-text="event.summary"></v-list-item-subtitle>
+        <v-chip class="mr-2 mt-3" color="primary" v-if="event.online">
           {{ $t("online") }}
         </v-chip>
-        <i>{{ event.date_text }}</i> <br /><b>{{ `${event.title}` }}</b>
-      </v-list-item-title>
-      <v-list-item-subtitle v-text="event.summary"></v-list-item-subtitle>
-    </v-list-item>
-  </v-list>
+      </v-col>
+    </v-row>
+  </v-sheet>
 </template>
 <script setup>
-import slugify from "~/assets/utils/slugify"
-const { $i18n } = useNuxtApp()
+import { useDisplay } from "vuetify"
+const { smAndUp, xsOnly } = useDisplay()
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
+
+const { locale } = useI18n()
 const props = defineProps({
   events: {
     type: Array,

@@ -1,22 +1,24 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col cols="12">
-        <v-card
-          class="d-flex align-center justify-center"
-          color="grey-lighten-3"
-          height="424"
-          link
-        >
-          Fellowship presentation</v-card
-        >
-      </v-col>
-    </v-row>
-  </v-container>
+  <section style="background-color: white">
+    <FellowshipView :item="data" />
+  </section>
 </template>
 
-<script lang="ts" setup>
+<script setup async>
 import { useDisplay } from "vuetify"
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
+const route = useRoute()
 const { smAndUp } = useDisplay()
+const { locale } = useI18n()
 const localePath = useLocalePath()
+
+const { data } = await useAsyncData(
+  "fellowship",
+  async () =>
+    await queryContent(
+      "fellowship/" + locale.value + "/" + route.params.slug,
+    ).findOne(),
+)
+rootStore.setLoading(false, "fellowship")
 </script>

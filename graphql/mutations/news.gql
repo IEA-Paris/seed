@@ -1,0 +1,48 @@
+query news(
+  $filter: NewsFilterInput
+  $pagination: PaginationInput
+  $sort: SortInput
+) {
+  news(filter: $filter, pagination: $pagination, sort: $sort) {
+    title
+    description
+    tags {
+      name
+    }
+    image {
+      url
+      alt
+    }
+    color
+    url
+    date
+    featured
+    relatedPeople {
+      firstname
+      lastname
+      image {
+        url
+        alt
+      }
+    }
+    relatedProject {
+      title
+      shortDescription
+      image {
+        url
+        alt
+      }
+    }
+    relatedEvents {
+      name
+      image {
+        url
+        alt
+      }
+      start
+      location {
+        name
+      }
+    }
+  }
+}

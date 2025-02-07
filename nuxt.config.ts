@@ -1,10 +1,18 @@
 import config from "./static.config"
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  sourcemap: {
+    server: true,
+    client: true,
+  },
+
   ssr: true,
+
   site: {
     url: "https://paris-iea.fr",
+    name: "Paris Institute for Advanced Study",
   },
+
   app: {
     pageTransition: { name: "page", mode: "out-in" },
     head: {
@@ -39,14 +47,17 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   css: [
     "vuetify/lib/styles/main.sass",
     "@mdi/font/css/materialdesignicons.min.css",
     "@/assets/styles/main.scss",
   ],
+
   build: {
     transpile: ["vuetify"],
   },
+
   vite: {
     define: {
       "process.env.DEBUG": false,
@@ -54,46 +65,104 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "@/assets/styles/_variables.scss" as *;',
+          api: "modern-compiler",
+          /*           additionalData: '@use "@/assets/styles/_variables.scss" as *;', */
         },
       },
     },
+    build: {
+      target: "esnext", //browsers can handle the latest ES features
+    },
   },
+
+  nitro: {
+    prerender: {
+      /*  crawlLinks: true, */
+      failOnError: false,
+    },
+  },
+  /*   plugins: [{ src: "~/plugins/flickity.js", ssr: false }], */
   modules: [
     "@pinia/nuxt",
     "@nuxt/content",
     /* "@nuxtjs/html-validator", */ // https://nuxt.com/modules/html-validator
-    "nuxt-csurf", // Cross-Site Request Forgery (CSRF) prevention (https://nuxt.com/modules/csurf).
+    // Cross-Site Request Forgery (CSRF) prevention (https://nuxt.com/modules/csurf).
+    "nuxt-csurf",
     "@nuxt/image",
+    "nuxt-swiper",
     "@nuxtjs/i18n",
-    "@nuxtjs/device", // https://github.com/nuxt-community/device-module
-    "@nuxtjs/robots", // https://github.com/nuxt-modules/robots
-    "@nuxtjs/google-fonts", //
-    "nuxt-simple-sitemap",
+    "@nuxtjs/sitemap",
+    // https://github.com/nuxt-community/device-module
+    /* "@nuxtjs/device", */
+    // https://github.com/nuxt-modules/robots
+    "@nuxtjs/robots",
+    //
+    "@nuxtjs/google-fonts",
     "nuxt-link-checker",
     "nuxt-schema-org",
     "@vite-pwa/nuxt",
-    "@nuxtjs/apollo",
+    /*  "@nuxtjs/apollo", */
+    "@vueuse/motion/nuxt",
+    //https://nuxt.com/docs/getting-started/testing
+    "@nuxt/test-utils/module",
+    /*     "@nuxtjs/html-validator", */
+    "@stefanobartoletti/nuxt-social-share",
   ],
+
   pinia: {
     autoImports: ["defineStore", ["defineStore", "definePiniaStore"]],
+  },
+  // https://nuxt.com/modules/nuxt-social-share
+  socialShare: {
+    baseUrl: "https://www.paris-iea.fr", // required!
+    // other optional module options
   },
   content: {
     // https://content.nuxtjs.org/api/configuration
     experimental: {
-      clientDB: true,
+      search: {
+        indexed: true,
+      },
+    },
+
+    markdown: {
+      toc: { depth: 2, searchDepth: 2 },
+      rehypePlugins: [
+        /* "rehype-figure" */
+      ],
+      // Object syntax can be used to override default options
+      remarkPlugins: {
+        // Override remark-emoji options
+        /*   "remark-emoji": {
+          emoticon: true,
+        }, */
+        // Disable remark-gfm
+        /*   "remark-gfm": false,
+        // Add remark-oembed
+        "remark-oembed": {
+          // Options
+        }, */
+      },
     },
   },
+
   image: {
     // https://image.nuxt.com/get-started/configuration
   },
-  components: true,
-
+  swiper: {
+    // Default parameters
+  },
+  components: {
+    global: true,
+    dirs: ["~/components"],
+  },
+  routeRules: {
+    "/api/**": { isr: false },
+  },
   i18n: {
     langDir: "translations/",
     locales: config.lang.locales,
     defaultLocale: config.lang.default,
-    strategy: "no_prefix",
     baseUrl: config.url,
     lazy: true,
     detectBrowserLanguage: {
@@ -102,43 +171,22 @@ export default defineNuxtConfig({
       fallbackLocale: "en",
       useCookie: true,
       cookieKey: "i18n_redirected",
-    },
+    } /* 
     customRoutes: "config",
     pages: {
-      "/about/institute": {
-        fr: "/a-propos/institut",
-      },
-      "/about/scientific_policy": {
-        fr: "/a-propos/politique-scientifique",
-      },
-      "/about/network": {
-        fr: "/a-propos/reseau",
-      },
-      "/activities/fellowships": {
-        fr: "/activites/residences",
-      },
-      "/activities/programs": {
-        fr: "/activites/programmes",
-      },
-      "/activities/events": {
-        fr: "/activites/evenements",
-      },
-      "/people/team": {
-        fr: "/equipe",
-      },
-      "/people/scientific-advisory-board": {
-        fr: "/conseil-scientifique",
-      },
-    },
+   
     // https://v8.i18n.nuxtjs.org/options/vue-i18n
   },
+
   pwa: {
     //https://vite-pwa-org.netlify.app/frameworks/nuxt.html
-    /* PWA options */
+    /* PWA options */,
   },
+
   robots: {
     // https://nuxt.com/modules/robots#options
   },
+
   googleFonts: {
     // https://google-fonts.nuxtjs.org/getting-started/options
     families: config.modules.fonts.families,
@@ -146,10 +194,12 @@ export default defineNuxtConfig({
     prefetch: true,
     display: "swap",
   },
+
   apollo: {
     // https://apollo.nuxtjs.org/getting-started/configuration
     clients: { default: { httpEndpoint: "https://api.spacex.land/graphql" } },
   },
+
   htmlValidator: {
     usePrettier: false,
     logLevel: "verbose",
@@ -175,4 +225,12 @@ export default defineNuxtConfig({
       },
     },
   },
+  experimental: {
+    asyncContext: true,
+  },
+  devtools: {
+    enabled: false,
+  },
+
+  compatibilityDate: "2024-09-03",
 })

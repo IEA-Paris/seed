@@ -1,19 +1,33 @@
 <template>
-  <v-container>
-      <SortMenu :type="type"></SortMenu>
-      <component :is="view">
-        <component v-for="(item, index) in items" :item="item" :key="index"  
-            :is="itemTemplate"></component>
-          </component>
-      <div class="text-center">
-        <ListMoleculesPagination v-if="numberOfPages > 1" :type="type" color="black" large :current-page="page"
-          :total-pages="numberOfPages" :page-padding="1" :page-gap="2" :hide-prev-next="false"></ListMoleculesPagination>
-      </div>
-  </v-container>
+  <ListMoleculesHeader :type="type"></ListMoleculesHeader>
+  <component :is="view">
+    <component
+      v-for="(item, index) in items"
+      :item="item"
+      :key="index"
+      :is="itemTemplate"
+      :index="index"
+    ></component>
+  </component>
+  <div class="text-center">
+    <ListMoleculesPagination
+      v-if="numberOfPages > 1"
+      :type="type"
+      color="black"
+      large
+      :current-page="page"
+      :total-pages="numberOfPages"
+      :page-padding="1"
+      :page-gap="2"
+      :hide-prev-next="false"
+    ></ListMoleculesPagination>
+  </div>
 </template>
 <script setup>
 import { useRootStore } from "~/store/root"
 import { useDisplay } from "vuetify"
+import { capitalize } from "~/composables/useUtils"
+const { locale } = useI18n()
 const {
   name: nameDisplay,
   xs: isXsDisplay,
@@ -23,7 +37,7 @@ const {
   smAndDown,
 } = useDisplay()
 const nuxtApp = useNuxtApp()
-const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1)
+
 const rootStore = useRootStore()
 const props = defineProps({
   addBtn: {
@@ -61,29 +75,40 @@ const props = defineProps({
   items: [Object],
 })
 
-
 const show = ref(true)
-const view = computed(() =>  resolveComponent(capitalize(rootStore[props.type].view)))
-const itemTemplate = computed(() =>  resolveComponent((capitalize(props.type) + capitalize(rootStore[props.type].view)+ 'Item').toString()))
+const view = computed(() =>
+  resolveComponent(
+    "ListViews" + capitalize(rootStore[props.type].list.view.name),
+  ),
+)
+const itemTemplate = computed(() =>
+  resolveComponent(
+    (
+      capitalize(props.type) +
+      capitalize(rootStore[props.type].list.view.name) +
+      "Item"
+    ).toString(),
+  ),
+)
 const route = useRoute()
-const total = computed(() => rootStore[props.type].total)
-const numberOfPages = computed(() => rootStore[props.type].numberOfPages)
+const total = computed(() => rootStore.total)
+const numberOfPages = computed(() => rootStore.numberOfPages)
 
-const page = computed(() => +rootStore[props.type].page)
+const page = computed(() => +rootStore.page)
 
-const sortBy = computed(() => rootStore[props.type].sortBy)
+const sortBy = computed(() => rootStore[props.type].list.sortBy)
 
 const sortDesc = computed(() =>
-  rootStore[props.type].sortDesc[0] !== "asc" ? [false] : [true]
+  rootStore[props.type].list.sortDesc[0] !== "asc" ? [false] : [true],
 )
 
-const filtersCount = computed(() => rootStore[props.type].filtersCount)
+const filtersCount = computed(() => rootStore[props.type].list.filtersCount)
 
-const items = computed(() => rootStore[props.type].items)
+const items = computed(() => rootStore[props.type].list.items)
 
 const itemsPerPage = computed({
   get() {
-    return rootStore[props.type].itemsPerPage
+    return rootStore[props.type].list.itemsPerPage
   },
   set(value) {
     rootStore.updateItemsPerPage({ itemsPerPage: value, type: props.type })
@@ -93,7 +118,7 @@ const itemsPerPage = computed({
 
 const search = computed({
   get() {
-    return rootStore[props.type].search
+    return rootStore.search
   },
   set(value) {
     debouncedSearch(value)
@@ -102,30 +127,31 @@ const search = computed({
 
 const display = computed({
   get() {
-    return rootStore[props.type].display
+    return rootStore[props.type].list.display
   },
   set(value) {
     rootStore.updateDisplay({ display: value, type: props.type })
     nuxtApp.$vuetify.goTo(0)
   },
 })
-
-onMounted(() => {
+try {
+  await rootStore.update(props.type, locale.value)
+} catch (error) {
+  console.log("error: ", error)
+}
+/* const { data, error } = await useAsyncData(props.type, () =>
+)
+console.log("error: ", error) */
+onMounted(async () => {
   const { type, source } = props
 
   rootStore.loadRouteQuery(type)
 
   const hasFilters =
     rootStore[type].filtersCount > 0 ||
-    (route.query.filters && Object.keys(route.query.filters).length > 0) ||
+    (route.query?.filters && Object.keys(route.query.filters).length > 0) ||
     route.query?.search?.length > 0
-  /* 
+  /*
     filter.value = hasFilters */
-
-  rootStore.update(type, source)
-})
-
-useFetch(async () => {
-  rootStore.update(props.type)
 })
 </script>

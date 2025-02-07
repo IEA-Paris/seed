@@ -2,7 +2,7 @@
 title: institute governance
 page: institute
 ---
-## Creating tools for collective intelligence[](/people/sab)
+## Creating tools for collective intelligence
 
 As a major player in innovation in the human, social and cognitive sciences, the IAS is developing various projects in partnership with its members and other institutes for advanced study around the world to foster collaborative research on complex issues.
 

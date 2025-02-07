@@ -1,89 +1,181 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col cols="12">
-        <v-card
-          class="d-flex align-center justify-center flex-column"
-          color="grey-lighten-3"
-          height="424"
-          link
-        >
-          <HomeCarousel :featured="featured"></HomeCarousel
-        ></v-card>
-      </v-col>
-      <v-col cols="12">
-        <v-card
-          flat
-          class="d-flex align-center justify-center pa-6"
-          :to="localePath('/about/institute')"
-          link
-        >
-          <ContentDoc
-            :path="'/pages/' + $i18n.locale.value + '/institute_presentation'"
-        /></v-card>
-      </v-col>
-      <v-col cols="12" sm="8">
-        <v-card
-          class="d-flex align-center justify-center flex-column"
-          color="green-lighten-3"
-          :to="localePath('events')"
-          link
-        >
-          Upcoming Events
-          <EventsListContainer :events="events"></EventsListContainer> </v-card
-      ></v-col>
-      <v-col cols="4" v-if="smAndUp">
-        <ActionsSmallContainer :action="action"></ActionsSmallContainer>
-      </v-col>
+  <div class="scroller">
+    <!--   <v-btn color="success" @click="rootStore.setLoading(!rootStore.loading)"
+    >ext</v-btn
+  > -->
 
-      <v-col cols="4" v-if="smAndUp">
-        <v-card
-          class="d-flex align-center justify-center"
-          color="blue-lighten-3"
-          height="250"
-          >Twitter feed</v-card
-        ></v-col
-      ><v-col cols="12" sm="8">
-        <v-card
-          class="d-flex align-center justify-center"
-          color="yellow-lighten-3"
-          height="250"
-          >Featured resources</v-card
-        ></v-col
-      >
-      <v-col cols="12">
-        <v-card
-          class="d-flex align-center justify-center"
-          color="orange-lighten-3"
-          height="400"
+    <section class="d-flex flex-column justify-center dark">
+      <v-container fluid>
+        <v-row class="d-flex justify-center" ref="about">
+          <v-col cols="12" md="6" class="d-flex justify-end my-6">
+            <div
+              v-motion
+              :initial="{
+                opacity: 0,
+                x: -100,
+              }"
+              :enter="{
+                opacity: 1,
+                x: 0,
+                transition: {
+                  type: 'slide',
+                  stiffness: '100',
+                  delay: 500,
+                },
+              }"
+              class="text-h4 text-sm-h3 text-md-h2 pr-6"
+              :class="mdAndUp ? 'text-right' : 'text-left'"
+              :style="mdAndUp ? 'max-width: 500px' : 'padding: 0 24px'"
+            >
+              {{ $t("moto") }}
+            </div>
+          </v-col>
+          <v-col cols="12" md="6" class="my-6 d-flex align-end">
+            <div
+              v-motion
+              :initial="{
+                opacity: 0,
+                x: 100,
+              }"
+              :enter="{
+                opacity: 1,
+                x: 0,
+                transition: {
+                  type: 'slide',
+                  stiffness: '100',
+                  delay: 1000,
+                },
+              }"
+              id="presentation"
+              class="presentation-pitch f-flex justify-end align-end"
+              style="max-width: 600px"
+            >
+              <!--     <v-img
+                src="/logo_b&w.svg"
+                contain
+                width="150"
+                class="ma-6"
+              ></v-img> -->
+              <ListAtomsSearchInput
+                type="all"
+                :loading="false"
+                class="mb-6 light"
+              ></ListAtomsSearchInput>
+              <v-btn-toggle tile variant="outlined" divided theme="dark">
+                <v-btn :to="localePath('activities-events')">{{
+                  $t("events.key")
+                }}</v-btn>
+                <v-btn :href="localePath('/people?categories=fellows')">{{
+                  $t("fellows")
+                }}</v-btn>
+                <v-btn :href="localePath('activities-projects')">{{
+                  $t("projects")
+                }}</v-btn>
+                <v-btn :href="localePath('activities-publications')">{{
+                  $t("publications")
+                }}</v-btn>
+              </v-btn-toggle>
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
+      <div class="d-flex justify-center">
+        <v-btn
+          color="default"
+          icon
+          flat
+          @click="events?.$el.scrollIntoView({ behavior: 'smooth' })"
+          variant="outlined"
         >
-          our fellows</v-card
-        ></v-col
-      >
-    </v-row>
-  </v-container>
+          <v-icon>mdi-chevron-down</v-icon>
+        </v-btn>
+      </div>
+    </section>
+    <section class="d-flex flex-column justify-center align-center">
+      <v-container>
+        <MiscAtomsSlidingCarousel
+          :items="upcomingEvents"
+          key="events"
+          ref="events"
+          type="events"
+          :loading="false"
+        >
+          <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
+            {{ $t("upcoming-events") }}
+          </div>
+        </MiscAtomsSlidingCarousel>
+        <div class="d-flex justify-center">
+          <v-btn
+            color="default"
+            icon
+            flat
+            @click="numbers?.$el.scrollIntoView({ behavior: 'smooth' })"
+            class="justify-self-center"
+            variant="outlined"
+          >
+            <v-icon>mdi-chevron-down</v-icon>
+          </v-btn>
+        </div>
+      </v-container>
+    </section>
+
+    <NavigationFooter isSnapScroll />
+  </div>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
-const { smAndUp } = useDisplay()
-const localePath = useLocalePath()
+definePageMeta({
+  layout: "about",
+})
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
 
+const router = useRouter()
+const { smAndUp, mdAndUp } = useDisplay()
+const localePath = useLocalePath()
+/* const goTo = useGoTo() */
 const config = useAppConfig()
 const { locale } = useI18n()
+const presentation = ref("/pages/" + locale.value + "/institute_presentation")
 
-const { $i18n } = useNuxtApp()
-const { data: featured } = await useAsyncData("featured-list", () =>
-  queryContent("/carousel/" + $i18n.locale.value).find()
+const carousel = ref(true)
+
+const about = ref(null)
+const events = ref(null)
+const numbers = ref(null)
+
+const today = new Date()
+/* const academicYear = ref(
+  today.getMonth() > 6
+    ? today.getFullYear() + "-" + (today.getFullYear() + 1)
+    : today.getFullYear() - 1 + "-" + today.getFullYear(),
+) */
+
+const { data: upcomingEvents } = await useAsyncData("event-list", () =>
+  queryContent("/events/" + locale.value)
+    .where({ outside: false })
+    .sort("date", "desc")
+    .limit(12)
+    .find(),
 )
-const { data: events } = await useAsyncData("event-list", () =>
-  queryContent("/events/" + $i18n.locale.value)
-    .sort({ date: 1 })
-    .find()
-)
-const { data: action } = await useAsyncData("actions", () =>
-  queryContent("/actions/" + $i18n.locale.value)
-    .limit(1)
-    .find()
-)
+
+onMounted(() => {
+  // init defaults from a possible previous session
+  rootStore.setDefaults()
+})
 </script>
+<style lang="scss">
+.presentation-pitch p {
+  font-size: 1.2rem;
+}
+
+.dark {
+  background-color: #0b0b0b;
+  color: white;
+}
+.light {
+  color: #0b0b0b;
+  background-color: white;
+}
+</style>

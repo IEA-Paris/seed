@@ -1,7 +1,7 @@
 <template>
-  <v-menu offset-y open-on-hover bottom>
+  <v-menu offset-y bottom>
     <template v-slot:activator="{ props }">
-      <v-btn v-bind="props" class="" x-large>
+      <v-btn v-bind="props" class="h-100" x-large>
         {{ $i18n.locale.toUpperCase() }}
         <v-icon right>mdi-chevron-down</v-icon>
       </v-btn>
@@ -24,11 +24,8 @@
 </template>
 <script setup>
 const { locale, locales } = useI18n()
-const switchLocalePath = useSwitchLocalePath()
-
 const availableLocales = computed(() => {
   return locales.value.filter((i) => i.code !== locale.value)
 })
-console.log("availableLocales: ", availableLocales.value)
 </script>
 <style lang="scss"></style>

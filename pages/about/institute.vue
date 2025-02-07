@@ -1,110 +1,136 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col cols="12" sm="6">
-        <v-card
-          class="d-flex align-center justify-center"
-          color="grey-lighten-3"
-          height="400"
-        >
-          Picture
-          <v-img
-            height="400"
-            fit="contain"
-            src="/images/lahlou_saadi.jpg"
-          ></v-img
-        ></v-card>
-      </v-col>
-
-      <v-col cols="12" sm="6">
-        <v-card
-          class="d-flex align-center justify-center"
-          color="blue-lighten-3"
-          height="400"
-        >
-          <HomeMoto></HomeMoto>
-        </v-card>
-      </v-col>
-      <v-col cols="12">
-        <v-card
-          class="d-flex align-center justify-center flex-row"
-          color="green-lighten-3"
-          height="400"
-        >
-          <ContentDoc
-            :path="'/pages/' + $i18n.locale + '/institute_description'"
-          />
-        </v-card>
-      </v-col>
-      <v-col cols="4">
-        <v-card class="d-flex align-center justify-center" flat height="400">
-          <v-carousel cycle hide-delimiters show-arrows="hover">
-            <v-carousel-item
-              v-for="i in 7"
-              :key="i"
-              :src="'/images/location/' + i + '.jpg'"
-              cover
-            ></v-carousel-item> </v-carousel
-        ></v-card>
-      </v-col>
-      <v-col cols="8">
-        <v-card
-          class="d-flex align-center justify-center"
-          color="brown-lighten-3"
-          height="400"
-        >
-          <ContentDoc
-            :path="'/pages/' + $i18n.locale + '/institute_location_description'"
-          />
-        </v-card>
-      </v-col>
-      <v-col cols="8">
-        <v-card
-          class="d-flex align-center justify-center"
-          color="red-lighten-3"
-          height="400"
-        >
-          <ContentDoc
-            :path="'/pages/' + $i18n.locale + '/institute_governance'"
-          />
-        </v-card>
-      </v-col>
-      <v-col cols="4">
-        <v-card
-          class="d-flex align-center justify-center"
-          color="purple-lighten-3"
-          height="400"
-          :to="localePath('/about/network')"
-        >
-          Network overview</v-card
-        >
-      </v-col>
-      <v-col cols="4">
-        <v-card class="d-flex align-center justify-center" flat height="400">
-          <v-carousel cycle hide-delimiters show-arrows="hover">
-            <v-carousel-item
-              v-for="i in 7"
-              :key="i"
-              :src="'/images/location/' + i + '.jpg'"
-              cover
-            ></v-carousel-item> </v-carousel
-        ></v-card>
-      </v-col>
-      <v-col cols="8">
-        <v-card
-          class="d-flex align-center justify-center"
-          color="green-darken-3"
-          height="400"
-        >
-          <ContentDoc :path="'/pages/' + $i18n.locale + '/institute_history'" />
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div class="scroller">
+    <section class="d-flex flex-column">
+      <NavigationBreadcrumbs class="d-flex align-start"></NavigationBreadcrumbs>
+      <v-container>
+        <v-row class="d-flex align-center justify-center">
+          <v-col cols="12" md="10" lg="8" xl="6" class="justify-center">
+            <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6 mb-md-12">
+              {{ $t("hosting-excellence") }}
+            </div>
+            <v-sheet class="d-flex align-center justify-center flex-row">
+              <ContentDoc :path="presentation" />
+            </v-sheet> </v-col></v-row
+      ></v-container>
+    </section>
+    <section class="dark">
+      <v-container>
+        <v-row class="d-flex align-center justify-center">
+          <v-col cols="12" md="10" lg="9" xl="8">
+            <div
+              :class="mdAndUp ? 'text-h2' : 'text-h4'"
+              class="mb-6 mb-md-12 pl-4"
+            >
+              {{ $t("building-bridges") }}
+            </div>
+            <v-row no-gutters>
+              <v-col cols="4" v-if="mdAndUp">
+                <v-sheet class="d-flex align-center justify-center" flat>
+                  <v-carousel
+                    cycle
+                    hide-delimiters
+                    show-arrows="hover"
+                    aspect-ratio="1/1"
+                  >
+                    <v-carousel-item
+                      v-for="i in 7"
+                      :key="i"
+                      :src="'/images/location/' + i + '.jpg'"
+                      cover
+                    ></v-carousel-item>
+                  </v-carousel>
+                </v-sheet>
+              </v-col>
+              <v-col cols="12" md="8">
+                <div
+                  class="d-flex align-center justify-center pa-12 text-white"
+                >
+                  <ContentDoc :path="location" /></div></v-col
+            ></v-row> </v-col></v-row
+      ></v-container>
+    </section>
+    <section>
+      <v-container>
+        <v-row class="d-flex align-center justify-center">
+          <v-col cols="12" md="10" lg="9" xl="8">
+            <div
+              :class="mdAndUp ? 'text-h2' : 'text-h4'"
+              class="mb-6 mb-md-12 pl-4"
+            >
+              {{ $t("building-bridges") }}
+            </div>
+            <v-row no-gutters>
+              <v-col cols="12" md="8">
+                <v-sheet class="d-flex align-center justify-center pa-12">
+                  <ContentDoc :path="governance" />
+                </v-sheet>
+              </v-col>
+              <v-col cols="4" v-if="mdAndUp">
+                <v-card
+                  class="d-flex align-center justify-center pa-12"
+                  :to="localePath('/about/network')"
+                >
+                  Network overview</v-card
+                >
+              </v-col></v-row
+            ></v-col
+          ></v-row
+        ></v-container
+      >
+    </section>
+    <section class="dark">
+      <v-container>
+        <v-row class="d-flex align-center justify-center">
+          <v-col cols="12" md="10" lg="9" xl="8">
+            <v-row no-gutters>
+              <v-col
+                cols="4"
+                v-if="mdAndUp"
+                class="d-flex align-center justify-center"
+              >
+                <v-carousel cycle hide-delimiters show-arrows="hover">
+                  <v-carousel-item
+                    v-for="i in 7"
+                    :key="i"
+                    :src="'/images/location/' + i + '.jpg'"
+                    cover
+                  ></v-carousel-item>
+                </v-carousel>
+              </v-col>
+              <v-col cols="12" md="8">
+                <div class="d-flex align-center justify-center pa-12">
+                  <ContentDoc :path="history" />
+                </div>
+              </v-col>
+            </v-row>
+          </v-col> </v-row
+      ></v-container>
+    </section>
+    <NavigationFooter isSnapScroll />
+  </div>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
-const { smAndUp } = useDisplay()
+const { mdAndUp } = useDisplay()
 const localePath = useLocalePath()
+const { locale, locales } = useI18n()
+const presentation = ref("/pages/" + locale.value + "/institute_description")
+const location = ref(
+  "/pages/" + locale.value + "/institute_location_description",
+)
+const governance = ref("/pages/" + locale.value + "/institute_governance")
+const history = ref("/pages/" + locale.value + "/institute_history")
+definePageMeta({
+  layout: "about",
+  /*   documentDriven: {
+    page: false, // Keep page fetching enabled
+    surround: false, // Disable surround fetching
+  }, */
+})
 </script>
+<style>
+.dark h2 a {
+  color: white;
+}
+</style>

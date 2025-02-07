@@ -1,12 +1,12 @@
 <template>
   <teleport :to="level.length > 1 ? '#form' + levelAsString() : '#container'">
     <div :id="'form' + level.join()">
-      <!--  Regular Field Form Block -->
+      <!--  Regular Field Form Block / primitive -->
       <template v-if="!input.items">
         level: {{ level }}
         <component
           v-if="ComputeInputVisibility(input)"
-          :is="'FormAtoms'+ input.type"
+          :is="'FormAtoms' + input.type"
           :label="$t(input.label) || lastLevelItem"
           :readonly="saving"
           :args="{ ...input, key: lastLevelItem, type }"
@@ -95,6 +95,7 @@
           ></RecursiveFormblock>
         </component>
       </template>
+      <!-- // TODO document picker case (type === 4) -->
     </div>
     <v-spacer></v-spacer> <slot></slot>
   </teleport>
@@ -149,11 +150,11 @@ const props = defineProps({
   },
 })
 const items = rootStore.getKey({
-      key: props.input.key,
-      level: props.level,
-      store: rootStore[props.type].form,
-    })
- 
+  key: props.input.key,
+  level: props.level,
+  store: rootStore[props.type].form,
+})
+
 const checkArray = (item) => {
   console.log("item: ", item)
   return Array.isArray(item)

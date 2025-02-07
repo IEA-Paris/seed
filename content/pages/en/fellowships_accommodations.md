@@ -37,7 +37,7 @@ IEA Paris announces the participation of its visiting researchers in scientific 
 
 ## Accommodations
 
-Since September 2017, residents of the IEA de Paris have been housed in the Pavillon Victor Lyon. Located in the heart of the [Cité internationale universitaire de Paris](http://www.ciup.fr/), the residence can accommodate researchers and their families. Twenty or so fully-equipped two- to five-room flats are available.
+Since September 2017, residents of the IEA de Paris have been housed in the Pavillon Victor Lyon. Located in the heart of the , the residence can accommodate researchers and their families. Twenty or so fully-equipped two- to five-room flats are available.
 Conceived as a place to live, meet people and foster intercultural and interdisciplinary exchanges, close to the Cité's other student and researcher reception centres, the Pavillon Victor Lyon has a 103m2 library lounge, a 100m2 modular conference room and an 80m2 foyer.
 
 ## Help with administrative procedures for obtaining a visa

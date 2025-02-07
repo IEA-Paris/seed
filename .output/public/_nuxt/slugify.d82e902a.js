@@ -1,1 +1,0 @@
-const g=e=>{e=e.replace(/^\s+|\s+$/g,"").trim(),e=e.toLowerCase();const o="àáäâèéëêìíïîòóöôùúüûñç·/_,:;",c="aaaaeeeeiiiioooouuuunc------";for(let a=0,l=o.length;a<l;a++)e=e.replace(new RegExp(o.charAt(a),"g"),c.charAt(a));return e=e.replace(/[^a-z0-9 -]/g,"").replace(/\s+/g,"-").replace(/-+/g,"-"),e};export{g as s};

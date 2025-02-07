@@ -1,12 +1,19 @@
 // variables not needed in this file, It's already imported in the project globally
+
 @import "transitions";
 @import "variables";
+@media (min-width: 1920px) {
+  .v-container.main-container {
+    max-width: 1500px;
+  }
+}
 
 html,
 body {
   padding: 0;
   margin: 0;
 }
+
 h1,
 h2,
 h3,
@@ -22,19 +29,20 @@ h6,
 .v-toolbar-title {
   font-family: "Bodoni Moda", sans-serif;
 }
+
 // Ref: https://github.com/nuxt-community/vuetify-module#customvariables
 //
 
 // The variables you want to modify
 // $font-size-root: 20px;
-$fortnightly-font-size: 16;
+$fortnightly-font-size: 18;
 $fortnightly-heading-font-style: italic;
-$fortnightly-primary-color: #6b38fb;
 // Preset variables
 $body-font-family: "Open sans", sans-serif;
 $border-radius-root: 0;
 $btn-font-weight: 700;
 $heading-font-family: "Bodoni Moda", sans-serif;
+
 $headings: (
   "h1": (
     "font-family": $heading-font-family,
@@ -117,29 +125,87 @@ $material-light: (
 );
 $stepper-elevation: 0;
 
+.clamped-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.img-animation {
+  transition: all 2s ease-in-out;
+}
+
+.img-animation:hover {
+  transform: scale(1.1);
+}
+
+.v-skeleton-loader__bone.v-skeleton-loader__image {
+  aspect-ratio: 1/1;
+  height: auto;
+}
+
 .v-card__title {
   word-break: normal;
 }
+
 .theme--light .display-4,
 .display-2,
 .title,
 .caption {
   font-style: $fortnightly-heading-font-style;
 }
+
 .v-btn.v-btn--contained,
 .v-card {
   box-shadow: none;
 }
+
 .v-chip.v-chip {
   border-radius: 0;
   border-style: solid;
   border-width: thin;
 }
+
 .v-stepper.v-stepper--vertical .v-stepper__content {
   border-left-color: transparent !important;
   margin-bottom: 16px;
   padding-bottom: 0;
 }
+
+@supports (scroll-snap-align: start) {
+  @media screen and (min-width: 700px) {
+    // TODO: come up with a more suited media query
+    .scroller {
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+      section,
+      .carousel {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+
+        scroll-padding-top: 64px;
+        scroll-padding-bottom: 100vh;
+      }
+    }
+  }
+}
+.scroller {
+  height: calc(100vh - 64px); // to match screen height minus toolbar height
+
+  section {
+    height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+  }
+
+  .carousel {
+    height: calc(100vh - 64px);
+  }
+}
+
 // FF print fix
 /* @media print {
   .application {
@@ -189,34 +255,46 @@ $stepper-elevation: 0;
 } */
 
 // nuxt content styles
+h1 {
+  font-weight: 600;
+  line-height: 2.6rem;
+  font-size: 45px;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1em;
+  margin-top: 2rem;
+}
 
-.nuxt-content h2 {
+h2,
+h2 a {
   font-weight: 500;
-  line-height: 2.4rem;
-  font-size: 30px;
+  line-height: 2.8rem;
+  font-size: 40px;
   padding-bottom: 0.2rem;
   margin-bottom: 0.8em;
   margin-top: 2rem;
+  color: black;
 }
-.nuxt-content h3 {
+
+h3 {
   font-weight: 400;
   margin-top: 1.5rem;
   margin-bottom: 0.6em;
   padding-bottom: 0.1rem;
-  font-size: 22px;
+  font-size: 24px;
 }
 
-.nuxt-content p {
-  font-size: 16px;
+p {
+  font-size: 18px;
   margin-bottom: 15px;
   margin-top: 10px;
   word-spacing: 2px;
-  line-height: 32px;
+  line-height: 28px;
+  max-width: 80ch;
 }
 
-.nuxt-content p code,
-.nuxt-content h2 code,
-.nuxt-content h3 code {
+p code,
+h2 code,
+h3 code {
   color: #476582;
   padding: 0.25rem 0.5rem;
   margin: 0;
@@ -229,7 +307,7 @@ $stepper-elevation: 0;
     monospace;
 }
 
-.nuxt-content ul {
+ul {
   color: rgba(0, 0, 0, 0.6);
   font-size: 14px;
   margin-bottom: 30px;
@@ -243,7 +321,15 @@ $stepper-elevation: 0;
   margin-inline-end: 0px;
   padding-inline-start: 40px;
 }
-.nuxt-content li {
+
+li {
+}
+.sliding-item-title {
+  color:black;
+  text-decoration: none;
+}
+.sliding-item:hover .sliding-item-title {
+  text-decoration: underline;
 }
 .v-application code {
   all: initial;
@@ -275,13 +361,14 @@ $stepper-elevation: 0;
   margin-top: 0.5rem;
 }
 
-.nuxt-content pre {
+pre {
   position: static;
   border-radius: 6px;
   font-family: Consolas;
   font-size: 16px;
   padding: 20px;
 }
-.nuxt-content p img {
+
+p img {
   width: 100%;
 }
