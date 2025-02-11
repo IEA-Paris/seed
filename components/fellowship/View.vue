@@ -42,7 +42,9 @@
               :items="[...fellowshipType, ...item.disciplines]"
               class="mt-2"
             ></MiscMoleculesChipContainer>
-            <FellowshipBadges class="mt-6" :item="item"></FellowshipBadges>
+            <div class="mt-5">
+              <FellowshipBadges :item="item" :view="view"></FellowshipBadges>
+            </div>
           </div>
           <div class="mx-6">
             <!-- DIVIDERS -->
@@ -154,6 +156,7 @@ const { data: upcomingFellows } = await useAsyncData("fellow-list", () =>
     .find(),
 )
 
+const view = ref(true)
 const fellowshipType = ref([
   ...(props.item.fellowshipType === 2
     ? [{ name: "short-stay" }, { name: "in-groups" }]

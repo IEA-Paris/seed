@@ -1,20 +1,7 @@
 <template>
   <div>
     <EventsRegisterModal :item="item" v-if="item.bookingState === 1">
-      <v-btn
-        color="grey-lighten-3"
-        flat
-        rounded="0"
-        size="small"
-        v-bind="mergeProps(activatorProps, attrs)"
-        class="my-2"
-      >
-        <template v-slot:append>
-          <v-icon class="text-green" size="x-large"> mdi-circle-medium</v-icon>
-        </template>
-        {{ $t("register-until-0", [getLocalizedDate(item.applicationStop)]) }}
-      </v-btn></EventsRegisterModal
-    >
+    </EventsRegisterModal>
     <v-btn
       color="grey-lighten-3"
       flat

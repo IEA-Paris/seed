@@ -3,9 +3,7 @@ title: "Programme Cerveau, Culture et Société"
 applicationStart: "2024-05-01T08:30:00.000Z"
 fellowshipStart: "2024-06-15T08:30:00.000Z"
 contact: "smartcities@innovation-hub.org"
-description: "L'IEA promeut un programme spécifique pour relier esprit et cerveau, sciences humaines et sociales et neurosciences. L'attention porte en particulier sur des sujets en lien avec les grands défis sociétaux : développement de l'enfant, vieillissement, santé, éducation et apprentissage, addictions, effet des nouvelles technologies du numérique et de l'information, tolérance, agressivité, fanatisme, etc.
-
-L'objectif de ce dialogue est de permettre aux sciences humaines et sociales, aussi bien qu'aux sciences du cerveau, de renouveler leurs perspectives sur des objets classiques et d'investir de nouveaux champs de recherche avec des approches interdisciplinaires audacieuses et novatrices."
+description: "L'IEA promeut un programme spécifique pour relier esprit et cerveau, sciences humaines et sociales et neurosciences. L'attention porte en particulier sur des sujets en lien avec les grands défis sociétaux : développement de l'enfant, vieillissement, santé, éducation et apprentissage, addictions, effet des nouvelles technologies du numérique et de l'information, tolérance, agressivité, fanatisme, etc. L'objectif de ce dialogue est de permettre aux sciences humaines et sociales, aussi bien qu'aux sciences du cerveau, de renouveler leurs perspectives sur des objets classiques et d'investir de nouveaux champs de recherche avec des approches interdisciplinaires audacieuses et novatrices."
 fellowshipDetails:
   selectionProcess: |-
         CANDIDATURES 

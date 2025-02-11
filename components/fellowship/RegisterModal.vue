@@ -1,7 +1,16 @@
 <template>
   <v-dialog max-width="500">
     <template v-slot:activator="{ props: activatorProps }">
-      <v-slot></v-slot>
+      <v-btn
+        v-bind="activatorProps"
+        tile
+        :variant="view ? 'outlined' : 'text'"
+        class="text-overline"
+      >
+        {{
+          $t("register-until-0", [getLocalizedDate(item.applicationStop)])
+        }}</v-btn
+      >
     </template>
 
     <template v-slot:default="{ isActive }">
@@ -25,10 +34,10 @@
   </v-dialog>
 </template>
 <script setup>
-import { mergeProps } from "vue"
 import { useAttrs } from "vue"
 const attrs = useAttrs()
 const props = defineProps({
   item: { type: Object, required: true },
+  view: { type: Boolean, required: false, default: false },
 })
 </script>
