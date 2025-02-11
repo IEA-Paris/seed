@@ -12,7 +12,7 @@
           "
           class="text-h4 text-black text-wrap mt-4 pb-4"
         >
-          {{ item.title }}
+          {{ item.name }}
         </nuxt-link>
       </div>
       <div class="d-flex">

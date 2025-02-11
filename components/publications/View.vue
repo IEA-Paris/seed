@@ -37,13 +37,11 @@
 
       <div class="d-flex align-center flex-column mt-12" v-else>
         <div class="d-flex text-center text-wrap text-h3 text-black">
-          {{ item.title }}
+          <ContentRendererMarkdown :value="renderedTitle" />
         </div>
         <v-divider width="154px" class="mb-1 mt-6"></v-divider>
         <v-divider width="154px"></v-divider>
-        <div class="d-flex text-center text-wrap text-h5 text-black mt-6">
-          {{ item.subtitle }}
-        </div>
+
         <MiscMoleculesChipContainer
           :items="item.tags"
           class="py-6 mt-4 align-self-center"
@@ -78,7 +76,11 @@
           ]
         "
       ></v-skeleton-loader>
-      <ContentRenderer v-else :value="item" class="mt-md-n2 mx-10 mx-md-0" />
+      <ContentRendererMarkdown
+        v-else
+        :value="renderedDescription"
+        class="mt-md-n2 mx-10 mx-md-0"
+      />
     </v-col>
   </v-row>
 
@@ -128,6 +130,7 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
+import markdownParser from "@nuxt/content/transformers/markdown"
 const { name, mdAndUp, smAndDown } = useDisplay()
 const router = useRouter()
 const { locale } = useI18n()
@@ -146,4 +149,10 @@ const { data: action } = await useAsyncData("actions", () =>
     .find(),
 )
 rootStore.publications.loading = false
+const renderedDescription = props.item?.description
+  ? await markdownParser.parse("description", props.item.description)
+  : ""
+const renderedTitle = props.item?.name
+  ? await markdownParser.parse("name", props.item.name)
+  : ""
 </script>

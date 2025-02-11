@@ -31,12 +31,12 @@
 
           <div class="d-flex align-center flex-column mt-12" v-else>
             <div class="d-flex text-center text-wrap text-h3 text-black">
-              {{ item.title }}
+              <ContentRendererMarkdown :value="renderedTitle" />
             </div>
             <v-divider width="154px" class="mb-1 mt-6"></v-divider>
             <v-divider width="154px"></v-divider>
             <div class="d-flex text-center text-wrap text-h5 text-black mt-6">
-              {{ item.summary }}
+              <ContentRendererMarkdown :value="renderedSubtitle" />
             </div>
             <MiscMoleculesChipContainer
               :items="[...fellowshipType, ...item.disciplines]"
@@ -67,7 +67,7 @@
                 ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
               "
             ></v-skeleton-loader>
-            <ContentRenderer v-else :value="item" />
+            <ContentRendererMarkdown v-else :value="renderedDescription" />
 
             <v-responsive class="mx-auto my-9" width="120">
               <v-divider class="mb-1" />
@@ -84,7 +84,7 @@
               v-model="accordeon"
             >
               <v-expansion-panel
-                v-for="(value, key) in Object.keys(item.fellowshipDetails)"
+                v-for="(value, key) in Object.keys(renderedDetails)"
                 :key="key + value"
                 class="border-thin text-black"
                 :color="key === accordeon ? 'light-grey' : 'white'"
@@ -101,7 +101,7 @@
                   class="py-2"
                   style="white-space: pre; text-wrap: auto"
                 >
-                  {{ item.fellowshipDetails[value] }}
+                  <ContentRendererMarkdown :value />
                 </v-expansion-panel-text>
               </v-expansion-panel>
             </v-expansion-panels>
@@ -112,7 +112,7 @@
             </v-responsive>
 
             <MiscAtomsSlidingCarousel
-              :items="upcomingFellows"
+              :items="item.previousFellows || []"
               type="people"
               key="people"
               lazy
@@ -131,6 +131,8 @@
 </template>
 
 <script setup>
+import markdownParser from "@nuxt/content/transformers/markdown"
+import { V } from "vitest/dist/chunks/reporters.D7Jzd9GS.js"
 import { useDisplay } from "vuetify"
 import getFileIcon from "~/composables/useIcons"
 import { useRootStore } from "~/store/root"
@@ -148,14 +150,6 @@ const props = defineProps({
   },
 })
 
-const { data: upcomingFellows } = await useAsyncData("fellow-list", () =>
-  queryContent("/people/" + locale.value)
-    // .where({ outside: false })
-    // .sort("date", "desc")
-    .limit(12)
-    .find(),
-)
-
 const view = ref(true)
 const fellowshipType = ref([
   ...(props.item.fellowshipType === 2
@@ -168,8 +162,86 @@ const fellowshipType = ref([
 ])
 onMounted(() => {
   rootStore.fellowship.loading = false
-  console.log("fellowship item", props.item.value)
+  /*   console.log("fellowship item", props.item.value) */
 })
+
+const renderedTitle = props.item?.name
+  ? await markdownParser.parse("name", props.item.name)
+  : ""
+const renderedSubtitle = props.item?.subtitle
+  ? await markdownParser.parse("subtitle", props.item.subtitle)
+  : ""
+const renderedDescription = props.item?.description
+  ? await markdownParser.parse("description", props.item.description)
+  : ""
+const renderedDetails = {
+  ...(props.item?.fellowshipDetails?.type && {
+    type: await markdownParser.parse(
+      "fellowshipDetails.type",
+      props.item.fellowshipDetails.type,
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.fundingPeriod && {
+    fundingPeriod: await markdownParser.parse(
+      "fellowshipDetails.fundingPeriod",
+      props.item.fellowshipDetails.fundingPeriod,
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.profile && {
+    profile: await markdownParser.parse(
+      "fellowshipDetails.profile",
+      props.item.fellowshipDetails.profile,
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.tasks && {
+    tasks: await markdownParser.parse(
+      "fellowshipDetails.tasks",
+      props.item.fellowshipDetails.tasks,
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.location && {
+    location: await markdownParser.parse(
+      "fellowshipDetails.location",
+      props.item.fellowshipDetails.location,
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.funding && {
+    funding: await markdownParser.parse(
+      "fellowshipDetails.funding",
+      props.item.fellowshipDetails.funding,
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.housing && {
+    housing: await markdownParser.parse(
+      "fellowshipDetails.housing",
+      props.item.fellowshipDetails.housing,
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.meals && {
+    meals: await markdownParser.parse(
+      "fellowshipDetails.meals",
+      props.item.fellowshipDetails.meals,
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.applicationMaterials && {
+    applicationMaterials: await markdownParser.parse(
+      "fellowshipDetails.applicationMaterials",
+      props.item.fellowshipDetails.applicationMaterials,
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.selectionProcess && {
+    selectionProcess: await markdownParser.parse(
+      "fellowshipDetails.selectionProcess",
+      props.item.fellowshipDetails.selectionProcess,
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.researchProcess && {
+    researchProcess: await markdownParser.parse(
+      "fellowshipDetails.researchProcess",
+      props.item.fellowshipDetails.researchProcess,
+    ),
+  }),
+}
 </script>
 
 <style lang="scss" scoped></style>

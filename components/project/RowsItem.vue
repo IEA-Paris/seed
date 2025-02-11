@@ -5,7 +5,7 @@
       :src="item.image"
       :loading="rootStore.project.loading"
       :ratio="1 / 1"
-      :title="item.title"
+      :title="item.name"
       link="activities-projects-slug"
       :slug="getSlugFromPath(item._path)"
     >
@@ -32,19 +32,22 @@
 
     <template v-else>
       <div class="text-h5 text-sm-h3 text-md-h4 text-md-h4 my-6">
-        {{ item.title }}
+        {{ item.name }}
       </div>
+      <ContentRendererMarkdown :value="renderedSubtitle" />
 
-      <ContentRenderer
-        :value="item"
-        class="mt-n3 clamped-text"
+      <p
+        class="mt-n3 text-wrap clamped-text"
         :style="
           '-webkit-line-clamp:' +
           [5, 5, 4, 8, 10][
             ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
           ]
         "
-      />
+      >
+        <ContentRendererMarkdown :value="renderedDescription" />
+      </p>
+
       <v-btn
         class="mt-4"
         variant="outlined"
@@ -84,6 +87,7 @@
 import { useRootStore } from "~/store/root"
 import { getSlugFromPath } from "~/composables/useUtils"
 import { useDisplay } from "vuetify"
+import markdownParser from "@nuxt/content/transformers/markdown"
 const { name, smAndDown, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
 
 const rootStore = useRootStore()
@@ -99,6 +103,12 @@ const props = defineProps({
     required: true,
   },
 })
+const renderedDescription = props.item?.description
+  ? await markdownParser.parse("description", props.item.description)
+  : ""
+const renderedSubtitle = props.item?.subtitle
+  ? await markdownParser.parse("subtitle", props.item.subtitle)
+  : ""
 </script>
 
 <style lang="scss"></style>

@@ -1,0 +1,103 @@
+query listProjects($appId: ID = "iea", $lang: String = "en") {
+  listProjects(options: {}, appId: $appId, lang: $lang) {
+    total
+    items {
+      appId
+      date
+      description
+      featured
+      files {
+        createdAt
+        fileType
+        file
+        hash
+        id
+        image
+        name
+        path
+        size
+        thumb
+        updatedAt
+        url
+      }
+      color
+      gallery {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      id
+      image {
+        alt
+        backgroundColor
+        caption
+        license
+        copyright
+        licenseUrl
+        url
+      }
+      name
+      subtitle
+      url
+      tags {
+        createdAt
+        description
+        icon
+        name
+        updatedAt
+      }
+      relatedEvents {
+        description
+        image {
+          alt
+          backgroundColor
+          copyright
+          caption
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      relatedNews {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      relatedPeople {
+        firstname
+        id
+        image {
+          alt
+          backgroundColor
+          copyright
+          caption
+          license
+          licenseUrl
+          url
+        }
+        lastname
+      }
+      relatedPublications {
+        id
+        name
+        url
+      }
+    }
+  }
+}

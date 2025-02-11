@@ -7,7 +7,7 @@
 
     <template v-else v-for="(value, key, index) in item.groups" :key="key">
       <v-chip
-        v-if="key === 'vintage'"
+        v-if="value && key === 'vintage'"
         class="ma-3"
         v-for="(vintage, index) in item.groups.vintage"
         :key="index"
@@ -22,7 +22,8 @@
         style="background-color: white; color: black"
         class="ma-3"
         v-else-if="
-          (!item.groups.vintage && key === 'fellows') || key !== 'fellows'
+          value &&
+          ((!item.groups.vintage && key === 'fellows') || key !== 'fellows')
         "
         tile
         variant="outlined"

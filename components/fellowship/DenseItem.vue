@@ -9,7 +9,7 @@
     "
   >
     <v-col align-self="center" cols="8" class="text-h6">
-      {{ item.title }}
+      {{ item.name }}
       <FellowshipBadges :item="item"></FellowshipBadges>
     </v-col>
     <v-col align-self="center" cols="4">

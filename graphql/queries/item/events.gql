@@ -1,0 +1,38 @@
+query getEvent($appId: ID = "iea", $itemId: String = "", $lang: String = "") {
+  getEvent(itemId: $itemId, appId: $appId, lang: $lang) {
+    appId
+    availableSlots
+    bookingState
+    category
+    createdBy
+    date
+    delay
+    description
+    details
+    id
+    image
+    name
+    place {
+      address
+      id
+      name
+      url
+    }
+    start
+    slots {
+      email
+      firstname
+      institution
+      lang
+      lastname
+    }
+    state
+    stop
+    subtitle
+    summary
+    program
+    totalSlots
+    type
+    url
+  }
+}

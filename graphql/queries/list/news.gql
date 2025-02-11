@@ -1,0 +1,105 @@
+query listNews(
+  $appId: ID = "iea"
+  $lang: String = "en"
+  $options: ListInput = {}
+) {
+  listNews(options: $options, appId: $appId, lang: $lang) {
+    total
+    items {
+      category
+      color
+      date
+      description
+      featured
+      files {
+        createdAt
+        file
+        fileType
+        hash
+        id
+        image
+        name
+        path
+        size
+        thumb
+        updatedAt
+        url
+      }
+      gallery {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
+      relatedEvents {
+        description
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      relatedPeople {
+        firstname
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        lastname
+      }
+      relatedProject {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          license
+          copyright
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      relatedPublications {
+        id
+        name
+        url
+      }
+      tags {
+        createdAt
+        description
+        icon
+        name
+        updatedAt
+      }
+      name
+      url
+    }
+  }
+}

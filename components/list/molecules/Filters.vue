@@ -43,7 +43,7 @@ const { locale, locales, messages } = useI18n()
 
 const rootStore = useRootStore()
 const props = defineProps(["type", "expanded"])
-console.log("props.type: ", props.type)
+/* console.log("props.type: ", props.type) */
 
 const ComponentName = (name) => {
   return resolveComponent(
@@ -54,6 +54,7 @@ const getItems = (name) => {
   if (rootStore[props.type].list.filters[name].type === "Checkbox") {
     return []
   }
+  // TODO replace with package based values
   return Object.keys(
     messages.value[locale.value].list.filters[props.type][name],
   ).map((item) => ({
@@ -66,52 +67,39 @@ onMounted(() => {
 })
 
 const computeVisibility = (filterItem) => {
-  console.log("filterItem: ", filterItem)
-  /* console.log(Object.keys(rootStore[props.type].list.filters))
-  console.log("filter: ", props.name)
-  console.log(
-    "!rootStore[props.type].list.filters[props.name].visibility: ",
-    !rootStore[props.type].list.filters[props.name].visibility,
-  )
-  console.log(
-    " rootStore[props.type].list.filters[props.name].visibility?.default: ",
-    rootStore[props.type].list.filters[props.name].visibility?.default,
-  )
   return (
-    !rootStore[props.type].list.filters[props.name].visibility ||
-    rootStore[props.type].list.filters[props.name].visibility?.default ||
-    rootStore[props.type].list.filters[props.name].visibility?.switchIf.find(
+    // if anything is set in the visibility key
+    !rootStore[props.type].list.filters[filterItem].visibility ||
+    rootStore[props.type].list.filters[filterItem].visibility?.default ||
+    rootStore[props.type].list.filters[filterItem].visibility?.switchIf.find(
+      //for each of the rules set in the switchIf key
       (rule) => {
-        console.log("rule: ", rule)
+        // we check if each of the condition are fulfilled
         return Object.keys(rule).find((value, index, obj) => {
-          console.log("value: ", value)
+          /*   console.log("value: ", value)
+          console.log("filterItem: ", filterItem)
           console.log(
-            "rootStore[props.type].list.filters[value].value: ",
-            rootStore[props.type].list.filters[value],
-          )
-          console.log("rule[value]: ", rule[value])
-          console.log(
-            "rootStore[props.type].list.filters[props.name]: ",
-            rootStore[props.type].list.filters[props.name],
-          )
-          console.log(
-            "Array.isArray(rootStore[props.type].list.filters[props.name]): ",
-            Array.isArray(rootStore[props.type].list.filters[props.name]),
-          )
-          console.log(
-            "rootStore[props.type].list.filters[props.name]?.value",
-            rootStore[props.type].list.filters[props.name]?.value,
-          )
-          return Array.isArray(rootStore[props.type].list.filters[props.name])
-            ? rootStore[props.type].list.filters[props.name]?.value.includes(
-                rule[value],
-              ) || false
-            : rootStore[props.type].list.filters[props.name]?.value ===
-                rule[value] || false
+            `to display the ${filterItem} fitler, ${value} must be ${rule[value]} and it is ${
+              rootStore[props.type].list.filters[value]?.multiple
+                ? rootStore[props.type].list.filters[value]?.value &&
+                  rootStore[props.type].list.filters[value]?.value.includes(
+                    rule[value],
+                  )
+                : rootStore[props.type].list.filters[value]?.value ===
+                  rule[value]
+            }`,
+          ) */
+
+          return rootStore[props.type].list.filters[value].multiple
+            ? rootStore[props.type].list.filters[value]?.value &&
+                rootStore[props.type].list.filters[value]?.value.includes(
+                  rule[value],
+                )
+            : rootStore[props.type].list.filters[value]?.value === rule[value]
         })
       },
     )
-  ) */
+  )
   return true
 }
 /* const filterValue = computed({

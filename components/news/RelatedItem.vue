@@ -3,7 +3,7 @@
     :to="
       localePath({
         name: 'news-slug',
-        params: { slug: item.title },
+        params: { slug: item.name },
       })
     "
   >

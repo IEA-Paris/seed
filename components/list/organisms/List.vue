@@ -137,15 +137,13 @@ const display = computed({
 try {
   await rootStore.update(props.type, locale.value)
 } catch (error) {
-  console.log("error: ", error)
+  console.log("error fetching update list: ", error)
 }
 /* const { data, error } = await useAsyncData(props.type, () =>
 )
 console.log("error: ", error) */
 onMounted(async () => {
   const { type, source } = props
-
-  rootStore.loadRouteQuery(type)
 
   const hasFilters =
     rootStore[type].filtersCount > 0 ||

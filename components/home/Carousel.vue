@@ -24,7 +24,7 @@
                   :key="index"
                   cover
                   :src="item.image"
-                  :alt="item.title"
+                  :alt="item.name"
                 ></v-carousel-item>
                 <template v-slot:next="{ props }">
                   <v-btn icon @click="props.onClick">

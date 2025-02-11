@@ -7,12 +7,12 @@
       :href="item.url"
       target="_blank"
       v-for="item in items"
-      :key="item.title"
+      :key="item.name"
       class="d-flex"
     >
       <nuxt-img
         :src="item.picture"
-        :title="item.title"
+        :title="item.name"
         class="d-flex logo-wrapper"
         fit="inside"
         format="webp"

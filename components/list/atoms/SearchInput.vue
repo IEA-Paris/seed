@@ -33,7 +33,7 @@
       >
         <template v-for="(item, index) in results">
           <v-list-subheader v-if="item.type && item.type === 'subheader'">{{
-            item.title
+            item.name
           }}</v-list-subheader>
           <v-divider
             v-else-if="item.type && item.type === 'divider'"

@@ -1,4 +1,5 @@
 import config from "./static.config"
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   sourcemap: {
@@ -101,7 +102,7 @@ export default defineNuxtConfig({
     "nuxt-link-checker",
     "nuxt-schema-org",
     "@vite-pwa/nuxt",
-    /*  "@nuxtjs/apollo", */
+    "@nuxtjs/apollo",
     "@vueuse/motion/nuxt",
     //https://nuxt.com/docs/getting-started/testing
     "@nuxt/test-utils/module",
@@ -197,7 +198,19 @@ export default defineNuxtConfig({
 
   apollo: {
     // https://apollo.nuxtjs.org/getting-started/configuration
-    clients: { default: { httpEndpoint: "https://api.spacex.land/graphql" } },
+    clients: {
+      default: {
+        httpEndpoint: config.graphqlEndpoint,
+        httpLinkOptions: {
+          headers: {
+            "x-api-key": config.graphqlApiKey,
+          },
+        },
+        inMemoryCacheOptions: {
+          addTypename: false,
+        },
+      },
+    },
   },
 
   htmlValidator: {
@@ -229,7 +242,7 @@ export default defineNuxtConfig({
     asyncContext: true,
   },
   devtools: {
-    enabled: false,
+    enabled: !!process.env.LOCAL_DEV,
   },
 
   compatibilityDate: "2024-09-03",

@@ -2,9 +2,8 @@
 import lists from '~/assets/data/lists' */
 
 /* import api from "~/server/api/github" */
-import config from "~/static.config"
 import { defineStore } from "pinia"
-
+import { isProxy, toRaw } from "vue"
 import {
   Views,
   ModuleType,
@@ -13,8 +12,16 @@ import {
   people,
   project,
   fellowship,
-  publications
+  publications,
 } from "@paris-ias/data"
+
+import LIST_EVENTS from "~/graphql/queries/list/events.gql"
+import LIST_PEOPLE from "~/graphql/queries/list/people.gql"
+import LIST_FELLOWSHIPS from "~/graphql/queries/list/fellowships.gql"
+import LIST_NEWS from "~/graphql/queries/list/news.gql"
+import LIST_PUBLICATIONS from "~/graphql/queries/list/publications.gql"
+import LIST_PROJECTS from "~/graphql/queries/list/projects.gql"
+
 interface InputParams {
   key?: any | string
   level?: string[] | number[] | number | any
@@ -39,7 +46,7 @@ export const useRootStore = defineStore("rootStore", {
     people,
     project,
     fellowship,
-    publications
+    publications,
   }),
 
   actions: {
@@ -214,16 +221,18 @@ export const useRootStore = defineStore("rootStore", {
     loadRouteQuery(type: string) {
       const { currentRoute } = useRouter()
       const query = currentRoute.value.query
-      if (query?.length) {
-        const filters = JSON.parse(query as any)
-        Object.keys(filters).forEach((filter) => {
+      if (Object.keys(query)?.length) {
+        Object.keys(query).forEach((filter) => {
           if (
             Object.keys((this[type] as ModuleType).list.filters).includes(
               filter,
             )
           )
-            (this[type] as ModuleType).list.filters[filter].value =
-              filters[filter]
+            (this[type] as ModuleType).list.filters[filter].value = (
+              this[type] as ModuleType
+            ).list.filters[filter].multiple
+              ? JSON.parse(query[filter] as string)
+              : query[filter]
         })
         /*       if (query.view) {
         ;(this[type] as ModuleType).list.view = query.view as
@@ -256,6 +265,7 @@ export const useRootStore = defineStore("rootStore", {
         sortDescItem = defaultSort[0].value[1]
       } */
       }
+      console.log("query loaded")
     },
 
     setFiltersCount(type: string) {
@@ -263,7 +273,7 @@ export const useRootStore = defineStore("rootStore", {
       Object.keys((this[type] as ModuleType).list.filters)
         // remove empty values
         .forEach((filter) => {
-          console.log("filter: ", filter) /* 
+          /*console.log("filter: ", filter)  
           console.log("filters[filter]?.value: ", filters[filter].value)
           */ /*  console.log(
             'typeof filters[filter]?.value !== "undefined": ',
@@ -398,137 +408,142 @@ export const useRootStore = defineStore("rootStore", {
       this.update(type)
     },
     async update(type: string, lang: string = "en") {
-      const target = type + "/" + lang + "/"
       this.setLoading(true)
       ;(this[type] as ModuleType).loading = true
       const router = useRouter()
-      const filters = (this[type] as ModuleType)?.list?.filters || {}
-      const pipeline = {
-        // default filters
-        /* ...filters, */
-      } as any
+
       const queryFilters: any = {}
-
-      pipeline.$or = []
-      // TODO maybe remove
-      for (const filter in filters) {
-        // remove empty values
-        if (
-          !(
-            (typeof filters[filter] === "boolean" &&
-              filters[filter] !== null &&
-              filters[filter] !== undefined) ||
-            (Array.isArray(filters[filter]) && filters[filter].length) ||
-            (typeof filters[filter] === "object" &&
-              Object.keys(filters[filter]).length)
-          )
-        ) {
-          delete filters[filter]
-          continue
-        }
-        // update route query
-        const val = filters[filter]
-        queryFilters[filter] = val
-
-        // convert filters into mongo-like loki query & push in the pipeline
-        /* if (
-          filters[filter] ||
-          (Array.isArray(filters[filter]) && (filters[filter] as any).length)
-        ) {
-          switch (filter) {
-            case "tag":
-            case "thematic":
-            case "discipline":
-            case "type":
-              pipeline[filter] = { $containsAny: val }
-              break
-            case "language":
-              pipeline[filter] = { $containsAny: val }
-              break
-            case "issue":
-              pipeline.issue =
-                val.length > 1
-                  ? {
-                      $in: val.map((item) => "content/issues/" + item + ".md"),
-                    }
-                  : "content/issues/" + val[0] + ".md"
-              break
-            case "years":
-              const yearsToInt = val.map((i) => +i)
-              if (["articles", "media"].includes(type)) {
-                pipeline[filter] = { $in: yearsToInt }
-              } else {
-                pipeline[filter] = { $containsAny: yearsToInt }
-              }
-              break
-            default:
-              pipeline[filter] = Array.isArray(val) ? val[0] : val
-              break
-          }
-        }*/
-      }
-
-      if (!pipeline.$or.length) {
-        delete pipeline.$or
-      } else {
-        pipeline.$or = pipeline.$or.flat()
-      }
-      /*  console.log("pipeline: ", pipeline)
-       */
-      const count = await queryContent(target).where(pipeline).count()
-      const totalItems = count
-      /*   console.log("totalItems: ", totalItems) */
 
       const itemsPerPageValue = (this[type] as ModuleType).list
         ?.itemsPerPage as number
-      const lastPage = Math.ceil(totalItems / itemsPerPageValue)
-
-      const lastPageCount =
-        totalItems % ((this[type] as ModuleType)?.list?.itemsPerPage || 1)
+      // fetch the item categories
 
       const itemsPerPage = (this[type] as ModuleType)?.list?.itemsPerPage || 1
-
-      const skipNumber = () => {
-        if (+this.page === 1) {
-          return 0
-        }
-        if (+this.page === lastPage) {
-          if (lastPageCount === 0) {
-            return totalItems - itemsPerPage
+      const filters = Object.keys((this[type] as ModuleType).list.filters)
+        // prune empty values
+        .filter(
+          (filter) =>
+            typeof (this[type] as ModuleType).list.filters[filter]?.value !==
+            "undefined",
+        )
+        // assign set values to their related keys
+        .map((filter) => {
+          return {
+            [filter]: (this[type] as ModuleType).list.filters[filter].value,
           }
-          return totalItems - lastPageCount
-        }
-        return (+this.page - 1) * itemsPerPage
+        })
+
+      const args = JSON.parse(
+        JSON.stringify({
+          options: {
+            // skip
+            skip: +this.page === 1 ? 0 : (+this.page - 1) * itemsPerPage,
+            // limit
+            limit: itemsPerPage,
+            // sort, array of keys and array of directions - to have x tie breakers if necessary
+            sortBy: (this[type] as ModuleType).list.sortBy,
+            sortDesc: (this[type] as ModuleType).list.sortDesc,
+            // search (if set)
+            ...((this.search as string)?.length && { search: this.search }),
+            // add the store module filters
+            filters,
+          },
+          appId: "iea",
+          lang: "en",
+        }),
+      )
+      console.log("args: ", args)
+      let result: any = {}
+      switch (type) {
+        case "events":
+          console.log("list events")
+          const {
+            data: { value: events },
+          } = await useAsyncQuery(LIST_EVENTS, args)
+          result = {
+            ...events?.listEvents,
+            items: events?.listEvents["items"].map((e: any) => ({
+              ...e,
+              _path: "/" + e["id"],
+            })) as any,
+          }
+          console.log("result: ", result)
+          break
+        case "people":
+          console.log("list people")
+          const {
+            data: { value: people },
+          } = await useAsyncQuery(LIST_PEOPLE, args)
+          result = {
+            ...people?.listPeople,
+            items: people?.listPeople["items"].map((e: any) => ({
+              ...e,
+              _path: "/" + e["id"],
+              title: e["firstname"] + " " + e["lastname"],
+              relatedProjects: [],
+              relatedEvents: [],
+              relatedNews: [],
+              description: e["biography"],
+            })) as any,
+          }
+          break
+        case "fellowships":
+          console.log("list fellowships")
+          const {
+            data: { value: fellowships },
+          } = await useAsyncQuery(LIST_FELLOWSHIPS, args)
+          result = {
+            ...fellowships?.listFellowships,
+            items: fellowships?.listFellowships["items"].map((e: any) => ({
+              ...e,
+              _path: "/" + e["id"],
+            })) as any,
+          }
+          break
+        case "news":
+          console.log("list news")
+          const {
+            data: { value: news },
+          } = await useAsyncQuery(LIST_NEWS, args)
+          result = {
+            ...news?.listNews,
+            items: news?.listNews["items"].map((e: any) => ({
+              ...e,
+              _path: "/" + e["id"],
+            })) as any,
+          }
+          break
+        case "publications":
+          console.log("list publications")
+          const {
+            data: { value: publications },
+          } = await useAsyncQuery(LIST_PUBLICATIONS, args)
+          result = {
+            ...publications?.listPublications,
+            items: publications?.listPublications["items"].map((e: any) => ({
+              ...e,
+              _path: "/" + e["id"],
+            })) as any,
+          }
+          break
+        case "project":
+          console.log("list projects")
+          const {
+            data: { value: projects },
+          } = await useAsyncQuery(LIST_PROJECTS, args)
+          result = {
+            ...projects?.listProjects,
+            items: projects?.listProjects["items"].map((e: any) => ({
+              ...e,
+              _path: "/" + e["id"],
+            })) as any,
+          }
+          break
       }
+      console.log("result: ", result)
+      ;(this[type] as ModuleType).list.items = result["items"]
+      this.total = result["total"]
 
-      const sortBy = (this[type] as ModuleType).list.sortBy
-      console.log("sortBy: ", sortBy)
-      const sortByItem = (sortBy as string[])[0]
-
-      const sortDesc = (this[type] as ModuleType).list.sortDesc
-      const sortDescItem = (sortDesc as number[])[0]
-      const sortArray = [sortByItem, sortDescItem]
-      /*       console.log("type1: ", type)
-      console.log("pipeline: ", pipeline)
-      console.log("queryContent: ", queryContent)
-      console.log("target: ", target)
-      console.log("{ [sortArray[0]]: sortArray[1] }: ", {
-        [sortArray[0]]: sortArray[1],
-      })
-      console.log("skipNumber(): ", skipNumber())
-      console.log("itemsPerPage: ", itemsPerPage) */
-      console.log("target: ", target)
-
-      const items = (this.search as string)?.length
-        ? await searchContent(this.search as string)
-        : await queryContent(target)
-            /*  .where(pipeline) */
-            .sort({ [sortArray[0]]: sortArray[1] })
-            /*  .sort({ [sortArray[2]]: sortArray[3] }) */
-            .skip(skipNumber())
-            .limit(itemsPerPage)
-            .find()
-      /*       console.log("items: ", items); */
       const viewsObj = (this[type] as ModuleType).list.views as Record<
         string,
         Views
@@ -538,11 +553,6 @@ export const useRootStore = defineStore("rootStore", {
       )
       const defaultView = viewsObj[defaultViewsKey as string]
 
-      const sortObj = (this[type] as ModuleType).list.sort
-      const defaultSortKey = Object.keys(sortObj).find(
-        (item) => sortObj[item].default === true,
-      )
-      const defaultSort = sortObj[defaultSortKey as string]
       console.log("query done for type ", type)
       // update route
       const query: Record<string, any> = {
@@ -553,14 +563,14 @@ export const useRootStore = defineStore("rootStore", {
         ...((this.page as number) > 1 && {
           page: this.page.toString(),
         }),
-        ...(((this[type] as ModuleType).list.sortBy as string[]).length &&
+        /*    ...(((this[type] as ModuleType).list.sortBy as string[]).length &&
           sortByItem !== defaultSort.value[0] && {
             sortBy: sortByItem,
           }),
         ...(typeof sortDescItem !== "undefined" &&
           sortDescItem !== defaultSort.value[1] && {
             sortDesc: !!sortDescItem,
-          }),
+          }), */
         ...((this[type] as ModuleType).list.view &&
           (this[type] as ModuleType).list.view !== defaultView.name && {
             view: (this[type] as ModuleType).list.view,
@@ -593,13 +603,10 @@ export const useRootStore = defineStore("rootStore", {
         }) */
       }
 
-      // fetch the item categories
-
+      const lastPage = Math.ceil(result.total / itemsPerPageValue)
       this.setFiltersCount(type)
       this.setBlankFilterLoad(type)
       /*       console.log("type2: ", type) */
-      ;(this[type] as ModuleType).list.items = items as any
-      this.total = totalItems
       this.numberOfPages = lastPage
       this.setLoading(false)
       ;(this[type] as ModuleType).loading = false

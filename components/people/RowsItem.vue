@@ -4,6 +4,7 @@
     <v-col cols="12" md="3" v-if="mdAndUp">
       <MiscAtomsImageContainer
         cover
+        v-if="item.image"
         :loading="rootStore.people.loading"
         :src="item.image"
         :ratio="1 / 1"
@@ -40,9 +41,13 @@
           "
           class="text-wrap text-h5 text-md-h4 text-black mb-2"
         >
-          {{ item.title }}
+          {{ item.name }}
         </NuxtLink>
-        <MiscAtomsSocials :socials="item.socials" class="my-2" />
+        <MiscAtomsSocials
+          v-if="item.socials"
+          :socials="item.socials"
+          class="my-2"
+        />
         <NuxtLink
           :to="
             localePath({
@@ -52,16 +57,9 @@
           "
           class="text-wrap text-h4 text-black"
         >
-          <ContentRenderer
-            :value="item"
-            class="text-body-1 clamped-text mt-n3"
-            :style="
-              '-webkit-line-clamp:' +
-              [5, 5, 3, 6, 9, 9][
-                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-              ]
-            "
-          />
+          <div class="text-body-1 clamped-text mt-n3">
+            <ContentRendererMarkdown :value="renderedBiography" />
+          </div>
         </NuxtLink>
       </div>
     </v-col>
@@ -70,6 +68,7 @@
 <script setup>
 import { useRootStore } from "~/store/root"
 import { useDisplay } from "vuetify"
+import markdownParser from "@nuxt/content/transformers/markdown"
 import { getSlugFromPath } from "~/composables/useUtils"
 const { name, mdAndUp } = useDisplay()
 const localePath = useLocalePath()
@@ -84,4 +83,7 @@ const props = defineProps({
     required: true,
   },
 })
+const renderedBiography = props.item?.biography
+  ? await markdownParser.parse("biography", props.item.biography)
+  : ""
 </script>

@@ -1,3 +1,0 @@
-query getPresignedUploadUrl($appId: ID!, $type: String!) {
-  getPresignedUploadUrl(appId: $appId, type: $type)
-}

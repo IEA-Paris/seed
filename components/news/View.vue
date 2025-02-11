@@ -14,7 +14,7 @@
           $t("news.categories." + item.category)
         }}</v-chip>
         <br />
-        {{ item.title }}
+        {{ item.name }}
       </template>
     </v-col>
     <v-col cols="12" md="4" class="pb-0">
@@ -54,11 +54,14 @@
           $t("news.categories." + item.category)
         }}</v-chip>
         <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
-          {{ item.title }}
+          {{ item.name }}
         </div>
 
         <div class="d-flex text-wrap text-h6 text-black mt-3" v-if="mdAndUp">
-          {{ item.description }}
+          <ContentRendererMarkdown
+            :value="renderedDescription"
+            class="mt-md-n2 mx-4 mx-sm-8 mx-md-0"
+          />
         </div>
         <div
           class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-4 mx-md-6"
@@ -118,9 +121,10 @@
           ]
         "
       ></v-skeleton-loader>
-      <template v-else>
-        <ContentRenderer :value="item" class="mt-md-n2 mx-4 mx-sm-8 mx-md-0" />
-      </template>
+      <ContentRendererMarkdown
+        :value="renderedDescription"
+        class="mt-md-n2 mx-4 mx-sm-8 mx-md-0"
+      />
     </v-col>
   </v-row>
 
@@ -171,6 +175,7 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
+import markdownParser from "@nuxt/content/transformers/markdown"
 const { name, mdAndUp, smAndDown } = useDisplay()
 const router = useRouter()
 const { locale } = useI18n()
@@ -194,4 +199,8 @@ const { data: action } = await useAsyncData("actions", () =>
     .limit(1)
     .find(),
 )
+
+const renderedDescription = props.item?.description
+  ? await markdownParser.parse("description", props.item.description)
+  : ""
 </script>

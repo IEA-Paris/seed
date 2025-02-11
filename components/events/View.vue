@@ -33,7 +33,7 @@
         <template v-else>
           <div class="d-flex align-center flex-column">
             <div class="d-flex text-center text-wrap text-h3 text-black">
-              {{ item.name }}
+              <ContentRendererMarkdown :value="renderedTitle" />
             </div>
 
             <v-divider width="154px" class="mb-1 mt-6"></v-divider>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="d-flex text-center text-wrap text-h5 text-black mt-4">
-              {{ item.subtitle }}
+              <ContentRendererMarkdown :value="renderedSubtitle" />
             </div>
 
             <div class="d-flex text-center text-wrap text-h5 text-black mt-4">
@@ -217,7 +217,7 @@
                   class="py-2"
                   style="white-space: pre; text-wrap: auto"
                 >
-                  {{ item.description }}
+                  <ContentRendererMarkdown :value="renderedDescription" />
                 </v-expansion-panel-text>
               </v-expansion-panel>
 
@@ -234,11 +234,10 @@
                   {{ $t("programme") }}
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
-                  <ContentRenderer
-                    ><ContentRendererMarkdown
-                      :value="item"
-                    ></ContentRendererMarkdown> </ContentRenderer
-                ></v-expansion-panel-text>
+                  <ContentRendererMarkdown :value="renderedProgram" />
+
+                  ></v-expansion-panel-text
+                >
               </v-expansion-panel>
 
               <v-expansion-panel
@@ -257,8 +256,8 @@
                   class="border-thin text-black"
                   :color="key === accordeon ? 'light-grey' : 'white'"
                 >
-                  Details content<!--  TODO: bind --></v-expansion-panel-text
-                >
+                  <ContentRendererMarkdown :value="renderedDetails" />
+                </v-expansion-panel-text>
               </v-expansion-panel>
             </v-expansion-panels>
           </div>
@@ -343,4 +342,19 @@ function redirectToMap(long, lat) {
     `https://www.openstreetmap.org/?mlat=${lat}&amp;mlon=${long}#map=19/${lat}/${long}`,
   )
 }
+
+const renderedDescription = props.item?.description
+  ? await markdownParser.parse("description", props.item.description)
+  : ""
+
+const renderedTitle = props.item?.name
+  ? await markdownParser.parse("name", props.item.name)
+  : ""
+
+const renderedDetails = props.item?.details
+  ? await markdownParser.parse("details", props.item.details)
+  : ""
+const renderedProgram = props.item?.program
+  ? await markdownParser.parse("program", props.item.program)
+  : ""
 </script>

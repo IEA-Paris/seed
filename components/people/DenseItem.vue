@@ -10,7 +10,7 @@
         type="heading"
       ></v-skeleton-loader>
       <template v-else>
-        {{ item.title }}
+        {{ item.name }}
       </template>
     </v-col>
     <v-col align-self="center" cols="6">

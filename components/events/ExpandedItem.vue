@@ -1,5 +1,5 @@
 <template>
-  <div class="text-h4">{{ item.title }}</div>
+  <div class="text-h4">{{ item.name }}</div>
 </template>
 
 <script lang="ts" setup>

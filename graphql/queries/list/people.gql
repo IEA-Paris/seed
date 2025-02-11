@@ -1,0 +1,137 @@
+query listPeople(
+  $appId: ID = "iea"
+  $lang: String = "en"
+  $options: ListInput = {}
+) {
+  listPeople(options: $options, appId: $appId, lang: $lang) {
+    items {
+      affiliations {
+        affiliation {
+          image {
+            alt
+            backgroundColor
+            caption
+            copyright
+            license
+            licenseUrl
+            url
+          }
+          location {
+            alt
+            city
+            country
+            details
+            geocode {
+              lat
+              lng
+            }
+            name
+            street
+            zip
+          }
+          name
+          ror
+          url
+        }
+        positions {
+          department
+          role
+          start
+          stop
+        }
+      }
+      biography
+      firstname
+      groups {
+        board
+        fellow
+        sab
+        sponsor
+        team
+        vintage {
+          name
+          theme
+          url
+          year
+        }
+      }
+      image {
+        url
+        license
+        copyright
+        caption
+        backgroundColor
+        alt
+      }
+      lastname
+      relatedEvents {
+        description
+        name
+        url
+        image {
+          url
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+        }
+      }
+      relatedNews {
+        description
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      relatedProject {
+        description
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      relatedPublications {
+        name
+        url
+      }
+      socials {
+        idRef
+        instagram
+        linkedin
+        mendeley
+        orcid
+        researchgate
+        scholar
+        twitter
+        website
+        wikipedia
+      }
+      video {
+        url
+        alt
+        caption
+        copyright
+        license
+        licenseUrl
+        backgroundColor
+      }
+    }
+    total
+  }
+}
