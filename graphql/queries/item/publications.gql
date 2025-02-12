@@ -3,7 +3,7 @@ query getPublication(
   $itemId: String = ""
   $lang: String = "en"
 ) {
-  getPublication(itemId: $itemId, appId: $appId, lang: $lang) {
+  getPublication(appId: $appId, itemId: $itemId, lang: $lang) {
     affiliations {
       image {
         alt

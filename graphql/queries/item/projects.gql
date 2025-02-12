@@ -1,7 +1,7 @@
 query getProject(
   $appId: ID = "iea"
-  $lang: String = "en"
   $itemId: String = ""
+  $lang: String = "en"
 ) {
   getProject(appId: $appId, itemId: $itemId, lang: $lang) {
     color
