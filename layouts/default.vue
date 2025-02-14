@@ -2,7 +2,7 @@
   <v-app>
     <NavigationTopBar />
     <v-main>
-      <NavigationBreadcrumbs></NavigationBreadcrumbs>
+      <!-- <NavigationBreadcrumbs></NavigationBreadcrumbs> -->
       <!--     <v-btn color="success" @click="rootStore.setLoading(!rootStore.loading)"
         >ext</v-btn
       > -->

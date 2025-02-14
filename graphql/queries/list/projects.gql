@@ -1,5 +1,9 @@
-query listProjects($appId: ID = "iea", $lang: String = "en") {
-  listProjects(options: {}, appId: $appId, lang: $lang) {
+query listProjects(
+  $appId: ID = "iea"
+  $lang: String = "en"
+  $options: ListInput = {}
+) {
+  listProjects(options: $options, appId: $appId, lang: $lang) {
     total
     items {
       appId
