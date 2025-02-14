@@ -1,7 +1,7 @@
 <template>
   <div class="scroller">
     <section class="d-flex flex-column">
-      <NavigationBreadcrumbs class="d-flex align-start"></NavigationBreadcrumbs>
+      <!-- <NavigationBreadcrumbs class="d-flex align-start"></NavigationBreadcrumbs> -->
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" sm="10" md="8">
