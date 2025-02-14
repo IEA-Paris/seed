@@ -453,6 +453,7 @@ export const useRootStore = defineStore("rootStore", {
         }),
       )
       console.log("args: ", args)
+      console.log("type: ", type)
       let result: any = {}
       switch (type) {
         case "events":
@@ -499,6 +500,7 @@ export const useRootStore = defineStore("rootStore", {
               _path: "/" + e["id"],
             })) as any,
           }
+          console.log("resultFellow: ", result)
           break
         case "news":
           console.log("list news")
