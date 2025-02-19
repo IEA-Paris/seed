@@ -1,21 +1,46 @@
 <template>
-  <v-container> <NewsView :item="news"></NewsView></v-container>
+  <v-container> <NewsView v-if="news" :item="news"></NewsView></v-container>
+  <pre>{{ news }}</pre>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
+import { reactive, computed, watch, ref } from "vue"
+import { useRootStore } from "~/store/root"
+import GET_NEWS from "~/graphql/queries/item/news.gql"
+import { useQuery } from "@vue/apollo-composable"
+
 const { locale } = useI18n()
 const { smAndUp, mdAndUp } = useDisplay()
 const route = useRoute()
 const localePath = useLocalePath()
-import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
-const { data: news } = await useAsyncData(
-  "news",
-  async () =>
-    await queryContent(
-      "news/" + locale.value + "/" + route.params.slug,
-    ).findOne(),
-)
-rootStore.setLoading(false, "news")
+
+const variables = ref({
+  itemId: route.params.slug.trim(),
+  appId: "iea",
+  lang: locale.value,
+})
+
+const { result, loading, error, refetch } = useQuery(GET_NEWS, variables)
+
+const news = computed(() => result.value?.getNews || null)
+
+watch(locale, (newLocale) => {
+  variables.value.lang = newLocale
+  refetch()
+})
+
+console.log("LOADING", loading.value)
+
+watchEffect(() => {
+  rootStore.setLoading(false, "news")
+})
+
+// Gérer les erreurs
+watchEffect(() => {
+  if (error.value) {
+    console.error("Erreur durant le chargement des données news :", error.value)
+  }
+})
 </script>

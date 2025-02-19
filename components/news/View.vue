@@ -10,7 +10,7 @@
         :type="['heading', 'heading'][['xs', 'sm'].indexOf(name || 'sm')]"
       ></v-skeleton-loader>
       <template v-else>
-        <v-chip class="mb-4">{{
+        <v-chip class="mb-4" v-if="item && item.category && item.name">{{
           $t("news.categories." + item.category)
         }}</v-chip>
         <br />
@@ -26,6 +26,7 @@
 
       <div v-else class="mx-sm-6">
         <MiscAtomsImageContainer
+          v-if="item && item.image"
           cover
           :loading="rootStore.news.loading"
           :src="item.image"
@@ -50,10 +51,13 @@
       ></v-skeleton-loader>
 
       <div v-else class="mx-4 mx-md-0 justify-md-end">
-        <v-chip class="mb-4" v-if="mdAndUp">{{
+        <v-chip class="mb-4" v-if="item && item.category && mdAndUp">{{
           $t("news.categories." + item.category)
         }}</v-chip>
-        <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
+        <div
+          class="d-flex text-wrap text-h4 text-black"
+          v-if="item && item.name && mdAndUp"
+        >
           {{ item.name }}
         </div>
 
@@ -73,7 +77,10 @@
             /> -->
 
           <div class="ml-md-n6">
-            <div class="text-body-2 text-lg-body-1 text-black">
+            <div
+              class="text-body-2 text-lg-body-1 text-black"
+              v-if="item && item.authors && item.authors[0]"
+            >
               <!--    TODO use a proper & conditional formatting of names (depending on number of authors) -->
               {{
                 $t("by-author", [
@@ -83,6 +90,7 @@
             </div>
             <div class="" v-if="smAndDown">
               <MiscMoleculesChipContainer
+                v-if="item && item.tags"
                 :items="item.tags"
                 class="mt-4"
               ></MiscMoleculesChipContainer>
@@ -106,6 +114,7 @@
       <template v-else>
         <div class="mt-2 mx-sm-6" v-if="mdAndUp">
           <MiscMoleculesChipContainer
+            v-if="item && item.tags"
             :items="item.tags"
             class="mt-4"
           ></MiscMoleculesChipContainer>
@@ -134,6 +143,7 @@
     <v-divider />
   </v-responsive>
   <MiscAtomsSlidingCarousel
+    v-if="item && item.gallery"
     :items="item.gallery"
     type="MiscAtomsImage"
     ref="MiscAtomsImage"
@@ -152,19 +162,19 @@
   </v-responsive>
   <v-row>
     <!-- RELATED ITEMS -->
-    <v-col cols="12" md="4">
+    <v-col v-if="item && item.relatedEvents" cols="12" md="auto">
       <MiscMoleculesRelatedItems
         type="events"
-        :items="item.relatedEvents"
+        :items="item && item.relatedEvents"
       ></MiscMoleculesRelatedItems>
     </v-col>
-    <v-col cols="12" md="4">
+    <v-col v-if="item && item.relatedProjects" cols="12" md="auto">
       <MiscMoleculesRelatedItems
         type="project"
         :items="item.relatedProjects"
       ></MiscMoleculesRelatedItems>
     </v-col>
-    <v-col cols="12" md="4">
+    <v-col v-if="item && item.relatedPeople" cols="12" md="auto">
       <MiscMoleculesRelatedItems
         type="people"
         :items="item.relatedPeople"
