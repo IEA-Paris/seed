@@ -37,7 +37,6 @@ watchEffect(() => {
   rootStore.setLoading(false, "news")
 })
 
-// Gérer les erreurs
 watchEffect(() => {
   if (error.value) {
     console.error("Erreur durant le chargement des données news :", error.value)

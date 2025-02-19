@@ -143,7 +143,7 @@
     <v-divider />
   </v-responsive>
   <MiscAtomsSlidingCarousel
-    v-if="item && item.gallery"
+    v-if="item && item.gallery && item.gallery.length"
     :items="item.gallery"
     type="MiscAtomsImage"
     ref="MiscAtomsImage"

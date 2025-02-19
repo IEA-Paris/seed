@@ -26,6 +26,7 @@
         <div class="overflow-hidden mw-100">
           <!--  TODO debug why the picture is not displaying/sizing properly -->
           <v-img
+            v-if="src"
             :aspect-ratio="ratio"
             :class="{ 'img-animation': animate }"
             :lazy-src="
