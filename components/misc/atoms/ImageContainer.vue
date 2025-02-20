@@ -30,20 +30,16 @@
             :aspect-ratio="ratio"
             :class="{ 'img-animation': animate }"
             :lazy-src="
-              img(
-                typeof src === 'string'
-                  ? src
-                  : src.url || 'placeholder /!\TODO',
-                { width: 10, quality: 70 },
-              )
+              img(computedSrc, {
+                width,
+                quality: 70,
+              })
             "
             :src="
-              img(
-                typeof src === 'string'
-                  ? src
-                  : src.url || 'placeholder /!\TODO',
-                { width, quality: 70 },
-              )
+              img(computedSrc, {
+                width,
+                quality: 70,
+              })
             "
             :srcset="_srcset.srcset"
             :sizes="_srcset.sizes"
@@ -63,7 +59,9 @@ import { useRootStore } from "~/store/root"
 const img = useImage()
 
 const rootStore = useRootStore()
-
+const computedSrc = computed(() => {
+  return typeof props.src === "string" ? props.src : props.src.url
+})
 const props = defineProps({
   src: {
     type: [Object, String],

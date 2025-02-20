@@ -144,7 +144,11 @@ try {
 console.log("error: ", error) */
 onMounted(async () => {
   const { type, source } = props
-
+  try {
+    await rootStore.update(props.type, locale.value)
+  } catch (error) {
+    console.log("error fetching update list: ", error)
+  }
   const hasFilters =
     rootStore[type].filtersCount > 0 ||
     (route.query?.filters && Object.keys(route.query.filters).length > 0) ||

@@ -1,14 +1,17 @@
 <template>
-  <v-container> <NewsView v-if="news" :item="news"></NewsView></v-container>
-  <pre>{{ news }}</pre>
+  <v-container>
+    <NewsView
+      :key="$route.params.slug + locale.lang"
+      :item="news"
+      :loading
+    ></NewsView
+  ></v-container>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
-import { reactive, computed, watch, ref } from "vue"
 import { useRootStore } from "~/store/root"
 import GET_NEWS from "~/graphql/queries/item/news.gql"
-import { useQuery } from "@vue/apollo-composable"
 
 const { locale } = useI18n()
 const { smAndUp, mdAndUp } = useDisplay()
@@ -21,25 +24,16 @@ const variables = ref({
   appId: "iea",
   lang: locale.value,
 })
+const { result, loading, error, refetch } = await useQuery(GET_NEWS, variables)
 
-const { result, loading, error, refetch } = useQuery(GET_NEWS, variables)
-
-const news = computed(() => result.value?.getNews || null)
-
-watch(locale, (newLocale) => {
-  variables.value.lang = newLocale
-  refetch()
+let news = computed(() => {
+  console.log("reassign computed news", result.value?.getNews)
+  return result.value?.getNews
 })
+onMounted(() => {
+  console.log("variables: ", variables)
+  if (!loading) refetch(variables.value)
 
-console.log("LOADING", loading.value)
-
-watchEffect(() => {
   rootStore.setLoading(false, "news")
-})
-
-watchEffect(() => {
-  if (error.value) {
-    console.error("Erreur durant le chargement des données news :", error.value)
-  }
 })
 </script>

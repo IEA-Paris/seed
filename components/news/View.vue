@@ -6,7 +6,7 @@
       class="text-wrap text-h4 text-black mx-sm-6"
     >
       <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.news.loading"
+        v-if="loading"
         :type="['heading', 'heading'][['xs', 'sm'].indexOf(name || 'sm')]"
       ></v-skeleton-loader>
       <template v-else>
@@ -19,7 +19,7 @@
     </v-col>
     <v-col cols="12" md="4" class="pb-0">
       <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.news.loading"
+        v-if="loading"
         height="100%"
         type="image"
       ></v-skeleton-loader>
@@ -37,7 +37,7 @@
 
     <v-col cols="12" md="8" class="pl-0 pb-0 d-flex flex-column justify-md-end">
       <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.news.loading"
+        v-if="loading"
         :type="
           [
             'text, chip@4',
@@ -104,7 +104,7 @@
   <v-row class="mt-12">
     <v-col cols="12" md="4" :order="mdAndUp ? 'first' : 'last'" class="pt-0">
       <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.news.loading"
+        v-if="loading"
         :type="
           ['chip@2', 'chip@3', 'chip@4', 'chip@5'][
             ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
@@ -123,7 +123,7 @@
     </v-col>
     <v-col cols="12" md="8" class="pl-0 pt-0">
       <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.news.loading"
+        v-if="loading"
         :type="
           ['text@50', 'text@50', 'text@50', 'text@50', 'text@50', 'text@50'][
             ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
@@ -142,7 +142,7 @@
     <v-divider class="mb-1" />
     <v-divider />
   </v-responsive>
-  <MiscAtomsSlidingCarousel
+  <!--  <MiscAtomsSlidingCarousel
     v-if="item && item.gallery && item.gallery.length"
     :items="item.gallery"
     type="MiscAtomsImage"
@@ -154,7 +154,7 @@
     <div :class="mdAndUp ? 'text-h5' : 'text-h6'">
       {{ $t("gallery") }}
     </div>
-  </MiscAtomsSlidingCarousel>
+  </MiscAtomsSlidingCarousel> -->
   <!-- DIVIDERS -->
   <v-responsive class="mx-auto my-9" width="120">
     <v-divider class="mb-1" />
@@ -195,6 +195,11 @@ const props = defineProps({
   item: {
     type: Object,
     required: true,
+  },
+  loading: {
+    type: Boolean,
+    required: false,
+    default: false,
   },
 })
 
