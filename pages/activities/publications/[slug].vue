@@ -15,10 +15,11 @@
 </template>
 
 <script setup>
-const route = useRoute()
-const { locale } = useI18n()
 import { useRootStore } from "~/store/root"
 import GET_PUBLICATION from "~/graphql/queries/item/publications.gql"
+const route = useRoute()
+const { locale } = useI18n()
+
 const rootStore = useRootStore()
 
 const variables = ref({

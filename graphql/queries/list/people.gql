@@ -5,6 +5,7 @@ query listPeople(
 ) {
   listPeople(options: $options, appId: $appId, lang: $lang) {
     items {
+      id
       affiliations {
         affiliation {
           image {

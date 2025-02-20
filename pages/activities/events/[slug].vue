@@ -1,25 +1,36 @@
 <template>
   <v-container style="max-width: 1600px">
-    <EventsView :item="value"></EventsView
-  ></v-container>
+    <!-- <EventsView :item="event" :loading></EventsView> -->
+    <pre>{{ event }}</pre>
+  </v-container>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
-const { locale } = useI18n()
-const { smAndUp } = useDisplay()
-const localePath = useLocalePath()
-const route = useRoute()
 import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
-const { data } = await useAsyncData(
-  "events",
-  async () =>
-    await queryContent(
-      "events/" + locale.value + "/" + route.params.slug,
-    ).findOne(),
-)
+import GET_EVENT from "~/graphql/queries/item/events.gql"
 
-const value = data._rawValue
-rootStore.setLoading(false, "events")
+const { locale } = useI18n()
+const { smAndUp, mdAndUp } = useDisplay()
+const route = useRoute()
+const localePath = useLocalePath()
+const rootStore = useRootStore()
+
+const variables = ref({
+  itemId: route.params.slug.trim(),
+  appId: "iea",
+  lang: locale.value,
+})
+const { result, loading, error, refetch } = useQuery(GET_EVENT, variables)
+
+let event = computed(() => {
+  console.log("reassign computed event", result.value?.getEvent)
+  return result.value?.getEvent
+})
+onMounted(() => {
+  console.log("variables: ", variables)
+  if (!loading) refetch(variables.value)
+
+  rootStore.setLoading(false, "events")
+})
 </script>

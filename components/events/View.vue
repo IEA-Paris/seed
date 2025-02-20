@@ -16,7 +16,7 @@
         class="d-flex flex-sm-column flex-md-column justify-md-end flex-wrap"
       >
         <v-skeleton-loader
-          v-if="rootStore.loading || rootStore.events.loading"
+          v-if="loading"
           width="100%"
           :type="
             [
@@ -63,7 +63,7 @@
     <v-row class="mt-md-3 mt-lg-10 mt-xl-12">
       <v-col class="d-flex flex-column" cols="12" md="3" v-if="mdAndUp">
         <v-skeleton-loader
-          v-if="rootStore.loading || rootStore.events.loading"
+          v-if="loading"
           height="100%"
           :type="
             [
@@ -149,7 +149,7 @@
           </v-col>
           <v-col cols="6">
             <v-skeleton-loader
-              v-if="rootStore.loading || rootStore.events.loading"
+              v-if="loading"
               type="heading, subtitle, heading, subtitle, ossein, button"
             ></v-skeleton-loader>
             <EventsDateTimePlace v-else :item="item"></EventsDateTimePlace>
@@ -168,7 +168,7 @@
 
       <v-col class="ml-2" cols="12" v-if="xs">
         <v-skeleton-loader
-          v-if="rootStore.loading || rootStore.events.loading"
+          v-if="loading"
           type="heading, subtitle, heading, subtitle, ossein, button"
         ></v-skeleton-loader>
         <EventsDateTimePlace v-else :item="item"></EventsDateTimePlace>
@@ -176,7 +176,7 @@
 
       <v-col cols="12" md="9" class="px-0">
         <v-skeleton-loader
-          v-if="rootStore.loading || rootStore.events.loading"
+          v-if="loading"
           :type="
             [
               'avatar, text, ossein, avatar, text, ossein, avatar, text',
@@ -271,6 +271,7 @@
       <v-divider />
     </v-responsive>
     <MiscAtomsSlidingCarousel
+      v-if="item && item.gallery && item.gallery.length"
       :items="item.gallery"
       type="MiscAtomsImage"
       ref="MiscAtomsImage"
@@ -287,20 +288,20 @@
       <v-divider />
     </v-responsive>
     <v-row>
-      <v-col cols="12" md="4">
+      <v-col v-if="item && item.relatedEvents" cols="12" md="4">
         <MiscMoleculesRelatedItems
           type="events"
           :items="item.relatedEvents"
         ></MiscMoleculesRelatedItems
       ></v-col>
 
-      <v-col cols="12" md="4">
+      <v-col v-if="item && item.relatedProjects" cols="12" md="4">
         <MiscMoleculesRelatedItems
           type="project"
           :items="item.relatedProjects"
         ></MiscMoleculesRelatedItems>
       </v-col>
-      <v-col cols="12" md="4">
+      <v-col v-if="item && item.relatedPeople" cols="12" md="4">
         <MiscMoleculesRelatedItems
           type="people"
           :items="item.relatedPeople"
@@ -325,6 +326,11 @@ const props = defineProps({
   item: {
     type: Object,
     required: true,
+  },
+  loading: {
+    type: Boolean,
+    required: false,
+    default: false,
   },
 })
 
