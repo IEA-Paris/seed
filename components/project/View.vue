@@ -7,7 +7,7 @@
           <!--   PROJECT IMAGE -->
 
           <v-skeleton-loader
-            v-if="rootStore.loading || rootStore.project.loading"
+            v-if="loading"
             height="100%"
             type="image"
           ></v-skeleton-loader>
@@ -22,7 +22,7 @@
         </v-col>
       </v-row>
       <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.project.loading"
+        v-if="loading"
         :type="
           [
             'avatar, paragraph',
@@ -45,6 +45,7 @@
           <ContentRendererMarkdown :value="renderedSubtitle" />
         </div>
         <MiscMoleculesChipContainer
+          v-if="item && item.tags"
           :items="item.tags"
           class="py-6 mt-4 align-self-center"
         ></MiscMoleculesChipContainer>
@@ -71,7 +72,7 @@
 
       <!-- PROJECT DESCRIPTION -->
       <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.project.loading"
+        v-if="loading"
         :type="
           ['text@50', 'text@50', 'text@50', 'text@50', 'text@50', 'text@50'][
             ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
@@ -91,6 +92,7 @@
     <v-divider />
   </v-responsive>
   <MiscAtomsSlidingCarousel
+    v-if="item && item.gallery && item.gallery.length"
     :items="item.gallery"
     type="MiscAtomsImage"
     ref="MiscAtomsImage"
@@ -108,19 +110,19 @@
     <v-divider /> </v-responsive
   ><v-row>
     <!-- RELATED ITEMS -->
-    <v-col cols="12" md="4">
+    <v-col v-if="item && item.relatedEvents" cols="12" md="4">
       <MiscMoleculesRelatedItems
         type="events"
         :items="item.relatedEvents"
       ></MiscMoleculesRelatedItems>
     </v-col>
-    <v-col cols="12" md="4">
+    <v-col v-if="item && item.relatedPeople" cols="12" md="4">
       <MiscMoleculesRelatedItems
         type="people"
         :items="item.relatedPeople"
       ></MiscMoleculesRelatedItems>
     </v-col>
-    <v-col cols="12" md="4">
+    <v-col v-if="item && item.relatedNews" cols="12" md="4">
       <MiscMoleculesRelatedItems
         type="news"
         :items="item.relatedNews"
@@ -141,6 +143,11 @@ const props = defineProps({
   item: {
     type: Object,
     required: true,
+  },
+  loading: {
+    type: Boolean,
+    required: false,
+    default: false,
   },
 })
 

@@ -18,7 +18,7 @@ const variables = ref({
   appId: "iea",
   lang: locale.value,
 })
-const { result, loading, error, refetch } = await useQuery(GET_NEWS, variables)
+const { result, loading, error, refetch } = useQuery(GET_NEWS, variables)
 
 let news = computed(() => {
   console.log("reassign computed news", result.value?.getNews)
