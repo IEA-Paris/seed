@@ -465,20 +465,18 @@ export const useRootStore = defineStore("rootStore", {
         project: { query: LIST_PROJECTS, key: "listProjects" },
       }
 
-      if (queryMap[type]) {
-        console.log(`Fetching ${type}`)
-        const { query, key } = queryMap[type]
-        const { result: data } = useQuery(query, args)
-        const items = data?.value?.[key]?.items ?? []
+      console.log(`Fetching ${type}`)
+      const { query, key } = queryMap[type]
+      const { result: data, error } = useQuery(query, args)
+      if (error.value) console.log(error.value)
+      const items = data?.value?.[key]?.items ?? []
 
-        result = {
-          ...data?.value?.[key],
-          items: items.map(({ id, ...rest }) => ({
-            ...rest,
-            _path: `/${id}`,
-          })),
-        }
-        console.log("result", result)
+      result = {
+        ...data?.value?.[key],
+        items: items.map(({ id, ...rest }) => ({
+          ...rest,
+          _path: `/${id}`,
+        })),
       }
 
       console.log("result: ", result)
@@ -496,7 +494,7 @@ export const useRootStore = defineStore("rootStore", {
 
       console.log("query done for type ", type)
       // update route
-      const query: Record<string, any> = {
+      const routeQuery: Record<string, any> = {
         ...(this.search &&
           typeof this.search !== "undefined" && {
             search: this.search,
@@ -525,18 +523,18 @@ export const useRootStore = defineStore("rootStore", {
       /*       console.log("type b4 sort obj: ", type)
       console.log("query: ", query) */
 
-      Object.keys(query).forEach((key) =>
-        query[key] === undefined
-          ? delete query[key]
+      Object.keys(routeQuery).forEach((key) =>
+        routeQuery[key] === undefined
+          ? delete routeQuery[key]
           : // convert boolean to string
-            typeof query[key] === "boolean"
-            ? query[key] === (query[key] as any).toString()
+            typeof routeQuery[key] === "boolean"
+            ? routeQuery[key] === (routeQuery[key] as any).toString()
             : {},
       )
 
       if (
         JSON.stringify(router.currentRoute.value.query) !==
-        JSON.stringify(sortObject(query))
+        JSON.stringify(sortObject(routeQuery))
       ) {
         // TODO fix these damn false positives (lead: see if pre-resolving the route before replacing it is possible/relevant or come up with another way to compare query & store)
         /*         router.replace({

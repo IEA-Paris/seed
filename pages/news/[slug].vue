@@ -1,11 +1,5 @@
 <template>
-  <v-container>
-    <NewsView
-      :key="$route.params.slug + locale.lang"
-      :item="news"
-      :loading
-    ></NewsView
-  ></v-container>
+  <v-container> <NewsView :item="news" :loading></NewsView></v-container>
 </template>
 
 <script setup>
