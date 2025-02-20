@@ -49,6 +49,7 @@ const isSnapRoutes = () => {
 }
 const crumbs = computed(() => {
   console.log("route.path: ", route.path)
+  console.log("locale: ", locale)
   return route.path
     .split("/")
     .filter((item) => item && !ignoredRoutes.includes(item))
@@ -61,7 +62,7 @@ const crumbs = computed(() => {
           route.path
             .split("/")
             .filter((item) => item)
-            .slice(0, index + 2)
+            .slice(0, index + (locale === "en" ? 1 : 2))
             .join("/"),
         disabled: false,
         exact: true,

@@ -61,7 +61,10 @@
           {{ item.name }}
         </div>
 
-        <div class="d-flex text-wrap text-h6 text-black mt-3" v-if="mdAndUp">
+        <div
+          class="d-flex text-wrap text-h6 text-black mt-3"
+          v-if="renderedDescription && mdAndUp"
+        >
           <ContentRendererMarkdown
             :value="renderedDescription"
             class="mt-md-n2 mx-4 mx-sm-8 mx-md-0"
@@ -131,6 +134,7 @@
         "
       ></v-skeleton-loader>
       <ContentRendererMarkdown
+        v-if="renderedDescription"
         :value="renderedDescription"
         class="mt-md-n2 mx-4 mx-sm-8 mx-md-0"
       />
@@ -142,7 +146,7 @@
     <v-divider class="mb-1" />
     <v-divider />
   </v-responsive>
-  <!--  <MiscAtomsSlidingCarousel
+  <MiscAtomsSlidingCarousel
     v-if="item && item.gallery && item.gallery.length"
     :items="item.gallery"
     type="MiscAtomsImage"
@@ -154,7 +158,7 @@
     <div :class="mdAndUp ? 'text-h5' : 'text-h6'">
       {{ $t("gallery") }}
     </div>
-  </MiscAtomsSlidingCarousel> -->
+  </MiscAtomsSlidingCarousel>
   <!-- DIVIDERS -->
   <v-responsive class="mx-auto my-9" width="120">
     <v-divider class="mb-1" />
@@ -215,7 +219,7 @@ const { data: action } = await useAsyncData("actions", () =>
     .find(),
 )
 
-const renderedDescription = props.item?.description
-  ? await markdownParser.parse("description", props.item.description)
-  : ""
+const renderedDescription = props.loading
+  ? null
+  : await markdownParser.parse("description", props.item.description)
 </script>

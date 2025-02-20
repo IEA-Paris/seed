@@ -459,7 +459,7 @@ export const useRootStore = defineStore("rootStore", {
       const queryMap = {
         events: { query: LIST_EVENTS, key: "listEvents" },
         people: { query: LIST_PEOPLE, key: "listPeople" },
-        fellowships: { query: LIST_FELLOWSHIPS, key: "listFellowships" },
+        fellowship: { query: LIST_FELLOWSHIPS, key: "listFellowships" },
         news: { query: LIST_NEWS, key: "listNews" },
         publications: { query: LIST_PUBLICATIONS, key: "listPublications" },
         project: { query: LIST_PROJECTS, key: "listProjects" },
