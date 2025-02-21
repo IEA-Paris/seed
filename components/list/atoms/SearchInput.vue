@@ -89,19 +89,19 @@ const results = computed(() => {
       Object.keys(rootStore.results)
         .sort((a, b) => {
           return (
-            rootStore.results[b].items.length -
-            rootStore.results[a].items.length
+            rootStore.results[b]?.items?.length -
+            rootStore.results[a]?.items?.length
           )
         })
         .reduce((acc, key, index) => {
-          const items = rootStore.results[key].items
+          const items = rootStore.results[key]?.items
           console.log("items: ", items)
-          const total = rootStore.results[key].total
+          const total = rootStore.results[key]?.total
           if (total === 0 && index === 0) {
             acc.push({ type: "no-result" })
             return acc
           }
-          if (items.length) {
+          if (items?.length) {
             acc.push({ type: "subheader", name: t("items." + key, 2) })
             acc.push(
               ...items.map((item) => ({
@@ -116,7 +116,7 @@ const results = computed(() => {
           acc.push({ type: "divider" })
           return acc
         }, [])) ||
-    []
+    {}
   console.log("rst: ", rst)
   return rst
 })
