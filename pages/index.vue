@@ -79,7 +79,23 @@
           </v-col>
         </v-row>
       </v-container>
-      <div class="d-flex justify-center">
+      <div
+        class="d-flex justify-center"
+        v-motion
+        :initial="{
+          opacity: 0,
+          y: 100,
+        }"
+        :enter="{
+          opacity: 1,
+          y: 0,
+          transition: {
+            type: 'slide',
+            stiffness: '100',
+            delay: 1200,
+          },
+        }"
+      >
         <v-btn
           color="default"
           icon

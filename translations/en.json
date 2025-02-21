@@ -27,6 +27,7 @@
   "tos": "Terms of Service",
   "privacy": "Privacy Policy",
   "invalid-e-mail": "Invalid Email",
+  "no-result": "No result found",
   "resources": "Resources",
   "back": "Back",
   "page-not-found": "Page not found",
@@ -320,7 +321,7 @@
   "items": {
     "events": "Event | Events",
     "news": "News | News",
-    "project": "Project | Projects",
+    "projects": "Project | Projects",
     "fellow": "Fellow | Fellows",
     "people": "No one | People | People",
     "fellowship": "Fellowship | Fellowships | {0} Fellowships",

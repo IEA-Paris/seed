@@ -132,7 +132,6 @@
 
 <script setup>
 import markdownParser from "@nuxt/content/transformers/markdown"
-import { V } from "vitest/dist/chunks/reporters.D7Jzd9GS.js"
 import { useDisplay } from "vuetify"
 import getFileIcon from "~/composables/useIcons"
 import { useRootStore } from "~/store/root"

@@ -21,6 +21,7 @@ import LIST_FELLOWSHIPS from "~/graphql/queries/list/fellowships.gql"
 import LIST_NEWS from "~/graphql/queries/list/news.gql"
 import LIST_PUBLICATIONS from "~/graphql/queries/list/publications.gql"
 import LIST_PROJECTS from "~/graphql/queries/list/projects.gql"
+import SEARCH from "~/graphql/queries/list/search.gql"
 
 interface InputParams {
   key?: any | string
@@ -32,14 +33,25 @@ interface InputParams {
 }
 
 export const useRootStore = defineStore("rootStore", {
-  state: (): Record<string, boolean | number | string | ModuleType> => ({
+  state: (): Record<
+    string,
+    boolean | number | string | ModuleType | searchResults
+  > => ({
     scrolled: process.browser ? window.scrollY > 0 : false,
-    loading: true,
+    loading: false,
     resetFilters: false,
     total: 0,
     skip: 0,
     numberOfPages: 0,
     search: "",
+    results: {
+      events: {},
+      news: {},
+      people: {},
+      projects: {},
+      fellowship: {},
+      publications: {},
+    },
     page: 1,
     events,
     news,
@@ -401,11 +413,26 @@ export const useRootStore = defineStore("rootStore", {
       router.push({ query })
       this.update(type)
     },
-    updateSearch({ search, type }: { search: any; type: string }) {
-      console.log("updateSearch: ", { search, type })
-      this.page = 1
+    async updateSearch({
+      search = "",
+      lang = "en",
+    }: {
+      search: string
+      lang: string
+    }) {
       this.search = search
-      this.update(type)
+      console.log("updateSearch: ", search + " " + lang)
+      this.setLoading(true)
+      const { data, error } = await useAsyncQuery(SEARCH, {
+        search,
+        lang,
+        appId: "",
+      })
+      if (error.value) console.log(error.value)
+      console.log("data: ", data)
+      this.results = data?.value?.search
+      this.setLoading(false)
+      console.log("results: ", this.results)
     },
     async update(type: string, lang: string = "en") {
       this.setLoading(true)

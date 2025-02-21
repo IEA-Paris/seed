@@ -24,6 +24,7 @@
   "fellowships": "Résidences",
   "page-not-found": "Page introuvable",
   "network": "Réseau",
+  "no-result": "Aucun résultat trouvé",
   "projects": "Projets",
   "proceedings": "Actes",
   "rules": {
@@ -123,12 +124,13 @@
   "invalid-color-code": "code couleur invalide",
   "invalid-ror-code": "Syntaxe d'identifiant ROR invalide",
   "items": {
-    "events": "événement | \névénement | \névénements",
-    "fellow": "camarade | \ncamarade | \nles gars",
-    "fellowship": "bourse | \nbourse | \nbourses",
-    "news": "nouvelles | \nnouvelles | \nnouvelles",
-    "people": "personne | \npersonne | \npersonnes",
-    "project": "projet | \nprojet | \nprojets"
+    "events": "Événement | \nÉvénement | \nÉvénements",
+    "fellow": "Résident | \nRésident | \nRésidents",
+    "fellowship": "Programme d'accueil | \nProgramme d'accueil | \nProgrammes d'accueil",
+    "news": "Actualité | \nActualité | \nActualités",
+    "people": "Personne | \nPersonne | \nPersonnes",
+    "projects": "Projet | \nProjet | \nProjets",
+    "publications":  "Publication | \nPublication | \nPublications",
   },
   "news": {
     "key": "Actualités",
