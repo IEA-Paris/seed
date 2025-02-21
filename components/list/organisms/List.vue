@@ -144,7 +144,11 @@ try {
 console.log("error: ", error) */
 onMounted(async () => {
   const { type, source } = props
-
+  try {
+    await rootStore.update(props.type, locale.value)
+  } catch (error) {
+    console.log("error fetching update list: ", error)
+  }
   const hasFilters =
     rootStore[type].filtersCount > 0 ||
     (route.query?.filters && Object.keys(route.query.filters).length > 0) ||
@@ -152,4 +156,144 @@ onMounted(async () => {
   /*
     filter.value = hasFilters */
 })
+
+const test = [
+  {
+    $search: {
+      index: "events-search-index",
+      text: { query: "test", path: ["name.en", "summary.en"] },
+    },
+  },
+  { $project: { score: { $meta: "searchScore" }, _id: 1 } },
+  { $set: { source: "events" } },
+  { $limit: 3 },
+  {
+    $unionWith: {
+      coll: "fellowships",
+      pipeline: [
+        {
+          index: "fellowships-search-index",
+          $search: { text: { query: "test", path: ["name.en", "summary.en"] } },
+        },
+        { $set: { source: "fellowships" } },
+        {
+          $project: {
+            score: { $meta: "searchScore" },
+            _id: 1,
+            source: 1,
+            "name.en": 1,
+            "summary.en": 1,
+          },
+        },
+        { $limit: 3 },
+        { $sort: { score: -1 } },
+      ],
+    },
+  },
+  {
+    $unionWith: {
+      coll: "news",
+      pipeline: [
+        {
+          index: "news-search-index",
+          $search: { text: { query: "test", path: ["name.en"] } },
+        },
+        { $set: { source: "news" } },
+        {
+          $project: {
+            score: { $meta: "searchScore" },
+            _id: 1,
+            source: 1,
+            "name.en": 1,
+          },
+        },
+        { $limit: 3 },
+        { $sort: { score: -1 } },
+      ],
+    },
+  },
+  {
+    $unionWith: {
+      coll: "people",
+      pipeline: [
+        {
+          index: "people-search-index",
+          $search: {
+            text: {
+              query: "test",
+              path: ["lastname.en", "biography.en", "affiliation.name"],
+            },
+          },
+        },
+        { $set: { source: "people" } },
+        {
+          $project: {
+            score: { $meta: "searchScore" },
+            _id: 1,
+            source: 1,
+            "lastname.en": 1,
+            "biography.en": 1,
+            "affiliation.name": 1,
+          },
+        },
+        { $limit: 3 },
+        { $sort: { score: -1 } },
+      ],
+    },
+  },
+  {
+    $unionWith: {
+      coll: "projects",
+      pipeline: [
+        {
+          index: "projects-search-index",
+          $search: {
+            text: {
+              query: "test",
+              path: ["name.en", "summary.en", "category.name"],
+            },
+          },
+        },
+        { $set: { source: "projects" } },
+        {
+          $project: {
+            score: { $meta: "searchScore" },
+            _id: 1,
+            source: 1,
+            "name.en": 1,
+            "summary.en": 1,
+            "category.name": 1,
+          },
+        },
+        { $limit: 3 },
+        { $sort: { score: -1 } },
+      ],
+    },
+  },
+  {
+    $unionWith: {
+      coll: "publications",
+      pipeline: [
+        {
+          index: "publications-search-index",
+          $search: {
+            text: { query: "test", path: ["name.en", "abstract.en"] },
+          },
+        },
+        { $set: { source: "publications" } },
+        {
+          $project: {
+            score: { $meta: "searchScore" },
+            _id: 1,
+            source: 1,
+            "name.en": 1,
+            "abstract.en": 1,
+          },
+        },
+        { $limit: 3 },
+        { $sort: { score: -1 } },
+      ],
+    },
+  },
+]
 </script>

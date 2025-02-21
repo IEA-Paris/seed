@@ -6,11 +6,11 @@
       class="text-wrap text-h4 text-black mx-sm-6"
     >
       <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.news.loading"
+        v-if="loading"
         :type="['heading', 'heading'][['xs', 'sm'].indexOf(name || 'sm')]"
       ></v-skeleton-loader>
       <template v-else>
-        <v-chip class="mb-4">{{
+        <v-chip class="mb-4" v-if="item && item.category && item.name">{{
           $t("news.categories." + item.category)
         }}</v-chip>
         <br />
@@ -19,13 +19,14 @@
     </v-col>
     <v-col cols="12" md="4" class="pb-0">
       <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.news.loading"
+        v-if="loading"
         height="100%"
         type="image"
       ></v-skeleton-loader>
 
       <div v-else class="mx-sm-6">
         <MiscAtomsImageContainer
+          v-if="item && item.image"
           cover
           :loading="rootStore.news.loading"
           :src="item.image"
@@ -36,7 +37,7 @@
 
     <v-col cols="12" md="8" class="pl-0 pb-0 d-flex flex-column justify-md-end">
       <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.news.loading"
+        v-if="loading"
         :type="
           [
             'text, chip@4',
@@ -50,14 +51,20 @@
       ></v-skeleton-loader>
 
       <div v-else class="mx-4 mx-md-0 justify-md-end">
-        <v-chip class="mb-4" v-if="mdAndUp">{{
+        <v-chip class="mb-4" v-if="item && item.category && mdAndUp">{{
           $t("news.categories." + item.category)
         }}</v-chip>
-        <div class="d-flex text-wrap text-h4 text-black" v-if="mdAndUp">
+        <div
+          class="d-flex text-wrap text-h4 text-black"
+          v-if="item && item.name && mdAndUp"
+        >
           {{ item.name }}
         </div>
 
-        <div class="d-flex text-wrap text-h6 text-black mt-3" v-if="mdAndUp">
+        <div
+          class="d-flex text-wrap text-h6 text-black mt-3"
+          v-if="renderedDescription && mdAndUp"
+        >
           <ContentRendererMarkdown
             :value="renderedDescription"
             class="mt-md-n2 mx-4 mx-sm-8 mx-md-0"
@@ -73,7 +80,10 @@
             /> -->
 
           <div class="ml-md-n6">
-            <div class="text-body-2 text-lg-body-1 text-black">
+            <div
+              class="text-body-2 text-lg-body-1 text-black"
+              v-if="item && item.authors && item.authors[0]"
+            >
               <!--    TODO use a proper & conditional formatting of names (depending on number of authors) -->
               {{
                 $t("by-author", [
@@ -83,6 +93,7 @@
             </div>
             <div class="" v-if="smAndDown">
               <MiscMoleculesChipContainer
+                v-if="item && item.tags"
                 :items="item.tags"
                 class="mt-4"
               ></MiscMoleculesChipContainer>
@@ -96,7 +107,7 @@
   <v-row class="mt-12">
     <v-col cols="12" md="4" :order="mdAndUp ? 'first' : 'last'" class="pt-0">
       <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.news.loading"
+        v-if="loading"
         :type="
           ['chip@2', 'chip@3', 'chip@4', 'chip@5'][
             ['md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
@@ -106,6 +117,7 @@
       <template v-else>
         <div class="mt-2 mx-sm-6" v-if="mdAndUp">
           <MiscMoleculesChipContainer
+            v-if="item && item.tags"
             :items="item.tags"
             class="mt-4"
           ></MiscMoleculesChipContainer>
@@ -114,7 +126,7 @@
     </v-col>
     <v-col cols="12" md="8" class="pl-0 pt-0">
       <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.news.loading"
+        v-if="loading"
         :type="
           ['text@50', 'text@50', 'text@50', 'text@50', 'text@50', 'text@50'][
             ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
@@ -122,6 +134,7 @@
         "
       ></v-skeleton-loader>
       <ContentRendererMarkdown
+        v-if="renderedDescription"
         :value="renderedDescription"
         class="mt-md-n2 mx-4 mx-sm-8 mx-md-0"
       />
@@ -134,6 +147,7 @@
     <v-divider />
   </v-responsive>
   <MiscAtomsSlidingCarousel
+    v-if="item && item.gallery && item.gallery.length"
     :items="item.gallery"
     type="MiscAtomsImage"
     ref="MiscAtomsImage"
@@ -152,19 +166,19 @@
   </v-responsive>
   <v-row>
     <!-- RELATED ITEMS -->
-    <v-col cols="12" md="4">
+    <v-col v-if="item && item.relatedEvents" cols="12" md="auto">
       <MiscMoleculesRelatedItems
         type="events"
-        :items="item.relatedEvents"
+        :items="item && item.relatedEvents"
       ></MiscMoleculesRelatedItems>
     </v-col>
-    <v-col cols="12" md="4">
+    <v-col v-if="item && item.relatedProjects" cols="12" md="auto">
       <MiscMoleculesRelatedItems
         type="project"
         :items="item.relatedProjects"
       ></MiscMoleculesRelatedItems>
     </v-col>
-    <v-col cols="12" md="4">
+    <v-col v-if="item && item.relatedPeople" cols="12" md="auto">
       <MiscMoleculesRelatedItems
         type="people"
         :items="item.relatedPeople"
@@ -186,6 +200,11 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  loading: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 })
 
 const today = new Date()
@@ -200,7 +219,7 @@ const { data: action } = await useAsyncData("actions", () =>
     .find(),
 )
 
-const renderedDescription = props.item?.description
-  ? await markdownParser.parse("description", props.item.description)
-  : ""
+const renderedDescription = props.loading
+  ? null
+  : await markdownParser.parse("description", props.item.description)
 </script>

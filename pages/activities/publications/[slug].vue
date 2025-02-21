@@ -9,20 +9,34 @@
     </v-row>
   </v-container> -->
 
-  <v-container> <PublicationsView :item="item"></PublicationsView></v-container>
+  <v-container>
+    <PublicationsView :item="publications" :loading></PublicationsView
+  ></v-container>
 </template>
 
-<script setup async>
+<script setup>
+import { useRootStore } from "~/store/root"
+import GET_PUBLICATION from "~/graphql/queries/item/publications.gql"
 const route = useRoute()
 const { locale } = useI18n()
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
-const { data } = await useAsyncData("publications", () =>
-  queryContent(
-    "publications/" + locale.value + "/" + route.params.slug,
-  ).findOne(),
-)
 
-const item = data._value
-rootStore.setLoading(false, "publications")
+const rootStore = useRootStore()
+
+const variables = ref({
+  itemId: route.params.slug.trim(),
+  appId: "iea",
+  lang: locale.value,
+})
+const { result, loading, error, refetch } = useQuery(GET_PUBLICATION, variables)
+
+let publications = computed(() => {
+  console.log("reassign computed publication", result.value?.getPublication)
+  return result.value?.getPublication
+})
+onMounted(() => {
+  console.log("variables: ", variables)
+  if (!loading) refetch(variables.value)
+
+  rootStore.setLoading(false, "publications")
+})
 </script>

@@ -9,18 +9,36 @@
     </v-row>
   </v-container> -->
 
-  <v-container> <ProjectView :item="item"></ProjectView></v-container>
+  <v-container>
+    <ProjectView :item="project" :loading></ProjectView
+  ></v-container>
+  <pre>{{ project }}</pre>
 </template>
 
 <script setup async>
 const route = useRoute()
 const { locale } = useI18n()
 import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
-const { data } = await useAsyncData("project", () =>
-  queryContent("project/" + locale.value + "/" + route.params.slug).findOne(),
-)
+import GET_PROJECT from "~/graphql/queries/item/projects.gql"
 
-const item = data._value
-rootStore.setLoading(false, "project")
+const rootStore = useRootStore()
+
+const variables = ref({
+  itemId: route.params.slug.trim(),
+  appId: "iea",
+  lang: locale.value,
+})
+
+const { result, loading, error, refetch } = useQuery(GET_PROJECT, variables)
+
+let project = computed(() => {
+  console.log("reassign computed project", result.value?.getProject)
+  return result.value?.getProject
+})
+onMounted(() => {
+  console.log("variables: ", variables)
+  if (!loading) refetch(variables.value)
+
+  rootStore.setLoading(false, "project")
+})
 </script>

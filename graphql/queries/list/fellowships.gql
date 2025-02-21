@@ -1,7 +1,7 @@
 query listFellowships(
+  $options: ListInput = {}
   $appId: ID = "iea"
   $lang: String = "en"
-  $options: ListInput = {}
 ) {
   listFellowships(options: $options, appId: $appId, lang: $lang) {
     items {

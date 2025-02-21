@@ -8,7 +8,7 @@
       </template>
 
       <template v-slot:title="{ item }">
-        {{ $t(item.name).toUpperCase() }}
+        {{ $t(item.title).toUpperCase() }}
       </template>
     </v-breadcrumbs>
     <!--       <v-btn
@@ -48,10 +48,13 @@ const isSnapRoutes = () => {
   return route.name.startsWith("about") || route.name.startsWith("index")
 }
 const crumbs = computed(() => {
+  console.log("route.path: ", route.path)
+  console.log("locale: ", locale)
   return route.path
     .split("/")
     .filter((item) => item && !ignoredRoutes.includes(item))
     .map((item, index) => {
+      console.log("item: ", item)
       return {
         title: item,
         href:
@@ -59,7 +62,7 @@ const crumbs = computed(() => {
           route.path
             .split("/")
             .filter((item) => item)
-            .slice(0, index + 2)
+            .slice(0, index + (locale === "en" ? 1 : 2))
             .join("/"),
         disabled: false,
         exact: true,

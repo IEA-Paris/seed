@@ -453,93 +453,32 @@ export const useRootStore = defineStore("rootStore", {
         }),
       )
       console.log("args: ", args)
+      console.log("type: ", type)
       let result: any = {}
-      switch (type) {
-        case "events":
-          console.log("list events")
-          const {
-            data: { value: events },
-          } = await useAsyncQuery(LIST_EVENTS, args)
-          result = {
-            ...events?.listEvents,
-            items: events?.listEvents["items"].map((e: any) => ({
-              ...e,
-              _path: "/" + e["id"],
-            })) as any,
-          }
-          console.log("result: ", result)
-          break
-        case "people":
-          console.log("list people")
-          const {
-            data: { value: people },
-          } = await useAsyncQuery(LIST_PEOPLE, args)
-          result = {
-            ...people?.listPeople,
-            items: people?.listPeople["items"].map((e: any) => ({
-              ...e,
-              _path: "/" + e["id"],
-              title: e["firstname"] + " " + e["lastname"],
-              relatedProjects: [],
-              relatedEvents: [],
-              relatedNews: [],
-              description: e["biography"],
-            })) as any,
-          }
-          break
-        case "fellowships":
-          console.log("list fellowships")
-          const {
-            data: { value: fellowships },
-          } = await useAsyncQuery(LIST_FELLOWSHIPS, args)
-          result = {
-            ...fellowships?.listFellowships,
-            items: fellowships?.listFellowships["items"].map((e: any) => ({
-              ...e,
-              _path: "/" + e["id"],
-            })) as any,
-          }
-          break
-        case "news":
-          console.log("list news")
-          const {
-            data: { value: news },
-          } = await useAsyncQuery(LIST_NEWS, args)
-          result = {
-            ...news?.listNews,
-            items: news?.listNews["items"].map((e: any) => ({
-              ...e,
-              _path: "/" + e["id"],
-            })) as any,
-          }
-          break
-        case "publications":
-          console.log("list publications")
-          const {
-            data: { value: publications },
-          } = await useAsyncQuery(LIST_PUBLICATIONS, args)
-          result = {
-            ...publications?.listPublications,
-            items: publications?.listPublications["items"].map((e: any) => ({
-              ...e,
-              _path: "/" + e["id"],
-            })) as any,
-          }
-          break
-        case "project":
-          console.log("list projects")
-          const {
-            data: { value: projects },
-          } = await useAsyncQuery(LIST_PROJECTS, args)
-          result = {
-            ...projects?.listProjects,
-            items: projects?.listProjects["items"].map((e: any) => ({
-              ...e,
-              _path: "/" + e["id"],
-            })) as any,
-          }
-          break
+
+      const queryMap = {
+        events: { query: LIST_EVENTS, key: "listEvents" },
+        people: { query: LIST_PEOPLE, key: "listPeople" },
+        fellowship: { query: LIST_FELLOWSHIPS, key: "listFellowships" },
+        news: { query: LIST_NEWS, key: "listNews" },
+        publications: { query: LIST_PUBLICATIONS, key: "listPublications" },
+        project: { query: LIST_PROJECTS, key: "listProjects" },
       }
+
+      console.log(`Fetching ${type}`)
+      const { query, key } = queryMap[type]
+      const { result: data, error } = useQuery(query, args)
+      if (error.value) console.log(error.value)
+      const items = data?.value?.[key]?.items ?? []
+
+      result = {
+        ...data?.value?.[key],
+        items: items.map(({ id, ...rest }) => ({
+          ...rest,
+          _path: `/${id}`,
+        })),
+      }
+
       console.log("result: ", result)
       ;(this[type] as ModuleType).list.items = result["items"]
       this.total = result["total"]
@@ -555,7 +494,7 @@ export const useRootStore = defineStore("rootStore", {
 
       console.log("query done for type ", type)
       // update route
-      const query: Record<string, any> = {
+      const routeQuery: Record<string, any> = {
         ...(this.search &&
           typeof this.search !== "undefined" && {
             search: this.search,
@@ -584,18 +523,18 @@ export const useRootStore = defineStore("rootStore", {
       /*       console.log("type b4 sort obj: ", type)
       console.log("query: ", query) */
 
-      Object.keys(query).forEach((key) =>
-        query[key] === undefined
-          ? delete query[key]
+      Object.keys(routeQuery).forEach((key) =>
+        routeQuery[key] === undefined
+          ? delete routeQuery[key]
           : // convert boolean to string
-            typeof query[key] === "boolean"
-            ? query[key] === (query[key] as any).toString()
+            typeof routeQuery[key] === "boolean"
+            ? routeQuery[key] === (routeQuery[key] as any).toString()
             : {},
       )
 
       if (
         JSON.stringify(router.currentRoute.value.query) !==
-        JSON.stringify(sortObject(query))
+        JSON.stringify(sortObject(routeQuery))
       ) {
         // TODO fix these damn false positives (lead: see if pre-resolving the route before replacing it is possible/relevant or come up with another way to compare query & store)
         /*         router.replace({
