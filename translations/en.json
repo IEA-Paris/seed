@@ -235,11 +235,7 @@
           "colloquium": "Colloquium",
           "fellow-presentation": "Fellow's presentation"
         },
-        "organiserCategory": [
-          "Paris IAS",
-          "Fellow",
-          "External"
-        ],
+        "organiserCategory": ["Paris IAS", "Fellow", "External"],
         "disciplines": {
           "history": "History",
           "philosophy": "Philosophy",
@@ -315,7 +311,8 @@
   "related": {
     "events": "Related events",
     "news": "Related news",
-    "project": "Related projects"
+    "project": "Related projects",
+    "people": "Related people"
   },
   "by-author": "By {0}",
   "items": {

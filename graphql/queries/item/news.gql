@@ -65,7 +65,7 @@ query getNews($appId: ID = "iea", $itemId: String = "", $lang: String = "en") {
       }
       lastname
     }
-    relatedProject {
+    relatedProjects {
       description
       id
       image {
