@@ -72,7 +72,7 @@ query listNews(
         }
         lastname
       }
-      relatedProject {
+      relatedProjects {
         description
         id
         image {
