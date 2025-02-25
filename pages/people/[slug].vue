@@ -1,6 +1,6 @@
 <template>
-  <!-- <v-container> <PeopleView :item="people" :loading></PeopleView></v-container> -->
-  <pre>{{ people }}</pre>
+  <v-container> <PeopleView :item="people" :loading></PeopleView></v-container>
+  <pre> {{ people }}</pre>
 </template>
 
 <script setup>
