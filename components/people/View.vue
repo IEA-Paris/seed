@@ -6,7 +6,7 @@
           <!--   PEOPLE IMAGE -->
           <MiscAtomsImageContainer
             cover
-            v-if="mdAndUp"
+            v-if="mdAndUp && item && item.image"
             :loading="rootStore.people.loading"
             :src="item.image"
             :ratio="1 / 1"
@@ -42,17 +42,23 @@
           </v-skeleton-loader>
 
           <template v-else>
-            <div class="my-8 text-h3 align-self-center text-wrap">
+            <div
+              v-if="item && item.firstname && item.lastname"
+              class="my-8 text-h3 align-self-center text-wrap"
+            >
               {{ item.firstname + " " + item.lastname
               }}<!--  TODO : call a composable to format people names (multiple, initials, capped & al. )-->
             </div>
             <!-- SOCIALS -->
             <div class="text-center">
-              <MiscAtomsSocials v-if="item.socials" :socials="item.socials" />
+              <MiscAtomsSocials
+                v-if="item && item.socials"
+                :socials="item.socials"
+              />
             </div>
             <!-- GROUPS -->
             <div class="mt-6 align-self-center">
-              <PeopleGroupBadges :item="item" />
+              <PeopleGroupBadges v-if="item && item.groups" :item="item" />
             </div>
           </template>
         </v-col>
@@ -122,6 +128,7 @@
       <v-card
         v-else
         flat
+        v-if="item && item.affiliation"
         v-for="record in item.affiliations"
         :key="record.affiliation"
       >
@@ -153,18 +160,21 @@
     <!-- RELATED ITEMS -->
     <v-col cols="12" md="4">
       <MiscMoleculesRelatedItems
+        v-if="item && item.relatedEvents"
         type="events"
         :items="item.relatedEvents"
       ></MiscMoleculesRelatedItems>
     </v-col>
     <v-col cols="12" md="4">
       <MiscMoleculesRelatedItems
+        v-if="item && item.relatedProjects"
         type="project"
         :items="item.relatedProjects"
       ></MiscMoleculesRelatedItems>
     </v-col>
     <v-col cols="12" md="4">
       <MiscMoleculesRelatedItems
+        v-if="item && item.relatedNews"
         type="news"
         :items="item.relatedNews"
       ></MiscMoleculesRelatedItems>
