@@ -91,7 +91,7 @@ query getPeople(
       name
       url
     }
-    relatedProject {
+    relatedProjects {
       description
       image {
         alt

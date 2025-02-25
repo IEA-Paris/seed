@@ -130,7 +130,7 @@
     "news": "Actualité | \nActualité | \nActualités",
     "people": "Personne | \nPersonne | \nPersonnes",
     "projects": "Projet | \nProjet | \nProjets",
-    "publications":  "Publication | \nPublication | \nPublications",
+    "publications": "Publication | \nPublication | \nPublications"
   },
   "news": {
     "key": "Actualités",
@@ -323,7 +323,8 @@
   "related": {
     "events": "Événements liés",
     "news": "Actualités connexes",
-    "project": "Projets associés"
+    "project": "Projets associés",
+    "people": "Personnes associés"
   },
   "socials": {
     "facebook": "Visitez notre page Facebook",
