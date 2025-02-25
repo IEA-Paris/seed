@@ -17,7 +17,7 @@ query listFellowships(
         name
         updatedAt
       }
-      fellow
+      fellows
       image {
         alt
         backgroundColor

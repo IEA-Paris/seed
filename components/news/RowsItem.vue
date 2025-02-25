@@ -57,8 +57,8 @@
           <nuxt-link
             :to="
               localePath({
-                name: 'activities-events-slug',
-                params: { slug: getSlugFromPath(item._path || '') },
+                name: 'news-slug',
+                params: { slug: getSlugFromPath(item._path) },
               })
             "
             class="text-black"
@@ -104,8 +104,8 @@
         <nuxt-link
           :to="
             localePath({
-              name: 'activities-events-slug',
-              params: { slug: getSlugFromPath(item._path || '') },
+              name: 'news-slug',
+              params: { slug: getSlugFromPath(item._path) },
             })
           "
           class="text-black"

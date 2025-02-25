@@ -93,7 +93,7 @@ query listPeople(
         name
         url
       }
-      relatedProject {
+      relatedProjects {
         description
         image {
           alt

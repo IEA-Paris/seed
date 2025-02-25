@@ -494,7 +494,7 @@ export const useRootStore = defineStore("rootStore", {
 
       console.log(`Fetching ${type}`)
       const { query, key } = queryMap[type]
-      const { result: data, error } = useQuery(query, args)
+      const { data, error } = await useAsyncQuery(query, args)
       if (error.value) console.log(error.value)
       const items = data?.value?.[key]?.items ?? []
 
