@@ -37,7 +37,7 @@
 
       <div class="d-flex align-center flex-column mt-12" v-else>
         <div class="d-flex text-center text-wrap text-h3 text-black">
-          <ContentRendererMarkdown :value="renderedTitle" />
+          <ContentRendererMarkdown :value="renderedName" />
         </div>
         <v-divider width="154px" class="mb-1 mt-6"></v-divider>
         <v-divider width="154px"></v-divider>
@@ -162,8 +162,8 @@ const renderedSubtitle = props.item?.subtitle
 const renderedDescription = props.item?.description
   ? await markdownParser.parse("description", props.item.description)
   : ""
-const renderedTitle = props.item?.title
-  ? await markdownParser.parse("title", props.item.title)
+const renderedName = props.item?.name
+  ? await markdownParser.parse("title", props.item.name)
   : ""
 
 rootStore.project.loading = false

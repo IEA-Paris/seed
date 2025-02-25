@@ -168,8 +168,8 @@ const props = defineProps({
 const renderedTitle = props.item?.name
   ? await markdownParser.parse("name", props.item.name)
   : ""
-const renderedSummary = props.item?.summary
-  ? await markdownParser.parse("summary", props.item.summary)
+const renderedSummary = props.item?.description
+  ? await markdownParser.parse("summary", props.item.description)
   : ""
 </script>
 

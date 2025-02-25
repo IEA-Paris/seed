@@ -99,7 +99,6 @@
     <v-col cols="12" md="4">
       <MiscAtomsImageContainer
         cover
-        :name="item.name"
         :slug="getSlugFromPath(item._path || '')"
         link="activities-events-slug"
         :loading="rootStore.events.loading"

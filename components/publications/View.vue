@@ -108,22 +108,29 @@
     <v-divider /> </v-responsive
   ><v-row>
     <!-- RELATED ITEMS -->
-    <v-col v-if="item && item.relatedEvents" cols="12" md="4">
+    <v-col v-if="item && item.relatedEvents" cols="12" md="3">
       <MiscMoleculesRelatedItems
         type="events"
         :items="item.relatedEvents"
       ></MiscMoleculesRelatedItems>
     </v-col>
-    <v-col v-if="item && item.relatedPeople" cols="12" md="4">
+    <v-col v-if="item && item.relatedPeople" cols="12" md="3">
       <MiscMoleculesRelatedItems
         type="people"
         :items="item.relatedPeople"
       ></MiscMoleculesRelatedItems>
     </v-col>
-    <v-col v-if="item && item.relatedNews" cols="12" md="4">
+    <v-col v-if="item && item.relatedNews" cols="12" md="3">
       <MiscMoleculesRelatedItems
         type="news"
         :items="item.relatedNews"
+      ></MiscMoleculesRelatedItems>
+    </v-col>
+
+    <v-col v-if="item && item.relatedProjects" cols="12" md="3">
+      <MiscMoleculesRelatedItems
+        type="project"
+        :items="item.relatedProjects"
       ></MiscMoleculesRelatedItems>
     </v-col>
   </v-row>

@@ -12,7 +12,6 @@
   <v-container>
     <ProjectView :item="project" :loading></ProjectView
   ></v-container>
-  <pre>{{ project }}</pre>
 </template>
 
 <script setup async>
