@@ -189,7 +189,6 @@ import markdownParser from "@nuxt/content/transformers/markdown"
 const rootStore = useRootStore()
 const { name, mdAndUp } = useDisplay()
 const props = defineProps({ item: { type: Object, required: true } })
-const renderedBiography = props.item?.biography
-  ? await markdownParser.parse("biography", props.item.biography)
-  : ""
+const renderedBiography =
+  (await markdownParser.parse("biography", props.item.biography)) || false
 </script>

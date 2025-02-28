@@ -22,7 +22,7 @@
         </div>
       </template></v-text-field
     >
-    <v-expand-transition>
+    <v-expand-transition v-if="type === 'all'">
       <v-list
         lines="three"
         item-props

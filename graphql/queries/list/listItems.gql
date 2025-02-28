@@ -1,0 +1,192 @@
+query listItems(
+  $appId: ID = ""
+  $lang: String = ""
+  $options: ListInput = {}
+  $type: String = ""
+) {
+  listItems(options: $options, appId: $appId, lang: $lang, type: $type) {
+    items {
+      ... on News {
+        id
+        category
+        color
+        date
+        description
+        featured
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        tags {
+          createdAt
+          description
+          icon
+          name
+          updatedAt
+        }
+        name
+        url
+      }
+      ... on Event {
+        availableSlots
+        bookingState
+        category
+        dateText
+        details
+        summary
+        subtitle
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        place {
+          address
+          id
+          name
+          url
+        }
+        state
+        start
+        stop
+        type
+        url
+      }
+      ... on People {
+        id
+        biography
+        firstname
+        groups {
+          board
+          fellow
+          sab
+          sponsor
+          team
+          vintage {
+            name
+            theme
+            url
+            year
+          }
+        }
+        image {
+          url
+          license
+          copyright
+          caption
+          backgroundColor
+          alt
+        }
+        lastname
+        socials {
+          idRef
+          instagram
+          linkedin
+          mendeley
+          orcid
+          researchgate
+          scholar
+          twitter
+          website
+          wikipedia
+        }
+      }
+      ... on Project {
+        date
+        featured
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          license
+          copyright
+          licenseUrl
+          url
+        }
+        name
+        subtitle
+        url
+        tags {
+          createdAt
+          description
+          icon
+          name
+          updatedAt
+        }
+      }
+      ... on Publication {
+        date
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          url
+          licenseUrl
+        }
+        subtitle
+        name
+        url
+        tags {
+          createdAt
+          description
+          name
+          icon
+          updatedAt
+        }
+      }
+      ... on Fellowship {
+        applicationStart
+        applicationStop
+        disciplines {
+          createdAt
+          description
+          icon
+          name
+          updatedAt
+        }
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        member {
+          name
+          url
+          image {
+            url
+            licenseUrl
+            license
+            copyright
+            caption
+            backgroundColor
+            alt
+          }
+        }
+        summary
+        name
+        url
+        publicationDate
+      }
+    }
+    total
+  }
+}

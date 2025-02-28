@@ -10,7 +10,7 @@ query listEvents(
       bookingState
       category
       createdBy
-      date
+      dateText
       description
       details
       summary

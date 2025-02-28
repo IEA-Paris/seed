@@ -219,5 +219,5 @@ const { data: action } = await useAsyncData("actions", () =>
 )
 
 const renderedDescription =
-  (await markdownParser.parse("description", props.item.description)) || false
+  (await markdownParser.parse("description", props?.item?.description)) || false
 </script>
