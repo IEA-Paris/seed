@@ -41,7 +41,7 @@
           "
           class="text-wrap text-h5 text-md-h4 text-black mb-2"
         >
-          {{ item.name }}
+          {{ item.firstname + " " + item.lastname }}
         </NuxtLink>
         <MiscAtomsSocials
           v-if="item.socials"

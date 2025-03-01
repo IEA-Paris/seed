@@ -2,7 +2,7 @@
   <v-row no-gutters>
     <v-col>
       <template v-for="(value, key, index) in socials" :key="key + value">
-        <v-tooltip :location="location">
+        <v-tooltip :location="location" v-if="value">
           <template v-slot:activator="{ props }">
             <v-btn
               tile
@@ -57,6 +57,10 @@ const props = defineProps({
 
 const getSocialId = (name, id) => {
   switch (name) {
+    case "idRef":
+      return `https://www.idref.fr/${id}`
+    case "mendeley":
+      return `https://www.mendeley.com/${id}`
     case "linkedin":
       return `https://www.linkedin.com/company/${id}`
     case "twitter":
@@ -86,6 +90,12 @@ const getSocialId = (name, id) => {
 
 const getProfileIcon = (name) => {
   switch (name) {
+    case "idRef":
+      return "mdi-account-plus-outline"
+    case "mendeley":
+      return "mdi-book"
+    case "bluesky":
+      return "mdi-cloud"
     case "linkedin":
       return "mdi-linkedin"
     case "twitter":

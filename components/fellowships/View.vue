@@ -7,7 +7,7 @@
           <!--   FELLOWSHIP IMAGE -->
           <MiscAtomsImageContainer
             contain
-            :loading="rootStore.fellowship.loading"
+            :loading="rootStore.fellowships.loading"
             :src="item.image"
             :ratio="1 / 1"
           />
@@ -16,7 +16,7 @@
       <v-row justify="center">
         <v-col cols="12">
           <v-skeleton-loader
-            v-if="rootStore.loading || rootStore.fellowship.loading"
+            v-if="rootStore.loading || rootStore.fellowships.loading"
             :type="
               [
                 'avatar, paragraph',
@@ -55,7 +55,7 @@
 
             <!-- FELLOWSHIP DESCRIPTION -->
             <v-skeleton-loader
-              v-if="rootStore.loading || rootStore.fellowship.loading"
+              v-if="rootStore.loading || rootStore.fellowships.loading"
               :type="
                 [
                   'text@50',
@@ -160,7 +160,7 @@ const fellowshipType = ref([
       ]),
 ])
 onMounted(() => {
-  rootStore.fellowship.loading = false
+  rootStore.fellowships.loading = false
   /*   console.log("fellowship item", props.item.value) */
 })
 

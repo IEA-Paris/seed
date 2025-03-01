@@ -15,7 +15,7 @@
           <MiscAtomsImageContainer
             v-else
             contain
-            :loading="rootStore.project.loading"
+            :loading="rootStore.projects.loading"
             :src="item.image"
             :ratio="1 / 1"
           />
@@ -166,5 +166,5 @@ const renderedName = props.item?.name
   ? await markdownParser.parse("title", props.item.name)
   : ""
 
-rootStore.project.loading = false
+rootStore.projects.loading = false
 </script>

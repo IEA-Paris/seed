@@ -5,18 +5,23 @@ query listEvents(
 ) {
   listEvents(options: $options, appId: $appId, lang: $lang) {
     items {
-      appId
       availableSlots
       bookingState
       category
-      createdBy
       dateText
-      description
       details
       summary
       subtitle
       id
-      image
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
       name
       place {
         address
@@ -27,7 +32,6 @@ query listEvents(
       state
       start
       stop
-      totalSlots
       type
       url
     }

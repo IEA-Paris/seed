@@ -10,8 +10,8 @@ import {
   events,
   news,
   people,
-  project,
-  fellowship,
+  projects,
+  fellowships,
   publications,
 } from "@paris-ias/data"
 
@@ -49,15 +49,15 @@ export const useRootStore = defineStore("rootStore", {
       news: {},
       people: {},
       projects: {},
-      fellowship: {},
+      fellowships: {},
       publications: {},
     },
     page: 1,
     events,
     news,
     people,
-    project,
-    fellowship,
+    projects,
+    fellowships,
     publications,
   }),
 
@@ -483,19 +483,50 @@ export const useRootStore = defineStore("rootStore", {
       console.log("type: ", type)
       let result: any = {}
 
-      const queryMap = {
-        events: { query: LIST_EVENTS, key: "listEvents" },
-        people: { query: LIST_PEOPLE, key: "listPeople" },
-        fellowship: { query: LIST_FELLOWSHIPS, key: "listFellowships" },
-        news: { query: LIST_NEWS, key: "listNews" },
-        publications: { query: LIST_PUBLICATIONS, key: "listPublications" },
-        project: { query: LIST_PROJECTS, key: "listProjects" },
-      }
-
-      console.log(`Fetching ${type}`)
-      const { query, key } = queryMap[type]
-      const { data, error } = await useAsyncQuery(query, args)
+      console.log(
+        `Fetching ${type}`,
+        [
+          LIST_EVENTS,
+          LIST_PEOPLE,
+          LIST_FELLOWSHIPS,
+          LIST_NEWS,
+          LIST_PUBLICATIONS,
+          LIST_PROJECTS,
+        ][
+          [
+            "events",
+            "people",
+            "fellowship",
+            "news",
+            "publications",
+            "project",
+          ].indexOf(type)
+        ],
+      )
+      const { data, error } = await useAsyncQuery(
+        [
+          LIST_EVENTS,
+          LIST_PEOPLE,
+          LIST_FELLOWSHIPS,
+          LIST_NEWS,
+          LIST_PUBLICATIONS,
+          LIST_PROJECTS,
+        ][
+          [
+            "events",
+            "people",
+            "fellowships",
+            "news",
+            "publications",
+            "projects",
+          ].indexOf(type)
+        ],
+        args,
+      )
       if (error.value) console.log(error.value)
+      const key = "list" + type.charAt(0).toUpperCase() + type.slice(1)
+      console.log("key: ", key)
+
       const items = data?.value?.[key]?.items ?? []
 
       result = {

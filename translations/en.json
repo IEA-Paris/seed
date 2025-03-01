@@ -205,7 +205,7 @@
           "Socioscope": "Socioscope"
         }
       },
-      "project": {
+      "projects": {
         "status": {
           "planned": "Planned",
           "ongoing": "Ongoing",
@@ -261,7 +261,7 @@
         "past": "Past",
         "outside": "Outside"
       },
-      "fellowship": {
+      "fellowships": {
         "status": {
           "planned": "Planned",
           "ongoing": "Ongoing",

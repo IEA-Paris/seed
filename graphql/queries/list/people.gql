@@ -6,41 +6,6 @@ query listPeople(
   listPeople(options: $options, appId: $appId, lang: $lang) {
     items {
       id
-      affiliations {
-        affiliation {
-          image {
-            alt
-            backgroundColor
-            caption
-            copyright
-            license
-            licenseUrl
-            url
-          }
-          location {
-            alt
-            city
-            country
-            details
-            geocode {
-              lat
-              lng
-            }
-            name
-            street
-            zip
-          }
-          name
-          ror
-          url
-        }
-        positions {
-          department
-          role
-          start
-          stop
-        }
-      }
       biography
       firstname
       groups {
@@ -65,52 +30,6 @@ query listPeople(
         alt
       }
       lastname
-      relatedEvents {
-        description
-        name
-        url
-        image {
-          url
-          alt
-          backgroundColor
-          caption
-          copyright
-          license
-          licenseUrl
-        }
-      }
-      relatedNews {
-        description
-        image {
-          alt
-          backgroundColor
-          caption
-          copyright
-          license
-          licenseUrl
-          url
-        }
-        name
-        url
-      }
-      relatedProjects {
-        description
-        image {
-          alt
-          backgroundColor
-          caption
-          copyright
-          license
-          licenseUrl
-          url
-        }
-        name
-        url
-      }
-      relatedPublications {
-        name
-        url
-      }
       socials {
         idRef
         instagram
@@ -122,15 +41,6 @@ query listPeople(
         twitter
         website
         wikipedia
-      }
-      video {
-        url
-        alt
-        caption
-        copyright
-        license
-        licenseUrl
-        backgroundColor
       }
     }
     total

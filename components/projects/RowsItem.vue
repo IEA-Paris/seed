@@ -3,7 +3,7 @@
     <MiscAtomsImageContainer
       contain
       :src="item.image"
-      :loading="rootStore.project.loading"
+      :loading="rootStore.projects.loading"
       :ratio="1 / 1"
       :title="item.name"
       link="activities-projects-slug"
@@ -34,7 +34,10 @@
       <div class="text-h5 text-sm-h3 text-md-h4 text-md-h4 my-6">
         {{ item.name }}
       </div>
-      <ContentRendererMarkdown :value="renderedSubtitle" />
+      <ContentRendererMarkdown
+        v-if="renderedSubtitle"
+        :value="renderedSubtitle"
+      />
 
       <p
         class="mt-n3 text-wrap clamped-text"
@@ -45,7 +48,10 @@
           ]
         "
       >
-        <ContentRendererMarkdown :value="renderedDescription" />
+        <ContentRendererMarkdown
+          v-if="renderedDescription"
+          :value="renderedDescription"
+        />
       </p>
 
       <v-btn
@@ -105,10 +111,10 @@ const props = defineProps({
 })
 const renderedDescription = props.item?.description
   ? await markdownParser.parse("description", props.item.description)
-  : ""
+  : false
 const renderedSubtitle = props.item?.subtitle
   ? await markdownParser.parse("subtitle", props.item.subtitle)
-  : ""
+  : false
 </script>
 
 <style lang="scss"></style>

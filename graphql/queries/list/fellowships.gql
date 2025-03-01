@@ -5,11 +5,8 @@ query listFellowships(
 ) {
   listFellowships(options: $options, appId: $appId, lang: $lang) {
     items {
-      action
       applicationStart
       applicationStop
-      contact
-      description
       disciplines {
         createdAt
         description
@@ -17,7 +14,6 @@ query listFellowships(
         name
         updatedAt
       }
-      fellows
       image {
         alt
         backgroundColor
@@ -44,15 +40,6 @@ query listFellowships(
       name
       url
       publicationDate
-      video {
-        alt
-        backgroundColor
-        caption
-        copyright
-        license
-        licenseUrl
-        url
-      }
     }
     total
   }
