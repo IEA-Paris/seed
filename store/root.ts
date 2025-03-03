@@ -514,6 +514,7 @@ export const useRootStore = defineStore("rootStore", {
       )
       const { data, error } = await useAsyncQuery(
         [
+          SEARCH,
           LIST_EVENTS,
           LIST_PEOPLE,
           LIST_FELLOWSHIPS,
@@ -522,6 +523,7 @@ export const useRootStore = defineStore("rootStore", {
           LIST_PROJECTS,
         ][
           [
+            "all",
             "events",
             "people",
             "fellowships",
