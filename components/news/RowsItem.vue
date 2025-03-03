@@ -50,6 +50,7 @@
           <ContentRendererMarkdown :value="renderedTitle" />
         </NuxtLink>
         <MiscMoleculesChipContainer
+          v-if="item.tags && item.tags.length"
           :items="item.tags"
           class="mt-4"
         ></MiscMoleculesChipContainer>

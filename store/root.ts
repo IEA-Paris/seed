@@ -414,16 +414,18 @@ export const useRootStore = defineStore("rootStore", {
       this.update(type)
     },
     async updateSearch({
+      type = "all",
       search = "",
       lang = "en",
     }: {
+      type: string
       search: string
       lang: string
     }) {
       this.search = search
       console.log("updateSearch: ", search + " " + lang)
       this.setLoading(true)
-      const { data, error } = await useAsyncQuery(SEARCH, {
+      /*    const { data, error } = await useAsyncQuery(SEARCH, {
         search,
         lang,
         appId: "",
@@ -432,8 +434,10 @@ export const useRootStore = defineStore("rootStore", {
       console.log("data: ", data)
       this.results = data?.value?.search
       this.setLoading(false)
-      console.log("results: ", this.results)
+      console.log("results: ", this.results) */
+      await this.update(type, lang)
     },
+
     async update(type: string, lang: string = "en") {
       this.setLoading(true)
       ;(this[type] as ModuleType).loading = true
@@ -471,10 +475,13 @@ export const useRootStore = defineStore("rootStore", {
             sortBy: (this[type] as ModuleType).list.sortBy,
             sortDesc: (this[type] as ModuleType).list.sortDesc,
             // search (if set)
-            ...((this.search as string)?.length && { search: this.search }),
+            ...((this.search as string)?.length &&
+              type !== "all" && { search: this.search }),
             // add the store module filters
             filters,
           },
+          ...((this.search as string)?.length &&
+            type === "all" && { search: this.search }),
           appId: "iea",
           lang: "en",
         }),
@@ -486,6 +493,7 @@ export const useRootStore = defineStore("rootStore", {
       console.log(
         `Fetching ${type}`,
         [
+          SEARCH,
           LIST_EVENTS,
           LIST_PEOPLE,
           LIST_FELLOWSHIPS,
@@ -494,6 +502,7 @@ export const useRootStore = defineStore("rootStore", {
           LIST_PROJECTS,
         ][
           [
+            "all",
             "events",
             "people",
             "fellowship",

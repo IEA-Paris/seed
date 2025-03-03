@@ -38,10 +38,7 @@
               "
               class="text-h4 text-black text-wrap mt-4"
             >
-              <ContentRendererMarkdown
-                v-if="renderedTitle && renderedTitle.length"
-                :value="renderedTitle"
-              />
+              <ContentRendererMarkdown :value="renderedTitle" />
             </nuxt-link>
             <div class="mt-2 text-h6 text-overline font-weight-black">
               {{ $t("events.categories." + item.category) }}
@@ -55,8 +52,6 @@
                 })
               "
               class="text-black"
-              v-if="renderedSubtitle && renderedSubtitle.length"
-              :value="renderedSubtitle"
             >
               <p
                 class="text-wrap clamped-text"
@@ -67,7 +62,7 @@
                   ]
                 "
               >
-                <ContentRendererMarkdown /></p
+                <ContentRendererMarkdown :value="renderedSubtitle" /></p
             ></nuxt-link>
 
             <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">

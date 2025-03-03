@@ -12,7 +12,6 @@
       tile
       type="search"
       :loading="rootStore.loading"
-      v-bind="menu"
     >
       <!--    :loading="$nuxt.loading || $store.state.loading" :class="{ 'mt-3':
       $store.state.scrolled }" -->
@@ -125,7 +124,11 @@ const search = computed({
     return rootStore.search
   },
   set: await useDebounceFn(async function (v) {
-    await rootStore.updateSearch({ search: v || "", lang: locale.value })
+    await rootStore.updateSearch({
+      type: props.type,
+      search: v || "",
+      lang: locale.value,
+    })
   }, 300),
 })
 </script>

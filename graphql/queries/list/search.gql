@@ -67,7 +67,15 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
         summary
         type
         name
-        image
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          licenseUrl
+          license
+          url
+        }
       }
       total
     }
