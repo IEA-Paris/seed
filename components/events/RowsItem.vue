@@ -39,7 +39,8 @@
               v-if="item.name"
               class="text-h4 text-black text-wrap mt-4"
             >
-              <ContentRendererMarkdown :value="renderedTitle" />
+              {{ item.name }}
+              <!--       <ContentRendererMarkdown :value="renderedTitle" /> -->
             </nuxt-link>
             <div class="mt-2 text-h6 text-overline font-weight-black">
               {{ $t("events.categories." + item.category) }}
@@ -99,7 +100,7 @@
         :slug="getSlugFromPath(item._path || '')"
         link="activities-events-slug"
         :loading="rootStore.events.loading"
-        :src="item.image"
+        :src="item.image || { url: '/default.png' }"
         :ratio="1 / 1"
       />
     </v-col>

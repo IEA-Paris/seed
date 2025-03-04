@@ -1,24 +1,33 @@
 <template>
-  <section style="background-color: white">
-    <FellowshipView :item="data" />
-  </section>
+  <v-container>
+    <FellowshipsView :item="fellowship" :loading />
+  </v-container>
 </template>
 
-<script setup async>
+<script setup>
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
-const route = useRoute()
-const { smAndUp } = useDisplay()
-const { locale } = useI18n()
-const localePath = useLocalePath()
+import GET_FELLOWSHIP from "~/graphql/queries/item/fellowships.gql"
 
-const { data } = await useAsyncData(
-  "fellowship",
-  async () =>
-    await queryContent(
-      "fellowship/" + locale.value + "/" + route.params.slug,
-    ).findOne(),
-)
-rootStore.setLoading(false, "fellowship")
+const { locale } = useI18n()
+const { smAndUp, mdAndUp } = useDisplay()
+const route = useRoute()
+const localePath = useLocalePath()
+const rootStore = useRootStore()
+
+const variables = ref({
+  itemId: route.params.slug.trim(),
+  appId: "iea",
+  lang: locale.value,
+})
+const { result, loading, error, refetch } = useQuery(GET_FELLOWSHIP, variables)
+
+let fellowship = computed(() => {
+  console.log("reassign computed news", result.value)
+  return result.value?.getFellowship
+})
+onMounted(() => {
+  console.log("variables: ", variables)
+  if (!loading) refetch(variables.value)
+})
 </script>

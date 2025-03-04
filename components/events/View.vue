@@ -4,9 +4,9 @@
       <v-col cols="12" md="3" v-if="mdAndUp">
         <MiscAtomsImageContainer
           cover
-          :src="item.image"
+          :src="item.image || { url: '/default.png' }"
           :ratio="1 / 1"
-          :loading="rootStore.events.loading"
+          :loading="loading"
         />
       </v-col>
 
@@ -41,6 +41,7 @@
 
             <div
               class="d-flex text-center text-wrap text-h5 font-weight-black mt-6"
+              v-if="item && item.category"
             >
               {{ $t("events.categories." + item.category) }}
             </div>
@@ -144,7 +145,7 @@
               cover
               :src="item.image"
               :ratio="1 / 1"
-              :loading="rootStore.events.loading"
+              :loading="loading"
             />
           </v-col>
           <v-col cols="6">
@@ -162,7 +163,7 @@
           cover
           :src="item.image"
           :ratio="1 / 1"
-          :loading="rootStore.events.loading"
+          :loading="loading"
         />
       </v-col>
 
@@ -349,18 +350,22 @@ function redirectToMap(long, lat) {
   )
 }
 
-const renderedDescription = props.item?.description
-  ? await markdownParser.parse("description", props.item.description)
-  : ""
+const renderedDescription =
+  props.item?.description && !loading
+    ? await markdownParser.parse("description", props.item.description)
+    : ""
 
-const renderedTitle = props.item?.name
-  ? await markdownParser.parse("name", props.item.name)
-  : ""
+const renderedTitle =
+  props.item?.name && !loading
+    ? await markdownParser.parse("name", props.item.name)
+    : ""
 
-const renderedDetails = props.item?.details
-  ? await markdownParser.parse("details", props.item.details)
-  : ""
-const renderedProgram = props.item?.program
-  ? await markdownParser.parse("program", props.item.program)
-  : ""
+const renderedDetails =
+  props.item?.details && !loading
+    ? await markdownParser.parse("details", props.item.details)
+    : ""
+const renderedProgram =
+  props.item?.program && !loading
+    ? await markdownParser.parse("program", props.item.program)
+    : ""
 </script>

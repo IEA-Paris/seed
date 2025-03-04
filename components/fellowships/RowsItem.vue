@@ -39,7 +39,10 @@
         >
       </div>
       <MiscMoleculesChipContainer
-        :items="[...fellowshipType, ...item.disciplines]"
+        :items="[
+          ...fellowshipType,
+          ...(item && item.disciplines ? [item.disciplines] : []),
+        ]"
         class="mt-2"
       ></MiscMoleculesChipContainer>
     </div>

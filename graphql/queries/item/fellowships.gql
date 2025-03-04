@@ -1,9 +1,10 @@
 query getFellowship(
   $appId: ID = "iea"
-  $itemId: String = ""
+  $itemId: ID = ""
   $lang: String = "en"
 ) {
   getFellowship(appId: $appId, itemId: $itemId, lang: $lang) {
+    id
     action
     applicationStart
     fellowshipStart
@@ -14,7 +15,7 @@ query getFellowship(
     publicationDate
     summary
     description
-    fellow {
+    fellows {
       id
       firstname
       lastname
@@ -35,7 +36,15 @@ query getFellowship(
       fileType
       hash
       id
-      image
+      image {
+        alt
+        caption
+        backgroundColor
+        copyright
+        license
+        licenseUrl
+        url
+      }
       name
       path
       size

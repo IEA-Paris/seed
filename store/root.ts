@@ -484,7 +484,11 @@ export const useRootStore = defineStore("rootStore", {
                 ? "searchScore"
                 : (this[type] as ModuleType).list.sortBy,
             sortDesc:
-              type === "all" ? -1 : (this[type] as ModuleType).list.sortDesc,
+              type === "all"
+                ? -1
+                : (this[type] as ModuleType).list.sortDesc > 0
+                  ? true
+                  : false,
             // search (if set)
             ...((this.search as string)?.length &&
               type !== "all" && { search: this.search }),

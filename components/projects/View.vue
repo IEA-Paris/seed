@@ -14,7 +14,7 @@
           <MiscAtomsImageContainer
             v-else
             contain
-            :loading="rootStore.projects.loading"
+            :loading="loading"
             :src="item.image"
             :ratio="1 / 1"
           />
@@ -155,15 +155,16 @@ const { data: action } = await useAsyncData("actions", () =>
     .limit(1)
     .find(),
 )
-const renderedSubtitle = props.item?.subtitle
-  ? await markdownParser.parse("subtitle", props.item.subtitle)
-  : ""
-const renderedDescription = props.item?.description
-  ? await markdownParser.parse("description", props.item.description)
-  : ""
-const renderedName = props.item?.name
-  ? await markdownParser.parse("title", props.item.name)
-  : ""
-
-rootStore.projects.loading = false
+const renderedSubtitle =
+  props.item?.subtitle && !props.loading
+    ? await markdownParser.parse("subtitle", props.item.subtitle)
+    : ""
+const renderedDescription =
+  props.item?.description && !props.loading
+    ? await markdownParser.parse("description", props.item.description)
+    : ""
+const renderedName =
+  props.item?.name && !props.loading
+    ? await markdownParser.parse("title", props.item.name)
+    : ""
 </script>

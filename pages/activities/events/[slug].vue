@@ -1,7 +1,6 @@
 <template>
   <v-container style="max-width: 1600px">
-    <!-- <EventsView :item="event" :loading></EventsView> -->
-    <pre>{{ event }}</pre>
+    <EventsView :item="event" :loading></EventsView>
   </v-container>
 </template>
 
