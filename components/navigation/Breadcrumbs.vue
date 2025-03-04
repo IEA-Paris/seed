@@ -48,13 +48,10 @@ const isSnapRoutes = () => {
   return route.name.startsWith("about") || route.name.startsWith("index")
 }
 const crumbs = computed(() => {
-  console.log("route.path: ", route.path)
-  console.log("locale: ", locale)
   return route.path
     .split("/")
     .filter((item) => item && !ignoredRoutes.includes(item))
     .map((item, index) => {
-      console.log("item: ", item)
       return {
         title: item,
         href:

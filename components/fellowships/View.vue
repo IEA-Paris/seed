@@ -43,7 +43,7 @@
               class="mt-2"
             ></MiscMoleculesChipContainer>
             <div class="mt-5">
-              <FellowshipBadges :item="item" :view="view"></FellowshipBadges>
+              <FellowshipsBadges :item="item" :view="view"></FellowshipsBadges>
             </div>
           </div>
           <div class="mx-6">

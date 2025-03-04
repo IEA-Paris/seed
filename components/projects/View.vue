@@ -5,7 +5,6 @@
       <v-row class="justify-center">
         <v-col cols="12" sm="10" md="6" lg="4" xl="3" class="text-center">
           <!--   PROJECT IMAGE -->
-
           <v-skeleton-loader
             v-if="loading"
             height="100%"

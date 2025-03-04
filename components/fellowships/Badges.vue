@@ -5,13 +5,13 @@
     }}
   </div>
 
-  <FellowshipRegisterModal
+  <FellowshipsRegisterModal
     :item="item"
     :view="view"
     v-else-if="registrationStatus === 1"
     class="mr-2"
   >
-  </FellowshipRegisterModal>
+  </FellowshipsRegisterModal>
 
   <div class="my-2 text-overline" v-else-if="registrationStatus === 2">
     <v-icon class="text-grey" size="x-large"> mdi-circle-medium</v-icon>

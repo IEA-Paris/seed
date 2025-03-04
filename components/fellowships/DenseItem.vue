@@ -10,7 +10,7 @@
   >
     <v-col align-self="center" cols="8" class="text-h6">
       {{ item.name }}
-      <FellowshipBadges :item="item"></FellowshipBadges>
+      <FellowshipsBadges :item="item"></FellowshipsBadges>
     </v-col>
     <v-col align-self="center" cols="4">
       <MiscMoleculesChipContainer
