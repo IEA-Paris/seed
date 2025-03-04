@@ -501,28 +501,7 @@ export const useRootStore = defineStore("rootStore", {
       console.log("type: ", type)
       let result: any = {}
 
-      console.log(
-        `Fetching ${type}`,
-        [
-          SEARCH,
-          LIST_EVENTS,
-          LIST_PEOPLE,
-          LIST_FELLOWSHIPS,
-          LIST_NEWS,
-          LIST_PUBLICATIONS,
-          LIST_PROJECTS,
-        ][
-          [
-            "all",
-            "events",
-            "people",
-            "fellowship",
-            "news",
-            "publications",
-            "project",
-          ].indexOf(type)
-        ],
-      )
+      console.log(`Fetching ${type}`)
       const { data, error } = await useAsyncQuery(
         [
           SEARCH,

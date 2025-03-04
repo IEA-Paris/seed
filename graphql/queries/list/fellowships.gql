@@ -7,6 +7,7 @@ query listFellowships(
     items {
       applicationStart
       applicationStop
+      fellowshipType
       disciplines {
         createdAt
         description
