@@ -32,12 +32,9 @@
 
     <template v-else>
       <div class="text-h5 text-sm-h3 text-md-h4 text-md-h4 my-6">
-        {{ item.name }}
+        <ContentRendererMarkdown :value="renderedName" />
       </div>
-      <ContentRendererMarkdown
-        v-if="renderedSubtitle"
-        :value="renderedSubtitle"
-      />
+      <ContentRendererMarkdown :value="renderedSubtitle" />
 
       <p
         class="mt-n3 text-wrap clamped-text"
@@ -48,10 +45,7 @@
           ]
         "
       >
-        <ContentRendererMarkdown
-          v-if="renderedDescription"
-          :value="renderedDescription"
-        />
+        <ContentRendererMarkdown :value="renderedDescription" />
       </p>
 
       <v-btn
@@ -109,6 +103,9 @@ const props = defineProps({
     required: true,
   },
 })
+const renderedName = props.item?.name
+  ? await markdownParser.parse("name", props.item.name)
+  : false
 const renderedDescription = props.item?.description
   ? await markdownParser.parse("description", props.item.description)
   : false

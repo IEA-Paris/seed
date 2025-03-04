@@ -36,6 +36,7 @@
                   params: { slug: getSlugFromPath(item._path || '') },
                 })
               "
+              v-if="item.name"
               class="text-h4 text-black text-wrap mt-4"
             >
               <ContentRendererMarkdown :value="renderedTitle" />
@@ -51,6 +52,7 @@
                   params: { slug: getSlugFromPath(item._path || '') },
                 })
               "
+              v-if="item.subtitle"
               class="text-black"
             >
               <p

@@ -128,16 +128,18 @@
       <v-card
         v-else
         flat
-        v-if="item && item.affiliation"
+        v-if="item && item.affiliations"
         v-for="record in item.affiliations"
         :key="record.affiliation"
       >
         <v-card-item class="px-0">
           <v-card-title class="text-wrap">
-            {{ record.affiliation }}
+            {{ record.affiliation.name }}
           </v-card-title>
           <div class="text-body-2" v-for="position in record.positions">
             <div class="text-overline" v-if="position.start && position.stop">
+              <!--  TODO FIx dates display -->
+
               {{
                 $t("from {0} to {1}", [
                   formatDate(position.start),

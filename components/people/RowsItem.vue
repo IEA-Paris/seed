@@ -5,7 +5,7 @@
       <MiscAtomsImageContainer
         cover
         v-if="item.image"
-        :loading="rootStore.people.loading"
+        :loading="loading"
         :src="item.image"
         :ratio="1 / 1"
         :name="item.lastname + ' ' + item.firstname"
@@ -18,7 +18,7 @@
 
     <v-col cols="12" md="8">
       <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.people.loading"
+        v-if="loading"
         :type="
           [
             'heading, subtitle, text@5',
@@ -81,6 +81,10 @@ const props = defineProps({
   index: {
     type: Number,
     required: true,
+  },
+  loading: {
+    type: Boolean,
+    default: false,
   },
 })
 const renderedBiography = props.item?.biography

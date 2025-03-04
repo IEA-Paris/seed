@@ -33,7 +33,6 @@ query listEvents(
       start
       stop
       type
-      url
     }
     total
   }
