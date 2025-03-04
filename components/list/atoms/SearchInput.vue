@@ -83,19 +83,17 @@ const props = defineProps({
   },
 })
 const results = computed(() => {
+  const storeRst = rootStore.results
   const rst =
-    (Object.keys(rootStore.results).length &&
-      Object.keys(rootStore.results)
+    (Object.keys(storeRst).length &&
+      Object.keys(storeRst)
         .sort((a, b) => {
-          return (
-            rootStore.results[b]?.items?.length -
-            rootStore.results[a]?.items?.length
-          )
+          return storeRst[b]?.items?.length - storeRst[a]?.items?.length
         })
         .reduce((acc, key, index) => {
-          const items = rootStore.results[key]?.items
+          const items = storeRst[key]?.items
           console.log("items: ", items)
-          const total = rootStore.results[key]?.total
+          const total = storeRst[key]?.total
           if (total === 0 && index === 0) {
             acc.push({ type: "no-result" })
             return acc
@@ -104,7 +102,7 @@ const results = computed(() => {
             acc.push({ type: "subheader", name: t("items." + key, 2) })
             acc.push(
               ...items.map((item) => ({
-                prependAvatar: item.image.url,
+                prependAvatar: item?.image?.url || "mdi-square",
                 title: item.name || item.firstname + " " + item.lastname,
                 subtitle: item.summary || item.biography,
                 id: item.id,
@@ -116,6 +114,7 @@ const results = computed(() => {
           return acc
         }, [])) ||
     {}
+
   console.log("rst: ", rst)
   return rst
 })

@@ -440,29 +440,36 @@ export const useRootStore = defineStore("rootStore", {
 
     async update(type: string, lang: string = "en") {
       this.setLoading(true)
-      ;(this[type] as ModuleType).loading = true
+      if (type !== "all") {
+        ;(this[type] as ModuleType).loading = true
+      }
       const router = useRouter()
 
       const queryFilters: any = {}
 
-      const itemsPerPageValue = (this[type] as ModuleType).list
-        ?.itemsPerPage as number
       // fetch the item categories
 
-      const itemsPerPage = (this[type] as ModuleType)?.list?.itemsPerPage || 1
-      const filters = Object.keys((this[type] as ModuleType).list.filters)
-        // prune empty values
-        .filter(
-          (filter) =>
-            typeof (this[type] as ModuleType).list.filters[filter]?.value !==
-            "undefined",
-        )
-        // assign set values to their related keys
-        .map((filter) => {
-          return {
-            [filter]: (this[type] as ModuleType).list.filters[filter].value,
-          }
-        })
+      const itemsPerPage =
+        type === "all"
+          ? 3
+          : ((this[type] as ModuleType).list?.itemsPerPage as number)
+      const filters =
+        type === "all"
+          ? []
+          : Object.keys((this[type] as ModuleType).list.filters)
+              // prune empty values
+              .filter(
+                (filter) =>
+                  typeof (this[type] as ModuleType).list.filters[filter]
+                    ?.value !== "undefined",
+              )
+              // assign set values to their related keys
+              .map((filter) => {
+                return {
+                  [filter]: (this[type] as ModuleType).list.filters[filter]
+                    .value,
+                }
+              })
 
       const args = JSON.parse(
         JSON.stringify({
@@ -472,8 +479,12 @@ export const useRootStore = defineStore("rootStore", {
             // limit
             limit: itemsPerPage,
             // sort, array of keys and array of directions - to have x tie breakers if necessary
-            sortBy: (this[type] as ModuleType).list.sortBy,
-            sortDesc: (this[type] as ModuleType).list.sortDesc,
+            sortBy:
+              type === "all"
+                ? "searchScore"
+                : (this[type] as ModuleType).list.sortBy,
+            sortDesc:
+              type === "all" ? -1 : (this[type] as ModuleType).list.sortDesc,
             // search (if set)
             ...((this.search as string)?.length &&
               type !== "all" && { search: this.search }),
@@ -535,43 +546,48 @@ export const useRootStore = defineStore("rootStore", {
         args,
       )
       if (error.value) console.log(error.value)
-      const key = "list" + type.charAt(0).toUpperCase() + type.slice(1)
+      const key =
+        type === "all"
+          ? "search"
+          : "list" + type.charAt(0).toUpperCase() + type.slice(1)
       console.log("key: ", key)
 
-      const items = data?.value?.[key]?.items ?? []
-
-      result = {
-        ...data?.value?.[key],
-        items: items.map(({ id, ...rest }) => ({
-          ...rest,
-          _path: `/${id}`,
-        })),
-      }
-
-      console.log("result: ", result)
-      ;(this[type] as ModuleType).list.items = result["items"]
       this.total = result["total"]
 
-      const viewsObj = (this[type] as ModuleType).list.views as Record<
-        string,
-        Views
-      >
-      const defaultViewsKey = Object.keys(viewsObj).find(
-        (item) => viewsObj[item].default === true,
-      )
-      const defaultView = viewsObj[defaultViewsKey as string]
+      console.log("result: ", result)
+      if (type === "all") {
+        this.results = data?.value?.[key]
+        console.log("this.results: ", this.results)
+      } else {
+        const items = data?.value?.[key]?.items ?? []
+        result = {
+          ...data?.value?.[key],
+          items: items.map(({ id, ...rest }) => ({
+            ...rest,
+            _path: `/${id}`,
+          })),
+        }
+        ;(this[type] as ModuleType).list.items = result["items"]
+        const viewsObj = (this[type] as ModuleType).list.views as Record<
+          string,
+          Views
+        >
+        const defaultViewsKey = Object.keys(viewsObj).find(
+          (item) => viewsObj[item].default === true,
+        )
+        const defaultView = viewsObj[defaultViewsKey as string]
 
-      console.log("query done for type ", type)
-      // update route
-      const routeQuery: Record<string, any> = {
-        ...(this.search &&
-          typeof this.search !== "undefined" && {
-            search: this.search,
+        console.log("query done for type ", type)
+        // update route
+        const routeQuery: Record<string, any> = {
+          ...(this.search &&
+            typeof this.search !== "undefined" && {
+              search: this.search,
+            }),
+          ...((this.page as number) > 1 && {
+            page: this.page.toString(),
           }),
-        ...((this.page as number) > 1 && {
-          page: this.page.toString(),
-        }),
-        /*    ...(((this[type] as ModuleType).list.sortBy as string[]).length &&
+          /*    ...(((this[type] as ModuleType).list.sortBy as string[]).length &&
           sortByItem !== defaultSort.value[0] && {
             sortBy: sortByItem,
           }),
@@ -579,45 +595,47 @@ export const useRootStore = defineStore("rootStore", {
           sortDescItem !== defaultSort.value[1] && {
             sortDesc: !!sortDescItem,
           }), */
-        ...((this[type] as ModuleType).list.view &&
-          (this[type] as ModuleType).list.view !== defaultView.name && {
-            view: (this[type] as ModuleType).list.view,
+          ...((this[type] as ModuleType).list.view &&
+            (this[type] as ModuleType).list.view !== defaultView.name && {
+              view: (this[type] as ModuleType).list.view,
+            }),
+          ...(Object.keys(filters)?.length && {
+            filters: JSON.stringify(queryFilters),
           }),
-        ...(Object.keys(filters)?.length && {
-          filters: JSON.stringify(queryFilters),
-        }),
-      }
-      const sortObject = (obj: any) =>
-        Object.fromEntries(Object.entries(obj).sort())
-      /*       console.log("type b4 sort obj: ", type)
+        }
+        const sortObject = (obj: any) =>
+          Object.fromEntries(Object.entries(obj).sort())
+        /*       console.log("type b4 sort obj: ", type)
       console.log("query: ", query) */
 
-      Object.keys(routeQuery).forEach((key) =>
-        routeQuery[key] === undefined
-          ? delete routeQuery[key]
-          : // convert boolean to string
-            typeof routeQuery[key] === "boolean"
-            ? routeQuery[key] === (routeQuery[key] as any).toString()
-            : {},
-      )
+        Object.keys(routeQuery).forEach((key) =>
+          routeQuery[key] === undefined
+            ? delete routeQuery[key]
+            : // convert boolean to string
+              typeof routeQuery[key] === "boolean"
+              ? routeQuery[key] === (routeQuery[key] as any).toString()
+              : {},
+        )
 
-      if (
-        JSON.stringify(router.currentRoute.value.query) !==
-        JSON.stringify(sortObject(routeQuery))
-      ) {
-        // TODO fix these damn false positives (lead: see if pre-resolving the route before replacing it is possible/relevant or come up with another way to compare query & store)
-        /*         router.replace({
+        if (
+          JSON.stringify(router.currentRoute.value.query) !==
+          JSON.stringify(sortObject(routeQuery))
+        ) {
+          // TODO fix these damn false positives (lead: see if pre-resolving the route before replacing it is possible/relevant or come up with another way to compare query & store)
+          /*         router.replace({
           query,
         }) */
+        }
+
+        const lastPage = Math.ceil(result.total / itemsPerPage)
+        this.setFiltersCount(type)
+        this.setBlankFilterLoad(type)
+        /*       console.log("type2: ", type) */
+        this.numberOfPages = lastPage
+        ;(this[type] as ModuleType).loading = false
       }
 
-      const lastPage = Math.ceil(result.total / itemsPerPageValue)
-      this.setFiltersCount(type)
-      this.setBlankFilterLoad(type)
-      /*       console.log("type2: ", type) */
-      this.numberOfPages = lastPage
       this.setLoading(false)
-      ;(this[type] as ModuleType).loading = false
       return true
     },
   },
