@@ -65,7 +65,12 @@ const computedSrc = computed(() => {
 const props = defineProps({
   src: {
     type: [Object, String],
-    required: true,
+    required: false,
+    default: {
+      alt: "default",
+      copyright: "IEA PARIS",
+      url: "/logo_grey.png",
+    },
   },
   loading: {
     type: Boolean,

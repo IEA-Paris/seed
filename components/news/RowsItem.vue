@@ -38,7 +38,6 @@
           <br
         /></template>
         <NuxtLink
-          v-if="renderedTitle && renderedTitle.body"
           :to="
             localePath({
               name: 'news-slug',
@@ -47,7 +46,7 @@
           "
           class="text-wrap text-h5 text-md-h4 text-black"
         >
-          <ContentRendererMarkdown :value="renderedTitle" />
+          {{ item.name }}
         </NuxtLink>
         <MiscMoleculesChipContainer
           v-if="item.tags && item.tags.length"

@@ -7,7 +7,7 @@
           <MiscAtomsImageContainer
             cover
             v-if="mdAndUp && item && item.image"
-            :loading="rootStore.people.loading"
+            :loading="loading"
             :src="item.image"
             :ratio="1 / 1"
             :width="
@@ -22,7 +22,7 @@
           <!-- FIRSTNAME LASTNAME -->
           <v-skeleton-loader
             class="mx-auto"
-            v-if="rootStore.loading || rootStore.people.loading"
+            v-if="loading"
             :max-width="
               ['300', '400', '340', '400', '600', '600'][
                 ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
@@ -71,11 +71,7 @@
       </v-responsive>
 
       <div class="text-overline mt-6">
-        <v-skeleton-loader
-          v-if="rootStore.loading || rootStore.people.loading"
-          width="200"
-          type="heading"
-        >
+        <v-skeleton-loader v-if="loading" width="200" type="heading">
         </v-skeleton-loader>
         <div v-else>
           {{ $t("biography") }}
@@ -83,7 +79,7 @@
       </div>
 
       <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.people.loading"
+        v-if="loading"
         :type="
           ['text@16', 'text@16', 'text@16', 'text@12', 'text@12', 'text@12'][
             ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
@@ -106,11 +102,7 @@
 
       <!-- POSITIONS AND AFFILIATIONS -->
       <div class="text-overline mt-6">
-        <v-skeleton-loader
-          v-if="rootStore.loading || rootStore.people.loading"
-          width="200"
-          type="heading"
-        >
+        <v-skeleton-loader v-if="loading" width="200" type="heading">
         </v-skeleton-loader>
         <div v-else>
           {{ $t("positions-and-affiliations") }}
@@ -118,11 +110,7 @@
       </div>
 
       <!-- BIOGRAPHY -->
-      <v-skeleton-loader
-        v-if="rootStore.loading || rootStore.people.loading"
-        type="subtitle, text@2"
-        width="300"
-      >
+      <v-skeleton-loader v-if="loading" type="subtitle, text@2" width="300">
       </v-skeleton-loader>
 
       <v-card
@@ -190,7 +178,11 @@ import { useRootStore } from "~/store/root"
 import markdownParser from "@nuxt/content/transformers/markdown"
 const rootStore = useRootStore()
 const { name, mdAndUp } = useDisplay()
-const props = defineProps({ item: { type: Object, required: true } })
-const renderedBiography =
-  (await markdownParser.parse("biography", props.item.biography)) || false
+const props = defineProps({
+  item: { type: Object, required: true },
+  loading: { type: Boolean, default: false },
+})
+const renderedBiography = props.loading
+  ? false
+  : (await markdownParser.parse("biography", props.item.biography)) || false
 </script>

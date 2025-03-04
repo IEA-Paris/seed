@@ -1,4 +1,4 @@
-query getNews($appId: ID = "iea", $itemId: String = "", $lang: String = "en") {
+query getNews($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
   getNews(appId: $appId, itemId: $itemId, lang: $lang) {
     category
     color
@@ -11,7 +11,15 @@ query getNews($appId: ID = "iea", $itemId: String = "", $lang: String = "en") {
       fileType
       hash
       id
-      image
+      image {
+        alt
+        caption
+        backgroundColor
+        copyright
+        license
+        licenseUrl
+        url
+      }
       name
       path
       size

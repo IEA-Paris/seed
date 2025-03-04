@@ -28,7 +28,7 @@
         <MiscAtomsImageContainer
           v-if="item && item.image"
           cover
-          :loading="rootStore.news.loading"
+          :loading="loading"
           :src="item.image"
           :ratio="1 / 1"
         />
@@ -74,7 +74,7 @@
           class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-4 mx-md-6"
         >
           <!-- <MiscAtomsDateStamp
-              :loading="rootStore.news.loading"
+              :loading="loading"
               :date="item.date"
               class="ml-0 mt-lg-2"
             /> -->
@@ -218,6 +218,8 @@ const { data: action } = await useAsyncData("actions", () =>
     .find(),
 )
 
-const renderedDescription =
-  (await markdownParser.parse("description", props?.item?.description)) || false
+const renderedDescription = props.loading
+  ? false
+  : (await markdownParser.parse("description", props?.item?.description)) ||
+    false
 </script>
