@@ -501,6 +501,7 @@ export const useRootStore = defineStore("rootStore", {
           lang: "en",
         }),
       )
+      args.options.filters = JSON.stringify(args.options.filters)
       console.log("args: ", args)
       console.log("type: ", type)
       let result: any = {}

@@ -6,7 +6,6 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "") {
     category
     createdBy
     dateText
-    delay
     description
     details
     id
