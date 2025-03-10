@@ -133,7 +133,8 @@
           ]
         "
       ></v-skeleton-loader>
-      <ContentRendererMarkdown
+      <ContentRendererMarkdow
+        v-if="renderedDescription"
         :value="renderedDescription"
         class="mt-md-n2 mx-4 mx-sm-8 mx-md-0"
       />
@@ -218,8 +219,16 @@ const { data: action } = await useAsyncData("actions", () =>
     .find(),
 )
 
-const renderedDescription = props.loading
-  ? false
-  : (await markdownParser.parse("description", props?.item?.description)) ||
-    false
+const renderedDescription = computed(
+  async () =>
+    await markdownParser.parse("description", props?.item?.description),
+)
+onMounted(async () => {
+  console.log("props?.item?.description: ", props?.item?.description)
+  console.log("props.loading: ", props.loading)
+  console.log(
+    "rendered",
+    await markdownParser.parse("description", props?.item?.description),
+  )
+})
 </script>

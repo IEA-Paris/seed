@@ -2,7 +2,7 @@
   <div class="pa-6 border-thin">
     <div class="text-overline">{{ $t("related." + type) }}</div>
     <component
-      v-for="item in items"
+      v-for="item in items[type]"
       :is="capitalize(type) + 'RelatedItem'"
       :item="item"
     />

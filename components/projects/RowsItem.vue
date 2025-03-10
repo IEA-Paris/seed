@@ -32,7 +32,7 @@
 
     <template v-else>
       <div class="text-h5 text-sm-h3 text-md-h4 text-md-h4 my-6">
-        <ContentRendererMarkdown :value="renderedName" />
+        {{ item.name }}
       </div>
       <ContentRendererMarkdown :value="renderedSubtitle" />
 
@@ -103,9 +103,6 @@ const props = defineProps({
     required: true,
   },
 })
-const renderedName = props.item?.name
-  ? await markdownParser.parse("name", props.item.name)
-  : false
 const renderedDescription = props.item?.description
   ? await markdownParser.parse("description", props.item.description)
   : false

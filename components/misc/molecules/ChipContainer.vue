@@ -27,7 +27,11 @@ const props = defineProps({
   items: {
     type: Array,
     required: true,
+    default: [],
   },
+})
+onMounted(() => {
+  console.log("items", props.items)
 })
 </script>
 

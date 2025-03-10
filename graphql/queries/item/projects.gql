@@ -1,8 +1,4 @@
-query getProject(
-  $appId: ID = "iea"
-  $itemId: String = ""
-  $lang: String = "en"
-) {
+query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
   getProject(appId: $appId, itemId: $itemId, lang: $lang) {
     color
     date
@@ -14,7 +10,15 @@ query getProject(
       fileType
       hash
       id
-      image
+      image {
+        alt
+        backgroundColor
+        copyright
+        caption
+        license
+        licenseUrl
+        url
+      }
       path
       size
       name

@@ -112,19 +112,19 @@
     <v-col v-if="item && item.relatedEvents" cols="12" md="4">
       <MiscMoleculesRelatedItems
         type="events"
-        :items="item.relatedEvents"
+        :items="item.related"
       ></MiscMoleculesRelatedItems>
     </v-col>
     <v-col v-if="item && item.relatedPeople" cols="12" md="4">
       <MiscMoleculesRelatedItems
         type="people"
-        :items="item.relatedPeople"
+        :items="item.related"
       ></MiscMoleculesRelatedItems>
     </v-col>
-    <v-col v-if="item && item.relatedNews" cols="12" md="4">
+    <v-col v-if="item && item.related && item.related.news" cols="12" md="4">
       <MiscMoleculesRelatedItems
         type="news"
-        :items="item.relatedNews"
+        :items="item.related"
       ></MiscMoleculesRelatedItems>
     </v-col>
   </v-row>

@@ -38,13 +38,13 @@
           </p></nuxt-link
         >
       </div>
-      <MiscMoleculesChipContainer
+      <!--       <MiscMoleculesChipContainer
         :items="[
-          ...fellowshipType,
+          fellowshipType,
           ...(item && item.disciplines ? [item.disciplines] : []),
         ]"
         class="mt-2"
-      ></MiscMoleculesChipContainer>
+      ></MiscMoleculesChipContainer> -->
     </div>
   </v-col>
 </template>
@@ -78,5 +78,13 @@ const fellowshipType = ref([
         },
       ]),
 ])
+onMounted(() => {
+  console.log("fellowshipType: ", fellowshipType)
+  console.log(
+    "item",
+    fellowshipType,
+    ...(props.item && props.item.disciplines ? [props.item.disciplines] : []),
+  )
+})
 </script>
 <style lang="scss"></style>

@@ -34,20 +34,20 @@
 
           <div class="d-flex align-center flex-column mt-12" v-else>
             <div class="d-flex text-center text-wrap text-h3 text-black">
-              <ContentRendererMarkdown :value="renderedTitle" />
+              {{ item.name }}
             </div>
             <v-divider width="154px" class="mb-1 mt-6"></v-divider>
             <v-divider width="154px"></v-divider>
             <div class="d-flex text-center text-wrap text-h5 text-black mt-6">
               <ContentRendererMarkdown :value="renderedSubtitle" />
             </div>
-            <MiscMoleculesChipContainer
+            <!--      <MiscMoleculesChipContainer
               :items="[
                 ...fellowshipType,
                 ...(item && item.disciplines ? [item.disciplines] : []),
               ]"
               class="mt-2"
-            ></MiscMoleculesChipContainer>
+            ></MiscMoleculesChipContainer> -->
             <div class="mt-5">
               <FellowshipsBadges :item="item" :view="view"></FellowshipsBadges>
             </div>
@@ -173,14 +173,9 @@ const fellowshipType = ref([
       ]),
 ])
 onMounted(() => {
-  loading = false
   /*   console.log("fellowship item", props.item.value) */
 })
 
-const renderedTitle =
-  props.item?.name && !props.loading
-    ? await markdownParser.parse("name", props.item.name)
-    : ""
 const renderedSubtitle =
   props.item?.subtitle && !props.loading
     ? await markdownParser.parse("subtitle", props.item.subtitle)
