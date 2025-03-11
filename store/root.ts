@@ -453,24 +453,24 @@ export const useRootStore = defineStore("rootStore", {
         type === "all"
           ? 3
           : ((this[type] as ModuleType).list?.itemsPerPage as number)
-      const filters =
-        type === "all"
-          ? []
-          : Object.keys((this[type] as ModuleType).list.filters)
-              // prune empty values
-              .filter(
-                (filter) =>
-                  typeof (this[type] as ModuleType).list.filters[filter]
-                    ?.value !== "undefined",
-              )
-              // assign set values to their related keys
-              .map((filter) => {
-                return {
-                  [filter]: (this[type] as ModuleType).list.filters[filter]
-                    .value,
-                }
-              })
+      const filters: Record<string, any> = {}
 
+      if (type !== "all") {
+        for (const filter in (this[type] as ModuleType).list.filters) {
+          const filterValue = (this[type] as ModuleType).list.filters[filter]
+            ?.value
+
+          console.log("filter:", filter)
+          console.log("val:", filterValue)
+
+          // Prune empty values
+          if (typeof filterValue !== "undefined") {
+            filters[filter] = filterValue
+          }
+        }
+      }
+
+      console.log("filters: ", filters)
       const args = JSON.parse(
         JSON.stringify({
           options: {

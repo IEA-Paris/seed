@@ -80,6 +80,8 @@
   "invalid-date": "The date format is invalid",
   "invalid-orcid": "Your ORCID number is invalid",
   "socials": {
+    "idRef": "Visit the author IdRef page",
+    "ROR": "Visit the institution ROR page",
     "linkedin": "Get in touch on linkedin",
     "scholar": "Visit the author google scholar page",
     "orcid": "Visit the author Orcid page",
