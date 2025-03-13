@@ -38,21 +38,24 @@
           </p></nuxt-link
         >
       </div>
-      <!--       <MiscMoleculesChipContainer
+      <MiscMoleculesChipContainer
         :items="[
-          fellowshipType,
-          ...(item && item.disciplines ? [item.disciplines] : []),
+          $t('list.filters.fellowships.duration.' + item.fellowshipType),
+          ...(props.item && props.item.disciplines
+            ? props.item.disciplines.map((discipline) => discipline.name)
+            : []),
         ]"
         class="mt-2"
-      ></MiscMoleculesChipContainer> -->
+      ></MiscMoleculesChipContainer>
     </div>
   </v-col>
 </template>
 
 <script setup>
-const { locale } = useI18n()
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
+const i18n = useI18n()
+const { locale, locales, messages } = useI18n()
 
 import { useDisplay } from "vuetify"
 // import { FellowshipBadges } from "#build/components"
@@ -69,22 +72,8 @@ const props = defineProps({
     required: true,
   },
 })
-const fellowshipType = ref([
-  ...(props.item.fellowshipType === 2
-    ? [{ name: "short-stay" }, { name: "in-groups" }]
-    : [
-        {
-          name: ["long-stay", "short-stay"][props.item.fellowshipType],
-        },
-      ]),
-])
 onMounted(() => {
-  console.log("fellowshipType: ", fellowshipType)
-  console.log(
-    "item",
-    fellowshipType,
-    ...(props.item && props.item.disciplines ? [props.item.disciplines] : []),
-  )
+  console.log("fellowshipType: ", props.item.fellowshipType)
 })
 </script>
 <style lang="scss"></style>

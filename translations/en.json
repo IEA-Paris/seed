@@ -110,21 +110,6 @@
           "WEBINAR": "Webinar",
           "WORKSHOP": "Workshop"
         },
-        "disciplines": {
-          "communication": "Communication",
-          "economics": "Economics",
-          "education": "Education",
-          "finance": "Finance",
-          "geography": "Geography",
-          "history": "History",
-          "law": "Law",
-          "management": "Management",
-          "marketing": "Marketing",
-          "philosophy": "Philosophy",
-          "political-science": "Political Science",
-          "psychology": "Psychology",
-          "sociology": "Sociology"
-        },
         "fellowship": {
           "cat": "Constructive Advanced Thinking",
           "fias": "French Institutes for Advanced Study",
@@ -152,23 +137,8 @@
           "paris-1": "Paris 1",
           "paris-2": "Paris 2"
         },
-        "discipline": {
-          "communication": "Communication",
-          "economics": "Economics",
-          "education": "Education",
-          "finance": "Finance",
-          "geography": "Geography",
-          "history": "History",
-          "law": "Law",
-          "management": "Management",
-          "marketing": "Marketing",
-          "philosophy": "Philosophy",
-          "political-science": "Political Science",
-          "psychology": "Psychology",
-          "sociology": "Sociology"
-        },
         "duration": {
-          "IN_GROUPS": "In group",
+          "IN_GROUP": "In group",
           "LONG_STAY": "Long stay",
           "SHORT_STAY": "Short stay"
         },
@@ -215,21 +185,6 @@
           "scientific-advisory-board": "Scientific Advisory Board",
           "sponsor": "Sponsor",
           "team": "Team"
-        },
-        "discipline": {
-          "communication": "Communication",
-          "economics": "Economics",
-          "education": "Education",
-          "finance": "Finance",
-          "geography": "Geography",
-          "history": "History",
-          "law": "Law",
-          "management": "Management",
-          "marketing": "Marketing",
-          "philosophy": "Philosophy",
-          "political-science": "Political Science",
-          "psychology": "Psychology",
-          "sociology": "Sociology"
         },
         "member": {
           "paris-1": "Paris 1"
@@ -310,6 +265,23 @@
   "network": "Network",
   "news": {
     "key": "News"
+  },
+  "disciplines": {
+    "ALL": "All disciplines",
+    "SOCIAL_SCIENCES": "Sciences sociales",
+    "communication": "Communication",
+    "economics": "Economics",
+    "education": "Education",
+    "finance": "Finance",
+    "geography": "Geography",
+    "history": "History",
+    "law": "Law",
+    "management": "Management",
+    "marketing": "Marketing",
+    "philosophy": "Philosophy",
+    "political-science": "Political Science",
+    "psychology": "Psychology",
+    "sociology": "Sociology"
   },
   "no-result": "No result found",
   "online": "Online",

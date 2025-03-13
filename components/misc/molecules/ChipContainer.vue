@@ -10,7 +10,7 @@
         class="mr-2 mt-2"
         variant="outlined"
         label
-        >{{ $t(tag.name) }}</v-chip
+        >{{ tag }}</v-chip
       >
     </div>
   </div>

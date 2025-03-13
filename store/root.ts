@@ -460,9 +460,6 @@ export const useRootStore = defineStore("rootStore", {
           const filterValue = (this[type] as ModuleType).list.filters[filter]
             ?.value
 
-          console.log("filter:", filter)
-          console.log("val:", filterValue)
-
           // Prune empty values
           if (typeof filterValue !== "undefined") {
             filters[filter] = filterValue
@@ -470,7 +467,6 @@ export const useRootStore = defineStore("rootStore", {
         }
       }
 
-      console.log("filters: ", filters)
       const args = JSON.parse(
         JSON.stringify({
           options: {
