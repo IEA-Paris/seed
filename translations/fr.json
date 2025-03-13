@@ -208,7 +208,7 @@
         }
       },
       "news": {
-        "categories": {
+        "category": {
           "PRESS_RELEASE": "communiqué de presse",
           "INTERVIEW": "Entretien",
           "ARTICLE": "Article",
@@ -257,6 +257,9 @@
           "SOFTWARE": "Logiciel",
           "DATA": "Données",
           "AUDIO": "Audio"
+        },
+        "affiliations": {
+          "paris-1": "Paris 1"
         }
       },
       "events": {

@@ -43,7 +43,7 @@
               <!--       <ContentRendererMarkdown :value="renderedTitle" /> -->
             </nuxt-link>
             <div class="mt-2 text-h6 text-overline font-weight-black">
-              {{ $t("events.categories." + item.category) }}
+              {{ $t("list.filters.events.category." + item.category) }}
             </div>
 
             <nuxt-link

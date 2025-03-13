@@ -54,6 +54,12 @@ const getItems = (name) => {
   if (rootStore[props.type].list.filters[name].type === "Checkbox") {
     return []
   }
+  if (
+    messages.value[locale.value].list.filters[props.type][name] === undefined
+  ) {
+    console.log("name not found, no item for this filmter: ", name)
+    return []
+  }
   // TODO replace with package based values
   return Object.keys(
     messages.value[locale.value].list.filters[props.type][name],

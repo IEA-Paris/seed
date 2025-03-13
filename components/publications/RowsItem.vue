@@ -27,7 +27,7 @@
   >
     <v-skeleton-loader
       v-if="rootStore.publications.loading"
-      type="header, ossein text@8, ossein, button , button"
+      type="heading,ossein,text@8,ossein,button,button"
     ></v-skeleton-loader>
 
     <template v-else>
