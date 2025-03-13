@@ -11,7 +11,7 @@
         :slug="item._path && item._path.split('/').pop()"
       >
         <v-chip class="ma-2" style="background-color: white; color: black">{{
-          $t("news.categories." + item.category)
+          $t("filters.news.categories." + item.category)
         }}</v-chip></MiscAtomsImageContainer
       >
     </v-col>

@@ -53,7 +53,7 @@
                   params: { slug: getSlugFromPath(item._path || '') },
                 })
               "
-              v-if="item.subtitle"
+              v-if="item.summary"
               class="text-black"
             >
               <p
@@ -65,7 +65,7 @@
                   ]
                 "
               >
-                <ContentRendererMarkdown :value="renderedSubtitle" /></p
+                <ContentRendererMarkdown :value="renderedSummary" /></p
             ></nuxt-link>
 
             <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">
@@ -126,13 +126,8 @@ const props = defineProps({
     required: true,
   },
 })
-const renderedTitle = props.item?.name
-  ? await markdownParser.parse("name", props.item.name)
-  : ""
-const renderedSubtitle = props.item?.subtitle
-  ? await markdownParser.parse("subtitle", props.item.subtitle)
-  : ""
-const renderedDescription = props.item?.description
-  ? await markdownParser.parse("description", props.item.description)
+
+const renderedSummary = props.item?.summary
+  ? await markdownParser.parse("summary", props.item.summary)
   : ""
 </script>

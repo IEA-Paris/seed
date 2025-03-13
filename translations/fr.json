@@ -130,19 +130,11 @@
     "news": "Actualité | \nActualité | \nActualités",
     "people": "Personne | \nPersonne | \nPersonnes",
     "projects": "Projet | \nProjet | \nProjets",
-    "publications": "Publication | \nPublication | \nPublications"
+    "publications": "Publication | \nPublication | \nPublications",
+    "fellowship": "Programme d'accueil | \nProgramme d'accueil | \n{0} Programmes d'accueil"
   },
   "news": {
-    "key": "Actualités",
-    "categories": [
-      "communiqué de presse",
-      "Vie de l'institut",
-      "Rapport",
-      "Article",
-      "Entretien",
-      "Opinion",
-      "Article de blog"
-    ]
+    "key": "Actualités"
   },
   "list": {
     "by-date-most-recent-first": "Dernier",
@@ -166,127 +158,13 @@
     "0-items-found-searching-for-with-1-filter": "{1} trouvé en recherchant \"{2}\" avec {3} filtres.| \n{0} {1} trouvé en recherchant \"{2}\" avec {3} filtres. \n| \n{0} {1} trouvé en recherchant \"{2}\" avec {3} filtres.",
     "0-items-found-with-1-filter": "Aucun {1} trouvé avec {2} filtres.|1 {1} trouvé avec {2} filtres. \n| \n{0} {1} trouvés avec {2} filtres.",
     "filters": {
-      "events": {
-        "category": {
-          "colloquium": "Colloque",
-          "conference": "Conférence",
-          "fellow-presentation": "Présentation du boursier",
-          "lecture": "Conférence",
-          "seminar": "Séminaire"
-        },
-        "disciplines": {
-          "communication": "Communication",
-          "economics": "Économie",
-          "education": "Éducation",
-          "finance": "Finance",
-          "geography": "Géographie",
-          "history": "Histoire",
-          "law": "Loi",
-          "management": "Gestion",
-          "marketing": "Commercialisation",
-          "philosophy": "Philosophie",
-          "political-science": "Science politique",
-          "psychology": "Psychologie",
-          "sociology": "Sociologie"
-        },
-        "fellowship": {
-          "cat": "Pensée avancée et constructive",
-          "fias": "Instituts d'études avancées français",
-          "paris-ias-ideas": "Idées IAS de Paris",
-          "pop": "Programme Oxford-Paris"
-        },
-        "online": "En ligne",
-        "organiserCategory[0]": "IAS de Paris",
-        "organiserCategory[1]": "Résident",
-        "organiserCategory[2]": "Externe",
-        "outside": "Hors les murs",
-        "past": "Passé",
-        "status": {
-          "cancelled": "Annulé",
-          "finished": "Terminé",
-          "ongoing": "En cours",
-          "planned": "Prévu"
-        }
-      },
-      "fellowship": {
-        "affiliation": {
-          "paris-1": "Paris 1",
-          "paris-2": "Paris 2"
-        },
-        "discipline": {
-          "communication": "Communication",
-          "economics": "Économie",
-          "education": "Éducation",
-          "finance": "Finance",
-          "geography": "Géographie",
-          "history": "Histoire",
-          "law": "Loi",
-          "management": "Gestion",
-          "marketing": "Commercialisation",
-          "philosophy": "Philosophie",
-          "political-science": "Science politique",
-          "psychology": "Psychologie",
-          "sociology": "Sociologie"
-        },
-        "duration": {
-          "in-groups": "En groupe",
-          "long-stay": "Long séjour",
-          "short-stay": "Court séjour"
-        },
-        "status": {
-          "cancelled": "Annulé",
-          "finished": "Terminé",
-          "ongoing": "En cours",
-          "planned": "Prévu"
-        }
-      },
-      "news": {
-        "category": {
-          "article": "Article",
-          "blog-post": "Article de blog",
-          "interview": "Entretien",
-          "life-at-the-institute": "La vie de l'institut",
-          "opinion": "Opinion",
-          "press-release": "communiqué de presse",
-          "report": "Rapport"
-        },
-        "tags": {
-          "Socioscope": "Socioscope",
-          "WPRN": "WPRN",
-          "WPRN-2021": "WPRN2021"
-        }
-      },
       "people": {
         "categories": {
+          "team": "Équipe",
+          "scientific-advisory-board": "Conseil consultatif scientifique",
           "board-of-directors": "Conseil d'administration",
-          "fellows": "Résidents",
-          "scientific-advisory-board": "Conseil scientifique",
-          "sponsor": "Sponsor",
-          "team": "Équipe"
-        },
-        "discipline": {
-          "communication": "Communication",
-          "economics": "Économie",
-          "education": "Éducation",
-          "finance": "Finance",
-          "geography": "Géographie",
-          "history": "Histoire",
-          "law": "Loi",
-          "management": "Gestion",
-          "marketing": "Commercialisation",
-          "philosophy": "Philosophie",
-          "political-science": "Science politique",
-          "psychology": "Psychologie",
-          "sociology": "Sociologie"
-        },
-        "member": {
-          "paris-1": "Paris 1"
-        },
-        "program": {
-          "cat": "Constructive Advanced Thinking",
-          "fias": "Instituts d'études avancées français",
-          "paris-ias-ideas": "Paris IAS Ideas",
-          "pop": "Programme Oxford-Paris"
+          "fellows": "Boursiers",
+          "sponsor": "Parrainer"
         },
         "vintage": {
           "2011": "2011",
@@ -303,14 +181,167 @@
           "2022": "2022",
           "2023": "2023",
           "2024": "2024"
+        },
+        "program": {
+          "paris-ias-ideas": "Paris IAS Ideas",
+          "pop": "Program Oxford-Paris",
+          "fias": "French Institutes for Advanced Study",
+          "cat": "Constructive Advanced Thinking"
+        },
+        "discipline": {
+          "history": "Histoire",
+          "philosophy": "Philosophie",
+          "sociology": "Sociologie",
+          "economics": "Économie",
+          "law": "Loi",
+          "political-science": "Sciences politiques",
+          "geography": "Géographie",
+          "psychology": "Psychologie",
+          "education": "Éducation",
+          "communication": "Communication",
+          "management": "Gestion",
+          "marketing": "Commercialisation",
+          "finance": "Finance"
+        },
+        "member": {
+          "paris-1": "Paris 1"
         }
       },
-      "project": {
+      "news": {
+        "categories": {
+          "PRESS_RELEASE": "communiqué de presse",
+          "INTERVIEW": "Entretien",
+          "ARTICLE": "Article",
+          "OPINION": "Avis",
+          "REPORT": "Rapport",
+          "BLOG": "Blog",
+          "LIFE_AT_THE_INSTITUTE": "La vie à l'institut",
+          "EVENT": "Événement",
+          "ANNOUNCEMENT": "Annonce",
+          "JOB": "Emploi",
+          "FELLOWSHIP": "Camaraderie",
+          "GRANT": "Accorder",
+          "AWARD": "Prix",
+          "PROJECT": "Projet",
+          "TOOL": "Outil",
+          "SOFTWARE": "Logiciel",
+          "DATA": "Données",
+          "PUBLICATION": "Publication",
+          "VIDEO": "Vidéo",
+          "AUDIO": "Audio"
+        },
+        "tags": {
+          "WPRN": "WPRN",
+          "WPRN-2021": "WPRN 2021",
+          "Socioscope": "Socioscope"
+        }
+      },
+      "projects": {
         "status": {
-          "cancelled": "Annulé",
-          "finished": "Terminé",
-          "ongoing": "En cours",
-          "planned": "Prévu"
+          "PLANNED": "Prévu",
+          "IN_PROGRESS": "En cours",
+          "FINISHED": "Fini",
+          "CANCELLED": "Annulé"
+        }
+      },
+      "publications": {
+        "type": {
+          "PODCAST": "Podcast",
+          "VIDEO": "Vidéo",
+          "ARTICLE": "Article",
+          "BOOK": "Libre",
+          "BOOK_CHAPTER": "Chapitre de livre",
+          "CONFERENCE_PAPER": "Actes de conférence",
+          "THESIS": "Thèse",
+          "REPORT": "Rapport",
+          "SOFTWARE": "Logiciel",
+          "DATA": "Données",
+          "AUDIO": "Audio"
+        }
+      },
+      "events": {
+        "status": {
+          "PUBLISHED": "Publié",
+          "CANCELLED": "Annulé",
+          "POSTPONED": "Reporté à {0}",
+          "RESCHEDULED": "Reprogrammé"
+        },
+        "category": {
+          "SEMINAR": "Séminaire",
+          "WORKSHOP": "Atelier",
+          "CONFERENCE": "Conférence",
+          "LECTURE": "Conférence",
+          "SYMPOSIUM": "Symposium",
+          "MEETING": "Réunion",
+          "COLLOQUIUM": "Colloque",
+          "FORUM": "Forum",
+          "ROUND_TABLE": "Table ronde",
+          "PANEL": "Panel",
+          "WEBINAR": "Webinaire",
+          "FELLOW_PRESENTATION": "Présentation de résident",
+          "OTHER": "Autre"
+        },
+        "organiserCategory": {
+          "IAS": "PARIS IAS",
+          "MEMBER": "Nos membres",
+          "FELLOW": "Nos fellows",
+          "EXTERNAL": "Externe"
+        },
+        "disciplines": {
+          "history": "History",
+          "philosophy": "Philosophy",
+          "sociology": "Sociology",
+          "economics": "Economics",
+          "law": "Law",
+          "political-science": "Political Science",
+          "geography": "Geography",
+          "psychology": "Psychology",
+          "education": "Education",
+          "communication": "Communication",
+          "management": "Management",
+          "marketing": "Marketing",
+          "finance": "Finance"
+        },
+        "fellowship": {
+          "paris-ias-ideas": "Paris IAS Ideas",
+          "pop": "Program Oxford-Paris",
+          "fias": "French Institutes for Advanced Study",
+          "cat": "Constructive Advanced Thinking"
+        },
+        "online": "En ligne",
+        "past": "Passé",
+        "outside": "Hors les murs"
+      },
+      "fellowships": {
+        "status": {
+          "PLANNED": "Prévu",
+          "ONGOING": "En cours",
+          "FINISHED": "Terminé",
+          "CANCELLED": "Annulé"
+        },
+        "duration": {
+          "SHORT_STAY": "Séjour court",
+          "LONG_STAY": "Séjour long",
+          "IN_GROUPS": "En groupe"
+        },
+        "affiliation": {
+          "paris-1": "Paris 1",
+          "paris-2": "Paris 2"
+        },
+        "discipline": {
+          "history": "History",
+          "philosophy": "Philosophy",
+          "sociology": "Sociology",
+          "economics": "Economics",
+          "law": "Law",
+          "political-science": "Political Science",
+          "geography": "Geography",
+          "psychology": "Psychology",
+          "education": "Education",
+          "communication": "Communication",
+          "management": "Management",
+          "marketing": "Marketing",
+          "finance": "Finance"
         }
       }
     },
@@ -336,7 +367,9 @@
     "scholar": "Visitez la page Google Scholar de l'auteur",
     "twitter": "Suivez-nous sur Twitter",
     "wikipedia": "Consultez la page wikipedia de l'auteur",
-    "youtube": "Consultez notre chaîne Youtube"
+    "youtube": "Consultez notre chaîne Youtube",
+    "ROR": "Visitez la page Institution ROR",
+    "idRef": "Visitez la page IdRef de l'auteur "
   },
   "organizers": "Organisateurs",
   "documents": "Documents",
@@ -373,5 +406,6 @@
   "meet-our-network": "Découvrez notre réseau",
   "our-partners": "Nos partenaires",
   "our-sponsors": "Nos mécènes",
-  "follow-us": "Suivez-nous"
+  "follow-us": "Suivez-nous",
+  "show-on-map": "Afficher sur la carte"
 }

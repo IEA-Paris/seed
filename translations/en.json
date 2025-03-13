@@ -97,26 +97,10 @@
     "register": "Register to this event",
     "register-me": "Register",
     "key": "Events",
-    "categories": [
-      "Lecture",
-      "Seminar",
-      "Conference",
-      "Colloquium",
-      "Fellow's presentation"
-    ],
     "see-more": "See more events"
   },
   "news": {
-    "key": "News",
-    "categories": [
-      "Press release",
-      "Interview",
-      "Article",
-      "Opinion",
-      "Report",
-      "Blog post",
-      "Life at the institute"
-    ]
+    "key": "News"
   },
   "list": {
     "0-items-found": "No {1} found.|{0} {1} found.|{0} {1} found.",
@@ -192,14 +176,27 @@
         }
       },
       "news": {
-        "category": {
-          "press-release": "Press release",
-          "interview": "Interview",
-          "article": "Article",
-          "opinion": "Opinion",
-          "report": "Report",
-          "blog-post": "Blog post",
-          "life-at-the-institute": "Life at the institute"
+        "categories": {
+          "PRESS_RELEASE": "Press release",
+          "INTERVIEW": "Interview",
+          "ARTICLE": "Article",
+          "OPINION": "Opinion",
+          "REPORT": "Report",
+          "BLOG": "Blog",
+          "LIFE_AT_THE_INSTITUTE": "Life at the institute",
+          "EVENT": "Event",
+          "ANNOUNCEMENT": "Announcement",
+          "JOB": "Job",
+          "FELLOWSHIP": "Fellowship",
+          "GRANT": "Grant",
+          "AWARD": "Award",
+          "PROJECT": "Project",
+          "TOOL": "Tool",
+          "SOFTWARE": "Software",
+          "DATA": "Data",
+          "PUBLICATION": "Publication",
+          "VIDEO": "Video",
+          "AUDIO": "Audio"
         },
         "tags": {
           "WPRN": "WPRN",
@@ -209,35 +206,55 @@
       },
       "projects": {
         "status": {
-          "planned": "Planned",
-          "ongoing": "Ongoing",
-          "finished": "Finished",
-          "cancelled": "Cancelled"
+          "PLANNED": "Planned",
+          "IN_PROGRESS": "Ongoing",
+          "FINISHED": "Finished",
+          "CANCELLED": "Cancelled"
         }
       },
       "publications": {
         "type": {
-          "podcast": "Podcast",
-          "video": "Video",
-          "article": "Article",
-          "book": "Book"
+          "PODCAST": "Podcast",
+          "VIDEO": "Video",
+          "ARTICLE": "Article",
+          "BOOK": "Book",
+          "BOOK_CHAPTER": "Book chapter",
+          "CONFERENCE_PAPER": "Conference paper",
+          "THESIS": "Thesis",
+          "REPORT": "Report",
+          "SOFTWARE": "Software",
+          "DATA": "Data",
+          "AUDIO": "Audio"
         }
       },
       "events": {
         "status": {
-          "planned": "Planned",
-          "ongoing": "Ongoing",
-          "finished": "Finished",
-          "cancelled": "Cancelled"
+          "PUBLISHED": "Published",
+          "CANCELLED": "Cancelled",
+          "POSTPONED": "Postponed to {0}",
+          "RESCHEDULED": "Rescheduled"
         },
         "category": {
-          "lecture": "Lecture",
-          "seminar": "Seminar",
-          "conference": "Conference",
-          "colloquium": "Colloquium",
-          "fellow-presentation": "Fellow's presentation"
+          "SEMINAR": "Seminar",
+          "WORKSHOP": "Workshop",
+          "CONFERENCE": "Conference",
+          "LECTURE": "Lecture",
+          "SYMPOSIUM": "Symposium",
+          "MEETING": "Meeting",
+          "COLLOQUIUM": "Colloquium",
+          "FORUM": "Forum",
+          "ROUND_TABLE": "Round table",
+          "PANEL": "Panel",
+          "WEBINAR": "Webinar",
+          "FELLOW_PRESENTATION": "Fellow's presentation",
+          "OTHER": "Other"
         },
-        "organiserCategory": ["Paris IAS", "Fellow", "External"],
+        "organiserCategory": {
+          "IAS": "PARIS IAS",
+          "MEMBER": "Our Members",
+          "FELLOW": "Our Fellows",
+          "EXTERNAL": "External"
+        },
         "disciplines": {
           "history": "History",
           "philosophy": "Philosophy",
@@ -265,15 +282,15 @@
       },
       "fellowships": {
         "status": {
-          "planned": "Planned",
-          "ongoing": "Ongoing",
-          "finished": "Finished",
-          "cancelled": "Cancelled"
+          "PLANNED": "Planned",
+          "ONGOING": "Ongoing",
+          "FINISHED": "Finished",
+          "CANCELLED": "Cancelled"
         },
         "duration": {
-          "short-stay": "Short stay",
-          "long-stay": "Long stay",
-          "in-groups": "In group"
+          "SHORT_STAY": "Short stay",
+          "LONG_STAY": "Long stay",
+          "IN_GROUPS": "In group"
         },
         "affiliation": {
           "paris-1": "Paris 1",
@@ -324,7 +341,8 @@
     "fellow": "Fellow | Fellows",
     "people": "No one | People | People",
     "fellowship": "Fellowship | Fellowships | {0} Fellowships",
-    "publications": "Publication | Publications | {0} Publications"
+    "publications": "Publication | Publications | {0} Publications",
+    "fellowships": "Fellowship | Fellowship | Fellowships"
   },
   "fellowship-register": "Candidate to this fellowship program",
   "fellowship": "Fellowship | Fellowships",
