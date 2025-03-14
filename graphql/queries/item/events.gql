@@ -1,4 +1,4 @@
-query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "") {
+query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
   getEvent(itemId: $itemId, appId: $appId, lang: $lang) {
     appId
     availableSlots
@@ -41,5 +41,70 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "") {
     totalSlots
     type
     url
+    related {
+      events {
+        description
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      news {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      people {
+        firstname
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          license
+          copyright
+          licenseUrl
+          url
+        }
+        lastname
+      }
+      projects {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      publications {
+        id
+        name
+        url
+      }
+    }
   }
 }

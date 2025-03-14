@@ -45,54 +45,6 @@ query getNews($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       licenseUrl
       url
     }
-    relatedEvents {
-      description
-      image {
-        alt
-        backgroundColor
-        caption
-        copyright
-        license
-        licenseUrl
-        url
-      }
-      name
-      url
-    }
-    relatedPeople {
-      firstname
-      id
-      image {
-        alt
-        backgroundColor
-        caption
-        copyright
-        license
-        licenseUrl
-        url
-      }
-      lastname
-    }
-    relatedProjects {
-      description
-      id
-      image {
-        alt
-        backgroundColor
-        caption
-        license
-        copyright
-        licenseUrl
-        url
-      }
-      name
-      url
-    }
-    relatedPublications {
-      id
-      name
-      url
-    }
     tags {
       createdAt
       description
@@ -102,5 +54,72 @@ query getNews($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
     }
     name
     url
+    appId
+    id
+    related {
+      events {
+        description
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      news {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      people {
+        firstname
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        lastname
+      }
+      projects {
+        description
+        id
+        name
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        url
+      }
+      publications {
+        id
+        name
+        url
+      }
+    }
   }
 }
