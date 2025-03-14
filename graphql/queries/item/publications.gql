@@ -1,6 +1,6 @@
 query getPublication(
   $appId: ID = "iea"
-  $itemId: String = ""
+  $itemId: ID = ""
   $lang: String = "en"
 ) {
   getPublication(appId: $appId, itemId: $itemId, lang: $lang) {
@@ -40,7 +40,15 @@ query getPublication(
       fileType
       hash
       id
-      image
+      image {
+        alt
+        backgroundColor
+        caption
+        copyright
+        license
+        licenseUrl
+        url
+      }
       name
       path
       size
@@ -67,64 +75,6 @@ query getPublication(
       licenseUrl
       url
     }
-    relatedEvents {
-      description
-      image {
-        alt
-        backgroundColor
-        caption
-        copyright
-        license
-        licenseUrl
-        url
-      }
-      name
-      url
-    }
-    relatedNews {
-      description
-      id
-      image {
-        alt
-        backgroundColor
-        caption
-        copyright
-        license
-        licenseUrl
-        url
-      }
-      name
-      url
-    }
-    relatedPeople {
-      firstname
-      id
-      image {
-        alt
-        backgroundColor
-        caption
-        copyright
-        license
-        licenseUrl
-        url
-      }
-      lastname
-    }
-    relatedProjects {
-      description
-      id
-      image {
-        alt
-        backgroundColor
-        caption
-        copyright
-        license
-        licenseUrl
-        url
-      }
-      name
-      url
-    }
     subtitle
     tags {
       createdAt
@@ -143,6 +93,73 @@ query getPublication(
       license
       licenseUrl
       url
+    }
+    appId
+    type
+    related {
+      events {
+        description
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      news {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      people {
+        firstname
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        lastname
+      }
+      projects {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      publications {
+        id
+        name
+        url
+      }
     }
   }
 }

@@ -57,54 +57,9 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       caption
       backgroundColor
       alt
+      licenseUrl
     }
     lastname
-    relatedEvents {
-      description
-      name
-      url
-      image {
-        url
-        alt
-        backgroundColor
-        caption
-        copyright
-        license
-        licenseUrl
-      }
-    }
-    relatedNews {
-      description
-      image {
-        alt
-        backgroundColor
-        caption
-        copyright
-        license
-        licenseUrl
-        url
-      }
-      name
-      url
-    }
-    relatedProjects {
-      description
-      image {
-        alt
-        backgroundColor
-        caption
-        copyright
-        license
-        licenseUrl
-        url
-      }
-      name
-      url
-    }
-    relatedPublications {
-      name
-      url
-    }
     socials {
       idRef
       instagram
@@ -125,6 +80,89 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       license
       licenseUrl
       backgroundColor
+    }
+    appId
+    consent {
+      data
+      diffusion
+      email
+      fellowshipnewsletter
+      newsletter
+      publication
+      record
+    }
+    disciplines {
+      createdAt
+      description
+      icon
+      name
+      updatedAt
+    }
+    id
+    related {
+      events {
+        description
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      news {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      people {
+        firstname
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        lastname
+      }
+      projects {
+        description
+        id
+        image {
+          alt
+          backgroundColor
+          caption
+          copyright
+          license
+          licenseUrl
+          url
+        }
+        name
+        url
+      }
+      publications {
+        id
+        name
+        url
+      }
     }
   }
 }
