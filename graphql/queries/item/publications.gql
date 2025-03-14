@@ -1,6 +1,6 @@
 query getPublication(
   $appId: ID = "iea"
-  $itemId: ID = "6799e9bb750d4936d1b0572b"
+  $itemId: ID = ""
   $lang: String = "en"
 ) {
   getPublication(appId: $appId, itemId: $itemId, lang: $lang) {
