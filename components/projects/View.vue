@@ -15,7 +15,7 @@
             v-else
             contain
             :loading="loading"
-            :src="item.image"
+            :src="item.image.url ? item.image : '/default.png'"
             :ratio="1 / 1"
           />
         </v-col>
@@ -36,11 +36,14 @@
 
       <div class="d-flex align-center flex-column mt-12" v-else>
         <div class="d-flex text-center text-wrap text-h3 text-black">
-          <ContentRendererMarkdown :value="renderedName" />
+          {{ item.name }}
         </div>
         <v-divider width="154px" class="mb-1 mt-6"></v-divider>
         <v-divider width="154px"></v-divider>
-        <div class="d-flex text-center text-wrap text-h5 text-black mt-6">
+        <div
+          class="d-flex text-center text-wrap text-h5 text-black mt-6"
+          v-if="!loading"
+        >
           <ContentRendererMarkdown :value="renderedSubtitle" />
         </div>
         <MiscMoleculesChipContainer
@@ -50,17 +53,17 @@
         ></MiscMoleculesChipContainer>
         <v-btn-toggle variant="outlined">
           <MiscAtomsShareMenu :item class="mt-6"></MiscAtomsShareMenu>
-          <v-btn
-            class="my-6 d-flex"
-            variant="outlined"
-            :href="item.url"
-            target="_blank"
-            prepend-icon="mdi-link"
-            v-if="item.url"
-          >
-            {{ $t("visit-this-project-website") }}
-          </v-btn>
         </v-btn-toggle>
+        <v-btn
+          class="my-6 d-flex"
+          variant="outlined"
+          :href="item.url"
+          target="_blank"
+          prepend-icon="mdi-link"
+          v-if="item.url"
+        >
+          {{ $t("visit-this-project-website") }}
+        </v-btn>
       </div>
 
       <!-- DIVIDERS -->
@@ -81,6 +84,7 @@
       <ContentRendererMarkdown
         :value="renderedDescription"
         class="mt-md-n2 mx-10 mx-md-0"
+        v-if="!loading"
       />
     </v-col>
   </v-row>
@@ -155,16 +159,23 @@ const { data: action } = await useAsyncData("actions", () =>
     .limit(1)
     .find(),
 )
-const renderedSubtitle =
+let renderedSubtitle =
   props.item?.subtitle && !props.loading
     ? await markdownParser.parse("subtitle", props.item.subtitle)
     : ""
-const renderedDescription =
+
+let renderedDescription =
   props.item?.description && !props.loading
     ? await markdownParser.parse("description", props.item.description)
     : ""
-const renderedName =
-  props.item?.name && !props.loading
-    ? await markdownParser.parse("title", props.item.name)
-    : ""
+onMounted(async () => {
+  renderedSubtitle =
+    props.item?.subtitle && !props.loading
+      ? await markdownParser.parse("subtitle", props.item.subtitle)
+      : ""
+  renderedDescription =
+    props.item?.description && !props.loading
+      ? await markdownParser.parse("description", props.item.description)
+      : ""
+})
 </script>

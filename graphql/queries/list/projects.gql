@@ -19,7 +19,7 @@ query listProjects(
         url
       }
       name
-      subtitle
+      summary
       url
       tags {
         createdAt

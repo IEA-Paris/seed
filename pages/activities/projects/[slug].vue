@@ -28,6 +28,6 @@ onMounted(() => {
   console.log("variables: ", variables)
   if (!loading) refetch(variables.value)
 
-  rootStore.setLoading(false, "project")
+  rootStore.setLoading(false, "projects")
 })
 </script>

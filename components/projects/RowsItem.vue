@@ -34,7 +34,6 @@
       <div class="text-h5 text-sm-h3 text-md-h4 text-md-h4 my-6">
         {{ item.name }}
       </div>
-      <ContentRendererMarkdown :value="renderedSubtitle" />
 
       <p
         class="mt-n3 text-wrap clamped-text"
@@ -45,7 +44,7 @@
           ]
         "
       >
-        <ContentRendererMarkdown :value="renderedDescription" />
+        <ContentRendererMarkdown :value="renderedSubtitle" />
       </p>
 
       <v-btn
@@ -103,11 +102,8 @@ const props = defineProps({
     required: true,
   },
 })
-const renderedDescription = props.item?.description
-  ? await markdownParser.parse("description", props.item.description)
-  : false
-const renderedSubtitle = props.item?.subtitle
-  ? await markdownParser.parse("subtitle", props.item.subtitle)
+const renderedSubtitle = props.item?.summary
+  ? await markdownParser.parse("summary", props.item.summary)
   : false
 </script>
 

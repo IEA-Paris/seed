@@ -25,25 +25,17 @@
       )
     "
   >
-    <v-skeleton-loader
-      v-if="rootStore.publications.loading"
-      type="heading,ossein,text@8,ossein,button,button"
-    ></v-skeleton-loader>
+    <div>
+      <v-skeleton-loader
+        v-if="rootStore.publications.loading"
+        type="heading,ossein,text@8,ossein,button,button"
+      ></v-skeleton-loader>
 
-    <template v-else>
-      <div class="text-h5 text-sm-h3 text-md-h4 text-md-h4 my-6">
-        {{ item.name }}
-      </div>
+      <template v-else>
+        <div class="text-h5 text-sm-h3 text-md-h4 text-md-h4 my-6">
+          {{ item.name }}
+        </div>
 
-      <nuxt-link
-        :to="
-          localePath({
-            name: 'activities-publications-slug',
-            params: { slug: getSlugFromPath(item._path || '') },
-          })
-        "
-        class="text-black"
-      >
         <p
           class="text-wrap clamped-text"
           :style="
@@ -53,43 +45,43 @@
             ]
           "
         >
-          <ContentRendererMarkdown :value="renderedSummary" /></p
-      ></nuxt-link>
-
-      <v-btn
-        class="mt-4"
-        variant="outlined"
-        tile
-        :to="
-          localePath({
-            name: 'publications-slug',
-            params: { slug: getSlugFromPath(item._path) },
-          })
-        "
-        :size="
-          ['small', 'small', 'small', 'default', 'default', 'large'][
-            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-          ]
-        "
-      >
-        {{ $t("read-more") }}
-      </v-btn>
-      <v-btn
-        variant="outlined"
-        tile
-        target="_blank"
-        v-if="item.url"
-        :href="item.url"
-        class="mt-4 ml-4"
-        prepend-icon="mdi-web"
-        :size="
-          ['small', 'small', 'small', 'default', 'default', 'large'][
-            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-          ]
-        "
-        >{{ $t("visit-the-publications-website") }}</v-btn
-      >
-    </template>
+          <ContentRendererMarkdown :value="renderedSummary" />
+        </p>
+        <v-btn
+          class="mt-4"
+          variant="outlined"
+          tile
+          :to="
+            localePath({
+              name: 'publications-slug',
+              params: { slug: getSlugFromPath(item._path) },
+            })
+          "
+          :size="
+            ['small', 'small', 'small', 'default', 'default', 'large'][
+              ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+            ]
+          "
+        >
+          {{ $t("read-more") }}
+        </v-btn>
+        <v-btn
+          variant="outlined"
+          tile
+          target="_blank"
+          v-if="item.url"
+          :href="item.url"
+          class="mt-4 ml-4"
+          prepend-icon="mdi-web"
+          :size="
+            ['small', 'small', 'small', 'default', 'default', 'large'][
+              ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+            ]
+          "
+          >{{ $t("visit-the-publications-website") }}</v-btn
+        >
+      </template>
+    </div>
   </v-col>
   <v-divider></v-divider>
 </template>
