@@ -4,15 +4,13 @@
     <v-col cols="12" md="3" v-if="mdAndUp">
       <MiscAtomsImageContainer
         cover
-        v-if="item.image"
         :loading="loading"
-        :src="item.image"
+        :src="item.image.url ? item.image : '/default.png'"
         :ratio="1 / 1"
         :name="item.lastname + ' ' + item.firstname"
         :slug="getSlugFromPath(item._path)"
         link="people-slug"
       >
-        <PeopleGroupBadges :item="item" />
       </MiscAtomsImageContainer>
     </v-col>
 
@@ -48,6 +46,8 @@
           :socials="item.socials"
           class="my-2"
         />
+        <PeopleGroupBadges :item="item" />
+
         <NuxtLink
           :to="
             localePath({

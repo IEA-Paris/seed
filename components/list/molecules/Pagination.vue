@@ -14,51 +14,27 @@
       :tabindex="!hidePrevNext && firstPageSelected() ? -1 : 0"
       aria-label="Previous Page"
       nuxt
-      @click="rootStore.updatePage({ page: currentPage - 1, type: props.type })"
-      @keyup.enter="
-        rootStore.updatePage({ page: currentPage - 1, type: props.type })
-      "
+      @click="updatePage(currentPage - 1)"
+      @keyup.enter="updatePage(currentPage - 1)"
     >
-      <v-icon>mdi-chevron-left </v-icon>
+      <v-icon>mdi-chevron-left</v-icon>
     </v-btn>
 
-    <template v-for="(page, index) in renderPages">
+    <template v-for="(page, index) in renderPages" :key="page.key">
       <v-btn
         v-if="page.isGap"
-        :key="page.key"
         min-width="35"
         height="35"
         width="35"
         icon
         nuxt
-        @keyup.enter="
-          rootStore.updatePage({
-            page: Math.floor(
-              renderPages[index - 1].key +
-                ((renderPages[index + 1].key || totalPages) -
-                  renderPages[index - 1].key) /
-                  2,
-            ),
-            type: props.type,
-          })
-        "
-        @click="
-          rootStore.updatePage({
-            page: Math.floor(
-              renderPages[index - 1].key +
-                ((renderPages[index + 1].key || totalPages) -
-                  renderPages[index - 1].key) /
-                  2,
-            ),
-            type: props.type,
-          })
-        "
+        @keyup.enter="updatePage(getGapPage(index))"
+        @click="updatePage(getGapPage(index))"
       >
         ...
       </v-btn>
       <template v-else>
         <v-btn
-          :key="page.key"
           :class="{ 'active-page': page.current }"
           tabindex="0"
           outlined
@@ -75,10 +51,8 @@
               ? `Current page, Page ${page.value}`
               : `Goto Page ${page.value}`
           "
-          @click="rootStore.updatePage({ page: page.value, type: props.type })"
-          @keyup.enter="
-            rootStore.updatePage({ page: page.value, type: props.type })
-          "
+          @click="updatePage(page.value)"
+          @keyup.enter="updatePage(page.value)"
         >
           {{ page.value }}
         </v-btn>
@@ -90,26 +64,28 @@
       :tabindex="!hidePrevNext && lastPageSelected() ? -1 : 0"
       :disabled="lastPageSelected()"
       aria-label="Next Page"
-      @click="rootStore.updatePage({ page: currentPage + 1, type: props.type })"
+      @click="updatePage(currentPage + 1)"
       min-width="35"
       height="35"
       width="35"
       nuxt
-      @keyup.enter="
-        rootStore.updatePage({ page: currentPage + 1, type: props.type })
-      "
+      @keyup.enter="updatePage(currentPage + 1)"
     >
-      <v-icon>mdi-chevron-right</v-icon></v-btn
-    >
+      <v-icon>mdi-chevron-right</v-icon>
+    </v-btn>
   </v-btn-toggle>
 </template>
 
 <script setup>
+import { computed } from "vue"
+import { useRoute, useRouter } from "vue-router"
+import { useRootStore } from "~/store/root"
+
 const route = useRoute()
 const router = useRouter()
-import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
-// THIS COMPONENT IS INITALLY BASED ON https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-pagination
+
+// THIS COMPONENT IS INITIALLY BASED ON https://github.com/ashwinkshenoy/vue-simple/tree/master/packages/vs-pagination
 // AND MODIFIED TO FIT INTO OUR NEEDS (Vuetify + nuxt 3)
 const props = defineProps({
   totalPages: {
@@ -147,7 +123,6 @@ const props = defineProps({
 
 const renderPages = computed(() => {
   const pages = []
-
   for (let pageIndex = 1; pageIndex <= props.totalPages; pageIndex++) {
     if (
       pageIndex === props.currentPage ||
@@ -209,6 +184,7 @@ const renderPages = computed(() => {
       continue
     }
   }
+  console.log("page index", props.currentPage)
 
   return pages
 })
@@ -235,11 +211,34 @@ const createGap = (pageIndex) => {
     isGap: true,
   }
 }
+
+const updatePage = (page) => {
+  rootStore.updatePage({ page, type: props.type })
+}
+
+const getGapPage = (index) => {
+  return Math.floor(
+    renderPages.value[index - 1].key +
+      ((renderPages.value[index + 1].key || props.totalPages) -
+        renderPages.value[index - 1].key) /
+        2,
+  )
+}
+// Watch for changes in the route query and update the currentPage accordingly
+watch(
+  () => route.query.page,
+  (newPage) => {
+    if (newPage) {
+      props.currentPage = parseInt(newPage, 10)
+    }
+  },
+  { immediate: true },
+)
 </script>
 
 <style>
 .active-page {
-  background-color: #000;
+  background-color: #000 !important;
   color: #f5f5f5 !important;
 }
 </style>

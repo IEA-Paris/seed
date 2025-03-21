@@ -194,22 +194,6 @@
           "fias": "French Institutes for Advanced Study",
           "paris-ias-ideas": "Paris IAS Ideas",
           "pop": "Program Oxford-Paris"
-        },
-        "vintage": {
-          "2011": "2011",
-          "2012": "2012",
-          "2013": "2013",
-          "2014": "2014",
-          "2015": "2015",
-          "2016": "2016",
-          "2017": "2017",
-          "2018": "2018",
-          "2019": "2019",
-          "2020": "2020",
-          "2021": "2021",
-          "2022": "2022",
-          "2023": "2023",
-          "2024": "2024"
         }
       },
       "projects": {
@@ -368,7 +352,7 @@
   "upcoming-events": "Upcoming events",
   "videos": "Videos",
   "view-larger-map": "View on a larger map",
-  "vintage": "Year",
+  "vintage": "Year {0}",
   "visit": "Visit us",
   "visit-the-author-google-scholar-page": "Visit this person Google Scholar page",
   "visit-the-author-orcid-page": "See the Orcid profile",

@@ -2,7 +2,7 @@
   <v-col cols="12" sm="6" md="4" lg="3" xl="2" v-ripple>
     <MiscAtomsImageContainer
       contain
-      :src="item.image"
+      :src="item.image.url ? item.image : '/default.png'"
       :loading="rootStore.publications.loading"
       :ratio="1 / 1"
       :title="item.name"
@@ -32,7 +32,7 @@
 
     <template v-else>
       <div class="text-h5 text-sm-h3 text-md-h4 text-md-h4 my-6">
-        <ContentRendererMarkdown :value="renderedTitle" />
+        {{ item.name }}
       </div>
 
       <nuxt-link
@@ -77,6 +77,9 @@
       <v-btn
         variant="outlined"
         tile
+        target="_blank"
+        v-if="item.url"
+        :href="item.url"
         class="mt-4 ml-4"
         prepend-icon="mdi-web"
         :size="
@@ -110,11 +113,8 @@ const props = defineProps({
     required: true,
   },
 })
-const renderedSummary = props.item?.subtitle
-  ? await markdownParser.parse("subtitle", props.item.subtitle)
-  : ""
-const renderedTitle = props.item?.name
-  ? await markdownParser.parse("name", props.item.name)
+const renderedSummary = props.item?.description
+  ? await markdownParser.parse("subtitle", props.item.description.trim(0, 300))
   : ""
 </script>
 

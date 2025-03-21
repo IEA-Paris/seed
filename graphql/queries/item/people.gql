@@ -39,7 +39,7 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
     firstname
     groups {
       board
-      fellow
+      fellows
       sab
       sponsor
       team

@@ -8,7 +8,7 @@
       </template>
 
       <template v-slot:title="{ item }">
-        {{ $t(item.title).toUpperCase() }}
+        {{ $t(item.title).toUpperCase().replaceAll("-", " ") }}
       </template>
     </v-breadcrumbs>
     <!--       <v-btn

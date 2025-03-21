@@ -16,7 +16,7 @@ query listPublications(
         url
         licenseUrl
       }
-      subtitle
+      description
       name
       url
       tags {

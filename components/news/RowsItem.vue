@@ -4,7 +4,7 @@
     <v-col cols="12" md="4" lg="3" v-if="mdAndUp" class="pr-md-0">
       <MiscAtomsImageContainer
         cover
-        :src="item.image"
+        :src="item.image.url ? item.image : '/default.png'"
         :ratio="1 / 1"
         :loading="rootStore.news.loading"
         link="news-slug"

@@ -7,20 +7,20 @@
 
     <template v-else v-for="(value, key, index) in item.groups" :key="key">
       <v-chip
+        :class="index === 0 ? 'my-3 mr-3' : 'ma-3'"
         v-if="value && key === 'vintage'"
-        class="ma-3"
-        v-for="(vintage, index) in item.groups.vintage"
+        v-for="(vintage, index2) in item.groups.vintage"
         :key="index"
         variant="outlined"
         tile
         style="background-color: white; color: black"
       >
-        {{ $t("vintage") }} {{ vintage.year }}
+        {{ $t("vintage", [vintage.year]) }}
       </v-chip>
       <v-chip
+        :class="index === 0 ? 'my-3 mr-3' : 'ma-3'"
         color="black"
         style="background-color: white; color: black"
-        class="ma-3"
         v-else-if="
           value &&
           ((!item.groups.vintage && key === 'fellows') || key !== 'fellows')

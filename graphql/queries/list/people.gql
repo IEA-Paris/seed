@@ -10,7 +10,7 @@ query listPeople(
       firstname
       groups {
         board
-        fellow
+        fellows
         sab
         sponsor
         team

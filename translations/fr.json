@@ -201,7 +201,7 @@
       "people": {
         "categories": {
           "board-of-directors": "Conseil d'administration",
-          "fellows": "Boursiers",
+          "fellows": "Résidents",
           "scientific-advisory-board": "Conseil consultatif scientifique",
           "sponsor": "Parrainer",
           "team": "Équipe"
@@ -214,22 +214,6 @@
           "fias": "Instituts français pour une étude avancée",
           "paris-ias-ideas": "Idées de Paris IAS",
           "pop": "Programme Oxford-Paris"
-        },
-        "vintage": {
-          "2011": "2011",
-          "2012": "2012",
-          "2013": "2013",
-          "2014": "2014",
-          "2015": "2015",
-          "2016": "2016",
-          "2017": "2017",
-          "2018": "2018",
-          "2019": "2019",
-          "2020": "2020",
-          "2021": "2021",
-          "2022": "2022",
-          "2023": "2023",
-          "2024": "2024"
         }
       },
       "projects": {
@@ -368,7 +352,7 @@
   "upcoming-events": "Événements à venir",
   "videos": "Vidéos",
   "view-larger-map": "Afficher sur une carte plus grande",
-  "vintage": "Année",
+  "vintage": "Année {0}",
   "visit": "Nous rendre visite",
   "visit-the-author-google-scholar-page": "Visitez cette personne Google Scholar Page"
 }
