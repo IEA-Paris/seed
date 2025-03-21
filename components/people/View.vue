@@ -182,7 +182,15 @@ const props = defineProps({
   item: { type: Object, required: true },
   loading: { type: Boolean, default: false },
 })
-const renderedBiography = props.loading
-  ? false
-  : (await markdownParser.parse("biography", props.item.biography)) || false
+const renderedBiography = ref("")
+watchEffect(async () => {
+  if (props.item?.biography) {
+    renderedBiography.value = await markdownParser.parse(
+      "biography",
+      props.item.biography,
+    )
+  } else {
+    renderedBiography.value = ""
+  }
+})
 </script>

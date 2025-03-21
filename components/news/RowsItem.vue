@@ -165,12 +165,18 @@ const props = defineProps({
     required: true,
   },
 })
-const renderedTitle = props.item?.name
-  ? await markdownParser.parse("name", props.item.name)
-  : ""
-const renderedSummary = props.item?.description
-  ? await markdownParser.parse("summary", props.item.description)
-  : ""
+
+const renderedSummary = ref("")
+watchEffect(async () => {
+  if (props.item?.description) {
+    renderedSummary.value = await markdownParser.parse(
+      "summary",
+      props.item.description,
+    )
+  } else {
+    renderedSummary.value = ""
+  }
+})
 </script>
 
 <style></style>

@@ -218,17 +218,20 @@ const { data: action } = await useAsyncData("actions", () =>
     .limit(1)
     .find(),
 )
+const renderedDescription = ref("")
+watchEffect(async () => {
+  if (props.item?.description) {
+    renderedDescription.value = await markdownParser.parse(
+      "description",
+      props.item.description,
+    )
+  } else {
+    renderedDescription.value = ""
+  }
+})
 
-const renderedDescription = computed(
-  async () =>
-    await markdownParser.parse("description", props?.item?.description),
-)
 onMounted(async () => {
   console.log("props?.item?.description: ", props?.item?.description)
   console.log("props.loading: ", props.loading)
-  console.log(
-    "rendered",
-    await markdownParser.parse("description", props?.item?.description),
-  )
 })
 </script>

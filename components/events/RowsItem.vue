@@ -127,7 +127,15 @@ const props = defineProps({
   },
 })
 
-const renderedSummary = props.item?.summary
-  ? await markdownParser.parse("summary", props.item.summary)
-  : ""
+const renderedSummary = ref("")
+watchEffect(async () => {
+  if (props.item?.summary) {
+    renderedSummary.value = await markdownParser.parse(
+      "summary",
+      props.item.summary,
+    )
+  } else {
+    renderedSummary.value = ""
+  }
+})
 </script>

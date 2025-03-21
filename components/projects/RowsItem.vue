@@ -44,7 +44,7 @@
           ]
         "
       >
-        <ContentRendererMarkdown :value="renderedSubtitle" />
+        <ContentRendererMarkdown :value="renderedSummary" />
       </p>
 
       <v-btn
@@ -102,9 +102,17 @@ const props = defineProps({
     required: true,
   },
 })
-const renderedSubtitle = props.item?.summary
-  ? await markdownParser.parse("summary", props.item.summary)
-  : false
+const renderedSummary = ref("")
+watchEffect(async () => {
+  if (props.item?.summary) {
+    renderedSummary.value = await markdownParser.parse(
+      "summary",
+      props.item.summary,
+    )
+  } else {
+    renderedSummary.value = ""
+  }
+})
 </script>
 
 <style lang="scss"></style>

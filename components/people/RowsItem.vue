@@ -57,9 +57,17 @@
           "
           class="text-wrap text-h4 text-black"
         >
-          <div class="text-body-1 clamped-text mt-n3">
+          <p
+            class="text-wrap clamped-text"
+            :style="
+              '-webkit-line-clamp:' +
+              [5, 5, 5, 8, 8, 8][
+                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+              ]
+            "
+          >
             <ContentRendererMarkdown :value="renderedBiography" />
-          </div>
+          </p>
         </NuxtLink>
       </div>
     </v-col>
@@ -87,7 +95,15 @@ const props = defineProps({
     default: false,
   },
 })
-const renderedBiography = props.item?.biography
-  ? await markdownParser.parse("biography", props.item.biography)
-  : ""
+const renderedBiography = ref("")
+watchEffect(async () => {
+  if (props.item?.biography) {
+    renderedBiography.value = await markdownParser.parse(
+      "biography",
+      props.item.biography,
+    )
+  } else {
+    renderedBiography.value = ""
+  }
+})
 </script>

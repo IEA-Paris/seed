@@ -162,10 +162,15 @@ const { data: action } = await useAsyncData("actions", () =>
     .find(),
 )
 rootStore.publications.loading = false
-const renderedDescription = props.item?.description
-  ? await markdownParser.parse("description", props.item.description)
-  : ""
-const renderedTitle = props.item?.name
-  ? await markdownParser.parse("name", props.item.name)
-  : ""
+const renderedDescription = ref("")
+watchEffect(async () => {
+  if (props.item?.description) {
+    renderedDescription.value = await markdownParser.parse(
+      "description",
+      props.item.description,
+    )
+  } else {
+    renderedDescription.value = ""
+  }
+})
 </script>
