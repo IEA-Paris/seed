@@ -90,7 +90,8 @@
 import { useRootStore } from "~/store/root"
 import { getSlugFromPath } from "~/composables/useUtils"
 import { useDisplay } from "vuetify"
-import markdownParser from "@nuxt/content/transformers/markdown"
+// import markdownParser from "@nuxt/content/transformers/markdown"
+import { useRenderedMarkdown } from "~/composables/useRenderedMarkdown"
 const { name, smAndDown, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
 
 const rootStore = useRootStore()
@@ -105,17 +106,21 @@ const props = defineProps({
     required: true,
   },
 })
-const renderedSummary = ref("")
-watchEffect(async () => {
-  if (props.item?.description) {
-    renderedSummary.value = await markdownParser.parse(
-      "summary",
-      props.item.description,
-    )
-  } else {
-    renderedSummary.value = ""
-  }
-})
+// const renderedSummary = ref("")
+// watchEffect(async () => {
+//   if (props.item?.description) {
+//     renderedSummary.value = await markdownParser.parse(
+//       "summary",
+//       props.item.description,
+//     )
+//   } else {
+//     renderedSummary.value = ""
+//   }
+// })
+const renderedSummary = useRenderedMarkdown(
+  () => props.item?.description,
+  "summary",
+)
 </script>
 
 <style lang="scss"></style>

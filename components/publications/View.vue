@@ -138,7 +138,9 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
-import markdownParser from "@nuxt/content/transformers/markdown"
+// import markdownParser from "@nuxt/content/transformers/markdown"
+import { useRenderedMarkdown } from "~/composables/useRenderedMarkdown"
+
 const { name, mdAndUp, smAndDown } = useDisplay()
 const router = useRouter()
 const { locale } = useI18n()
@@ -162,15 +164,19 @@ const { data: action } = await useAsyncData("actions", () =>
     .find(),
 )
 rootStore.publications.loading = false
-const renderedDescription = ref("")
-watchEffect(async () => {
-  if (props.item?.description) {
-    renderedDescription.value = await markdownParser.parse(
-      "description",
-      props.item.description,
-    )
-  } else {
-    renderedDescription.value = ""
-  }
-})
+const renderedDescription = useRenderedMarkdown(
+  () => props.item?.description,
+  "description",
+)
+// const renderedDescription = ref("")
+// watchEffect(async () => {
+//   if (props.item?.description) {
+//     renderedDescription.value = await markdownParser.parse(
+//       "description",
+//       props.item.description,
+//     )
+//   } else {
+//     renderedDescription.value = ""
+//   }
+// })
 </script>

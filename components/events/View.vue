@@ -316,6 +316,8 @@
 import { useDisplay } from "vuetify"
 import getFileIcon from "~/composables/useIcons"
 import { useRootStore } from "~/store/root"
+import { useRenderedMarkdown } from "~/composables/useRenderedMarkdown"
+
 const rootStore = useRootStore()
 
 const { name, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
@@ -350,33 +352,48 @@ function redirectToMap(long, lat) {
   )
 }
 
-const renderedDescription = ref("")
-const renderedProgram = ref("")
-const renderedSubtitle = ref("")
-watchEffect(async () => {
-  if (props.item?.description) {
-    renderedDescription.value = await markdownParser.parse(
-      "description",
-      props.item.description,
-    )
-  } else {
-    renderedDescription.value = ""
-  }
-  if (props.item?.program) {
-    renderedProgram.value = await markdownParser.parse(
-      "program",
-      props.item.program,
-    )
-  } else {
-    renderedProgram.value = ""
-  }
-  if (props.item?.subtitle) {
-    renderedSubtitle.value = await markdownParser.parse(
-      "subtitle",
-      props.item.subtitle,
-    )
-  } else {
-    renderedSubtitle.value = ""
-  }
-})
+const renderedDescription = useRenderedMarkdown(
+  () => props.item.description,
+  "description",
+)
+
+const renderedProgram = useRenderedMarkdown(
+  () => props.item?.program,
+  "program",
+)
+
+const renderedSubtitle = useRenderedMarkdown(
+  () => props.item?.subtitle,
+  "subtitle",
+)
+
+// const renderedDescription = ref("")
+// const renderedProgram = ref("")
+// const renderedSubtitle = ref("")
+// watchEffect(async () => {
+//   if (props.item?.description) {
+//     renderedDescription.value = await markdownParser.parse(
+//       "description",
+//       props.item.description,
+//     )
+//   } else {
+//     renderedDescription.value = ""
+//   }
+//   if (props.item?.program) {
+//     renderedProgram.value = await markdownParser.parse(
+//       "program",
+//       props.item.program,
+//     )
+//   } else {
+//     renderedProgram.value = ""
+//   }
+//   if (props.item?.subtitle) {
+//     renderedSubtitle.value = await markdownParser.parse(
+//       "subtitle",
+//       props.item.subtitle,
+//     )
+//   } else {
+//     renderedSubtitle.value = ""
+//   }
+// })
 </script>

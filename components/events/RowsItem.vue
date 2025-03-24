@@ -110,7 +110,9 @@
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
 import { getSlugFromPath } from "~/composables/useUtils"
-import markdownParser from "@nuxt/content/transformers/markdown"
+// import markdownParser from "@nuxt/content/transformers/markdown"
+import { useRenderedMarkdown } from "~/composables/useRenderedMarkdown"
+
 const { locale } = useI18n()
 const { name, smAndUp, mdAndDown, lgAndUp } = useDisplay()
 const localePath = useLocalePath()
@@ -127,15 +129,20 @@ const props = defineProps({
   },
 })
 
-const renderedSummary = ref("")
-watchEffect(async () => {
-  if (props.item?.summary) {
-    renderedSummary.value = await markdownParser.parse(
-      "summary",
-      props.item.summary,
-    )
-  } else {
-    renderedSummary.value = ""
-  }
-})
+// const renderedSummary = ref("")
+// watchEffect(async () => {
+//   if (props.item?.summary) {
+//     renderedSummary.value = await markdownParser.parse(
+//       "summary",
+//       props.item.summary,
+//     )
+//   } else {
+//     renderedSummary.value = ""
+//   }
+// })
+
+const renderedSummary = useRenderedMarkdown(
+  () => props.item?.summary,
+  "summary",
+)
 </script>

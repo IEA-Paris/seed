@@ -143,6 +143,8 @@ import markdownParser from "@nuxt/content/transformers/markdown"
 import { useDisplay } from "vuetify"
 import getFileIcon from "~/composables/useIcons"
 import { useRootStore } from "~/store/root"
+import { useRenderedMarkdown } from "~/composables/useRenderedMarkdown"
+
 const rootStore = useRootStore()
 
 const { name, lgAndUp, mdAndUp, smAndDown, sm, xs } = useDisplay()
@@ -176,92 +178,162 @@ onMounted(() => {
   /*   console.log("fellowship item", props.item.value) */
 })
 
-const renderedSubtitle =
-  props.item?.subtitle && !props.loading
-    ? await markdownParser.parse("subtitle", props.item.subtitle)
-    : ""
-const renderedDescription =
-  props.item?.description && !props.loading
-    ? await markdownParser.parse("description", props.item.description)
-    : ""
+// const renderedSubtitle =
+//   props.item?.subtitle && !props.loading
+//     ? await markdownParser.parse("subtitle", props.item.subtitle)
+//     : ""
+// const renderedDescription =
+//   props.item?.description && !props.loading
+//     ? await markdownParser.parse("description", props.item.description)
+//     : ""
+
+const renderedSubtitle = useRenderedMarkdown(
+  () => props.item?.subtitle,
+  "subtitle",
+)
+
+const renderedDescription = useRenderedMarkdown(
+  () => props.item?.description,
+  "description",
+)
+
+// const renderedDetails = {
+//   ...(props.item?.fellowshipDetails?.type &&
+//     !props.loading && {
+//       type: await markdownParser.parse(
+//         "fellowshipDetails.type",
+//         props.item.fellowshipDetails.type,
+//       ),
+//     }),
+//   ...(props.item?.fellowshipDetails?.fundingPeriod &&
+//     !props.loading && {
+//       fundingPeriod: await markdownParser.parse(
+//         "fellowshipDetails.fundingPeriod",
+//         props.item.fellowshipDetails.fundingPeriod,
+//       ),
+//     }),
+//   ...(props.item?.fellowshipDetails?.profile &&
+//     !props.loading && {
+//       profile: await markdownParser.parse(
+//         "fellowshipDetails.profile",
+//         props.item.fellowshipDetails.profile,
+//       ),
+//     }),
+//   ...(props.item?.fellowshipDetails?.tasks &&
+//     !props.loading && {
+//       tasks: await markdownParser.parse(
+//         "fellowshipDetails.tasks",
+//         props.item.fellowshipDetails.tasks,
+//       ),
+//     }),
+//   ...(props.item?.fellowshipDetails?.location &&
+//     !props.loading && {
+//       location: await markdownParser.parse(
+//         "fellowshipDetails.location",
+//         props.item.fellowshipDetails.location,
+//       ),
+//     }),
+//   ...(props.item?.fellowshipDetails?.funding &&
+//     !props.loading && {
+//       funding: await markdownParser.parse(
+//         "fellowshipDetails.funding",
+//         props.item.fellowshipDetails.funding,
+//       ),
+//     }),
+//   ...(props.item?.fellowshipDetails?.housing &&
+//     !props.loading && {
+//       housing: await markdownParser.parse(
+//         "fellowshipDetails.housing",
+//         props.item.fellowshipDetails.housing,
+//       ),
+//     }),
+//   ...(props.item?.fellowshipDetails?.meals &&
+//     !props.loading && {
+//       meals: await markdownParser.parse(
+//         "fellowshipDetails.meals",
+//         props.item.fellowshipDetails.meals,
+//       ),
+//     }),
+//   ...(props.item?.fellowshipDetails?.applicationMaterials &&
+//     !props.loading && {
+//       applicationMaterials: await markdownParser.parse(
+//         "fellowshipDetails.applicationMaterials",
+//         props.item.fellowshipDetails.applicationMaterials,
+//       ),
+//     }),
+//   ...(props.item?.fellowshipDetails?.selectionProcess &&
+//     !props.loading && {
+//       selectionProcess: await markdownParser.parse(
+//         "fellowshipDetails.selectionProcess",
+//         props.item.fellowshipDetails.selectionProcess,
+//       ),
+//     }),
+//   ...(props.item?.fellowshipDetails?.researchProcess &&
+//     !props.loading && {
+//       researchProcess: await markdownParser.parse(
+//         "fellowshipDetails.researchProcess",
+//         props.item.fellowshipDetails.researchProcess,
+//       ),
+//     }),
+// }
+
+// TODO: à refactoring
 const renderedDetails = {
-  ...(props.item?.fellowshipDetails?.type &&
-    !props.loading && {
-      type: await markdownParser.parse(
-        "fellowshipDetails.type",
-        props.item.fellowshipDetails.type,
-      ),
-    }),
-  ...(props.item?.fellowshipDetails?.fundingPeriod &&
-    !props.loading && {
-      fundingPeriod: await markdownParser.parse(
-        "fellowshipDetails.fundingPeriod",
-        props.item.fellowshipDetails.fundingPeriod,
-      ),
-    }),
-  ...(props.item?.fellowshipDetails?.profile &&
-    !props.loading && {
-      profile: await markdownParser.parse(
-        "fellowshipDetails.profile",
-        props.item.fellowshipDetails.profile,
-      ),
-    }),
-  ...(props.item?.fellowshipDetails?.tasks &&
-    !props.loading && {
-      tasks: await markdownParser.parse(
-        "fellowshipDetails.tasks",
-        props.item.fellowshipDetails.tasks,
-      ),
-    }),
-  ...(props.item?.fellowshipDetails?.location &&
-    !props.loading && {
-      location: await markdownParser.parse(
-        "fellowshipDetails.location",
-        props.item.fellowshipDetails.location,
-      ),
-    }),
-  ...(props.item?.fellowshipDetails?.funding &&
-    !props.loading && {
-      funding: await markdownParser.parse(
-        "fellowshipDetails.funding",
-        props.item.fellowshipDetails.funding,
-      ),
-    }),
-  ...(props.item?.fellowshipDetails?.housing &&
-    !props.loading && {
-      housing: await markdownParser.parse(
-        "fellowshipDetails.housing",
-        props.item.fellowshipDetails.housing,
-      ),
-    }),
-  ...(props.item?.fellowshipDetails?.meals &&
-    !props.loading && {
-      meals: await markdownParser.parse(
-        "fellowshipDetails.meals",
-        props.item.fellowshipDetails.meals,
-      ),
-    }),
-  ...(props.item?.fellowshipDetails?.applicationMaterials &&
-    !props.loading && {
-      applicationMaterials: await markdownParser.parse(
-        "fellowshipDetails.applicationMaterials",
-        props.item.fellowshipDetails.applicationMaterials,
-      ),
-    }),
-  ...(props.item?.fellowshipDetails?.selectionProcess &&
-    !props.loading && {
-      selectionProcess: await markdownParser.parse(
-        "fellowshipDetails.selectionProcess",
-        props.item.fellowshipDetails.selectionProcess,
-      ),
-    }),
-  ...(props.item?.fellowshipDetails?.researchProcess &&
-    !props.loading && {
-      researchProcess: await markdownParser.parse(
-        "fellowshipDetails.researchProcess",
-        props.item.fellowshipDetails.researchProcess,
-      ),
-    }),
+  type: useRenderedMarkdown(
+    () => (!props.loading ? props.item?.fellowshipDetails?.type : undefined),
+    "fellowshipDetails.type",
+  ),
+  fundingPeriod: useRenderedMarkdown(
+    () =>
+      !props.loading ? props.item?.fellowshipDetails?.fundingPeriod : undefined,
+    "fellowshipDetails.fundingPeriod",
+  ),
+  profile: useRenderedMarkdown(
+    () => (!props.loading ? props.item?.fellowshipDetails?.profile : undefined),
+    "fellowshipDetails.profile",
+  ),
+  tasks: useRenderedMarkdown(
+    () => (!props.loading ? props.item?.fellowshipDetails?.tasks : undefined),
+    "fellowshipDetails.tasks",
+  ),
+  location: useRenderedMarkdown(
+    () =>
+      !props.loading ? props.item?.fellowshipDetails?.location : undefined,
+    "fellowshipDetails.location",
+  ),
+  funding: useRenderedMarkdown(
+    () => (!props.loading ? props.item?.fellowshipDetails?.funding : undefined),
+    "fellowshipDetails.funding",
+  ),
+  housing: useRenderedMarkdown(
+    () => (!props.loading ? props.item?.fellowshipDetails?.housing : undefined),
+    "fellowshipDetails.housing",
+  ),
+  meals: useRenderedMarkdown(
+    () => (!props.loading ? props.item?.fellowshipDetails?.meals : undefined),
+    "fellowshipDetails.meals",
+  ),
+  applicationMaterials: useRenderedMarkdown(
+    () =>
+      !props.loading
+        ? props.item?.fellowshipDetails?.applicationMaterials
+        : undefined,
+    "fellowshipDetails.applicationMaterials",
+  ),
+  selectionProcess: useRenderedMarkdown(
+    () =>
+      !props.loading
+        ? props.item?.fellowshipDetails?.selectionProcess
+        : undefined,
+    "fellowshipDetails.selectionProcess",
+  ),
+  researchProcess: useRenderedMarkdown(
+    () =>
+      !props.loading
+        ? props.item?.fellowshipDetails?.researchProcess
+        : undefined,
+    "fellowshipDetails.researchProcess",
+  ),
 }
 </script>
 

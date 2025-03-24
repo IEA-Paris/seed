@@ -175,22 +175,28 @@
 <script setup>
 import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
-import markdownParser from "@nuxt/content/transformers/markdown"
+// import markdownParser from "@nuxt/content/transformers/markdown"
+import { useRenderedMarkdown } from "~/composables/useRenderedMarkdown"
+
 const rootStore = useRootStore()
 const { name, mdAndUp } = useDisplay()
 const props = defineProps({
   item: { type: Object, required: true },
   loading: { type: Boolean, default: false },
 })
-const renderedBiography = ref("")
-watchEffect(async () => {
-  if (props.item?.biography) {
-    renderedBiography.value = await markdownParser.parse(
-      "biography",
-      props.item.biography,
-    )
-  } else {
-    renderedBiography.value = ""
-  }
-})
+// const renderedBiography = ref("")
+// watchEffect(async () => {
+//   if (props.item?.biography) {
+//     renderedBiography.value = await markdownParser.parse(
+//       "biography",
+//       props.item.biography,
+//     )
+//   } else {
+//     renderedBiography.value = ""
+//   }
+// })
+const renderedBiography = useRenderedMarkdown(
+  () => props.item?.biography,
+  "biography",
+)
 </script>

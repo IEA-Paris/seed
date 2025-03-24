@@ -136,7 +136,9 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
-import markdownParser from "@nuxt/content/transformers/markdown"
+// import markdownParser from "@nuxt/content/transformers/markdown"
+import { useRenderedMarkdown } from "~/composables/useRenderedMarkdown"
+
 const { name, mdAndUp, smAndDown } = useDisplay()
 const router = useRouter()
 const { locale } = useI18n()
@@ -159,23 +161,33 @@ const { data: action } = await useAsyncData("actions", () =>
     .limit(1)
     .find(),
 )
-let renderedSubtitle =
-  props.item?.subtitle && !props.loading
-    ? await markdownParser.parse("subtitle", props.item.subtitle)
-    : ""
 
-let renderedDescription =
-  props.item?.description && !props.loading
-    ? await markdownParser.parse("description", props.item.description)
-    : ""
-onMounted(async () => {
-  renderedSubtitle =
-    props.item?.subtitle && !props.loading
-      ? await markdownParser.parse("subtitle", props.item.subtitle)
-      : ""
-  renderedDescription =
-    props.item?.description && !props.loading
-      ? await markdownParser.parse("description", props.item.description)
-      : ""
-})
+const renderedSubtitle = useRenderedMarkdown(
+  () => props.item?.subtitle,
+  "subtitle",
+)
+
+const renderedDescription = useRenderedMarkdown(
+  () => props.item?.description,
+  "description",
+)
+// let renderedSubtitle =
+//   props.item?.subtitle && !props.loading
+//     ? await markdownParser.parse("subtitle", props.item.subtitle)
+//     : ""
+
+// let renderedDescription =
+//   props.item?.description && !props.loading
+//     ? await markdownParser.parse("description", props.item.description)
+//     : ""
+// onMounted(async () => {
+//   renderedSubtitle =
+//     props.item?.subtitle && !props.loading
+//       ? await markdownParser.parse("subtitle", props.item.subtitle)
+//       : ""
+//   renderedDescription =
+//     props.item?.description && !props.loading
+//       ? await markdownParser.parse("description", props.item.description)
+//       : ""
+// })
 </script>
