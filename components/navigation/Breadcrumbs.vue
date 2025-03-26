@@ -51,38 +51,37 @@ const rootStore = useRootStore()
 
 const localePath = useLocalePath()
 const route = useRoute()
-const isSnapRoutes = () => {
-  return route.name.startsWith("about") || route.name.startsWith("index")
-}
-// const crumbs = computed(() => {
-//   return route.path
-//     .split("/")
-//     .filter((item) => item && !ignoredRoutes.includes(item))
-//     .map((item, index) => {
-//       return {
-//         title: item,
-//         href:
-//           "/" +
-//           route.path
-//             .split("/")
-//             .filter((item) => item)
-//             .slice(0, index + (locale === "en" ? 1 : 2))
-//             .join("/"),
-//         disabled: false,
-//         exact: true,
-//       }
-//     })
-// })
+
 const crumbs = computed(() => {
   const fullSegments = route.path.split("/").filter((item) => item)
   const segments = fullSegments.filter((item) => !ignoredRoutes.includes(item))
   const baseOffset = locale.value === "en" ? 0 : 1
 
-  return segments.map((item, index) => {
-    const pathSegments = fullSegments.slice(0, index + 1 + baseOffset)
+  const activities = new Set([
+    "fellowships",
+    "projects",
+    "events",
+    "publications",
+  ])
+  const about = new Set(["institute", "scientific_policy", "network"])
+
+  let currentPathSegments = fullSegments.slice(0, baseOffset)
+
+  return segments.map((item) => {
+    const isActivities =
+      fullSegments[baseOffset] === "activities" && activities.has(item)
+
+    const isAbout = fullSegments[baseOffset] === "about" && about.has(item)
+
+    if (isActivities || isAbout) {
+      currentPathSegments = fullSegments.slice(0, baseOffset + 2)
+    } else {
+      currentPathSegments.push(item)
+    }
+
     return {
       title: item,
-      to: "/" + pathSegments.join("/"),
+      to: "/" + currentPathSegments.join("/") + "/",
       disabled: false,
       exact: true,
     }
