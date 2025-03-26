@@ -5,20 +5,20 @@
         <div
           :class="mdAndUp ? 'text-h2' : 'text-h4'"
           class="mb-9 text-center"
-          v-if="route.query.categories"
+          v-if="route.query.groups"
         >
-          {{ $t("list.filters.people.categories." + route.query.categories) }}
+          {{ $t("list.filters.people.groups." + route.query.groups) }}
         </div>
-        <div v-show="route.query.categories === 'fellows'">
+        <div v-show="route.query.groups === 'fellows'">
           <ContentDoc :path="fellows" />
         </div>
-        <div v-show="route.query.categories === 'scientific-advisory-board'">
+        <div v-show="route.query.groups === 'sab'">
           <ContentDoc :path="sab" />
         </div>
-        <div v-show="route.query.categories === 'team'">
+        <div v-show="route.query.groups === 'team'">
           <ContentDoc :path="team" />
         </div>
-        <div v-show="route.query.categories === 'board-of-directors'">
+        <div v-show="route.query.groups === 'board'">
           <ContentDoc :path="board" />
         </div>
       </div>

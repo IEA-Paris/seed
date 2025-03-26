@@ -179,10 +179,10 @@
         }
       },
       "people": {
-        "categories": {
-          "board-of-directors": "Board of directors",
+        "groups": {
+          "board": "Board of directors",
           "fellows": "Fellows",
-          "scientific-advisory-board": "Scientific Advisory Board",
+          "sab": "Scientific Advisory Board",
           "sponsor": "Sponsor",
           "team": "Team"
         },

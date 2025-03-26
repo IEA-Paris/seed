@@ -37,12 +37,13 @@
 
       <div class="d-flex align-center flex-column mt-12" v-else>
         <div class="d-flex text-center text-wrap text-h3 text-black">
-          <ContentRendererMarkdown :value="renderedTitle" />
+          {{ item.name }}
         </div>
         <v-divider width="154px" class="mb-1 mt-6"></v-divider>
         <v-divider width="154px"></v-divider>
 
         <MiscMoleculesChipContainer
+          v-if="item.tags && item.tags.length"
           :items="item.tags"
           class="py-6 mt-4 align-self-center"
         ></MiscMoleculesChipContainer>

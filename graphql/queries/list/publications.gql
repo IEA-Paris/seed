@@ -26,6 +26,10 @@ query listPublications(
         icon
         updatedAt
       }
+      slug {
+        fr
+        en
+      }
     }
     total
   }

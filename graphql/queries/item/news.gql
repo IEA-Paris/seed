@@ -5,6 +5,10 @@ query getNews($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
     date
     description
     featured
+    slug {
+      fr
+      en
+    }
     files {
       createdAt
       file

@@ -28,6 +28,10 @@ query listProjects(
         name
         updatedAt
       }
+      slug {
+        fr
+        en
+      }
     }
   }
 }

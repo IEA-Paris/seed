@@ -30,6 +30,7 @@ const variables = ref({
 const { result, loading, error, refetch } = useQuery(GET_PUBLICATION, variables)
 
 let publications = computed(() => {
+  console.log("variables: ", variables)
   console.log("reassign computed publication", result.value?.getPublication)
   return result.value?.getPublication
 })

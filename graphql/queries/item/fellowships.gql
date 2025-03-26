@@ -10,6 +10,10 @@ query getFellowship(
     fellowshipStart
     contact
     url
+    slug {
+      fr
+      en
+    }
     applicationStop
     fellowshipStop
     publicationDate

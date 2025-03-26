@@ -461,7 +461,7 @@ export const useRootStore = defineStore("rootStore", {
             ?.value
 
           // Prune empty values
-          if (typeof filterValue !== "undefined") {
+          if (typeof filterValue !== "undefined" && filterValue?.length) {
             filters[filter] = filterValue
           }
         }
