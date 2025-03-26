@@ -1,9 +1,14 @@
 <template>
   <v-container v-if="crumbs && crumbs.length">
     <!--    TODO: make a NavigationBreadcrumbs component with propers links and correct urls -->
-    <v-breadcrumbs :items="crumbs" class="pl-0 w-100" link>
+    <v-breadcrumbs :items="crumbs" class="pl-0 w-100">
       <template v-slot:prepend>
-        <v-btn to="/" size="small" variant="text" icon="mdi-home"></v-btn>
+        <v-btn
+          :to="localePath('/')"
+          size="small"
+          variant="text"
+          icon="mdi-home"
+        ></v-btn>
         /
       </template>
 
@@ -11,25 +16,27 @@
         {{ $t(item.title).toUpperCase().replaceAll("-", " ") }}
       </template>
     </v-breadcrumbs>
-    <!--       <v-btn
-          x-large
-          :height="mdAndUp ? '56' : '40'"
-          outlined
-          :rounded="0"
-          color="primary"
-          @click="rootStore.setLoading(!rootStore.loading)"
-        >
-          <v-icon left>mdi-loading</v-icon>
-        </v-btn> -->
-    <!--    <h1
-          v-if="
-            crumbs.slice(-1)[0] &&
-            crumbs.slice(-1)[0].title &&
-            crumbs.slice(-1)[0].title.length
-          "
-        >
-          {{ $t(crumbs.slice(-1)[0].title) }}
-        </h1> -->
+
+    <!-- <v-btn
+      x-large
+      :height="mdAndUp ? '56' : '40'"
+      outlined
+      :rounded="0"
+      color="primary"
+      @click="rootStore.setLoading(!rootStore.loading)"
+    >
+      <v-icon left>mdi-loading</v-icon>
+    </v-btn>
+    <h1
+      v-if="
+        crumbs.slice(-1)[0] &&
+        crumbs.slice(-1)[0].title &&
+        crumbs.slice(-1)[0].title.length
+      "
+    >
+      {{ $t(crumbs.slice(-1)[0].title) }}
+    </h1> -->
+
     <v-divider></v-divider>
   </v-container>
 </template>
@@ -47,24 +54,39 @@ const route = useRoute()
 const isSnapRoutes = () => {
   return route.name.startsWith("about") || route.name.startsWith("index")
 }
+// const crumbs = computed(() => {
+//   return route.path
+//     .split("/")
+//     .filter((item) => item && !ignoredRoutes.includes(item))
+//     .map((item, index) => {
+//       return {
+//         title: item,
+//         href:
+//           "/" +
+//           route.path
+//             .split("/")
+//             .filter((item) => item)
+//             .slice(0, index + (locale === "en" ? 1 : 2))
+//             .join("/"),
+//         disabled: false,
+//         exact: true,
+//       }
+//     })
+// })
 const crumbs = computed(() => {
-  return route.path
-    .split("/")
-    .filter((item) => item && !ignoredRoutes.includes(item))
-    .map((item, index) => {
-      return {
-        title: item,
-        href:
-          "/" +
-          route.path
-            .split("/")
-            .filter((item) => item)
-            .slice(0, index + (locale === "en" ? 1 : 2))
-            .join("/"),
-        disabled: false,
-        exact: true,
-      }
-    })
+  const fullSegments = route.path.split("/").filter((item) => item)
+  const segments = fullSegments.filter((item) => !ignoredRoutes.includes(item))
+  const baseOffset = locale.value === "en" ? 0 : 1
+
+  return segments.map((item, index) => {
+    const pathSegments = fullSegments.slice(0, index + 1 + baseOffset)
+    return {
+      title: item,
+      to: "/" + pathSegments.join("/"),
+      disabled: false,
+      exact: true,
+    }
+  })
 })
 </script>
 
