@@ -238,8 +238,5 @@ const renderedDescription = useRenderedMarkdown(
 //   }
 // })
 
-onMounted(async () => {
-  console.log("props?.item?.description: ", props?.item?.description)
-  console.log("props.loading: ", props.loading)
-})
+onMounted(async () => {})
 </script>
