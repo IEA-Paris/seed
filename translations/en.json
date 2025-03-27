@@ -72,8 +72,7 @@
   "items": {
     "events": "Event | Events",
     "fellow": "Fellow | Fellows",
-    "fellowship": "Fellowship | Fellowships | {0} Fellowships",
-    "fellowships": "Fellowship | Fellowship | Fellowships",
+    "fellowships": "Fellowship | Fellowship | {0} Fellowships",
     "news": "News | News",
     "people": "No one | People | People",
     "projects": "Project | Projects",
@@ -94,6 +93,7 @@
     "filters": {
       "events": {
         "category": {
+          "label": "Category",
           "COLLOQUIUM": "Colloquium",
           "CONFERENCE": "Conference",
           "FELLOW_PRESENTATION": "Fellow's presentation",
@@ -112,18 +112,32 @@
           "cat": "Constructive Advanced Thinking",
           "fias": "French Institutes for Advanced Study",
           "paris-ias-ideas": "Paris IAS Ideas",
-          "pop": "Program Oxford-Paris"
+          "pop": "Program Oxford-Paris",
+          "label": "Fellowship"
         },
-        "online": "Online",
+        "online": { "label": "Online" },
         "organiserCategory": {
           "EXTERNAL": "External",
           "FELLOW": "Our Fellows",
           "IAS": "PARIS IAS",
-          "MEMBER": "Our Members"
+          "MEMBER": "Our Members",
+          "label": "Organizer type"
         },
-        "outside": "Outside",
-        "past": "Past",
+        "tags": {
+          "label": "Tags",
+          "Socioscope": "Socioscope",
+          "WPRN": "WPRN",
+          "WPRN-2021": "WPRN 2021"
+        },
+        "outside": {
+          "label": "Outside"
+        },
+        "disciplines": {
+          "label": "Discipline"
+        },
+        "past": { "label": "Past" },
         "status": {
+          "label": "Status",
           "CANCELLED": "Cancelled",
           "POSTPONED": "Postponed to {0}",
           "PUBLISHED": "Published",
@@ -155,6 +169,7 @@
       },
       "news": {
         "category": {
+          "label": "Category",
           "ANNOUNCEMENT": "Announcement",
           "ARTICLE": "Article",
           "AUDIO": "Audio",
@@ -177,6 +192,7 @@
           "VIDEO": "Video"
         },
         "tags": {
+          "label": "Tags",
           "Socioscope": "Socioscope",
           "WPRN": "WPRN",
           "WPRN-2021": "WPRN 2021"
@@ -184,6 +200,7 @@
       },
       "people": {
         "groups": {
+          "label": "Group",
           "board": "Board of directors",
           "fellows": "Fellows",
           "sab": "Scientific Advisory Board",
@@ -191,28 +208,70 @@
           "team": "Team"
         },
         "member": {
+          "label": "Member",
           "paris-1": "Paris 1"
         },
-        "program": {
+        "programs": {
+          "label": "Program",
           "cat": "Constructive Advanced Thinking",
           "fias": "French Institutes for Advanced Study",
           "paris-ias-ideas": "Paris IAS Ideas",
           "pop": "Program Oxford-Paris"
+        },
+        "vintage": {
+          "label": "Vintage"
+        },
+        "disciplines": {
+          "label": "Discipline"
         }
       },
       "projects": {
         "status": {
+          "label": "Status",
           "CANCELLED": "Cancelled",
           "FINISHED": "Finished",
           "IN_PROGRESS": "Ongoing",
           "PLANNED": "Planned"
+        },
+        "tags": {
+          "label": "Tags",
+          "Socioscope": "Socioscope",
+          "WPRN": "WPRN",
+          "WPRN-2021": "WPRN 2021"
         }
       },
       "publications": {
         "affiliations": {
+          "label": "Affiliation",
           "paris-1": "Paris 1"
         },
+        "tags": {
+          "label": "Tags",
+          "Socioscope": "Socioscope",
+          "WPRN": "WPRN",
+          "WPRN-2021": "WPRN 2021"
+        },
+        "disciplines": {
+          "label": "Disciplines"
+        },
+        "eventCategories": {
+          "label": "Event category",
+          "COLLOQUIUM": "Colloquium",
+          "CONFERENCE": "Conference",
+          "FELLOW_PRESENTATION": "Fellow's presentation",
+          "FORUM": "Forum",
+          "LECTURE": "Lecture",
+          "MEETING": "Meeting",
+          "OTHER": "Other",
+          "PANEL": "Panel",
+          "ROUND_TABLE": "Round table",
+          "SEMINAR": "Seminar",
+          "SYMPOSIUM": "Symposium",
+          "WEBINAR": "Webinar",
+          "WORKSHOP": "Workshop"
+        },
         "type": {
+          "label": "Type",
           "ARTICLE": "Article",
           "AUDIO": "Audio",
           "BOOK": "Book",

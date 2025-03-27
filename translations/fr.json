@@ -85,7 +85,7 @@
   "items": {
     "events": "Événement | Événements",
     "fellow": "Résident | Résidents",
-    "Fellowships": "Programme d'accueil | Programme d'accueil | {0} Programmes d'accueil",
+    "fellowships": "Programme d'accueil | Programme d'accueil | {0} Programmes d'accueil",
     "news": "NOUVELLES | Nouvelles",
     "people": "Personne | Personnes | Personnes",
     "projects": "Projet | Projets",
@@ -106,6 +106,7 @@
     "filters": {
       "events": {
         "category": {
+          "label": "Catégorie",
           "COLLOQUIUM": "Colloque",
           "CONFERENCE": "Conférence",
           "FELLOW_PRESENTATION": "Présentation de Fellow",
@@ -121,21 +122,39 @@
           "WORKSHOP": "Atelier"
         },
         "fellowship": {
+          "label": "Programme d'accueil",
           "cat": "Pensée avancée constructive",
           "fias": "Instituts français pour une étude avancée",
           "paris-ias-ideas": "Idées de Paris IAS",
           "pop": "Programme Oxford-Paris"
         },
-        "online": "En ligne",
+        "online": {
+          "label": "En ligne"
+        },
+        "tags": {
+          "label": "Tags",
+          "Socioscope": "Socioscope",
+          "WPRN": "WPRN",
+          "WPRN-2021": "WPRN 2021"
+        },
         "organiserCategory": {
+          "label": "Type d'organisateur",
           "EXTERNAL": "Externe",
           "FELLOW": "Résidents",
           "IAS": "IEA de Paris",
           "MEMBER": "Membres"
         },
-        "outside": "Hors les murs",
-        "past": "Passé",
+        "outside": {
+          "label": "Hors les murs"
+        },
+        "past": {
+          "label": "Passé"
+        },
+        "disciplines": {
+          "label": "Discipline"
+        },
         "status": {
+          "label": "Statut",
           "CANCELLED": "Annulé",
           "POSTPONED": "Reporté à {0}",
           "PUBLISHED": "Publié",
@@ -149,7 +168,7 @@
           "paris-2": "Paris 2"
         },
         "fellowshipType": {
-          "label": "Fellowship type",
+          "label": "Type de programme",
           "IN_GROUP": "En groupe",
           "LONG_STAY": "Séjour long",
           "SHORT_STAY": "Séjour court"
@@ -167,6 +186,7 @@
       },
       "news": {
         "category": {
+          "label": "Catégorie",
           "ANNOUNCEMENT": "Annonce",
           "ARTICLE": "Article",
           "AUDIO": "Audio",
@@ -189,6 +209,7 @@
           "VIDEO": "Vidéo"
         },
         "tags": {
+          "label": "Tags",
           "Socioscope": "Socioscope",
           "WPRN": "WPRN",
           "WPRN-2021": "WPRN 2021"
@@ -196,6 +217,7 @@
       },
       "people": {
         "groups": {
+          "label": "Catégorie",
           "board": "Conseil d'administration",
           "fellows": "Résident",
           "sab": "Conseil scientifique",
@@ -203,28 +225,70 @@
           "team": "Équipe"
         },
         "member": {
+          "label": "Membre IEA",
           "paris-1": "Paris 1"
         },
-        "program": {
+        "programs": {
+          "label": "Programme d'accueil",
           "cat": "Pensée avancée constructive",
           "fias": "Instituts français pour une étude avancée",
           "paris-ias-ideas": "Idées de Paris IAS",
           "pop": "Programme Oxford-Paris"
+        },
+        "vintage": {
+          "label": "Année"
+        },
+        "disciplines": {
+          "label": "Discipline"
         }
       },
       "projects": {
         "status": {
+          "label": "Statut",
           "CANCELLED": "Annulé",
           "FINISHED": "Terminé",
           "IN_PROGRESS": "En cours",
           "PLANNED": "Prévu"
+        },
+        "tags": {
+          "label": "Tags",
+          "Socioscope": "Socioscope",
+          "WPRN": "WPRN",
+          "WPRN-2021": "WPRN 2021"
         }
       },
       "publications": {
         "affiliations": {
+          "label": "Affiliation",
           "paris-1": "Paris 1"
         },
+        "tags": {
+          "label": "Tags",
+          "Socioscope": "Socioscope",
+          "WPRN": "WPRN",
+          "WPRN-2021": "WPRN 2021"
+        },
+        "disciplines": {
+          "label": "Disciplines"
+        },
+        "eventCategories": {
+          "label": "Catégorie d'évènement",
+          "COLLOQUIUM": "Colloque",
+          "CONFERENCE": "Conférence",
+          "FELLOW_PRESENTATION": "Présentation de Fellow",
+          "FORUM": "Forum",
+          "LECTURE": "Conférence",
+          "MEETING": "Réunion",
+          "OTHER": "Autre",
+          "PANEL": "Panneau",
+          "ROUND_TABLE": "Table ronde",
+          "SEMINAR": "Séminaire",
+          "SYMPOSIUM": "Symposium",
+          "WEBINAR": "Webinaire",
+          "WORKSHOP": "Atelier"
+        },
         "type": {
+          "label": "Type",
           "ARTICLE": "Article",
           "AUDIO": "Audio",
           "BOOK": "Livre",
