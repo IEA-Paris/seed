@@ -67,13 +67,7 @@
   "fundingPeriod": "Période de financement",
   "gallery": "Galerie",
   "get-in-touch-on-linkedin": "Contact sur LinkedIn",
-  "groups": {
-    "board": "Conseil d'administration",
-    "fellow": "Résident",
-    "sab": "Conseil Scientifique",
-    "sponsor": "Mécène",
-    "team": "Équipe"
-  },
+
   "hosting-excellence": "Héberger l'excellence",
   "housing": "Hébergement",
   "hybrid-event": "Évènement hybride",
@@ -196,10 +190,10 @@
       },
       "people": {
         "groups": {
-          "board-of-directors": "Conseil d'administration",
-          "fellows": "Résidents",
-          "scientific-advisory-board": "Conseil scientifique",
-          "sponsor": "Nous soutenir",
+          "board": "Conseil d'administration",
+          "fellows": "Résident",
+          "sab": "Conseil scientifique",
+          "sponsor": "Mécènes",
           "team": "Équipe"
         },
         "member": {
@@ -350,5 +344,6 @@
   "view-larger-map": "Afficher sur une carte plus grande",
   "vintage": "Année {0}",
   "visit": "Nous rendre visite",
-  "visit-the-project-website": "Visiter le site web"
+  "visit-the-project-website": "Visiter le site web",
+  "groups": "Catégorie"
 }

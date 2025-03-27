@@ -48,27 +48,17 @@
         />
         <PeopleGroupBadges :item="item" />
 
-        <NuxtLink
-          :to="
-            localePath({
-              name: 'people-slug',
-              params: { slug: getSlugFromPath(item._path) },
-            })
+        <p
+          class="text-wrap clamped-text text-h4 text-black"
+          :style="
+            '-webkit-line-clamp:' +
+            [5, 5, 5, 8, 8, 8][
+              ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+            ]
           "
-          class="text-wrap text-h4 text-black"
         >
-          <p
-            class="text-wrap clamped-text"
-            :style="
-              '-webkit-line-clamp:' +
-              [5, 5, 5, 8, 8, 8][
-                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-              ]
-            "
-          >
-            <ContentRendererMarkdown :value="renderedBiography" />
-          </p>
-        </NuxtLink>
+          <ContentRendererMarkdown :value="renderedBiography" />
+        </p>
       </div>
     </v-col>
   </v-row>

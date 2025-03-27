@@ -10,7 +10,7 @@
         :class="index === 0 ? 'my-3 mr-3' : 'ma-3'"
         v-if="value && key === 'vintage'"
         v-for="(vintage, index2) in item.groups.vintage"
-        :key="index"
+        :key="index2"
         variant="outlined"
         tile
         style="background-color: white; color: black"
@@ -18,17 +18,17 @@
         {{ $t("vintage", [vintage.year]) }}
       </v-chip>
       <v-chip
-        :class="index === 0 ? 'my-3 mr-3' : 'ma-3'"
+        class="my-3 mr-3"
         color="black"
         style="background-color: white; color: black"
-        v-else-if="
+        v-if="
           value &&
-          ((!item.groups.vintage && key === 'fellows') || key !== 'fellows')
+          ((!item.groups.vintage && key === 'vintage') || key !== 'vintage')
         "
         tile
         variant="outlined"
       >
-        {{ $t("list.filters.people.categories." + key) }}</v-chip
+        {{ $t("list.filters.people.groups." + key) }}</v-chip
       ></template
     >
   </div>
