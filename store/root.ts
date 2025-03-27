@@ -494,7 +494,7 @@ export const useRootStore = defineStore("rootStore", {
           ...((this.search as string)?.length &&
             type === "all" && { search: this.search }),
           appId: "iea",
-          lang: "en",
+          lang,
         }),
       )
       args.options.filters = JSON.stringify(args.options.filters)
