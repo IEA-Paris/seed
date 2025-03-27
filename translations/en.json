@@ -16,8 +16,6 @@
   "check-the-wikipedia-page-of-the-author": "Check the wikipedia page",
   "check-this-out": "Check this out!",
   "close-the-filter-panel": "Close the filter panel",
-  "colloquium": "Colloquium",
-  "conference": "Conference",
   "contact": "Contact",
   "date-and-time": "Date & Time",
   "date-et-heure": "Date and Time",
@@ -339,7 +337,8 @@
     "scholar": "Visit the author google scholar page",
     "twitter": "Follow us on Twitter",
     "wikipedia": "Check the wikipedia page of the author",
-    "youtube": "Check out our Youtube channel"
+    "youtube": "Check out our Youtube channel",
+    "bluesky": "Visit our BlueSky page"
   },
   "subscribe": "Subscribe",
   "subscribe-to-our-newsletter": "Subscribe to our newsletter",
@@ -354,9 +353,6 @@
   "view-larger-map": "View on a larger map",
   "vintage": "Year {0}",
   "visit": "Visit us",
-  "visit-the-author-google-scholar-page": "Visit this person Google Scholar page",
-  "visit-the-author-orcid-page": "See the Orcid profile",
   "visit-the-project-website": "Visit the project website",
-  "visit-this-project-website": "Project Website",
   "watch-the-replay": "Watch the replay"
 }
