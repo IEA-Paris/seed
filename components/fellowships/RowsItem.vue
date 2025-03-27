@@ -40,7 +40,7 @@
       </div>
       <MiscMoleculesChipContainer
         :items="[
-          $t('list.filters.fellowships.duration.' + item.fellowshipType),
+          $t('list.filters.fellowships.fellowshipType.' + item.fellowshipType),
           ...(props.item && props.item.disciplines
             ? props.item.disciplines.map((discipline) => discipline.name)
             : []),

@@ -11,7 +11,7 @@
           :dense="smAndDown"
           :items="getItems(filterItem)"
           clearable
-          :label="$t(filterItem)"
+          :label="$t('list.filters.' + type + '.' + filterItem + '.label')"
           min-height="56"
           variant="outlined"
           :loading="rootStore[type].loading"
@@ -63,10 +63,12 @@ const getItems = (name) => {
   // TODO replace with package based values
   return Object.keys(
     messages.value[locale.value].list.filters[props.type][name],
-  ).map((item) => ({
-    title: i18n.t(`list.filters.${props.type}.${name}.${item}`),
-    value: item,
-  }))
+  )
+    .filter((key) => key !== "label")
+    .map((item) => ({
+      title: i18n.t(`list.filters.${props.type}.${name}.${item}`),
+      value: item,
+    }))
 }
 onMounted(() => {
   rootStore.loadRouteQuery(props.type)

@@ -46,6 +46,7 @@ query listFellowships(
       name
       url
       publicationDate
+      status
     }
     total
   }

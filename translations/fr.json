@@ -144,19 +144,25 @@
       },
       "fellowships": {
         "affiliation": {
+          "label": "Affiliation",
           "paris-1": "Paris 1",
           "paris-2": "Paris 2"
         },
-        "duration": {
+        "fellowshipType": {
+          "label": "Fellowship type",
           "IN_GROUP": "En groupe",
           "LONG_STAY": "Séjour long",
           "SHORT_STAY": "Séjour court"
         },
         "status": {
+          "label": "Statut",
           "CANCELLED": "Annulé",
           "FINISHED": "Fini",
           "ONGOING": "En cours",
           "PLANNED": "Prévu"
+        },
+        "discipline": {
+          "label": "Discipline"
         }
       },
       "news": {
