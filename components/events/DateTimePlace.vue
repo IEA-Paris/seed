@@ -10,9 +10,6 @@
   <div class="text-overline font-weight-bold mt-md-4">
     {{ $t("location") }}
   </div>
-  <div>
-    {{ startDay }}
-  </div>
   <div>{{ item.location }}</div>
 
   <v-btn

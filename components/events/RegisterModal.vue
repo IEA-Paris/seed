@@ -5,14 +5,14 @@
         variant="outlined"
         tile
         v-bind="activatorProps"
-        size="small"
+        size="x-large"
         prepend-icon="mdi-circle-medium"
       >
         <template v-slot:prepend>
-          <v-icon size="large" color="success"></v-icon>
+          <v-icon size="x-large" color="success"></v-icon>
         </template>
-        <div class="text-wrap">
-          {{ $t("register-until-0", [getLocalizedDate(item.stop)]) }}
+        <div class="text-wrap register-text">
+          {{ $t("register") }}
         </div>
       </v-btn>
     </template>
@@ -43,3 +43,8 @@ const props = defineProps({
   item: { type: Object, required: true },
 })
 </script>
+<style>
+.register-text {
+  font-size: 0.8rem;
+}
+</style>

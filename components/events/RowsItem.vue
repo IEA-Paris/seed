@@ -1,6 +1,6 @@
 <template>
   <v-divider v-if="index > 0"></v-divider>
-  <v-row class="my-8 px-4" no-gutters>
+  <v-row class="my-8 px-4 highlight-on-hover" no-gutters>
     <v-col cols="12" md="1">
       <MiscAtomsDateStamp
         v-if="item.start"

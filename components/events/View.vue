@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="">
     <v-row>
       <v-col cols="12" md="3" v-if="mdAndUp">
         <MiscAtomsImageContainer
           cover
-          :src="item.image || { url: '/default.png' }"
+          :src="item.image.url ? item.image : '/default.png'"
           :ratio="1 / 1"
           :loading="loading"
         />
@@ -33,7 +33,7 @@
         <template v-else>
           <div class="d-flex align-center flex-column">
             <div class="d-flex text-center text-wrap text-h3 text-black">
-              <ContentRendererMarkdown :value="renderedTitle" />
+              {{ item.name }}
             </div>
 
             <v-divider width="154px" class="mb-1 mt-6"></v-divider>
@@ -43,10 +43,13 @@
               class="d-flex text-center text-wrap text-h5 font-weight-black mt-6"
               v-if="item && item.category"
             >
-              {{ $t("events.categories." + item.category) }}
+              {{ $t("list.filters.events.category." + item.category) }}
             </div>
 
-            <div class="d-flex text-center text-wrap text-h5 text-black mt-4">
+            <div
+              class="d-flex text-center text-wrap text-h5 text-black mt-4"
+              v-if="item.subtitle"
+            >
               <ContentRendererMarkdown :value="renderedSubtitle" />
             </div>
 
@@ -85,20 +88,23 @@
 
               <div class="mt-md-4">
                 <!--  TODO: bind -->
+                {{ $t("register-until-0", [getLocalizedDate(item.stop)]) }}
+              </div>
+              <div class="mt-md-4">
                 {{ $t("inscription-gratuite-et-obligatoire") }}
               </div>
             </div>
           </div>
 
-          <div class="mt-md-4 mt-lg-6 mt-xl-8">
-            <EventsRegisterModal :item="item">
+          <div class="mt-md-4 mt-lg-6 mt-xl-8 d-flex">
+            <EventsRegisterModal v-if="!loading" :item="item">
               <template v-slot:activator="activatorProps"
                 ><v-btn
                   color="grey-lighten-3"
                   v-bind="activatorProps"
                   flat
                   tile
-                  size="small"
+                  block
                   class="my-2"
                   style="height: auto"
                 >
@@ -114,7 +120,7 @@
           </div>
 
           <v-sheet class="mt-md-0 mt-lg-2 mt-xl-4">
-            <v-list>
+            <v-list v-if="!loading && item.files && item.files.length">
               <v-list-subheader class="text-overline font-weight-bold">{{
                 $t("document")
               }}</v-list-subheader>
@@ -123,7 +129,6 @@
                 v-for="(file, i) in item.files"
                 :key="i"
                 :value="file"
-                v-if="item.files && item.files.length"
               >
                 <template v-slot:prepend>
                   <v-icon v-if="mdAndUp" :icon="getFileIcon(file.url)"></v-icon>
@@ -143,7 +148,7 @@
           <v-col cols="6">
             <MiscAtomsImageContainer
               cover
-              :src="item.image"
+              :src="item.image.url ? item.image : '/default.png'"
               :ratio="1 / 1"
               :loading="loading"
             />
@@ -161,7 +166,7 @@
       <v-col class="ml-2" cols="12" v-if="xs">
         <MiscAtomsImageContainer
           cover
-          :src="item.image"
+          :src="item.image.url ? item.image : '/default.png'"
           :ratio="1 / 1"
           :loading="loading"
         />
@@ -205,6 +210,7 @@
                 :value="panel[0]"
                 class="border-thin text-black"
                 :color="key === accordeon ? 'light-grey' : 'white'"
+                v-if="item.description"
               >
                 <v-expansion-panel-title
                   collapse-icon="mdi-minus"
@@ -225,6 +231,7 @@
               <v-expansion-panel
                 class="border-thin text-black"
                 :color="key === accordeon ? 'light-grey' : 'white'"
+                v-if="item.program"
               >
                 <v-expansion-panel-title
                   collapse-icon="mdi-minus"
@@ -244,6 +251,7 @@
               <v-expansion-panel
                 class="border-thin text-black"
                 :color="key === accordeon ? 'light-grey' : 'white'"
+                v-if="item.details"
               >
                 <v-expansion-panel-title
                   collapse-icon="mdi-minus"
@@ -272,7 +280,7 @@
       <v-divider />
     </v-responsive>
     <MiscAtomsSlidingCarousel
-      v-if="item && item.gallery && item.gallery.length"
+      v-if="!loading && item && item.gallery && item.gallery.length"
       :items="item.gallery"
       type="MiscAtomsImage"
       ref="MiscAtomsImage"
@@ -289,7 +297,7 @@
       <v-divider />
     </v-responsive>
     <MiscOrganismsRelated
-      v-if="item && item.related"
+      v-if="!loading && item && item.related"
       :related="item.related"
     ></MiscOrganismsRelated>
   </div>
@@ -345,38 +353,13 @@ const renderedProgram = useRenderedMarkdown(
   "program",
 )
 
+const renderedDetails = useRenderedMarkdown(
+  () => props.item?.details,
+  "details",
+)
+
 const renderedSubtitle = useRenderedMarkdown(
   () => props.item?.subtitle,
   "subtitle",
 )
-
-// const renderedDescription = ref("")
-// const renderedProgram = ref("")
-// const renderedSubtitle = ref("")
-// watchEffect(async () => {
-//   if (props.item?.description) {
-//     renderedDescription.value = await markdownParser.parse(
-//       "description",
-//       props.item.description,
-//     )
-//   } else {
-//     renderedDescription.value = ""
-//   }
-//   if (props.item?.program) {
-//     renderedProgram.value = await markdownParser.parse(
-//       "program",
-//       props.item.program,
-//     )
-//   } else {
-//     renderedProgram.value = ""
-//   }
-//   if (props.item?.subtitle) {
-//     renderedSubtitle.value = await markdownParser.parse(
-//       "subtitle",
-//       props.item.subtitle,
-//     )
-//   } else {
-//     renderedSubtitle.value = ""
-//   }
-// })
 </script>
