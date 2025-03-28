@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
   related: {
     type: Object,
     required: true,
@@ -29,10 +29,11 @@ const typeMapping = {
 const filteredRelatedItems = computed(() => {
   const result = {}
   for (const key in typeMapping) {
-    if (related[key] && related[key].length > 0) {
-      result[typeMapping[key]] = related[key]
+    if (props.related[key] && props.related[key].length > 0) {
+      result[typeMapping[key]] = props.related[key]
     }
   }
+  console.log("RESULT", result)
   return result
 })
 </script>

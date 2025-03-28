@@ -156,25 +156,11 @@ const renderedDescription = useRenderedMarkdown(
   () => props.item?.description,
   "description",
 )
-// let renderedSubtitle =
-//   props.item?.subtitle && !props.loading
-//     ? await markdownParser.parse("subtitle", props.item.subtitle)
-//     : ""
 
-// let renderedDescription =
-//   props.item?.description && !props.loading
-//     ? await markdownParser.parse("description", props.item.description)
-//     : ""
-// onMounted(async () => {
-//   renderedSubtitle =
-//     props.item?.subtitle && !props.loading
-//       ? await markdownParser.parse("subtitle", props.item.subtitle)
-//       : ""
-//   renderedDescription =
-//     props.item?.description && !props.loading
-//       ? await markdownParser.parse("description", props.item.description)
-//       : ""
+// const pageReady = ref(false)
+
+// onMounted(() => {
+//   pageReady.value = true
+//   console.log("ITEMRELATED", props.item.related)
 // })
-
-console.log("ITEMRELATED", props.item.related)
 </script>

@@ -1,6 +1,6 @@
 <template>
   <v-container style="max-width: 1600px">
-    <EventsView :item="event" :loading></EventsView>
+    <EventsView :item="event" :loading="loading"></EventsView>
   </v-container>
 </template>
 
