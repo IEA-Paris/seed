@@ -113,22 +113,34 @@
     <v-divider /> </v-responsive
   ><v-row>
     <!-- RELATED ITEMS -->
-    <v-col v-if="item && item.relatedEvents" cols="12" md="4">
+    <v-col
+      v-if="item && item.related && item.related.relatedEvents"
+      cols="12"
+      md="4"
+    >
       <MiscMoleculesRelatedItems
         type="events"
-        :items="item.related"
+        :items="item.related.relatedEvents"
       ></MiscMoleculesRelatedItems>
     </v-col>
-    <v-col v-if="item && item.relatedPeople" cols="12" md="4">
+    <v-col
+      v-if="item && item.related && item.related.relatedPeople"
+      cols="12"
+      md="4"
+    >
       <MiscMoleculesRelatedItems
         type="people"
-        :items="item.related"
+        :items="item.related.relatedPeople"
       ></MiscMoleculesRelatedItems>
     </v-col>
-    <v-col v-if="item && item.related && item.related.news" cols="12" md="4">
+    <v-col
+      v-if="item && item.related && item.related.relatedNews"
+      cols="12"
+      md="4"
+    >
       <MiscMoleculesRelatedItems
         type="news"
-        :items="item.related"
+        :items="item.related.relatedNews"
       ></MiscMoleculesRelatedItems>
     </v-col>
   </v-row>
@@ -190,4 +202,6 @@ const renderedDescription = useRenderedMarkdown(
 //       ? await markdownParser.parse("description", props.item.description)
 //       : ""
 // })
+
+console.log("ITEMRELATED", props.item.related)
 </script>
