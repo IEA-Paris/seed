@@ -100,7 +100,7 @@
         :slug="getSlugFromPath(item._path || '')"
         link="activities-events-slug"
         :loading="rootStore.events.loading"
-        :src="item.image || { url: '/default.png' }"
+        :src="item.image.url ? item.image : '/default.png'"
         :ratio="1 / 1"
       />
     </v-col>

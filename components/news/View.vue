@@ -11,7 +11,7 @@
       ></v-skeleton-loader>
       <template v-else>
         <v-chip class="mb-4" v-if="item && item.category && item.name">{{
-          $t("news.categories." + item.category)
+          $t("list.filters.news.category." + item.category)
         }}</v-chip>
         <br />
         {{ item.name }}
@@ -29,7 +29,7 @@
           v-if="item && item.image"
           cover
           :loading="loading"
-          :src="item.image"
+          :src="item.image.url ? item.image : '/default.png'"
           :ratio="1 / 1"
         />
       </div>
@@ -52,7 +52,7 @@
 
       <div v-else class="mx-4 mx-md-0 justify-md-end">
         <v-chip class="mb-4" v-if="item && item.category && mdAndUp">{{
-          $t("news.categories." + item.category)
+          $t("list.filters.news.category." + item.category)
         }}</v-chip>
         <div
           class="d-flex text-wrap text-h4 text-black"
@@ -73,12 +73,6 @@
         <div
           class="d-flex flex-column flex-md-row align-md-center mt-6 mx-sm-4 mx-md-6"
         >
-          <!-- <MiscAtomsDateStamp
-              :loading="loading"
-              :date="item.date"
-              class="ml-0 mt-lg-2"
-            /> -->
-
           <div class="ml-md-n6">
             <div
               class="text-body-2 text-lg-body-1 text-black"
@@ -133,8 +127,7 @@
           ]
         "
       ></v-skeleton-loader>
-      <ContentRendererMarkdow
-        v-if="renderedDescription"
+      <ContentRendererMarkdown
         :value="renderedDescription"
         class="mt-md-n2 mx-4 mx-sm-8 mx-md-0"
       />

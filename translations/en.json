@@ -369,7 +369,8 @@
     "events": "Related events",
     "news": "Related news",
     "people": "Related people",
-    "project": "Related projects"
+    "projects": "Related projects",
+    "publications": "Related publications"
   },
   "researchSupport": "Research Support",
   "resources": "Resources",
