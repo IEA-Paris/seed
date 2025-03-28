@@ -1,0 +1,39 @@
+<template>
+  <v-row>
+    <v-col
+      v-for="(items, type) in filteredRelatedItems"
+      :key="type"
+      cols="12"
+      md="3"
+    >
+      <MiscMoleculesRelatedItems :type="type" :items="items" />
+    </v-col>
+  </v-row>
+</template>
+
+<script setup>
+const props = defineProps({
+  related: {
+    type: Object,
+    required: true,
+  },
+})
+
+const typeMapping = {
+  events: "events",
+  people: "people",
+  news: "news",
+  projects: "projects",
+}
+
+const filteredRelatedItems = computed(() => {
+  const result = {}
+  for (const key in typeMapping) {
+    if (props.related[key] && props.related[key].length > 0) {
+      result[typeMapping[key]] = props.related[key]
+    }
+  }
+  console.log("RESULT", result)
+  return result
+})
+</script>

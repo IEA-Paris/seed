@@ -110,28 +110,13 @@
   <!-- DIVIDERS -->
   <v-responsive class="mx-auto my-9" width="120">
     <v-divider class="mb-1" />
-    <v-divider /> </v-responsive
-  ><v-row>
-    <!-- RELATED ITEMS -->
-    <v-col v-if="item && item.relatedEvents" cols="12" md="4">
-      <MiscMoleculesRelatedItems
-        type="events"
-        :items="item.related"
-      ></MiscMoleculesRelatedItems>
-    </v-col>
-    <v-col v-if="item && item.relatedPeople" cols="12" md="4">
-      <MiscMoleculesRelatedItems
-        type="people"
-        :items="item.related"
-      ></MiscMoleculesRelatedItems>
-    </v-col>
-    <v-col v-if="item && item.related && item.related.news" cols="12" md="4">
-      <MiscMoleculesRelatedItems
-        type="news"
-        :items="item.related"
-      ></MiscMoleculesRelatedItems>
-    </v-col>
-  </v-row>
+    <v-divider />
+  </v-responsive>
+
+  <MiscOrganismsRelated
+    v-if="item && item.related"
+    :related="item.related"
+  ></MiscOrganismsRelated>
 </template>
 
 <script setup>
@@ -171,23 +156,11 @@ const renderedDescription = useRenderedMarkdown(
   () => props.item?.description,
   "description",
 )
-// let renderedSubtitle =
-//   props.item?.subtitle && !props.loading
-//     ? await markdownParser.parse("subtitle", props.item.subtitle)
-//     : ""
 
-// let renderedDescription =
-//   props.item?.description && !props.loading
-//     ? await markdownParser.parse("description", props.item.description)
-//     : ""
-// onMounted(async () => {
-//   renderedSubtitle =
-//     props.item?.subtitle && !props.loading
-//       ? await markdownParser.parse("subtitle", props.item.subtitle)
-//       : ""
-//   renderedDescription =
-//     props.item?.description && !props.loading
-//       ? await markdownParser.parse("description", props.item.description)
-//       : ""
+// const pageReady = ref(false)
+
+// onMounted(() => {
+//   pageReady.value = true
+//   console.log("ITEMRELATED", props.item.related)
 // })
 </script>

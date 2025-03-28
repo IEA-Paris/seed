@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <ProjectsView :item="project" :loading></ProjectsView
+    <ProjectsView :item="project" :loading="loading"></ProjectsView
   ></v-container>
 </template>
 
@@ -20,14 +20,27 @@ const variables = ref({
 
 const { result, loading, error, refetch } = useQuery(GET_PROJECT, variables)
 
-let project = computed(() => {
-  console.log("reassign computed project", result.value?.getProject)
-  return result.value?.getProject
-})
-onMounted(() => {
-  console.log("variables: ", variables)
-  if (!loading) refetch(variables.value)
+// let project = computed(() => {
+//   console.log("reassign computed project", result.value?.getProject)
+//   return result.value?.getProject
+// })
+// onMounted(() => {
+//   console.log("variables: ", variables)
+//   if (!loading) refetch(variables.value)
 
+//   rootStore.setLoading(false, "projects")
+// })
+
+const project = computed(() => {
+  const data = result.value
+  if (!data || !data.getProject) return null
+  console.log("reassign computed project", data.getProject)
+  return data.getProject
+})
+
+console.log("LOADING.VALUE", loading.value)
+onMounted(() => {
+  if (!loading.value) refetch(variables.value)
   rootStore.setLoading(false, "projects")
 })
 </script>

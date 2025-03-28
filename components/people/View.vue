@@ -146,31 +146,12 @@
   <!-- DIVIDERS -->
   <v-responsive class="mx-auto my-9" width="120">
     <v-divider class="mb-1" />
-    <v-divider /> </v-responsive
-  ><v-row>
-    <!-- RELATED ITEMS -->
-    <v-col cols="12" md="4">
-      <MiscMoleculesRelatedItems
-        v-if="item && item.relatedEvents"
-        type="events"
-        :items="item.relatedEvents"
-      ></MiscMoleculesRelatedItems>
-    </v-col>
-    <v-col cols="12" md="4">
-      <MiscMoleculesRelatedItems
-        v-if="item && item.relatedProjects"
-        type="project"
-        :items="item.relatedProjects"
-      ></MiscMoleculesRelatedItems>
-    </v-col>
-    <v-col cols="12" md="4">
-      <MiscMoleculesRelatedItems
-        v-if="item && item.relatedNews"
-        type="news"
-        :items="item.relatedNews"
-      ></MiscMoleculesRelatedItems>
-    </v-col>
-  </v-row>
+    <v-divider />
+  </v-responsive>
+  <MiscOrganismsRelated
+    v-if="item && item.related"
+    :related="item.related"
+  ></MiscOrganismsRelated>
 </template>
 
 <script setup>

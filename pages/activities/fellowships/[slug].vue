@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <FellowshipsView :item="fellowship" :loading />
+    <FellowshipsView :item="fellowship" :loading="loading" />
   </v-container>
 </template>
 

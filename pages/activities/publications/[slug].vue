@@ -10,7 +10,7 @@
   </v-container> -->
 
   <v-container>
-    <PublicationsView :item="publications" :loading></PublicationsView
+    <PublicationsView :item="publications" :loading="loading"></PublicationsView
   ></v-container>
 </template>
 
