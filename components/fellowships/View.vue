@@ -41,13 +41,18 @@
             <div class="d-flex text-center text-wrap text-h5 text-black mt-6">
               <ContentRendererMarkdown :value="renderedSubtitle" />
             </div>
-            <!--      <MiscMoleculesChipContainer
+            <MiscMoleculesChipContainer
               :items="[
-                ...fellowshipType,
-                ...(item && item.disciplines ? [item.disciplines] : []),
+                $t(
+                  'list.filters.fellowships.fellowshipType.' +
+                    item.fellowshipType,
+                ),
+                ...(props.item && props.item.disciplines
+                  ? props.item.disciplines.map((discipline) => discipline.name)
+                  : []),
               ]"
               class="mt-2"
-            ></MiscMoleculesChipContainer> -->
+            ></MiscMoleculesChipContainer>
             <div class="mt-5">
               <FellowshipsBadges :item="item" :view="view"></FellowshipsBadges>
             </div>
@@ -79,16 +84,15 @@
               <v-divider class="mb-1" />
               <v-divider />
             </v-responsive>
-
+            <v-skeleton-loader v-if="loading"> </v-skeleton-loader>
             <v-expansion-panels
               outlined
               flat
-              eager
               ripple
               variant="accordion"
               class="py-8"
               v-model="accordeon"
-              v-if="!loading"
+              v-else
             >
               <v-expansion-panel
                 v-for="(value, key) in Object.keys(renderedDetails)"
@@ -108,7 +112,9 @@
                   class="py-2"
                   style="white-space: pre; text-wrap: auto"
                 >
-                  <ContentRendererMarkdown :value />
+                  <ContentRendererMarkdown
+                    :value="renderedDetails[value].value"
+                  />
                 </v-expansion-panel-text>
               </v-expansion-panel>
             </v-expansion-panels>
@@ -165,27 +171,9 @@ const props = defineProps({
 })
 
 const view = ref(true)
-const fellowshipType = ref([
-  ...(props?.item?.fellowshipType === 2
-    ? [{ name: "short-stay" }, { name: "in-groups" }]
-    : [
-        {
-          name: ["long-stay", "short-stay"][props.item?.fellowshipType || 0],
-        },
-      ]),
-])
 onMounted(() => {
   /*   console.log("fellowship item", props.item.value) */
 })
-
-// const renderedSubtitle =
-//   props.item?.subtitle && !props.loading
-//     ? await markdownParser.parse("subtitle", props.item.subtitle)
-//     : ""
-// const renderedDescription =
-//   props.item?.description && !props.loading
-//     ? await markdownParser.parse("description", props.item.description)
-//     : ""
 
 const renderedSubtitle = useRenderedMarkdown(
   () => props.item?.subtitle,
@@ -197,143 +185,79 @@ const renderedDescription = useRenderedMarkdown(
   "description",
 )
 
-// const renderedDetails = {
-//   ...(props.item?.fellowshipDetails?.type &&
-//     !props.loading && {
-//       type: await markdownParser.parse(
-//         "fellowshipDetails.type",
-//         props.item.fellowshipDetails.type,
-//       ),
-//     }),
-//   ...(props.item?.fellowshipDetails?.fundingPeriod &&
-//     !props.loading && {
-//       fundingPeriod: await markdownParser.parse(
-//         "fellowshipDetails.fundingPeriod",
-//         props.item.fellowshipDetails.fundingPeriod,
-//       ),
-//     }),
-//   ...(props.item?.fellowshipDetails?.profile &&
-//     !props.loading && {
-//       profile: await markdownParser.parse(
-//         "fellowshipDetails.profile",
-//         props.item.fellowshipDetails.profile,
-//       ),
-//     }),
-//   ...(props.item?.fellowshipDetails?.tasks &&
-//     !props.loading && {
-//       tasks: await markdownParser.parse(
-//         "fellowshipDetails.tasks",
-//         props.item.fellowshipDetails.tasks,
-//       ),
-//     }),
-//   ...(props.item?.fellowshipDetails?.location &&
-//     !props.loading && {
-//       location: await markdownParser.parse(
-//         "fellowshipDetails.location",
-//         props.item.fellowshipDetails.location,
-//       ),
-//     }),
-//   ...(props.item?.fellowshipDetails?.funding &&
-//     !props.loading && {
-//       funding: await markdownParser.parse(
-//         "fellowshipDetails.funding",
-//         props.item.fellowshipDetails.funding,
-//       ),
-//     }),
-//   ...(props.item?.fellowshipDetails?.housing &&
-//     !props.loading && {
-//       housing: await markdownParser.parse(
-//         "fellowshipDetails.housing",
-//         props.item.fellowshipDetails.housing,
-//       ),
-//     }),
-//   ...(props.item?.fellowshipDetails?.meals &&
-//     !props.loading && {
-//       meals: await markdownParser.parse(
-//         "fellowshipDetails.meals",
-//         props.item.fellowshipDetails.meals,
-//       ),
-//     }),
-//   ...(props.item?.fellowshipDetails?.applicationMaterials &&
-//     !props.loading && {
-//       applicationMaterials: await markdownParser.parse(
-//         "fellowshipDetails.applicationMaterials",
-//         props.item.fellowshipDetails.applicationMaterials,
-//       ),
-//     }),
-//   ...(props.item?.fellowshipDetails?.selectionProcess &&
-//     !props.loading && {
-//       selectionProcess: await markdownParser.parse(
-//         "fellowshipDetails.selectionProcess",
-//         props.item.fellowshipDetails.selectionProcess,
-//       ),
-//     }),
-//   ...(props.item?.fellowshipDetails?.researchProcess &&
-//     !props.loading && {
-//       researchProcess: await markdownParser.parse(
-//         "fellowshipDetails.researchProcess",
-//         props.item.fellowshipDetails.researchProcess,
-//       ),
-//     }),
-// }
-
-// TODO: à refactoring
 const renderedDetails = {
-  type: useRenderedMarkdown(
-    () => (!props.loading ? props.item?.fellowshipDetails?.type : undefined),
-    "fellowshipDetails.type",
-  ),
-  fundingPeriod: useRenderedMarkdown(
-    () =>
-      !props.loading ? props.item?.fellowshipDetails?.fundingPeriod : undefined,
-    "fellowshipDetails.fundingPeriod",
-  ),
-  profile: useRenderedMarkdown(
-    () => (!props.loading ? props.item?.fellowshipDetails?.profile : undefined),
-    "fellowshipDetails.profile",
-  ),
-  tasks: useRenderedMarkdown(
-    () => (!props.loading ? props.item?.fellowshipDetails?.tasks : undefined),
-    "fellowshipDetails.tasks",
-  ),
-  location: useRenderedMarkdown(
-    () =>
-      !props.loading ? props.item?.fellowshipDetails?.location : undefined,
-    "fellowshipDetails.location",
-  ),
-  funding: useRenderedMarkdown(
-    () => (!props.loading ? props.item?.fellowshipDetails?.funding : undefined),
-    "fellowshipDetails.funding",
-  ),
-  housing: useRenderedMarkdown(
-    () => (!props.loading ? props.item?.fellowshipDetails?.housing : undefined),
-    "fellowshipDetails.housing",
-  ),
-  meals: useRenderedMarkdown(
-    () => (!props.loading ? props.item?.fellowshipDetails?.meals : undefined),
-    "fellowshipDetails.meals",
-  ),
-  applicationMaterials: useRenderedMarkdown(
-    () =>
-      !props.loading
-        ? props.item?.fellowshipDetails?.applicationMaterials
-        : undefined,
-    "fellowshipDetails.applicationMaterials",
-  ),
-  selectionProcess: useRenderedMarkdown(
-    () =>
-      !props.loading
-        ? props.item?.fellowshipDetails?.selectionProcess
-        : undefined,
-    "fellowshipDetails.selectionProcess",
-  ),
-  researchProcess: useRenderedMarkdown(
-    () =>
-      !props.loading
-        ? props.item?.fellowshipDetails?.researchProcess
-        : undefined,
-    "fellowshipDetails.researchProcess",
-  ),
+  ...(props.item?.fellowshipDetails?.type && {
+    type: useRenderedMarkdown(
+      () => props.item?.fellowshipDetails?.type,
+      "type",
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.fundingPeriod && {
+    fundingPeriod: useRenderedMarkdown(
+      () => props.item?.fellowshipDetails?.fundingPeriod,
+      "fundingPeriod",
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.profile && {
+    profile: useRenderedMarkdown(
+      () => props.item?.fellowshipDetails?.profile,
+      "profile",
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.tasks && {
+    tasks: useRenderedMarkdown(
+      () => props.item?.fellowshipDetails?.tasks,
+      "tasks",
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.location && {
+    location: useRenderedMarkdown(
+      () => props.item?.fellowshipDetails?.location,
+      "location",
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.funding && {
+    funding: useRenderedMarkdown(
+      () => props.item?.fellowshipDetails?.funding,
+      "funding",
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.housing && {
+    housing: useRenderedMarkdown(
+      () => props.item?.fellowshipDetails?.housing,
+      "housing",
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.meals && {
+    meals: useRenderedMarkdown(
+      () => props.item?.fellowshipDetails?.meals,
+      "meals",
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.applicationMaterials && {
+    applicationMaterials: useRenderedMarkdown(
+      () => props.item?.fellowshipDetails?.applicationMaterials,
+      "applicationMaterials",
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.selectionProcess && {
+    selectionProcess: useRenderedMarkdown(
+      () =>
+        !props.loading
+          ? props.item?.fellowshipDetails?.selectionProcess
+          : undefined,
+      "selectionProcess",
+    ),
+  }),
+  ...(props.item?.fellowshipDetails?.researchProcess && {
+    researchProcess: useRenderedMarkdown(
+      () =>
+        !props.loading
+          ? props.item?.fellowshipDetails?.researchProcess
+          : undefined,
+      "researchProcess",
+    ),
+  }),
 }
 </script>
 

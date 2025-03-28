@@ -1,6 +1,5 @@
 import { ref, watchEffect } from "vue"
 import markdownParser from "@nuxt/content/transformers/markdown"
-
 export function useRenderedMarkdown(
   source: () => string | undefined,
   key: string,
@@ -8,13 +7,15 @@ export function useRenderedMarkdown(
   const rendered = ref("")
 
   watchEffect(async () => {
-    const text = source()
-    if (text) {
-      rendered.value = await markdownParser.parse(key, text)
-    } else {
+    try {
+      const text = source()
+      rendered.value = text ? await markdownParser.parse(key, text) : ""
+    } catch (error) {
+      console.error("Error parsing markdown:", error)
       rendered.value = ""
     }
   })
+  console.log("rendered: ", rendered)
 
   return rendered
 }
