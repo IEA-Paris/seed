@@ -37,6 +37,7 @@
           }}</v-chip>
           <br
         /></template>
+
         <NuxtLink
           :to="
             localePath({
@@ -48,6 +49,9 @@
         >
           {{ item.name }}
         </NuxtLink>
+        <div class="tex-overline mt-3">
+          {{ formatDateValue(item.date, locale) }}
+        </div>
         <MiscMoleculesChipContainer
           v-if="item.tags && item.tags.length"
           :items="item.tags"
@@ -153,7 +157,7 @@ import { getSlugFromPath } from "~/composables/useUtils"
 import { useDisplay } from "vuetify"
 // import markdownParser from "@nuxt/content/transformers/markdown"
 import { useRenderedMarkdown } from "~/composables/useRenderedMarkdown"
-
+const { locale } = useI18n()
 const localePath = useLocalePath()
 const rootStore = useRootStore()
 const { name, smAndDown, mdAndDown, mdAndUp, lgAndUp } = useDisplay()

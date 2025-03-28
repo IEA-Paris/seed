@@ -52,7 +52,7 @@
           class="text-wrap clamped-text text-h4 text-black"
           :style="
             '-webkit-line-clamp:' +
-            [5, 5, 5, 8, 8, 8][
+            [5, 5, 3, 6, 8, 8][
               ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
             ]
           "
