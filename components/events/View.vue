@@ -288,39 +288,10 @@
       <v-divider class="mb-1" />
       <v-divider />
     </v-responsive>
-    <v-row>
-      <v-col
-        v-if="item && item.related && item.related.events"
-        cols="12"
-        md="4"
-      >
-        <MiscMoleculesRelatedItems
-          type="events"
-          :items="item.related.events"
-        ></MiscMoleculesRelatedItems
-      ></v-col>
-
-      <v-col
-        v-if="item && item.related && item.related.projects"
-        cols="12"
-        md="4"
-      >
-        <MiscMoleculesRelatedItems
-          type="project"
-          :items="item.related.projects"
-        ></MiscMoleculesRelatedItems>
-      </v-col>
-      <v-col
-        v-if="item && item.related && item.related.people"
-        cols="12"
-        md="4"
-      >
-        <MiscMoleculesRelatedItems
-          type="people"
-          :items="item.related.people"
-        ></MiscMoleculesRelatedItems>
-      </v-col>
-    </v-row>
+    <MiscOrganismsRelated
+      v-if="item && item.related"
+      :related="item.related"
+    ></MiscOrganismsRelated>
   </div>
 </template>
 
