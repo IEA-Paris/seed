@@ -290,34 +290,34 @@
     </v-responsive>
     <v-row>
       <v-col
-        v-if="item && item.related && item.related.relatedEvents"
+        v-if="item && item.related && item.related.events"
         cols="12"
         md="4"
       >
         <MiscMoleculesRelatedItems
           type="events"
-          :items="item.related.relatedEvents"
+          :items="item.related.events"
         ></MiscMoleculesRelatedItems
       ></v-col>
 
       <v-col
-        v-if="item && item.related && item.related.relatedProjects"
+        v-if="item && item.related && item.related.projects"
         cols="12"
         md="4"
       >
         <MiscMoleculesRelatedItems
           type="project"
-          :items="item.related.relatedProjects"
+          :items="item.related.projects"
         ></MiscMoleculesRelatedItems>
       </v-col>
       <v-col
-        v-if="item && item.related && item.related.relatedPeople"
+        v-if="item && item.related && item.related.people"
         cols="12"
         md="4"
       >
         <MiscMoleculesRelatedItems
           type="people"
-          :items="item.related.relatedPeople"
+          :items="item.related.people"
         ></MiscMoleculesRelatedItems>
       </v-col>
     </v-row>

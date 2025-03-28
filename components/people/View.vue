@@ -150,23 +150,23 @@
     <!-- RELATED ITEMS -->
     <v-col cols="12" md="4">
       <MiscMoleculesRelatedItems
-        v-if="item && item.related && item.related.relatedEvents"
+        v-if="item && item.related && item.related.events"
         type="events"
-        :items="item.related.relatedEvents"
+        :items="item.related.events"
       ></MiscMoleculesRelatedItems>
     </v-col>
     <v-col cols="12" md="4">
       <MiscMoleculesRelatedItems
-        v-if="item && item.related && item.related.relatedProjects"
+        v-if="item && item.related && item.related.projects"
         type="project"
-        :items="item.related.relatedProjects"
+        :items="item.related.projects"
       ></MiscMoleculesRelatedItems>
     </v-col>
     <v-col cols="12" md="4">
       <MiscMoleculesRelatedItems
-        v-if="item && item.related && item.related.relatedNews"
+        v-if="item && item.related && item.related.news"
         type="news"
-        :items="item.related.relatedNews"
+        :items="item.related.news"
       ></MiscMoleculesRelatedItems>
     </v-col>
   </v-row>
