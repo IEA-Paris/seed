@@ -41,7 +41,9 @@
         </div>
         <v-divider width="154px" class="mb-1 mt-6"></v-divider>
         <v-divider width="154px"></v-divider>
-
+        <div class="overline my-2">
+          {{ formatDateValue(item.date, locale) }}
+        </div>
         <MiscMoleculesChipContainer
           v-if="item.tags && item.tags.length"
           :items="item.tags"

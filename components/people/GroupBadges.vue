@@ -7,7 +7,7 @@
 
     <template v-else v-for="(value, key, index) in item.groups" :key="key">
       <v-chip
-        :class="index === 0 ? 'my-3 mr-3' : 'ma-3'"
+        class="my-3 mr-3"
         v-if="value && key === 'vintage'"
         v-for="(vintage, index2) in item.groups.vintage"
         :key="index2"

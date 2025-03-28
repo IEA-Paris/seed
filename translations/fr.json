@@ -67,7 +67,6 @@
   "fundingPeriod": "Période de financement",
   "gallery": "Galerie",
   "get-in-touch-on-linkedin": "Contact sur LinkedIn",
-
   "hosting-excellence": "Héberger l'excellence",
   "housing": "Hébergement",
   "hybrid-event": "Évènement hybride",
@@ -415,5 +414,6 @@
   "vintage": "Année {0}",
   "visit": "Nous rendre visite",
   "visit-the-project-website": "Visiter le site web",
-  "groups": "Catégorie"
+  "groups": "Catégorie",
+  "present": "aujourd'hui"
 }

@@ -125,17 +125,18 @@
             {{ record.affiliation.name }}
           </v-card-title>
           <div class="text-body-2" v-for="position in record.positions">
-            <div class="text-overline" v-if="position.start && position.stop">
+            {{ position.role + " " + (position.department || "") }}
+            <span class="" v-if="position.start">
               <!--  TODO FIx dates display -->
-
+              -
               {{
                 $t("from {0} to {1}", [
-                  formatDate(position.start),
-                  formatDate(position.stop),
+                  formatDate(position.start, locale),
+                  (position.stop && formatDate(position.stop, locale)) ||
+                    $t("present"),
                 ])
               }}
-            </div>
-            {{ position.role + " " + position.department || "" }}
+            </span>
           </div>
         </v-card-item>
       </v-card>
@@ -177,6 +178,7 @@ import { useDisplay } from "vuetify"
 import { useRootStore } from "~/store/root"
 // import markdownParser from "@nuxt/content/transformers/markdown"
 import { useRenderedMarkdown } from "~/composables/useRenderedMarkdown"
+const { locale } = useI18n()
 
 const rootStore = useRootStore()
 const { name, mdAndUp } = useDisplay()

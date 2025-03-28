@@ -15,7 +15,6 @@ export function useRenderedMarkdown(
       rendered.value = ""
     }
   })
-  console.log("rendered: ", rendered)
 
   return rendered
 }

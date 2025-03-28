@@ -44,7 +44,7 @@
         <MiscAtomsSocials
           v-if="item.socials"
           :socials="item.socials"
-          class="my-2"
+          class="mt-2"
         />
         <PeopleGroupBadges :item="item" />
 

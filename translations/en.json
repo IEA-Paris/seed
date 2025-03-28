@@ -115,7 +115,9 @@
           "pop": "Program Oxford-Paris",
           "label": "Fellowship"
         },
-        "online": { "label": "Online" },
+        "online": {
+          "label": "Online"
+        },
         "organiserCategory": {
           "EXTERNAL": "External",
           "FELLOW": "Our Fellows",
@@ -135,7 +137,9 @@
         "disciplines": {
           "label": "Discipline"
         },
-        "past": { "label": "Past" },
+        "past": {
+          "label": "Past"
+        },
         "status": {
           "label": "Status",
           "CANCELLED": "Cancelled",
@@ -419,5 +423,6 @@
   "vintage": "Year {0}",
   "visit": "Visit us",
   "visit-the-project-website": "Visit the project website",
-  "watch-the-replay": "Watch the replay"
+  "watch-the-replay": "Watch the replay",
+  "present": "present"
 }

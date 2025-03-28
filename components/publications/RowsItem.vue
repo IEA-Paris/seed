@@ -118,7 +118,7 @@ const props = defineProps({
 //   }
 // })
 const renderedSummary = useRenderedMarkdown(
-  () => props.item?.description,
+  () => props.item?.summary,
   "summary",
 )
 </script>
