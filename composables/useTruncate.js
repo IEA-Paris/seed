@@ -82,6 +82,7 @@ const highlightTerms = (text, terms) => {
     return result.replace(
       regex,
       (match) =>
+        //!\ TODO replace hard-coded colors by variables from the config file
         `<strong style="color: darkslategray; background-color: yellow;">${match}</strong>`,
     )
   }, text)

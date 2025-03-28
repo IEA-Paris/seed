@@ -10,6 +10,7 @@ query listEvents(
       category
       dateText
       details
+      eventType
       summary
       subtitle
       id
@@ -23,6 +24,7 @@ query listEvents(
         url
       }
       name
+      outside
       place {
         address
         id
@@ -32,7 +34,6 @@ query listEvents(
       state
       start
       stop
-      type
       slug {
         fr
         en

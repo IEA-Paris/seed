@@ -34,3 +34,27 @@
     transform: translateX(20px);
     opacity: 0;
 }
+.highlight-on-hover {
+    --highlight-color: #f5f5f5;        /* Default light grey */
+    --transition-speed: 0.2s;          /* Animation speed */
+    
+    transition: 
+      background-color var(--transition-speed) ease-in-out,
+      box-shadow var(--transition-speed) ease-in-out;
+  }
+  
+  .highlight-on-hover:hover {
+    background-color: var(--highlight-color);
+    cursor: pointer;
+    
+    /* Optional subtle shadow for depth */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Alternative color variations */
+  .highlight-on-hover.blue:hover {
+    --highlight-color: #f0f7ff;  /* Very light blue */
+  }
+  .highlight-on-hover.warm:hover {
+    --highlight-color: #f9f9f9;  /* Slightly warmer grey */
+  }

@@ -43,7 +43,8 @@ query getEvent($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
     summary
     program
     totalSlots
-    type
+    eventType
+    outside
     url
     related {
       events {

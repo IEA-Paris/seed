@@ -1,6 +1,6 @@
 <template>
   <div>
-    <EventsRegisterModal :item="item" v-if="item.bookingState === 1">
+    <EventsRegisterModal :item="item" v-if="item.bookingState === 'OPEN'">
     </EventsRegisterModal>
     <v-btn
       color="grey-lighten-3"
@@ -9,7 +9,7 @@
       prepend-icon="mdi-circle-medium"
       size="small"
       class="my-2"
-      v-if="item.bookingState === 2"
+      v-if="item.bookingState === 'FULL'"
     >
       <template v-slot:prepend>
         <v-icon size="large" color="danger"></v-icon>
@@ -55,7 +55,7 @@
       prepend-icon="mdi-cast-education"
       size="small"
       class="my-xs-2"
-      v-if="item.eventType === 2"
+      v-if="item.type === 'HYBRID'"
     >
       {{ $t("hybrid-event") }}</v-btn
     >

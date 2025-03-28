@@ -1,7 +1,7 @@
 <template>
   <v-row
     v-ripple
-    class="cursor-pointer"
+    class="cursor-pointer highlight-on-hover"
     @click="
       $router.push(
         localePath('/activities/events/' + getSlugFromPath(item._path)),
@@ -17,13 +17,13 @@
         })
       }}
     </v-col>
-    <v-col align-self="center" cols="6" class="text-h6 dense">
+    <v-col align-self="center" class="text-h6 dense">
       <div class="mt-2 text-h6 text-overline font-weight-black">
-        {{ $t("events.categories." + item.category) }}
+        {{ $t("list.filters.events.category." + item.category) }}
       </div>
       {{ item.name }}
     </v-col>
-    <v-col align-self="center" cols="4">
+    <v-col align-self="center">
       <EventsBadges :item></EventsBadges>
     </v-col>
   </v-row>

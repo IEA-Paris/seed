@@ -1,19 +1,20 @@
 <template>
   <v-row
     v-ripple
-    class="cursor-pointer"
+    no-gutters
+    class="cursor-pointer highlight-on-hover"
     @click="$router.push(localePath('/people/' + getSlugFromPath(item._path)))"
   >
-    <v-col align-self="center" cols="6" sm="3" md="4" lg="3" class="text-h6">
+    <v-col align-self="center" class="text-h6 pl-2">
       <v-skeleton-loader
         v-if="rootStore.loading || rootStore.people.loading"
         type="heading"
       ></v-skeleton-loader>
       <template v-else>
-        {{ item.name }}
+        {{ item.firstname + " " + item.lastname }}
       </template>
     </v-col>
-    <v-col align-self="center" cols="6">
+    <v-col align-self="center">
       <PeopleGroupBadges :item="item" />
     </v-col>
   </v-row>
