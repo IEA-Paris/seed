@@ -14,6 +14,7 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
           url
         }
         lastname
+        slug
       }
       total
     }
@@ -36,6 +37,10 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
         tags {
           name
         }
+        slug {
+          fr
+          en
+        }
       }
       total
     }
@@ -54,6 +59,10 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
         }
         id
         date
+        slug {
+          fr
+          en
+        }
       }
       total
     }
@@ -65,7 +74,11 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
         start
         state
         summary
-        type
+        eventType
+        slug {
+          fr
+          en
+        }
         name
         image {
           alt
@@ -102,6 +115,10 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
         }
         name
         summary
+        slug {
+          fr
+          en
+        }
       }
     }
     news {
@@ -121,6 +138,10 @@ query search($appId: ID = "", $search: String = "", $lang: String = "en") {
           url
         }
         name
+        slug {
+          fr
+          en
+        }
       }
     }
   }
