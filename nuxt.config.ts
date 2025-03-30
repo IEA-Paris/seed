@@ -1,4 +1,22 @@
 import config from "./static.config"
+// all routes with lists that could request to reset the store state
+/* const listRoutes = [
+  "/",
+  "/activities/events",
+  "/activities/projects",
+  "/activities/fellowships",
+  "/activities/publications",
+  "/about/scientific_policy",
+  "/about/network",
+  "/people",
+  "/news",
+].reduce((acc, route) => {
+  acc[route] = {
+  
+  }
+  return acc
+}, {})
+console.log("listRoutes: ", listRoutes) */
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -172,7 +190,17 @@ export default defineNuxtConfig({
       fallbackLocale: "en",
       useCookie: true,
       cookieKey: "i18n_redirected",
-    } /* 
+    },
+  },
+
+  // add resetState composable to all routes with lists
+  router: {
+    options: {
+      scrollBehaviorType: "smooth",
+    },
+  },
+
+  /* 
     customRoutes: "config",
     pages: {
    
@@ -181,9 +209,9 @@ export default defineNuxtConfig({
 
   pwa: {
     //https://vite-pwa-org.netlify.app/frameworks/nuxt.html
-    /* PWA options */,
+    /* PWA options 
   },
-
+*/
   robots: {
     // https://nuxt.com/modules/robots#options
   },

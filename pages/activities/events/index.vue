@@ -12,6 +12,7 @@ const { smAndUp } = useDisplay()
 const localePath = useLocalePath()
 
 const rootStore = useRootStore()
-
-const data = rootStore.$state.events.list.items
+onBeforeUnmount(() => {
+  rootStore.resetState()
+})
 </script>

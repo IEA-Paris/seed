@@ -14,4 +14,10 @@ import { useDisplay } from "vuetify"
 const { smAndUp } = useDisplay()
 const route = useRoute()
 const localePath = useLocalePath()
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
+
+onBeforeUnmount(() => {
+  rootStore.resetState()
+})
 </script>

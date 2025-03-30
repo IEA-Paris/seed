@@ -7,4 +7,11 @@
   </v-container>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRootStore } from "~/store/root"
+const rootStore = useRootStore()
+
+onBeforeUnmount(() => {
+  rootStore.resetState()
+})
+</script>

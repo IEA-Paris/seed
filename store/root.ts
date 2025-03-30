@@ -319,10 +319,17 @@ export const useRootStore = defineStore("rootStore", {
       // project
       // fellowships
     },
-    resetState(type: string) {
-      this.resetFilters = true
-
-      const viewsObj = (this[type] as ModuleType).list.views as Record<
+    resetState() {
+      console.log("resetState")
+      this.search = ""
+      this.page = 1
+      this.scrolled = false
+      this.loading = false
+      this.resetFilters = false
+      this.total = 0
+      this.skip = 0
+      this.numberOfPages = 0
+      /*  const viewsObj = (this[type] as ModuleType).list.views as Record<
         string,
         Views
       >
@@ -355,7 +362,7 @@ export const useRootStore = defineStore("rootStore", {
       ;(this[type] as ModuleType).resetFilters = false
       this.page = 1
 
-      this.update(type)
+      this.update(type) */
     },
     updateSort({ value, type }: { value: number[] | string[]; type: string }) {
       ;(this[type] as ModuleType).list.sortBy = [value[0]] as string[]
