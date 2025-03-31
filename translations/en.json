@@ -70,13 +70,13 @@
   "invalid-orcid": "Your ORCID number is invalid",
   "invalid-ror-code": "Invalid ROR identifier syntax",
   "items": {
-    "events": "Event | Events",
-    "fellow": "Fellow | Fellows",
-    "fellowships": "Fellowship | Fellowship | {0} Fellowships",
-    "news": "News | News",
-    "people": "No one | People | People",
-    "projects": "Project | Projects",
-    "publications": "Publication | Publications | {0} Publications"
+    "events": "event | event | events",
+    "fellow": "fellow | fellow | fellows",
+    "fellowships": "fellowship | fellowship | fellowships",
+    "news": "news | news | news",
+    "people": "one | person | people",
+    "projects": "project | project | projects",
+    "publications": "publication | publication | publications"
   },
   "learn-more": "read more",
   "list": {

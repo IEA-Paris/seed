@@ -85,11 +85,11 @@
   "items": {
     "events": "événement |événement | événements",
     "fellow": "résident | résident | résidents",
-    "fellowships": "programme d'accueil | programme d'accueil | {0} programmes d'accueil",
+    "fellowships": "programme d'accueil | programme d'accueil | programmes d'accueil",
     "news": "actualité | actualités | actualités",
     "people": "personne | personnes | personnes",
     "projects": "projet | projet | projets",
-    "publications": "publication | publications | {0} publications"
+    "publications": "publication | publications | publications"
   },
   "learn-more": "En savoir plus",
   "list": {
