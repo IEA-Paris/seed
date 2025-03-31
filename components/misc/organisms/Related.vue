@@ -4,7 +4,10 @@
       v-for="(items, type) in filteredRelatedItems"
       :key="type"
       cols="12"
-      md="3"
+      md="6"
+      lg="4"
+      xl="3"
+      class="d-flex flex-column align-center"
     >
       <MiscMoleculesRelatedItems :type="type" :items="items" />
     </v-col>
