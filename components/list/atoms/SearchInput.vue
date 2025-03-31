@@ -92,7 +92,6 @@ const results = computed(() => {
         })
         .reduce((acc, key, index) => {
           const items = storeRst[key]?.items
-          console.log("items: ", items)
           const total = storeRst[key]?.total
           if (total === 0 && index === 0) {
             acc.push({ type: "no-result" })
@@ -115,7 +114,6 @@ const results = computed(() => {
         }, [])) ||
     {}
 
-  console.log("rst: ", rst)
   return rst
 })
 const search = computed({

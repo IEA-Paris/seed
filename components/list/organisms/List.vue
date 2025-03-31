@@ -149,11 +149,5 @@ onMounted(async () => {
   } catch (error) {
     console.log("error fetching update list: ", error)
   }
-  const hasFilters =
-    rootStore[type].filtersCount > 0 ||
-    (route.query?.filters && Object.keys(route.query.filters).length > 0) ||
-    route.query?.search?.length > 0
-  /*
-    filter.value = hasFilters */
 })
 </script>

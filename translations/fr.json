@@ -16,7 +16,8 @@
     "psychology": "Psychologie",
     "sociology": "Sociologie"
   },
-  "0-1-found-page-2-of-3": "Aucun {1} trouvé. \n\nPage {2} de {3} | \n{0} {1} trouvé. \n\nPage {2} de {3} | \n{0} {1} trouvé. \n\nPage {2} de {3}",
+  "0-1-found-page-2-of-3": "Aucun {1} trouvé. \n\nPage {2} sur {3} | \n{0} {1} trouvé. \n\nPage {2} sur {3} | \n{0} {1} trouvés. \n\nPage {2} de {3}",
+  "0-1-found-page-2-of-3-f": "Aucun {1} trouvée. \n\nPage {2} sur {3} | \n{0} {1} trouvée. \n\nPage {2} sur {3} | \n{0} {1} trouvées. \n\nPage {2} de {3}",
   "MiscAtomsImage": {
     "see-more": "Voir plus"
   },
@@ -59,7 +60,7 @@
   "fellowship-register": "Candidater à ce programme d'accueil'",
   "fellowships": "Programme d'accueil | Programmes d'accueil",
   "fellowships-programs-and-research-projects-hosted-at-paris-ias": "Programmes d'accueil chercheur et projets de recherche hébergés à Paris IAS",
-  "filters": "Filtres",
+  "filters": "filtre | filtre | Filtres",
   "follow-us": "Suivez-nous",
   "french": "Français",
   "from {0} to {1}": "de {0} à {1}",
@@ -82,20 +83,24 @@
   "invalid-orcid": "Votre numéro orcide n'est pas valide",
   "invalid-ror-code": "Syntaxe de l'identifiant ROR non valide",
   "items": {
-    "events": "Événement | Événements",
-    "fellow": "Résident | Résidents",
-    "fellowships": "Programme d'accueil | Programme d'accueil | {0} Programmes d'accueil",
-    "news": "NOUVELLES | Nouvelles",
-    "people": "Personne | Personnes | Personnes",
-    "projects": "Projet | Projets",
-    "publications": "Publication | Publications | {0} publications"
+    "events": "événement |événement | événements",
+    "fellow": "résident | résident | résidents",
+    "fellowships": "programme d'accueil | programme d'accueil | {0} programmes d'accueil",
+    "news": "actualité | actualités | actualités",
+    "people": "personne | personnes | personnes",
+    "projects": "projet | projet | projets",
+    "publications": "publication | publications | {0} publications"
   },
   "learn-more": "En savoir plus",
   "list": {
-    "0-items-found": "Non {1} trouvé. | {0} {1} trouvé. | {0} {1} trouvé.",
-    "0-items-found-searching-for": "Non {1} Found Recherche pour \"{Search}\". | 1 {1} Found Recherche pour \"{2}\". \n| \n{n} {1} Found Recherche pour \"{Search}\".",
-    "0-items-found-searching-for-with-1-filter": "{1} Found Recherche pour \"{2}\" avec des filtres {3}. \n{0} {1} Found Recherche pour \"{2}\" avec des filtres {3}. \n| \n{0} {1} Found Recherche pour \"{2}\" avec des filtres {3}.",
-    "0-items-found-with-1-filter": "Non {1} trouvé avec les filtres {2}. | 1 {1} trouvé avec les filtres {2}. \n| \n{0} {1} trouvé avec les filtres {2}.",
+    "0-items-found": "Aucun {1} trouvé. | Un seul {1} trouvé. | {0} {1} trouvés.",
+    "0-items-found-f": "Aucune {1} trouvée. | Une seule {1} trouvée. | {0} {1} trouvées.",
+    "0-items-found-searching-for": "Aucun {1} trouvé pour la recherche de \"{2}\". | Un seul {1} trouvé pour la recherche de \"{2}\".| {0} {1} trouvés pour la recherche de \"{2}\".",
+    "0-items-found-searching-for-f": "Aucune {1} trouvée pour la recherche de \"{2}\". | Une seule {1} trouvée pour la recherche de \"{2}\".| {0} {1} trouvées pour la recherche de \"{2}\".",
+    "0-items-found-searching-for-with-1-filter": "Aucun {1} trouvé pour la recherche de \"{2}\" avec {3} {4}.| Un seul {1} trouvé pour la recherche de  \"{2}\" avec {3} {4}. | {0} {1} trouvés pour la recherche de \"{2}\" avec {3} {4}.",
+    "0-items-found-searching-for-with-1-filter-f": "Aucune {1} trouvée pour la recherche de \"{2}\" avec {3} {4}. Une seule {1} trouvée pour la recherche de  \"{2}\" avec {3} {4}. | {0} {1} trouvées pour la recherche de \"{2}\" avec {3} {4}.",
+    "0-items-found-with-1-filter": "Aucun {1} trouvé avec {2} {3}. | Un seul {1} trouvé avec {2} {3}. | {0} {1} trouvés avec {2} {3}.",
+    "0-items-found-with-1-filter-f": "Aucune {1} trouvée avec {2} {3}. | Une seule {1} trouvée avec {2} {3}. | {0} {1} trouvées avec {2} {3}.",
     "by-date-most-recent-first": "Dernier",
     "by-date-oldest-first": "Le plus ancien",
     "by-name-from-a-to-z": "Par nom, de A à Z",
@@ -155,7 +160,8 @@
         "status": {
           "label": "Statut",
           "CANCELLED": "Annulé",
-          "POSTPONED": "Reporté à {0}",
+          "DONE": "terminé",
+          "POSTPONED": "Reporté",
           "PUBLISHED": "Publié",
           "RESCHEDULED": "Reprogrammé"
         }
@@ -303,10 +309,11 @@
       }
     },
     "list": "Liste",
-    "page-0-of-1": "Page {0} de {1}",
+    "page-0-of-1": "Page {0} sur {1}",
     "pls-x-more": "{0} Plus",
     "rows": "Rangées",
-    "search-type": "Recherche {0}",
+    "search-type": "Rechercher un {0}",
+    "search-type-f": "Rechercher un {0}",
     "sort-mode": "Mode de tri:",
     "tiles": "Tuiles",
     "view-issues": "Par numéro",
@@ -353,7 +360,7 @@
   "publications": "Publications",
   "read-more": "En savoir plus",
   "register": "S'inscrire",
-  "register-until-0": "Inscrivez-vous jusqu'à {0}",
+  "register-until-0": "Inscrivez-vous jusqu'au {0}",
   "registration-open": "Inscription ouverte",
   "related": {
     "events": "Événements liés",

@@ -103,7 +103,6 @@ export default defineNuxtConfig({
   /*   plugins: [{ src: "~/plugins/flickity.js", ssr: false }], */
   modules: [
     "@pinia/nuxt",
-    "@nuxt/content",
     /* "@nuxtjs/html-validator", */ // https://nuxt.com/modules/html-validator
     // Cross-Site Request Forgery (CSRF) prevention (https://nuxt.com/modules/csurf).
     "nuxt-csurf",
@@ -116,6 +115,7 @@ export default defineNuxtConfig({
     // https://github.com/nuxt-modules/robots
     "@nuxtjs/robots",
     //
+    "@nuxt/content",
     "@nuxtjs/google-fonts",
     "nuxt-link-checker",
     "nuxt-schema-org",

@@ -4,7 +4,9 @@
       <v-col cols="12" md="3" v-if="mdAndUp">
         <MiscAtomsImageContainer
           cover
-          :src="item.image.url ? item.image : '/default.png'"
+          :src="
+            item && item.image && item.image.url ? item.image : '/default.png'
+          "
           :ratio="1 / 1"
           :loading="loading"
         />
@@ -85,19 +87,23 @@
           <div class="bg-grey-lighten-4">
             <div class="ma-md-4 ma-lg-8">
               <EventsDateTimePlace :item="item"></EventsDateTimePlace>
-
-              <div class="mt-md-4">
-                <!--  TODO: bind -->
-                {{ $t("register-until-0", [getLocalizedDate(item.stop)]) }}
-              </div>
-              <div class="mt-md-4">
-                {{ $t("inscription-gratuite-et-obligatoire") }}
-              </div>
+              <template v-if="bookingState === 'OPEN'">
+                <div class="mt-md-4">
+                  <!--  TODO: bind -->
+                  {{ $t("register-until-0", [getLocalizedDate(item.stop)]) }}
+                </div>
+                <div class="mt-md-4">
+                  {{ $t("inscription-gratuite-et-obligatoire") }}
+                </div></template
+              >
             </div>
           </div>
 
           <div class="mt-md-4 mt-lg-6 mt-xl-8 d-flex">
-            <EventsRegisterModal v-if="!loading" :item="item">
+            <EventsRegisterModal
+              v-if="!loading && bookingState === 'OPEN'"
+              :item="item"
+            >
               <template v-slot:activator="activatorProps"
                 ><v-btn
                   color="grey-lighten-3"

@@ -39,7 +39,6 @@ export const useRootStore = defineStore("rootStore", {
   > => ({
     scrolled: process.browser ? window.scrollY > 0 : false,
     loading: false,
-    resetFilters: false,
     total: 0,
     skip: 0,
     numberOfPages: 0,
@@ -62,21 +61,6 @@ export const useRootStore = defineStore("rootStore", {
   }),
 
   actions: {
-    save(type: string): boolean | undefined {
-      try {
-        // save the related form from the store to the target
-        if ((this[type] as ModuleType).source === "md") {
-          //@eliot save on github
-          // githubApi.save(this[type].form)
-        }
-        if ((this[type] as ModuleType).source === "gql") {
-          // call appsync mutation
-        }
-        return true
-      } catch (error) {
-        console.log(`error while saving ${type}`, error)
-      }
-    },
     setLoading(value: boolean, type: string = "") {
       this.loading = value
       if (type.length) (this[type] as ModuleType).loading = value
@@ -319,50 +303,79 @@ export const useRootStore = defineStore("rootStore", {
       // project
       // fellowships
     },
+    updateRouteQuery(type: string) {
+      const router = useRouter()
+      // update route
+      const routeQuery: Record<string, string> = {
+        // Add search if it exists and is defined
+        ...(this.search ? { search: this.search } : {}),
+
+        // Add page if it's greater than 1
+        ...(this.page > 1 ? { page: this.page.toString() } : {}),
+
+        // Add filters with defined values
+        ...Object.entries((this[type] as ModuleType).list.filters).reduce(
+          (acc, [filterKey, filter]) => {
+            if (!(this[type] as ModuleType).list.filters[filterKey]?.value) {
+              return acc
+            }
+            return {
+              ...acc,
+              ...{
+                [filterKey]: (this[type] as ModuleType).list.filters[filterKey]
+                  ?.value,
+              },
+            }
+          },
+          {} as Record<string, string>,
+        ),
+      }
+      router.replace({ query: routeQuery })
+    },
     resetState() {
       console.log("resetState")
       this.search = ""
       this.page = 1
       this.scrolled = false
       this.loading = false
-      this.resetFilters = false
       this.total = 0
       this.skip = 0
       this.numberOfPages = 0
-      /*  const viewsObj = (this[type] as ModuleType).list.views as Record<
-        string,
-        Views
-      >
-      const defaultViewsKey = Object.keys(viewsObj).find(
-        (item) => viewsObj[item].default === true,
-      )
-      const defaultView = viewsObj[defaultViewsKey as string]
+      const modules = [
+        "events",
+        "news",
+        "people",
+        "projects",
+        "fellowships",
+        "publications",
+      ]
+      this.events.list.filters = events.list.filters
+      this.news.list.filters = news.list.filters
+      this.people.list.filters = people.list.filters
+      this.projects.list.filters = projects.list.filters
+      this.fellowships.list.filters = fellowships.list.filters
+      this.publications.list.filters = publications.list.filters
+      modules.forEach((type) => {
+        const viewsObj = (this[type] as ModuleType).list.views as Record<
+          string,
+          Views
+        >
+        const defaultViewsKey = Object.keys(viewsObj).find(
+          (item) => viewsObj[item].default === true,
+        )
+        const defaultView = viewsObj[defaultViewsKey as string]
 
-      const sortObj = (this[type] as ModuleType).list.sort
-      const defaultSortKey = Object.keys(sortObj).find(
-        (item) => sortObj[item].default === true,
-      )
-      const defaultSort = sortObj[defaultSortKey as string]
-      console.log("defaultSort root: ", defaultSort)
-
-      // TODO make dynamic based on an ~/assets located file
-      ;(this[type] as ModuleType).list.filters = {
-        years: [],
-        issue: [],
-        tags: [],
-        language: [],
-        thematic: [],
-        discipline: [],
-        type: [],
-      }
-      this.search = ""
-      ;(this[type] as ModuleType).list.view = defaultView.name
-      ;(this[type] as ModuleType).list.sortBy = [defaultSort.value[0]]
-      ;(this[type] as ModuleType).list.sortDesc = [defaultSort.value[1]]
-      ;(this[type] as ModuleType).resetFilters = false
-      this.page = 1
-
-      this.update(type) */
+        const sortObj = (this[type] as ModuleType).list.sort
+        const defaultSortKey = Object.keys(sortObj).find(
+          (item) => sortObj[item].default === true,
+        )
+        const defaultSort = sortObj[defaultSortKey as string]
+        /* 
+        // TODO make dynamic based on an ~/assets located file
+        ;(this[type] as ModuleType).list.view = defaultView
+        ;(this[type] as ModuleType).list.sortBy = [defaultSort.value[0]]
+        ;(this[type] as ModuleType).list.sortDesc = [defaultSort.value[1]] */
+      })
     },
     updateSort({ value, type }: { value: number[] | string[]; type: string }) {
       ;(this[type] as ModuleType).list.sortBy = [value[0]] as string[]
@@ -432,16 +445,7 @@ export const useRootStore = defineStore("rootStore", {
       this.search = search
       console.log("updateSearch: ", search + " " + lang)
       this.setLoading(true)
-      /*    const { data, error } = await useAsyncQuery(SEARCH, {
-        search,
-        lang,
-        appId: "",
-      })
-      if (error.value) console.log(error.value)
-      console.log("data: ", data)
-      this.results = data?.value?.search
-      this.setLoading(false)
-      console.log("results: ", this.results) */
+
       await this.update(type, lang)
     },
 
@@ -451,8 +455,6 @@ export const useRootStore = defineStore("rootStore", {
         ;(this[type] as ModuleType).loading = true
       }
       const router = useRouter()
-
-      const queryFilters: any = {}
 
       // fetch the item categories
 
@@ -505,9 +507,8 @@ export const useRootStore = defineStore("rootStore", {
         }),
       )
       args.options.filters = JSON.stringify(args.options.filters)
-      console.log("args: ", args)
-      console.log("type: ", type)
       let result: any = {}
+      console.log("args: ", args)
 
       console.log(`Fetching ${type}`)
       const { data, error } = await useAsyncQuery(
@@ -532,6 +533,7 @@ export const useRootStore = defineStore("rootStore", {
         ],
         args,
       )
+      console.log("data: ", data)
       if (error.value) console.log(error.value)
       const key =
         type === "all"
@@ -539,14 +541,14 @@ export const useRootStore = defineStore("rootStore", {
           : "list" + type.charAt(0).toUpperCase() + type.slice(1)
       console.log("key: ", key)
 
-      this.total = result["total"]
-
       console.log("result: ", result)
+
       if (type === "all") {
         this.results = data?.value?.[key]
         console.log("this.results: ", this.results)
       } else {
         const items = data?.value?.[key]?.items ?? []
+        this.total = data?.value?.[key]?.total
         result = {
           ...data?.value?.[key],
           items: items.map(({ id, ...rest }) => ({
@@ -564,138 +566,18 @@ export const useRootStore = defineStore("rootStore", {
         )
         const defaultView = viewsObj[defaultViewsKey as string]
 
-        console.log("query done for type ", type)
-        // update route
-        const routeQuery: Record<string, any> = {
-          ...(this.search &&
-            typeof this.search !== "undefined" && {
-              search: this.search,
-            }),
-          ...((this.page as number) > 1 && {
-            page: this.page.toString(),
-          }),
-          /*    ...(((this[type] as ModuleType).list.sortBy as string[]).length &&
-          sortByItem !== defaultSort.value[0] && {
-            sortBy: sortByItem,
-          }),
-        ...(typeof sortDescItem !== "undefined" &&
-          sortDescItem !== defaultSort.value[1] && {
-            sortDesc: !!sortDescItem,
-          }), */
-          ...((this[type] as ModuleType).list.view &&
-            (this[type] as ModuleType).list.view !== defaultView.name && {
-              view: (this[type] as ModuleType).list.view,
-            }),
-          ...(Object.keys(filters)?.length && {
-            filters: JSON.stringify(queryFilters),
-          }),
-        }
-        const sortObject = (obj: any) =>
-          Object.fromEntries(Object.entries(obj).sort())
-        /*       console.log("type b4 sort obj: ", type)
-      console.log("query: ", query) */
-
-        Object.keys(routeQuery).forEach((key) =>
-          routeQuery[key] === undefined
-            ? delete routeQuery[key]
-            : // convert boolean to string
-              typeof routeQuery[key] === "boolean"
-              ? routeQuery[key] === (routeQuery[key] as any).toString()
-              : {},
-        )
-
-        if (
-          JSON.stringify(router.currentRoute.value.query) !==
-          JSON.stringify(sortObject(routeQuery))
-        ) {
-          // TODO fix these damn false positives (lead: see if pre-resolving the route before replacing it is possible/relevant or come up with another way to compare query & store)
-          /*         router.replace({
-          query,
-        }) */
-        }
-
         const lastPage = Math.ceil(result.total / itemsPerPage)
+        /*         this.updateRouteQuery(type) */
         this.setFiltersCount(type)
         this.setBlankFilterLoad(type)
         /*       console.log("type2: ", type) */
         this.numberOfPages = lastPage
         ;(this[type] as ModuleType).loading = false
       }
+      console.log("this.total: ", this.total)
 
       this.setLoading(false)
       return true
     },
   },
 })
-
-// -------------------------------------------------------------------------------
-// fetch the item categories
-/*    
-           if (
-        process.client &&
-        window.$nuxt.$root.$loading &&
-        process.env.NODE_ENV === 'production'
-      ) {
-        // TODO wheck and find out why the object below is not available in some cases when deployed
-        /*  window.$nuxt.$root.$loading.stop() 
-      }
-      if (['articles', 'media'].includes(type)) {
-        items = await Promise.all(
-          await items.map((item) => {
-            if (item.issue && item.issue.length) {
-              /*           item.issue = await this.$content(
-                item.issue.split('/').slice(1).join('/').split('.')[0] // TODO fix (cmon)
-              )
-                .only(['title', 'color'])
-                .fetch() 
-            }
-            return item
-          })
-        )
-      } */
-/*     const isDesc = this[type].list.sortDesc[0] || defaultSort.value[1]
-      const sorter = this[type].list.sortBy[0] || defaultSort.value[0]
-      
-      items = items.sort(
-        (a, b) =>
-          (isDesc ? a[sorter] : b[sorter]) - (isDesc ? b[sorter] : a[sorter])
-      ) */
-/* HIGHLIGHT MECHANISM (disabled until reassessment of its usefulness & relevance
-      //TODO deal with that ) 
-      // on mobile or list view, highlight slots are the first ones
-      if (
-        window.$nuxt.$root.$vuetify.breakpoint.mobile ||
-        ['list', 'text'].includes(this[type].view)
-      ) {
-        items = items.sort((a, b) => b.highlight - a.highlight)
-        
-        this.setFiltersCount(        this.setItems({
-          items,
-          total: totalItems,
-          numberOfPages: lastPage,
-        })
-      } else {
-        // on md highlight slots are on a 1/5/6 pattern
-        const availableSlots = this[type].itemsPerPage / 3
-  
-        const highlightedItems = items.filter((item) => item.highlight)
-  
-        const slotedHighlightedItems = highlightedItems.slice(0, availableSlots)
-  
-        const regularItems = [
-          ...highlightedItems.slice(availableSlots),
-          ...items.filter((item) => !item.highlight),
-        ]
-  
-        const sortedItems = []
-        slotedHighlightedItems.forEach((element, index) => {
-          sortedItems.push(element)
-          sortedItems.push(...regularItems.splice(index * 2, 2))
-        })
-        sortedItems.push(...regularItems)
-        this.setFiltersCount(        this.setItems({
-          items: sortedItems,
-          total: totalItems,
-          numberOfPages: lastPage,
-        })
-      } */

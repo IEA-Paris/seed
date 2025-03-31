@@ -9,6 +9,12 @@
       // X items per page
       // displayed by X
       // and sorted by X -->
+    <!--     {{ "total : " + rootStore.total }} <br />
+    {{ "search : " + rootStore.search }} <br />
+    {{ "filtersCount : " + rootStore[props.type].list.filtersCount }} <br />
+    {{ "numberOfPages : " + rootStore.numberOfPages }} <br />
+    {{ "page : " + rootStore.page }} <br />
+    {{ "type : " + props.type }} <br /> -->
     <template
       v-if="
         (!rootStore.search || rootStore.search.length === 0) &&
@@ -16,10 +22,17 @@
       "
     >
       {{
-        $t("list.0-items-found", [
-          rootStore.total,
-          $t("items." + props.type, [rootStore.total]),
-        ])
+        feminine
+          ? $t(
+              "list.0-items-found-f",
+              [rootStore.total, $t("items." + props.type, rootStore.total)],
+              rootStore.total,
+            )
+          : $t(
+              "list.0-items-found",
+              [rootStore.total, $t("items." + props.type, rootStore.total)],
+              rootStore.total,
+            )
       }}
     </template>
     <!--  searching for "XXX" -->
@@ -29,11 +42,25 @@
         rootStore[props.type].list.filtersCount === 0
       "
       >{{
-        $t("list.0-items-found-searching-for", [
-          rootStore.total,
-          $t("items." + props.type, [rootStore.total]),
-          rootStore.search,
-        ])
+        feminine
+          ? $t(
+              "list.0-items-found-searching-for-f",
+              [
+                rootStore.total,
+                $t("items." + props.type, rootStore.total, rootStore.total),
+                rootStore.search,
+              ],
+              rootStore.total,
+            )
+          : $t(
+              "list.0-items-found-searching-for",
+              [
+                rootStore.total,
+                $t("items." + props.type, rootStore.total, rootStore.total),
+                rootStore.search,
+              ],
+              rootStore.total,
+            )
       }}</template
     >
     <!--  with X filters -->
@@ -43,12 +70,27 @@
         rootStore[props.type].list.filtersCount > 0
       "
       >{{
-        $t("list.0-items-found-with-1-filter", [
-          rootStore.total,
-          $t("items." + props.type, [rootStore.total]),
-          rootStore[props.type].list.filtersCount,
-          { filters: rootStore[props.type].list.filtersCount },
-        ])
+        feminine
+          ? $t(
+              "list.0-items-found-with-1-filter-f",
+              [
+                rootStore.total,
+                $t("items." + props.type, rootStore.total, rootStore.total),
+                rootStore[props.type].list.filtersCount,
+                $t("filters", rootStore[props.type].list.filtersCount),
+              ],
+              rootStore.total,
+            )
+          : $t(
+              "list.0-items-found-with-1-filter",
+              [
+                rootStore.total,
+                $t("items." + props.type, rootStore.total, rootStore.total),
+                rootStore[props.type].list.filtersCount,
+                $t("filters", rootStore[props.type].list.filtersCount),
+              ],
+              rootStore.total,
+            )
       }}</template
     >
     <!--  searching for "XXX" with Y filters  -->
@@ -59,21 +101,40 @@
         rootStore[props.type].list.filtersCount > 0
       "
       >{{
-        $t("list.0-items-found-searching-for-with-1-filter", [
-          rootStore.total,
-          $t("items." + props.type, [rootStore.total]),
-          rootStore.search,
-          rootStore[props.type].list.filtersCount,
+        feminine
+          ? $t(
+              "list.0-items-found-searching-for-with-1-filter-f",
+              [
+                rootStore.total,
+                $t("items." + props.type, rootStore.total),
+                rootStore.search,
+                rootStore[props.type].list.filtersCount,
+                $t("filters", rootStore[props.type].list.filtersCount),
+              ],
+              rootStore.total,
+            )
+          : $t(
+              "list.0-items-found-searching-for-with-1-filter",
+              [
+                rootStore.total,
+                $t("items." + props.type, rootStore.total),
+                rootStore.search,
+                rootStore[props.type].list.filtersCount,
+                $t("filters", rootStore[props.type].list.filtersCount),
+              ],
+              rootStore.total,
+            )
+      }}</template
+    >
+    <template v-if="rootStore.numberOfPages > 1">
+      <!--   // Page X of Y -->
+      {{
+        $t("list.page-0-of-1", [
+          rootStore.page || 1,
+          rootStore.numberOfPages || 1,
         ])
       }}</template
     >
-    <!--   // Page X of Y -->
-    {{
-      $t("list.page-0-of-1", [
-        rootStore.page || 1,
-        rootStore.numberOfPages || 1,
-      ])
-    }}
     <!--  X items per page -->
     <!-- displayed by X -->
     <!--  and sorted by X -->
@@ -89,6 +150,7 @@ const props = defineProps({
     required: true,
   },
 })
+const feminine = ref(["news", "publications", "people"].includes(props.type))
 </script>
 
 <style lang="scss" scoped></style>

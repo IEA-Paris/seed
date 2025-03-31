@@ -4,6 +4,7 @@
       <v-btn
         variant="outlined"
         tile
+        block
         v-bind="activatorProps"
         size="x-large"
         prepend-icon="mdi-circle-medium"

@@ -11,7 +11,7 @@
         :slug="item._path && item._path.split('/').pop()"
       >
         <v-chip class="ma-2" style="background-color: white; color: black">{{
-          $t("list.filters.news.category." + item.category)
+          $t(eventCategory)
         }}</v-chip></MiscAtomsImageContainer
       >
     </v-col>
@@ -58,28 +58,18 @@
           class="mt-4"
         ></MiscMoleculesChipContainer>
         <template v-if="mdAndDown">
-          <nuxt-link
-            :to="
-              localePath({
-                name: 'news-slug',
-                params: { slug: getSlugFromPath(item._path) },
-              })
-            "
-            class="text-black"
+          <p
+            class="text-body-1 text-wrap clamped-text"
             v-if="renderedSummary && renderedSummary.body"
+            :style="
+              '-webkit-line-clamp:' +
+              [5, 5, 3, 6, 10, 10][
+                ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+              ]
+            "
           >
-            <p
-              class="text-body-1 text-wrap clamped-text"
-              :style="
-                '-webkit-line-clamp:' +
-                [5, 5, 3, 6, 10, 10][
-                  ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-                ]
-              "
-            >
-              <ContentRendererMarkdown :value="renderedSummary" /></p
-          ></nuxt-link>
-
+            <ContentRendererMarkdown :value="renderedSummary" />
+          </p>
           <v-btn
             class="mt-4"
             variant="outlined"
@@ -161,6 +151,13 @@ const { locale } = useI18n()
 const localePath = useLocalePath()
 const rootStore = useRootStore()
 const { name, smAndDown, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
+const eventCategory = computed(() => {
+  if (props.item.category) {
+    return "news.categories" + props.item.category
+  } else {
+    return "news.categories.others"
+  }
+})
 const props = defineProps({
   item: {
     type: Object,

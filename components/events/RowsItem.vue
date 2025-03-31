@@ -1,6 +1,6 @@
 <template>
   <v-divider v-if="index > 0"></v-divider>
-  <v-row class="my-8 px-4 highlight-on-hover" no-gutters>
+  <v-row class="py-8 px-6 highlight-on-hover" no-gutters>
     <v-col cols="12" md="1">
       <MiscAtomsDateStamp
         v-if="item.start"
@@ -46,27 +46,17 @@
               {{ $t("list.filters.events.category." + item.category) }}
             </div>
 
-            <nuxt-link
-              :to="
-                localePath({
-                  name: 'activities-events-slug',
-                  params: { slug: getSlugFromPath(item._path || '') },
-                })
+            <p
+              class="text-wrap clamped-text"
+              :style="
+                '-webkit-line-clamp:' +
+                [5, 5, 5, 10, 12, 14][
+                  ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
+                ]
               "
-              v-if="item.summary"
-              class="text-black"
             >
-              <p
-                class="text-wrap clamped-text"
-                :style="
-                  '-webkit-line-clamp:' +
-                  [5, 5, 5, 10, 12, 14][
-                    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-                  ]
-                "
-              >
-                <ContentRendererMarkdown :value="renderedSummary" /></p
-            ></nuxt-link>
+              <ContentRendererMarkdown :value="renderedSummary" />
+            </p>
 
             <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">
               <EventsBadges :item></EventsBadges>
