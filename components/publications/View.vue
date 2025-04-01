@@ -80,7 +80,7 @@
         "
       ></v-skeleton-loader>
       <ContentRendererMarkdown
-        v-else
+        v-if="renderedDescription?.body"
         :value="renderedDescription"
         class="mt-md-n2 mx-10 mx-md-0"
       />
@@ -108,44 +108,17 @@
   <!-- DIVIDERS -->
   <v-responsive class="mx-auto my-9" width="120">
     <v-divider class="mb-1" />
-    <v-divider /> </v-responsive
-  ><v-row>
-    <!-- RELATED ITEMS -->
-    <v-col v-if="item && item.related && item.related.events" cols="12" md="3">
-      <MiscMoleculesRelatedItems
-        type="events"
-        :items="item.related.events"
-      ></MiscMoleculesRelatedItems>
-    </v-col>
-    <v-col v-if="item && item.related && item.related.people" cols="12" md="3">
-      <MiscMoleculesRelatedItems
-        type="people"
-        :items="item.related.people"
-      ></MiscMoleculesRelatedItems>
-    </v-col>
-    <v-col v-if="item && item.related && item.related.news" cols="12" md="3">
-      <MiscMoleculesRelatedItems
-        type="news"
-        :items="item.related.news"
-      ></MiscMoleculesRelatedItems>
-    </v-col>
+    <v-divider />
+  </v-responsive>
 
-    <v-col
-      v-if="item && item.related && item.related.projects"
-      cols="12"
-      md="3"
-    >
-      <MiscMoleculesRelatedItems
-        type="project"
-        :items="item.related.projects"
-      ></MiscMoleculesRelatedItems>
-    </v-col>
-  </v-row>
+  <MiscOrganismsRelated
+    v-if="!loading && item && item.related"
+    :related="item.related"
+  ></MiscOrganismsRelated>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
-// import markdownParser from "@nuxt/content/transformers/markdown"
 import { useRenderedMarkdown } from "~/composables/useRenderedMarkdown"
 
 const { name, mdAndUp, smAndDown } = useDisplay()
@@ -175,15 +148,4 @@ const renderedDescription = useRenderedMarkdown(
   () => props.item?.description,
   "description",
 )
-// const renderedDescription = ref("")
-// watchEffect(async () => {
-//   if (props.item?.description) {
-//     renderedDescription.value = await markdownParser.parse(
-//       "description",
-//       props.item.description,
-//     )
-//   } else {
-//     renderedDescription.value = ""
-//   }
-// })
 </script>

@@ -89,6 +89,7 @@
       </v-skeleton-loader>
       <template v-else>
         <ContentRendererMarkdown
+          v-if="renderedBiography?.body"
           :value="renderedBiography"
           class="my-6 flex-wrap"
         />

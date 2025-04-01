@@ -55,7 +55,10 @@
                 ]
               "
             >
-              <ContentRendererMarkdown :value="renderedSummary" />
+              <ContentRendererMarkdown
+                v-if="renderedSummary?.body"
+                :value="renderedSummary"
+              />
             </p>
 
             <div class="d-flex flex-row align-center flex-wrap" v-if="lgAndUp">
@@ -118,18 +121,6 @@ const props = defineProps({
     required: true,
   },
 })
-
-// const renderedSummary = ref("")
-// watchEffect(async () => {
-//   if (props.item?.summary) {
-//     renderedSummary.value = await markdownParser.parse(
-//       "summary",
-//       props.item.summary,
-//     )
-//   } else {
-//     renderedSummary.value = ""
-//   }
-// })
 
 const renderedSummary = useRenderedMarkdown(
   () => props.item?.summary,

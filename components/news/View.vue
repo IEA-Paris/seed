@@ -66,6 +66,7 @@
           v-if="renderedDescription && mdAndUp"
         >
           <ContentRendererMarkdown
+            v-if="renderedDescription?.body"
             :value="renderedDescription"
             class="mt-md-n2 mx-4 mx-sm-8 mx-md-0"
           />
@@ -128,6 +129,7 @@
         "
       ></v-skeleton-loader>
       <ContentRendererMarkdown
+        v-if="renderedDescription?.body"
         :value="renderedDescription"
         class="mt-md-n2 mx-4 mx-sm-8 mx-md-0"
       />
@@ -203,17 +205,5 @@ const renderedDescription = useRenderedMarkdown(
   "description",
 )
 
-// const renderedDescription = ref("")
-// watchEffect(async () => {
-//   if (props.item?.description) {
-//     renderedDescription.value = await markdownParser.parse(
-//       "description",
-//       props.item.description,
-//     )
-//   } else {
-//     renderedDescription.value = ""
-//   }
-// })
-
-onMounted(async () => {})
+console.log("renderedDescription", renderedDescription)
 </script>
