@@ -4,30 +4,32 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
-import { useRootStore } from "~/store/root"
+// import { useRootStore } from "~/store/root"
 import GET_NEWS from "~/graphql/queries/item/news.gql"
 
-const { locale } = useI18n()
+// const { locale } = useI18n()
 const { smAndUp, mdAndUp } = useDisplay()
-const route = useRoute()
-const localePath = useLocalePath()
-const rootStore = useRootStore()
+// const route = useRoute()
+// const localePath = useLocalePath()
+// const rootStore = useRootStore()
 
-const variables = ref({
-  itemId: route.params.slug.trim(),
-  appId: "iea",
-  lang: locale.value,
-})
-const { result, loading, error, refetch } = useQuery(GET_NEWS, variables)
+// const variables = ref({
+//   itemId: route.params.slug.trim(),
+//   appId: "iea",
+//   lang: locale.value,
+// })
+// const { result, loading, error, refetch } = useQuery(GET_NEWS, variables)
 
-let news = computed(() => {
-  console.log("reassign computed news", result.value?.getNews)
-  return result.value?.getNews
-})
-onMounted(() => {
-  console.log("variables: ", variables)
-  if (!loading) refetch(variables.value)
+// let news = computed(() => {
+//   console.log("reassign computed news", result.value?.getNews)
+//   return result.value?.getNews
+// })
+// onMounted(() => {
+//   console.log("variables: ", variables)
+//   if (!loading) refetch(variables.value)
 
-  rootStore.setLoading(false, "news")
-})
+//   rootStore.setLoading(false, "news")
+// })
+import { useContentItem } from "~/composables/useContentItem"
+const { data: news, loading } = useContentItem(GET_NEWS, "getNews", "news")
 </script>

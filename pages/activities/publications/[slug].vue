@@ -10,34 +10,43 @@
   </v-container> -->
 
   <v-container>
-    <PublicationsView :item="publications" :loading="loading"></PublicationsView
+    <PublicationsView :item="publication" :loading="loading"></PublicationsView
   ></v-container>
 </template>
 
 <script setup>
-import { useRootStore } from "~/store/root"
+// import { useRootStore } from "~/store/root"
 import GET_PUBLICATION from "~/graphql/queries/item/publications.gql"
-const route = useRoute()
-const { locale } = useI18n()
+import { useContentItem } from "~/composables/useContentItem"
 
-const rootStore = useRootStore()
+const { data: publication, loading } = useContentItem(
+  GET_PUBLICATION,
+  "getPublication",
+  "publications",
+)
 
-const variables = ref({
-  itemId: route.params.slug.trim(),
-  appId: "iea",
-  lang: locale.value,
-})
-const { result, loading, error, refetch } = useQuery(GET_PUBLICATION, variables)
+// const route = useRoute()
+// const { locale } = useI18n()
 
-let publications = computed(() => {
-  console.log("variables: ", variables)
-  console.log("reassign computed publication", result.value?.getPublication)
-  return result.value?.getPublication
-})
-onMounted(() => {
-  console.log("variables: ", variables)
-  if (!loading) refetch(variables.value)
+// const rootStore = useRootStore()
 
-  rootStore.setLoading(false, "publications")
-})
+// const variables = ref({
+//   itemId: route.params.slug.trim(),
+//   appId: "iea",
+//   lang: locale.value,
+// })
+// const { result, loading, error, refetch } = useQuery(GET_PUBLICATION, variables)
+
+// const publications = computed(() => {
+//   const data = result.value
+//   if (!data || !data.getPublication) return null
+//   console.log("reassign computed publication", data.getPublication)
+//   return data.getPublication
+// })
+// onMounted(() => {
+//   console.log("variables: ", variables)
+//   if (!loading.value) refetch(variables.value)
+
+//   rootStore.setLoading(false, "publications")
+// })
 </script>
