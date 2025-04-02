@@ -33,7 +33,7 @@
       <template v-else>
         <template v-if="smAndDown && item.category">
           <v-chip class="mb-4">{{
-            $t("news.categories" + item.category)
+            $t("list.filters.news.category." + item.category)
           }}</v-chip>
           <br
         /></template>
