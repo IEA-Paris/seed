@@ -111,6 +111,7 @@ query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
         }
         name
         url
+        slug
       }
       news {
         description
@@ -126,6 +127,7 @@ query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
         }
         name
         url
+        slug
       }
       people {
         firstname
@@ -140,6 +142,7 @@ query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
           url
         }
         lastname
+        slug
       }
       projects {
         description
@@ -155,11 +158,13 @@ query getProject($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
         }
         name
         url
+        slug
       }
       publications {
         id
         name
         url
+        slug
       }
     }
   }

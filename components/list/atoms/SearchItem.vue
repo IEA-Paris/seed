@@ -53,7 +53,6 @@ const getPath = (id) => {
 </script>
 <style lang="scss">
 .search-item {
-  max-width: 475px;
   align-items: center;
   height: 100%;
 }

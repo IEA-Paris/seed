@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="450" variant="flat">
+  <v-card class="mx-auto" variant="flat">
     <v-row>
       <v-col cols="12" md="2">
         <MiscAtomsImageContainer
@@ -23,12 +23,4 @@
 <script setup>
 import { useRootStore } from "~/store/root"
 const rootStore = useRootStore()
-
-const item = ref({
-  image: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
-  title: "Brunch this weekend?",
-  name: "Ali Connors",
-  subtitle:
-    "I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
-})
 </script>

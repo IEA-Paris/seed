@@ -114,9 +114,11 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
         }
         name
         url
+        slug
       }
       news {
         description
+        slug
         id
         image {
           alt
@@ -132,6 +134,7 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       }
       people {
         firstname
+        slug
         id
         image {
           alt
@@ -146,6 +149,7 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       }
       projects {
         description
+        slug
         id
         image {
           alt
@@ -161,6 +165,7 @@ query getPeople($appId: ID = "iea", $itemId: ID = "", $lang: String = "en") {
       }
       publications {
         id
+        slug
         name
         url
       }

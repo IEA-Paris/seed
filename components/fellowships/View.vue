@@ -92,7 +92,6 @@
             </v-responsive>
             <v-skeleton-loader v-if="loading"> </v-skeleton-loader>
             <v-expansion-panels
-              outlined
               flat
               ripple
               variant="accordion"
@@ -119,7 +118,7 @@
                   style="white-space: pre; text-wrap: auto"
                 >
                   <ContentRendererMarkdown
-                    v-if="renderedDetails?.body"
+                    v-if="renderedDetails[value].value?.body"
                     :value="renderedDetails[value].value"
                   />
                 </v-expansion-panel-text>
@@ -270,6 +269,7 @@ const renderedDetails = {
     ),
   }),
 }
+console.log("renderedDetails", renderedDetails)
 </script>
 
 <style lang="scss" scoped></style>

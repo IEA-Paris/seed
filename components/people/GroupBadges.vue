@@ -7,7 +7,7 @@
 
     <template v-else v-for="(value, key, index) in item.groups" :key="key">
       <v-chip
-        class="my-3 mr-3"
+        class="mt-3 mr-3"
         v-if="value && key === 'vintage'"
         v-for="(vintage, index2) in item.groups.vintage"
         :key="index2"
@@ -18,7 +18,7 @@
         {{ $t("vintage", [vintage.year]) }}
       </v-chip>
       <v-chip
-        class="my-3 mr-3"
+        class="mt-3 mr-3"
         color="black"
         style="background-color: white; color: black"
         v-if="

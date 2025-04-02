@@ -87,7 +87,7 @@
     "fellow": "résident | résident | résidents",
     "fellowships": "programme d'accueil | programme d'accueil | programmes d'accueil",
     "news": "actualité | actualités | actualités",
-    "people": "personne | personnes | personnes",
+    "people": "personne | personne | personnes",
     "projects": "projet | projet | projets",
     "publications": "publication | publications | publications"
   },
@@ -98,7 +98,7 @@
     "0-items-found-searching-for": "Aucun {1} trouvé pour la recherche de \"{2}\". | Un seul {1} trouvé pour la recherche de \"{2}\".| {0} {1} trouvés pour la recherche de \"{2}\".",
     "0-items-found-searching-for-f": "Aucune {1} trouvée pour la recherche de \"{2}\". | Une seule {1} trouvée pour la recherche de \"{2}\".| {0} {1} trouvées pour la recherche de \"{2}\".",
     "0-items-found-searching-for-with-1-filter": "Aucun {1} trouvé pour la recherche de \"{2}\" avec {3} {4}.| Un seul {1} trouvé pour la recherche de  \"{2}\" avec {3} {4}. | {0} {1} trouvés pour la recherche de \"{2}\" avec {3} {4}.",
-    "0-items-found-searching-for-with-1-filter-f": "Aucune {1} trouvée pour la recherche de \"{2}\" avec {3} {4}. Une seule {1} trouvée pour la recherche de  \"{2}\" avec {3} {4}. | {0} {1} trouvées pour la recherche de \"{2}\" avec {3} {4}.",
+    "0-items-found-searching-for-with-1-filter-f": "Aucune {1} trouvée pour la recherche de \"{2}\" avec {3} {4}. | Une seule {1} trouvée pour la recherche de  \"{2}\" avec {3} {4}. | {0} {1} trouvées pour la recherche de \"{2}\" avec {3} {4}.",
     "0-items-found-with-1-filter": "Aucun {1} trouvé avec {2} {3}. | Un seul {1} trouvé avec {2} {3}. | {0} {1} trouvés avec {2} {3}.",
     "0-items-found-with-1-filter-f": "Aucune {1} trouvée avec {2} {3}. | Une seule {1} trouvée avec {2} {3}. | {0} {1} trouvées avec {2} {3}.",
     "by-date-most-recent-first": "Dernier",
