@@ -214,6 +214,9 @@ export const useRootStore = defineStore("rootStore", {
         console.log("error: ", error)
       }
     },
+    setSlug(slug: object | string) {
+      this.slug = slug
+    },
     loadRouteQuery(type: string) {
       const { currentRoute } = useRouter()
       const query = currentRoute.value.query

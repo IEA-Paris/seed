@@ -20,6 +20,8 @@ export function useContentItem(query: any, key: string, context: string) {
   const data = computed(() => {
     const value = result.value
     if (!value || !value[key]) return null
+    // set slugs in store to manage language switching
+    rootStore.setSlugs(value[key].slugs)
     console.log(`reassign computed ${key}`, value[key])
     return value[key]
   })
