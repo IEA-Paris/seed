@@ -215,29 +215,6 @@ export const useRootStore = defineStore("rootStore", {
         console.log("error: ", error)
       }
     },
-    async getItem({ query, variables }: { query: any; variables: object }) {
-      console.log("getItem")
-      const { data, error } = await useAsyncQuery(query, variables)
-      if (error) console.log("error: ", error)
-      this.item = data?.value?.item
-      if (this.item) {
-        const setI18nParams = useSetI18nParams()
-        setI18nParams({
-          en: { slug: this.item.slug.en },
-          fr: { slug: this.item.slug.fr },
-        })
-        // set slugs in store to manage language switching
-        this.slug = this.item.slug
-        console.log("this.slug: ", this.slug)
-        console.log("this.item: ", this.item)
-        console.log("this.item.slug: ", this.item.slug)
-      }
-      return true
-    },
-    setSlugs(slug: object | string) {
-      console.log("slug: ", slug)
-      this.slug = slug
-    },
     loadRouteQuery(type: string) {
       const { currentRoute } = useRouter()
       const query = currentRoute.value.query

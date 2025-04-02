@@ -7,7 +7,7 @@
           class="mb-9 text-center"
           v-if="route.query.groups"
         >
-          {{ $t("list.filters.people.groups." + route.query.groups) }}
+          {{ $t("list.filters.people.groups." + route.query.groups, 2) }}
         </div>
         <div v-show="route.query.groups === 'fellows'">
           <ContentDoc :path="fellows" />
