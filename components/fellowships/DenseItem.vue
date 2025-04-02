@@ -1,7 +1,7 @@
 <template>
   <v-row
     v-ripple
-    class="cursor-pointer"
+    class="cursor-pointer highlight-on-hover"
     @click="
       $router.push(
         localePath('/activities/fellowships' + getSlugFromPath(item._path)),
@@ -14,7 +14,12 @@
     </v-col>
     <v-col align-self="center" cols="4">
       <MiscMoleculesChipContainer
-        :items="[...fellowshipType, ...item.disciplines]"
+        :items="[
+          $t('list.filters.fellowships.fellowshipType.' + item.fellowshipType),
+          ...(props.item && props.item.disciplines
+            ? props.item.disciplines.map((discipline) => discipline.name)
+            : []),
+        ]"
         class="mt-2"
       ></MiscMoleculesChipContainer
     ></v-col>

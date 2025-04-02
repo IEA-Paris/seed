@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" md="6" class="">
+  <v-col cols="12" md="6" class="highlight-on-hover">
     <div v-ripple class="border-thin pa-6">
       <FellowshipsBadges :item="item"></FellowshipsBadges>
       <div class="d-flex">

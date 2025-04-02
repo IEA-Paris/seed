@@ -1,6 +1,6 @@
 <template>
   <v-divider v-if="index > 0"></v-divider>
-  <v-row class="my-4 mx-2 mx-md-0">
+  <v-row class="my-4 mx-2 mx-md-0 highlight-on-hover">
     <v-col cols="12" md="4" lg="3" v-if="mdAndUp" class="pr-md-0">
       <MiscAtomsImageContainer
         cover
@@ -159,9 +159,9 @@ const rootStore = useRootStore()
 const { name, smAndDown, mdAndDown, mdAndUp, lgAndUp } = useDisplay()
 const eventCategory = computed(() => {
   if (props.item.category) {
-    return "news.categories" + props.item.category
+    return "list.filters.news.category." + props.item.category
   } else {
-    return "news.categories.others"
+    return "list.filters.news.category.others"
   }
 })
 const props = defineProps({

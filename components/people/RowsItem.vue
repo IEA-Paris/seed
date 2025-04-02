@@ -1,6 +1,16 @@
 <template>
   <v-divider v-if="index > 0"></v-divider>
-  <v-row class="my-6 ml-md-1 px-3 px-md-0">
+  <v-row
+    class="my-6 ml-md-1 px-3 px-md-0 highlight-on-hover"
+    @click="
+      $router.push(
+        localePath({
+          name: 'people-slug',
+          params: { slug: getSlugFromPath(item._path) },
+        }),
+      )
+    "
+  >
     <v-col cols="12" md="3" v-if="mdAndUp">
       <MiscAtomsImageContainer
         cover
@@ -37,26 +47,16 @@
               params: { slug: getSlugFromPath(item._path) },
             })
           "
-          class="text-wrap text-h5 text-md-h4 text-black mb-2"
+          class="text-wrap text-h5 text-md-h4 text-black"
         >
           {{ item.firstname + " " + item.lastname }}
         </NuxtLink>
-        <MiscAtomsSocials
-          v-if="item.socials"
-          :socials="item.socials"
-          class="mt-2"
-        />
+        <MiscAtomsSocials v-if="item.socials" :socials="item.socials" />
         <PeopleGroupBadges :item="item" />
 
         <p
-          class="text-wrap clamped-text text-h4 text-black"
-          :style="
-            '-webkit-line-clamp:' +
-            ([5, 5, 3, 6, 6, 8][
-              ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')
-            ] +
-              (item.socials ? 0 : 2))
-          "
+          class="text-wrap clamped-text text-black"
+          :style="'-webkit-line-clamp:' + lineClamp"
         >
           <ContentRendererMarkdown
             v-if="renderedBiography?.body"
@@ -90,6 +90,22 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+})
+const lineClamp = computed(() => {
+  let base = [5, 6, 3, 6, 8, 10][
+    ["xs", "sm", "md", "lg", "xl", "xxl"].indexOf(name.value || "md")
+  ]
+  console.log("base: ", base)
+  if (props.item?.socials && Object.keys(props.item.socials).length > 0) {
+    base =
+      base -
+      [0, 0, 1, 1, 1, 2][
+        ["xs", "sm", "md", "lg", "xl", "xxl"].indexOf(name.value || "md")
+      ]
+  }
+  console.log("base: ", base)
+
+  return base
 })
 // const renderedBiography = ref("")
 // watchEffect(async () => {

@@ -1,7 +1,7 @@
 <template>
   <v-row
     v-ripple
-    class="cursor-pointer"
+    class="cursor-pointer highlight-on-hover"
     @click="$router.push(localePath('/news/' + getSlugFromPath(item._path)))"
   >
     <v-col align-self="center" cols="7" class="text-h6 dense">
@@ -25,6 +25,9 @@
       ></v-skeleton-loader>
 
       <template v-else>
+        <v-chip class="ma-2" style="background-color: white; color: black">{{
+          $t(eventCategory)
+        }}</v-chip>
         <MiscMoleculesChipContainer
           :items="item.tags"
           size="small"
@@ -51,5 +54,12 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+})
+const eventCategory = computed(() => {
+  if (props.item.category) {
+    return "list.filters.news.category." + props.item.category
+  } else {
+    return "list.filters.news.category.others"
+  }
 })
 </script>
