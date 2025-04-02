@@ -68,7 +68,10 @@
               ]
             "
           >
-            <ContentRendererMarkdown :value="renderedSummary" />
+            <ContentRendererMarkdown
+              v-if="renderedSummary?.body"
+              :value="renderedSummary"
+            />
           </p>
           <v-btn
             class="mt-4"
@@ -114,7 +117,10 @@
               ]
             "
           >
-            <ContentRendererMarkdown :value="renderedSummary" /></p
+            <ContentRendererMarkdown
+              v-if="renderedSummary?.body"
+              :value="renderedSummary"
+            /></p
         ></nuxt-link>
         <p v-else></p>
         <v-btn

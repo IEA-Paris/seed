@@ -89,6 +89,7 @@
       </v-skeleton-loader>
       <template v-else>
         <ContentRendererMarkdown
+          v-if="renderedBiography?.body"
           :value="renderedBiography"
           class="my-6 flex-wrap"
         />
@@ -148,10 +149,10 @@
     <v-divider class="mb-1" />
     <v-divider />
   </v-responsive>
-  <MiscOrganismsRelated
+  <MiscMoleculesRelated
     v-if="item && item.related"
     :related="item.related"
-  ></MiscOrganismsRelated>
+  ></MiscMoleculesRelated>
 </template>
 
 <script setup>

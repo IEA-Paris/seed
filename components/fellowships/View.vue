@@ -39,7 +39,10 @@
             <v-divider width="154px" class="mb-1 mt-6"></v-divider>
             <v-divider width="154px"></v-divider>
             <div class="d-flex text-center text-wrap text-h5 text-black mt-6">
-              <ContentRendererMarkdown :value="renderedSubtitle" />
+              <ContentRendererMarkdown
+                v-if="renderedSubtitle?.body"
+                :value="renderedSubtitle"
+              />
             </div>
             <MiscMoleculesChipContainer
               :items="[
@@ -78,7 +81,10 @@
                 ][['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].indexOf(name || 'md')]
               "
             ></v-skeleton-loader>
-            <ContentRendererMarkdown v-else :value="renderedDescription" />
+            <ContentRendererMarkdown
+              v-if="renderedDescription?.body"
+              :value="renderedDescription"
+            />
 
             <v-responsive class="mx-auto my-9" width="120">
               <v-divider class="mb-1" />
@@ -113,6 +119,7 @@
                   style="white-space: pre; text-wrap: auto"
                 >
                   <ContentRendererMarkdown
+                    v-if="renderedDetails?.body"
                     :value="renderedDetails[value].value"
                   />
                 </v-expansion-panel-text>
@@ -139,6 +146,10 @@
             </MiscAtomsSlidingCarousel>
           </div>
         </v-col>
+        <MiscMoleculesRelated
+          v-if="!loading && item && item.related"
+          :related="item.related"
+        ></MiscMoleculesRelated>
       </v-row>
     </v-col>
   </v-row>

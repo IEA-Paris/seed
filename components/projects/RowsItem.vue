@@ -44,7 +44,10 @@
           ]
         "
       >
-        <ContentRendererMarkdown :value="renderedSummary" />
+        <ContentRendererMarkdown
+          v-if="renderedSummary?.body"
+          :value="renderedSummary"
+        />
       </p>
 
       <v-btn
