@@ -16,7 +16,7 @@
             v-else
             contain
             :loading="rootStore.publications.loading"
-            :src="item.image"
+            :src="item.image.url ? item.image : '/default.png'"
             :ratio="1 / 1"
           />
         </v-col>
@@ -111,10 +111,10 @@
     <v-divider />
   </v-responsive>
 
-  <MiscOrganismsRelated
+  <MiscMoleculesRelated
     v-if="!loading && item && item.related"
     :related="item.related"
-  ></MiscOrganismsRelated>
+  ></MiscMoleculesRelated>
 </template>
 
 <script setup>

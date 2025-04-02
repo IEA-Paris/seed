@@ -146,6 +146,10 @@
             </MiscAtomsSlidingCarousel>
           </div>
         </v-col>
+        <MiscMoleculesRelated
+          v-if="!loading && item && item.related"
+          :related="item.related"
+        ></MiscMoleculesRelated>
       </v-row>
     </v-col>
   </v-row>

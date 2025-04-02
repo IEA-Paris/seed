@@ -1,4 +1,5 @@
 import config from "./static.config"
+
 // all routes with lists that could request to reset the store state
 /* const listRoutes = [
   "/",
@@ -100,7 +101,9 @@ export default defineNuxtConfig({
       failOnError: false,
     },
   },
-  /*   plugins: [{ src: "~/plugins/flickity.js", ssr: false }], */
+  plugins: [
+    /* "~/plugins/buildFiltersValues.js" */
+  ],
   modules: [
     "@pinia/nuxt",
     /* "@nuxtjs/html-validator", */ // https://nuxt.com/modules/html-validator
@@ -240,7 +243,7 @@ export default defineNuxtConfig({
       },
     },
   },
-
+  hooks: {},
   htmlValidator: {
     usePrettier: false,
     logLevel: "verbose",

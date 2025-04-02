@@ -314,10 +314,10 @@
       <v-divider class="mb-1" />
       <v-divider />
     </v-responsive>
-    <MiscOrganismsRelated
+    <MiscMoleculesRelated
       v-if="!loading && item && item.related"
       :related="item.related"
-    ></MiscOrganismsRelated>
+    ></MiscMoleculesRelated>
   </div>
 </template>
 

@@ -160,10 +160,10 @@
     <v-divider />
   </v-responsive>
 
-  <MiscOrganismsRelated
+  <MiscMoleculesRelated
     v-if="item && item.related"
     :related="item.related"
-  ></MiscOrganismsRelated>
+  ></MiscMoleculesRelated>
 </template>
 
 <script setup>
