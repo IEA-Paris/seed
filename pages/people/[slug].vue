@@ -22,7 +22,7 @@ const variables = ref({
 const { result, loading, error, refetch } = useQuery(GET_PEOPLE, variables)
 
 let people = computed(() => {
-  console.log("reassign computed people", result.value?.getPeople)
+  /*   console.log("reassign computed people", result.value?.getPeople) */
   return result.value?.getPeople
 })
 onMounted(() => {

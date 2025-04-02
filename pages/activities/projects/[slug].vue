@@ -34,7 +34,7 @@ const { result, loading, error, refetch } = useQuery(GET_PROJECT, variables)
 const project = computed(() => {
   const data = result.value
   if (!data || !data.getProject) return null
-  console.log("reassign computed project", data.getProject)
+  /*   console.log("reassign computed project", data.getProject) */
   return data.getProject
 })
 

@@ -23,7 +23,7 @@ const variables = ref({
 const { result, loading, error, refetch } = useQuery(GET_FELLOWSHIP, variables)
 
 let fellowship = computed(() => {
-  console.log("reassign computed fellowship", result.value)
+  /*   console.log("reassign computed fellowship", result.value) */
   return result.value?.getFellowship
 })
 onMounted(() => {

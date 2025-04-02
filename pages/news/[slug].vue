@@ -21,7 +21,7 @@ const variables = ref({
 const { result, loading, error, refetch } = useQuery(GET_NEWS, variables)
 
 let news = computed(() => {
-  console.log("reassign computed news", result.value?.getNews)
+  /*   console.log("reassign computed news", result.value?.getNews) */
   return result.value?.getNews
 })
 onMounted(() => {

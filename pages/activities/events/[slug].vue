@@ -23,7 +23,7 @@ const variables = ref({
 const { result, loading, error, refetch } = useQuery(GET_EVENT, variables)
 
 let event = computed(() => {
-  console.log("reassign computed event", result.value?.getEvent)
+  /*  console.log("reassign computed event", result.value?.getEvent) */
   return result.value?.getEvent
 })
 onMounted(() => {
