@@ -36,7 +36,6 @@ const filteredRelatedItems = computed(() => {
       result[typeMapping[key]] = props.related[key]
     }
   }
-  console.log("RESULT", result)
   return result
 })
 </script>

@@ -5,12 +5,16 @@
 </template>
 
 <script setup>
-import { useContentItem } from "~/composables/useContentItem"
 import GET_PUBLICATION from "~/graphql/queries/item/publications.gql"
 
-const { data: publication, loading } = useContentItem(
-  GET_PUBLICATION,
-  "getPublication",
-  "publications",
-)
+const { fetchItem } = useFetchItem()
+const loading = ref(true)
+// Fetch the item
+const { data: publication } = await useAsyncData("item", async () => {
+  return await fetchItem({
+    query: GET_PUBLICATION,
+    key: "getPublication",
+  })
+})
+loading.value = false
 </script>
