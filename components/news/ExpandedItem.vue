@@ -41,7 +41,10 @@
             : null
         "
       >
-        <ContentRendererMarkdown :value="renderedTitle" />
+        <ContentRendererMarkdown
+          v-if="renderedTitle?.body"
+          :value="renderedTitle"
+        />
       </div>
       <v-expand-transition v-if="lgAndUp">
         <div v-show="expanded">
@@ -59,7 +62,10 @@
           ]
         "
       >
-        <ContentRendererMarkdown :value="renderedSummary" />
+        <ContentRendererMarkdown
+          v-if="renderedSummary?.body"
+          :value="renderedSummary"
+        />
       </p>
 
       <v-expand-transition>

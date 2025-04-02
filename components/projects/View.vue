@@ -44,7 +44,10 @@
           class="d-flex text-center text-wrap text-h5 text-black mt-6"
           v-if="!loading"
         >
-          <ContentRendererMarkdown :value="renderedSubtitle" />
+          <ContentRendererMarkdown
+            v-if="renderedSubtitle?.body"
+            :value="renderedSubtitle"
+          />
         </div>
         <MiscMoleculesChipContainer
           v-if="item && item.tags"
@@ -84,7 +87,7 @@
       <ContentRendererMarkdown
         :value="renderedDescription"
         class="mt-md-n2 mx-10 mx-md-0"
-        v-if="!loading"
+        v-if="renderedDescription?.body"
       />
     </v-col>
   </v-row>
@@ -113,15 +116,14 @@
     <v-divider />
   </v-responsive>
 
-  <MiscOrganismsRelated
+  <MiscMoleculesRelated
     v-if="item && item.related"
     :related="item.related"
-  ></MiscOrganismsRelated>
+  ></MiscMoleculesRelated>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
-// import markdownParser from "@nuxt/content/transformers/markdown"
 import { useRenderedMarkdown } from "~/composables/useRenderedMarkdown"
 
 const { name, mdAndUp, smAndDown } = useDisplay()
@@ -156,11 +158,4 @@ const renderedDescription = useRenderedMarkdown(
   () => props.item?.description,
   "description",
 )
-
-// const pageReady = ref(false)
-
-// onMounted(() => {
-//   pageReady.value = true
-//   console.log("ITEMRELATED", props.item.related)
-// })
 </script>

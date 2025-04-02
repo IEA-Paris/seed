@@ -57,7 +57,10 @@
             ]
           "
         >
-          <ContentRendererMarkdown :value="renderedBiography" />
+          <ContentRendererMarkdown
+            v-if="renderedBiography?.body"
+            :value="renderedBiography"
+          />
         </p>
       </div>
     </v-col>

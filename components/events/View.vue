@@ -52,7 +52,10 @@
               class="d-flex text-center text-wrap text-h5 text-black mt-4"
               v-if="item.subtitle"
             >
-              <ContentRendererMarkdown :value="renderedSubtitle" />
+              <ContentRendererMarkdown
+                v-if="renderedSubtitle?.body"
+                :value="renderedSubtitle"
+              />
             </div>
 
             <div class="d-flex text-center text-wrap text-h5 text-black mt-4">
@@ -230,7 +233,10 @@
                   class="py-2"
                   style="white-space: pre; text-wrap: auto"
                 >
-                  <ContentRendererMarkdown :value="renderedDescription" />
+                  <ContentRendererMarkdown
+                    v-if="renderedDescription?.body"
+                    :value="renderedDescription"
+                  />
                 </v-expansion-panel-text>
               </v-expansion-panel>
 
@@ -248,7 +254,10 @@
                   {{ $t("programme") }}
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
-                  <ContentRendererMarkdown :value="renderedProgram" />
+                  <ContentRendererMarkdown
+                    v-if="renderedProgram?.body"
+                    :value="renderedProgram"
+                  />
 
                   ></v-expansion-panel-text
                 >
@@ -271,7 +280,10 @@
                   class="border-thin text-black"
                   :color="key === accordeon ? 'light-grey' : 'white'"
                 >
-                  <ContentRendererMarkdown :value="renderedDetails" />
+                  <ContentRendererMarkdown
+                    v-if="renderedDetails?.body"
+                    :value="renderedDetails"
+                  />
                 </v-expansion-panel-text>
               </v-expansion-panel>
             </v-expansion-panels>
@@ -302,10 +314,10 @@
       <v-divider class="mb-1" />
       <v-divider />
     </v-responsive>
-    <MiscOrganismsRelated
+    <MiscMoleculesRelated
       v-if="!loading && item && item.related"
       :related="item.related"
-    ></MiscOrganismsRelated>
+    ></MiscMoleculesRelated>
   </div>
 </template>
 

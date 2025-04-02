@@ -14,10 +14,16 @@
     <v-col cols="9">
       <v-row>
         <v-col cols="12" class="text-h2">
-          <ContentRendererMarkdown :value="renderedTitle" />
+          <ContentRendererMarkdown
+            v-if="renderedTitle?.body"
+            :value="renderedTitle"
+          />
         </v-col>
         <v-col cols="12">
-          <ContentRendererMarkdown :value="renderedSubtitle" />
+          <ContentRendererMarkdown
+            v-if="renderedSubtitle?.body"
+            :value="renderedSubtitle"
+          />
 
           <v-btn color="">{{ $t("watch-the-replay") }}</v-btn>
         </v-col>
@@ -95,7 +101,10 @@
     </v-col>
     <!-- Description -->
     <v-col cols="9">
-      <ContentRendererMarkdown :value="renderedDescription" />
+      <ContentRendererMarkdown
+        v-if="renderedDescription?.body"
+        :value="renderedDescription"
+      />
     </v-col>
   </v-row>
 </template>
