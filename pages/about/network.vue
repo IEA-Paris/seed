@@ -1,16 +1,14 @@
 <template>
   <div class="scroller">
     <section class="d-flex flex-column">
-      <!-- <NavigationBreadcrumbs class="d-flex align-start"></NavigationBreadcrumbs> -->
-      <v-container>
-        <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" sm="10" md="8">
-            <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6 mb-md-12">
-              {{ $t("meet-our-network") }}
-            </div>
-            <ContentDoc :path="network" />
-          </v-col> </v-row
-      ></v-container>
+      <v-row class="d-flex align-center justify-center">
+        <v-col cols="12" sm="10" md="8">
+          <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6 mb-md-12">
+            {{ $t("meet-our-network") }}
+          </div>
+          <ContentDoc :path="network" />
+        </v-col>
+      </v-row>
     </section>
 
     <section dark>

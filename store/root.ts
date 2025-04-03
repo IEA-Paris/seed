@@ -3,7 +3,6 @@ import lists from '~/assets/data/lists' */
 
 /* import api from "~/server/api/github" */
 import { defineStore } from "pinia"
-import { isProxy, toRaw } from "vue"
 import {
   Views,
   ModuleType,
@@ -400,22 +399,14 @@ export const useRootStore = defineStore("rootStore", {
     },
     updateFilter(key: string, val: any, type: string) {
       console.log("update filter: ", { key, val, type })
-      ;(this[type] as ModuleType).list.filters[key].value = val
-      const router = useRouter()
 
-      // Update the route query with the new filter
-      console.log(
-        "router.currentRoute.value.query: ",
-        router.currentRoute.value.query,
-      )
-      const query = {
-        ...router.currentRoute.value.query,
-        [key]: Array.isArray(val) ? JSON.stringify(val) : val,
+      if (["online", "outside", "past"].includes(key) && val === false) {
+        ;(this[type] as ModuleType).list.filters[key].value = null
+      } else {
+        ;(this[type] as ModuleType).list.filters[key].value = val
       }
-      router.push({ query })
 
-      this.page = 1
-      this.update(type)
+      this.updatePage({ page: 1, type })
     },
     updateItemsPerPage({ value, type }: { value: number; type: string }) {
       this.page = 1
@@ -425,13 +416,6 @@ export const useRootStore = defineStore("rootStore", {
     },
     updatePage({ page, type }: { page: number; type: string }) {
       this.page = page
-      const router = useRouter()
-
-      const query = {
-        ...router.currentRoute.value.query,
-        page,
-      }
-      router.push({ query })
       this.update(type)
     },
     async updateSearch({

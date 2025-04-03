@@ -2,42 +2,34 @@
   <div class="scroller">
     <section class="d-flex flex-column">
       <!-- <NavigationBreadcrumbs class="d-flex align-start"></NavigationBreadcrumbs> -->
-      <v-container fluid>
-        <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" md="10" lg="8" xl="6">
-            <v-row no-gutters>
-              <v-col cols="4" v-if="smAndUp">
-                <v-card class="d-flex align-center justify-center">
-                  <v-img
-                    aspect-ratio="1/1"
-                    src="/images/Paulius_Yamin.jpg"
-                  ></v-img
-                ></v-card>
-              </v-col>
-              <v-col cols="12" sm="8">
-                <v-card class="d-flex align-center justify-center">
-                  <ContentDoc :path="scientificPolicy" />
-                </v-card> </v-col></v-row></v-col></v-row
-      ></v-container>
+      <v-row class="d-flex align-center justify-center">
+        <v-col cols="4" v-if="smAndUp">
+          <v-card class="d-flex align-center justify-center">
+            <v-img aspect-ratio="1/1" src="/images/Paulius_Yamin.jpg"></v-img
+          ></v-card>
+        </v-col>
+        <v-col cols="12" sm="8">
+          <v-card class="d-flex align-center justify-center">
+            <ContentDoc :path="scientificPolicy" />
+          </v-card>
+        </v-col>
+        ></v-row
+      >
     </section>
     <section class="dark">
       <v-container>
-        <v-row class="d-flex">
-          <v-col cols="12" md="10" lg="8" xl="6" class="justify-center">
-            <MiscAtomsSlidingCarousel
-              key="scientificAdvisoryBoard"
-              :items="scientificAdvisoryBoard"
-              type="people"
-              :loading="false"
-              :dark="true"
-            >
-              <div class="text-h2">
-                {{ $t("scientific-advisory-board") }}
-              </div>
-            </MiscAtomsSlidingCarousel>
-          </v-col>
-        </v-row></v-container
-      >
+        <MiscAtomsSlidingCarousel
+          key="scientificAdvisoryBoard"
+          :items="scientificAdvisoryBoard"
+          type="people"
+          :loading="false"
+          :dark="true"
+        >
+          <div class="text-h2">
+            {{ $t("scientific-advisory-board") }}
+          </div>
+        </MiscAtomsSlidingCarousel>
+      </v-container>
     </section>
     <section>
       <v-row>
@@ -69,23 +61,42 @@
 
 <script setup>
 import { useDisplay } from "vuetify"
+import LIST_PEOPLE from "~/graphql/queries/list/people.gql"
 import { fr } from "vuetify/locale"
 const { smAndUp } = useDisplay()
 const localePath = useLocalePath()
 const { locale } = useI18n()
 console.log(locale.value)
-
+const variables = {
+  options: {
+    skip: 0,
+    limit: 20,
+    sortBy: ["lastname"],
+    sortDesc: true,
+    filters: JSON.stringify({ groups: ["sab"] }),
+  },
+  appId: "iea",
+  lang: locale.value,
+}
 const scientificPolicy = "/pages/" + locale.value + "/scientific_policy"
 
-const { data: scientificAdvisoryBoard } = await useAsyncData(
-  "scientific-advisory-board",
-  () =>
-    queryContent("/people/" + locale.value)
-      // .where({ outside: false })
-      // .sort("date", "desc")
-      .limit(12)
-      .find(),
-)
+const { data, error } = await useAsyncQuery(LIST_PEOPLE, variables)
+console.log("variables: ", variables)
+console.log("data: ", data)
+
+if (error.value) {
+  console.error("GraphQL error:", error.value)
+  throw error.value
+}
+const scientificAdvisoryBoard = data.value?.listPeople?.items
+console.log("scientificAdvisoryBoard: ", scientificAdvisoryBoard)
+
+if (!scientificAdvisoryBoard) {
+  throw createError({
+    statusCode: 404,
+    message: "Item not found in response",
+  })
+}
 definePageMeta({
   layout: "about",
   /*   documentDriven: {

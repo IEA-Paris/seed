@@ -2,19 +2,24 @@
   <!-- TOP BAR CONTAINER -->
   <v-app-bar flat>
     <!--  WEBSITE LOGO -->
-    <NavigationLogo></NavigationLogo>
-    <!-- <nuxt-link :to="localePath('/')" class="text-black">{{
+    <div
+      @click="router.push(localePath('/'))"
+      v-ripple
+      class="px-4 d-flex align-center"
+    >
+      <NavigationLogo></NavigationLogo>
+      <!-- <nuxt-link :to="localePath('/')" class="text-black">{{
         mdAndUp ? $t("paris-institute-for-advanced-study") : $t("paris-ias")
       }}</nuxt-link> -->
-    <div class="d-flex align-start pl-3" v-ripple v-if="mdAndUp">
-      <v-img
-        src="/logo_text.png"
-        alt="Paris IAS"
-        class="d-inline-block cursor-pointer"
-        height="100px"
-        width="200px"
-        @click="router.push(localePath('/'))"
-      ></v-img>
+      <div class="d-flex align-start pl-3" v-if="mdAndUp">
+        <v-img
+          src="/logo_text.png"
+          alt="Paris IAS"
+          class="d-inline-block cursor-pointer"
+          height="100px"
+          width="200px"
+        ></v-img>
+      </div>
     </div>
     <template v-slot:append>
       <!--  NAVIGATION -->

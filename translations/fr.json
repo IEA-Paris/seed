@@ -122,6 +122,7 @@
           "ROUND_TABLE": "Table ronde",
           "SEMINAR": "Séminaire",
           "SYMPOSIUM": "Symposium",
+          "EXHIBITION": "Exposition",
           "WEBINAR": "Webinaire",
           "WORKSHOP": "Atelier"
         },
@@ -143,10 +144,10 @@
         },
         "organiserCategory": {
           "label": "Type d'organisateur",
-          "EXTERNAL": "Externe",
-          "FELLOW": "Résidents",
           "IAS": "IEA de Paris",
-          "MEMBER": "Membres"
+          "MEMBER": "Membres",
+          "FELLOW": "Résidents",
+          "EXTERNAL": "Externe"
         },
         "outside": {
           "label": "Hors les murs"

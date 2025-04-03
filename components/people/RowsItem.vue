@@ -95,7 +95,6 @@ const lineClamp = computed(() => {
   let base = [5, 6, 3, 6, 8, 10][
     ["xs", "sm", "md", "lg", "xl", "xxl"].indexOf(name.value || "md")
   ]
-  console.log("base: ", base)
   if (props.item?.socials && Object.keys(props.item.socials).length > 0) {
     base =
       base -
@@ -103,7 +102,6 @@ const lineClamp = computed(() => {
         ["xs", "sm", "md", "lg", "xl", "xxl"].indexOf(name.value || "md")
       ]
   }
-  console.log("base: ", base)
 
   return base
 })

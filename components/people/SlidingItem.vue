@@ -6,7 +6,7 @@
         :ratio="1"
         :src="item.image"
         link="people-slug"
-        :slug="getSlugFromPath(item._path)"
+        :slug="item.slug"
         :loading="loading"
       >
       </MiscAtomsImageContainer>

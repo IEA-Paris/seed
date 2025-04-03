@@ -65,7 +65,7 @@
                 <v-btn :to="localePath('activities-events')">{{
                   $t("events.key")
                 }}</v-btn>
-                <v-btn :href="localePath('/people?categories=fellows')">{{
+                <v-btn :href="localePath('/people?groups=fellows')">{{
                   $t("fellows")
                 }}</v-btn>
                 <v-btn :href="localePath('activities-projects')">{{
@@ -145,6 +145,7 @@ definePageMeta({
   layout: "about",
 })
 import { useRootStore } from "~/store/root"
+import LIST_EVENTS from "~/graphql/queries/list/events.gql"
 const rootStore = useRootStore()
 
 const router = useRouter()
@@ -167,15 +168,35 @@ const today = new Date()
     ? today.getFullYear() + "-" + (today.getFullYear() + 1)
     : today.getFullYear() - 1 + "-" + today.getFullYear(),
 ) */
+const variables = {
+  options: {
+    skip: 0,
+    limit: 5,
+    sortBy: ["start"],
+    sortDesc: true,
+    filters: JSON.stringify({}),
+  },
+  appId: "iea",
+  lang: locale.value,
+}
 
-const { data: upcomingEvents } = await useAsyncData("event-list", () =>
-  queryContent("/events/" + locale.value)
-    .where({ outside: false })
-    .sort("date", "desc")
-    .limit(12)
-    .find(),
-)
+const { data, error } = await useAsyncQuery(LIST_EVENTS, variables)
+console.log("variables: ", variables)
+console.log("data: ", data)
 
+if (error.value) {
+  console.error("GraphQL error:", error.value)
+  throw error.value
+}
+const upcomingEvents = data.value?.listEvents?.items
+console.log("upcomingEvents: ", upcomingEvents)
+
+if (!upcomingEvents) {
+  throw createError({
+    statusCode: 404,
+    message: "Item not found in response",
+  })
+}
 onMounted(() => {
   // init defaults from a possible previous session
   rootStore.setDefaults()

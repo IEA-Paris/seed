@@ -22,7 +22,7 @@
         :ratio="1"
         :src="item.image"
         link="activities-events-slug"
-        :slug="getSlugFromPath(item._path)"
+        :slug="item.slug"
         :loading="loading"
       >
       </MiscAtomsImageContainer>
@@ -30,7 +30,7 @@
         class="mt-6 pl-0 text-h5 text-md-h4 font-weight-medium sliding-item-title cursor-pointer"
         :href="
           localePath('activities-events-slug', {
-            slug: slugify(item._path),
+            slug: item.slug,
           })
         "
       >
