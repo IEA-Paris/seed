@@ -1,18 +1,17 @@
 <template>
-  <v-container> <PeopleView :item="people"></PeopleView></v-container>
+  <v-container> <PeopleView :item="people" :loading /></v-container>
 </template>
 
 <script setup>
-const { locale } = useI18n()
-const route = useRoute()
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
-const { data: people } = await useAsyncData(
-  "people",
-  async () =>
-    await queryContent(
-      "/people/" + locale.value + "/" + route.params.slug,
-    ).findOne(),
-)
-rootStore.setLoading(false, "people")
+const { $queries } = useNuxtApp()
+const { fetchItem } = useFetchItem()
+const loading = ref(true)
+// Fetch the item
+const { data: people } = await useAsyncData("item", async () => {
+  return await fetchItem({
+    query: $queries.people.get,
+    key: "getPeople",
+  })
+})
+loading.value = false
 </script>

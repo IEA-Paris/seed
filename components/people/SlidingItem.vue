@@ -22,7 +22,7 @@
 <script setup>
 // import { useDisplay } from "vuetify"
 // const { smAndUp } = useDisplay()
-import { getSlugFromPath } from "~/composables/useUtils"
+import { getSlugFromPath } from "@paris-ias/list"
 
 const props = defineProps({
   item: { type: Object, required: true },

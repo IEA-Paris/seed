@@ -1,24 +1,19 @@
 <template>
-  <section style="background-color: white">
-    <FellowshipView :item="data" />
-  </section>
+  <v-container>
+    <FellowshipsView :item="fellowship" :loading="loading" />
+  </v-container>
 </template>
 
-<script setup async>
-import { useDisplay } from "vuetify"
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
-const route = useRoute()
-const { smAndUp } = useDisplay()
-const { locale } = useI18n()
-const localePath = useLocalePath()
-
-const { data } = await useAsyncData(
-  "fellowship",
-  async () =>
-    await queryContent(
-      "fellowship/" + locale.value + "/" + route.params.slug,
-    ).findOne(),
-)
-rootStore.setLoading(false, "fellowship")
+<script setup>
+const { $queries } = useNuxtApp()
+const { fetchItem } = useFetchItem()
+const loading = ref(true)
+// Fetch the item
+const { data: fellowship } = await useAsyncData("item", async () => {
+  return await fetchItem({
+    query: $queries.fellowships.get,
+    key: "getFellowship",
+  })
+})
+loading.value = false
 </script>

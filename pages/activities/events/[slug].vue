@@ -1,25 +1,19 @@
 <template>
   <v-container style="max-width: 1600px">
-    <EventsView :item="value"></EventsView
-  ></v-container>
+    <EventsView :item="event" :loading="loading" />
+  </v-container>
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify"
-const { locale } = useI18n()
-const { smAndUp } = useDisplay()
-const localePath = useLocalePath()
-const route = useRoute()
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
-const { data } = await useAsyncData(
-  "events",
-  async () =>
-    await queryContent(
-      "events/" + locale.value + "/" + route.params.slug,
-    ).findOne(),
-)
-
-const value = data._rawValue
-rootStore.setLoading(false, "events")
+const { $queries } = useNuxtApp()
+const { fetchItem } = useFetchItem()
+const loading = ref(true)
+// Fetch the item
+const { data: event } = await useAsyncData("item", async () => {
+  return await fetchItem({
+    query: $queries.events.get,
+    key: "getEvent",
+  })
+})
+loading.value = false
 </script>

@@ -4,14 +4,4 @@
   ></v-container>
 </template>
 
-<script setup>
-import { useDisplay } from "vuetify"
-import { useRootStore } from "~/store/root"
-
-const { smAndUp } = useDisplay()
-const localePath = useLocalePath()
-
-const rootStore = useRootStore()
-
-const data = rootStore.$state.events.list.items
-</script>
+<script setup></script>

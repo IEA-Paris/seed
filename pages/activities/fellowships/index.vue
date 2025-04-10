@@ -9,7 +9,5 @@
 
 <script lang="ts" setup>
 import { useDisplay } from "vuetify"
-import { useRootStore } from "~/store/root"
-const store = useRootStore()
 const { smAndUp } = useDisplay()
 </script>

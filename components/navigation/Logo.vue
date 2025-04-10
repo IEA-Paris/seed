@@ -1,6 +1,6 @@
 <template>
   <v-app-bar-nav-icon>
-    <nuxt-link :to="localePath('/')" :class="{ scrolled: rootStore.scrolled }">
+    <nuxt-link :to="localePath('/')" :class="{ scrolled: $rootStore.scrolled }">
       <v-img
         contain
         height="50"
@@ -13,8 +13,7 @@
   ></v-app-bar-nav-icon>
 </template>
 <script setup lang="ts">
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
+const $rootStore = useNuxtApp()
 const appConfig = useAppConfig()
 const localePath = useLocalePath()
 

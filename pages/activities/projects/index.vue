@@ -9,12 +9,5 @@
 
 <script lang="ts" setup>
 import { useDisplay } from "vuetify"
-import { useRootStore } from "~/store/root"
-/* import { useEventStore } from "~/store/root" 
-const eventStore = useEventStore()*/
-const store = useRootStore()
 const { smAndUp } = useDisplay()
-/* const item = store["project"].items.find(
-  (item) => item.slug === route.params.slug
-) */
 </script>

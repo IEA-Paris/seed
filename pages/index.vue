@@ -1,6 +1,6 @@
 <template>
   <div class="scroller">
-    <!--   <v-btn color="success" @click="rootStore.setLoading(!rootStore.loading)"
+    <!--   <v-btn color="success" @click="$rootStore.setLoading(!$rootStore.loading)"
     >ext</v-btn
   > -->
 
@@ -128,14 +128,11 @@ import { useDisplay } from "vuetify"
 definePageMeta({
   layout: "about",
 })
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
+const { $rootStore } = useNuxtApp()
 
-const router = useRouter()
-const { smAndUp, mdAndUp } = useDisplay()
+const { mdAndUp } = useDisplay()
 const localePath = useLocalePath()
 /* const goTo = useGoTo() */
-const config = useAppConfig()
 const { locale } = useI18n()
 const presentation = ref("/pages/" + locale.value + "/institute_presentation")
 
@@ -162,7 +159,7 @@ const { data: upcomingEvents } = await useAsyncData("event-list", () =>
 
 onMounted(() => {
   // init defaults from a possible previous session
-  rootStore.setDefaults()
+  $rootStore.setDefaults()
 })
 </script>
 <style lang="scss">

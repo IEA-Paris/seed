@@ -1,21 +1,17 @@
 <template>
-  <v-container> <NewsView :item="news"></NewsView></v-container>
+  <v-container> <NewsView :item="news" :loading /></v-container>
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify"
-const { locale } = useI18n()
-const { smAndUp, mdAndUp } = useDisplay()
-const route = useRoute()
-const localePath = useLocalePath()
-import { useRootStore } from "~/store/root"
-const rootStore = useRootStore()
-const { data: news } = await useAsyncData(
-  "news",
-  async () =>
-    await queryContent(
-      "news/" + locale.value + "/" + route.params.slug,
-    ).findOne(),
-)
-rootStore.setLoading(false, "news")
+const { $queries } = useNuxtApp()
+const { fetchItem } = useFetchItem()
+const loading = ref(true)
+// Fetch the item
+const { data: news } = await useAsyncData("item", async () => {
+  return await fetchItem({
+    query: $queries.news.get,
+    key: "getNews",
+  })
+})
+loading.value = false
 </script>

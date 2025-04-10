@@ -11,7 +11,9 @@
               class="text-h6 font-weight-black d-flex align-center"
               cols="1"
             >
-              {{ model + 1 }}/{{ rootStore[props.type].list.items.length || 0 }}
+              {{ model + 1 }}/{{
+                $rootStore[props.type].list.items.length || 0
+              }}
             </v-col>
 
             <v-col cols="1" class="d-flex flex-row">
@@ -26,7 +28,7 @@
               <v-btn
                 :size="mdAndUp ? 'large' : 'medium'"
                 :disabled="
-                  model === rootStore[props.type].list.items.length - 1
+                  model === $rootStore[props.type].list.items.length - 1
                 "
                 flat
                 icon="mdi-chevron-right"
@@ -44,12 +46,12 @@
           ref="slideGroup"
           mobile-breakpoint="sm"
         >
-          <template v-if="rootStore.loading || rootStore[props.type].loading">
+          <template v-if="$rootStore.loading || $rootStore[props.type].loading">
             LOADING
           </template>
           <v-slide-group-item
             v-else
-            v-for="(item, index) in rootStore[props.type].list.items"
+            v-for="(item, index) in $rootStore[props.type].list.items"
             v-slot="{ isSelected, toggle, selectedClass }"
           >
             <component
@@ -73,13 +75,12 @@ TODO: make it similar to radcliffe :
 - Meaningful behavior when clicking on the arrrows
 - Add a slide-in from right animation when the items are entering viewport 
 */
-import { capitalize } from "~/composables/useUtils"
+import { capitalize } from "@paris-ias/list"
 import { useDisplay } from "vuetify"
-import { useRootStore } from "~/store/root"
+const { $rootStore } = useNuxtApp()
 
 const { locale } = useI18n()
 const { name, mdAndUp } = useDisplay()
-const rootStore = useRootStore()
 const model = ref(0)
 const slideGroup = ref()
 
@@ -90,7 +91,7 @@ const props = defineProps({
   },
 })
 try {
-  await rootStore.update(props.type, locale.value)
+  await $rootStore.update(props.type, locale.value)
 } catch (error) {
   console.log("error: ", error)
 }
