@@ -32,7 +32,6 @@
   "invalid-doi-code": "DOI invalide",
   "invalid-date": "Le format de date n'est pas valide",
   "invalid-orcid": "Votre numéro ORCID n'est pas valide",
-
   "date-et-heure": "Date et Heure",
   "plus-de-details": "Plus de détails",
   "programme": "Programme",
@@ -46,5 +45,19 @@
   "visit-the-author-google-scholar-page": "Visitez la page Google Scholar de cette personne",
   "visit-the-author-orcid-page": "Voir le profil Orcid",
   "moto": "Activateur d'intelligence collective, avec le meilleur de la recherche",
-  "visit-this-project-website": "Site Web du projet"
+  "visit-this-project-website": "Site Web du projet",
+  "about-us": "À propos de nous",
+  "building-bridges": "Bâtiment des ponts",
+  "contact": "Contact",
+  "email": "E-mail",
+  "follow-us": "Suivez-nous",
+  "hosting-excellence": "Héberger l'excellence",
+  "invalid-e-mail": "E-mail non valide",
+  "paris-institute-for-advanced-study": "Institut parisien pour les études avancées",
+  "paris_ias": "Paris IAS",
+  "presentation-0": "présentation",
+  "pressroom": "Salle de presse",
+  "privacy": "politique de confidentialité",
+  "tos": "Conditions de service",
+  "browse": "Parcourir"
 }

@@ -6,7 +6,7 @@
         :ratio="1"
         :src="item.image"
         link="people-slug"
-        :slug="getSlugFromPath(item._path)"
+        :slug="item.slug"
         :loading="loading"
       >
       </MiscAtomsImageContainer>
@@ -22,7 +22,6 @@
 <script setup>
 // import { useDisplay } from "vuetify"
 // const { smAndUp } = useDisplay()
-import { getSlugFromPath } from "@paris-ias/list"
 
 const props = defineProps({
   item: { type: Object, required: true },

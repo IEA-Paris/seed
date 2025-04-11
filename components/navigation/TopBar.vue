@@ -60,10 +60,8 @@
 </template>
 <script setup>
 import { useDisplay } from "vuetify"
-import { useRootStore } from "~/store/root"
 const config = useAppConfig()
 const localePath = useLocalePath()
 const router = useRouter()
-const rootStore = useRootStore()
 const { smAndUp, mdAndUp } = useDisplay()
 </script>

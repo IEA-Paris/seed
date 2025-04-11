@@ -75,7 +75,6 @@ TODO: make it similar to radcliffe :
 - Meaningful behavior when clicking on the arrrows
 - Add a slide-in from right animation when the items are entering viewport 
 */
-import { capitalize } from "@paris-ias/list"
 import { useDisplay } from "vuetify"
 const { $rootStore } = useNuxtApp()
 

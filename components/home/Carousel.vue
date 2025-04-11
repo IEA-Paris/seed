@@ -38,9 +38,7 @@
             class="d-flex flex-column"
             :class="mdAndUp ? 'left-panel' : 'bottom-panel'"
             v-ripple
-            @click="
-              localePath('/news/' + getSlugFromPath(featured[selected]._path))
-            "
+            @click="localePath('/news/' + featured[selected].slug[locale])"
           >
             <div
               class="text-h4 text-sm-h3 text-md-h4 text-lg-h3 mb-6"
@@ -64,9 +62,8 @@
 </template>
 <script setup>
 import { useDisplay } from "vuetify"
-import { getSlugFromPath } from "@paris-ias/list"
+const { locale } = useI18n()
 const { mdAndUp } = useDisplay()
-
 const selected = ref(0)
 const props = defineProps({
   featured: {

@@ -12,7 +12,7 @@
         :key="locale.code"
         @click="
           $i18n.setLocale(locale.code) &&
-            $router.push(localePath($route.fullPath))
+          $router.push(localePath($route.fullPath))
         "
       >
         <v-list-item-title class="text-uppercase text-button">

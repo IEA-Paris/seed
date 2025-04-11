@@ -7,7 +7,7 @@
       </template>
 
       <template v-slot:title="{ item }">
-        {{ $t(item.name).toUpperCase() }}
+        {{ $t(item.title).toUpperCase() }}
       </template>
     </v-breadcrumbs>
     <v-divider></v-divider>
@@ -16,7 +16,6 @@
 
 <script setup>
 const ignoredRoutes = ["fr", "about", "activities"]
-import { useDisplay } from "vuetify"
 
 const route = useRoute()
 

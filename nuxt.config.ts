@@ -60,6 +60,9 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    optimizeDeps: {
+      include: ["micromark"],
+    },
     define: {
       "process.env.DEBUG": false,
     },
@@ -100,15 +103,26 @@ export default defineNuxtConfig({
     //
     "@nuxtjs/google-fonts",
     "nuxt-link-checker",
-    "nuxt-schema-org",
-    "@vite-pwa/nuxt",
+    /*   "nuxt-schema-org", */
+    /*  "@vite-pwa/nuxt", */
     "@nuxtjs/apollo",
     "@vueuse/motion/nuxt",
     //https://nuxt.com/docs/getting-started/testing
     "@nuxt/test-utils/module",
     /*     "@nuxtjs/html-validator", */
     "@stefanobartoletti/nuxt-social-share",
+    "@paris-ias/list",
   ],
+  list: {
+    modules: [
+      "events",
+      "news",
+      "people",
+      "projects",
+      "fellowships",
+      "publications",
+    ],
+  },
 
   pinia: {
     autoImports: ["defineStore", ["defineStore", "definePiniaStore"]],
@@ -161,7 +175,7 @@ export default defineNuxtConfig({
     "/api/**": { isr: false },
   },
   i18n: {
-    langDir: "translations/",
+    langDir: "../translations/",
     locales: config.lang.locales,
     defaultLocale: config.lang.default,
     baseUrl: config.url,

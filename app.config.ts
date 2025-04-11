@@ -1,11 +1,21 @@
-import staticConfuguration from "./static.config"
+import staticConfiguration from "./static.config"
 
 export default defineAppConfig({
-  ...staticConfuguration,
+  ...staticConfiguration,
   author: "Antoine Cordelois",
   url: "https://paris-iea.fr",
   lang: {
     locales: ["en", "fr"],
     default: "en",
+  },
+  list: {
+    modules: [
+      "events",
+      "news",
+      "people",
+      "projects",
+      "fellowships",
+      "publications",
+    ],
   },
 })

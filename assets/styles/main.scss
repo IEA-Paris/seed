@@ -1,7 +1,7 @@
 // variables not needed in this file, It's already imported in the project globally
 
-@import "transitions";
-@import "variables";
+@use "transitions";
+@use "variables";
 @media (min-width: 1920px) {
   .v-container.main-container {
     max-width: 1500px;
