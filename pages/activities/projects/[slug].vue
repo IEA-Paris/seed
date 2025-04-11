@@ -1,7 +1,7 @@
 <template>
-  <v-container>
-    <ProjectsView :item="project" :loading="loading"
-  /></v-container>
+  <v-container style="max-width: 1600px">
+    <ProjectsView :item="project" :loading="loading" />
+  </v-container>
 </template>
 
 <script setup>

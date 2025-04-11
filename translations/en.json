@@ -1,6 +1,5 @@
 {
-  "french": "French",
-  "english": "English",
+  "0-1-found-page-2-of-3": "No {1} found. \nPage {2} of {3} | {0} {1} found. \nPage {2} of {3} | {0} {1} found. \nPage {2} of {3} ",
   "about": "About",
   "fellows": "Fellows",
   "institute": "Institute",

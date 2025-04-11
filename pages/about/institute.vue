@@ -1,28 +1,19 @@
 <template>
   <div class="scroller">
-    <section class="d-flex flex-column">
-      <NavigationBreadcrumbs class="d-flex align-start"></NavigationBreadcrumbs>
-      <v-container>
-        <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" md="10" lg="8" xl="6" class="justify-center">
-            <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6 mb-md-12">
-              {{ $t("hosting-excellence") }}
-            </div>
-            <v-sheet class="d-flex align-center justify-center flex-row">
-              <ContentDoc :path="presentation" />
-            </v-sheet> </v-col></v-row
-      ></v-container>
+    <section class="d-flex">
+      <v-row class="align-center justify-center flex-column">
+        <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6 mb-md-12">
+          {{ $t("hosting-excellence") }}
+        </div>
+        <v-sheet class="d-flex">
+          <ContentDoc :path="presentation" />
+        </v-sheet>
+      </v-row>
     </section>
     <section class="dark">
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="9" xl="8">
-            <div
-              :class="mdAndUp ? 'text-h2' : 'text-h4'"
-              class="mb-6 mb-md-12 pl-4"
-            >
-              {{ $t("building-bridges") }}
-            </div>
             <v-row no-gutters>
               <v-col cols="4" v-if="mdAndUp">
                 <v-sheet class="d-flex align-center justify-center" flat>
@@ -53,12 +44,6 @@
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="9" xl="8">
-            <div
-              :class="mdAndUp ? 'text-h2' : 'text-h4'"
-              class="mb-6 mb-md-12 pl-4"
-            >
-              {{ $t("building-bridges") }}
-            </div>
             <v-row no-gutters>
               <v-col cols="12" md="8">
                 <v-sheet class="d-flex align-center justify-center pa-12">

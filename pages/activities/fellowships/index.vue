@@ -1,13 +1,13 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col cols="12">
-        <ListOrganismsList type="fellowships"></ListOrganismsList> </v-col
-    ></v-row>
-  </v-container>
+  <v-container style="max-width: 1200px">
+    <ListOrganismsList type="fellowships"></ListOrganismsList
+  ></v-container>
 </template>
 
-<script lang="ts" setup>
-import { useDisplay } from "vuetify"
-const { smAndUp } = useDisplay()
+<script setup>
+const { $rootStore } = useNuxtApp()
+
+onBeforeUnmount(() => {
+  $rootStore.resetState()
+})
 </script>

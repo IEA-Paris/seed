@@ -63,23 +63,39 @@
               ></ListAtomsSearchInput>
               <v-btn-toggle tile variant="outlined" divided theme="dark">
                 <v-btn :to="localePath('activities-events')">{{
-                  $t("events.key")
+                  $t("items.events", 2)
                 }}</v-btn>
-                <v-btn :href="localePath('/people?categories=fellows')">{{
+                <v-btn :href="localePath('/people?groups=fellows')">{{
                   $t("fellows")
                 }}</v-btn>
                 <v-btn :href="localePath('activities-projects')">{{
-                  $t("projects")
+                  $t("items.projects", 2)
                 }}</v-btn>
                 <v-btn :href="localePath('activities-publications')">{{
-                  $t("publications")
+                  $t("items.publications")
                 }}</v-btn>
               </v-btn-toggle>
             </div>
           </v-col>
         </v-row>
       </v-container>
-      <div class="d-flex justify-center">
+      <div
+        class="d-flex justify-center"
+        v-motion
+        :initial="{
+          opacity: 0,
+          y: 100,
+        }"
+        :enter="{
+          opacity: 1,
+          y: 0,
+          transition: {
+            type: 'slide',
+            stiffness: '100',
+            delay: 1200,
+          },
+        }"
+      >
         <v-btn
           color="default"
           icon
@@ -93,7 +109,7 @@
     </section>
     <section class="d-flex flex-column justify-center align-center">
       <v-container>
-        <MiscAtomsSlidingCarousel
+        <!--        <MiscAtomsSlidingCarousel
           :items="upcomingEvents"
           key="events"
           ref="events"
@@ -103,7 +119,7 @@
           <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
             {{ $t("upcoming-events") }}
           </div>
-        </MiscAtomsSlidingCarousel>
+        </MiscAtomsSlidingCarousel> -->
         <div class="d-flex justify-center">
           <v-btn
             color="default"
@@ -148,15 +164,35 @@ const today = new Date()
     ? today.getFullYear() + "-" + (today.getFullYear() + 1)
     : today.getFullYear() - 1 + "-" + today.getFullYear(),
 ) */
+const variables = {
+  options: {
+    skip: 0,
+    limit: 5,
+    sortBy: ["start"],
+    sortDesc: true,
+    filters: JSON.stringify({}),
+  },
+  appId: "iea",
+  lang: locale.value,
+}
 
-const { data: upcomingEvents } = await useAsyncData("event-list", () =>
-  queryContent("/events/" + locale.value)
-    .where({ outside: false })
-    .sort("date", "desc")
-    .limit(12)
-    .find(),
-)
+/* const { data, error } = await useAsyncQuery(LIST_EVENTS, variables)
+console.log("variables: ", variables)
+console.log("data: ", data) */
+/* 
+if (error.value) {
+  console.error("GraphQL error:", error.value)
+  throw error.value
+} */
+/* const upcomingEvents = data.value?.listEvents?.items
+console.log("upcomingEvents: ", upcomingEvents)
 
+if (!upcomingEvents) {
+  throw createError({
+    statusCode: 404,
+    message: "Item not found in response",
+  })
+} */
 onMounted(() => {
   // init defaults from a possible previous session
   $rootStore.setDefaults()

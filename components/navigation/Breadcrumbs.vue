@@ -2,7 +2,12 @@
   <v-container v-if="crumbs && crumbs.length">
     <v-breadcrumbs :items="crumbs" class="pl-0 w-100" link>
       <template v-slot:prepend>
-        <v-btn to="/" size="small" variant="text" icon="mdi-home"></v-btn>
+        <v-btn
+          :to="localePath('/')"
+          size="small"
+          variant="text"
+          icon="mdi-home"
+        ></v-btn>
         /
       </template>
 
@@ -16,27 +21,44 @@
 
 <script setup>
 const ignoredRoutes = ["fr", "about", "activities"]
-
+const localePath = useLocalePath()
+const { locale } = useI18n()
 const route = useRoute()
 
 const crumbs = computed(() => {
-  return route.path
-    .split("/")
-    .filter((item) => item && !ignoredRoutes.includes(item))
-    .map((item, index) => {
-      return {
-        title: item,
-        href:
-          "/" +
-          route.path
-            .split("/")
-            .filter((item) => item)
-            .slice(0, index + 2)
-            .join("/"),
-        disabled: false,
-        exact: true,
-      }
-    })
+  const fullSegments = route.path.split("/").filter((item) => item)
+  const segments = fullSegments.filter((item) => !ignoredRoutes.includes(item))
+  const baseOffset = locale.value === "en" ? 0 : 1
+
+  const activities = new Set([
+    "fellowships",
+    "projects",
+    "events",
+    "publications",
+  ])
+  const about = new Set(["institute", "scientific_policy", "network"])
+
+  let currentPathSegments = fullSegments.slice(0, baseOffset)
+
+  return segments.map((item) => {
+    const isActivities =
+      fullSegments[baseOffset] === "activities" && activities.has(item)
+
+    const isAbout = fullSegments[baseOffset] === "about" && about.has(item)
+
+    if (isActivities || isAbout) {
+      currentPathSegments = fullSegments.slice(0, baseOffset + 2)
+    } else {
+      currentPathSegments.push(item)
+    }
+
+    return {
+      title: item,
+      to: "/" + currentPathSegments.join("/") + "/",
+      disabled: false,
+      exact: true,
+    }
+  })
 })
 </script>
 

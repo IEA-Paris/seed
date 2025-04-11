@@ -1,5 +1,24 @@
 import config from "./static.config"
 
+// all routes with lists that could request to reset the store state
+/* const listRoutes = [
+  "/",
+  "/activities/events",
+  "/activities/projects",
+  "/activities/fellowships",
+  "/activities/publications",
+  "/about/scientific_policy",
+  "/about/network",
+  "/people",
+  "/news",
+].reduce((acc, route) => {
+  acc[route] = {
+  
+  }
+  return acc
+}, {})
+console.log("listRoutes: ", listRoutes) */
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   sourcemap: {
@@ -85,10 +104,11 @@ export default defineNuxtConfig({
       failOnError: false,
     },
   },
-  /*   plugins: [{ src: "~/plugins/flickity.js", ssr: false }], */
+  plugins: [
+    /* "~/plugins/buildFiltersValues.js" */
+  ],
   modules: [
     "@pinia/nuxt",
-    "@nuxt/content",
     /* "@nuxtjs/html-validator", */ // https://nuxt.com/modules/html-validator
     // Cross-Site Request Forgery (CSRF) prevention (https://nuxt.com/modules/csurf).
     "nuxt-csurf",
@@ -101,6 +121,7 @@ export default defineNuxtConfig({
     // https://github.com/nuxt-modules/robots
     "@nuxtjs/robots",
     //
+    "@nuxt/content",
     "@nuxtjs/google-fonts",
     "nuxt-link-checker",
     /*   "nuxt-schema-org", */
@@ -135,6 +156,7 @@ export default defineNuxtConfig({
   content: {
     // https://content.nuxtjs.org/api/configuration
     experimental: {
+      clientDB: true,
       search: {
         indexed: true,
       },
@@ -175,6 +197,9 @@ export default defineNuxtConfig({
     "/api/**": { isr: false },
   },
   i18n: {
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
     langDir: "../translations/",
     locales: config.lang.locales,
     defaultLocale: config.lang.default,
@@ -186,7 +211,17 @@ export default defineNuxtConfig({
       fallbackLocale: "en",
       useCookie: true,
       cookieKey: "i18n_redirected",
-    } /* 
+    },
+  },
+
+  // add resetState composable to all routes with lists
+  router: {
+    options: {
+      scrollBehaviorType: "smooth",
+    },
+  },
+
+  /* 
     customRoutes: "config",
     pages: {
    
@@ -195,9 +230,9 @@ export default defineNuxtConfig({
 
   pwa: {
     //https://vite-pwa-org.netlify.app/frameworks/nuxt.html
-    /* PWA options */,
+    /* PWA options 
   },
-
+*/
   robots: {
     // https://nuxt.com/modules/robots#options
   },
@@ -226,7 +261,7 @@ export default defineNuxtConfig({
       },
     },
   },
-
+  hooks: {},
   htmlValidator: {
     usePrettier: false,
     logLevel: "verbose",

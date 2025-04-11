@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <FellowshipsView :item="fellowships" :loading="loading" />
+  <v-container style="max-width: 1600px">
+    <FellowshipsView :item="fellowship" :loading="loading" />
   </v-container>
 </template>
 

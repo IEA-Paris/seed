@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <NuxtLoadingIndicator color="black" />
     <NavigationTopBar />
     <v-main>
       <NuxtLoadingIndicator color="black" />

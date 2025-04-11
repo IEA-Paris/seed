@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <PeopleListHeader v-if="route.query.categories"></PeopleListHeader>
+        <PeopleListHeader v-if="route.query.groups"></PeopleListHeader>
         <ListOrganismsList type="people"></ListOrganismsList>
       </v-col>
     </v-row>
@@ -10,8 +10,10 @@
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify"
-const { smAndUp } = useDisplay()
 const route = useRoute()
-const localePath = useLocalePath()
+const { $rootStore } = useNuxtApp()
+
+onBeforeUnmount(() => {
+  $rootStore.resetState()
+})
 </script>

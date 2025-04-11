@@ -24,6 +24,7 @@
 </template>
 <script setup>
 const { locale, locales } = useI18n()
+const localePath = useLocalePath()
 const availableLocales = computed(() => {
   return locales.value.filter((i) => i.code !== locale.value)
 })

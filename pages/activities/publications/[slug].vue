@@ -1,7 +1,7 @@
 <template>
-  <v-container>
-    <PublicationsView :item="publication" :loading="loading"
-  /></v-container>
+  <v-container style="max-width: 1600px">
+    <PublicationsView :item="publication" :loading="loading" />
+  </v-container>
 </template>
 
 <script setup>
