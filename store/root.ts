@@ -217,18 +217,15 @@ export const useRootStore = defineStore("rootStore", {
     loadRouteQuery(type: string) {
       const { currentRoute } = useRouter()
       const query = currentRoute.value.query
+      const filters = (this[type] as ModuleType).list.filters
+
       if (Object.keys(query)?.length) {
         Object.keys(query).forEach((filter) => {
-          if (
-            Object.keys((this[type] as ModuleType).list.filters).includes(
-              filter,
-            )
-          )
-            (this[type] as ModuleType).list.filters[filter].value = (
-              this[type] as ModuleType
-            ).list.filters[filter].multiple
+          if (filter in filters) {
+            filters[filter].value = filters[filter].multiple
               ? JSON.parse(query[filter] as string)
               : query[filter]
+          }
         })
         /*       if (query.view) {
         ;(this[type] as ModuleType).list.view = query.view as
@@ -262,31 +259,47 @@ export const useRootStore = defineStore("rootStore", {
       } */
       }
       console.log("query loaded")
+      this.setFiltersCount(type)
     },
 
-    setFiltersCount(type: string) {
-      let filtersCount = 0 as number
-      Object.keys((this[type] as ModuleType).list.filters)
-        // remove empty values
-        .forEach((filter) => {
-          /*console.log("filter: ", filter)  
-          console.log("filters[filter]?.value: ", filters[filter].value)
-          */ /*  console.log(
-            'typeof filters[filter]?.value !== "undefined": ',
-            typeof filters[filter]?.value !== "undefined",
-          ) */
-          if (
-            (this[type] as ModuleType).list.filters[filter]?.value?.length &&
-            typeof (this[type] as ModuleType).list.filters[filter]?.value !==
-              "undefined"
-          ) {
-            filtersCount++
-          }
-          return filtersCount
-        })
+    // setFiltersCount(type: string) {
+    //   let filtersCount = 0 as number
+    //   Object.keys((this[type] as ModuleType).list.filters)
+    //     // remove empty values
+    //     .forEach((filter) => {
+    //       /*console.log("filter: ", filter)
+    //       console.log("filters[filter]?.value: ", filters[filter].value)
+    //       */ /*  console.log(
+    //         'typeof filters[filter]?.value !== "undefined": ',
+    //         typeof filters[filter]?.value !== "undefined",
+    //       ) */
+    //       if (
+    //         (this[type] as ModuleType).list.filters[filter]?.value?.length &&
+    //         typeof (this[type] as ModuleType).list.filters[filter]?.value !==
+    //           "undefined"
+    //       ) {
+    //         filtersCount++
+    //       }
+    //       return filtersCount
+    //     })
 
-      console.log("filtersCount: ", filtersCount)
-      ;(this[type] as ModuleType).list.filtersCount = filtersCount
+    //   console.log("filtersCount: ", filtersCount)
+    //   ;(this[type] as ModuleType).list.filtersCount = filtersCount
+    // },
+
+    setFiltersCount(type: string) {
+      const filters = (this[type] as ModuleType)?.list?.filters ?? {}
+      const count = Object.values(filters).reduce((acc, filter) => {
+        const value = filter?.value
+        const isEmpty =
+          value === undefined ||
+          value === null ||
+          (Array.isArray(value) && value.length === 0) ||
+          (typeof value === "string" && value.trim() === "")
+
+        return isEmpty ? acc : acc + 1
+      }, 0)
+      ;(this[type] as ModuleType).list.filtersCount = count
     },
     setBlankFilterLoad(type: string) {
       ;(this[type] as ModuleType).loading = false
@@ -367,6 +380,7 @@ export const useRootStore = defineStore("rootStore", {
         const defaultSort = defaultModule.list.sort[defaultSortKey]
         this[type].list.sortBy = [defaultSort.value[0]]
         this[type].list.sortDesc = [defaultSort.value[1]]
+        this.setFiltersCount(type)
       }
     },
     updateSort({ value, type }: { value: number[] | string[]; type: string }) {
@@ -392,6 +406,9 @@ export const useRootStore = defineStore("rootStore", {
     updateFilter(key: string, val: any, type: string) {
       console.log("update filter: ", { key, val, type })
       ;(this[type] as ModuleType).list.filters[key].value = val
+
+      this.setFiltersCount(type)
+
       const router = useRouter()
 
       // Update the route query with the new filter
@@ -570,6 +587,21 @@ export const useRootStore = defineStore("rootStore", {
 
       this.setLoading(false)
       return true
+    },
+  },
+  getters: {
+    hasActiveFilters: (state) => {
+      return (type: string): boolean => {
+        const filters = (state[type] as ModuleType)?.list?.filters ?? {}
+        return Object.values(filters).some((f) => {
+          const value = f?.value
+          return Array.isArray(value)
+            ? value.length > 0
+            : typeof value === "string"
+              ? value.trim() !== ""
+              : !!value
+        })
+      }
     },
   },
 })

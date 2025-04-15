@@ -42,7 +42,13 @@
 
     <v-tooltip location="top" v-if="hasActiveFilters">
       <template v-slot:activator="{ props: tooltip }">
-        <v-btn icon flat class="ml-2" v-bind="tooltip" @click="restoreFilters">
+        <v-btn
+          icon
+          flat
+          class="ml-auto"
+          v-bind="tooltip"
+          @click="restoreFilters"
+        >
           <v-icon>mdi-restore</v-icon>
         </v-btn>
       </template>
@@ -83,9 +89,10 @@ const updateView = async (value) => {
   await rootStore.updateView({ value, type: props.type })
 }
 
-onMounted(() => {
-  // Add any logic needed on component mount
-})
+// onMounted(() => {
+//   rootStore.loadRouteQuery(props.type) // 👈 ça déclenche la restauration
+//   rootStore.update(props.type) // 👈 recharge les résultats avec les filtres restaurés
+// })
 
 const restoreFilters = () => {
   rootStore.resetState()
@@ -93,12 +100,7 @@ const restoreFilters = () => {
   rootStore.updateRouteQuery(props.type)
 }
 
-const hasActiveFilters = computed(() => {
-  const filters = rootStore[props.type]?.list?.filters ?? {}
-  return Object.values(filters).some((f) =>
-    Array.isArray(f?.value) ? f.value.length > 0 : !!f?.value,
-  )
-})
+const hasActiveFilters = computed(() => rootStore.hasActiveFilters(props.type))
 </script>
 
 <style lang="scss"></style>
