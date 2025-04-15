@@ -303,37 +303,37 @@ export const useRootStore = defineStore("rootStore", {
       // project
       // fellowships
     },
+
     updateRouteQuery(type: string) {
       const router = useRouter()
-      // update route
+
       const routeQuery: Record<string, string> = {
-        // Add search if it exists and is defined
         ...(this.search ? { search: this.search } : {}),
-
-        // Add page if it's greater than 1
         ...(this.page > 1 ? { page: this.page.toString() } : {}),
+        ...Object.entries(this[type].list.filters).reduce(
+          (acc, [key, filter]) => {
+            const value = filter?.value
 
-        // Add filters with defined values
-        ...Object.entries((this[type] as ModuleType).list.filters).reduce(
-          (acc, [filterKey, filter]) => {
-            if (!(this[type] as ModuleType).list.filters[filterKey]?.value) {
-              return acc
-            }
+            const isEmpty =
+              value === undefined ||
+              value === null ||
+              (Array.isArray(value) && value.length === 0) ||
+              (typeof value === "string" && value.trim() === "")
+
+            if (isEmpty) return acc
+
             return {
               ...acc,
-              ...{
-                [filterKey]: (this[type] as ModuleType).list.filters[filterKey]
-                  ?.value,
-              },
+              [key]: Array.isArray(value) ? JSON.stringify(value) : value,
             }
           },
-          {} as Record<string, string>,
+          {},
         ),
       }
+
       router.replace({ query: routeQuery })
     },
     resetState() {
-      console.log("resetState")
       this.search = ""
       this.page = 1
       this.scrolled = false
@@ -341,41 +341,33 @@ export const useRootStore = defineStore("rootStore", {
       this.total = 0
       this.skip = 0
       this.numberOfPages = 0
-      const modules = [
-        "events",
-        "news",
-        "people",
-        "projects",
-        "fellowships",
-        "publications",
-      ]
-      this.events.list.filters = events.list.filters
-      this.news.list.filters = news.list.filters
-      this.people.list.filters = people.list.filters
-      this.projects.list.filters = projects.list.filters
-      this.fellowships.list.filters = fellowships.list.filters
-      this.publications.list.filters = publications.list.filters
-      modules.forEach((type) => {
-        const viewsObj = (this[type] as ModuleType).list.views as Record<
-          string,
-          Views
-        >
-        const defaultViewsKey = Object.keys(viewsObj).find(
-          (item) => viewsObj[item].default === true,
-        )
-        const defaultView = viewsObj[defaultViewsKey as string]
 
-        const sortObj = (this[type] as ModuleType).list.sort
-        const defaultSortKey = Object.keys(sortObj).find(
-          (item) => sortObj[item].default === true,
+      const modules = {
+        events,
+        news,
+        people,
+        projects,
+        fellowships,
+        publications,
+      }
+
+      for (const [type, defaultModule] of Object.entries(modules)) {
+        this[type].list.filters = JSON.parse(
+          JSON.stringify(defaultModule.list.filters),
         )
-        const defaultSort = sortObj[defaultSortKey as string]
-        /* 
-        // TODO make dynamic based on an ~/assets located file
-        ;(this[type] as ModuleType).list.view = defaultView
-        ;(this[type] as ModuleType).list.sortBy = [defaultSort.value[0]]
-        ;(this[type] as ModuleType).list.sortDesc = [defaultSort.value[1]] */
-      })
+
+        const defaultViewKey = Object.keys(defaultModule.list.views).find(
+          (v) => defaultModule.list.views[v].default === true,
+        )
+        this[type].list.view = defaultModule.list.views[defaultViewKey]
+
+        const defaultSortKey = Object.keys(defaultModule.list.sort).find(
+          (s) => defaultModule.list.sort[s].default === true,
+        )
+        const defaultSort = defaultModule.list.sort[defaultSortKey]
+        this[type].list.sortBy = [defaultSort.value[0]]
+        this[type].list.sortDesc = [defaultSort.value[1]]
+      }
     },
     updateSort({ value, type }: { value: number[] | string[]; type: string }) {
       ;(this[type] as ModuleType).list.sortBy = [value[0]] as string[]
