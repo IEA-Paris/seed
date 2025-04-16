@@ -58,27 +58,18 @@ export const useRootStore = defineStore("rootStore", {
     projects,
     fellowships,
     publications,
-    activeFiltersStatus: {
-      events: false,
-      news: false,
-      people: false,
-      projects: false,
-      fellowships: false,
-      publications: false,
-    },
   }),
 
   actions: {
-    isModuleUsingFilters(type: string): boolean {
+    saveFiltersToLocalStorage(type: string) {
       const filters = (this[type] as ModuleType)?.list?.filters ?? {}
-      return Object.values(filters).some((f) => {
-        const value = f?.value
-        return Array.isArray(value)
-          ? value.length > 0
-          : typeof value === "string"
-            ? value.trim() !== ""
-            : !!value
-      })
+      const values = Object.fromEntries(
+        Object.entries(filters).map(([key, filter]) => [key, filter.value]),
+      )
+
+      const local = JSON.parse(localStorage.getItem("PARIS_IAS") || "{}")
+      local[`${type}_filters`] = values
+      localStorage.setItem("PARIS_IAS", JSON.stringify(local))
     },
     setLoading(value: boolean, type: string = "") {
       this.loading = value
@@ -281,6 +272,27 @@ export const useRootStore = defineStore("rootStore", {
       this.setFiltersCount(type)
     },
 
+    loadFiltersFromLocalStorage(type: string) {
+      const local = JSON.parse(localStorage.getItem("PARIS_IAS") || "{}")
+      const saved = local[`${type}_filters`] ?? null
+
+      if (!saved) {
+        console.log(`[${type}] Aucune donnée à restaurer.`)
+        return
+      }
+
+      const filters = (this[type] as ModuleType)?.list?.filters ?? {}
+      for (const [key, value] of Object.entries(saved)) {
+        if (filters[key]) {
+          filters[key].value = value
+        }
+      }
+
+      this.setFiltersCount(type)
+      this.updateRouteQuery(type)
+      console.log(`[${type}] Filtres restaurés depuis localStorage`, saved)
+    },
+
     setFiltersCount(type: string) {
       const filters = (this[type] as ModuleType)?.list?.filters ?? {}
       const count = Object.values(filters).reduce((acc, filter) => {
@@ -376,7 +388,7 @@ export const useRootStore = defineStore("rootStore", {
         this[type].list.sortDesc = [defaultSort.value[1]]
 
         this.setFiltersCount(type)
-        this.activeFiltersStatus[type] = this.isModuleUsingFilters(type)
+        this.saveFiltersToLocalStorage(type)
       }
     },
     updateSort({ value, type }: { value: number[] | string[]; type: string }) {
@@ -405,7 +417,7 @@ export const useRootStore = defineStore("rootStore", {
 
       this.setFiltersCount(type)
 
-      this.activeFiltersStatus[type] = this.isModuleUsingFilters(type)
+      this.saveFiltersToLocalStorage(type)
 
       const router = useRouter()
 

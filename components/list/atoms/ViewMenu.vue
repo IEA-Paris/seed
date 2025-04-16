@@ -86,11 +86,13 @@ const restoreFilters = () => {
   rootStore.updateRouteQuery(props.type)
 }
 
-const hasActiveFilters = computed(() =>
-  props.type && rootStore.activeFiltersStatus
-    ? rootStore.activeFiltersStatus[props.type] === true
-    : false,
+const hasActiveFilters = computed(
+  () => props.type && rootStore[props.type]?.list?.filtersCount > 0,
 )
+onMounted(() => {
+  rootStore.loadFiltersFromLocalStorage(props.type)
+  rootStore.update(props.type)
+})
 </script>
 
 <style lang="scss"></style>

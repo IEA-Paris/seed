@@ -89,6 +89,7 @@
     </v-col>
     <v-col cols="12" md="4">
       <MiscAtomsImageContainer
+        v-if="item && item.image && item.image.url"
         cover
         :slug="getSlugFromPath(item._path || '')"
         link="activities-events-slug"
