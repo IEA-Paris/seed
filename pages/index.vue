@@ -108,6 +108,12 @@
       </div>
     </section>
     <section class="d-flex flex-column justify-center align-center">
+      <ListOrganismsList
+        type="people"
+        customView="slider"
+        :headless="true"
+      ></ListOrganismsList>
+
       <v-container>
         <!--        <MiscAtomsSlidingCarousel
           :items="upcomingEvents"
