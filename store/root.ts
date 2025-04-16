@@ -333,9 +333,11 @@ export const useRootStore = defineStore("rootStore", {
           (acc, [key, filter]) => {
             const value = filter?.value
 
+            console.log("valueStore", value)
             const isEmpty =
               value === undefined ||
               value === null ||
+              value === false ||
               (Array.isArray(value) && value.length === 0) ||
               (typeof value === "string" && value.trim() === "")
 
@@ -419,18 +421,20 @@ export const useRootStore = defineStore("rootStore", {
 
       this.saveFiltersToLocalStorage(type)
 
-      const router = useRouter()
+      // const router = useRouter()
 
-      // Update the route query with the new filter
-      console.log(
-        "router.currentRoute.value.query: ",
-        router.currentRoute.value.query,
-      )
-      const query = {
-        ...router.currentRoute.value.query,
-        [key]: Array.isArray(val) ? JSON.stringify(val) : val,
-      }
-      router.push({ query })
+      // // Update the route query with the new filter
+      // console.log(
+      //   "router.currentRoute.value.query: ",
+      //   router.currentRoute.value.query,
+      // )
+      // const query = {
+      //   ...router.currentRoute.value.query,
+      //   [key]: Array.isArray(val) ? JSON.stringify(val) : val,
+      // }
+      // router.push({ query })
+
+      this.updateRouteQuery(type)
 
       this.page = 1
       this.update(type)
