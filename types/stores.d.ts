@@ -2,10 +2,6 @@ import { events } from "~/stores/factory" // This imports the type, not the valu
 
 declare module "#app" {
   interface NuxtApp {
-    $events: ReturnType<ReturnType<typeof createDynamicStore<"events">>>
-    $news: ReturnType<ReturnType<typeof createDynamicStore<"news">>>
-    // Add others as needed
-
     // Or if using the $stores namespace:
     $stores: {
       events: ReturnType<ReturnType<typeof createDynamicStore<"events">>>
@@ -22,7 +18,4 @@ declare module "#app" {
   }
 }
 
-// This provides global type support for your stores
-export const useEventsStore: ReturnType<typeof createDynamicStore<"events">>
-export const useNewsStore: ReturnType<typeof createDynamicStore<"news">>
 // Add others as needed

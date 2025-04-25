@@ -1666,11 +1666,12 @@
     ts-node "^10.9.2"
 
 "@paris-ias/list@^1.0.42":
-  version "1.0.52"
-  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.52.tgz#fee8eaf65e2c2145cbf3de7182cef756d20b795b"
-  integrity sha512-RfmuYwrFPorji1NSAKZUsKn6GgNfGztoUecGpjIrOynMwpFq0PddAwNcoP85D/0BDk4ISBFy8kfNXmrLDWGSTA==
+  version "1.0.62"
+  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.62.tgz#6283d6f421be003052974df5ed0dd52886606967"
+  integrity sha512-4xXt6x/dsHuhNs00m0O+9cRgzUnnMD66GsmHp/oPj8be9y+j8cC5kMnYlqRbIN7o6+4IeDfHNTwT1Usc60Z8cg==
   dependencies:
     "@nuxt/kit" "^3.16.2"
+    "@vue/apollo-composable" "^4.2.2"
 
 "@pinia/nuxt@^0.5.4":
   version "0.5.5"
@@ -2486,7 +2487,7 @@
     pathe "^2.0.2"
     picomatch "^4.0.2"
 
-"@vue/apollo-composable@^4.0.1":
+"@vue/apollo-composable@^4.0.1", "@vue/apollo-composable@^4.2.2":
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/@vue/apollo-composable/-/apollo-composable-4.2.2.tgz#96278e420daa6fe66d54d04efb90e52ef49b306a"
   integrity sha512-5j+Jl07Gemz5vmuS8u/FfWtYgr04Rh0rjQ5HBv6DZDP7d+pvQfsCIRgX5adJoZJcznJLsQ0JupO/mZmRCBWGaQ==
@@ -4666,9 +4667,9 @@ expect-type@^1.1.0:
   integrity sha512-80F22aiJ3GLyVnS/B3HzgR6RelZVumzj9jkL0Rhz4h0xYbNW9PjlQz5h3J/SShErbXBc295vseR4/MIbVmUbeA==
 
 exsolve@^1.0.1, exsolve@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/exsolve/-/exsolve-1.0.4.tgz#7de5c75af82ecd15998328fbf5f2295883be3a39"
-  integrity sha512-xsZH6PXaER4XoV+NiT7JHp1bJodJVT+cxeSH1G0f0tlT0lJqYuHUP3bUx2HtfTDvOagMINYp8rsqusxud3RXhw==
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/exsolve/-/exsolve-1.0.5.tgz#1f5b6b4fe82ad6b28a173ccb955a635d77859dcf"
+  integrity sha512-pz5dvkYYKQ1AHVrgOzBKWeP4u4FRb3a6DNK2ucr0OoNwYIU4QWsJ+NM36LLzORT+z845MzKHHhpXiUF5nvQoJg==
 
 extend@^3.0.0:
   version "3.0.2"
@@ -4743,10 +4744,15 @@ fastq@^1.6.0:
   dependencies:
     reusify "^1.0.4"
 
-fdir@^6.2.0, fdir@^6.4.3:
+fdir@^6.2.0:
   version "6.4.3"
   resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.4.3.tgz#011cdacf837eca9b811c89dbb902df714273db72"
   integrity sha512-PMXmW2y1hDDfTSRc9gaXIuCCRpuoz3Kaz8cUelp3smouvfT632ozg2vrT6lJsHKKOF59YLbOGfAWGUcKEfRMQw==
+
+fdir@^6.4.3, fdir@^6.4.4:
+  version "6.4.4"
+  resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.4.4.tgz#1cfcf86f875a883e19a8fab53622cfe992e8d2f9"
+  integrity sha512-1NZP+GK4GfuAv3PqKvxQRDMjdSRZjnkq7KfhlNrCNNlZ0ygQFpebfrnfnq/W7fpUnAv9aGWmY1zKx7FYL3gwhg==
 
 file-entry-cache@^6.0.1:
   version "6.0.1"
@@ -9145,12 +9151,20 @@ tinyexec@^0.3.1, tinyexec@^0.3.2:
   resolved "https://registry.yarnpkg.com/tinyexec/-/tinyexec-0.3.2.tgz#941794e657a85e496577995c6eef66f53f42b3d2"
   integrity sha512-KQQR9yN7R5+OSwaK0XQoj22pwHoTlgYqmUscPYoknOoWCWfj/5/ABTMRi69FrKU5ffPVh5QcFikpWJI/P1ocHA==
 
-tinyglobby@0.2.12, tinyglobby@^0.2.10, tinyglobby@^0.2.12:
+tinyglobby@0.2.12, tinyglobby@^0.2.10:
   version "0.2.12"
   resolved "https://registry.yarnpkg.com/tinyglobby/-/tinyglobby-0.2.12.tgz#ac941a42e0c5773bd0b5d08f32de82e74a1a61b5"
   integrity sha512-qkf4trmKSIiMTs/E63cxH+ojC2unam7rJ0WrauAzpT3ECNTxGRMlaXxVbfxMUC/w0LaYk6jQ4y/nGR9uBO3tww==
   dependencies:
     fdir "^6.4.3"
+    picomatch "^4.0.2"
+
+tinyglobby@^0.2.12:
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/tinyglobby/-/tinyglobby-0.2.13.tgz#a0e46515ce6cbcd65331537e57484af5a7b2ff7e"
+  integrity sha512-mEwzpUgrLySlveBwEVDMKk5B57bhLPYovRfPAXD5gA/98Opn0rCDj3GtLwFvCvH5RK9uPCExUROW5NjDwvqkxw==
+  dependencies:
+    fdir "^6.4.4"
     picomatch "^4.0.2"
 
 tinypool@^1.0.1:

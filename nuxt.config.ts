@@ -1,24 +1,5 @@
 import config from "./static.config"
 
-// all routes with lists that could request to reset the store state
-/* const listRoutes = [
-  "/",
-  "/activities/events",
-  "/activities/projects",
-  "/activities/fellowships",
-  "/activities/publications",
-  "/about/scientific_policy",
-  "/about/network",
-  "/people",
-  "/news",
-].reduce((acc, route) => {
-  acc[route] = {
-  
-  }
-  return acc
-}, {})
-console.log("listRoutes: ", listRoutes) */
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   sourcemap: {

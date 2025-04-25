@@ -108,11 +108,11 @@
       </div>
     </section>
     <section class="d-flex flex-column justify-center align-center">
-      <ListOrganismsList
+      <!--       <ListOrganismsList
         type="people"
         customView="slider"
         :headless="true"
-      ></ListOrganismsList>
+      ></ListOrganismsList> -->
 
       <v-container>
         <!--        <MiscAtomsSlidingCarousel
