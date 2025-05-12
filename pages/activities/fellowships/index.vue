@@ -4,10 +4,4 @@
   ></v-container>
 </template>
 
-<script setup>
-const { $rootStore } = useNuxtApp()
-
-onBeforeUnmount(() => {
-  $rootStore.resetState()
-})
-</script>
+<script setup></script>

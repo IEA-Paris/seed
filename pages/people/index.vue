@@ -11,9 +11,4 @@
 
 <script setup>
 const route = useRoute()
-const { $rootStore } = useNuxtApp()
-
-onBeforeUnmount(() => {
-  $rootStore.resetState()
-})
 </script>
