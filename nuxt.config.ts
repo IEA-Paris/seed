@@ -123,6 +123,7 @@ export default defineNuxtConfig({
       "projects",
       "fellowships",
       "publications",
+      "affiliations",
     ],
   },
 

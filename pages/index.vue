@@ -201,7 +201,7 @@ if (!upcomingEvents) {
 } */
 onMounted(() => {
   // init defaults from a possible previous session
-  $rootStore.setDefaults()
+  // $rootStore.setDefaults()
 })
 </script>
 <style lang="scss">
