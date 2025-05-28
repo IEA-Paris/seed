@@ -1,7 +1,7 @@
 <template>
   <v-app>
+    <NuxtLoadingIndicator />
     <v-main>
-      <NuxtLoadingIndicator />
       <NavigationTopBar />
       <v-container fluid class="pa-0"> <slot /> </v-container>
     </v-main>

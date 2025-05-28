@@ -2,9 +2,6 @@
   <div class="scroller">
     <section class="d-flex">
       <v-row class="align-center justify-center flex-column">
-        <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6 mb-md-12">
-          {{ $t("hosting-excellence") }}
-        </div>
         <v-sheet class="d-flex">
           <ContentDoc :path="presentation" />
         </v-sheet>

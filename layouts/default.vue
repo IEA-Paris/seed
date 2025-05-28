@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <NuxtLoadingIndicator color="black" />
     <NavigationTopBar />
     <v-main>
       <NuxtLoadingIndicator color="black" />
@@ -21,6 +20,7 @@
       ></v-progress-circular>
     </v-overlay>
   </v-app>
+  <NuxtLoadingIndicator color="black" />
 </template>
 
 <script setup></script>
