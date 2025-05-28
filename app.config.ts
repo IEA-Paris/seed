@@ -16,6 +16,12 @@ export default defineAppConfig({
       "projects",
       "fellowships",
       "publications",
+      // "affiliations",
+      // "actions",
+      // "disciplines",
+      // "files",
+      // "mailing",
+      // "tags",
     ],
   },
 })
