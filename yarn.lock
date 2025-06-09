@@ -1665,13 +1665,14 @@
   dependencies:
     ts-node "^10.9.2"
 
-"@paris-ias/list@^1.0.76":
-  version "1.0.76"
-  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.76.tgz#4470826db3e3b479f7aa01cf7a10a73b7583ba30"
-  integrity sha512-lPUcoZx6jJsD9Vql4vdb8mjRt9+BC8TLp3NWet0zWqXRonLCdh6u/QekytxQDsS9zXKLN5X+E0bQRGO0b3fnBQ==
+"@paris-ias/list@^1.0.86":
+  version "1.0.86"
+  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.86.tgz#db62e14d422ce940a29fbe875e591468877b357c"
+  integrity sha512-eMe77wyiFcX3H0MyZ8snZ7S80NttgIxgsQqg+d4339luH9j/XgHzRgijA0FgZFrzMe/OBF53R/zIR+4mmEbX9g==
   dependencies:
     "@nuxt/kit" "^3.16.2"
     "@vue/apollo-composable" "^4.2.2"
+    vuetify "3.8.0"
 
 "@pinia/nuxt@^0.5.4":
   version "0.5.5"
@@ -9982,6 +9983,11 @@ vue@^3.4, vue@^3.5.13:
     "@vue/runtime-dom" "3.5.13"
     "@vue/server-renderer" "3.5.13"
     "@vue/shared" "3.5.13"
+
+vuetify@3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-3.8.0.tgz#de5473f575d83f50f1e1d6030594fc6a650c4f30"
+  integrity sha512-ROC0Xq2G/25ZyUpQMhaynMyXZBJY1WbOGlqOB810yubp8hfY8RlrOw+mzXJonOq6jylCY32muQ9xiJF1JPTLVA==
 
 vuetify@3.8.1:
   version "3.8.1"

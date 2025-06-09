@@ -126,6 +126,8 @@
             {{ $t("upcoming-events") }}
           </div>
         </MiscAtomsSlidingCarousel> -->
+        <!--  <ListOrganismsSlider type="events" /> -->
+
         <div class="d-flex justify-center">
           <v-btn
             color="default"
@@ -151,7 +153,6 @@ definePageMeta({
   layout: "about",
 })
 const { $rootStore } = useNuxtApp()
-
 const { mdAndUp } = useDisplay()
 const localePath = useLocalePath()
 /* const goTo = useGoTo() */
@@ -182,15 +183,15 @@ const variables = {
   lang: locale.value,
 }
 
-/* const { data, error } = await useAsyncQuery(LIST_EVENTS, variables)
+/* const { data, error } = await useAsyncQuery($queries.events.list, variables)
 console.log("variables: ", variables)
-console.log("data: ", data) */
-/* 
+console.log("data: ", data)
+
 if (error.value) {
   console.error("GraphQL error:", error.value)
   throw error.value
-} */
-/* const upcomingEvents = data.value?.listEvents?.items
+}
+const upcomingEvents = data.value?.listEvents?.items
 console.log("upcomingEvents: ", upcomingEvents)
 
 if (!upcomingEvents) {

@@ -2,8 +2,9 @@
 title: institute description
 page: institute
 ---
-As a home for scientiﬁc life, the Paris IAS welcomes international researchers from a variety  of disciplines, facilitates their exchanges and supports their interactions with the Parisian scientiﬁc community  and the extra-academic world. 
+# Activating collective intelligence with the best of research
 
-Freed from the day-to-day obligations of university  life, these researchers carry out, individually or in groups, the scientiﬁc project of their choice, in a setting that encourages the development of new perspectives. In its annual selection, the IAS encourages research projects that address major world problems.
+The Paris Institute for Advanced Study is an international research institution with strong roots in the humanities and social sciences, and is a partner of the main higher education and research establishments in Paris and the surrounding area.
 
-Over the past ten years, the IAS has welcomed hundreds of researchers coming from more than 200 of the world's leading universities, and covering more than 40 nationalities, working in a wide variety of disciplines. These research stays have produced hundreds of scientific publications in the best presses and journals in the world. They lead to international collaborations and to the incoming mobility of excellent researchers to France. They also contribute to strengthening the integration of the Ile-de-France research community in networks of excellence and to making Paris a scientific capital that cannot be ignored in the global research ecosystem.
+
+It develops high-level international and innovative research and contributes to our understanding of the world and its transformation. With the aim of opening up research, the Institute also organises events bringing together academics, the general public, industrialists and political decision-makers to discuss current and future societal challenges.

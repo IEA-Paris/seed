@@ -48,80 +48,80 @@ $headings: (
     "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(96 / $fortnightly-font-size)}rem,
-    "weight": 900,
+    "weight": 900
   ),
   "h2": (
     "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(60 / $fortnightly-font-size)}rem,
-    "weight": 300,
+    "weight": 300
   ),
   "h3": (
     "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(48 / $fortnightly-font-size)}rem,
-    "weight": 900,
+    "weight": 900
   ),
   "h4": (
     "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(34 / $fortnightly-font-size)}rem,
-    "weight": 400,
+    "weight": 400
   ),
   "h5": (
     "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(24 / $fortnightly-font-size)}rem,
-    "weight": 400,
+    "weight": 400
   ),
   "h6": (
     "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(20 / $fortnightly-font-size)}rem,
-    "weight": 700,
+    "weight": 700
   ),
   "subtitle-1": (
     "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(16 / $fortnightly-font-size)}rem,
-    "weight": 500,
+    "weight": 500
   ),
   "subtitle-2": (
     "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(14 / $fortnightly-font-size)}rem,
-    "weight": 500,
+    "weight": 500
   ),
   "body-1": (
     "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(16 / $fortnightly-font-size)}rem,
-    "weight": 400,
+    "weight": 400
   ),
   "body-2": (
     "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(14 / $fortnightly-font-size)}rem,
-    "weight": 400,
+    "weight": 400
   ),
   "caption": (
     "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(12 / $fortnightly-font-size)}rem,
-    "weight": 400,
+    "weight": 400
   ),
   "overline": (
     "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(10 / $fortnightly-font-size)}rem,
-    "weight": 700,
-  ),
+    "weight": 700
+  )
 );
 $icon-outlined-border-width: 2px;
 $material-light: (
   "app-bar": #ffffff,
   "background": #ffffff,
-  "chips": #ffffff,
+  "chips": #ffffff
 );
 $stepper-elevation: 0;
 
@@ -257,11 +257,12 @@ $stepper-elevation: 0;
 // nuxt content styles
 h1 {
   font-weight: 600;
-  line-height: 2.6rem;
+  line-height: 3.3rem;
   font-size: 45px;
   padding-bottom: 0.4rem;
   margin-bottom: 1em;
   margin-top: 2rem;
+  max-width: 28ch;
 }
 
 h2,
@@ -326,7 +327,7 @@ ul {
 li {
 }
 .sliding-item-title {
-  color:black;
+  color: black;
   text-decoration: none;
 }
 .sliding-item:hover .sliding-item-title {
