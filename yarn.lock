@@ -1665,10 +1665,10 @@
   dependencies:
     ts-node "^10.9.2"
 
-"@paris-ias/list@^1.0.86":
-  version "1.0.86"
-  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.86.tgz#db62e14d422ce940a29fbe875e591468877b357c"
-  integrity sha512-eMe77wyiFcX3H0MyZ8snZ7S80NttgIxgsQqg+d4339luH9j/XgHzRgijA0FgZFrzMe/OBF53R/zIR+4mmEbX9g==
+"@paris-ias/list@^1.0.91":
+  version "1.0.91"
+  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.91.tgz#ee410041abc9daa864924a2f1243dc6397acace4"
+  integrity sha512-M5pnRnL495T/U/yhmnBEW5vP4/p6JCxEIrUWKeMXvgV8O9UJiDka+zIWoe+LuhXLo0yJwEuq1VYR8CZLE47Dtg==
   dependencies:
     "@nuxt/kit" "^3.16.2"
     "@vue/apollo-composable" "^4.2.2"

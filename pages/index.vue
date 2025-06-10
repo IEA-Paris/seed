@@ -115,7 +115,7 @@
       ></ListOrganismsList> -->
 
       <v-container>
-        <!--        <MiscAtomsSlidingCarousel
+        <MiscAtomsSlidingCarousel
           :items="upcomingEvents"
           key="events"
           ref="events"
@@ -125,7 +125,7 @@
           <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
             {{ $t("upcoming-events") }}
           </div>
-        </MiscAtomsSlidingCarousel> -->
+        </MiscAtomsSlidingCarousel>
         <!--  <ListOrganismsSlider type="events" /> -->
 
         <div class="d-flex justify-center">
@@ -152,7 +152,7 @@ import { useDisplay } from "vuetify"
 definePageMeta({
   layout: "about",
 })
-const { $rootStore } = useNuxtApp()
+const { $rootStore, $queries } = useNuxtApp()
 const { mdAndUp } = useDisplay()
 const localePath = useLocalePath()
 /* const goTo = useGoTo() */
@@ -176,14 +176,14 @@ const variables = {
     skip: 0,
     limit: 5,
     sortBy: ["start"],
-    sortDesc: true,
+    sortDesc: false,
     filters: JSON.stringify({}),
   },
   appId: "iea",
   lang: locale.value,
 }
 
-/* const { data, error } = await useAsyncQuery($queries.events.list, variables)
+const { data, error } = await useAsyncQuery($queries.events.list, variables)
 console.log("variables: ", variables)
 console.log("data: ", data)
 
@@ -199,7 +199,7 @@ if (!upcomingEvents) {
     statusCode: 404,
     message: "Item not found in response",
   })
-} */
+}
 onMounted(() => {
   // init defaults from a possible previous session
   // $rootStore.setDefaults()

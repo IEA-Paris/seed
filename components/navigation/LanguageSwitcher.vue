@@ -3,7 +3,11 @@
     <template v-slot:activator="{ props }">
       <v-btn v-bind="props" class="h-100" x-large>
         {{ $i18n.locale.toUpperCase() }}
-        <v-icon right>mdi-chevron-down</v-icon>
+        <v-icon right>{{
+          props["aria-expanded"] === "true"
+            ? "mdi-chevron-down"
+            : "mdi-chevron-up"
+        }}</v-icon>
       </v-btn>
     </template>
     <v-list>
