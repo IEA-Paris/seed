@@ -4,14 +4,14 @@
       <!-- <NavigationBreadcrumbs class="d-flex align-start"></NavigationBreadcrumbs> -->
       <v-row class="d-flex align-center justify-center">
         <v-col cols="4" v-if="smAndUp">
-          <v-card class="d-flex align-center justify-center">
+          <v-card class="d-flex">
             <v-img aspect-ratio="1/1" src="/images/Paulius_Yamin.jpg"></v-img
           ></v-card>
         </v-col>
         <v-col cols="12" sm="8">
-          <v-card class="d-flex align-center justify-center">
+          <div class="d-flex align-center justify-center">
             <ContentDoc :path="scientificPolicy" />
-          </v-card>
+          </div>
         </v-col>
         ></v-row
       >

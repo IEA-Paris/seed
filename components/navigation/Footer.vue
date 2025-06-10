@@ -2,8 +2,7 @@
   <section>
     <v-footer
       dark
-      color="black"
-      class="d-flex justify-center align-center"
+      class="d-flex justify-center align-center dark"
       :class="{ 'fill-height': isSnapScroll }"
       style="background-color: black"
     >
@@ -20,7 +19,7 @@
                   @click.native="$vuetify.goTo(0)"
                 >
                   <v-img
-                    src="/Logo_white.png"
+                    src="/logo_white.png"
                     contain
                     width="200"
                     class="my-6"
