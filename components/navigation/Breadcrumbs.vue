@@ -53,7 +53,7 @@ const crumbs = computed(() => {
     }
 
     return {
-      title: item,
+      title: item.replace(/-/g, " "),
       to: "/" + currentPathSegments.join("/") + "/",
       disabled: false,
       exact: true,
