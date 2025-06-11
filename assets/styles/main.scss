@@ -268,12 +268,13 @@ h1 {
 h2,
 h2 a {
   font-weight: 500;
-  line-height: 2.8rem;
-  font-size: 40px;
+  line-height: 3.8rem;
+  font-size: 60px;
   padding-bottom: 0.2rem;
   margin-bottom: 0.8em;
   margin-top: 2rem;
   color: black;
+  max-width: 25ch;
 }
 h2 a:hover,
 h3 a:hover {

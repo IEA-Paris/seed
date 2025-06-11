@@ -2,7 +2,7 @@
 title: institute description
 page: institute
 ---
-# Activating collective intelligence with the best of research
+## Activating collective intelligence with the best of research
 
 The Paris Institute for Advanced Study is an international research institution with strong roots in the humanities and social sciences, and is a partner of the main higher education and research establishments in Paris and the surrounding area.
 
