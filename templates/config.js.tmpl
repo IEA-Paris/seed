@@ -4,8 +4,8 @@ export default {
     'Public initiative to publish and share in one single place the list of all research initiatives and surveys about the current pandemic of Covid-19 coronavirus. (TEST)',
   shortDescription:
     'Public initiative to publish and share in one single place the list of all research initiatives and surveys about the current pandemic of Covid-19 coronavirus. (TEST)',
-  graphqlEndpoint: '{{ (ds "ssm" "/apex-repo/api/endpoint" ).Value }}',
-  graphqlApiKey: '{{ (ds "ssm" "/apex-repo/api/key" ).Value }}',
+  graphqlEndpoint: '{{ (ds "ssm" "website/api/endpoint" ).Value }}',
+  graphqlApiKey: '{{ (ds "ssm" "website/api/key" ).Value }}',
   url: 'https://wprn.org',
   font: {
     family: 'map[body:Open Sans title:Poiret One:100, 300, 400, 500, 700, 900]',
