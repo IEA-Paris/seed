@@ -3,12 +3,8 @@
     <section>
       <v-container>
         <v-row class="d-flex align-center justify-center flex-column">
-          <v-col cols="12">
-            <v-row no-gutters>
-              <v-col cols="12" sm="10" md="8">
-                <ContentDoc :path="network" />
-              </v-col>
-            </v-row>
+          <v-col cols="12" sm="10" md="6">
+            <ContentDoc :path="network" />
           </v-col> </v-row
       ></v-container>
     </section>
