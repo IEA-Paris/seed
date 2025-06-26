@@ -100,7 +100,7 @@
           color="default"
           icon
           flat
-          @click="events?.$el.scrollIntoView({ behavior: 'smooth' })"
+          @click="scrollToEvents"
           variant="outlined"
         >
           <v-icon>mdi-chevron-down</v-icon>
@@ -115,25 +115,26 @@
       ></ListOrganismsList> -->
 
       <v-container>
-        <MiscAtomsSlidingCarousel
-          :items="upcomingEvents"
-          key="events"
-          ref="events"
-          type="events"
-          :loading="false"
-        >
-          <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
-            {{ $t("upcoming-events") }}
-          </div>
-        </MiscAtomsSlidingCarousel>
+        <div ref="eventsScrollAnchor">
+          <MiscAtomsSlidingCarousel
+            :items="upcomingEvents"
+            key="events"
+            type="events"
+            :loading="false"
+          >
+            <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
+              {{ $t("upcoming-events") }}
+            </div>
+          </MiscAtomsSlidingCarousel>
+        </div>
         <!--  <ListOrganismsSlider type="events" /> -->
 
-        <div class="d-flex justify-center">
+        <div ref="numbersScrollAnchor" class="d-flex justify-center">
           <v-btn
             color="default"
             icon
             flat
-            @click="numbers?.$el.scrollIntoView({ behavior: 'smooth' })"
+            @click="scrollToNumbers"
             class="justify-self-center"
             variant="outlined"
           >
@@ -162,8 +163,19 @@ const presentation = ref("/pages/" + locale.value + "/institute_presentation")
 const carousel = ref(true)
 
 const about = ref(null)
-const events = ref(null)
-const numbers = ref(null)
+// const events = ref(null)
+// const numbers = ref(null)
+
+const eventsScrollAnchor = ref(null)
+const numbersScrollAnchor = ref(null)
+
+function scrollToEvents() {
+  eventsScrollAnchor.value?.scrollIntoView({ behavior: "smooth" })
+}
+
+function scrollToNumbers() {
+  numbersScrollAnchor.value?.scrollIntoView({ behavior: "smooth" })
+}
 
 const today = new Date()
 /* const academicYear = ref(

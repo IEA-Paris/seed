@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "build": "yarn template && nuxt build --host",
-    "dev": "yarn template && nuxt dev --host",
+    "dev": "yarn template && nuxt dev --host --port 3001",
     "generate": "yarn template && nuxt generate --host",
     "preview": "yarn template && nuxt preview",
     "deploy:infra": "cd ./infra && terraform init && terraform apply",
