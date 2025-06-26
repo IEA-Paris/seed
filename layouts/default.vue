@@ -9,16 +9,7 @@
       </v-container>
       <NavigationFooter />
     </v-main>
-    <v-overlay
-      :model-value="$rootStore.loading"
-      class="align-center justify-center"
-    >
-      <v-progress-circular
-        color="black"
-        size="64"
-        indeterminate
-      ></v-progress-circular>
-    </v-overlay>
+    <NavigationLoader v-if="$rootStore.loading" :active="$rootStore.loading" />
   </v-app>
   <NuxtLoadingIndicator color="black" />
 </template>
