@@ -1,8 +1,8 @@
 <template>
   <v-app>
+    <NuxtLoadingIndicator color="black" />
     <NavigationTopBar />
     <v-main>
-      <NuxtLoadingIndicator color="black" />
       <NavigationBreadcrumbs></NavigationBreadcrumbs>
       <v-container class="main-container">
         <slot />

@@ -68,7 +68,12 @@
     </SwiperSlide>
   </Swiper>
   <div class="d-flex justify-end mt-12" v-if="more">
-    <v-btn class="ml-auto" variant="flat">{{ $t(type + ".see-more") }}</v-btn>
+    <v-btn
+      class="ml-auto"
+      variant="flat"
+      :to="localePath('/activities/events')"
+      >{{ $t(type + ".see-more") }}</v-btn
+    >
   </div>
 </template>
 
@@ -80,6 +85,7 @@ TODO: make it similar to radcliffe :
 - Add a slide-in from right animation when the items are entering viewport
 */
 import { useDisplay } from "vuetify"
+const localePath = useLocalePath()
 const { locale } = useI18n()
 const { name, mdAndUp } = useDisplay()
 const model = ref(0)
