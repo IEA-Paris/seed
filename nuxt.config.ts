@@ -113,7 +113,7 @@ export default defineNuxtConfig({
     "@nuxt/test-utils/module",
     /*     "@nuxtjs/html-validator", */
     "@stefanobartoletti/nuxt-social-share",
-    "@paris-ias/list",
+    "./modules/list/src/module",
   ],
   list: {
     modules: [
