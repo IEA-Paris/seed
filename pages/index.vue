@@ -6,10 +6,11 @@
 
     <section class="d-flex flex-column justify-center dark">
       <v-container fluid>
-        <v-row class="d-flex justify-center" ref="about">
+        <v-row class="d-flex justify-center" ref="about" :key="locale">
           <v-col cols="12" md="6" class="d-flex justify-end my-6">
             <div
               v-motion
+              :key="animationText"
               :initial="{
                 opacity: 0,
                 x: -100,
@@ -33,6 +34,7 @@
           <v-col cols="12" md="6" class="my-6 d-flex align-end">
             <div
               v-motion
+              :key="locale"
               :initial="{
                 opacity: 0,
                 x: 100,
@@ -61,7 +63,13 @@
                 :loading="false"
                 class="mb-6 light"
               ></ListAtomsSearchInput>
-              <v-btn-toggle tile variant="outlined" divided theme="dark">
+              <v-btn-toggle
+                tile
+                variant="outlined"
+                divided
+                theme="dark"
+                :key="locale"
+              >
                 <v-btn :to="localePath('activities-events')">{{
                   $t("items.events", 2)
                 }}</v-btn>
@@ -157,7 +165,7 @@ const { $rootStore, $queries } = useNuxtApp()
 const { mdAndUp } = useDisplay()
 const localePath = useLocalePath()
 /* const goTo = useGoTo() */
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const presentation = ref("/pages/" + locale.value + "/institute_presentation")
 
 const carousel = ref(true)
@@ -183,6 +191,8 @@ const today = new Date()
     ? today.getFullYear() + "-" + (today.getFullYear() + 1)
     : today.getFullYear() - 1 + "-" + today.getFullYear(),
 ) */
+
+const animationText = computed(() => `text-${locale.value}`)
 
 const variables = computed(() => ({
   options: {
