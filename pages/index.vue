@@ -196,7 +196,10 @@ const variables = computed(() => ({
   lang: locale.value,
 }))
 
-const { data, error } = await useAsyncQuery($queries.events.list, variables)
+const { data, error, refresh } = await useAsyncQuery(
+  $queries.events.list,
+  variables,
+)
 console.log("variables: ", variables)
 console.log("data: ", data.value)
 
