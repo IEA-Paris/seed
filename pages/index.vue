@@ -168,7 +168,7 @@ const about = ref(null)
 
 const eventsScrollAnchor = ref(null)
 const numbersScrollAnchor = ref(null)
-
+let upcomingEvents = ref([])
 function scrollToEvents() {
   eventsScrollAnchor.value?.scrollIntoView({ behavior: "smooth" })
 }
@@ -183,10 +183,19 @@ const today = new Date()
     ? today.getFullYear() + "-" + (today.getFullYear() + 1)
     : today.getFullYear() - 1 + "-" + today.getFullYear(),
 ) */
+
+/* if (!upcomingEvents) {
+  throw createError({
+    statusCode: 404,
+    message: "Item not found in response",
+  })
+} */
+// init defaults from a possible previous session
+// $rootStore.setDefaults()
 const variables = {
   options: {
     skip: 0,
-    limit: 5,
+    limit: 8,
     sortBy: ["start"],
     sortDesc: false,
     filters: JSON.stringify({}),
@@ -200,21 +209,9 @@ console.log("variables: ", variables)
 console.log("data: ", data.value)
 
 if (error.value) {
-  console.error("GraphQL error:", error.value)
-  throw error.value
+  console.log("GraphQL error:", error.value)
 }
-const upcomingEvents = data.value?.listEvents?.items || []
-
-/* if (!upcomingEvents) {
-  throw createError({
-    statusCode: 404,
-    message: "Item not found in response",
-  })
-} */
-onMounted(() => {
-  // init defaults from a possible previous session
-  // $rootStore.setDefaults()
-})
+upcomingEvents = data.value?.listEvents?.items || []
 </script>
 <style lang="scss">
 .presentation-pitch p {
