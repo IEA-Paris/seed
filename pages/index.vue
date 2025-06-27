@@ -187,7 +187,7 @@ const today = new Date()
 const variables = computed(() => ({
   options: {
     skip: 0,
-    limit: 5,
+    limit: 8,
     sortBy: ["start"],
     sortDesc: false,
     filters: JSON.stringify({}),
@@ -201,8 +201,7 @@ console.log("variables: ", variables)
 console.log("data: ", data.value)
 
 if (error.value) {
-  console.error("GraphQL error:", error.value)
-  throw error.value
+  console.log("GraphQL error:", error.value)
 }
 const upcomingEvents = computed(() => data.value?.listEvents?.items || [])
 
