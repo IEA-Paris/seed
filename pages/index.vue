@@ -197,21 +197,20 @@ const variables = {
 
 const { data, error } = await useAsyncQuery($queries.events.list, variables)
 console.log("variables: ", variables)
-console.log("data: ", data)
+console.log("data: ", data.value)
 
 if (error.value) {
   console.error("GraphQL error:", error.value)
   throw error.value
 }
-const upcomingEvents = data.value?.listEvents?.items
-console.log("upcomingEvents: ", upcomingEvents)
+const upcomingEvents = data.value?.listEvents?.items || []
 
-if (!upcomingEvents) {
+/* if (!upcomingEvents) {
   throw createError({
     statusCode: 404,
     message: "Item not found in response",
   })
-}
+} */
 onMounted(() => {
   // init defaults from a possible previous session
   // $rootStore.setDefaults()

@@ -155,7 +155,13 @@
           class="mt-3 flex-grow-0 flex-shrink-1"
         >
           <v-col cols="12" align="center" class="mt-3">
-            <v-btn variant="text" size="small" nuxt dark>
+            <v-btn
+              variant="text"
+              size="small"
+              nuxt
+              dark
+              :to="localePath('/support_us')"
+            >
               <!-- TODO add raw licence file url on github -->
               &copy; {{ new Date().getFullYear() }} {{ $t("paris-ias") }}</v-btn
             >

@@ -9,6 +9,7 @@
     "build": "yarn template && nuxt build --host",
     "dev": "yarn template && nuxt dev --host --port 3001",
     "generate": "yarn template && nuxt generate --host",
+    "mock": "yarn generate && yarn run nuxt start",
     "preview": "yarn template && nuxt preview",
     "deploy:infra": "cd ./infra && terraform init && terraform apply",
     "template": "yarn is-windows && yarn template:windows || yarn template:unix ",
@@ -24,14 +25,17 @@
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/robots": "^4.1.7",
     "@paris-ias/data": "^1.8.24",
+<<<<<<< HEAD
     "@paris-ias/list": "^1.0.97",
+=======
+    "@paris-ias/list": "^1.0.99",
+>>>>>>> 181abcdc70becfde5ba6e39b8c6ebc77edda23f5
     "@pinia/nuxt": "^0.5.4",
     "@vueuse/components": "^11.0.1",
     "@vueuse/core": "^11.0.3",
     "@vueuse/motion": "^2.2.5",
     "graphql-tag": "^2.12.6",
     "nuxt": "^3.13.2",
-    "nuxt-csurf": "^1.5.2",
     "nuxt-swiper": "^1.2.2",
     "sass": "^1.77.5",
     "string-width": "7.2.0",

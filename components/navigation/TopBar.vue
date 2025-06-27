@@ -28,7 +28,11 @@
         <template v-for="(link, index) in config.sitemap.main" :key="index">
           <v-menu :open-on-hover="link.openOnHover" v-if="link.dropdown">
             <template v-slot:activator="{ props }">
-              <v-btn exact variant="flat" v-bind="props" class="h-100"
+              <v-btn
+                variant="flat"
+                v-bind="props"
+                class="h-100"
+                :class="{ 'v-btn--active': isDropdownActive(link) }"
                 >{{ $t(link.text) }}
                 <v-icon size="x-large" right>{{
                   props["aria-expanded"] === "true"
@@ -72,5 +76,16 @@ import { useDisplay } from "vuetify"
 const config = useAppConfig()
 const localePath = useLocalePath()
 const router = useRouter()
+const route = useRoute()
 const { smAndUp, mdAndUp } = useDisplay()
+
+// Function to check if current route is a child of a dropdown menu
+const isDropdownActive = (link) => {
+  if (!link.dropdown || !link.children) return false
+
+  return link.children.some((child) => {
+    const childPath = localePath(child.path)
+    return route.fullPath === childPath
+  })
+}
 </script>

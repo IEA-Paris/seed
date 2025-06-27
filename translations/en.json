@@ -61,5 +61,6 @@
   "scientific_policy": "Scientific policy",
   "meet-our-network": "Meet our network",
   "become-a-patron": "Become a patron",
-  "browse": "Browse"
+  "browse": "Browse",
+  "from-starttime-to-stoptime": "From {0}h to {1}h"
 }
