@@ -6,16 +6,16 @@
           {{ $t("list.filters.people.groups." + route.query.groups, 2) }}
         </div>
         <div v-show="$stores.people.filters.category === 'fellows'">
-          <MDC :path="fellows" />
+          <ContentDoc :path="fellows" />
         </div>
         <div v-show="$stores.people.filters.category === 'sab'">
-          <MDC :path="sab" />
+          <ContentDoc :path="sab" />
         </div>
         <div v-show="$stores.people.filters.category === 'team'">
-          <MDC :path="team" />
+          <ContentDoc :path="team" />
         </div>
         <div v-show="$stores.people.filters.category === 'board'">
-          <MDC :path="board" />
+          <ContentDoc :path="board" />
         </div>
       </div>
     </v-card>
@@ -24,11 +24,17 @@
 
 <script setup>
 const route = useRoute()
-const { $stores } = useNuxtApp()
 const i18n = useI18n()
 const localePath = useLocalePath()
 import { useDisplay } from "vuetify"
 const { name, mdAndUp } = useDisplay()
+import { ref, useI18n } from "#imports"
+
+const { locale } = useI18n()
+const fellows = ref("/pages/" + locale.value + "/people_fellows")
+const board = ref("/pages/" + locale.value + "/people_board-of-directors")
+const sab = ref("/pages/" + locale.value + "/people_scientific-advisory-board")
+const team = ref("/pages/" + locale.value + "/people_team")
 </script>
 
 <style lang="scss" scoped></style>
