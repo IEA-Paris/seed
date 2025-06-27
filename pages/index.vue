@@ -183,7 +183,8 @@ const today = new Date()
     ? today.getFullYear() + "-" + (today.getFullYear() + 1)
     : today.getFullYear() - 1 + "-" + today.getFullYear(),
 ) */
-const variables = {
+
+const variables = computed(() => ({
   options: {
     skip: 0,
     limit: 5,
@@ -193,7 +194,7 @@ const variables = {
   },
   appId: "iea",
   lang: locale.value,
-}
+}))
 
 const { data, error } = await useAsyncQuery($queries.events.list, variables)
 console.log("variables: ", variables)
@@ -203,7 +204,11 @@ if (error.value) {
   console.error("GraphQL error:", error.value)
   throw error.value
 }
-const upcomingEvents = data.value?.listEvents?.items || []
+const upcomingEvents = computed(() => data.value?.listEvents?.items || [])
+
+watch(locale, () => {
+  refresh()
+})
 
 /* if (!upcomingEvents) {
   throw createError({
