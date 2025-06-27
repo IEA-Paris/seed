@@ -28,10 +28,10 @@
               size="x-large"
               variant="flat"
               @click="dialog = false"
-style="width:92px; height:64px"
-class="d-flex align-center justify-center pt-6 pr-12"
+              style="width: 92px; height: 64px"
+              class="d-flex align-center justify-center pt-6 pr-12"
             >
-            <v-icon>mdi-close</v-icon>
+              <v-icon>mdi-close</v-icon>
             </v-btn>
           </div>
         </div>

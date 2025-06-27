@@ -11,7 +11,6 @@
     </v-main>
     <NavigationLoader v-if="$rootStore.loading" :active="$rootStore.loading" />
   </v-app>
-  <NuxtLoadingIndicator color="black" />
 </template>
 
 <script setup></script>
