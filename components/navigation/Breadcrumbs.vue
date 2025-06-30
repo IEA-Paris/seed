@@ -35,6 +35,7 @@ const crumbs = computed(() => {
     "projects",
     "events",
     "publications",
+    "news",
   ])
   const about = new Set(["institute", "scientific_policy", "network"])
 
