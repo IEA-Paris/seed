@@ -4,7 +4,7 @@
     >ext</v-btn
   > -->
 
-    <section class="d-flex flex-column justify-center dark">
+    <section class="d-flex flex-column justify-center">
       <v-container fluid>
         <v-row class="d-flex justify-center" ref="about" :key="locale">
           <v-col cols="12" md="6" class="d-flex justify-end my-6">
@@ -63,26 +63,6 @@
                 :loading="false"
                 class="mb-6 light"
               ></ListAtomsSearchInput>
-              <v-btn-toggle
-                tile
-                variant="outlined"
-                divided
-                theme="dark"
-                :key="locale"
-              >
-                <v-btn :to="localePath('activities-events')">{{
-                  $t("items.events", 2)
-                }}</v-btn>
-                <v-btn :href="localePath('/people?groups=fellows')">{{
-                  $t("fellows")
-                }}</v-btn>
-                <v-btn :href="localePath('activities-projects')">{{
-                  $t("items.projects", 2)
-                }}</v-btn>
-                <v-btn :href="localePath('activities-publications')">{{
-                  $t("items.publications")
-                }}</v-btn>
-              </v-btn-toggle>
             </div>
           </v-col>
         </v-row>
@@ -108,51 +88,16 @@
           color="default"
           icon
           flat
-          @click="scrollToEvents"
+          @click="scrollToFooter"
           variant="outlined"
         >
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </div>
     </section>
-    <section class="d-flex flex-column justify-center align-center">
-      <!--       <ListOrganismsList
-        type="people"
-        customView="slider"
-        :headless="true"
-      ></ListOrganismsList> -->
-
-      <v-container>
-        <div ref="eventsScrollAnchor">
-          <MiscAtomsSlidingCarousel
-            :items="upcomingEvents"
-            key="events"
-            type="events"
-            :loading="false"
-          >
-            <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
-              {{ $t("upcoming-events") }}
-            </div>
-          </MiscAtomsSlidingCarousel>
-        </div>
-        <!--  <ListOrganismsSlider type="events" /> -->
-
-        <div ref="numbersScrollAnchor" class="d-flex justify-center">
-          <v-btn
-            color="default"
-            icon
-            flat
-            @click="scrollToNumbers"
-            class="justify-self-center"
-            variant="outlined"
-          >
-            <v-icon>mdi-chevron-down</v-icon>
-          </v-btn>
-        </div>
-      </v-container>
-    </section>
-
-    <NavigationFooter isSnapScroll />
+    <div ref="footerScrollAnchor">
+      <NavigationFooter isSnapScroll />
+    </div>
   </div>
 </template>
 
@@ -165,24 +110,19 @@ const { $rootStore, $queries } = useNuxtApp()
 const { mdAndUp } = useDisplay()
 const localePath = useLocalePath()
 /* const goTo = useGoTo() */
-const { locale, t } = useI18n()
-const presentation = ref("/pages/" + locale.value + "/institute_presentation")
+const { locale } = useI18n()
+/* const presentation = ref("/pages/" + locale.value + "/institute_presentation") 
 
-const carousel = ref(true)
+const carousel = ref(true)*/
 
-const about = ref(null)
+/* const about = ref(null) */
 // const events = ref(null)
 // const numbers = ref(null)
 
-const eventsScrollAnchor = ref(null)
-const numbersScrollAnchor = ref(null)
+const footerScrollAnchor = ref(null)
 
-function scrollToEvents() {
-  eventsScrollAnchor.value?.scrollIntoView({ behavior: "smooth" })
-}
-
-function scrollToNumbers() {
-  numbersScrollAnchor.value?.scrollIntoView({ behavior: "smooth" })
+function scrollToFooter() {
+  footerScrollAnchor.value?.scrollIntoView({ behavior: "smooth" })
 }
 
 const today = new Date()

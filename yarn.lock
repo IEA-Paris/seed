@@ -1801,10 +1801,10 @@
   dependencies:
     ts-node "^10.9.2"
 
-"@paris-ias/list@^1.0.105":
-  version "1.0.105"
-  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.105.tgz#0e1d569f34a9870ee0f8dbf13be5c01ba4177b59"
-  integrity sha512-aoEHJlnBDCbiFmmggYccLkflQ4O1zxjmKMMUUsNKW3FLSHCLQKa00M7FOctr2kTHJv01/A2l/B8MDPOlDisuKA==
+"@paris-ias/list@^1.0.106":
+  version "1.0.106"
+  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.106.tgz#d12d783dd65087b4f9f20c7deb417591f7b6373f"
+  integrity sha512-h+mafj73B5TL5IxNRBc9Bb1C086QgEOMozgCiEA2Qa2mz/2ghobZlRsKCcbmN7458eJUkD7se6YGuBgosWALkQ==
   dependencies:
     "@nuxt/kit" "^3.16.2"
     "@vue/apollo-composable" "^4.2.2"
