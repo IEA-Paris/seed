@@ -33,7 +33,7 @@
                 v-bind="props"
                 class="h-100"
                 :class="{ 'v-btn--active': isDropdownActive(link) }"
-                >{{ $t(link.text) }}
+                >{{ $t(link.text, 2) }}
                 <v-icon size="x-large" right>{{
                   props["aria-expanded"] === "true"
                     ? "mdi-chevron-down"
@@ -48,7 +48,9 @@
                 v-for="(child, index) in link.children"
                 :key="index"
               >
-                <v-list-item-title>{{ $t(child.text) }}</v-list-item-title>
+                <v-list-item-title>{{
+                  capitalize($t(child.text, 2))
+                }}</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
@@ -58,7 +60,7 @@
             exact
             class="h-100"
             v-else
-            >{{ $t(link.text) }}
+            >{{ capitalize($t(link.text, 2)) }}
           </v-btn>
         </template>
         <v-divider vertical></v-divider>
