@@ -50,7 +50,7 @@
               }"
               id="presentation"
               class="presentation-pitch f-flex justify-end align-end"
-              style="max-width: 600px"
+              style="max-width: 600px; min-width: 30vw"
             >
               <!--     <v-img
                 src="/logo_b&w.svg"
@@ -106,7 +106,7 @@ import { useDisplay } from "vuetify"
 definePageMeta({
   layout: "about",
 })
-const { $rootStore, $queries } = useNuxtApp()
+const { $rootStore, $queries, $router } = useNuxtApp()
 const { mdAndUp } = useDisplay()
 const localePath = useLocalePath()
 /* const goTo = useGoTo() */
@@ -131,7 +131,7 @@ const today = new Date()
     ? today.getFullYear() + "-" + (today.getFullYear() + 1)
     : today.getFullYear() - 1 + "-" + today.getFullYear(),
 ) */
-
+/* 
 const animationText = computed(() => `text-${locale.value}`)
 
 const variables = computed(() => ({
@@ -157,7 +157,7 @@ if (error.value) {
   console.log("GraphQL error:", error.value)
 }
 const upcomingEvents = computed(() => data.value?.listEvents?.items || [])
-
+ */
 watch(locale, () => {
   refresh()
 })

@@ -62,5 +62,7 @@
   "meet-our-network": "Meet our network",
   "become-a-patron": "Become a patron",
   "browse": "Browse",
-  "from-starttime-to-stoptime": "From {0}h to {1}h"
+  "from-starttime-to-stoptime": "From {0}h to {1}h",
+  "click-here-to-search": "Click here to search",
+  "filter-by-type": "Filter by type"
 }
