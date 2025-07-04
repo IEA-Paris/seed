@@ -131,9 +131,9 @@ const today = new Date()
     ? today.getFullYear() + "-" + (today.getFullYear() + 1)
     : today.getFullYear() - 1 + "-" + today.getFullYear(),
 ) */
-/* 
-const animationText = computed(() => `text-${locale.value}`)
 
+const animationText = computed(() => `text-${locale.value}`)
+/* 
 const variables = computed(() => ({
   options: {
     skip: 0,
