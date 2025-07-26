@@ -84,7 +84,10 @@ jobs:
           EOF
 
       - name: "Terraform Apply"
-        run: cd ./infra && terraform init && terraform apply -var="env=${{ env.ENV }}" -auto-approve
+        run: |
+          cd ./infra
+          terraform init -backend-config="backend-${{ env.ENV }}.hcl"
+          terraform apply -var="env=${{ env.ENV }}" -auto-approve
 
   frontend:
     needs: [infra]
