@@ -108,3 +108,5 @@ assets/generated
 
 #templated
 static.config.ts
+
+modules/list

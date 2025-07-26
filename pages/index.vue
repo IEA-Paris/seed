@@ -4,12 +4,13 @@
     >ext</v-btn
   > -->
 
-    <section class="d-flex flex-column justify-center dark">
+    <section class="d-flex flex-column justify-center">
       <v-container fluid>
-        <v-row class="d-flex justify-center" ref="about">
+        <v-row class="d-flex justify-center" ref="about" :key="locale">
           <v-col cols="12" md="6" class="d-flex justify-end my-6">
             <div
               v-motion
+              :key="animationText"
               :initial="{
                 opacity: 0,
                 x: -100,
@@ -33,6 +34,7 @@
           <v-col cols="12" md="6" class="my-6 d-flex align-end">
             <div
               v-motion
+              :key="locale"
               :initial="{
                 opacity: 0,
                 x: 100,
@@ -48,7 +50,7 @@
               }"
               id="presentation"
               class="presentation-pitch f-flex justify-end align-end"
-              style="max-width: 600px"
+              style="max-width: 600px; min-width: 30vw"
             >
               <!--     <v-img
                 src="/logo_b&w.svg"
@@ -61,20 +63,6 @@
                 :loading="false"
                 class="mb-6 light"
               ></ListAtomsSearchInput>
-              <v-btn-toggle tile variant="outlined" divided theme="dark">
-                <v-btn :to="localePath('activities-events')">{{
-                  $t("items.events", 2)
-                }}</v-btn>
-                <v-btn :href="localePath('/people?groups=fellows')">{{
-                  $t("fellows")
-                }}</v-btn>
-                <v-btn :href="localePath('activities-projects')">{{
-                  $t("items.projects", 2)
-                }}</v-btn>
-                <v-btn :href="localePath('activities-publications')">{{
-                  $t("items.publications")
-                }}</v-btn>
-              </v-btn-toggle>
             </div>
           </v-col>
         </v-row>
@@ -100,51 +88,16 @@
           color="default"
           icon
           flat
-          @click="scrollToEvents"
+          @click="scrollToFooter"
           variant="outlined"
         >
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </div>
     </section>
-    <section class="d-flex flex-column justify-center align-center">
-      <!--       <ListOrganismsList
-        type="people"
-        customView="slider"
-        :headless="true"
-      ></ListOrganismsList> -->
-
-      <v-container>
-        <div ref="eventsScrollAnchor">
-          <MiscAtomsSlidingCarousel
-            :items="upcomingEvents"
-            key="events"
-            type="events"
-            :loading="false"
-          >
-            <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6">
-              {{ $t("upcoming-events") }}
-            </div>
-          </MiscAtomsSlidingCarousel>
-        </div>
-        <!--  <ListOrganismsSlider type="events" /> -->
-
-        <div ref="numbersScrollAnchor" class="d-flex justify-center">
-          <v-btn
-            color="default"
-            icon
-            flat
-            @click="scrollToNumbers"
-            class="justify-self-center"
-            variant="outlined"
-          >
-            <v-icon>mdi-chevron-down</v-icon>
-          </v-btn>
-        </div>
-      </v-container>
-    </section>
-
-    <NavigationFooter isSnapScroll />
+    <div ref="footerScrollAnchor">
+      <NavigationFooter isSnapScroll />
+    </div>
   </div>
 </template>
 
@@ -153,28 +106,23 @@ import { useDisplay } from "vuetify"
 definePageMeta({
   layout: "about",
 })
-const { $rootStore, $queries } = useNuxtApp()
+const { $rootStore, $queries, $router } = useNuxtApp()
 const { mdAndUp } = useDisplay()
 const localePath = useLocalePath()
 /* const goTo = useGoTo() */
 const { locale } = useI18n()
-const presentation = ref("/pages/" + locale.value + "/institute_presentation")
+/* const presentation = ref("/pages/" + locale.value + "/institute_presentation") 
 
-const carousel = ref(true)
+const carousel = ref(true)*/
 
-const about = ref(null)
+/* const about = ref(null) */
 // const events = ref(null)
 // const numbers = ref(null)
 
-const eventsScrollAnchor = ref(null)
-const numbersScrollAnchor = ref(null)
+const footerScrollAnchor = ref(null)
 
-function scrollToEvents() {
-  eventsScrollAnchor.value?.scrollIntoView({ behavior: "smooth" })
-}
-
-function scrollToNumbers() {
-  numbersScrollAnchor.value?.scrollIntoView({ behavior: "smooth" })
+function scrollToFooter() {
+  footerScrollAnchor.value?.scrollIntoView({ behavior: "smooth" })
 }
 
 const today = new Date()
@@ -183,35 +131,43 @@ const today = new Date()
     ? today.getFullYear() + "-" + (today.getFullYear() + 1)
     : today.getFullYear() - 1 + "-" + today.getFullYear(),
 ) */
-const variables = {
+
+const animationText = computed(() => `text-${locale.value}`)
+/* 
+const variables = computed(() => ({
   options: {
     skip: 0,
-    limit: 5,
+    limit: 8,
     sortBy: ["start"],
     sortDesc: false,
     filters: JSON.stringify({}),
   },
   appId: "iea",
   lang: locale.value,
-}
+}))
 
-const { data, error } = await useAsyncQuery($queries.events.list, variables)
+const { data, error, refresh } = await useAsyncQuery(
+  $queries.events.list,
+  variables,
+)
 console.log("variables: ", variables)
-console.log("data: ", data)
+console.log("data: ", data.value)
 
 if (error.value) {
-  console.error("GraphQL error:", error.value)
-  throw error.value
+  console.log("GraphQL error:", error.value)
 }
-const upcomingEvents = data.value?.listEvents?.items
-console.log("upcomingEvents: ", upcomingEvents)
+const upcomingEvents = computed(() => data.value?.listEvents?.items || [])
+ */
+watch(locale, () => {
+  refresh()
+})
 
-if (!upcomingEvents) {
+/* if (!upcomingEvents) {
   throw createError({
     statusCode: 404,
     message: "Item not found in response",
   })
-}
+} */
 onMounted(() => {
   // init defaults from a possible previous session
   // $rootStore.setDefaults()

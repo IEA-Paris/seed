@@ -160,17 +160,21 @@ export default {
         text: "activities",
         dropdown: true,
         children: [
-          { text: "fellowships", path: "/activities/fellowships" },
-          { text: "projects", path: "/activities/projects" },
+          { text: "items.fellowships", path: "/activities/fellowships" },
+          { text: "items.projects", path: "/activities/projects" },
           {
-            text: "events.key",
+            text: "items.events",
             path: "/activities/events",
           },
-          { text: "publications", path: "/activities/publications" },
+          { text: "items.publications", path: "/activities/publications" },
+          {
+            text: "items.news",
+            path: "/activities/news",
+          },
         ],
       },
       {
-        text: "people",
+        text: "items.people",
         dropdown: true,
         children: [
           { text: "fellows", path: "/people?groups=fellows" },
@@ -183,10 +187,7 @@ export default {
           { text: "browse", path: "/people" },
         ],
       },
-      {
-        text: "news",
-        path: "/news",
-      },
+    
     ],
     footer: [
       { text: "tos", path: "/tos" },

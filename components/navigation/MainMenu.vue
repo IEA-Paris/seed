@@ -113,6 +113,7 @@
   </v-dialog>
 </template>
 <script setup>
+const localePath = useLocalePath()
 import { useDisplay } from "vuetify"
 // import sitemap from "~/assets/data/sitemap"
 // import socials from "~/assets/data/social"

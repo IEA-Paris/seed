@@ -18,13 +18,14 @@
                     cycle
                     hide-delimiters
                     show-arrows="hover"
-                    aspect-ratio="1/1"
+                    aspect-ratio="1"
                   >
                     <v-carousel-item
                       v-for="i in 7"
                       :key="i"
-                      :src="'/images/location/' + i + '.jpg'"
                       cover
+                      :src="'/images/location/' + i + '.jpg'"
+                      aspect-ratio="1"
                     ></v-carousel-item>
                   </v-carousel>
                 </v-sheet>

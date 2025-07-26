@@ -92,7 +92,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     /* "@nuxtjs/html-validator", */ // https://nuxt.com/modules/html-validator
     // Cross-Site Request Forgery (CSRF) prevention (https://nuxt.com/modules/csurf).
-    "nuxt-csurf",
+    /*    "nuxt-csurf", */
     "@nuxt/image",
     "nuxt-swiper",
     "@nuxtjs/i18n",
@@ -113,7 +113,7 @@ export default defineNuxtConfig({
     "@nuxt/test-utils/module",
     /*     "@nuxtjs/html-validator", */
     "@stefanobartoletti/nuxt-social-share",
-    "@paris-ias/list",
+    /*   "./modules/list/src/module"  */ "@paris-ias/list", // To use to debug list in website context (as opposed to the playground context)
   ],
   list: {
     modules: [
@@ -179,9 +179,6 @@ export default defineNuxtConfig({
   components: {
     global: true,
     dirs: ["~/components"],
-  },
-  routeRules: {
-    "/api/**": { isr: false },
   },
   i18n: {
     bundle: {

@@ -1,6 +1,6 @@
 <template>
   <div class="scroller">
-    <section>
+    <section class="dark">
       <v-container>
         <v-row class="d-flex align-center justify-center flex-column">
           <v-col cols="12" sm="10" md="6">

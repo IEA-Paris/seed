@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <NuxtLoadingIndicator />
+    <NuxtLoadingIndicator color="black" />
     <v-main>
       <NavigationTopBar />
       <v-container fluid class="pa-0"> <slot /> </v-container>
