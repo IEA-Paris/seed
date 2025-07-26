@@ -10,7 +10,7 @@ on:
 
 env:
 
-  AWS_REGION: eu-west-2
+  AWS_REGION: eu-west-3
   ENV: ${{ github.ref == 'refs/heads/staging' && 'stage' || github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
   AWS_ACCESS_KEY_ID: ${{ github.ref == 'refs/heads/staging' && secrets.AWS_ACCESS_KEY_ID_STAGE || github.ref == 'refs/heads/main' && secrets.AWS_ACCESS_KEY_ID_PROD || secrets.AWS_ACCESS_KEY_ID_DEV }}
   AWS_SECRET_ACCESS_KEY: ${{ github.ref == 'refs/heads/staging' && secrets.AWS_SECRET_ACCESS_KEY_STAGE || github.ref == 'refs/heads/main' && secrets.AWS_SECRET_ACCESS_KEY_PROD || secrets.AWS_SECRET_ACCESS_KEY_DEV }}
@@ -84,7 +84,7 @@ jobs:
           EOF
 
       - name: "Terraform Apply"
-        run: yarn deploy:infra
+        run: cd ./infra && terraform init && terraform apply -var="env=${{ env.ENV }}" -auto-approve
 
   frontend:
     needs: [infra]

@@ -7,7 +7,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket  = "iea-dev-tfstate"
+    bucket  = "iea-${var.env}-tfstate"
     key     = "seed/terraform.tfstate"
     region  = "eu-west-3"
     encrypt = true
