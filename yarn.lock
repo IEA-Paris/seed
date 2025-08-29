@@ -1794,17 +1794,17 @@
     "@parcel/watcher-win32-ia32" "2.5.1"
     "@parcel/watcher-win32-x64" "2.5.1"
 
-"@paris-ias/data@^1.8.31":
-  version "1.8.31"
-  resolved "https://registry.yarnpkg.com/@paris-ias/data/-/data-1.8.31.tgz#774acdf3e1ad940c0ecf33b2deacf42c0cd4021e"
-  integrity sha512-QUGIvE3I0l9vRjsBCvnxIcuMxnJ1op9u5YYFuYg4F9UzxEsBGHLH5F82BhNb/Pmpo/SZUnF2Qy9lhvWsc413aw==
+"@paris-ias/data@^1.8.46":
+  version "1.8.46"
+  resolved "https://registry.yarnpkg.com/@paris-ias/data/-/data-1.8.46.tgz#046a44581bd526cbfc294881b2f10d4f021f897d"
+  integrity sha512-ytj2p3DuanOPVFnfPes47t9mbdOI4LaLUZqWWg7vvG59v2I5wnHr8kgP/TjhnOzSxSF/B1P9LRh7kcjMT3AXBQ==
   dependencies:
     ts-node "^10.9.2"
 
-"@paris-ias/list@^1.0.110":
-  version "1.0.112"
-  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.112.tgz#9d167e58fd060dfa073266d356320925c23cce1a"
-  integrity sha512-60dI2iXUrkp1p+pxGFKWoSza3pw+h0NjveY1j+mHJLePR6KcYpxphHRi7z2tRbNJgK5BNopgQ41UEAw1OsOMbA==
+"@paris-ias/list@^1.0.118":
+  version "1.0.118"
+  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.118.tgz#92d34b7f055a28d208903453dea05a7e21f66460"
+  integrity sha512-2lqDPajmn/ffc/wLgyJT9xVGGyNU5UESEZWIkPWifXWgzL8HQX8SxlD/7mNP2/ehiTJwLi/Q2Vicsp33AEI/Dg==
   dependencies:
     "@nuxt/kit" "^3.16.2"
     "@vue/apollo-composable" "^4.2.2"
