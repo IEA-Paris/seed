@@ -60,6 +60,7 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    base: "/",
     optimizeDeps: {
       include: ["micromark"],
     },
