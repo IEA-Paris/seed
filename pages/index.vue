@@ -158,9 +158,9 @@ if (error.value) {
 }
 const upcomingEvents = computed(() => data.value?.listEvents?.items || [])
  */
-watch(locale, () => {
-  refresh()
-})
+//watch(locale, () => {
+//  refresh()
+//})
 
 /* if (!upcomingEvents) {
   throw createError({
