@@ -6,12 +6,7 @@ terraform {
     }
   }
 
-  backend "s3" {
-    bucket  = "iea-dev-tfstate"
-    key     = "seed/terraform.tfstate"
-    region  = "eu-west-3"
-    encrypt = true
-  }
+  backend "s3" {}
 
   required_version = ">= 1.2.0"
 }

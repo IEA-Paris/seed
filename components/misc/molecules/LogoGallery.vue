@@ -70,8 +70,6 @@ const chunkArray = (arr, n) => {
   )
 }
 onMounted(() => {
-  console.log("name: ", name)
-
   console.log(
     "rows",
     [3, 5, 6, 4, 3, 3][
