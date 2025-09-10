@@ -1,5 +1,5 @@
 import config from "./static.config"
-
+import vuetify, { transformAssetUrls } from "vite-plugin-vuetify"
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   sourcemap: {
@@ -50,7 +50,6 @@ export default defineNuxtConfig({
   },
 
   css: [
-    "vuetify/lib/styles/main.sass",
     "@mdi/font/css/materialdesignicons.min.css",
     "@/assets/styles/main.scss",
   ],
@@ -77,6 +76,11 @@ export default defineNuxtConfig({
     },
     build: {
       target: "esnext", //browsers can handle the latest ES features
+    },
+    vue: {
+      template: {
+        transformAssetUrls,
+      },
     },
   },
 
@@ -116,7 +120,13 @@ export default defineNuxtConfig({
     "@stefanobartoletti/nuxt-social-share",
     //"./modules/list/src/module",
     "@paris-ias/list", // To use to debug list in website context (as opposed to the playground context)
-    "./modules/list/src/module" /*  "@paris-ias/list" */, // To use to debug list in website context (as opposed to the playground context)
+    //"./modules/list/src/module" /*  "@paris-ias/list" */, // To use to debug list in website context (as opposed to the playground context)
+    (_options, nuxt) => {
+      nuxt.hooks.hook("vite:extendConfig", (config) => {
+        // @ts-expect-error
+        config.plugins.push(vuetify({ autoImport: true }))
+      })
+    },
   ],
   list: {
     modules: [
