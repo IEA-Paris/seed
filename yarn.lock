@@ -1860,7 +1860,7 @@
     "@parcel/watcher-win32-ia32" "2.5.1"
     "@parcel/watcher-win32-x64" "2.5.1"
 
-"@paris-ias/data@^1.8.47", "@paris-ias/data@^1.8.52":
+"@paris-ias/data@^1.8.52", "@paris-ias/data@^1.8.53":
   version "1.8.53"
   resolved "https://registry.yarnpkg.com/@paris-ias/data/-/data-1.8.53.tgz#cf563b24fec9504cf625cdbd652ba6fc9c18defb"
   integrity sha512-dWfteTRrkaH777FIYpdmFUwnG9Cy0SSIS8+kFV3Pr2tQiAZkcv8E3nU7gLbdSYcdtAON/xTn7Z46ld06sWM/JQ==
