@@ -1,7 +1,12 @@
 <template>
   <v-container style="max-width: 1200px">
-    <ListOrganismsList type="events"></ListOrganismsList
+    <ListOrganismsList
+      type="events"
+      :pathPrefix="localePath('/activities/events/')"
+    ></ListOrganismsList
   ></v-container>
 </template>
 
-<script setup></script>
+<script setup>
+const localePath = useLocalePath()
+</script>

@@ -252,9 +252,6 @@ export default defineNuxtConfig({
             "x-api-key": config.graphqlApiKey,
           },
         },
-        inMemoryCacheOptions: {
-          addTypename: false,
-        },
       },
     },
   },
