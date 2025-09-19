@@ -1255,7 +1255,7 @@
     vite-plugin-checker "^0.10.3"
     vue-bundle-renderer "^2.1.2"
 
-"@nuxtjs/apollo@^5.0.0-alpha.14":
+"@nuxtjs/apollo@^5.0.0-alpha.15":
   version "5.0.0-alpha.15"
   resolved "https://registry.yarnpkg.com/@nuxtjs/apollo/-/apollo-5.0.0-alpha.15.tgz#6708f65ad7f014b40634cadceb597d78d66ceb44"
   integrity sha512-xm2Ff11wIhUkEH5J+r/QJ+Gl+Xz67XuwA8XzL7jmgy+rDzBRfsF7hVQ2+Ku0HEgQPlXgtyVNb26rrjoO9xTnEw==
@@ -1867,10 +1867,10 @@
   dependencies:
     ts-node "^10.9.2"
 
-"@paris-ias/list@^1.0.130":
-  version "1.0.130"
-  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.130.tgz#76bfc47a2143ab48fa92c2b8765b3be48237829b"
-  integrity sha512-Hdn7brOeySJjYb/m0UWTm68GMlbND0EgGRHDM4RJgs237woiHHe5cUmxkO+i1nr4MqXN6xBWOpsKZD4fzR3WbQ==
+"@paris-ias/list@^1.0.134":
+  version "1.0.134"
+  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.134.tgz#528e7e12d35c6706ab0527ad513427c95ac41b43"
+  integrity sha512-Kd3rY54uiJ0Na4qRljb7yjsMElOy3YOZBKpTm8Ax7ChFYK0nZgt3KUtIo8bjNSsOamH2/kbNKX64R1vQvtjmzQ==
   dependencies:
     "@paris-ias/data" "^1.8.52"
 
