@@ -3,6 +3,9 @@
     <section class="dark">
       <v-container>
         <v-row class="d-flex align-center justify-center flex-column">
+          <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6 mb-md-12">
+            {{ $t("meet-our-network") }}
+          </div>
           <v-col cols="12" sm="10" md="6">
             <ContentDoc :path="network" />
           </v-col> </v-row

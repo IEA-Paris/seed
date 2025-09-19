@@ -119,7 +119,7 @@ export default defineNuxtConfig({
     /*     "@nuxtjs/html-validator", */
     "@stefanobartoletti/nuxt-social-share",
     //"./modules/list/src/module",
-    "@paris-ias/list", // To use to debug list in website context (as opposed to the playground context)
+    "@paris-ias/list",
     //"./modules/list/src/module" /*  "@paris-ias/list" */, // To use to debug list in website context (as opposed to the playground context)
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {

@@ -1860,17 +1860,24 @@
     "@parcel/watcher-win32-ia32" "2.5.1"
     "@parcel/watcher-win32-x64" "2.5.1"
 
-"@paris-ias/data@^1.8.47", "@paris-ias/data@^1.8.52":
+"@paris-ias/data@^1.8.52":
   version "1.8.53"
   resolved "https://registry.yarnpkg.com/@paris-ias/data/-/data-1.8.53.tgz#cf563b24fec9504cf625cdbd652ba6fc9c18defb"
   integrity sha512-dWfteTRrkaH777FIYpdmFUwnG9Cy0SSIS8+kFV3Pr2tQiAZkcv8E3nU7gLbdSYcdtAON/xTn7Z46ld06sWM/JQ==
   dependencies:
     ts-node "^10.9.2"
 
-"@paris-ias/list@^1.0.130":
-  version "1.0.130"
-  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.130.tgz#76bfc47a2143ab48fa92c2b8765b3be48237829b"
-  integrity sha512-Hdn7brOeySJjYb/m0UWTm68GMlbND0EgGRHDM4RJgs237woiHHe5cUmxkO+i1nr4MqXN6xBWOpsKZD4fzR3WbQ==
+"@paris-ias/data@^1.8.54":
+  version "1.8.54"
+  resolved "https://registry.yarnpkg.com/@paris-ias/data/-/data-1.8.54.tgz#1564640e3779d5aa61c870d88b313100bbba2bf1"
+  integrity sha512-bwOmEYeNBwETpeY+FMaDpALJSfdGab0dT/MZjMi9zdp9dvMm7cIcGbLUlxSfq8u/Uj7Pgxou4pGtIfko4EcNhw==
+  dependencies:
+    ts-node "^10.9.2"
+
+"@paris-ias/list@^1.0.135":
+  version "1.0.135"
+  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.135.tgz#fd23ec60ee5a57362d0c7e948394e3e26133c4f6"
+  integrity sha512-m0jK7h0c4/C4QLz2enoKFUieH10bcH4P+iNDE0xP0erjiEmFfUUHhrNyhtdUWIa2kd91DlSo5avW6Y95Cxi2tQ==
   dependencies:
     "@paris-ias/data" "^1.8.52"
 
