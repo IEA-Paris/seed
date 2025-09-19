@@ -13,8 +13,6 @@
           cover
           :ratio="1"
           :src="item.image"
-          link="people-slug"
-          :slug="item.slug"
           :loading="loading"
         >
         </MiscAtomsImageContainer>

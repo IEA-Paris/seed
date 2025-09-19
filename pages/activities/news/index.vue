@@ -2,7 +2,10 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <ListOrganismsList type="news"></ListOrganismsList> </v-col
+        <ListOrganismsList
+          type="news"
+          pathPrefix="activities-news-slug"
+        ></ListOrganismsList> </v-col
     ></v-row>
   </v-container>
 </template>
