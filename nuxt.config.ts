@@ -118,8 +118,8 @@ export default defineNuxtConfig({
     "@nuxt/test-utils/module",
     /*     "@nuxtjs/html-validator", */
     "@stefanobartoletti/nuxt-social-share",
-    //"./modules/list/src/module",
-    "@paris-ias/list",
+    "./modules/list/src/module",
+    //"@paris-ias/list",
     //"./modules/list/src/module" /*  "@paris-ias/list" */, // To use to debug list in website context (as opposed to the playground context)
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
@@ -252,9 +252,9 @@ export default defineNuxtConfig({
             "x-api-key": config.graphqlApiKey,
           },
         },
-        // inMemoryCacheOptions: {
-        //   addTypename: false,
-        // },
+        inMemoryCacheOptions: {
+          addTypename: false,
+        },
       },
     },
   },
