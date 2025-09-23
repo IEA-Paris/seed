@@ -3,7 +3,10 @@
     <v-row>
       <v-col cols="12">
         <PeopleListHeader v-if="route.query.groups"></PeopleListHeader>
-        <ListOrganismsList type="people"></ListOrganismsList>
+        <ListOrganismsList
+          type="people"
+          pathPrefix="people-slug"
+        ></ListOrganismsList>
       </v-col>
     </v-row>
   </v-container>
