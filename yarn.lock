@@ -1774,7 +1774,7 @@
   dependencies:
     ts-node "^10.9.2"
 
-"@paris-ias/list@^1.0.135":
+"@paris-ias/list@^1.0.136":
   version "1.0.136"
   resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.136.tgz#1d4efebcb5641df5bd08cc8e1f2bd27379046879"
   integrity sha512-wFH6KvXlDxjsIqQsjpBkFZcU4ZIHBEFN2goMXHWboNUMcnZSRCZ5tlzjIT3izz54YJidHDni3SqNQk7wDAnnew==

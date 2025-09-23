@@ -7,7 +7,5 @@
 <script setup>
 const { $rootStore } = useNuxtApp()
 
-onBeforeUnmount(() => {
-  $rootStore.resetState()
-})
+onBeforeUnmount(() => {})
 </script>
