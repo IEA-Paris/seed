@@ -9,9 +9,6 @@
       </v-container>
       <NavigationFooter />
     </v-main>
-    <NavigationLoader v-if="$rootStore.loading" :active="$rootStore.loading" />
   </v-app>
+  <NavigationLoader :active="$rootStore.loading" />
 </template>
-
-<script setup></script>
-<style lang="scss" scoped></style>
