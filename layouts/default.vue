@@ -7,8 +7,21 @@
       <v-container class="main-container">
         <slot />
       </v-container>
+      <NavigationLoader :active="$rootStore.loading || loading" />
       <NavigationFooter />
     </v-main>
   </v-app>
-  <NavigationLoader :active="$rootStore.loading" />
 </template>
+<script setup>
+const nuxtApp = useNuxtApp()
+const loading = ref(false)
+nuxtApp.hook("page:start", () => {
+  loading.value = true
+})
+
+nuxtApp.hook("page:finish", () => {
+  /*   setTimeout(() => { */
+  loading.value = false
+  // }, 600) // Adjust timing as needed
+})
+</script>
