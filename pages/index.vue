@@ -55,6 +55,7 @@
                 class="ma-6"
               ></v-img> -->
               <ListMoleculesGlobalSearchInput
+                key="home-search"
                 type="all"
                 :loading="false"
                 class="mb-6 light"

@@ -39,6 +39,7 @@
       <v-row class="justify-center">
         <v-col cols="12" sm="10" md="6" lg="4">
           <ListMoleculesGlobalSearchInput
+            key="dialog-search"
             type="all"
             class="mt-n16"
           ></ListMoleculesGlobalSearchInput>
