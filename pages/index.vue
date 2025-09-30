@@ -1,9 +1,5 @@
 <template>
   <div class="scroller">
-    <!--   <v-btn color="success" @click="$rootStore.setLoading(!$rootStore.loading)"
-    >ext</v-btn
-  > -->
-
     <section class="d-flex flex-column justify-center">
       <v-container fluid>
         <v-row class="d-flex justify-center" ref="about" :key="locale">
@@ -58,11 +54,12 @@
                 width="150"
                 class="ma-6"
               ></v-img> -->
-              <ListAtomsSearchInput
+              <ListMoleculesGlobalSearchInput
+                key="home-search"
                 type="all"
                 :loading="false"
                 class="mb-6 light"
-              ></ListAtomsSearchInput>
+              ></ListMoleculesGlobalSearchInput>
             </div>
           </v-col>
         </v-row>

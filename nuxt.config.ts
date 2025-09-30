@@ -118,8 +118,8 @@ export default defineNuxtConfig({
     "@nuxt/test-utils/module",
     /*     "@nuxtjs/html-validator", */
     "@stefanobartoletti/nuxt-social-share",
-    //"./modules/list/src/module",
-    "@paris-ias/list",
+    "./modules/list/src/module",
+    //  "@paris-ias/list",
     //"./modules/list/src/module" /*  "@paris-ias/list" */, // To use to debug list in website context (as opposed to the playground context)
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
@@ -209,6 +209,8 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: "i18n_redirected",
     },
+    // Reduce console warnings for missing keys: delegate to local config file
+    vueI18n: "./i18n.config.ts",
   },
 
   // add resetState composable to all routes with lists
@@ -254,6 +256,7 @@ export default defineNuxtConfig({
         },
       },
     },
+    devtools: { enabled: false },
   },
   hooks: {},
   htmlValidator: {
@@ -285,7 +288,7 @@ export default defineNuxtConfig({
     asyncContext: true,
   },
   devtools: {
-    enabled: !!process.env.LOCAL_DEV,
+    enabled: import.meta.dev,
   },
 
   compatibilityDate: "2024-09-03",
