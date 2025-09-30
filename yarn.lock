@@ -1774,10 +1774,10 @@
   dependencies:
     ts-node "^10.9.2"
 
-"@paris-ias/list@^1.0.137":
-  version "1.0.137"
-  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.137.tgz#c759813e7af5f510c03f29267ee89beb71cd3e03"
-  integrity sha512-pcBk9rZFklhNc1Gxj+aj2A8cIlE7aN8awERDq9i6U6i0VhfRtxMn6J4mURRSzeWxBIzVwvMYbgKyRlxycY+n8g==
+"@paris-ias/list@^1.0.139":
+  version "1.0.139"
+  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.139.tgz#27c60be64f7c92dc55f8f1d52cba35ea88fd8ad3"
+  integrity sha512-OrgF2T2djqMPy0UeE73NOPWJagPbjBQ2y4GcwJjpwaaRK7SbFKon0FBxsaLqy8MPySSPkNSQeA+ut1DcJQb4JQ==
   dependencies:
     "@paris-ias/data" "^1.8.54"
 

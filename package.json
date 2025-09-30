@@ -27,7 +27,7 @@
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/robots": "^4.1.7",
     "@paris-ias/data": "^1.8.54",
-    "@paris-ias/list": "^1.0.137",
+    "@paris-ias/list": "^1.0.139",
     "@pinia/nuxt": "^0.5.4",
     "@vue/apollo-composable": "^4.2.2",
     "@vueuse/components": "^11.0.1",
