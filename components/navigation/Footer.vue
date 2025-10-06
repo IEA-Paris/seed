@@ -36,6 +36,7 @@
                   :label="$t('email')"
                   variant="outlined"
                   tile
+                  id="newsletter-email"
                 >
                 </v-text-field>
                 <v-btn block size="large" v-show="false">{{

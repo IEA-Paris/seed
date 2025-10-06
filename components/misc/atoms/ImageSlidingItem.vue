@@ -5,7 +5,6 @@
       :loading="loading"
       :src="item.url"
       :ratio="1 / 1"
-      :name="item.caption"
     />
     <div
       class="mt-3 pl-0 text-left text-subtitle-2 font-weight-medium sliding-item-title"

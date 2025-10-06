@@ -1,5 +1,5 @@
 import config from "./static.config"
-
+import vuetify, { transformAssetUrls } from "vite-plugin-vuetify"
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   sourcemap: {
@@ -50,7 +50,6 @@ export default defineNuxtConfig({
   },
 
   css: [
-    "vuetify/lib/styles/main.sass",
     "@mdi/font/css/materialdesignicons.min.css",
     "@/assets/styles/main.scss",
   ],
@@ -77,6 +76,11 @@ export default defineNuxtConfig({
     },
     build: {
       target: "esnext", //browsers can handle the latest ES features
+    },
+    vue: {
+      template: {
+        transformAssetUrls,
+      },
     },
   },
 
@@ -115,7 +119,14 @@ export default defineNuxtConfig({
     /*     "@nuxtjs/html-validator", */
     "@stefanobartoletti/nuxt-social-share",
     //"./modules/list/src/module",
-    "@paris-ias/list", // To use to debug list in website context (as opposed to the playground context)
+    "@paris-ias/list",
+    //"./modules/list/src/module" /*  "@paris-ias/list" */, // To use to debug list in website context (as opposed to the playground context)
+    (_options, nuxt) => {
+      nuxt.hooks.hook("vite:extendConfig", (config) => {
+        // @ts-expect-error
+        config.plugins.push(vuetify({ autoImport: true }))
+      })
+    },
   ],
   list: {
     modules: [
@@ -198,6 +209,8 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: "i18n_redirected",
     },
+    // Reduce console warnings for missing keys: delegate to local config file
+    vueI18n: "./i18n.config.ts",
   },
 
   // add resetState composable to all routes with lists
@@ -241,11 +254,9 @@ export default defineNuxtConfig({
             "x-api-key": config.graphqlApiKey,
           },
         },
-        inMemoryCacheOptions: {
-          addTypename: false,
-        },
       },
     },
+    devtools: { enabled: false },
   },
   hooks: {},
   htmlValidator: {
@@ -277,7 +288,7 @@ export default defineNuxtConfig({
     asyncContext: true,
   },
   devtools: {
-    enabled: !!process.env.LOCAL_DEV,
+    enabled: import.meta.dev,
   },
 
   compatibilityDate: "2024-09-03",

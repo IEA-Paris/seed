@@ -6,7 +6,7 @@
           {{ $t("list.filters.people.groups." + route.query.groups, 2) }}
         </div>
         <div
-          v-show="$stores.people.filters.groups.value === 'fellows'"
+          v-if="$stores.people.filters.groups.value === 'fellows'"
           class="content-doc-wrapper mb-2"
           :class="{ expanded: isExpanded }"
           @click="isExpanded = !isExpanded"
@@ -14,7 +14,7 @@
           <ContentDoc :path="fellows" />
         </div>
         <div
-          v-show="$stores.people.filters.groups.value === 'sab'"
+          v-if="$stores.people.filters.groups.value === 'sab'"
           class="content-doc-wrapper mb-2"
           :class="{ expanded: isExpanded }"
           @click="isExpanded = !isExpanded"
@@ -22,7 +22,7 @@
           <ContentDoc :path="sab" />
         </div>
         <div
-          v-show="$stores.people.filters.groups.value === 'team'"
+          v-if="$stores.people.filters.groups.value === 'team'"
           class="content-doc-wrapper mb-2"
           :class="{ expanded: isExpanded }"
           @click="isExpanded = !isExpanded"
@@ -30,7 +30,7 @@
           <ContentDoc :path="team" />
         </div>
         <div
-          v-show="$stores.people.filters.groups.value === 'board'"
+          v-if="$stores.people.filters.groups.value === 'board'"
           class="content-doc-wrapper mb-2"
           :class="{ expanded: isExpanded }"
           @click="isExpanded = !isExpanded"
@@ -56,6 +56,11 @@ const board = ref("/pages/" + locale.value + "/people_board-of-directors")
 const sab = ref("/pages/" + locale.value + "/people_scientific-advisory-board")
 const team = ref("/pages/" + locale.value + "/people_team")
 
+/* console.log("fellows", fellows)
+console.log("board", board)
+console.log("sab", sab)
+console.log("team", team)
+console.log("team", team) */
 const isExpanded = ref(false)
 </script>
 <style scoped lang="scss">

@@ -38,10 +38,11 @@
       </v-row>
       <v-row class="justify-center">
         <v-col cols="12" sm="10" md="6" lg="4">
-          <list-atoms-search-input
+          <ListMoleculesGlobalSearchInput
+            key="dialog-search"
             type="all"
             class="mt-n16"
-          ></list-atoms-search-input>
+          ></ListMoleculesGlobalSearchInput>
         </v-col>
       </v-row>
     </v-card>
