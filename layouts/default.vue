@@ -8,7 +8,6 @@ import { nextTick } from 'vue';
       <v-container class="main-container">
         <slot />
       </v-container>
-      <NavigationLoader :active="$rootStore.loading || loading" />
       <NavigationFooter />
     </v-main>
   </v-app>

@@ -20,14 +20,18 @@
                   delay: 500,
                 },
               }"
-              class="text-h4 text-sm-h3 text-md-h2 pr-6"
+              class="text-h3 text-sm-h2 text-md-h2 pr-6"
               :class="mdAndUp ? 'text-right' : 'text-left'"
               :style="mdAndUp ? 'max-width: 500px' : 'padding: 0 24px'"
             >
               {{ $t("moto") }}
             </div>
           </v-col>
-          <v-col cols="12" md="6" class="my-6 d-flex align-end">
+          <v-col
+            cols="12"
+            md="6"
+            class="my-6 d-md-flex align-center align-md-end"
+          >
             <div
               v-motion
               :key="locale"
@@ -45,7 +49,7 @@
                 },
               }"
               id="presentation"
-              class="presentation-pitch f-flex justify-end align-end"
+              class="presentation-pitch"
               style="max-width: 600px; min-width: 30vw"
             >
               <!--     <v-img
