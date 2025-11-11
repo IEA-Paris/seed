@@ -1,44 +1,45 @@
 <template>
-  <div class="scroller">
-    <section class="d-flex">
+  <div>
+    <section class="d-flex py-4">
       <v-row class="align-center justify-center flex-column">
         <v-sheet class="d-flex">
           <ContentDoc :path="presentation" />
         </v-sheet>
       </v-row>
     </section>
-    <section class="dark">
+
+    <section class="dark py-4">
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="9" xl="8">
-            <v-row no-gutters>
-              <v-col cols="4" v-if="mdAndUp">
-                <v-sheet class="d-flex align-center justify-center" flat>
-                  <v-carousel
-                    cycle
-                    hide-delimiters
-                    show-arrows="hover"
-                    aspect-ratio="1"
-                  >
-                    <v-carousel-item
-                      v-for="i in 7"
-                      :key="i"
-                      cover
-                      :src="'/images/location/' + i + '.jpg'"
-                      aspect-ratio="1"
-                    ></v-carousel-item>
-                  </v-carousel>
-                </v-sheet>
-              </v-col>
-              <v-col cols="12" md="8">
-                <div
-                  class="d-flex align-center justify-center pa-12 text-white"
+            <v-sheet rounded="xl" class="pa-8 bg-surface">
+              <div v-if="mdAndUp" class="wrap-media rounded-lg">
+                <v-carousel
+                  cycle
+                  hide-delimiters
+                  show-arrows="hover"
+                  height="300"
+                  width="300"
                 >
-                  <ContentDoc :path="location" /></div></v-col
-            ></v-row> </v-col></v-row
-      ></v-container>
+                  <v-carousel-item
+                    v-for="i in 7"
+                    :key="i"
+                    cover
+                    :src="'/images/location/' + i + '.jpg'"
+                  />
+                </v-carousel>
+              </div>
+
+              <div class="text-body-1">
+                <ContentDoc :path="location" />
+              </div>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
     </section>
-    <section>
+
+    <section class="py-4">
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="9" xl="8">
@@ -61,34 +62,38 @@
         ></v-container
       >
     </section>
-    <section class="dark">
+
+    <section class="dark py-4">
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="9" xl="8">
-            <v-row no-gutters>
-              <v-col
-                cols="2"
-                v-if="mdAndUp"
-                class="d-flex align-center justify-center"
-              >
-                <v-carousel cycle hide-delimiters show-arrows="hover">
+            <v-sheet rounded="xl" class="pa-8 bg-surface">
+              <div v-if="mdAndUp" class="wrap-media" rounded-lg>
+                <v-carousel
+                  cycle
+                  hide-delimiters
+                  show-arrows="hover"
+                  height="300"
+                  width="300"
+                >
                   <v-carousel-item
                     v-for="i in 7"
                     :key="i"
                     :src="'/images/location/' + i + '.jpg'"
                     cover
-                  ></v-carousel-item>
+                  />
                 </v-carousel>
-              </v-col>
-              <v-col cols="12" md="10">
-                <div class="d-flex align-center justify-center pa-12">
-                  <ContentDoc :path="history" />
-                </div>
-              </v-col>
-            </v-row>
-          </v-col> </v-row
-      ></v-container>
+              </div>
+
+              <div class="text-body-1">
+                <ContentDoc :path="history" />
+              </div>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
     </section>
+
     <NavigationFooter isSnapScroll />
   </div>
 </template>
@@ -112,8 +117,24 @@ definePageMeta({
   }, */
 })
 </script>
-<style>
+<style scoped>
 .dark h2 a {
   color: white;
+}
+
+.wrap-media {
+  float: left;
+  margin: 0 32px 16px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 300px;
+}
+
+@media (max-width: 960px) {
+  .wrap-media {
+    float: none;
+    margin: 0 0 16px 0;
+    width: 100%;
+  }
 }
 </style>

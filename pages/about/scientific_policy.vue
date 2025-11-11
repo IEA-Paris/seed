@@ -1,20 +1,24 @@
 <template>
-  <div class="scroller">
-    <section class="d-flex flex-column">
-      <!-- <NavigationBreadcrumbs class="d-flex align-start"></NavigationBreadcrumbs> -->
+  <div>
+    <section class="py-4">
       <v-row class="d-flex align-center justify-center">
-        <v-col cols="4" v-if="smAndUp">
-          <v-card class="d-flex">
-            <v-img aspect-ratio="1/1" src="/images/Paulius_Yamin.jpg"></v-img
-          ></v-card>
+        <v-col cols="12" md="10" lg="9" xl="8">
+          <v-sheet class="pa-8 bg-surface" rounded="xl">
+            <div v-if="smAndUp" class="wrap-media">
+              <v-img
+                src="/images/Paulius_Yamin.jpg"
+                aspect-ratio="1"
+                rounded="lg"
+                cover
+              />
+            </div>
+
+            <div class="text-body-1">
+              <ContentDoc :path="scientificPolicy" />
+            </div>
+          </v-sheet>
         </v-col>
-        <v-col cols="12" sm="8">
-          <div class="d-flex align-center justify-center">
-            <ContentDoc :path="scientificPolicy" />
-          </div>
-        </v-col>
-        ></v-row
-      >
+      </v-row>
     </section>
     <section class="dark">
       <v-container>
@@ -104,3 +108,21 @@ definePageMeta({
   }, */
 })
 </script>
+
+<style scoped>
+.wrap-media {
+  float: left;
+  margin: 0 32px 16px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 300px;
+}
+
+@media (max-width: 960px) {
+  .wrap-media {
+    float: none;
+    margin: 0 0 16px 0;
+    width: 100%;
+  }
+}
+</style>
