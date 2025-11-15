@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="scroller">
     <section class="d-flex py-4">
       <v-row class="align-center justify-center flex-column">
         <v-sheet class="d-flex">
@@ -12,8 +12,8 @@
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="9" xl="8">
-            <v-sheet rounded="xl" class="pa-8 bg-surface">
-              <div v-if="mdAndUp" class="wrap-media rounded-lg">
+            <v-sheet class="pa-8 bg-surface" color="transparent">
+              <div v-if="mdAndUp" class="wrap-media">
                 <v-carousel
                   cycle
                   hide-delimiters
@@ -28,6 +28,10 @@
                     :src="'/images/location/' + i + '.jpg'"
                   />
                 </v-carousel>
+              </div>
+
+              <div class="text-h4 text-md-h3 font-weight-bold">
+                {{ $t("building") }}
               </div>
 
               <div class="text-body-1">
@@ -67,8 +71,8 @@
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" md="10" lg="9" xl="8">
-            <v-sheet rounded="xl" class="pa-8 bg-surface">
-              <div v-if="mdAndUp" class="wrap-media" rounded-lg>
+            <v-sheet class="pa-8 bg-surface" color="transparent">
+              <div v-if="mdAndUp" class="wrap-media">
                 <v-carousel
                   cycle
                   hide-delimiters
@@ -83,6 +87,10 @@
                     cover
                   />
                 </v-carousel>
+              </div>
+
+              <div class="text-h4 text-md-h3 font-weight-bold">
+                {{ $t("an-outstanding-place-and-histor") }}y
               </div>
 
               <div class="text-body-1">

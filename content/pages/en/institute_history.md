@@ -1,7 +1,6 @@
 ---
 title: institute history
 ---
-## An outstanding place and history
 
 Since 2013, the Paris IAS has been housed in the Hôtel de Lauzun, an exceptional site dedicated by the City of Paris to the advancement of the human and social sciences. Built between 1656 and 1660 for Charles Gruyn, the king's financier and secretary, the Hôtel de Lauzun is one of the capital's finest private mansions. It boasts a remarkable interior decoration and, over the years, has been home to a number of outstanding personalities, including the Comte de Lauzun, Théophile Gautier and Charles Baudelaire.
 

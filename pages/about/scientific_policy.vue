@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="scroller">
     <section class="py-4">
       <v-row class="d-flex align-center justify-center">
         <v-col cols="12" md="10" lg="9" xl="8">
-          <v-sheet class="pa-8 bg-surface" rounded="xl">
+          <v-sheet class="pa-8 bg-surface" color="transparent">
             <div v-if="smAndUp" class="wrap-media">
               <v-img
                 src="/images/Paulius_Yamin.jpg"
@@ -12,7 +12,7 @@
                 cover
               />
             </div>
-
+            <div class="text-h4 text-md-h3 font-weight-bold"></div>
             <div class="text-body-1">
               <ContentDoc :path="scientificPolicy" />
             </div>
