@@ -15,5 +15,10 @@
             "database": "newschema",
             "name": "mysql_connect"
         }
-    ]
+    ],
+    "terminal.integrated.suggest.quickSuggestions": {
+        "commands": "on",
+        "arguments": "on",
+        "unknown": "off"
+    }
 }
