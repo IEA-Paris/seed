@@ -3,10 +3,12 @@
     <section class="dark">
       <v-container>
         <v-row class="d-flex align-center justify-center flex-column">
-          <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6 mb-md-12">
-            {{ $t("meet-our-network") }}
-          </div>
           <v-col cols="12" sm="10" md="6">
+            <h2>
+              <a class="text-white" href="#meet-our-network">
+                {{ $t("meet-our-network") }}</a
+              >
+            </h2>
             <ContentDoc :path="network" />
           </v-col> </v-row
       ></v-container>
@@ -14,63 +16,31 @@
 
     <section dark>
       <v-container>
-        <v-row class="d-flex align-center justify-center flex-column">
+        <v-row class="d-flex">
           <v-col cols="12">
-            <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6 mb-md-12">
-              {{ $t("our-members") }}
-            </div>
-            <v-row no-gutters>
-              <v-col cols="12" sm="8">
-                <MiscMoleculesLogoGallery
-                  :items="membersData"
-                ></MiscMoleculesLogoGallery>
-              </v-col>
-              <v-col cols="12" sm="4"> <ContentDoc :path="members" /> </v-col>
-            </v-row>
+            <h2>
+              <a href="#our-members"> {{ $t("our-members") }}</a>
+            </h2>
           </v-col>
+
+          <v-col cols="12" sm="6">
+            <MiscMoleculesLogoGallery
+              :items="membersData"
+            ></MiscMoleculesLogoGallery>
+          </v-col>
+          <v-col cols="12" sm="6"> <ContentDoc :path="members" /> </v-col>
         </v-row>
       </v-container>
     </section>
-    <section>
-      <v-container>
-        <v-row class="d-flex align-center justify-center">
-          <v-col cols="12">
-            <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6 mb-md-12">
-              {{ $t("our-partners") }}
-            </div>
-            <v-row no-gutters>
-              <v-col cols="12" sm="6" lg="6">
-                <ContentDoc :path="partners" />
-              </v-col>
-
-              <v-col cols="12" sm="6" lg="6">
-                <MiscMoleculesLogoGallery
-                  :items="partnersData"
-                ></MiscMoleculesLogoGallery>
-              </v-col>
-              <!--   <v-col cols="12" lg="3" v-show="lgAndUp">
-                <v-sheet
-                  class="d-flex align-center justify-center"
-                  :to="localePath('/support')"
-                  link
-                >
-                  <ActionsSmallContainer
-                    :action="action"
-                    :ratio="1"
-                  ></ActionsSmallContainer></v-sheet></v-col> --></v-row
-            ></v-col
-          >
-        </v-row></v-container
-      >
-    </section>
-
     <section class="dark">
       <v-container>
         <v-row class="d-flex align-center justify-center flex-column">
           <v-col cols="12" sm="10" md="8">
-            <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-6 mb-md-12">
-              {{ $t("our-sponsors") }}
-            </div>
+            <h2 class="pl-2">
+              <a class="text-white" href="#our-sponsors">
+                {{ $t("our-sponsors") }}</a
+              >
+            </h2>
 
             <v-col cols="12" sm="8" v-if="sponsorsData && sponsorsData.length">
               <MiscMoleculesLogoGallery
@@ -90,12 +60,37 @@
       </v-container>
     </section>
     <section>
-      <v-container fluid>
-        <v-row class="d-flex align-center justify-center">
-          <v-col cols="12"> Extra Slot </v-col>
+      <v-container>
+        <v-row class="d-flex">
+          <v-col cols="12">
+            <h2>
+              <a href="#our-partners"> {{ $t("our-partners") }}</a>
+            </h2>
+          </v-col>
+
+          <v-col cols="12" sm="6">
+            <ContentDoc :path="partners" />
+          </v-col>
+
+          <v-col cols="12" sm="6">
+            <MiscMoleculesLogoGallery
+              :items="partnersData"
+            ></MiscMoleculesLogoGallery>
+          </v-col>
+          <!--   <v-col cols="12" lg="3" v-show="lgAndUp">
+                <v-sheet
+                  class="d-flex align-center justify-center"
+                  :to="localePath('/support')"
+                  link
+                >
+                  <ActionsSmallContainer
+                    :action="action"
+                    :ratio="1"
+                  ></ActionsSmallContainer></v-sheet></v-col> -->
         </v-row></v-container
       >
     </section>
+
     <NavigationFooter isSnapScroll />
   </div>
 </template>

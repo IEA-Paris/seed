@@ -22,6 +22,7 @@
   "fellow_presentation": "Fellow's presentation",
   "colloquium": "Colloquium",
   "proceedings": "Proceedings",
+  "events": "Events",
   "events-organized-at-paris-ias": "Events organized at Paris IAS",
   "fellowships-programs-and-research-projects-hosted-at-paris-ias": "Fellowships programs and research projects hosted at Paris IAS",
   "people-attending-our-events-since-2011": "People attending our events since 2011",
@@ -66,5 +67,6 @@
   "click-here-to-search": "Click here to search",
   "filter-by-type": "Filter by type",
   "building": "Building bridges",
-  "an-outstanding-place-and-histor": "An outstanding place and histor"
+  "an-outstanding-place-and-history": "An outstanding place and history",
+  "scientific-policy": "Scientific policy"
 }
