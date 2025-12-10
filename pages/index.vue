@@ -20,8 +20,8 @@
                   delay: 500,
                 },
               }"
-              class="text-h3 text-sm-h2 text-md-h2 pr-6"
-              :class="mdAndUp ? 'text-right' : 'text-left'"
+              class="text-h2 pr-6"
+              :class="mdAndUp ? 'text-right' : 'text-center'"
               :style="mdAndUp ? 'max-width: 500px' : 'padding: 0 24px'"
             >
               {{ $t("moto") }}
