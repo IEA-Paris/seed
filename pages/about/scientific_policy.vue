@@ -2,16 +2,14 @@
   <div class="scroller">
     <section class="py-4">
       <v-row class="d-flex align-center justify-center">
-        <v-col cols="12" md="10" lg="9" xl="8">
-          <v-sheet class="pa-8 bg-surface" color="transparent">
+        <v-col cols="12" md="7" lg="6" xl="5">
+          <v-sheet class="bg-surface" color="transparent">
             <div v-if="smAndUp" class="wrap-media">
-              <v-img
-                src="/images/Paulius_Yamin.jpg"
-                aspect-ratio="1"
-                rounded="lg"
-                cover
-              />
+              <v-img src="/images/Paulius_Yamin.jpg" aspect-ratio="1" cover />
             </div>
+            <h2 class="text-white">
+              <a href="#scientific-policy"> {{ $t("scientific-policy") }}</a>
+            </h2>
             <div class="text-h4 text-md-h3 font-weight-bold"></div>
             <div class="text-body-1">
               <ContentDoc :path="scientificPolicy" />
@@ -22,6 +20,9 @@
     </section>
     <section class="dark">
       <v-container>
+        <h2 class="text-white">
+          Texte sur fellowships ou conseil scientifique, etc.
+        </h2>
         <!--         <MiscAtomsSlidingCarousel
           key="scientificAdvisoryBoard"
           :items="scientificAdvisoryBoard"
@@ -113,7 +114,6 @@ definePageMeta({
 .wrap-media {
   float: left;
   margin: 0 32px 16px 0;
-  border-radius: 12px;
   overflow: hidden;
   width: 300px;
 }
