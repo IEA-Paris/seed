@@ -1,19 +1,15 @@
 <template>
   <v-container style="max-width: 1600px">
-    <FellowshipsView :item="fellowship" :loading="loading" />
+    <FellowshipsView :item="fellowship" :loading />
   </v-container>
 </template>
 
 <script setup>
 const { $queries } = useNuxtApp()
-const { fetchItem } = useFetchItem()
-const loading = ref(true)
-// Fetch the item
-const { data: fellowship } = await useAsyncData("item", async () => {
-  return await fetchItem({
-    query: $queries.fellowships.get,
-    key: "getFellowship",
-  })
+const { resourceItem: fellowship, loading } = await useI18nResourceItem({
+  resourceName: "fellowship",
+  documentGql: $queries.fellowships.get,
+  responseKey: "getFellowship",
+  appId: "iea",
 })
-loading.value = false
 </script>

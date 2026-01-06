@@ -1,19 +1,15 @@
 <template>
   <v-container style="max-width: 1600px">
-    <EventsView :item="event" :loading="loading" />
+    <EventsView :item="event" :loading />
   </v-container>
 </template>
 
 <script setup>
 const { $queries } = useNuxtApp()
-const { fetchItem } = useFetchItem()
-const loading = ref(true)
-// Fetch the item
-const { data: event } = await useAsyncData("item", async () => {
-  return await fetchItem({
-    query: $queries.events.get,
-    key: "getEvent",
-  })
+const { resourceItem: event, loading } = await useI18nResourceItem({
+  resourceName: "event",
+  documentGql: $queries.events.get,
+  responseKey: "getEvent",
+  appId: "iea",
 })
-loading.value = false
 </script>
