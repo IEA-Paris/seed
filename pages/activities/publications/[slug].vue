@@ -1,19 +1,16 @@
 <template>
   <v-container style="max-width: 1600px">
-    <PublicationsView :item="publication" :loading="loading" />
+    <PublicationsView :item="publication" :loading />
   </v-container>
 </template>
 
 <script setup>
 const { $queries } = useNuxtApp()
-const { fetchItem } = useFetchItem()
-const loading = ref(true)
-// Fetch the item
-const { data: publication } = await useAsyncData("item", async () => {
-  return await fetchItem({
-    query: $queries.publications.get,
-    key: "getPublication",
-  })
+
+const { resourceItem: publication, loading } = await useI18nResourceItem({
+  resourceName: "publication",
+  documentGql: $queries.publications.get,
+  responseKey: "getPublication",
+  appId: "iea",
 })
-loading.value = false
 </script>
