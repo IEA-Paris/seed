@@ -26,11 +26,7 @@
     "@mdi/font": "^7.4.47",
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/robots": "^4.1.7",
-<<<<<<< HEAD
-    "@paris-ias/list": "^1.0.172",
-=======
-    "@paris-ias/list": "^1.0.171",
->>>>>>> 280ee415cabba32475097be9c64ec44d6c5e37e9
+    "@paris-ias/list": "^1.0.173",
     "@pinia/nuxt": "^0.5.4",
     "@vue/apollo-composable": "^4.2.2",
     "@vueuse/components": "^11.0.1",

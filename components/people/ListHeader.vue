@@ -5,7 +5,7 @@
         <h2 class="mb-9 text-center">
           {{ $t("list.filters.people.groups." + route.query.groups, 2) }}
         </h2>
-        <div
+        <!-- <div
           v-if="$stores.people.filters.groups.value === 'fellows'"
           class="content-doc-wrapper mb-2"
           :class="{ expanded: isExpanded }"
@@ -36,7 +36,7 @@
           @click="isExpanded = !isExpanded"
         >
           <ContentDoc :path="board" />
-        </div>
+        </div> -->
       </div>
     </v-card>
   </div>
