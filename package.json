@@ -23,6 +23,7 @@
     "is-windows": "node -p \"process.platform === 'win32' ? process.exit(0) : process.exit(1)\""
   },
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@mdi/font": "^7.4.47",
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/robots": "^4.1.7",

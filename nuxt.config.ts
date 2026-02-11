@@ -290,5 +290,11 @@ export default defineNuxtConfig({
     enabled: import.meta.dev,
   },
 
+  runtimeConfig: {
+    mailchimpApiKey: process.env.NUXT_MAILCHIMP_API_KEY,
+    mailchimpServerPrefix: process.env.NUXT_MAILCHIMP_SERVER_PREFIX,
+    mailchimpListId: process.env.NUXT_MAILCHIMP_LIST_ID,
+  },
+
   compatibilityDate: "2024-09-03",
 })
