@@ -99,30 +99,52 @@
 import { useDisplay } from "vuetify"
 definePageMeta({
   layout: "about",
-  /*   documentDriven: {
-    page: false, // Keep page fetching enabled
-    surround: false, // Disable surround fetching
-  }, */
 })
 const { smAndUp, name, mdAndUp, lgAndUp } = useDisplay()
 const localePath = useLocalePath()
 const { locale } = useI18n()
-//TODO .limit(1).find() > .findOne()
-const { data: action } = await useAsyncData("actions", () =>
-  queryContent("/actions/" + locale.value)
-    .limit(1)
-    .find(),
+const { $queries } = useNuxtApp()
+
+const variables = computed(() => ({
+  options: {
+    skip: 0,
+    limit: 100,
+    sort: "nameasc",
+    filters: JSON.stringify({}),
+  },
+  appId: "iea",
+  lang: locale.value,
+}))
+
+const { data: affiliationsData } = await useAsyncQuery(
+  $queries.affiliations.list,
+  variables,
+)
+console.log("affiliationsData.value: ", affiliationsData.value)
+
+const mapItem = (item) => ({
+  name: item.name,
+  url: item.url,
+  picture: item.image?.url,
+  color: item.image?.backgroundColor || "#fff",
+})
+
+const membersData = computed(() =>
+  (affiliationsData.value?.listAffiliations?.items || [])
+    .filter((item) => item.category?.includes("MEMBER"))
+    .map(mapItem),
+)
+const partnersData = computed(() =>
+  (affiliationsData.value?.listAffiliations?.items || [])
+    .filter((item) => item.category?.includes("PARTNER"))
+    .map(mapItem),
+)
+const sponsorsData = computed(() =>
+  (affiliationsData.value?.listAffiliations?.items || [])
+    .filter((item) => item.category?.includes("SPONSOR"))
+    .map(mapItem),
 )
 
-const { data: membersData } = await useAsyncData("members", () =>
-  queryContent("/members/" + locale.value).find(),
-)
-const { data: partnersData } = await useAsyncData("partners", () =>
-  queryContent("/partners/" + locale.value).find(),
-)
-const { data: sponsorsData } = await useAsyncData("sponsors", () =>
-  queryContent("/sponsors/" + locale.value).find(),
-)
 const sponsors = "/pages/" + locale.value + "/network_sponsors"
 const members = "/pages/" + locale.value + "/network_members"
 const partners = "/pages/" + locale.value + "/network_partners"
