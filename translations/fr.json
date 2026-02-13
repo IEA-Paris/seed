@@ -67,5 +67,10 @@
   "building": "Décloisonner la recherche",
   "an-outstanding-place-and-history": "Un lieu et une histoire d'exception",
   "scientific-policy": "Politique scientifique",
-  "events": "Événements"
+  "events": "Événements",
+  "subscribe": "S'abonner",
+  "subscribe-to-our-newsletter": "Abonnez-vous à notre newsletter",
+  "subscribed-successfully": "Abonnement réussi à notre newsletter !",
+  "already-subscribed": "Cet e-mail est déjà abonné",
+  "subscription-error": "Échec de l'abonnement. Veuillez réessayer."
 }

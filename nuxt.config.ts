@@ -135,7 +135,7 @@ export default defineNuxtConfig({
       "projects",
       "fellowships",
       "publications",
-      // "affiliations",
+      "affiliations",
       // "actions",
       // "disciplines",
       // "files",
@@ -288,6 +288,12 @@ export default defineNuxtConfig({
   },
   devtools: {
     enabled: import.meta.dev,
+  },
+
+  runtimeConfig: {
+    mailchimpApiKey: process.env.NUXT_MAILCHIMP_API_KEY,
+    mailchimpServerPrefix: process.env.NUXT_MAILCHIMP_SERVER_PREFIX,
+    mailchimpListId: process.env.NUXT_MAILCHIMP_LIST_ID,
   },
 
   compatibilityDate: "2024-09-03",

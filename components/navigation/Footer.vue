@@ -30,18 +30,29 @@
                 <div class="uppercase">
                   {{ $t("subscribe-to-our-newsletter") }}
                 </div>
-                <v-text-field
-                  v-model="email"
-                  :rules="rules"
-                  :label="$t('email')"
-                  variant="outlined"
-                  tile
-                  id="newsletter-email"
-                >
-                </v-text-field>
-                <v-btn block size="large" v-show="false">{{
-                  $t("subscribe")
-                }}</v-btn>
+                <v-form @submit.prevent="subscribeToNewsletter" ref="formRef">
+                  <v-text-field
+                    v-model="email"
+                    :rules="rules"
+                    :label="$t('email')"
+                    variant="outlined"
+                    tile
+                    id="newsletter-email"
+                    :disabled="isLoading"
+                    :error-messages="errorMessage"
+                  >
+                  </v-text-field>
+                  <v-btn
+                    block
+                    size="large"
+                    type="submit"
+                    :loading="isLoading"
+                    :disabled="isLoading"
+                    color="primary"
+                  >
+                    {{ successMessage || $t("subscribe") }}
+                  </v-btn>
+                </v-form>
               </v-col>
             </v-row>
             <v-row justify="center" class="mt-0">
@@ -209,6 +220,11 @@ const socialsRef = ref(config.socials)
 const panel = reactive([])
 const footer = ref(config.sitemap.footer)
 const email = ref("")
+const isLoading = ref(false)
+const errorMessage = ref("")
+const successMessage = ref("")
+const formRef = ref(null)
+
 const props = defineProps({
   isSnapScroll: Boolean,
 })
@@ -220,6 +236,55 @@ const rules = [
       value,
     ) || t("invalid-e-mail"),
 ]
+
+const subscribeToNewsletter = async () => {
+  errorMessage.value = ""
+  successMessage.value = ""
+
+  // Validate form
+  const { valid } = await formRef.value.validate()
+  if (!valid) {
+    return
+  }
+
+  isLoading.value = true
+
+  try {
+    const response = await $fetch("/api/newsletter/subscribe", {
+      method: "POST",
+      body: {
+        email: email.value,
+      },
+    })
+
+    successMessage.value = t("subscribed-successfully") || "✓ Subscribed!"
+    email.value = ""
+
+    // Reset success message after 5 seconds
+    setTimeout(() => {
+      successMessage.value = ""
+    }, 5000)
+  } catch (error) {
+    console.error("Newsletter subscription error:", error)
+
+    if (error.statusCode === 409) {
+      errorMessage.value =
+        t("already-subscribed") || "This email is already subscribed"
+    } else {
+      errorMessage.value =
+        error.data?.message ||
+        t("subscription-error") ||
+        "Failed to subscribe. Please try again."
+    }
+
+    // Clear error after 5 seconds
+    setTimeout(() => {
+      errorMessage.value = ""
+    }, 5000)
+  } finally {
+    isLoading.value = false
+  }
+}
 </script>
 <style lang="scss">
 .v-footer.fill-height {

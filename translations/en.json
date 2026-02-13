@@ -68,5 +68,10 @@
   "filter-by-type": "Filter by type",
   "building": "Building bridges",
   "an-outstanding-place-and-history": "An outstanding place and history",
-  "scientific-policy": "Scientific policy"
+  "scientific-policy": "Scientific policy",
+  "subscribe": "Subscribe",
+  "subscribe-to-our-newsletter": "Subscribe to our newsletter",
+  "subscribed-successfully": "Successfully subscribed to our newsletter!",
+  "already-subscribed": "This email is already subscribed",
+  "subscription-error": "Failed to subscribe. Please try again."
 }
