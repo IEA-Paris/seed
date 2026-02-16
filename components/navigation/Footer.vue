@@ -30,26 +30,26 @@
                 <div class="text-uppercase mb-2">
                   {{ $t("subscribe-to-our-newsletter") }}
                 </div>
-                <v-form @submit.prevent="subscribeToNewsletter" ref="formRef">
-                  <!-- Honeypot field - hidden from humans, bots will fill it -->
-                  <input
-                    v-model="honeypot"
-                    type="text"
-                    name="website"
-                    autocomplete="off"
-                    tabindex="-1"
-                    style="
-                      position: absolute;
-                      left: -9999px;
-                      width: 1px;
-                      height: 1px;
-                    "
-                    aria-hidden="true"
-                  />
 
+                <!-- Honeypot field -->
+                <input
+                  v-model="honeypot"
+                  type="text"
+                  name="website"
+                  autocomplete="off"
+                  tabindex="-1"
+                  style="
+                    position: absolute;
+                    left: -9999px;
+                    width: 1px;
+                    height: 1px;
+                  "
+                  aria-hidden="true"
+                />
+
+                <v-form @submit.prevent="onSubmit" ref="formRef">
                   <v-text-field
                     v-model="email"
-                    :rules="rules"
                     :label="$t('email')"
                     variant="outlined"
                     tile
@@ -58,18 +58,9 @@
                     :disabled="isLoading"
                     :error-messages="errorMessage"
                     :success-messages="successMessage"
-                    @click:append="subscribeToNewsletter"
+                    @click:append="onSubmit"
                   >
                   </v-text-field>
-
-                  <!-- Altcha widget for proof-of-work CAPTCHA -->
-                  <div v-if="altchaReady" class="mb-3">
-                    <altcha-widget
-                      ref="altchaWidget"
-                      challengeurl="/api/newsletter/challenge"
-                      :hidelogo="false"
-                    ></altcha-widget>
-                  </div>
 
                   <v-expand-transition>
                     <div v-show="email.length > 1" class="text-caption ml-4">
@@ -83,6 +74,24 @@
                     </div>
                   </v-expand-transition>
                 </v-form>
+
+                <!-- Altcha verification modal -->
+                <v-dialog v-model="showAltchaDialog" max-width="400" persistent>
+                  <v-card>
+                    <v-card-title class="text-h6">
+                      {{ $t("verify-human") || "Let's verify you're a human" }}
+                    </v-card-title>
+                    <v-card-text>
+                      <div ref="altchaContainer"></div>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-spacer />
+                      <v-btn variant="text" @click="cancelAltcha">
+                        {{ $t("cancel") || "Cancel" }}
+                      </v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
               </v-col>
             </v-row>
             <v-row justify="center" class="mt-0">
@@ -238,17 +247,6 @@ import { useDisplay } from "vuetify"
 import { useI18n } from "vue-i18n"
 import gql from "graphql-tag"
 
-// Load Altcha widget script
-useHead({
-  script: [
-    {
-      src: "https://cdn.jsdelivr.net/npm/altcha@0.6/dist/altcha.min.js",
-      type: "module",
-      async: true,
-    },
-  ],
-})
-
 const config = useAppConfig()
 const route = useRoute()
 const { t } = useI18n()
@@ -258,61 +256,62 @@ const { router } = useRouter()
 const nuxtApp = useNuxtApp()
 
 const { $vuetify } = nuxtApp
-const socialsRef = ref(config.socials)
-const panel = reactive([])
-const footer = ref(config.sitemap.footer)
 const email = ref("")
 const isLoading = ref(false)
 const errorMessage = ref("")
 const successMessage = ref("")
 const formRef = ref(null)
-const altchaWidget = ref(null)
+const altchaContainer = ref(null)
 const honeypot = ref("") // Honeypot field - should remain empty
 const formLoadTime = ref(Date.now()) // Track when form loads
-const altchaReady = ref(false) // Track when Altcha custom element is defined
+const showAltchaDialog = ref(false)
 
-onMounted(async () => {
-  // Wait for the altcha-widget custom element to be defined
-  if (typeof window !== "undefined" && "customElements" in window) {
-    try {
-      await customElements.whenDefined("altcha-widget")
-      altchaReady.value = true
-    } catch (error) {
-      console.warn("Altcha widget failed to load:", error)
-    }
+// Altcha widget DOM element (not reactive to avoid Vue tracking)
+let altchaWidgetEl = null
+let altchaScriptLoaded = false
+
+// Load Altcha script once on mount
+onMounted(() => {
+  const script = document.createElement("script")
+  script.src = "https://cdn.jsdelivr.net/npm/altcha@0.6/dist/altcha.min.js"
+  script.type = "module"
+  script.async = true
+  script.onload = () => {
+    altchaScriptLoaded = true
   }
+  document.head.appendChild(script)
 })
 
 const props = defineProps({
   isSnapScroll: Boolean,
 })
-const rules = [
-  //TODO internationalzie the error messages
-  (value) => !!value || "Required.",
-  (value) =>
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-      value,
-    ) || t("invalid-e-mail"),
-]
 
-const subscribeToNewsletter = async () => {
+// Step 1: Validate email/honeypot/time, then show Altcha modal
+const onSubmit = async () => {
   errorMessage.value = ""
   successMessage.value = ""
 
-  // Validate form
-  const { valid } = await formRef.value.validate()
-  if (!valid) {
+  // Manual email validation
+  if (!email.value) {
+    errorMessage.value = t("required") || "Email is required"
     return
   }
 
-  // 1. HONEYPOT CHECK
+  const emailRegex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  if (!emailRegex.test(email.value)) {
+    errorMessage.value = t("invalid-e-mail") || "Invalid email address"
+    return
+  }
+
+  // Honeypot check
   if (honeypot.value) {
     console.warn("Honeypot triggered")
     errorMessage.value = t("subscription-error") || "Invalid submission"
     return
   }
 
-  // 2. TIME-BASED CHECK
+  // Time-based check
   const submissionTime = Date.now() - formLoadTime.value
   if (submissionTime < 3000) {
     console.warn(`Submission too fast: ${submissionTime}ms`)
@@ -321,14 +320,55 @@ const subscribeToNewsletter = async () => {
     return
   }
 
-  // 3. ALTCHA VERIFICATION via Apex GraphQL
-  const altchaPayload = altchaWidget.value?.value
+  // Open Altcha modal and create widget inside it
+  showAltchaDialog.value = true
+
+  await nextTick()
+
+  if (altchaContainer.value) {
+    // Clear any previous widget
+    altchaContainer.value.innerHTML = ""
+
+    const createWidget = () => {
+      altchaWidgetEl = document.createElement("altcha-widget")
+      altchaWidgetEl.setAttribute("challengeurl", "/api/newsletter/challenge")
+      altchaWidgetEl.setAttribute("hidelogo", "false")
+      altchaWidgetEl.addEventListener("statechange", (e) => {
+        if (e.detail?.state === "verified") {
+          subscribeToNewsletter()
+        }
+      })
+      altchaContainer.value?.appendChild(altchaWidgetEl)
+    }
+
+    if (altchaScriptLoaded && customElements.get("altcha-widget")) {
+      createWidget()
+    } else {
+      await customElements.whenDefined("altcha-widget")
+      createWidget()
+    }
+  }
+}
+
+const cancelAltcha = () => {
+  showAltchaDialog.value = false
+  if (altchaContainer.value) {
+    altchaContainer.value.innerHTML = ""
+  }
+  altchaWidgetEl = null
+}
+
+// Step 2: Called automatically when Altcha verification completes
+const subscribeToNewsletter = async () => {
+  const altchaPayload = altchaWidgetEl?.value
   if (!altchaPayload) {
     errorMessage.value =
       t("complete-security-check") || "Please complete the security check"
+    showAltchaDialog.value = false
     return
   }
 
+  showAltchaDialog.value = false
   isLoading.value = true
 
   try {
@@ -355,7 +395,7 @@ const subscribeToNewsletter = async () => {
       return
     }
 
-    // 4. SUBSCRIBE TO MAILCHIMP
+    // Subscribe to Mailchimp
     const response = await $fetch("/api/newsletter/subscribe", {
       method: "POST",
       body: {
@@ -366,10 +406,11 @@ const subscribeToNewsletter = async () => {
     successMessage.value = t("subscribed-successfully") || "✓ Subscribed!"
     email.value = ""
 
-    // Reset Altcha widget
-    if (altchaWidget.value) {
-      altchaWidget.value.reset()
+    // Clean up Altcha widget
+    if (altchaContainer.value) {
+      altchaContainer.value.innerHTML = ""
     }
+    altchaWidgetEl = null
 
     // Reset form load time for next submission
     formLoadTime.value = Date.now()
