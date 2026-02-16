@@ -63,15 +63,13 @@
                   </v-text-field>
 
                   <!-- Altcha widget for proof-of-work CAPTCHA -->
-                  <ClientOnly>
-                    <div class="mb-3">
-                      <altcha-widget
-                        ref="altchaWidget"
-                        challengeurl="/api/newsletter/challenge"
-                        :hidelogo="false"
-                      ></altcha-widget>
-                    </div>
-                  </ClientOnly>
+                  <div v-if="mounted" class="mb-3">
+                    <altcha-widget
+                      ref="altchaWidget"
+                      challengeurl="/api/newsletter/challenge"
+                      :hidelogo="false"
+                    ></altcha-widget>
+                  </div>
 
                   <v-expand-transition>
                     <div v-show="email.length > 1" class="text-caption ml-4">
@@ -271,6 +269,11 @@ const formRef = ref(null)
 const altchaWidget = ref(null)
 const honeypot = ref("") // Honeypot field - should remain empty
 const formLoadTime = ref(Date.now()) // Track when form loads
+const mounted = ref(false) // Track client-side mount for Altcha widget
+
+onMounted(() => {
+  mounted.value = true
+})
 
 const props = defineProps({
   isSnapScroll: Boolean,
