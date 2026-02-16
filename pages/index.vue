@@ -169,9 +169,10 @@ const upcomingEvents = computed(() => data.value?.listEvents?.items || [])
     message: "Item not found in response",
   })
 } */
+
 onMounted(() => {
-  // init defaults from a possible previous session
-  // $rootStore.setDefaults()
+  $rootStore.search = ""
+  $rootStore.page = 1
 })
 </script>
 <style lang="scss">
