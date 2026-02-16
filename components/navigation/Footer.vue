@@ -27,7 +27,7 @@
                 </nuxt-link>
               </v-col>
               <v-col cols="12" md="6" class="mt-md-12 pl-6">
-                <div class="uppercase">
+                <div class="text-uppercase mb-2">
                   {{ $t("subscribe-to-our-newsletter") }}
                 </div>
                 <v-form @submit.prevent="subscribeToNewsletter" ref="formRef">
@@ -37,11 +37,21 @@
                     :label="$t('email')"
                     variant="outlined"
                     tile
+                    append-icon="mdi-send"
                     id="newsletter-email"
                     :disabled="isLoading"
                     :error-messages="errorMessage"
+                    :success-messages="successMessage"
+                    @click:append="sendMessage"
                   >
                   </v-text-field>
+                  <div class="text-caption">
+                    {{ $t("by-subscribing-you-agree-to-our") }}&nbsp;<nuxt-link
+                      class="text-light-blue"
+                      :to="localePath('/terms_of_service')"
+                      >{{ $t("terms-and-conditions") }}</nuxt-link
+                    >
+                  </div>
                   <v-btn
                     block
                     size="large"

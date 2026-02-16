@@ -74,5 +74,8 @@
   "already-subscribed": "Cet e-mail est déjà abonné",
   "subscription-error": "Échec de l'abonnement. Veuillez réessayer.",
   "more": "Plus",
-  "less": "Moins"
+  "less": "Moins",
+  "press-enter-to-register-to-the-newsletter": "Appuyez sur Entrée pour vous inscrire à la newsletter",
+  "terms-and-conditions": "termes et conditions",
+  "by-subscribing-you-agree-to-our": "En souscrivant à notre newsletter, vous acceptez nos"
 }

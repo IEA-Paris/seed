@@ -119,6 +119,7 @@ export default defineNuxtConfig({
     /*     "@nuxtjs/html-validator", */
     "@stefanobartoletti/nuxt-social-share",
     "@paris-ias/list",
+    "@nuxt/eslint",
     //"./modules/list/src/module" /*  "@paris-ias/list" */, // To use to debug list in website context (as opposed to the playground context)
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
@@ -193,14 +194,10 @@ export default defineNuxtConfig({
     dirs: ["~/components"],
   },
   i18n: {
-    bundle: {
-      optimizeTranslationDirective: false,
-    },
     langDir: "../translations/",
     locales: config.lang.locales,
     defaultLocale: config.lang.default,
     baseUrl: config.url,
-    lazy: true,
     detectBrowserLanguage: {
       alwaysRedirect: true,
       redirectOn: "root", // recommended

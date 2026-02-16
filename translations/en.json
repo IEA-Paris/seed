@@ -75,5 +75,8 @@
   "already-subscribed": "This email is already subscribed",
   "subscription-error": "Failed to subscribe. Please try again.",
   "more": "More",
-  "less": "Less"
+  "less": "Less",
+  "press-enter-to-register-to-the-newsletter": "Press Enter to register to the newsletter",
+  "by-subscribing-you-agree-to-our": "By subscribing, you agree to our",
+  "terms-and-conditions": "terms and conditions"
 }
