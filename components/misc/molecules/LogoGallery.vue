@@ -84,9 +84,10 @@
 const props = defineProps({
   items: { type: Array, default: () => [] },
   loading: { type: Boolean, default: false },
+  rowCount: { type: Number, default: 3 },
 })
 
-const rowCount = 3
+const rowCount = props.rowCount
 
 // Deterministic split into rows (same order on server & client)
 function splitRows(list) {

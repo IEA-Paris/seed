@@ -56,17 +56,14 @@
                 </v-sheet>
               </v-col>
               <v-col cols="4" v-if="mdAndUp">
-                <v-card
-                  class="d-flex align-center justify-center pa-12"
-                  :to="localePath('/about/network')"
-                >
-                  Network overview</v-card
-                >
-              </v-col></v-row
-            ></v-col
-          ></v-row
-        ></v-container
-      >
+                <div class="d-flex flex-column align-center justify-center">
+                  <MiscMoleculesLogoGallery
+                    :loading="pending"
+                    :items="allAffiliations"
+                    :row-count="6"
+                  />
+                </div> </v-col></v-row></v-col></v-row
+      ></v-container>
     </section>
 
     <section class="dark py-4">
@@ -114,6 +111,9 @@ import { useDisplay } from "vuetify"
 const { mdAndUp } = useDisplay()
 const localePath = useLocalePath()
 const { locale, locales } = useI18n()
+
+const { pending, allAffiliations } = await useAffiliations()
+
 const presentation = ref("/pages/" + locale.value + "/institute_description")
 const location = ref(
   "/pages/" + locale.value + "/institute_location_description",

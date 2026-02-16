@@ -31,6 +31,22 @@
                   {{ $t("subscribe-to-our-newsletter") }}
                 </div>
                 <v-form @submit.prevent="subscribeToNewsletter" ref="formRef">
+                  <!-- Honeypot field - hidden from humans, bots will fill it -->
+                  <input
+                    v-model="honeypot"
+                    type="text"
+                    name="website"
+                    autocomplete="off"
+                    tabindex="-1"
+                    style="
+                      position: absolute;
+                      left: -9999px;
+                      width: 1px;
+                      height: 1px;
+                    "
+                    aria-hidden="true"
+                  />
+
                   <v-text-field
                     v-model="email"
                     :rules="rules"
@@ -42,26 +58,32 @@
                     :disabled="isLoading"
                     :error-messages="errorMessage"
                     :success-messages="successMessage"
-                    @click:append="sendMessage"
+                    @click:append="subscribeToNewsletter"
                   >
                   </v-text-field>
-                  <div class="text-caption">
-                    {{ $t("by-subscribing-you-agree-to-our") }}&nbsp;<nuxt-link
-                      class="text-light-blue"
-                      :to="localePath('/terms_of_service')"
-                      >{{ $t("terms-and-conditions") }}</nuxt-link
-                    >
-                  </div>
-                  <v-btn
-                    block
-                    size="large"
-                    type="submit"
-                    :loading="isLoading"
-                    :disabled="isLoading"
-                    color="primary"
-                  >
-                    {{ successMessage || $t("subscribe") }}
-                  </v-btn>
+
+                  <!-- Altcha widget for proof-of-work CAPTCHA -->
+                  <ClientOnly>
+                    <div class="mb-3">
+                      <altcha-widget
+                        ref="altchaWidget"
+                        challengeurl="/api/newsletter/challenge"
+                        :hidelogo="false"
+                      ></altcha-widget>
+                    </div>
+                  </ClientOnly>
+
+                  <v-expand-transition>
+                    <div v-show="email.length > 1" class="text-caption ml-4">
+                      {{
+                        $t("by-subscribing-you-agree-to-our")
+                      }}&nbsp;<nuxt-link
+                        class="text-light-blue"
+                        :to="localePath('/terms_of_service')"
+                        >{{ $t("terms-and-conditions") }}</nuxt-link
+                      >
+                    </div>
+                  </v-expand-transition>
                 </v-form>
               </v-col>
             </v-row>
@@ -216,6 +238,18 @@
 // import sitemap from "~/assets/data/sitemap"
 import { useDisplay } from "vuetify"
 import { useI18n } from "vue-i18n"
+import gql from "graphql-tag"
+
+// Load Altcha widget script
+useHead({
+  script: [
+    {
+      src: "https://cdn.jsdelivr.net/npm/altcha@0.6/dist/altcha.min.js",
+      type: "module",
+      async: true,
+    },
+  ],
+})
 
 const config = useAppConfig()
 const route = useRoute()
@@ -234,6 +268,9 @@ const isLoading = ref(false)
 const errorMessage = ref("")
 const successMessage = ref("")
 const formRef = ref(null)
+const altchaWidget = ref(null)
+const honeypot = ref("") // Honeypot field - should remain empty
+const formLoadTime = ref(Date.now()) // Track when form loads
 
 const props = defineProps({
   isSnapScroll: Boolean,
@@ -257,9 +294,57 @@ const subscribeToNewsletter = async () => {
     return
   }
 
+  // 1. HONEYPOT CHECK
+  if (honeypot.value) {
+    console.warn("Honeypot triggered")
+    errorMessage.value = t("subscription-error") || "Invalid submission"
+    return
+  }
+
+  // 2. TIME-BASED CHECK
+  const submissionTime = Date.now() - formLoadTime.value
+  if (submissionTime < 3000) {
+    console.warn(`Submission too fast: ${submissionTime}ms`)
+    errorMessage.value =
+      t("submission-too-fast") || "Please wait a moment before submitting"
+    return
+  }
+
+  // 3. ALTCHA VERIFICATION via Apex GraphQL
+  const altchaPayload = altchaWidget.value?.value
+  if (!altchaPayload) {
+    errorMessage.value =
+      t("complete-security-check") || "Please complete the security check"
+    return
+  }
+
   isLoading.value = true
 
   try {
+    // Verify Altcha with backend
+    const { $apollo } = nuxtApp
+    const verificationResult = await $apollo.defaultClient.query({
+      query: gql`
+        query checkAltcha($payload: String!) {
+          checkAltcha(payload: $payload) {
+            valid
+            verified
+          }
+        }
+      `,
+      variables: {
+        payload: altchaPayload,
+      },
+    })
+
+    if (!verificationResult.data?.checkAltcha?.valid) {
+      errorMessage.value =
+        t("security-verification-failed") ||
+        "Security verification failed. Please try again."
+      return
+    }
+
+    // 4. SUBSCRIBE TO MAILCHIMP
     const response = await $fetch("/api/newsletter/subscribe", {
       method: "POST",
       body: {
@@ -269,6 +354,14 @@ const subscribeToNewsletter = async () => {
 
     successMessage.value = t("subscribed-successfully") || "✓ Subscribed!"
     email.value = ""
+
+    // Reset Altcha widget
+    if (altchaWidget.value) {
+      altchaWidget.value.reset()
+    }
+
+    // Reset form load time for next submission
+    formLoadTime.value = Date.now()
 
     // Reset success message after 5 seconds
     setTimeout(() => {

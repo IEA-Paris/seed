@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <NuxtLoadingIndicator color="black" />
+    <NavigationLoader :active="loading" />
     <v-main>
       <NavigationTopBar />
       <v-container fluid class="pa-0"> <slot /> </v-container>
@@ -8,5 +9,18 @@
   </v-app>
 </template>
 
-<script setup></script>
+<script setup>
+const nuxtApp = useNuxtApp()
+const loading = ref(false)
+
+nuxtApp.hook("page:start", () => {
+  loading.value = true
+})
+
+nuxtApp.hook("page:finish", () => {
+  setTimeout(() => {
+    loading.value = false
+  }, 1000)
+})
+</script>
 <style lang="scss"></style>

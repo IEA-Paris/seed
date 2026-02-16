@@ -29,8 +29,7 @@ export default defineEventHandler(async (event) => {
       server: config.mailchimpServerPrefix,
     })
 
-    // Use setListMember with subscriber hash for idempotent behavior
-    // This will create or update the member
+    // Use setListMember for idempotent behavior
     const crypto = await import("crypto")
     const subscriberHash = crypto
       .createHash("md5")
@@ -52,19 +51,11 @@ export default defineEventHandler(async (event) => {
     return {
       success: true,
       message: "Successfully subscribed to newsletter",
-      data: {
-        id: response.id,
-        email: response.email_address,
-        status: response.status,
-      },
+      email: response.email_address,
+      status: response.status,
     }
   } catch (error: any) {
     console.error("Mailchimp subscription error:", error)
-    console.error("Error details:", {
-      status: error.status,
-      response: error.response?.body,
-      text: error.response?.text,
-    })
 
     // Handle specific Mailchimp errors
     if (
@@ -74,16 +65,6 @@ export default defineEventHandler(async (event) => {
       throw createError({
         statusCode: 409,
         statusMessage: "This email is already subscribed",
-      })
-    }
-
-    if (error.status === 400) {
-      throw createError({
-        statusCode: 400,
-        statusMessage:
-          error.response?.body?.detail ||
-          error.response?.body?.title ||
-          "Invalid email or subscription request",
       })
     }
 

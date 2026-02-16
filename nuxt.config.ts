@@ -118,9 +118,9 @@ export default defineNuxtConfig({
     "@nuxt/test-utils/module",
     /*     "@nuxtjs/html-validator", */
     "@stefanobartoletti/nuxt-social-share",
-    "@paris-ias/list",
+    // "@paris-ias/list",
     "@nuxt/eslint",
-    //"./modules/list/src/module" /*  "@paris-ias/list" */, // To use to debug list in website context (as opposed to the playground context)
+    "./modules/list/src/module" /*  "@paris-ias/list" */, // To use to debug list in website context (as opposed to the playground context)
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
         // @ts-expect-error
@@ -288,9 +288,16 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    // Server-only config (not exposed to client)
     mailchimpApiKey: process.env.NUXT_MAILCHIMP_API_KEY,
     mailchimpServerPrefix: process.env.NUXT_MAILCHIMP_SERVER_PREFIX,
     mailchimpListId: process.env.NUXT_MAILCHIMP_LIST_ID,
+    altchaHmacKey:
+      process.env.NUXT_ALTCHA_HMAC_KEY ||
+      "secret-hmac-key-change-in-production",
+    graphqlEndpoint: config.graphqlEndpoint,
+    graphqlApiKey: config.graphqlApiKey,
+    public: {},
   },
 
   compatibilityDate: "2024-09-03",

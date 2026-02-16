@@ -1,7 +1,7 @@
-import { nextTick } from 'vue';
 <template>
   <v-app>
     <NuxtLoadingIndicator color="black" />
+    <NavigationLoader :active="loading" />
     <NavigationTopBar />
     <v-main>
       <NavigationBreadcrumbs></NavigationBreadcrumbs>
@@ -15,16 +15,14 @@ import { nextTick } from 'vue';
 <script setup>
 const nuxtApp = useNuxtApp()
 const loading = ref(false)
+
 nuxtApp.hook("page:start", () => {
   loading.value = true
 })
 
-nuxtApp.hook("page:finish", async () => {
-  /*   setTimeout(() => { */
-  await nextTick()
-  nextTick(() => {
+nuxtApp.hook("page:finish", () => {
+  setTimeout(() => {
     loading.value = false
-  })
-  // }, 600) // Adjust timing as needed
+  }, 1000)
 })
 </script>

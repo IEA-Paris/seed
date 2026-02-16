@@ -2216,17 +2216,17 @@
     "@parcel/watcher-win32-ia32" "2.5.6"
     "@parcel/watcher-win32-x64" "2.5.6"
 
-"@paris-ias/list@^1.0.178":
-  version "1.0.178"
-  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.178.tgz#8a17544e7a3a0f0c38f008978a483bd7aa0806e6"
-  integrity sha512-DAwDcz46iJNuZvsI2mIsC+akegg3deJXEa+7ZN5wWynPoUfTk32E9MRQnGN4BCs/120mjdXb2xeo552133Al8g==
+"@paris-ias/list@^1.0.179":
+  version "1.0.179"
+  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.179.tgz#0b4320dc0a29a49c714f9b6f88ceec82ce92bb59"
+  integrity sha512-TwC0/gfb4fdFiNHTqw1pFOIZt4IpyBxAS6Q3S8OBZ7wHAn8LofNfrHyO1dku+fu40vXdUGT5+D/K3KbjBpilHA==
   dependencies:
-    "@paris-ias/trees" "^2.0.45"
+    "@paris-ias/trees" "^2.0.47"
 
-"@paris-ias/trees@^2.0.45":
-  version "2.0.45"
-  resolved "https://registry.yarnpkg.com/@paris-ias/trees/-/trees-2.0.45.tgz#1b1bded8a1b2e049a8bdb8489fdda2b727e8d69d"
-  integrity sha512-tn/q1ihCsZNzxMvS4+QfWV2U/70vvTVll86l3dPYLUsFD38ir7BMg4+ziuWGgxWznGVacauzaw/uHsdvsWp4pQ==
+"@paris-ias/trees@^2.0.47":
+  version "2.0.47"
+  resolved "https://registry.yarnpkg.com/@paris-ias/trees/-/trees-2.0.47.tgz#dae7ae8d2ef651f43e338fe3c024b2660a6ecbac"
+  integrity sha512-C7h9u1/kRWeGI9QRwGA3hYFelXhvdUAe2P5vuf6752qDL6P93OxNa846XmBBNQIab5Vf7vHxxZHNQvtqTr5BRQ==
   dependencies:
     "@graphql-tools/load-files" "^7"
     "@graphql-tools/merge" "^8"
@@ -3493,6 +3493,11 @@ alien-signals@^3.0.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/alien-signals/-/alien-signals-3.1.2.tgz#26e623e3ed81e401df1a7c503f726e2288a4fa02"
   integrity sha512-d9dYqZTS90WLiU0I5c6DHj/HcKkF8ZyGN3G5x8wSbslulz70KOxaqCT0hQCo9KOyhVqzqGojvNdJXoTumZOtcw==
+
+altcha@^0.6.3:
+  version "0.6.7"
+  resolved "https://registry.yarnpkg.com/altcha/-/altcha-0.6.7.tgz#9c7d36b6f6c8bfefa6585d635d4309bbac030100"
+  integrity sha512-CzPUxc8NuUea+Jddzt0SD3W6wX0EW4x3kPdyFsVEO3bcPKFDzMGi65FmguJXcvKjsDdA372wUinLbDQk0/n95A==
 
 ansi-regex@^5.0.1:
   version "5.0.1"

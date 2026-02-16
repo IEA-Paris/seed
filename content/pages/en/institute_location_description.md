@@ -2,7 +2,4 @@
 title: institute location description
 page: institute
 ---
-
-The Institute develops interactions with local and global research ecosystems, civil society, and the socio-economic world in order to increase the impact of scientiﬁc work in the human, social and cognitive sciences, beyond disciplinary and sectoral boundaries.
-
-Dialogue between academics, citizens, and political decision-makers facilitates reﬂection on present and future societal challenges. Regular meetings and events give new audiences easier access to research results.
+Since 2013, the Paris IAS has occupied the Hôtel de Lauzun, a 17th-century private mansion built for Charles Gruyn and known for its remarkable décor. Notable former residents include the Comte de Lauzun, Théophile Gautier, and Charles Baudelaire, during whose stay in 1845 the Club des Haschichins held gatherings there. Restored largely by Baron Jérôme Pichon and his nephew Louis, it has belonged to the City of Paris since 1928. After renovations in 2012, it now blends heritage rooms with modern workspaces for the Institute's fellows.

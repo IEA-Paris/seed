@@ -143,6 +143,8 @@ $animation-easing: ease;
   background: rgba(255, 255, 255, 1) !important;
   backdrop-filter: blur(3px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  height: calc(100vh - 5px) !important;
+  top: 5px !important;
 }
 
 .loader-overlay--inactive {
