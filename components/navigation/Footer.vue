@@ -63,7 +63,7 @@
                   </v-text-field>
 
                   <!-- Altcha widget for proof-of-work CAPTCHA -->
-                  <div v-if="mounted" class="mb-3">
+                  <div v-if="altchaReady" class="mb-3">
                     <altcha-widget
                       ref="altchaWidget"
                       challengeurl="/api/newsletter/challenge"
@@ -269,10 +269,18 @@ const formRef = ref(null)
 const altchaWidget = ref(null)
 const honeypot = ref("") // Honeypot field - should remain empty
 const formLoadTime = ref(Date.now()) // Track when form loads
-const mounted = ref(false) // Track client-side mount for Altcha widget
+const altchaReady = ref(false) // Track when Altcha custom element is defined
 
-onMounted(() => {
-  mounted.value = true
+onMounted(async () => {
+  // Wait for the altcha-widget custom element to be defined
+  if (typeof window !== "undefined" && "customElements" in window) {
+    try {
+      await customElements.whenDefined("altcha-widget")
+      altchaReady.value = true
+    } catch (error) {
+      console.warn("Altcha widget failed to load:", error)
+    }
+  }
 })
 
 const props = defineProps({
