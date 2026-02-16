@@ -76,7 +76,12 @@
                 </v-form>
 
                 <!-- Altcha verification modal -->
-                <v-dialog v-model="showAltchaDialog" max-width="400" persistent>
+                <v-dialog
+                  v-model="showAltchaDialog"
+                  max-width="400"
+                  persistent
+                  scroll-strategy="none"
+                >
                   <v-card>
                     <v-card-title class="text-h6">
                       {{ $t("verify-human") || "Let's verify you're a human" }}
