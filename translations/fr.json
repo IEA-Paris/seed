@@ -72,5 +72,7 @@
   "subscribe-to-our-newsletter": "Abonnez-vous à notre newsletter",
   "subscribed-successfully": "Abonnement réussi à notre newsletter !",
   "already-subscribed": "Cet e-mail est déjà abonné",
-  "subscription-error": "Échec de l'abonnement. Veuillez réessayer."
+  "subscription-error": "Échec de l'abonnement. Veuillez réessayer.",
+  "more": "Plus",
+  "less": "Moins"
 }

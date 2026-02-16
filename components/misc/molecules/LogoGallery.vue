@@ -1,170 +1,219 @@
 <template>
-  <div class="d-flex flex-wrap logo-container">
-    <!--   TODO: constrain it by height (no more than calc(100vh - 64px)).
-        The logos should size responsively (no hard coded values)
-        Also replace with ImageContainer and pass the hover class animation to it -->
-    <Swiper
-      v-for="(swiperSet, index) in itemSet"
-      autoplay
-      loop
-      slidesPerView="auto"
-      class="logo-swiper"
-      :key="
-        index +
-        props.items.length +
-        ((props.items[0] && slugify(props.items[0].title)) || 'x') +
-        'swiper'
-      "
-      :modules="[
-        SwiperAutoplay,
-        SwiperA11y,
-        SwiperPagination,
-        SwiperNavigation,
-        SwiperKeyboard,
-        SwiperGrid,
-        SwiperFreeMode,
-      ]"
-    >
-      <SwiperSlide
-        v-for="(item, index) in swiperSet"
-        :key="index + props.items.length"
-        class="swiper-item cursor-pointer"
-        :style="'background-color:' + (item.color || 'white') + ';'"
-      >
-        <a :href="item.url" target="_blank">
-          <nuxt-img
-            :src="item.picture"
-            :title="item.name"
-            class="d-flex logo-wrapper"
-            fit="inside"
-            format="webp"
-            preload
-          >
-          </nuxt-img
-        ></a>
-      </SwiperSlide>
-    </Swiper>
+  <!-- Skeleton loading state -->
+  <div v-if="props.loading" class="logo-container">
+    <v-row dense>
+      <v-col v-for="n in 6" :key="n" cols="4" sm="3" md="2">
+        <v-skeleton-loader type="image" class="logo-skeleton" />
+      </v-col>
+    </v-row>
+  </div>
 
-    <!-- <v-col cols="4" v-show="smAndUp">
-            <v-sheet
-              class="d-flex align-center justify-center"
-              :to="localePath('activities/membership')"
-              link
-            >
-              <ActionsSmallContainer
-                :action="action"
-              ></ActionsSmallContainer> </v-sheet></v-col -->
+  <!-- Logo marquee gallery -->
+  <div v-else-if="items?.length" class="logo-container">
+    <div
+      v-for="(row, rowIndex) in rows"
+      :key="rowIndex"
+      class="marquee-track"
+      :class="{ 'marquee-reverse': rowIndex % 2 === 1 }"
+    >
+      <div class="marquee-content">
+        <template v-for="(item, i) in row" :key="`a-${i}`">
+          <v-menu
+            open-on-hover
+            :open-delay="300"
+            :close-delay="200"
+            location="top"
+            content-class="logo-hover-card"
+          >
+            <template #activator="{ props: menu }">
+              <a
+                v-bind="menu"
+                :href="item.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="logo-item"
+                :style="{ '--hover-bg': item.color || '#fff' }"
+              >
+                <v-img
+                  :src="item.picture"
+                  :alt="item.name"
+                  contain
+                  class="logo-img"
+                />
+              </a>
+            </template>
+            <MiscMoleculesLogoHoverCard :item="item" />
+          </v-menu>
+        </template>
+        <!-- Duplicate for seamless loop -->
+        <template v-for="(item, i) in row" :key="`b-${i}`">
+          <v-menu
+            open-on-hover
+            :open-delay="300"
+            :close-delay="200"
+            location="top"
+            content-class="logo-hover-card"
+          >
+            <template #activator="{ props: menu }">
+              <a
+                v-bind="menu"
+                :href="item.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="logo-item"
+                :style="{ '--hover-bg': item.color || '#fff' }"
+                aria-hidden="true"
+              >
+                <v-img
+                  :src="item.picture"
+                  :alt="item.name"
+                  contain
+                  class="logo-img"
+                />
+              </a>
+            </template>
+            <MiscMoleculesLogoHoverCard :item />
+          </v-menu>
+        </template>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify"
-const { name } = useDisplay()
 const props = defineProps({
-  items: Array,
-})
-const chunkArray = (arr, n) => {
-  const size = Math.ceil(arr.length / n)
-  return Array.from({ length: n }, (v, i) =>
-    arr.slice(i * size, i * size + size),
-  )
-}
-onMounted(() => {
-  console.log(
-    "rows",
-    [3, 5, 6, 4, 3, 3][
-      ["xs", "sm", "md", "lg", "xl", "xxl"].indexOf(name.value || "md")
-    ],
-  )
+  items: { type: Array, default: () => [] },
+  loading: { type: Boolean, default: false },
 })
 
-const itemSet = computed(() =>
-  chunkArray(
-    props.items.sort((a, b) => 0.5 - Math.random()),
-    [3, 5, 6, 4, 3, 3][
-      ["xs", "sm", "md", "lg", "xl", "xxl"].indexOf(name.value || "md")
-    ],
-  ),
-)
-const swiperBreakpoints = ref({
-  320: {
-    slidesPerRow: "4",
-    slidesPerView: 3,
-    slidesPerColumn: 3,
-    slidesPerGroup: 3,
-  },
-  480: {
-    slidesPerRow: "4",
-    slidesPerView: 3,
-    slidesPerColumn: 3,
-    slidesPerGroup: 3,
-  },
-  640: {
-    slidesPerRow: "4",
-    slidesPerView: 3,
-    slidesPerColumn: 3,
-    slidesPerGroup: 3,
-  },
-  960: {
-    slidesPerRow: "4",
-    slidesPerView: 3,
-    slidesPerColumn: 3,
-    slidesPerGroup: 3,
-  },
-  1280: {
-    slidesPerRow: "4",
-    slidesPerView: 3,
-    slidesPerColumn: 3,
-    slidesPerGroup: 3,
-  },
-  1920: {
-    slidesPerRow: "4",
-    slidesPerView: 3,
-    slidesPerColumn: 3,
-    slidesPerGroup: 3,
-  },
+const rowCount = 3
+
+// Deterministic split into rows (same order on server & client)
+function splitRows(list) {
+  if (!list?.length) return []
+  const size = Math.ceil(list.length / rowCount)
+  return Array.from({ length: rowCount }, (_, i) =>
+    list.slice(i * size, i * size + size),
+  ).filter((row) => row.length > 0)
+}
+
+// Fisher-Yates shuffle (in-place)
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
+  }
+  return arr
+}
+
+const rows = ref(splitRows(props.items))
+
+// Shuffle only on the client after hydration to avoid SSR mismatch
+onMounted(() => {
+  rows.value = splitRows(shuffle([...props.items]))
 })
+
+watch(
+  () => props.items,
+  (val) => {
+    rows.value = splitRows(import.meta.server ? val : shuffle([...val]))
+  },
+)
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .logo-container {
-  height: 100%;
-  padding: 0 1em 0 0;
+  width: 100%;
+  overflow: hidden;
+  padding: 0.5em 0;
 }
-.swiper-wrapper {
+
+.logo-skeleton {
+  height: 100px;
 }
-.logo-wrapper {
-  object-fit: contain;
+
+/* Marquee track */
+.marquee-track {
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.marquee-content {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+
+  .marquee-reverse & {
+    animation-direction: reverse;
+  }
+}
+
+.logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 150px;
+  height: 100px;
+  padding: 8px;
+  border-radius: 4px;
+  margin: 0 4px;
+  background-color: transparent;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    background-color: var(--hover-bg, #fff);
+
+    .logo-img {
+      filter: none;
+    }
+  }
+}
+
+.logo-img {
   max-width: 100%;
   max-height: 100%;
   filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
-  transition: filter 0.5s ease;
+  transition: filter 0.4s ease;
+}
 
-  &:hover {
-    filter: none;
-    -webkit-filter: grayscale(0);
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-.logo-swiper {
-  width: 100%;
-  .swiper-slide {
-    width: unset !important;
-    color: #fff;
+/* Pause on hover for accessibility */
+.marquee-track:hover .marquee-content {
+  animation-play-state: paused;
+}
+</style>
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 120px;
-    height: 100px;
-    padding: 0 10px;
-  }
+<style>
+.logo-hover-card {
+  pointer-events: auto;
+  max-height: 100vh;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* logo component */
-/* .fill-image-item {
+.hover-card-root {
+  max-height: 100vh;
+  overflow-y: auto;
+  background-color: #fff !important;
+}
 
-  overflow: hidden;
-} */
+.description-scroll {
+  max-height: calc(100vh - 280px);
+  overflow-y: auto;
+  padding-right: 4px;
+}
 </style>
