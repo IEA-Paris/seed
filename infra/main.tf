@@ -49,37 +49,45 @@ resource "aws_s3_bucket_policy" "this" {
   policy = data.aws_iam_policy_document.this.json
 }
 
+# CloudFront Function to rewrite clean URLs to /index.html
+# S3 with OAI uses the bucket API (not website endpoint),
+# so it can't resolve /path → /path/index.html automatically.
+resource "aws_cloudfront_function" "url_rewrite" {
+  name    = "${var.env}-iea-paris-url-rewrite"
+  runtime = "cloudfront-js-2.0"
+  publish = true
+  code    = <<-EOF
+    function handler(event) {
+      var request = event.request;
+      var uri = request.uri;
+      if (uri.endsWith('/')) {
+        request.uri += 'index.html';
+      } else if (!uri.includes('.')) {
+        request.uri += '/index.html';
+      }
+      return request;
+    }
+  EOF
+}
+
 resource "aws_cloudfront_distribution" "this" {
   #depends_on = local.new_cert == true ? [aws_acm_certificate.this[0]] : []
 
   #web_acl_id = "${data.aws_waf_web_acl.cf.id}"
   aliases = (var.env == "prod") ? [for dn in local.domain_names : dn] : [for dn in local.domain_names : "${var.env}.${dn}"]
-  custom_error_response {
-    error_caching_min_ttl = 300
-    error_code            = 405
-    response_code         = 200
-    response_page_path    = "/index.html"
-  }
 
   custom_error_response {
     error_caching_min_ttl = 300
     error_code            = 404
-    response_code         = 200
-    response_page_path    = "/index.html"
+    response_code         = 404
+    response_page_path    = "/404.html"
   }
 
   custom_error_response {
     error_caching_min_ttl = 300
     error_code            = 403
-    response_code         = 200
-    response_page_path    = "/index.html"
-  }
-
-  custom_error_response {
-    error_caching_min_ttl = 300
-    error_code            = 400
-    response_code         = 200
-    response_page_path    = "/index.html"
+    response_code         = 403
+    response_page_path    = "/404.html"
   }
 
   default_cache_behavior {
@@ -100,6 +108,11 @@ resource "aws_cloudfront_distribution" "this" {
     max_ttl                = 31536000
     compress               = true
     viewer_protocol_policy = "redirect-to-https"
+
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.url_rewrite.arn
+    }
 
     /* Attach Lambda Edge */
     #lambda_function_association {

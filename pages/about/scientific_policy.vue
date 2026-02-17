@@ -2,7 +2,7 @@
   <div class="scroller">
     <section class="py-4">
       <v-row class="d-flex align-center justify-center flex-column px-4">
-        <v-col cols="12" md="7" lg="6" xl="5">
+        <v-col cols="12" md="8">
           <v-sheet class="bg-surface" color="transparent">
             <div v-if="smAndUp" class="wrap-media">
               <v-img src="/images/Paulius_Yamin.jpg" aspect-ratio="1" cover />

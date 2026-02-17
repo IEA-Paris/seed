@@ -1,7 +1,7 @@
 <template>
   <v-container class="annual-reports-container">
     <v-row class="d-flex align-center justify-center flex-column">
-      <v-col cols="12" md="10" lg="8" xl="7">
+      <v-col cols="12" md="8">
         <h2 class="annual-reports__title">
           <a href="#annual-reports">{{ $t("annual-reports") }}</a>
         </h2>

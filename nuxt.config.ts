@@ -86,7 +86,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      /*  crawlLinks: true, */
+      crawlLinks: true,
       failOnError: false,
     },
   },
@@ -196,7 +196,7 @@ export default defineNuxtConfig({
     defaultLocale: config.lang.default,
     baseUrl: config.url,
     detectBrowserLanguage: {
-      alwaysRedirect: true,
+      alwaysRedirect: false,
       redirectOn: "root", // recommended
       fallbackLocale: "en",
       useCookie: true,

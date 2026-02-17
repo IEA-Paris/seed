@@ -3,7 +3,7 @@
     <section class="d-flex py-4">
       <v-container>
         <v-row class="align-center justify-center flex-column">
-          <v-col cols="12" md="10" lg="7" xl="6">
+          <v-col cols="12" md="10" xxl="8">
             <v-sheet class="d-flex pa-sm-8">
               <ContentDoc :path="presentation" /> </v-sheet
           ></v-col> </v-row
@@ -13,7 +13,7 @@
     <section class="dark py-4">
       <v-container>
         <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" md="10" lg="7" xl="6">
+          <v-col cols="12" md="10" xxl="8">
             <v-sheet class="pa-sm-8 bg-surface" color="transparent">
               <div v-if="mdAndUp" class="wrap-media">
                 <v-carousel
@@ -48,7 +48,7 @@
     <section class="py-4">
       <v-container>
         <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" md="10" lg="7" xl="6">
+          <v-col cols="12" md="10" xxl="8">
             <v-row no-gutters>
               <v-col cols="12" md="8">
                 <v-sheet class="d-flex align-center justify-center pa-12">
@@ -69,7 +69,7 @@
     <section class="dark py-4">
       <v-container>
         <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" md="10" lg="7" xl="6">
+          <v-col cols="12" md="10" xxl="8">
             <v-sheet class="pa-sm-8 bg-surface" color="transparent">
               <h2 class="text-white">
                 <a href="#an-outstanding-place-and-history">
