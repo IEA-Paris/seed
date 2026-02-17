@@ -99,7 +99,6 @@ export default defineNuxtConfig({
     // Cross-Site Request Forgery (CSRF) prevention (https://nuxt.com/modules/csurf).
     /*    "nuxt-csurf", */
     "@nuxt/image",
-    "nuxt-swiper",
     "@nuxtjs/i18n",
     "@nuxtjs/sitemap",
     // https://github.com/nuxt-community/device-module
@@ -186,9 +185,7 @@ export default defineNuxtConfig({
   image: {
     // https://image.nuxt.com/get-started/configuration
   },
-  swiper: {
-    // Default parameters
-  },
+
   components: {
     global: true,
     dirs: ["~/components"],

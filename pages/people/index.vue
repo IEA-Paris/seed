@@ -6,6 +6,7 @@
         <div class="d-flex justify-center" v-else>
           <h2 class="text-center">{{ capitalize($t("items.people", 2)) }}</h2>
         </div>
+
         <ListOrganismsList
           type="people"
           pathPrefix="people-slug"

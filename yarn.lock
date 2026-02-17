@@ -1273,7 +1273,7 @@
   optionalDependencies:
     ipx "^2.1.1"
 
-"@nuxt/kit@3.21.1", "@nuxt/kit@^3.10.3", "@nuxt/kit@^3.13.0", "@nuxt/kit@^3.13.2", "@nuxt/kit@^3.14.1592", "@nuxt/kit@^3.15.0", "@nuxt/kit@^3.15.4", "@nuxt/kit@^3.17.2", "@nuxt/kit@^3.18.0", "@nuxt/kit@^3.19.3", "@nuxt/kit@^3.20.2", "@nuxt/kit@^3.21.0", "@nuxt/kit@^3.7.0", "@nuxt/kit@^3.9.0":
+"@nuxt/kit@3.21.1", "@nuxt/kit@^3.10.3", "@nuxt/kit@^3.13.0", "@nuxt/kit@^3.13.2", "@nuxt/kit@^3.14.1592", "@nuxt/kit@^3.15.0", "@nuxt/kit@^3.15.4", "@nuxt/kit@^3.17.2", "@nuxt/kit@^3.18.0", "@nuxt/kit@^3.19.3", "@nuxt/kit@^3.20.2", "@nuxt/kit@^3.21.0", "@nuxt/kit@^3.9.0":
   version "3.21.1"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.21.1.tgz#2e9dfe15498dd5bb6e372004f9ee55d9d8db55fc"
   integrity sha512-QORZRjcuTKgo++XP1Pc2c2gqwRydkaExrIRfRI9vFsPA3AzuHVn5Gfmbv1ic8y34e78mr5DMBvJlelUaeOuajg==
@@ -3493,11 +3493,6 @@ alien-signals@^3.0.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/alien-signals/-/alien-signals-3.1.2.tgz#26e623e3ed81e401df1a7c503f726e2288a4fa02"
   integrity sha512-d9dYqZTS90WLiU0I5c6DHj/HcKkF8ZyGN3G5x8wSbslulz70KOxaqCT0hQCo9KOyhVqzqGojvNdJXoTumZOtcw==
-
-altcha@^0.6.3:
-  version "0.6.7"
-  resolved "https://registry.yarnpkg.com/altcha/-/altcha-0.6.7.tgz#9c7d36b6f6c8bfefa6585d635d4309bbac030100"
-  integrity sha512-CzPUxc8NuUea+Jddzt0SD3W6wX0EW4x3kPdyFsVEO3bcPKFDzMGi65FmguJXcvKjsDdA372wUinLbDQk0/n95A==
 
 ansi-regex@^5.0.1:
   version "5.0.1"
@@ -7309,14 +7304,6 @@ nuxt-site-config@^3.2.11, nuxt-site-config@^3.2.18:
     site-config-stack "3.2.19"
     ufo "^1.6.3"
 
-nuxt-swiper@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/nuxt-swiper/-/nuxt-swiper-1.2.2.tgz#7b855c4948edb2e8ba4f98eea457a821b84ff53b"
-  integrity sha512-y4s/srISP4OuhXbYg9/W1/6EWnbcoHRGEKBKAvGP0I2h0b3enhqZNEk7854M3F89ys8waacBXektPzamgl5xwQ==
-  dependencies:
-    "@nuxt/kit" "^3.7.0"
-    swiper "^10.2.0"
-
 nuxt@^3.13.2:
   version "3.21.1"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-3.21.1.tgz#8e8f6cb2c0d2f263cd53d9c0698495b63472a00b"
@@ -9186,11 +9173,6 @@ svgo@^4.0.0:
     csso "^5.0.5"
     picocolors "^1.1.1"
     sax "^1.4.1"
-
-swiper@^10.2.0:
-  version "10.3.1"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-10.3.1.tgz#4d19d7e9d0bd184c30accf2c1b180cfe41b9f4af"
-  integrity sha512-24Wk3YUdZHxjc9faID97GTu6xnLNia+adMt6qMTZG/HgdSUt4fS0REsGUXJOgpTED0Amh/j+gRGQxsLayJUlBQ==
 
 symbol-observable@^4.0.0:
   version "4.0.0"

@@ -1,7 +1,7 @@
 <template>
   <div class="scroller">
     <section class="py-4">
-      <v-row class="d-flex align-center justify-center">
+      <v-row class="d-flex align-center justify-center flex-column px-4">
         <v-col cols="12" md="7" lg="6" xl="5">
           <v-sheet class="bg-surface" color="transparent">
             <div v-if="smAndUp" class="wrap-media">
@@ -10,7 +10,6 @@
             <h2 class="text-white">
               <a href="#scientific-policy"> {{ $t("scientific-policy") }}</a>
             </h2>
-            <div class="text-h4 text-md-h3 font-weight-bold"></div>
             <div class="text-body-1">
               <ContentDoc :path="scientificPolicy" />
             </div>
@@ -20,45 +19,22 @@
     </section>
     <section class="dark">
       <v-container>
-        <h2 class="text-white">
-          Texte sur fellowships ou conseil scientifique, etc.
-        </h2>
-        <!--         <MiscAtomsSlidingCarousel
+        <MiscAtomsSlidingCarousel
           key="scientificAdvisoryBoard"
           :items="scientificAdvisoryBoard"
+          pathPrefix="people-slug"
           type="people"
-          :loading="false"
           :dark="true"
+          :more="false"
         >
-          <div class="text-h2">
+          <h2 class="pl-2 text-white">
             {{ $t("scientific-advisory-board") }}
-          </div>
-        </MiscAtomsSlidingCarousel> -->
+          </h2>
+        </MiscAtomsSlidingCarousel>
       </v-container>
     </section>
-    <section>
-      <v-row>
-        <v-col cols="4" v-if="smAndUp">
-          <v-card
-            class="d-flex align-center justify-center"
-            height="400"
-            :to="localePath('reports')"
-            link
-          >
-            Link to annual reports</v-card
-          >
-        </v-col>
-        <v-col cols="4" v-if="smAndUp">
-          <v-card class="d-flex align-center justify-center" height="400" link>
-            Link to fellows (?)</v-card
-          >
-        </v-col>
-        <v-col cols="4" v-if="smAndUp">
-          <v-card class="d-flex align-center justify-center" height="400" link>
-            Link to proceedings (?)</v-card
-          >
-        </v-col>
-      </v-row>
+    <section class="py-4">
+      <MiscMoleculesAnnualReports />
     </section>
     <NavigationFooter isSnapScroll />
   </div>
@@ -67,40 +43,36 @@
 <script setup>
 import { useDisplay } from "vuetify"
 import { fr } from "vuetify/locale"
+import LIST_PEOPLE from "@paris-ias/trees/dist/graphql/client/people/query.list.people.gql"
 const { smAndUp } = useDisplay()
 const localePath = useLocalePath()
 const { locale } = useI18n()
-console.log(locale.value)
 const variables = {
   options: {
     skip: 0,
     limit: 20,
-    sortBy: ["lastname"],
-    sortDesc: true,
+    sort: "nameasc",
     filters: JSON.stringify({ groups: ["sab"] }),
   },
   appId: "iea",
   lang: locale.value,
 }
 const scientificPolicy = "/pages/" + locale.value + "/scientific_policy"
-/* 
+
 const { data, error } = await useAsyncQuery(LIST_PEOPLE, variables)
-console.log("variables: ", variables)
-console.log("data: ", data)
 
 if (error.value) {
   console.error("GraphQL error:", error.value)
   throw error.value
 }
 const scientificAdvisoryBoard = data.value?.listPeople?.items
-console.log("scientificAdvisoryBoard: ", scientificAdvisoryBoard)
 
 if (!scientificAdvisoryBoard) {
   throw createError({
     statusCode: 404,
     message: "Item not found in response",
   })
-} */
+}
 definePageMeta({
   layout: "about",
   /*   documentDriven: {
@@ -118,7 +90,7 @@ definePageMeta({
   width: 300px;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 560px) {
   .wrap-media {
     float: none;
     margin: 0 0 16px 0;

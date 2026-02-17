@@ -36,7 +36,7 @@
                   <nuxt-link :to="localePath(item.path)" class="no-decoration"
                     ><v-list-item-title
                       class="text-uppercase"
-                      v-text="$t(item.text)"
+                      v-text="$t(item.text, 2)"
                     ></v-list-item-title
                   ></nuxt-link>
 
@@ -55,13 +55,13 @@
               <template v-for="(item, index) in config.sitemap.main">
                 <v-list-group
                   v-if="item.children && item.children.length"
-                  :value="$t(item.text)"
+                  :value="$t(item.text, 2)"
                 >
                   <template v-slot:activator="{ props }">
                     <v-list-item v-bind="props" class="">
                       <v-list-item-title
                         class="text-uppercase text-button font-weight-bold"
-                        v-text="$t(item.text)"
+                        v-text="$t(item.text, 2)"
                       ></v-list-item-title
                     ></v-list-item>
                   </template>
@@ -70,6 +70,7 @@
                     v-for="(child, i) in item.children"
                     :key="child.text + i"
                     :value="$t(child.text)"
+                    @click="isActive.value = false"
                   >
                     <nuxt-link
                       :to="localePath(child.path)"
@@ -89,7 +90,7 @@
                   <nuxt-link :to="localePath(item.path)" class="no-decoration">
                     <v-list-item-title
                       class="text-uppercase text-button font-weight-bold"
-                      v-text="$t(item.text)"
+                      v-text="$t(item.text, 2)"
                     >
                     </v-list-item-title>
                   </nuxt-link>
