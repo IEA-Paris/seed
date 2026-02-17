@@ -54,7 +54,7 @@ resource "aws_s3_bucket_policy" "this" {
 # so it can't resolve /path → /path/index.html automatically.
 resource "aws_cloudfront_function" "url_rewrite" {
   name    = "${var.env}-iea-paris-url-rewrite"
-  runtime = "cloudfront-js-2.0"
+  runtime = "cloudfront-js-1.0"
   publish = true
   code    = <<-EOF
     function handler(event) {

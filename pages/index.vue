@@ -96,6 +96,11 @@
         </v-btn>
       </div>
     </section>
+
+    <section class="key-figures-section">
+      <HomeKeyFigures :src="keyFigures" :duration="2.5" />
+    </section>
+
     <div ref="footerScrollAnchor">
       <NavigationFooter isSnapScroll />
     </div>
@@ -134,6 +139,39 @@ const today = new Date()
 ) */
 
 const animationText = computed(() => `text-${locale.value}`)
+
+const keyFigures = [
+  {
+    label: "key-figures.researchers-welcomed",
+    value: "500+",
+    url: "/people?groups=fellows",
+  },
+  {
+    label: "key-figures.nationalities",
+    value: "65",
+    url: "/people?groups=fellows",
+  },
+  {
+    label: "key-figures.institutions-represented",
+    value: "300+",
+    url: "/about/network",
+  },
+  {
+    label: "key-figures.publications",
+    value: "1000+",
+    url: "/activities/publications",
+  },
+  {
+    label: "key-figures.scientific-and-public-events-per-year",
+    value: "100",
+    url: "/activities/events",
+  },
+  {
+    label: "key-figures.academic-partner-institutions",
+    value: "25",
+    url: "/about/network#our-partners",
+  },
+]
 /* 
 const variables = computed(() => ({
   options: {
@@ -202,5 +240,10 @@ onMounted(() => {
 .light {
   color: #0b0b0b;
   background-color: white;
+}
+
+.key-figures-section {
+  background: linear-gradient(135deg, #0b0b0b 0%, #1a1a1a 50%, #0b0b0b 100%);
+  color: white;
 }
 </style>

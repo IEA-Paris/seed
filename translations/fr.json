@@ -82,5 +82,11 @@
   "annual-report": "Rapport annuel",
   "annual-reports-description": "Découvrez nos rapports annuels documentant les activités scientifiques, résidences et événements de l'Institut d'études avancées de Paris.",
   "read-report": "Lire le rapport",
-  "also-available-in": "Également disponible en"
+  "also-available-in": "Également disponible en",
+  "key-figures.researchers-welcomed": "chercheurs accueillis",
+  "key-figures.nationalities": "nationalités",
+  "key-figures.institutions-represented": "institutions représentées",
+  "key-figures.publications": "publications",
+  "key-figures.scientific-and-public-events-per-year": "événements scientifiques et publics organisés chaque année",
+  "key-figures.academic-partner-institutions": "institutions académiques partenaires"
 }
