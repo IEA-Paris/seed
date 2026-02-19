@@ -76,27 +76,31 @@
                 </v-form>
 
                 <!-- Altcha verification modal -->
-                <v-dialog
-                  v-model="showAltchaDialog"
-                  max-width="400"
-                  persistent
-                  scroll-strategy="none"
-                >
-                  <v-card>
-                    <v-card-title class="text-h6">
-                      {{ $t("verify-human") || "Let's verify you're a human" }}
-                    </v-card-title>
-                    <v-card-text>
-                      <div ref="altchaContainer"></div>
-                    </v-card-text>
-                    <v-card-actions>
-                      <v-spacer />
-                      <v-btn variant="text" @click="cancelAltcha">
-                        {{ $t("cancel") || "Cancel" }}
-                      </v-btn>
-                    </v-card-actions>
-                  </v-card>
-                </v-dialog>
+                <ClientOnly>
+                  <v-dialog
+                    v-model="showAltchaDialog"
+                    max-width="400"
+                    persistent
+                    scroll-strategy="none"
+                  >
+                    <v-card>
+                      <v-card-title class="text-h6">
+                        {{
+                          $t("verify-human") || "Let's verify you're a human"
+                        }}
+                      </v-card-title>
+                      <v-card-text>
+                        <div ref="altchaContainer"></div>
+                      </v-card-text>
+                      <v-card-actions>
+                        <v-spacer />
+                        <v-btn variant="text" @click="cancelAltcha">
+                          {{ $t("cancel") || "Cancel" }}
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                  </v-dialog>
+                </ClientOnly>
               </v-col>
             </v-row>
             <v-row justify="center" class="mt-0">

@@ -67,7 +67,15 @@
         <!--  LANGUAGE SWITCHER -->
         <NavigationLanguageSwitcher />
         <v-divider vertical></v-divider>
-        <NavigationGlobalSearch />
+        <v-btn
+          size="x-large"
+          variant="flat"
+          class="h-100"
+          v-bind="activatorProps"
+          @click="$router.push(localePath('/search'))"
+        >
+          <v-icon>mdi-magnify</v-icon></v-btn
+        >
       </template>
       <NavigationMainMenu v-else />
     </template>

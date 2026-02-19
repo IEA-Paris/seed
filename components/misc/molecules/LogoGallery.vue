@@ -32,7 +32,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="logo-item"
-                :style="{ '--hover-bg': item.color || '#fff' }"
+                :style="{ '--hover-bg': item.color || '#fff', '--rest-bg': item.color && !['#fff', '#ffffff', 'white'].includes(item.color.toLowerCase()) ? '#e0e0e0' : 'transparent' }"
               >
                 <v-img
                   :src="item.picture"
@@ -61,7 +61,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="logo-item"
-                :style="{ '--hover-bg': item.color || '#fff' }"
+                :style="{ '--hover-bg': item.color || '#fff', '--rest-bg': item.color && !['#fff', '#ffffff', 'white'].includes(item.color.toLowerCase()) ? '#e0e0e0' : 'transparent' }"
                 aria-hidden="true"
               >
                 <v-img
@@ -160,7 +160,7 @@ watch(
   padding: 8px;
   border-radius: 4px;
   margin: 0 4px;
-  background-color: transparent;
+  background-color: var(--rest-bg, transparent);
   transition:
     transform 0.3s ease,
     background-color 0.3s ease;

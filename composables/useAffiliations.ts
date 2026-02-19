@@ -13,7 +13,7 @@ export const useAffiliations = async () => {
       options: {
         skip: 0,
         limit: 100,
-        filters: JSON.stringify({}),
+        filters: JSON.stringify({ category: ["MEMBER", "SPONSOR", "PARTNER"] }),
         sort: "nameasc",
       },
       appId: "iea",
