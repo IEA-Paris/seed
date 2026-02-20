@@ -38,7 +38,12 @@
     </v-row>
 
     <!-- TRACK -->
-    <div ref="trackWrapperRef" class="sliding-carousel__viewport">
+    <div
+      ref="trackWrapperRef"
+      class="sliding-carousel__viewport"
+      @wheel.prevent="onWheel"
+      @pointerdown="onPointerDown"
+    >
       <!-- Loading skeletons -->
       <div v-if="loading" class="sliding-carousel__track">
         <div
@@ -55,6 +60,7 @@
       <div
         v-else
         class="sliding-carousel__track"
+        :class="{ 'sliding-carousel__track--dragging': isDragging }"
         :style="{ transform: `translateX(${trackOffset}px)` }"
       >
         <div
@@ -69,9 +75,10 @@
             :to="
               localePath({
                 name: pathPrefix,
-                params: { slug: JSON.parse(item.slug) },
+                params: { slug: item.slug },
               })
             "
+            :style="{ pointerEvents: isDragging ? 'none' : '' }"
           >
             <component
               :is="capitalize(type) + 'SlidingItem'"
@@ -161,6 +168,64 @@ function visibleFullCount() {
   return Math.floor(viewportWidth / (computedWidth.value + gap.value)) || 1
 }
 
+// ── Snap to nearest slide from a free offset ──
+function snapToNearest() {
+  const slideWidth = computedWidth.value + gap.value
+  const index = Math.round(-trackOffset.value / slideWidth)
+  const clamped = Math.max(0, Math.min(index, maxIndex.value))
+  currentIndex.value = clamped
+  scrollToIndex(clamped)
+}
+
+// ── Wheel handler ──
+// Horizontal wheel scrolls naturally; vertical wheel also drives the carousel.
+let wheelTimer = null
+function onWheel(e) {
+  const delta = Math.abs(e.deltaX) >= Math.abs(e.deltaY) ? e.deltaX : e.deltaY
+  const slideWidth = computedWidth.value + gap.value
+  const minOffset = -(maxIndex.value * slideWidth)
+  trackOffset.value = Math.max(minOffset, Math.min(0, trackOffset.value - delta))
+
+  clearTimeout(wheelTimer)
+  wheelTimer = setTimeout(snapToNearest, 150)
+}
+
+// ── Drag (pointer) handler ──
+const isDragging = ref(false)
+let dragStartX = 0
+let dragStartOffset = 0
+
+function onPointerDown(e) {
+  if (e.button !== 0) return
+  isDragging.value = false
+  dragStartX = e.clientX
+  dragStartOffset = trackOffset.value
+
+  window.addEventListener("pointermove", onPointerMove)
+  window.addEventListener("pointerup", onPointerUp, { once: true })
+}
+
+function onPointerMove(e) {
+  const dx = e.clientX - dragStartX
+  if (!isDragging.value && Math.abs(dx) < 6) return
+  isDragging.value = true
+
+  const slideWidth = computedWidth.value + gap.value
+  const minOffset = -(maxIndex.value * slideWidth)
+  trackOffset.value = Math.max(minOffset, Math.min(0, dragStartOffset + dx))
+}
+
+function onPointerUp() {
+  window.removeEventListener("pointermove", onPointerMove)
+  if (isDragging.value) {
+    snapToNearest()
+    // Keep isDragging true briefly so the NuxtLink click is suppressed
+    setTimeout(() => {
+      isDragging.value = false
+    }, 50)
+  }
+}
+
 // ── Intersection Observer for slide-in animation ──
 let observer = null
 
@@ -186,6 +251,8 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   observer?.disconnect()
+  window.removeEventListener("pointermove", onPointerMove)
+  clearTimeout(wheelTimer)
 })
 
 watch(
@@ -222,6 +289,11 @@ watch(
 // ── Viewport: overflow visible so items bleed past the edge ──
 .sliding-carousel__viewport {
   overflow: visible;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
 }
 
 // ── Track ──
@@ -230,6 +302,11 @@ watch(
   gap: v-bind("gap + 'px'");
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform;
+
+  &--dragging {
+    transition: none;
+    user-select: none;
+  }
 }
 
 // ── Slide: entrance animation ──

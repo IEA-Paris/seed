@@ -36,16 +36,14 @@
     <section class="py-4">
       <MiscMoleculesAnnualReports />
     </section>
-    <NavigationFooter isSnapScroll />
+    <NavigationFooter :isSnapScroll="true" />
   </div>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
-import { fr } from "vuetify/locale"
 import LIST_PEOPLE from "@paris-ias/trees/dist/graphql/client/people/query.list.people.gql"
 const { smAndUp } = useDisplay()
-const localePath = useLocalePath()
 const { locale } = useI18n()
 const variables = {
   options: {

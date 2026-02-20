@@ -91,7 +91,7 @@
       ></v-container>
     </section>
 
-    <NavigationFooter isSnapScroll />
+    <NavigationFooter :isSnapScroll="true" />
   </div>
 </template>
 

@@ -102,15 +102,14 @@
       </v-container>
     </section>
 
-    <NavigationFooter isSnapScroll />
+    <NavigationFooter :isSnapScroll="true" />
   </div>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
 const { mdAndUp } = useDisplay()
-const localePath = useLocalePath()
-const { locale, locales } = useI18n()
+const { locale } = useI18n()
 
 const { pending, allAffiliations } = await useAffiliations()
 
