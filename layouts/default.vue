@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <NuxtLoadingIndicator color="black" />
-    <NavigationLoader :active="loading" />
+    <ListOrganismsLoader :active="loading" />
     <NavigationTopBar />
     <v-main>
       <NavigationBreadcrumbs></NavigationBreadcrumbs>

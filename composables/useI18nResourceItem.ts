@@ -48,11 +48,10 @@ export const useI18nResourceItem = async <T = any>(
     ([nextItem, _nextLocale]) => {
       if (!nextItem?.slug) return
 
-      const localizedSlug = JSON.parse(nextItem.slug)
-      if (route.params.slug !== localizedSlug) {
+      if (route.params.slug !== nextItem.slug) {
         router.replace(
           localePath({
-            params: { ...route.params, slug: localizedSlug },
+            params: { ...route.params, slug: nextItem.slug },
           }),
         )
       }

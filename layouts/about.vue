@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <NuxtLoadingIndicator color="black" />
-    <NavigationLoader :active="loading" />
+    <ListOrganismsLoader :active="loading" />
     <v-main>
       <NavigationTopBar />
       <v-container fluid class="pa-0"> <slot /> </v-container>
