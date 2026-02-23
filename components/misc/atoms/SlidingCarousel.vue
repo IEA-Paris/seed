@@ -103,7 +103,7 @@
 import { useDisplay } from "vuetify"
 
 const localePath = useLocalePath()
-const { name, mdAndUp } = useDisplay()
+const { name } = useDisplay()
 
 const props = defineProps({
   type: { type: String, required: true },
@@ -340,17 +340,41 @@ watch(
   }
 
   // Staggered entrance: each subsequent slide delays slightly
-  &:nth-child(1)  { transition-delay: 0.06s; }
-  &:nth-child(2)  { transition-delay: 0.12s; }
-  &:nth-child(3)  { transition-delay: 0.18s; }
-  &:nth-child(4)  { transition-delay: 0.24s; }
-  &:nth-child(5)  { transition-delay: 0.30s; }
-  &:nth-child(6)  { transition-delay: 0.36s; }
-  &:nth-child(7)  { transition-delay: 0.42s; }
-  &:nth-child(8)  { transition-delay: 0.48s; }
-  &:nth-child(9)  { transition-delay: 0.54s; }
-  &:nth-child(10) { transition-delay: 0.60s; }
-  &:nth-child(11) { transition-delay: 0.66s; }
-  &:nth-child(12) { transition-delay: 0.72s; }
+  &:nth-child(1) {
+    transition-delay: 0.06s;
+  }
+  &:nth-child(2) {
+    transition-delay: 0.12s;
+  }
+  &:nth-child(3) {
+    transition-delay: 0.18s;
+  }
+  &:nth-child(4) {
+    transition-delay: 0.24s;
+  }
+  &:nth-child(5) {
+    transition-delay: 0.3s;
+  }
+  &:nth-child(6) {
+    transition-delay: 0.36s;
+  }
+  &:nth-child(7) {
+    transition-delay: 0.42s;
+  }
+  &:nth-child(8) {
+    transition-delay: 0.48s;
+  }
+  &:nth-child(9) {
+    transition-delay: 0.54s;
+  }
+  &:nth-child(10) {
+    transition-delay: 0.6s;
+  }
+  &:nth-child(11) {
+    transition-delay: 0.66s;
+  }
+  &:nth-child(12) {
+    transition-delay: 0.72s;
+  }
 }
 </style>
