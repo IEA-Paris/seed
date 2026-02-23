@@ -1,91 +1,77 @@
 <template>
-  <v-container class="annual-reports-container">
-    <v-row class="d-flex align-center justify-center flex-column">
-      <v-col cols="12" md="8">
-        <h2 class="annual-reports__title">
-          <a href="#annual-reports">{{ $t("annual-reports") }}</a>
-        </h2>
-        <p class="text-body-2 mb-4 annual-reports__desc">
-          {{ $t("annual-reports-description") }}
-        </p>
+  <h2 class="annual-reports__title">
+    <a href="#annual-reports">{{ $t("annual-reports") }}</a>
+  </h2>
+  <p class="text-body-2 mb-4 annual-reports__desc">
+    {{ $t("annual-reports-description") }}
+  </p>
 
-        <!-- Current locale reports -->
-        <div class="reports-row">
-          <a
-            v-for="report in displayedReports"
-            :key="report.year"
-            :href="report.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="report-link"
-          >
-            <v-card class="report-card" variant="outlined" hover>
-              <div class="report-card__cover">
-                <v-icon
-                  size="36"
-                  color="grey-darken-1"
-                  class="report-card__icon"
-                >
-                  mdi-file-pdf-box
-                </v-icon>
-                <div class="report-card__year-badge">{{ report.year }}</div>
-              </div>
-              <v-card-text class="pa-3 pb-2">
-                <div class="text-caption text-uppercase text-grey-darken-1">
-                  {{ $t("annual-report") }} &middot;
-                  {{ report.lang === "fr" ? "FR" : "EN" }}
-                </div>
-                <div class="text-subtitle-2 font-weight-bold mt-1">
-                  {{ report.year }}
-                </div>
-              </v-card-text>
-            </v-card>
-          </a>
+  <!-- Current locale reports -->
+  <div class="reports-row pt-3">
+    <a
+      v-for="report in displayedReports"
+      :key="report.year"
+      :href="report.url"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="report-link"
+    >
+      <v-card class="report-card" variant="outlined" hover>
+        <div class="report-card__cover">
+          <v-icon size="36" color="grey-darken-1" class="report-card__icon">
+            mdi-file-pdf-box
+          </v-icon>
+          <div class="report-card__year-badge">{{ report.year }}</div>
         </div>
+        <v-card-text class="pa-3 pb-2">
+          <div class="text-caption text-uppercase text-grey-darken-1">
+            {{ $t("annual-report") }} &middot;
+            {{ report.lang === "fr" ? "FR" : "EN" }}
+          </div>
+          <div class="text-subtitle-2 font-weight-bold mt-1">
+            {{ report.year }}
+          </div>
+        </v-card-text>
+      </v-card>
+    </a>
+  </div>
 
-        <!-- Other language reports -->
-        <div v-if="otherLangReports.length" class="mt-4">
-          <div
-            class="text-caption text-uppercase text-grey-darken-1 mb-2 font-weight-medium"
-          >
-            {{ $t("also-available-in") }}
-            {{
-              locale === "fr"
-                ? $t("english").toLowerCase()
-                : $t("french").toLowerCase()
-            }}
-          </div>
-          <div class="reports-row-compact">
-            <a
-              v-for="report in otherLangReports"
-              :key="'other-' + report.year"
-              :href="report.url"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="report-link-compact"
-            >
-              <v-card variant="outlined" hover class="report-chip">
-                <v-card-text class="d-flex align-center pa-2 px-3 ga-2">
-                  <v-icon size="18" color="grey-darken-1"
-                    >mdi-file-pdf-box</v-icon
-                  >
-                  <span class="text-body-2 font-weight-medium">{{
-                    report.year
-                  }}</span>
-                  <span class="text-caption text-grey text-uppercase">
-                    {{ report.lang === "fr" ? "FR" : "EN" }}
-                  </span>
-                  <v-icon size="14" color="grey" class="ml-1"
-                    >mdi-open-in-new</v-icon
-                  >
-                </v-card-text>
-              </v-card>
-            </a>
-          </div>
-        </div>
-      </v-col>
-    </v-row>
-  </v-container>
+  <!-- Other language reports -->
+  <div v-if="otherLangReports.length" class="mt-4">
+    <div
+      class="text-caption text-uppercase text-grey-darken-1 mb-2 font-weight-medium"
+    >
+      {{ $t("also-available-in") }}
+      {{
+        locale === "fr"
+          ? $t("english").toLowerCase()
+          : $t("french").toLowerCase()
+      }}
+    </div>
+    <div class="reports-row-compact">
+      <a
+        v-for="report in otherLangReports"
+        :key="'other-' + report.year"
+        :href="report.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="report-link-compact"
+      >
+        <v-card variant="outlined" hover class="report-chip">
+          <v-card-text class="d-flex align-center pa-2 px-3 ga-2">
+            <v-icon size="18" color="grey-darken-1">mdi-file-pdf-box</v-icon>
+            <span class="text-body-2 font-weight-medium">{{
+              report.year
+            }}</span>
+            <span class="text-caption text-grey text-uppercase">
+              {{ report.lang === "fr" ? "FR" : "EN" }}
+            </span>
+            <v-icon size="14" color="grey" class="ml-1">mdi-open-in-new</v-icon>
+          </v-card-text>
+        </v-card>
+      </a>
+    </div>
+  </div>
 </template>
 
 <script setup>

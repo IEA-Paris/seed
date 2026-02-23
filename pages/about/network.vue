@@ -3,7 +3,7 @@
     <section class="dark">
       <v-container>
         <v-row class="d-flex align-center justify-center flex-column">
-          <v-col cols="12" sm="10" md="6">
+          <v-col cols="12" sm="10" md="6" offset-md="1">
             <h2>
               <a class="text-white" href="#meet-our-network">
                 {{ $t("meet-our-network") }}</a
@@ -29,7 +29,7 @@
               :items="membersData"
             ></MiscMoleculesLogoGallery>
           </v-col>
-          <v-col cols="12" sm="6" offset-md="1" md="5">
+          <v-col cols="12" sm="6" md="5">
             <ContentDoc :path="members" />
           </v-col>
         </v-row>
@@ -38,7 +38,7 @@
     <section class="dark">
       <v-container>
         <v-row class="d-flex align-center justify-center flex-column">
-          <v-col cols="12" sm="10" md="8">
+          <v-col cols="12" sm="10" md="6" offset-md="1">
             <h2 class="pl-2">
               <a class="text-white" href="#our-sponsors">
                 {{ $t("our-sponsors") }}</a
@@ -46,11 +46,11 @@
             </h2>
 
             <v-col
+              v-if="sponsorsData && sponsorsData.length"
               cols="12"
               sm="8"
               offset-md="1"
               md="6"
-              v-if="sponsorsData && sponsorsData.length"
             >
               <MiscMoleculesLogoGallery
                 :loading="pending"
@@ -58,8 +58,8 @@
               ></MiscMoleculesLogoGallery>
             </v-col>
             <v-col
-              cols="12"
               v-else
+              cols="12"
               :sm="sponsorsData && sponsorsData.length ? 3 : 12"
             >
               <ContentDoc :path="sponsors" />
@@ -82,7 +82,7 @@
             <ContentDoc :path="partners" />
           </v-col>
 
-          <v-col cols="12" sm="6" offset-md="1" md="5">
+          <v-col cols="12" sm="6" md="5">
             <MiscMoleculesLogoGallery
               :loading="pending"
               :items="partnersData"
@@ -91,7 +91,7 @@
       ></v-container>
     </section>
 
-    <NavigationFooter :isSnapScroll="true" />
+    <NavigationFooter :is-snap-scroll="true" />
   </div>
 </template>
 

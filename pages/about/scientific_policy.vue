@@ -2,7 +2,7 @@
   <div class="scroller">
     <section class="py-4">
       <v-row class="d-flex align-center justify-center flex-column px-4">
-        <v-col cols="12" md="8">
+        <v-col cols="12" md="8" offset-md="4">
           <v-sheet class="bg-surface" color="transparent">
             <div v-if="smAndUp" class="wrap-media">
               <v-img src="/images/Paulius_Yamin.jpg" aspect-ratio="1" cover />
@@ -22,7 +22,7 @@
         <MiscAtomsSlidingCarousel
           key="scientificAdvisoryBoard"
           :items="scientificAdvisoryBoard"
-          pathPrefix="people-slug"
+          path-prefix="people-slug"
           type="people"
           :dark="true"
           :more="false"
@@ -34,9 +34,13 @@
       </v-container>
     </section>
     <section class="py-4">
-      <MiscMoleculesAnnualReports />
+      <v-row class="d-flex align-center justify-center flex-column px-4">
+        <v-col cols="12" md="8" offset-md="4">
+          <MiscMoleculesAnnualReports /></v-col
+      ></v-row>
     </section>
-    <NavigationFooter :isSnapScroll="true" />
+    >
+    <NavigationFooter :is-snap-scroll="true" />
   </div>
 </template>
 
