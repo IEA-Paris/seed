@@ -3,15 +3,15 @@
   <v-app-bar flat>
     <!--  WEBSITE LOGO -->
     <div
-      @click="router.push(localePath('/'))"
       v-ripple
       class="px-4 d-flex align-center"
+      @click="router.push(localePath('/'))"
     >
       <NavigationLogo></NavigationLogo>
       <!-- <nuxt-link :to="localePath('/')" class="text-black">{{
         mdAndUp ? $t("paris-institute-for-advanced-study") : $t("paris-ias")
       }}</nuxt-link> -->
-      <div class="d-flex align-start pl-3" v-if="mdAndUp">
+      <div v-if="mdAndUp" class="d-flex align-start pl-3">
         <v-img
           src="/logo_text.png"
           alt="Paris IAS"
@@ -21,13 +21,14 @@
         ></v-img>
       </div>
     </div>
-    <template v-slot:append>
+    {{ name }}
+    <template #append>
       <!--  NAVIGATION -->
       <!-- Client only is need to avoid a bug. temporary workaround until it is fixes: https://github.com/vuetifyjs/vuetify/issues/15323 -->
       <template v-if="smAndUp">
         <template v-for="(link, index) in config.sitemap.main" :key="index">
-          <v-menu :open-on-hover="link.openOnHover" v-if="link.dropdown">
-            <template v-slot:activator="{ props }">
+          <v-menu v-if="link.dropdown" :open-on-hover="link.openOnHover">
+            <template #activator="{ props }">
               <v-btn
                 variant="flat"
                 v-bind="props"
@@ -43,10 +44,10 @@
             </template>
             <v-list>
               <v-list-item
-                :active="$route.fullPath === localePath(child.path)"
-                :to="localePath(child.path)"
                 v-for="(child, index) in link.children"
                 :key="index"
+                :active="$route.fullPath === localePath(child.path)"
+                :to="localePath(child.path)"
               >
                 <v-list-item-title>{{
                   capitalize($t(child.text, 2))
@@ -55,11 +56,11 @@
             </v-list>
           </v-menu>
           <v-btn
+            v-else
             variant="flat"
             :to="link.path ? localePath(link.path) : false"
             exact
             class="h-100"
-            v-else
             >{{ capitalize($t(link.text, 2)) }}
           </v-btn>
         </template>
@@ -87,7 +88,7 @@ const config = useAppConfig()
 const localePath = useLocalePath()
 const router = useRouter()
 const route = useRoute()
-const { smAndUp, mdAndUp } = useDisplay()
+const { smAndUp, mdAndUp, name } = useDisplay()
 
 // Function to check if current route is a child of a dropdown menu
 const isDropdownActive = (link) => {

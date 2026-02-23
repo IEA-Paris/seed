@@ -3,7 +3,7 @@
     <section class="dark">
       <v-container>
         <v-row class="d-flex align-center justify-center flex-column">
-          <v-col cols="12" sm="10" md="6" offset-md="1">
+          <v-col cols="12" md="8" lg="6" xl="5" xxl="4">
             <h2>
               <a class="text-white" href="#meet-our-network">
                 {{ $t("meet-our-network") }}</a
@@ -16,14 +16,14 @@
 
     <section dark>
       <v-container>
-        <v-row class="d-flex">
-          <v-col cols="12" offset-md="1" md="10">
+        <v-row class="d-flex align-center justify-center">
+          <v-col cols="12" md="10">
             <h2>
               <a href="#our-members"> {{ $t("our-members") }}</a>
             </h2>
           </v-col>
 
-          <v-col cols="12" sm="6" offset-md="1" md="5">
+          <v-col cols="12" sm="6" md="5">
             <MiscMoleculesLogoGallery
               :loading="pending"
               :items="membersData"
@@ -38,7 +38,7 @@
     <section class="dark">
       <v-container>
         <v-row class="d-flex align-center justify-center flex-column">
-          <v-col cols="12" sm="10" md="6" offset-md="1">
+          <v-col cols="12" md="8" lg="6" xl="5" xxl="4">
             <h2 class="pl-2">
               <a class="text-white" href="#our-sponsors">
                 {{ $t("our-sponsors") }}</a
@@ -71,14 +71,14 @@
     </section>
     <section>
       <v-container>
-        <v-row class="d-flex">
-          <v-col cols="12" offset-md="1" md="10">
+        <v-row class="d-flex justify-center">
+          <v-col cols="12" md="10">
             <h2>
               <a href="#our-partners"> {{ $t("our-partners") }}</a>
             </h2>
           </v-col>
 
-          <v-col cols="12" sm="6" offset-md="1" md="5">
+          <v-col cols="12" sm="6" md="5">
             <ContentDoc :path="partners" />
           </v-col>
 
