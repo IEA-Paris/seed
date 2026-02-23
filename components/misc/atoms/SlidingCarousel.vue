@@ -19,19 +19,17 @@
             variant="outlined"
             :disabled="currentIndex === 0"
             icon="mdi-chevron-left"
-            size="small"
             aria-label="Slide left"
-            @click="slidePrev"
             :style="{ color: dark ? 'white' : 'black' }"
+            @click="slidePrev"
           />
           <v-btn
             variant="outlined"
             :disabled="currentIndex >= maxIndex"
             icon="mdi-chevron-right"
-            size="small"
             aria-label="Slide right"
-            @click="slideNext"
             :style="{ color: dark ? 'white' : 'black' }"
+            @click="slideNext"
           />
         </v-btn-toggle>
       </v-col>
@@ -41,7 +39,7 @@
     <div
       ref="trackWrapperRef"
       class="sliding-carousel__viewport"
-      @wheel.prevent="onWheel"
+      @wheel="onWheel"
       @pointerdown="onPointerDown"
     >
       <!-- Loading skeletons -->
@@ -179,12 +177,24 @@ function snapToNearest() {
 
 // ── Wheel handler ──
 // Horizontal wheel scrolls naturally; vertical wheel also drives the carousel.
+// When at the far right and scrolling down, release control back to the page.
 let wheelTimer = null
 function onWheel(e) {
-  const delta = Math.abs(e.deltaX) >= Math.abs(e.deltaY) ? e.deltaX : e.deltaY
+  const isVertical = Math.abs(e.deltaY) > Math.abs(e.deltaX)
+  const atRightEnd = currentIndex.value >= maxIndex.value
+
+  const atLeftEnd = currentIndex.value <= 0
+  if (isVertical && atRightEnd && e.deltaY > 0) return
+  if (isVertical && atLeftEnd && e.deltaY < 0) return
+
+  e.preventDefault()
+  const delta = isVertical ? e.deltaY : e.deltaX
   const slideWidth = computedWidth.value + gap.value
   const minOffset = -(maxIndex.value * slideWidth)
-  trackOffset.value = Math.max(minOffset, Math.min(0, trackOffset.value - delta))
+  trackOffset.value = Math.max(
+    minOffset,
+    Math.min(0, trackOffset.value - delta),
+  )
 
   clearTimeout(wheelTimer)
   wheelTimer = setTimeout(snapToNearest, 150)
@@ -286,13 +296,18 @@ watch(
   user-select: none;
 }
 
-// ── Viewport: overflow visible so items bleed past the edge ──
+// Viewport: clip on mobile to prevent horizontal page overflow;
+// bleed past the edge is only desirable on larger screens
 .sliding-carousel__viewport {
-  overflow: visible;
+  overflow: hidden;
   cursor: grab;
 
   &:active {
     cursor: grabbing;
+  }
+
+  @media (min-width: 960px) {
+    overflow: visible;
   }
 }
 
@@ -325,10 +340,17 @@ watch(
   }
 
   // Staggered entrance: each subsequent slide delays slightly
-  @for $i from 1 through 12 {
-    &:nth-child(#{$i}) {
-      transition-delay: #{$i * 0.06}s;
-    }
-  }
+  &:nth-child(1)  { transition-delay: 0.06s; }
+  &:nth-child(2)  { transition-delay: 0.12s; }
+  &:nth-child(3)  { transition-delay: 0.18s; }
+  &:nth-child(4)  { transition-delay: 0.24s; }
+  &:nth-child(5)  { transition-delay: 0.30s; }
+  &:nth-child(6)  { transition-delay: 0.36s; }
+  &:nth-child(7)  { transition-delay: 0.42s; }
+  &:nth-child(8)  { transition-delay: 0.48s; }
+  &:nth-child(9)  { transition-delay: 0.54s; }
+  &:nth-child(10) { transition-delay: 0.60s; }
+  &:nth-child(11) { transition-delay: 0.66s; }
+  &:nth-child(12) { transition-delay: 0.72s; }
 }
 </style>
