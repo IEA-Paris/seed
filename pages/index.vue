@@ -50,7 +50,7 @@
     </section>
 
     <div ref="footerScrollAnchor">
-      <NavigationFooter isSnapScroll />
+      <NavigationFooter :isSnapScroll="false" />
     </div>
   </div>
 </template>
@@ -87,7 +87,8 @@ const today = new Date()
 
 const animationText = computed(() => `text-${locale.value}`)
 
-const { researchers, nationalities, partnerInstitutions, eventsPerYear } = config.institute
+const { researchers, nationalities, partnerInstitutions, eventsPerYear } =
+  config.institute
 
 const keyFigures = [
   {
@@ -215,7 +216,8 @@ onMounted(() => {
   animation: splash-from-left 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
 
   @media (max-width: 959px) {
-    animation: splash-mobile-reveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    animation: splash-mobile-reveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.2s
+      forwards;
   }
 }
 
@@ -240,10 +242,12 @@ onMounted(() => {
 
 .splash-search {
   opacity: 0;
-  animation: splash-from-right 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.65s forwards;
+  animation: splash-from-right 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.65s
+    forwards;
 
   @media (max-width: 959px) {
-    animation: splash-mobile-reveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+    animation: splash-mobile-reveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.55s
+      forwards;
   }
 }
 

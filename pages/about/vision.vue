@@ -52,7 +52,7 @@
     <!-- 3. Annual Reports -->
     <MiscMoleculesAnnualReports />
 
-    <NavigationFooter :is-snap-scroll="true" />
+    <NavigationFooter :is-snap-scroll="false" />
   </div>
 </template>
 

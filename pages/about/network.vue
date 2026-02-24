@@ -3,7 +3,7 @@
     <!-- 1. Intro — dark -->
     <section class="section-dark">
       <v-container>
-        <v-row justify="center">
+        <v-row justify="center" class="mt-10 mtmd-0 mb-5 mbmd-0">
           <v-col cols="12" sm="10" md="7" lg="5" xl="4">
             <p class="overline-label overline-label--light">
               {{ $t("network") }}
@@ -85,7 +85,7 @@
       </v-container>
     </section>
 
-    <NavigationFooter :is-snap-scroll="true" />
+    <NavigationFooter :is-snap-scroll="false" />
   </div>
 </template>
 

@@ -19,7 +19,11 @@
             entry.suffix
           }}</span>
         </div>
-        <div class="key-figures__label">{{ $t(entry.label) }}</div>
+        <div
+          class="key-figures__label text-body-2 text-sm-body-1 text-md-subtitle-1 text-lg-h6"
+        >
+          {{ $t(entry.label) }}
+        </div>
       </NuxtLink>
     </div>
   </v-container>
@@ -215,7 +219,7 @@ watch(
   }
 
   &__label {
-    font-size: 1rem;
+    //font-size: 1rem;
     opacity: 0.85;
     max-width: 28ch;
     line-height: 1.4;

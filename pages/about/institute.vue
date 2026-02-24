@@ -1,7 +1,7 @@
 <template>
   <div class="scroller">
     <!-- 1. Presentation -->
-    <section class="section-light">
+    <section class="section-light mt-10 mb-10 mtmd-0 mbmd-0">
       <v-container>
         <v-row justify="center">
           <v-col cols="12" sm="10" md="7" lg="5" xl="4">
@@ -81,7 +81,7 @@
       </div>
     </section>
 
-    <NavigationFooter :is-snap-scroll="true" />
+    <NavigationFooter :is-snap-scroll="false" />
   </div>
 </template>
 
