@@ -32,8 +32,8 @@
                 >{{ $t(link.text, 2) }}
                 <v-icon size="x-large" right>{{
                   props["aria-expanded"] === "true"
-                    ? "mdi-chevron-down"
-                    : "mdi-chevron-up"
+                    ? "mdi-chevron-up"
+                    : "mdi-chevron-down"
                 }}</v-icon>
               </v-btn>
             </template>
@@ -78,7 +78,10 @@
       </div>
     </template>
   </v-app-bar>
-  <v-divider color="#e4e4e4" :class="isIndex ? 'topbar-divider--splash' : 'topbar-divider'"></v-divider>
+  <v-divider
+    color="#e4e4e4"
+    :class="isIndex ? 'topbar-divider--splash' : 'topbar-divider'"
+  ></v-divider>
 </template>
 <script setup>
 const config = useAppConfig()
@@ -90,7 +93,9 @@ const isIndex = computed(() => route.name?.toString().startsWith("index"))
 
 const isDropdownActive = (link) => {
   if (!link.dropdown || !link.children) return false
-  return link.children.some((child) => route.fullPath === localePath(child.path))
+  return link.children.some(
+    (child) => route.fullPath === localePath(child.path),
+  )
 }
 </script>
 <style scoped>
