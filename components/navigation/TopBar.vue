@@ -1,6 +1,6 @@
 <template>
   <!-- TOP BAR CONTAINER -->
-  <v-app-bar flat>
+  <v-app-bar flat class="top-bar" :class="{ 'splash-topbar': isIndex }">
     <!--  WEBSITE LOGO -->
     <div
       v-ripple
@@ -8,10 +8,7 @@
       @click="router.push(localePath('/'))"
     >
       <NavigationLogo></NavigationLogo>
-      <!-- <nuxt-link :to="localePath('/')" class="text-black">{{
-        mdAndUp ? $t("paris-institute-for-advanced-study") : $t("paris-ias")
-      }}</nuxt-link> -->
-      <div v-if="mdAndUp" class="d-flex align-start pl-3">
+      <div class="top-bar__logo-text d-flex align-start pl-3">
         <v-img
           src="/logo_text.png"
           alt="Paris IAS"
@@ -21,11 +18,9 @@
         ></v-img>
       </div>
     </div>
-    {{ name }}
     <template #append>
-      <!--  NAVIGATION -->
-      <!-- Client only is need to avoid a bug. temporary workaround until it is fixes: https://github.com/vuetifyjs/vuetify/issues/15323 -->
-      <template v-if="smAndUp">
+      <!--  DESKTOP NAVIGATION — hidden below sm via CSS -->
+      <div class="top-bar__desktop-nav">
         <template v-for="(link, index) in config.sitemap.main" :key="index">
           <v-menu v-if="link.dropdown" :open-on-hover="link.openOnHover">
             <template #activator="{ props }">
@@ -72,31 +67,67 @@
           size="x-large"
           variant="flat"
           class="h-100"
-          v-bind="activatorProps"
           @click="$router.push(localePath('/search'))"
         >
-          <v-icon>mdi-magnify</v-icon></v-btn
-        >
-      </template>
-      <NavigationMainMenu v-else />
+          <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+      </div>
+      <!--  MOBILE HAMBURGER — hidden above sm via CSS -->
+      <div class="top-bar__mobile-nav">
+        <NavigationMainMenu />
+      </div>
     </template>
   </v-app-bar>
+  <v-divider color="#e4e4e4" :class="isIndex ? 'topbar-divider--splash' : 'topbar-divider'"></v-divider>
 </template>
 <script setup>
-import { useDisplay } from "vuetify"
 const config = useAppConfig()
 const localePath = useLocalePath()
 const router = useRouter()
 const route = useRoute()
-const { smAndUp, mdAndUp, name } = useDisplay()
 
-// Function to check if current route is a child of a dropdown menu
+const isIndex = computed(() => route.name?.toString().startsWith("index"))
+
 const isDropdownActive = (link) => {
   if (!link.dropdown || !link.children) return false
-
-  return link.children.some((child) => {
-    const childPath = localePath(child.path)
-    return route.fullPath === childPath
-  })
+  return link.children.some((child) => route.fullPath === localePath(child.path))
 }
 </script>
+<style scoped>
+.top-bar {
+  border-bottom: rgba(0, 0, 0, 0.87) solid 1px;
+  border-width: 0 thin 0 0;
+}
+
+/* Logo text: hidden on mobile, visible on md+ */
+.top-bar__logo-text {
+  display: none;
+}
+@media (min-width: 960px) {
+  .top-bar__logo-text {
+    display: flex;
+  }
+}
+
+/* Desktop nav: hidden on mobile, visible on sm+ */
+.top-bar__desktop-nav {
+  display: none;
+  align-items: center;
+  height: 100%;
+}
+@media (min-width: 600px) {
+  .top-bar__desktop-nav {
+    display: flex;
+  }
+}
+
+/* Mobile nav: visible on mobile, hidden on sm+ */
+.top-bar__mobile-nav {
+  display: flex;
+}
+@media (min-width: 600px) {
+  .top-bar__mobile-nav {
+    display: none;
+  }
+}
+</style>

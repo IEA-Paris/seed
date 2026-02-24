@@ -2,6 +2,7 @@
 
 @use "transitions";
 @use "variables";
+@use "about-pages";
 @media (min-width: 1920px) {
   .v-container.main-container {
     max-width: 1500px;
@@ -192,17 +193,19 @@ $stepper-elevation: 0;
     }
   }
 }
-.scroller {
-  height: calc(100vh - 64px); // to match screen height minus toolbar height
+@media screen and (min-width: 700px) {
+  .scroller {
+    height: calc(100vh - 64px); // to match screen height minus toolbar height
 
-  section {
-    height: calc(100vh - 64px);
-    display: flex;
-    align-items: center;
-  }
+    section {
+      height: calc(100vh - 64px);
+      display: flex;
+      align-items: center;
+    }
 
-  .carousel {
-    height: calc(100vh - 64px);
+    .carousel {
+      height: calc(100vh - 64px);
+    }
   }
 }
 

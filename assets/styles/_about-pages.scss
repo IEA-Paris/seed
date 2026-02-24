@@ -1,0 +1,101 @@
+// Shared styles for about/* snap-scroll pages
+// (institute, network, scientific_policy)
+
+// ── Section base ──────────────────────────────────────────
+.section-light,
+.section-dark {
+  display: flex;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.section-light {
+  background: #fff;
+  color: #000;
+}
+
+.section-dark {
+  background: #000;
+  color: #fff;
+}
+
+// ── Typographic rule ──────────────────────────────────────
+.typographic-rule {
+  width: 3rem;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.75rem;
+
+  &--light {
+    background: rgba(255, 255, 255, 0.35);
+  }
+}
+
+// ── Overline label ────────────────────────────────────────
+.overline-label {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 0.75rem;
+  margin-top: 0;
+
+  &--light {
+    color: #fff;
+    opacity: 0.65;
+  }
+}
+
+// ── Section heading (h2 used outside markdown) ────────────
+// Uses Bodoni Moda (global heading font) via the h2 tag.
+// Only colour/spacing overrides live here.
+.section-heading {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+  color: #000;
+  max-width: 24ch;
+
+  &--light {
+    color: #fff;
+  }
+
+  &--no-mb {
+    margin-bottom: 0;
+  }
+}
+
+// ── Prose overrides inside dark sections ──────────────────
+.prose--light {
+  p,
+  li,
+  h1,
+  h2,
+  h3 {
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  // Global h2/h2 a rules set color: black — override for dark sections
+  h2,
+  h2 a {
+    color: #fff;
+  }
+
+  p a {
+    color: #03a9f4;
+  }
+}
+
+// ── CTA button on dark background ─────────────────────────
+.btn-light {
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+
+  &:hover {
+    border-color: #fff !important;
+  }
+}

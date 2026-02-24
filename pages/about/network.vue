@@ -1,94 +1,88 @@
 <template>
   <div class="scroller">
-    <section class="dark">
+    <!-- 1. Intro — dark -->
+    <section class="section-dark">
       <v-container>
-        <v-row class="d-flex align-center justify-center flex-column">
-          <v-col cols="12" md="8" lg="6" xl="5" xxl="4">
-            <h2>
-              <a class="text-white" href="#meet-our-network">
-                {{ $t("meet-our-network") }}</a
-              >
-            </h2>
-            <ContentDoc :path="network" />
-          </v-col> </v-row
-      ></v-container>
-    </section>
-
-    <section dark>
-      <v-container>
-        <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" md="10">
-            <h2>
-              <a href="#our-members"> {{ $t("our-members") }}</a>
-            </h2>
-          </v-col>
-
-          <v-col cols="12" sm="6" md="5">
-            <MiscMoleculesLogoGallery
-              :loading="pending"
-              :items="membersData"
-            ></MiscMoleculesLogoGallery>
-          </v-col>
-          <v-col cols="12" sm="6" md="5">
-            <ContentDoc :path="members" />
+        <v-row justify="center">
+          <v-col cols="12" sm="10" md="7" lg="5" xl="4">
+            <p class="overline-label overline-label--light">
+              {{ $t("network") }}
+            </p>
+            <div class="typographic-rule typographic-rule--light" />
+            <div class="prose prose--light">
+              <ContentDoc :path="network" />
+            </div>
           </v-col>
         </v-row>
       </v-container>
     </section>
-    <section class="dark">
-      <v-container>
-        <v-row class="d-flex align-center justify-center flex-column">
-          <v-col cols="12" md="8" lg="6" xl="5" xxl="4">
-            <h2 class="pl-2">
-              <a class="text-white" href="#our-sponsors">
-                {{ $t("our-sponsors") }}</a
-              >
-            </h2>
 
-            <v-col
-              v-if="sponsorsData && sponsorsData.length"
-              cols="12"
-              sm="8"
-              offset-md="1"
-              md="6"
-            >
+    <!-- 2. Members -->
+    <section class="section-light">
+      <v-container>
+        <v-row justify="center" align="center">
+          <v-col cols="12" md="5" lg="4">
+            <p class="overline-label">{{ $t("network") }}</p>
+            <div class="typographic-rule" />
+            <ContentDoc :path="members" />
+          </v-col>
+          <v-col cols="12" md="5" lg="4">
+            <MiscMoleculesLogoGallery :loading="pending" :items="membersData" />
+          </v-col>
+        </v-row>
+      </v-container>
+    </section>
+
+    <!-- 3. Sponsors — dark -->
+    <section class="section-dark">
+      <v-container>
+        <v-row justify="center" align="center">
+          <v-col cols="12" sm="10" md="7" lg="5" xl="4">
+            <p class="overline-label overline-label--light">
+              {{ $t("network") }}
+            </p>
+            <div class="typographic-rule typographic-rule--light" />
+            <template v-if="sponsorsData && sponsorsData.length">
               <MiscMoleculesLogoGallery
                 :loading="pending"
                 :items="sponsorsData"
-              ></MiscMoleculesLogoGallery>
-            </v-col>
-            <v-col
-              v-else
-              cols="12"
-              :sm="sponsorsData && sponsorsData.length ? 3 : 12"
-            >
-              <ContentDoc :path="sponsors" />
-              <v-btn variant="outlined" tile>{{ $t("become-a-patron") }}</v-btn>
-            </v-col>
+              />
+            </template>
+            <template v-else>
+              <div class="prose prose--light">
+                <ContentDoc :path="sponsors" />
+              </div>
+              <v-btn
+                variant="outlined"
+                class="mt-6 btn-light"
+                rounded="0"
+                :to="$localePath('/support')"
+              >
+                {{ $t("become-a-patron") }}
+              </v-btn>
+            </template>
           </v-col>
         </v-row>
       </v-container>
     </section>
-    <section>
+
+    <!-- 4. Partners -->
+    <section class="section-light">
       <v-container>
-        <v-row class="d-flex justify-center">
-          <v-col cols="12" md="10">
-            <h2>
-              <a href="#our-partners"> {{ $t("our-partners") }}</a>
-            </h2>
-          </v-col>
-
-          <v-col cols="12" sm="6" md="5">
-            <ContentDoc :path="partners" />
-          </v-col>
-
-          <v-col cols="12" sm="6" md="5">
+        <v-row justify="center" align="center">
+          <v-col cols="12" md="5" lg="4">
             <MiscMoleculesLogoGallery
               :loading="pending"
               :items="partnersData"
-            ></MiscMoleculesLogoGallery>
-          </v-col> </v-row
-      ></v-container>
+            />
+          </v-col>
+          <v-col cols="12" md="5" lg="4">
+            <p class="overline-label">{{ $t("network") }}</p>
+            <div class="typographic-rule" />
+            <ContentDoc :path="partners" />
+          </v-col>
+        </v-row>
+      </v-container>
     </section>
 
     <NavigationFooter :is-snap-scroll="true" />
@@ -108,5 +102,3 @@ const members = "/pages/" + locale.value + "/network_members"
 const partners = "/pages/" + locale.value + "/network_partners"
 const network = "/pages/" + locale.value + "/network"
 </script>
-
-<style lang="scss" scoped></style>

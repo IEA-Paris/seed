@@ -3,7 +3,7 @@
     <v-breadcrumbs :items="crumbs" class="pl-0 w-100" link>
       <template v-slot:prepend>
         <v-btn
-          :to="localePath('/')"
+          :to="$localePath('/')"
           size="small"
           variant="text"
           icon="mdi-home"
@@ -21,7 +21,6 @@
 
 <script setup>
 const ignoredRoutes = ["fr", "about", "activities"]
-const localePath = useLocalePath()
 const { locale } = useI18n()
 const route = useRoute()
 

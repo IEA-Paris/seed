@@ -1,13 +1,13 @@
 <template>
   <v-responsive :aspect-ratio="ratio">
-  <!--     :color="action[0].color || 'default'" -->
+    <!--     :color="action[0].color || 'default'" -->
     <v-card
       class="mx-auto d-flex align-center justify-center flex-column px-6"
       variant="flat"
     >
       <v-img
-        class="w-100"
         v-if="action[0].picture"
+        class="w-100"
         :src="action[0].picture"
         :aspect-ratio="1 / 1"
         cover
@@ -24,9 +24,6 @@
   </v-responsive>
 </template>
 <script setup>
-// import { useDisplay } from "vuetify"
-// const { smAndUp } = useDisplay()
-// const localePath = useLocalePath()
 const props = defineProps({
   action: {
     type: Array,

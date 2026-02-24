@@ -14,7 +14,7 @@
             <v-row justify="center">
               <v-col cols="12" md="6">
                 <nuxt-link
-                  :to="localePath('/')"
+                  :to="$localePath('/')"
                   style="transition: all 500ms ease 0s"
                   @click.native="$vuetify.goTo(0)"
                 >
@@ -68,7 +68,7 @@
                         $t("by-subscribing-you-agree-to-our")
                       }}&nbsp;<nuxt-link
                         class="text-light-blue"
-                        :to="localePath('/terms_of_service')"
+                        :to="$localePath('/terms_of_service')"
                         >{{ $t("terms-and-conditions") }}</nuxt-link
                       >
                     </div>
@@ -153,14 +153,14 @@
                 <v-row justify="center" no-gutters>
                   <v-col cols="12" sm="6">
                     <v-list bg-color="transparent">
-                      <v-list-item :to="localePath('/about/institute')" nuxt>
+                      <v-list-item :to="$localePath('/about/institute')" nuxt>
                         <v-list-item-title
                           class="text-uppercase text-button"
                           v-text="$t('about-us')"
                         ></v-list-item-title>
                       </v-list-item>
                       <v-list-item
-                        :to="localePath('/contact')"
+                        :to="$localePath('/contact')"
                         nuxt
                         @click="open = false"
                       >
@@ -169,14 +169,14 @@
                           v-text="$t('contact')"
                         ></v-list-item-title>
                       </v-list-item>
-                      <v-list-item :to="localePath('/visit')" nuxt>
+                      <v-list-item :to="$localePath('/visit')" nuxt>
                         <v-list-item-title
                           class="text-uppercase text-button"
                           v-text="$t('visit')"
                         ></v-list-item-title>
                       </v-list-item>
                       <v-list-item
-                        :to="localePath('/pressroom')"
+                        :to="$localePath('/pressroom')"
                         nuxt
                         @click="open = false"
                       >
@@ -186,7 +186,7 @@
                         ></v-list-item-title>
                       </v-list-item>
                       <v-list-item
-                        :to="localePath('/support')"
+                        :to="$localePath('/support')"
                         nuxt
                         @click="open = false"
                       >
@@ -220,7 +220,7 @@
               size="small"
               nuxt
               dark
-              :to="localePath('/support_us')"
+              :to="$localePath('/support_us')"
             >
               <!-- TODO add raw licence file url on github -->
               &copy; {{ new Date().getFullYear() }} {{ $t("paris-ias") }}</v-btn
@@ -230,7 +230,7 @@
               size="small"
               nuxt
               dark
-              :to="localePath('/terms_of_service')"
+              :to="$localePath('/terms_of_service')"
             >
               {{ $t("tos") }}
             </v-btn>
@@ -239,7 +239,7 @@
               size="small"
               nuxt
               dark
-              :to="localePath('/privacy_policy')"
+              :to="$localePath('/privacy_policy')"
             >
               {{ $t("privacy") }}
             </v-btn>
@@ -259,7 +259,6 @@ import gql from "graphql-tag"
 const config = useAppConfig()
 const route = useRoute()
 const { t } = useI18n()
-const localePath = useLocalePath()
 const { smAndDown } = useDisplay()
 const { router } = useRouter()
 const nuxtApp = useNuxtApp()

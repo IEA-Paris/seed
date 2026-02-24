@@ -4,7 +4,7 @@
       <NuxtLink
         v-for="(entry, index) in entries"
         :key="entry.label"
-        :to="localePath(entry.path) + (entry.hash ?? '')"
+        :to="$localePath(entry.path) + (entry.hash ?? '')"
         class="key-figures__item"
         v-motion-slide-visible-once-bottom
       >
@@ -52,7 +52,6 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const { mdAndUp } = useDisplay()
-const localePath = useLocalePath()
 
 // Parse src array into structured entries
 const entries = computed<ParsedEntry[]>(() => {

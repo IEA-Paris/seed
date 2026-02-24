@@ -1,16 +1,20 @@
 <template>
   <v-card
-    variant="elevated"
-    color="white"
+    variant="outlined"
+    :rounded="false"
     class="pa-3 hover-card-root"
     min-width="260"
     max-width="360"
+    style="border-radius: 0 !important; box-shadow: none !important;"
   >
-    <!-- Header: avatar + name + chip -->
+    <!-- Header: logo + name + chip -->
     <div class="d-flex align-start ga-3">
-      <v-avatar :color="item.color || '#f5f5f5'" rounded="sm" size="48">
-        <v-img :src="item.picture" :alt="item.name" contain />
-      </v-avatar>
+      <div
+        class="logo-thumb d-flex align-center justify-center flex-shrink-0"
+        :style="{ background: item.color || '#f5f5f5' }"
+      >
+        <v-img :src="item.picture" :alt="item.name" contain width="48" height="48" />
+      </div>
       <div class="d-flex flex-column">
         <span class="font-weight-bold text-h6">{{ item.name }}</span>
         <v-chip
@@ -99,3 +103,12 @@ const displayUrl = computed(() => {
   }
 })
 </script>
+
+<style scoped>
+.logo-thumb {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  padding: 4px;
+}
+</style>

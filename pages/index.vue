@@ -5,24 +5,8 @@
         <v-row class="d-flex justify-center" ref="about" :key="locale">
           <v-col cols="12" md="6" class="d-flex justify-end my-6">
             <div
-              v-motion
               :key="animationText"
-              :initial="{
-                opacity: 0,
-                x: -100,
-              }"
-              :enter="{
-                opacity: 1,
-                x: 0,
-                transition: {
-                  type: 'slide',
-                  stiffness: '100',
-                  delay: 500,
-                },
-              }"
-              class="text-h2 pr-6"
-              :class="mdAndUp ? 'text-right' : 'text-center'"
-              :style="mdAndUp ? 'max-width: 500px' : 'padding: 0 24px'"
+              class="text-h2 pr-6 splash-moto splash-moto--text"
             >
               {{ $t("moto") }}
             </div>
@@ -33,31 +17,11 @@
             class="my-6 d-md-flex align-center align-md-end"
           >
             <div
-              v-motion
-              :key="locale"
-              :initial="{
-                opacity: 0,
-                x: 100,
-              }"
-              :enter="{
-                opacity: 1,
-                x: 0,
-                transition: {
-                  type: 'slide',
-                  stiffness: '100',
-                  delay: 1000,
-                },
-              }"
               id="presentation"
-              class="presentation-pitch"
+              :key="locale"
+              class="presentation-pitch splash-search"
               style="max-width: 600px; min-width: 30vw"
             >
-              <!--     <v-img
-                src="/logo_b&w.svg"
-                contain
-                width="150"
-                class="ma-6"
-              ></v-img> -->
               <ListMoleculesGlobalSearchInput
                 key="home-search"
                 type="all"
@@ -68,23 +32,7 @@
           </v-col>
         </v-row>
       </v-container>
-      <div
-        class="d-flex justify-center"
-        v-motion
-        :initial="{
-          opacity: 0,
-          y: 100,
-        }"
-        :enter="{
-          opacity: 1,
-          y: 0,
-          transition: {
-            type: 'slide',
-            stiffness: '100',
-            delay: 1200,
-          },
-        }"
-      >
+      <div class="d-flex justify-center splash-chevron">
         <v-btn
           color="default"
           icon
@@ -108,13 +56,12 @@
 </template>
 
 <script setup>
-import { useDisplay } from "vuetify"
 definePageMeta({
   layout: "about",
 })
+import config from "@/static.config"
+
 const { $rootStore, $queries, $router } = useNuxtApp()
-const { mdAndUp } = useDisplay()
-const localePath = useLocalePath()
 /* const goTo = useGoTo() */
 const { locale } = useI18n()
 /* const presentation = ref("/pages/" + locale.value + "/institute_presentation") 
@@ -140,20 +87,22 @@ const today = new Date()
 
 const animationText = computed(() => `text-${locale.value}`)
 
+const { researchers, nationalities, partnerInstitutions, eventsPerYear } = config.institute
+
 const keyFigures = [
   {
     label: "key-figures.researchers-welcomed",
-    value: "500+",
+    value: researchers,
     url: "/people?groups=fellows",
   },
   {
     label: "key-figures.nationalities",
-    value: "65",
+    value: String(nationalities),
     url: "/people?groups=fellows",
   },
   {
     label: "key-figures.institutions-represented",
-    value: "300+",
+    value: partnerInstitutions,
     url: "/about/network",
   },
   {
@@ -163,7 +112,7 @@ const keyFigures = [
   },
   {
     label: "key-figures.scientific-and-public-events-per-year",
-    value: "100",
+    value: eventsPerYear,
     url: "/activities/events",
   },
   {
@@ -214,6 +163,105 @@ onMounted(() => {
 })
 </script>
 <style lang="scss">
+@keyframes splash-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes splash-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes splash-from-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Mobile-only: elegant reveal with a subtle upward drift
+@keyframes splash-mobile-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+    letter-spacing: 0.04em;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    letter-spacing: normal;
+  }
+}
+
+.splash-moto {
+  opacity: 0;
+  animation: splash-from-left 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+
+  @media (max-width: 959px) {
+    animation: splash-mobile-reveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  }
+}
+
+.splash-moto--text {
+  font-family: "Roboto", sans-serif !important;
+  text-align: center;
+  padding: 0 24px;
+
+  // Mobile: fluid font size, proportioned to screen width
+  @media (max-width: 959px) {
+    font-size: clamp(1.6rem, 7vw, 2.6rem) !important;
+    line-height: 1.25;
+    padding: 0 20px;
+  }
+
+  @media (min-width: 960px) {
+    text-align: right;
+    padding: 0;
+    max-width: 500px;
+  }
+}
+
+.splash-search {
+  opacity: 0;
+  animation: splash-from-right 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.65s forwards;
+
+  @media (max-width: 959px) {
+    animation: splash-mobile-reveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+  }
+}
+
+.splash-chevron {
+  opacity: 0;
+  animation: splash-from-bottom 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1s forwards;
+}
+
+// Mobile: first section fills viewport minus topbar height
+@media (max-width: 699px) {
+  .scroller section:first-child {
+    height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
 .presentation-pitch p {
   font-size: 1.2rem;
 }

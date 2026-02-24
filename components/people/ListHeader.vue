@@ -45,7 +45,6 @@
 <script setup>
 const route = useRoute()
 const i18n = useI18n()
-const localePath = useLocalePath()
 import { useDisplay } from "vuetify"
 const { name, mdAndUp } = useDisplay()
 import { ref, useI18n } from "#imports"

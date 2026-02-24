@@ -38,7 +38,7 @@
             class="d-flex flex-column"
             :class="mdAndUp ? 'left-panel' : 'bottom-panel'"
             v-ripple
-            @click="localePath('/news/' + featured[selected].slug[locale])"
+            @click="$localePath('/news/' + featured[selected].slug[locale])"
           >
             <div
               class="text-h4 text-sm-h3 text-md-h4 text-lg-h3 mb-6"

@@ -158,7 +158,6 @@ watch(
   width: 150px;
   height: 100px;
   padding: 8px;
-  border-radius: 4px;
   margin: 0 4px;
   background-color: var(--rest-bg, transparent);
   transition:
@@ -202,8 +201,9 @@ watch(
   pointer-events: auto;
   max-height: 100vh;
   background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .hover-card-root {

@@ -69,9 +69,30 @@
           :class="{ 'slide-visible': visibleSlides.has(index) }"
           :style="{ width: computedWidth + 'px', flexShrink: 0 }"
         >
+          <a
+            v-if="item.href"
+            :href="item.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            :style="{
+              pointerEvents: isDragging ? 'none' : '',
+              textDecoration: 'none',
+              color: 'inherit',
+            }"
+          >
+            <component
+              :is="capitalize(type) + 'SlidingItem'"
+              :index="index"
+              :item="item"
+              :width="computedWidth"
+              :loading="loading"
+              :dark="dark"
+            />
+          </a>
           <NuxtLink
+            v-else
             :to="
-              localePath({
+              $localePath({
                 name: pathPrefix,
                 params: { slug: item.slug },
               })
@@ -92,7 +113,7 @@
 
     <!-- SEE MORE -->
     <div v-if="more" class="d-flex justify-end mt-10">
-      <v-btn variant="flat" :to="localePath('/activities/events')">
+      <v-btn variant="flat" :to="$localePath('/activities/events')">
         {{ $t("see-more") }}
       </v-btn>
     </div>
@@ -102,7 +123,6 @@
 <script setup>
 import { useDisplay } from "vuetify"
 
-const localePath = useLocalePath()
 const { name } = useDisplay()
 
 const props = defineProps({
@@ -111,7 +131,7 @@ const props = defineProps({
   loading: { type: Boolean, default: false },
   dark: { type: Boolean, default: false },
   more: { type: Boolean, default: true },
-  pathPrefix: { type: String, required: true },
+  pathPrefix: { type: String, default: null },
 })
 
 // ── Refs ──
@@ -177,11 +197,20 @@ function snapToNearest() {
 
 // ── Wheel handler ──
 // Horizontal wheel scrolls naturally; vertical wheel also drives the carousel.
-// When at the far right and scrolling down, release control back to the page.
+// When the last slide is 100% visible and scrolling down, release to page scroll.
 let wheelTimer = null
+function isLastSlideFullyVisible() {
+  if (!trackWrapperRef.value || !slideRefs.value?.length) return false
+  const lastSlide = slideRefs.value[slideRefs.value.length - 1]
+  if (!lastSlide) return false
+  const viewportRect = trackWrapperRef.value.getBoundingClientRect()
+  const slideRect = lastSlide.getBoundingClientRect()
+  return slideRect.right <= viewportRect.right + 1
+}
+
 function onWheel(e) {
   const isVertical = Math.abs(e.deltaY) > Math.abs(e.deltaX)
-  const atRightEnd = currentIndex.value >= maxIndex.value
+  const atRightEnd = isLastSlideFullyVisible()
 
   const atLeftEnd = currentIndex.value <= 0
   if (isVertical && atRightEnd && e.deltaY > 0) return

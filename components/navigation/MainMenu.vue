@@ -33,7 +33,7 @@
                   :key="item.text + i"
                   @click="isActive.value = false"
                 >
-                  <nuxt-link :to="localePath(item.path)" class="no-decoration"
+                  <nuxt-link :to="$localePath(item.path)" class="no-decoration"
                     ><v-list-item-title
                       class="text-uppercase"
                       v-text="$t(item.text, 2)"
@@ -73,7 +73,7 @@
                     @click="isActive.value = false"
                   >
                     <nuxt-link
-                      :to="localePath(child.path)"
+                      :to="$localePath(child.path)"
                       class="no-decoration"
                       ><v-list-item-title
                         class="text-uppercase text-button"
@@ -87,7 +87,7 @@
                   :key="item.text + index"
                   @click="isActive.value = false"
                 >
-                  <nuxt-link :to="localePath(item.path)" class="no-decoration">
+                  <nuxt-link :to="$localePath(item.path)" class="no-decoration">
                     <v-list-item-title
                       class="text-uppercase text-button font-weight-bold"
                       v-text="$t(item.text, 2)"
@@ -114,7 +114,6 @@
   </v-dialog>
 </template>
 <script setup>
-const localePath = useLocalePath()
 import { useDisplay } from "vuetify"
 // import sitemap from "~/assets/data/sitemap"
 // import socials from "~/assets/data/social"
