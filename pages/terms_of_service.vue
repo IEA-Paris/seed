@@ -2,7 +2,10 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <v-card class="d-flex align-center justify-center flex-column py-9">
+        <v-card
+          class="d-flex align-center justify-center flex-column py-9"
+          flat
+        >
           <h2>{{ $t("tos") }}</h2>
           <ContentDoc :path="content" />
         </v-card>

@@ -1,8 +1,8 @@
 <template>
   <div class="scroller">
-    <section class="d-flex flex-column justify-center">
+    <section class="d-flex flex-column justify-center splash">
       <v-container fluid>
-        <v-row class="d-flex justify-center" ref="about" :key="locale">
+        <v-row ref="about" :key="locale" class="d-flex justify-center">
           <v-col cols="12" md="6" class="d-flex justify-end my-6">
             <div
               :key="animationText"
@@ -37,29 +37,29 @@
           color="default"
           icon
           flat
-          @click="scrollToFooter"
           variant="outlined"
+          @click="scrollToFooter"
         >
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </div>
     </section>
 
-    <section class="key-figures-section">
+    <section class="key-figures-section section-dark">
       <HomeKeyFigures :src="keyFigures" :duration="2.5" />
     </section>
 
     <div ref="footerScrollAnchor">
-      <NavigationFooter isSnapScroll />
+      <NavigationFooter is-snap-scroll />
     </div>
   </div>
 </template>
 
 <script setup>
+import config from "@/static.config"
 definePageMeta({
   layout: "about",
 })
-import config from "@/static.config"
 
 const { $rootStore, $queries, $router } = useNuxtApp()
 /* const goTo = useGoTo() */
@@ -87,7 +87,8 @@ const today = new Date()
 
 const animationText = computed(() => `text-${locale.value}`)
 
-const { researchers, nationalities, partnerInstitutions, eventsPerYear } = config.institute
+const { researchers, nationalities, partnerInstitutions, eventsPerYear } =
+  config.institute
 
 const keyFigures = [
   {
@@ -215,7 +216,8 @@ onMounted(() => {
   animation: splash-from-left 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
 
   @media (max-width: 959px) {
-    animation: splash-mobile-reveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    animation: splash-mobile-reveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.2s
+      forwards;
   }
 }
 
@@ -240,10 +242,12 @@ onMounted(() => {
 
 .splash-search {
   opacity: 0;
-  animation: splash-from-right 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.65s forwards;
+  animation: splash-from-right 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.65s
+    forwards;
 
   @media (max-width: 959px) {
-    animation: splash-mobile-reveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+    animation: splash-mobile-reveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.55s
+      forwards;
   }
 }
 
@@ -254,11 +258,13 @@ onMounted(() => {
 
 // Mobile: first section fills viewport minus topbar height
 @media (max-width: 699px) {
-  .scroller section:first-child {
-    height: calc(100vh - 64px);
+  .scroller section {
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+  .scroller .splash {
+    min-height: calc(100vh - 56px);
   }
 }
 
@@ -267,7 +273,6 @@ onMounted(() => {
 }
 
 .dark {
-  background: linear-gradient(135deg, #0b0b0b 0%, #1a1a1a 50%, #0b0b0b 100%);
   position: relative;
   color: white;
   &::before {
@@ -277,11 +282,6 @@ onMounted(() => {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(var(--primary-rgb), 0.1) 0%,
-      transparent 70%
-    );
     pointer-events: none;
   }
 }
@@ -291,7 +291,6 @@ onMounted(() => {
 }
 
 .key-figures-section {
-  background: linear-gradient(135deg, #0b0b0b 0%, #1a1a1a 50%, #0b0b0b 100%);
   color: white;
 }
 </style>

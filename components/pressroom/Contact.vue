@@ -1,7 +1,7 @@
 <template>
   <section class="pressroom-contact dark">
     <v-container>
-      <v-row class="align-center">
+      <v-row class="align-center" no-gutters>
         <v-col v-motion-slide-visible-once-bottom cols="12" md="6">
           <h2 class="pressroom-contact__title text-white">
             {{ $t("pressroom.contact.title") }}
@@ -52,6 +52,7 @@
                 color="white"
                 :to="$localePath('/contact')"
                 size="large"
+                class="d-flex w-100"
               >
                 {{ $t("pressroom.contact.cta") }}
                 <v-icon end>mdi-arrow-right</v-icon>
@@ -73,7 +74,7 @@ const phone = config.phone
 
 <style scoped>
 .pressroom-contact {
-  padding: 4rem;
+  padding: 4rem 0;
   background: linear-gradient(135deg, #0b0b0b 0%, #1a1a1a 100%);
 }
 

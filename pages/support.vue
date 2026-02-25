@@ -670,7 +670,7 @@ useHead({
 /* ── CONTACT (dark) ──────────────────────────────────── */
 .support-contact {
   padding: 4rem 0;
-  background: linear-gradient(135deg, #0b0b0b 0%, #1a1a1a 100%);
+  background: #0b0b0b;
 }
 
 .support-contact__title {

@@ -1,10 +1,10 @@
 <template>
-  <section>
+  <section style="background-color: #0b0b0b">
     <v-footer
       dark
       class="d-flex justify-center align-center dark"
-      :class="{ 'fill-height': isSnapScroll }"
-      style="background-color: black"
+      :class="{ 'fill-height': isSnapScroll && mdAndUp }"
+      style="background-color: #0b0b0b"
     >
       <v-container
         class="d-flex flex-column justify-space-between h-100 mt-md-12"
@@ -47,14 +47,14 @@
                   aria-hidden="true"
                 />
 
-                <v-form @submit.prevent="onSubmit" ref="formRef">
+                <v-form ref="formRef" @submit.prevent="onSubmit">
                   <v-text-field
+                    id="newsletter-email"
                     v-model="email"
                     :label="$t('email')"
                     variant="outlined"
                     tile
                     append-icon="mdi-send"
-                    id="newsletter-email"
                     :disabled="isLoading"
                     :error-messages="errorMessage"
                     :success-messages="successMessage"
@@ -105,18 +105,25 @@
             </v-row>
             <v-row justify="center" class="mt-0">
               <v-col cols="12" md="6" :order="smAndDown ? 'last' : ''">
-                <div class="text-subtitle-2 font-weight-medium mb-6">
-                  <div>{{ config.full_name }}</div>
+                <div class="mb-6">
+                  <NuxtLink
+                    class="text-subtitle-2 font-weight-medium mb-6 text-white"
+                    :to="$localePath('/visit')"
+                  >
+                    <div>{{ config.full_name }}</div>
 
-                  <div>{{ config.address }}</div>
+                    <div>{{ config.address }}</div>
 
-                  <div>{{ config.postcode_country }}</div>
+                    <div>{{ config.postcode_country }}</div>
 
-                  <div>{{ config.phone }}</div>
+                    <div>{{ config.phone }}</div>
 
-                  <div>
-                    <a mailto="information@paris-iea.fr">{{ config.email }}</a>
-                  </div>
+                    <div>
+                      <a mailto="information@paris-iea.fr">{{
+                        config.email
+                      }}</a>
+                    </div>
+                  </NuxtLink>
                 </div>
                 <iframe
                   title="openstreetmap"
