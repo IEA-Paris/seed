@@ -3,7 +3,7 @@
     <v-footer
       dark
       class="d-flex justify-center align-center dark"
-      :class="{ 'fill-height': isSnapScroll && mdAndUp }"
+      :class="{ 'snap-fill-height': isSnapScroll }"
       style="background-color: #0b0b0b"
     >
       <v-container
@@ -62,17 +62,19 @@
                   >
                   </v-text-field>
 
-                  <v-expand-transition>
-                    <div v-show="email.length > 1" class="text-caption ml-4">
-                      {{
-                        $t("by-subscribing-you-agree-to-our")
-                      }}&nbsp;<nuxt-link
-                        class="text-light-blue"
-                        :to="$localePath('/terms_of_service')"
-                        >{{ $t("terms-and-conditions") }}</nuxt-link
-                      >
-                    </div>
-                  </v-expand-transition>
+                  <ClientOnly>
+                    <v-expand-transition>
+                      <div v-show="email.length > 1" class="text-caption ml-4">
+                        {{
+                          $t("by-subscribing-you-agree-to-our")
+                        }}&nbsp;<nuxt-link
+                          class="text-light-blue"
+                          :to="$localePath('/terms_of_service')"
+                          >{{ $t("terms-and-conditions") }}</nuxt-link
+                        >
+                      </div>
+                    </v-expand-transition>
+                  </ClientOnly>
                 </v-form>
 
                 <!-- Altcha verification modal -->
@@ -104,25 +106,21 @@
               </v-col>
             </v-row>
             <v-row justify="center" class="mt-0">
-              <v-col cols="12" md="6" :order="smAndDown ? 'last' : ''">
+              <v-col cols="12" md="6" class="order-last order-md-0">
                 <div class="mb-6">
                   <NuxtLink
                     class="text-subtitle-2 font-weight-medium mb-6 text-white"
                     :to="$localePath('/visit')"
                   >
-                    <div>{{ config.full_name }}</div>
+                    <span class="d-block">{{ config.full_name }}</span>
 
-                    <div>{{ config.address }}</div>
+                    <span class="d-block">{{ config.address }}</span>
 
-                    <div>{{ config.postcode_country }}</div>
+                    <span class="d-block">{{ config.postcode_country }}</span>
 
-                    <div>{{ config.phone }}</div>
+                    <span class="d-block">{{ config.phone }}</span>
 
-                    <div>
-                      <a mailto="information@paris-iea.fr">{{
-                        config.email
-                      }}</a>
-                    </div>
+                    <span class="d-block">{{ config.email }}</span>
                   </NuxtLink>
                 </div>
                 <iframe
@@ -259,14 +257,11 @@
 <script setup>
 // import socials from "~/assets/data/social"
 // import sitemap from "~/assets/data/sitemap"
-import { useDisplay } from "vuetify"
 import { useI18n } from "vue-i18n"
 import gql from "graphql-tag"
 
 const config = useAppConfig()
-const route = useRoute()
 const { t } = useI18n()
-const { smAndDown } = useDisplay()
 const { router } = useRouter()
 const nuxtApp = useNuxtApp()
 
@@ -457,8 +452,12 @@ const subscribeToNewsletter = async () => {
 }
 </script>
 <style lang="scss">
-.v-footer.fill-height {
+.v-footer.snap-fill-height {
   height: calc(100vh - 64px);
+
+  @media (max-width: 959px) {
+    height: auto;
+  }
   /* scroll-snap-stop: normal; */
 }
 
