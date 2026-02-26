@@ -7,7 +7,7 @@
 <script setup>
 const { $queries } = useNuxtApp()
 
-const { resourceItem: publication, loading } = await useI18nResourceItem({
+const { resourceItem: publication, loading } = useI18nResourceItem({
   resourceName: "publication",
   documentGql: $queries.publications.get,
   responseKey: "getPublication",

@@ -6,7 +6,7 @@
 
 <script setup>
 const { $queries } = useNuxtApp()
-const { resourceItem: event, loading } = await useI18nResourceItem({
+const { resourceItem: event, loading } = useI18nResourceItem({
   resourceName: "event",
   documentGql: $queries.events.get,
   responseKey: "getEvent",

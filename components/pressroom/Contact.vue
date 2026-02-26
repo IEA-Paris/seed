@@ -1,5 +1,5 @@
 <template>
-  <section class="pressroom-contact dark">
+  <section class="pressroom-contact dark px-0 px-md-6">
     <v-container>
       <v-row class="align-center" no-gutters>
         <v-col v-motion-slide-visible-once-bottom cols="12" md="6">

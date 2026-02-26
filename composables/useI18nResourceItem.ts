@@ -10,9 +10,9 @@ interface Result<T> {
   loading: Ref<boolean>
 }
 
-export const useI18nResourceItem = async <T = any>(
+export const useI18nResourceItem = <T = any>(
   options: Options,
-): Promise<Result<T>> => {
+): Result<T> => {
   const { resourceName, documentGql, responseKey, appId } = options
 
   const { fetchItem } = useFetchItem()
@@ -21,37 +21,52 @@ export const useI18nResourceItem = async <T = any>(
   const router = useRouter()
   const localePath = useLocalePath()
 
-  const cacheKey = computed(
-    () => `${resourceName}:${route.params.slug}:${locale.value}`,
-  )
+  const slug = computed(() => route.params.slug as string)
 
-  const { data: resourceItem, pending: loading } = await useAsyncData(
-    cacheKey,
-    () =>
-      fetchItem({
+  const resourceItem = ref<T | null>(null) as Ref<T | null>
+  const loading = ref(true)
+
+  const doFetch = async () => {
+    const currentSlug = slug.value
+    if (!currentSlug) return
+
+    loading.value = true
+    try {
+      const item = await fetchItem<T>({
         query: documentGql,
         key: responseKey,
         variables: {
-          itemId: route.params.slug,
+          itemId: currentSlug,
           appId,
           lang: locale.value,
         },
-      }),
-    {
-      watch: [() => route.params.slug, () => locale.value],
-      dedupe: "cancel",
-    },
-  )
+      })
+      resourceItem.value = item
+    } catch (error) {
+      console.error(`[useI18nResourceItem] fetch failed for ${resourceName}:`, error)
+      resourceItem.value = null
+    } finally {
+      loading.value = false
+    }
+  }
+
+  // Fetch on setup
+  doFetch()
+
+  // Re-fetch when slug or locale changes
+  watch([slug, locale], () => {
+    doFetch()
+  })
 
   watch(
     [resourceItem, locale],
     ([nextItem, _nextLocale]) => {
-      if (!nextItem?.slug) return
+      if (!(nextItem as any)?.slug) return
 
-      if (route.params.slug !== nextItem.slug) {
+      if (route.params.slug !== (nextItem as any).slug) {
         router.replace(
           localePath({
-            params: { ...route.params, slug: nextItem.slug },
+            params: { ...route.params, slug: (nextItem as any).slug },
           }),
         )
       }
@@ -60,7 +75,7 @@ export const useI18nResourceItem = async <T = any>(
   )
 
   return {
-    resourceItem: resourceItem as Ref<T | null>,
+    resourceItem,
     loading,
   }
 }
