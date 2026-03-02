@@ -28,7 +28,7 @@
     "@mdi/font": "^7.4.47",
     "@nuxt/image": "^1.10.0",
     "@nuxtjs/robots": "^5.7.0",
-    "@paris-ias/list": "^1.0.192",
+    "@paris-ias/list": "^1.0.193",
     "@pinia/nuxt": "^0.5.4",
     "@vue/apollo-composable": "^4.2.2",
     "@vueuse/components": "^13.0.0",
