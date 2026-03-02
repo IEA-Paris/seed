@@ -1,7 +1,10 @@
 <template>
-  <div>
+  <v-container style="max-width: 1200px">
+    <div class="d-flex justify-center mb-6">
+      <h2 class="text-center">{{ capitalize($t("search")) }}</h2>
+    </div>
     <ListOrganismsResults />
-  </div>
+  </v-container>
 </template>
 <script setup lang="ts"></script>
 <style lang="scss"></style>
