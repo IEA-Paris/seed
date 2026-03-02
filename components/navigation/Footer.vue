@@ -22,12 +22,12 @@
                     src="/logo_white.png"
                     contain
                     width="200"
-                    class="my-6"
+                    class="my-6 ml-n2 ml-md-n4"
                   ></v-img>
                 </nuxt-link>
               </v-col>
-              <v-col cols="12" md="6" class="mt-md-12 pl-6">
-                <div class="text-uppercase mb-2">
+              <v-col cols="12" md="6" class="mt-md-16 pl-4 pl-md-3">
+                <div class="text-uppercase text-caption text-md-button mb-2">
                   {{ $t("subscribe-to-our-newsletter") }}
                 </div>
 
@@ -58,6 +58,7 @@
                     :disabled="isLoading"
                     :error-messages="errorMessage"
                     :success-messages="successMessage"
+                    :density="mdAndUp ? 'default' : 'compact'"
                     @click:append="onSubmit"
                   >
                   </v-text-field>
@@ -157,46 +158,60 @@
               <v-col cols="12" md="6" class="pt-0">
                 <v-row justify="center" no-gutters>
                   <v-col cols="12" sm="6">
-                    <v-list bg-color="transparent">
-                      <v-list-item :to="$localePath('/about/institute')" nuxt>
+                    <v-list
+                      bg-color="transparent"
+                      :density="mdAndUp ? 'default' : 'compact'"
+                    >
+                      <v-list-item
+                        :to="$localePath('/about/institute')"
+                        nuxt
+                        class="pl-0"
+                      >
                         <v-list-item-title
-                          class="text-uppercase text-button"
+                          class="text-uppercase text-caption text-md-button"
                           v-text="$t('about-us')"
                         ></v-list-item-title>
                       </v-list-item>
                       <v-list-item
                         :to="$localePath('/contact')"
+                        class="pl-0"
                         nuxt
                         @click="open = false"
                       >
                         <v-list-item-title
-                          class="text-uppercase text-button"
+                          class="text-uppercase text-caption text-md-button"
                           v-text="$t('contact')"
                         ></v-list-item-title>
                       </v-list-item>
-                      <v-list-item :to="$localePath('/visit')" nuxt>
+                      <v-list-item
+                        :to="$localePath('/visit')"
+                        nuxt
+                        class="pl-0"
+                      >
                         <v-list-item-title
-                          class="text-uppercase text-button"
+                          class="text-uppercase text-caption text-md-button"
                           v-text="$t('visit')"
                         ></v-list-item-title>
                       </v-list-item>
                       <v-list-item
                         :to="$localePath('/pressroom')"
                         nuxt
+                        class="pl-0"
                         @click="open = false"
                       >
                         <v-list-item-title
-                          class="text-uppercase text-button"
+                          class="text-uppercase text-caption text-md-button"
                           v-text="$t('pressroom')"
                         ></v-list-item-title>
                       </v-list-item>
                       <v-list-item
                         :to="$localePath('/support')"
+                        class="pl-0"
                         nuxt
                         @click="open = false"
                       >
                         <v-list-item-title
-                          class="text-uppercase text-button"
+                          class="text-uppercase text-caption text-md-button"
                           v-text="$t('support')"
                         ></v-list-item-title>
                       </v-list-item>
@@ -259,6 +274,7 @@
 // import sitemap from "~/assets/data/sitemap"
 import { useI18n } from "vue-i18n"
 import gql from "graphql-tag"
+import { useDisplay } from "vuetify"
 
 const config = useAppConfig()
 const { t } = useI18n()
@@ -275,6 +291,7 @@ const altchaContainer = ref(null)
 const honeypot = ref("") // Honeypot field - should remain empty
 const formLoadTime = ref(Date.now()) // Track when form loads
 const showAltchaDialog = ref(false)
+const { mdAndUp } = useDisplay()
 
 // Altcha widget DOM element (not reactive to avoid Vue tracking)
 let altchaWidgetEl = null
