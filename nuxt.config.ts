@@ -119,7 +119,7 @@ export default defineNuxtConfig({
     "@stefanobartoletti/nuxt-social-share",
     "@nuxt/eslint",
     "@paris-ias/list",
-    //"./modules/list/src/module", // To use to debug list in website context (as opposed to the playground context)
+    // "./modules/list/src/module", // To use to debug list in website context (as opposed to the playground context)
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
         config.plugins.push(vuetify({ autoImport: true }))
