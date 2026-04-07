@@ -2,20 +2,14 @@
   <div class="scroller">
     <section class="d-flex flex-column justify-center splash">
       <v-container fluid>
-        <v-row ref="about" :key="locale" class="d-flex justify-center">
-          <v-col cols="12" md="6" class="d-flex justify-end my-6">
-            <div
-              :key="animationText"
-              class="text-h2 pr-6 splash-moto splash-moto--text"
-            >
-              {{ $t("moto") }}
-            </div>
-          </v-col>
+        <v-row ref="about" :key="locale" class="">
           <v-col
             cols="12"
-            md="6"
-            class="my-6 d-md-flex align-center align-md-end"
+            class="my-6 d-flex flex-column justify-center align-center"
           >
+            <div class="text-h2 text-center splash-moto splash-moto--text">
+              {{ $t("moto") }}
+            </div>
             <div
               id="presentation"
               :key="locale"
@@ -38,18 +32,18 @@
           icon
           flat
           variant="outlined"
-          @click="scrollToFooter"
+          @click="scrollToStats"
         >
           <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </div>
     </section>
 
-    <section class="key-figures-section section-dark">
+    <section ref="statsScrollAnchor" class="key-figures-section section-dark">
       <HomeKeyFigures :src="keyFigures" :duration="2.5" />
     </section>
 
-    <div ref="footerScrollAnchor">
+    <div>
       <NavigationFooter is-snap-scroll />
     </div>
   </div>
@@ -61,7 +55,7 @@ definePageMeta({
   layout: "about",
 })
 
-const { $rootStore, $queries, $router } = useNuxtApp()
+const { $rootStore } = useNuxtApp()
 /* const goTo = useGoTo() */
 const { locale } = useI18n()
 /* const presentation = ref("/pages/" + locale.value + "/institute_presentation") 
@@ -72,10 +66,10 @@ const carousel = ref(true)*/
 // const events = ref(null)
 // const numbers = ref(null)
 
-const footerScrollAnchor = ref(null)
+const statsScrollAnchor = ref(null)
 
-function scrollToFooter() {
-  footerScrollAnchor.value?.scrollIntoView({ behavior: "smooth" })
+function scrollToStats() {
+  statsScrollAnchor.value?.scrollIntoView({ behavior: "smooth" })
 }
 
 const today = new Date()
@@ -164,67 +158,9 @@ onMounted(() => {
 })
 </script>
 <style lang="scss">
-@keyframes splash-from-left {
-  from {
-    opacity: 0;
-    transform: translateX(-60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes splash-from-right {
-  from {
-    opacity: 0;
-    transform: translateX(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes splash-from-bottom {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-// Mobile-only: elegant reveal with a subtle upward drift
-@keyframes splash-mobile-reveal {
-  from {
-    opacity: 0;
-    transform: translateY(24px) scale(0.97);
-    letter-spacing: 0.04em;
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    letter-spacing: normal;
-  }
-}
-
-.splash-moto {
-  opacity: 0;
-  animation: splash-from-left 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
-
-  @media (max-width: 959px) {
-    animation: splash-mobile-reveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.2s
-      forwards;
-  }
-}
-
 .splash-moto--text {
   font-family: "Roboto", sans-serif !important;
   text-align: center;
-  padding: 0 24px;
 
   // Mobile: fluid font size, proportioned to screen width
   @media (max-width: 959px) {
@@ -235,25 +171,9 @@ onMounted(() => {
 
   @media (min-width: 960px) {
     text-align: right;
-    padding: 0;
-    max-width: 500px;
+    padding-bottom: 40px;
+    max-width: 700px;
   }
-}
-
-.splash-search {
-  opacity: 0;
-  animation: splash-from-right 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.65s
-    forwards;
-
-  @media (max-width: 959px) {
-    animation: splash-mobile-reveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.55s
-      forwards;
-  }
-}
-
-.splash-chevron {
-  opacity: 0;
-  animation: splash-from-bottom 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1s forwards;
 }
 
 // Mobile: first section fills viewport minus topbar height

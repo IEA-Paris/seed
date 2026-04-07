@@ -10,11 +10,13 @@
       <NavigationLogo></NavigationLogo>
       <div class="top-bar__logo-text d-flex align-start pl-3">
         <v-img
-          src="/logo_text.png"
+          :src="
+            $i18n.locale === 'en' ? '/logo_text_en.svg' : '/logo_text_fr.svg'
+          "
           alt="Paris IAS"
           class="d-inline-block cursor-pointer"
-          height="100px"
-          width="200px"
+          height="64px"
+          :width="$i18n.locale === 'en' ? '230px' : '200px'"
         ></v-img>
       </div>
     </div>

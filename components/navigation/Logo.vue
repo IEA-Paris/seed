@@ -1,6 +1,9 @@
 <template>
   <v-app-bar-nav-icon>
-    <nuxt-link :to="$localePath('/')" :class="{ scrolled: $rootStore.scrolled }">
+    <nuxt-link
+      :to="$localePath('/')"
+      :class="{ scrolled: $rootStore.scrolled }"
+    >
       <v-img
         contain
         height="50"
