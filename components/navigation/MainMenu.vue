@@ -34,11 +34,10 @@
                   @click="isActive.value = false"
                 >
                   <nuxt-link :to="$localePath(item.path)" class="no-decoration"
-                    ><v-list-item-title
-                      class="text-uppercase"
-                      v-text="$t(item.text, 2)"
-                    ></v-list-item-title
-                  ></nuxt-link>
+                    ><v-list-item-title class="text-uppercase">
+                      {{ $t(item.text, 2) }}</v-list-item-title
+                    ></nuxt-link
+                  >
 
                   <v-divider
                     v-if="i < config.sitemap.footer.length - 1"
@@ -55,20 +54,27 @@
               <template v-for="(item, index) in config.sitemap.main">
                 <v-list-group
                   v-if="item.children && item.children.length"
+                  :key="item.text"
                   :value="$t(item.text, 2)"
                 >
-                  <template v-slot:activator="{ props }">
+                  <template #activator="{ props }">
                     <v-list-item v-bind="props" class="">
                       <v-list-item-title
                         class="text-uppercase text-button font-weight-bold"
-                        v-text="$t(item.text, 2)"
-                      ></v-list-item-title
-                    ></v-list-item>
+                        >{{ $t(item.text, 2) }}</v-list-item-title
+                      ></v-list-item
+                    >
                   </template>
 
-                  <template v-for="(child, i) in item.children" :key="child.text + i">
+                  <template
+                    v-for="(child, i) in item.children"
+                    :key="child.text + i"
+                  >
                     <!-- Level 2 with grandchildren: nested group -->
-                    <v-list-group v-if="child.children && child.children.length" :value="$t(child.text)">
+                    <v-list-group
+                      v-if="child.children && child.children.length"
+                      :value="$t(child.text)"
+                    >
                       <template #activator="{ props }">
                         <v-list-item v-bind="props">
                           <nuxt-link
@@ -76,9 +82,16 @@
                             :to="$localePath(child.path)"
                             class="no-decoration"
                           >
-                            <v-list-item-title class="text-uppercase text-button">{{ $t(child.text) }}</v-list-item-title>
+                            <v-list-item-title
+                              class="text-uppercase text-button"
+                              >{{ $t(child.text) }}</v-list-item-title
+                            >
                           </nuxt-link>
-                          <v-list-item-title v-else class="text-uppercase text-button">{{ $t(child.text) }}</v-list-item-title>
+                          <v-list-item-title
+                            v-else
+                            class="text-uppercase text-button"
+                            >{{ $t(child.text) }}</v-list-item-title
+                          >
                         </v-list-item>
                       </template>
                       <v-list-item
@@ -87,8 +100,14 @@
                         :value="$t(grandchild.text)"
                         @click="isActive.value = false"
                       >
-                        <nuxt-link :to="$localePath(grandchild.path)" class="no-decoration">
-                          <v-list-item-title class="text-uppercase text-button">{{ $t(grandchild.text) }}</v-list-item-title>
+                        <nuxt-link
+                          :to="$localePath(grandchild.path)"
+                          class="no-decoration"
+                        >
+                          <v-list-item-title
+                            class="text-uppercase text-button"
+                            >{{ $t(grandchild.text) }}</v-list-item-title
+                          >
                         </nuxt-link>
                       </v-list-item>
                     </v-list-group>
@@ -98,8 +117,13 @@
                       :value="$t(child.text)"
                       @click="isActive.value = false"
                     >
-                      <nuxt-link :to="$localePath(child.path)" class="no-decoration">
-                        <v-list-item-title class="text-uppercase text-button">{{ $t(child.text) }}</v-list-item-title>
+                      <nuxt-link
+                        :to="$localePath(child.path)"
+                        class="no-decoration"
+                      >
+                        <v-list-item-title class="text-uppercase text-button">{{
+                          $t(child.text)
+                        }}</v-list-item-title>
                       </nuxt-link>
                     </v-list-item>
                   </template>
@@ -112,13 +136,14 @@
                   <nuxt-link :to="$localePath(item.path)" class="no-decoration">
                     <v-list-item-title
                       class="text-uppercase text-button font-weight-bold"
-                      v-text="$t(item.text, 2)"
                     >
+                      {{ $t(item.text, 2) }}
                     </v-list-item-title>
                   </nuxt-link>
                 </v-list-item>
                 <v-divider
                   v-if="index < config.sitemap.main.length - 1"
+                  :key="item.text"
                 ></v-divider>
               </template>
             </v-list>
