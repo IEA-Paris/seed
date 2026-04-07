@@ -147,48 +147,115 @@ export default {
 
   sitemap: {
     main: [
+  {
+    text: "about",
+    dropdown: true,
+    children: [
       {
-        text: "about",
-        dropdown: true,
+        text: "institute",
+        path: "/about/institute",
         children: [
-          { text: "institute", path: "/about/institute" },
-          { text: "vision", path: "/about/vision" },
-          { text: "network", path: "/about/network" },
-        ],
-      },
-      {
-        text: "activities",
-        dropdown: true,
-        children: [
-          { text: "items.fellowships", path: "/activities/fellowships" },
-          { text: "items.projects", path: "/activities/projects" },
           {
-            text: "items.events",
-            path: "/activities/events",
+            text: "missions",
+            path: "/about/institute#missions",
           },
-          { text: "items.publications", path: "/activities/publications" },
           {
-            text: "items.news",
-            path: "/activities/news",
+            text: "statuts",
+            path: "/about/institute#statuts",
+          },
+          {
+            text: "location",
+            path: "/about/institute#location",
           },
         ],
       },
       {
-        text: "items.people",
-        dropdown: true,
+        text: "organisation",
+        path: "/about/organisation",
         children: [
-          { text: "fellows", path: "/people?groups=fellows" },
-          { text: "team", path: "/people?groups=team" },
+          {
+            text: "team",
+            path: "/about/organisation#team",
+          },
+          {
+            text: "board",
+            path: "/about/organisation#board",
+          },
           {
             text: "sab",
-            path: "/people?groups=sab",
+            path: "/about/organisation#sab",
           },
-          { text: "board", path: "/people?groups=board" },
-          { text: "browse", path: "/people" },
+          {
+            text: "ethics",
+            path: "/about/organisation#ethics",
+          },
         ],
       },
-    
+      {
+        text: "partners",
+        path: "/about/partners",
+        children: [
+          {
+            text: "members",
+            path: "/about/partners#members",
+          },
+          {
+            text: "networks",
+            path: "/about/partners#networks",
+          },
+          {
+            text: "supports",
+            path: "/about/partners#supports",
+          },
+        ],
+      },
     ],
+  },
+  {
+    text: "activities",
+    dropdown: true,
+    children: [
+      {
+        text: "items.fellowships",
+        path: "/activities/fellowships",
+        children: [
+          {
+            text: "calls",
+            path: "/activities/fellowships",
+          },
+          { text: "conditions", path: "/activities/fellowships/conditions" },
+          { text: "location", path: "/activities/fellowships/location" },
+        ],
+      },
+      {
+        text: "collective-intelligence",
+        children: [
+          { text: "items.projects", path: "/activities/projects" },
+          { text: "initiatives", path: "/activities/initiatives" },
+          { text: "platforms", path: "/activities/platforms" },
+        ],
+      },
+    ],
+  },
+  {
+    text: "fellows",
+    path: "/activities/fellows",
+  },
+  { text: "items.events", path: "/activities/events" },
+
+  {
+    text: "resources",
+    dropdown: true,
+    children: [
+      { text: "items.publications", path: "/activities/publications" },
+      {
+        text: "items.news",
+        path: "/activities/news",
+      },
+      { text: "items.videos", path: "/people?groups=fellows" },
+    ],
+  },
+],
     footer: [
       { text: "tos", path: "/tos" },
       { text: "contact", path: "/contact" },

@@ -222,5 +222,18 @@
         "label": "De déduction fiscale entreprises"
       }
     }
-  }
+  },
+  "missions": "Missions",
+  "statuts": "Statuts",
+  "organisation": "Organisation",
+  "partners": "Partenaires",
+  "members": "Membres",
+  "networks": "Réseaux",
+  "supports": "Soutiens",
+  "calls": "Appels à candidatures",
+  "conditions": "Conditions",
+  "collective-intelligence": "Intelligence collective",
+  "initiatives": "Initiatives",
+  "platforms": "Plateformes",
+  "ethics": "Conseil éthique et déontologique"
 }

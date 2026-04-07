@@ -218,5 +218,18 @@
   "back": "Back",
   "home": "Home",
   "vision": "Vision",
-  "type-a-search-term-to-find-results-across-all-categories": "Type a search term to find results across all categories"
+  "type-a-search-term-to-find-results-across-all-categories": "Type a search term to find results across all categories",
+  "missions": "Missions",
+  "statuts": "Statutes",
+  "organisation": "Organisation",
+  "partners": "Partners",
+  "members": "Members",
+  "networks": "Networks",
+  "supports": "Supports",
+  "calls": "Calls",
+  "conditions": "Conditions",
+  "collective-intelligence": "Collective Intelligence",
+  "initiatives": "Initiatives",
+  "platforms": "Platforms",
+  "ethics": "Ethics and Professional Conduct Committee"
 }

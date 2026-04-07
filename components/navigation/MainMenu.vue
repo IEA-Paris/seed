@@ -66,21 +66,43 @@
                     ></v-list-item>
                   </template>
 
-                  <v-list-item
-                    v-for="(child, i) in item.children"
-                    :key="child.text + i"
-                    :value="$t(child.text)"
-                    @click="isActive.value = false"
-                  >
-                    <nuxt-link
-                      :to="$localePath(child.path)"
-                      class="no-decoration"
-                      ><v-list-item-title
-                        class="text-uppercase text-button"
-                        v-text="$t(child.text)"
-                      ></v-list-item-title
-                    ></nuxt-link>
-                  </v-list-item>
+                  <template v-for="(child, i) in item.children" :key="child.text + i">
+                    <!-- Level 2 with grandchildren: nested group -->
+                    <v-list-group v-if="child.children && child.children.length" :value="$t(child.text)">
+                      <template #activator="{ props }">
+                        <v-list-item v-bind="props">
+                          <nuxt-link
+                            v-if="child.path"
+                            :to="$localePath(child.path)"
+                            class="no-decoration"
+                          >
+                            <v-list-item-title class="text-uppercase text-button">{{ $t(child.text) }}</v-list-item-title>
+                          </nuxt-link>
+                          <v-list-item-title v-else class="text-uppercase text-button">{{ $t(child.text) }}</v-list-item-title>
+                        </v-list-item>
+                      </template>
+                      <v-list-item
+                        v-for="(grandchild, j) in child.children"
+                        :key="grandchild.text + j"
+                        :value="$t(grandchild.text)"
+                        @click="isActive.value = false"
+                      >
+                        <nuxt-link :to="$localePath(grandchild.path)" class="no-decoration">
+                          <v-list-item-title class="text-uppercase text-button">{{ $t(grandchild.text) }}</v-list-item-title>
+                        </nuxt-link>
+                      </v-list-item>
+                    </v-list-group>
+                    <!-- Level 2 without grandchildren: plain item -->
+                    <v-list-item
+                      v-else
+                      :value="$t(child.text)"
+                      @click="isActive.value = false"
+                    >
+                      <nuxt-link :to="$localePath(child.path)" class="no-decoration">
+                        <v-list-item-title class="text-uppercase text-button">{{ $t(child.text) }}</v-list-item-title>
+                      </nuxt-link>
+                    </v-list-item>
+                  </template>
                 </v-list-group>
                 <v-list-item
                   v-else

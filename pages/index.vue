@@ -47,11 +47,120 @@ import config from "@/static.config"
 definePageMeta({
   layout: "about",
 })
+const main = [
+  {
+    text: "about",
+    dropdown: true,
+    children: [
+      {
+        text: "institute",
+        path: "/about/institute",
+        children: [
+          {
+            text: "missions",
+            path: "/about/institute#missions",
+          },
+          {
+            text: "statuts",
+            path: "/about/institute#statuts",
+          },
+          {
+            text: "location",
+            path: "/about/institute#location",
+          },
+        ],
+      },
+      {
+        text: "organisation",
+        path: "/about/organisation",
+        children: [
+          {
+            text: "team",
+            path: "/about/organisation#team",
+          },
+          {
+            text: "board",
+            path: "/about/organisation#board",
+          },
+          {
+            text: "sab",
+            path: "/about/organisation#sab",
+          },
+          {
+            text: "ethics",
+            path: "/about/organisation#ethics",
+          },
+        ],
+      },
+      {
+        text: "partners",
+        path: "/about/partners",
+        children: [
+          {
+            text: "members",
+            path: "/about/members#members",
+          },
+          {
+            text: "networks",
+            path: "/about/members#networks",
+          },
+          {
+            text: "supports",
+            path: "/about/members#supports",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    text: "activities",
+    dropdown: true,
+    children: [
+      {
+        text: "items.fellowships",
+        path: "/activities/fellowships",
+        children: [
+          {
+            text: "calls",
+            path: "/activities/fellowships",
+          },
+          { text: "conditions", path: "/activities/fellowships/conditions" },
+          { text: "location", path: "/activities/fellowships/location" },
+        ],
+      },
+      {
+        text: "collective-intelligence",
+        children: [
+          { text: "items.projects", path: "/activities/projects" },
+          { text: "initiatives", path: "/activities/initiatives" },
+          { text: "platforms", path: "/activities/platforms" },
+        ],
+      },
+    ],
+  },
+  {
+    text: "fellows",
+    path: "/activities/fellows",
+  },
+  { text: "items.events", path: "/activities/events" },
 
+  {
+    text: "resources",
+    dropdown: true,
+    children: [
+      { text: "items.publications", path: "/activities/publications" },
+      {
+        text: "items.news",
+        path: "/activities/news",
+      },
+      { text: "items.videos", path: "/people?groups=fellows" },
+    ],
+  },
+]
 const { $rootStore } = useNuxtApp()
 /* const goTo = useGoTo() */
 const { locale } = useI18n()
-/* const presentation = ref("/pages/" + locale.value + "/institute_presentation") 
+/* const presentation = ref("/pages/" + locale.value + "/institute_presentation")
 
 const carousel = ref(true)*/
 
