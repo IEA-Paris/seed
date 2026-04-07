@@ -10,19 +10,12 @@
             <div class="text-h2 text-center splash-moto splash-moto--text">
               {{ $t("moto") }}
             </div>
-            <div
-              id="presentation"
-              :key="locale"
-              class="presentation-pitch splash-search"
-              style="max-width: 600px; min-width: 30vw"
-            >
-              <ListMoleculesGlobalSearchInput
-                key="home-search"
-                type="all"
-                :loading="false"
-                class="mb-6 light"
-              ></ListMoleculesGlobalSearchInput>
-            </div>
+            <ListMoleculesGlobalSearchInput
+              key="home-search"
+              type="all"
+              :loading="false"
+              class="mb-6 light home-search-input"
+            ></ListMoleculesGlobalSearchInput>
           </v-col>
         </v-row>
       </v-container>
@@ -72,15 +65,6 @@ function scrollToStats() {
   statsScrollAnchor.value?.scrollIntoView({ behavior: "smooth" })
 }
 
-const today = new Date()
-/* const academicYear = ref(
-  today.getMonth() > 6
-    ? today.getFullYear() + "-" + (today.getFullYear() + 1)
-    : today.getFullYear() - 1 + "-" + today.getFullYear(),
-) */
-
-const animationText = computed(() => `text-${locale.value}`)
-
 const { researchers, nationalities, partnerInstitutions, eventsPerYear } =
   config.institute
 
@@ -116,41 +100,6 @@ const keyFigures = [
     url: "/about/network#our-partners",
   },
 ]
-/* 
-const variables = computed(() => ({
-  options: {
-    skip: 0,
-    limit: 8,
-    sortBy: ["start"],
-    sortDesc: false,
-    filters: JSON.stringify({}),
-  },
-  appId: "iea",
-  lang: locale.value,
-}))
-
-const { data, error, refresh } = await useAsyncQuery(
-  $queries.events.list,
-  variables,
-)
-console.log("variables: ", variables)
-console.log("data: ", data.value)
-
-if (error.value) {
-  console.log("GraphQL error:", error.value)
-}
-const upcomingEvents = computed(() => data.value?.listEvents?.items || [])
- */
-//watch(locale, () => {
-//  refresh()
-//})
-
-/* if (!upcomingEvents) {
-  throw createError({
-    statusCode: 404,
-    message: "Item not found in response",
-  })
-} */
 
 onMounted(() => {
   $rootStore.search = ""
@@ -158,6 +107,22 @@ onMounted(() => {
 })
 </script>
 <style lang="scss">
+.home-search-input {
+  width: 100%;
+
+  @media (min-width: 600px) {
+    width: 80%;
+  }
+
+  @media (min-width: 960px) {
+    width: 600px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 700px;
+  }
+}
+
 .splash-moto--text {
   font-family: "Roboto", sans-serif !important;
   text-align: center;
@@ -166,7 +131,7 @@ onMounted(() => {
   @media (max-width: 959px) {
     font-size: clamp(1.6rem, 7vw, 2.6rem) !important;
     line-height: 1.25;
-    padding: 0 20px;
+    padding-bottom: 40px;
   }
 
   @media (min-width: 960px) {
