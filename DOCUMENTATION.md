@@ -1,16 +1,16 @@
 # Seed - Paris Institute for Advanced Study Website
 
-Seed is the main public-facing website for the Paris Institute for Advanced Study (IEA Paris), built as a modern Nuxt 3 application that showcases the power of the Canopy architecture. It serves as a comprehensive academic platform displaying people, events, publications, projects, and institutional information.
+Seed is the main public-facing website for the Paris Institute for Advanced Study (IEA Paris), built as a modern Nuxt 3 application that showcases the power of the Isomorphic Forest architecture. It serves as a comprehensive academic platform displaying people, events, publications, projects, and institutional information.
 
 ## 🏗️ Architecture Overview
 
-Seed demonstrates the **convention over configuration** principle of Canopy by consuming the three core modules with minimal setup, creating a full-featured academic website.
+Seed demonstrates the **convention over configuration** principle of Isomorphic Forest by consuming the three core modules with minimal setup, creating a full-featured academic website.
 
 ```mermaid
 graph TD
-    A[Seed Application] --> B[Canopy Integration]
+    A[Seed Application] --> B[Isomorphic Forest Integration]
 
-    B --> C[@paris-ias/data]
+    B --> C[@paris-ias/trees]
     B --> D[@paris-ias/list]
     B --> E[@paris-ias/form]
 
@@ -53,7 +53,7 @@ graph TD
 - **Fellowship Programs**: Detailed fellowship opportunities and program information
 - **News & Updates**: Latest institutional news and announcements
 
-### Canopy Integration Benefits
+### Isomorphic Forest Integration Benefits
 
 - **Zero Configuration Lists**: Automatic list generation for all content types
 - **Dynamic Filtering**: Real-time content filtering based on data model attributes
@@ -66,7 +66,7 @@ graph TD
 ```
 seed/
 ├── app.vue                    # Root application component
-├── nuxt.config.ts            # Nuxt configuration with Canopy modules
+├── nuxt.config.ts            # Nuxt configuration with Isomorphic Forest modules
 ├── static.config.ts          # Application configuration
 │
 ├── pages/                    # Nuxt pages (auto-routing)
@@ -79,7 +79,7 @@ seed/
 │   ├── about/               # Institutional pages
 │   └── [...all].vue        # Catch-all dynamic routing
 │
-├── components/              # Custom components extending Canopy
+├── components/              # Custom components extending Isomorphic Forest
 │   ├── people/             # People-specific components
 │   ├── home/               # Homepage components
 │   ├── navigation/         # Site navigation
@@ -91,7 +91,7 @@ seed/
 └── translations/           # I18n translation files
 ```
 
-## 🔧 Canopy Module Integration
+## 🔧 Isomorphic Forest Module Integration
 
 ### List Module Integration
 
@@ -232,11 +232,11 @@ yarn deploy:infra:stage
 yarn deploy:infra:prod
 ```
 
-## 🤝 Canopy Ecosystem Integration
+## 🤝 Isomorphic Forest Ecosystem Integration
 
-Seed demonstrates the full power of the Canopy ecosystem:
+Seed demonstrates the full power of the Isomorphic Forest ecosystem:
 
-- **[@paris-ias/data](../types)**: Provides all academic data models and schemas
+- **[@paris-ias/trees](../trees)**: Provides all academic data models and schemas
 - **[@paris-ias/list](../list)**: Powers all content listing pages with zero configuration
 - **[@paris-ias/form](../Apex/frontend/modules/form)**: Enables content creation and editing forms
 
@@ -244,7 +244,7 @@ Seed demonstrates the full power of the Canopy ecosystem:
 
 ### Convention Over Configuration
 
-Seed demonstrates how Canopy's conventions eliminate configuration:
+Seed demonstrates how Isomorphic Forest's conventions eliminate configuration:
 
 - **Automatic Routing**: File-based routing with dynamic segments
 - **Component Auto-loading**: Global component registration
@@ -260,4 +260,4 @@ All UI elements are generated from data model definitions:
 - **Validation**: Client/server validation from rules
 - **I18n**: Multi-language support from field definitions
 
-Seed serves as both a production application and a reference implementation for building academic websites with the Canopy architecture, demonstrating how minimal configuration can yield maximum functionality.
+Seed serves as both a production application and a reference implementation for building academic websites with the Isomorphic Forest architecture, demonstrating how minimal configuration can yield maximum functionality.

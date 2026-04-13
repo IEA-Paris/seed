@@ -3,12 +3,12 @@
     <v-row>
       <v-col cols="12">
         <v-card
-          class="d-flex align-center justify-center flex-column"
+          class="d-flex align-center justify-center flex-column py-9"
+          flat
         >
-        <div class="text-h3">{{ $t('tos') }}</div>
-        <ContentDoc :path="content" />
-        </v-card
-        >
+          <h2>{{ $t("tos") }}</h2>
+          <ContentDoc :path="content" />
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
@@ -19,5 +19,4 @@ import { useDisplay } from "vuetify"
 const { smAndUp } = useDisplay()
 const { locale, locales } = useI18n()
 const content = ref("/pages/" + locale.value + "/tos")
-
 </script>

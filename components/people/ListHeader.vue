@@ -2,10 +2,10 @@
   <div>
     <v-card flat class="d-flex align-center justify-center">
       <div class="">
-        <div :class="mdAndUp ? 'text-h2' : 'text-h4'" class="mb-9 text-center">
+        <h2 class="mb-9 text-center">
           {{ $t("list.filters.people.groups." + route.query.groups, 2) }}
-        </div>
-        <div
+        </h2>
+        <!-- <div
           v-if="$stores.people.filters.groups.value === 'fellows'"
           class="content-doc-wrapper mb-2"
           :class="{ expanded: isExpanded }"
@@ -36,7 +36,7 @@
           @click="isExpanded = !isExpanded"
         >
           <ContentDoc :path="board" />
-        </div>
+        </div> -->
       </div>
     </v-card>
   </div>
@@ -45,7 +45,6 @@
 <script setup>
 const route = useRoute()
 const i18n = useI18n()
-const localePath = useLocalePath()
 import { useDisplay } from "vuetify"
 const { name, mdAndUp } = useDisplay()
 import { ref, useI18n } from "#imports"

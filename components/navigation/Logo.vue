@@ -1,6 +1,6 @@
 <template>
   <v-app-bar-nav-icon>
-    <nuxt-link :to="localePath('/')" :class="{ scrolled: $rootStore.scrolled }">
+    <nuxt-link :to="$localePath('/')" :class="{ scrolled: $rootStore.scrolled }">
       <v-img
         contain
         height="50"
@@ -15,7 +15,6 @@
 <script setup lang="ts">
 const $rootStore = useNuxtApp()
 const appConfig = useAppConfig()
-const localePath = useLocalePath()
 
 const props = defineProps({
   dark: {

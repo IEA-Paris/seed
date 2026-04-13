@@ -1,119 +1,140 @@
 <template>
   <div class="scroller">
-    <section class="d-flex">
-      <v-row class="align-center justify-center flex-column">
-        <v-sheet class="d-flex">
-          <ContentDoc :path="presentation" />
-        </v-sheet>
-      </v-row>
-    </section>
-    <section class="dark">
+    <!-- 1. Presentation -->
+    <section class="section-light">
       <v-container>
-        <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" md="10" lg="9" xl="8">
-            <v-row no-gutters>
-              <v-col cols="4" v-if="mdAndUp">
-                <v-sheet class="d-flex align-center justify-center" flat>
-                  <v-carousel
-                    cycle
-                    hide-delimiters
-                    show-arrows="hover"
-                    aspect-ratio="1"
-                  >
-                    <v-carousel-item
-                      v-for="i in 7"
-                      :key="i"
-                      cover
-                      :src="'/images/location/' + i + '.jpg'"
-                      aspect-ratio="1"
-                    ></v-carousel-item>
-                  </v-carousel>
-                </v-sheet>
-              </v-col>
-              <v-col cols="12" md="8">
-                <div
-                  class="d-flex align-center justify-center pa-12 text-white"
-                >
-                  <ContentDoc :path="location" /></div></v-col
-            ></v-row> </v-col></v-row
-      ></v-container>
+        <v-row justify="center">
+          <v-col cols="12" sm="10" md="7" lg="5" xl="4">
+            <p class="overline-label">{{ $t("institute") }}</p>
+            <div class="typographic-rule" />
+            <ContentDoc :path="presentation" />
+          </v-col>
+        </v-row>
+      </v-container>
     </section>
-    <section>
+
+    <!-- 2. Collective intelligence-->
+    <section class="section-dark section-typographic">
       <v-container>
-        <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" md="10" lg="9" xl="8">
-            <v-row no-gutters>
-              <v-col cols="12" md="8">
-                <v-sheet class="d-flex align-center justify-center pa-12">
-                  <ContentDoc :path="governance" />
-                </v-sheet>
-              </v-col>
-              <v-col cols="4" v-if="mdAndUp">
-                <v-card
-                  class="d-flex align-center justify-center pa-12"
-                  :to="localePath('/about/network')"
-                >
-                  Network overview</v-card
-                >
-              </v-col></v-row
-            ></v-col
-          ></v-row
-        ></v-container
-      >
+        <v-row justify="center">
+          <v-col cols="12" sm="10" md="7" lg="5" xl="4">
+            <p class="overline-label overline-label--light">
+              {{ $t("institute") }}
+            </p>
+            <div class="typographic-rule typographic-rule--light" />
+            <div class="prose prose--light">
+              <ContentDoc :path="collectiveIntelligence" />
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
     </section>
-    <section class="dark">
+
+    <!-- 3. Governance + affiliations marquee -->
+    <section class="section-light">
       <v-container>
-        <v-row class="d-flex align-center justify-center">
-          <v-col cols="12" md="10" lg="9" xl="8">
-            <v-row no-gutters>
-              <v-col
-                cols="2"
-                v-if="mdAndUp"
-                class="d-flex align-center justify-center"
-              >
-                <v-carousel cycle hide-delimiters show-arrows="hover">
-                  <v-carousel-item
-                    v-for="i in 7"
-                    :key="i"
-                    :src="'/images/location/' + i + '.jpg'"
-                    cover
-                  ></v-carousel-item>
-                </v-carousel>
-              </v-col>
-              <v-col cols="12" md="10">
-                <div class="d-flex align-center justify-center pa-12">
-                  <ContentDoc :path="history" />
-                </div>
-              </v-col>
-            </v-row>
-          </v-col> </v-row
-      ></v-container>
+        <v-row justify="center" align="center">
+          <v-col cols="12" md="5" lg="4">
+            <p class="overline-label">{{ $t("institute") }}</p>
+            <div class="typographic-rule" />
+            <ContentDoc :path="governance" />
+          </v-col>
+          <v-col
+            v-if="mdAndUp"
+            cols="12"
+            md="5"
+            lg="4"
+            class="d-flex flex-column align-center"
+          >
+            <MiscMoleculesLogoGallery
+              :loading="pending"
+              :items="allAffiliations"
+              :row-count="6"
+            />
+          </v-col>
+        </v-row>
+      </v-container>
     </section>
-    <NavigationFooter isSnapScroll />
+
+    <!-- 4. History — asymmetric bleed-right image (Option E) -->
+    <section class="section-dark section-split">
+      <v-container class="section-split__text">
+        <v-row justify="start" align="center">
+          <v-col cols="12" md="6" lg="5">
+            <p class="overline-label overline-label--light">
+              {{ $t("institute") }}
+            </p>
+            <div class="typographic-rule typographic-rule--light" />
+            <div class="prose prose--light">
+              <ContentDoc :path="history" />
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
+      <div v-if="lgAndUp" class="section-split__image">
+        <v-img
+          src="/images/location/3.jpg"
+          cover
+          height="100%"
+          class="section-split__img"
+        />
+      </div>
+    </section>
+
+    <NavigationFooter :is-snap-scroll="true" />
   </div>
 </template>
 
 <script setup>
 import { useDisplay } from "vuetify"
-const { mdAndUp } = useDisplay()
-const localePath = useLocalePath()
-const { locale, locales } = useI18n()
+
+const { lgAndUp } = useDisplay()
+const { locale } = useI18n()
+
+const { pending, allAffiliations } = await useAffiliations()
+
 const presentation = ref("/pages/" + locale.value + "/institute_description")
-const location = ref(
-  "/pages/" + locale.value + "/institute_location_description",
+const collectiveIntelligence = ref(
+  "/pages/" + locale.value + "/institute_collective",
 )
 const governance = ref("/pages/" + locale.value + "/institute_governance")
-const history = ref("/pages/" + locale.value + "/institute_history")
-definePageMeta({
-  layout: "about",
-  /*   documentDriven: {
-    page: false, // Keep page fetching enabled
-    surround: false, // Disable surround fetching
-  }, */
-})
+const history = ref(
+  "/pages/" + locale.value + "/institute_location_description",
+)
+
+definePageMeta({ layout: "about" })
 </script>
-<style>
-.dark h2 a {
-  color: white;
+
+<style scoped>
+/* ── Split section: text left / image pinned right (Option E) */
+.section-split {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.section-split__text {
+  position: relative;
+  z-index: 1;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.section-split__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 38%;
+  height: 100%;
+  filter: grayscale(100%);
+}
+
+/* Gradient fade from image into black on the left edge */
+.section-split__image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #000 0%, transparent 40%);
+  z-index: 1;
 }
 </style>

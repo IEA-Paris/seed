@@ -2,6 +2,7 @@
 
 @use "transitions";
 @use "variables";
+@use "about-pages";
 @media (min-width: 1920px) {
   .v-container.main-container {
     max-width: 1500px;
@@ -48,80 +49,80 @@ $headings: (
     "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(96 / $fortnightly-font-size)}rem,
-    "weight": 900
+    "weight": 900,
   ),
   "h2": (
     "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(60 / $fortnightly-font-size)}rem,
-    "weight": 300
+    "weight": 300,
   ),
   "h3": (
     "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(48 / $fortnightly-font-size)}rem,
-    "weight": 900
+    "weight": 900,
   ),
   "h4": (
     "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(34 / $fortnightly-font-size)}rem,
-    "weight": 400
+    "weight": 400,
   ),
   "h5": (
     "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(24 / $fortnightly-font-size)}rem,
-    "weight": 400
+    "weight": 400,
   ),
   "h6": (
     "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(20 / $fortnightly-font-size)}rem,
-    "weight": 700
+    "weight": 700,
   ),
   "subtitle-1": (
     "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(16 / $fortnightly-font-size)}rem,
-    "weight": 500
+    "weight": 500,
   ),
   "subtitle-2": (
     "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(14 / $fortnightly-font-size)}rem,
-    "weight": 500
+    "weight": 500,
   ),
   "body-1": (
     "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(16 / $fortnightly-font-size)}rem,
-    "weight": 400
+    "weight": 400,
   ),
   "body-2": (
     "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(14 / $fortnightly-font-size)}rem,
-    "weight": 400
+    "weight": 400,
   ),
   "caption": (
     "font-family": $heading-font-family,
     "letter-spacing": initial,
     "size": #{calc(12 / $fortnightly-font-size)}rem,
-    "weight": 400
+    "weight": 400,
   ),
   "overline": (
     "font-family": $body-font-family,
     "letter-spacing": initial,
     "size": #{calc(10 / $fortnightly-font-size)}rem,
-    "weight": 700
-  )
+    "weight": 700,
+  ),
 );
 $icon-outlined-border-width: 2px;
 $material-light: (
   "app-bar": #ffffff,
   "background": #ffffff,
-  "chips": #ffffff
+  "chips": #ffffff,
 );
 $stepper-elevation: 0;
 
@@ -192,17 +193,19 @@ $stepper-elevation: 0;
     }
   }
 }
-.scroller {
-  height: calc(100vh - 64px); // to match screen height minus toolbar height
+@media screen and (min-width: 700px) {
+  .scroller {
+    height: calc(100vh - 64px); // to match screen height minus toolbar height
 
-  section {
-    height: calc(100vh - 64px);
-    display: flex;
-    align-items: center;
-  }
+    section {
+      height: calc(100vh - 64px);
+      display: flex;
+      align-items: center;
+    }
 
-  .carousel {
-    height: calc(100vh - 64px);
+    .carousel {
+      height: calc(100vh - 64px);
+    }
   }
 }
 
@@ -268,13 +271,12 @@ h1 {
 h2,
 h2 a {
   font-weight: 500;
-  line-height: 3.8rem;
-  font-size: 60px;
+  line-height: 3.2rem;
+  font-size: 45px;
   padding-bottom: 0.2rem;
-  margin-bottom: 0.8em;
-  margin-top: 2rem;
+  margin-bottom: 0.6em;
   color: black;
-  max-width: 25ch;
+  max-width: 28ch;
 }
 h2 a:hover,
 h3 a:hover {
@@ -314,6 +316,10 @@ p {
   line-height: 28px;
   max-width: 80ch;
 }
+p a {
+  color: #03a9f4;
+  text-decoration: none;
+}
 
 p code,
 h2 code,
@@ -345,8 +351,6 @@ ul {
   padding-inline-start: 40px;
 }
 
-li {
-}
 .sliding-item-title {
   color: black;
   text-decoration: none;

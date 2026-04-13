@@ -1,10 +1,10 @@
 <template>
-  <section>
+  <section style="background-color: #0b0b0b">
     <v-footer
       dark
       class="d-flex justify-center align-center dark"
-      :class="{ 'fill-height': isSnapScroll }"
-      style="background-color: black"
+      :class="{ 'snap-fill-height': isSnapScroll }"
+      style="background-color: #0b0b0b"
     >
       <v-container
         class="d-flex flex-column justify-space-between h-100 mt-md-12"
@@ -14,7 +14,7 @@
             <v-row justify="center">
               <v-col cols="12" md="6">
                 <nuxt-link
-                  :to="localePath('/')"
+                  :to="$localePath('/')"
                   style="transition: all 500ms ease 0s"
                   @click.native="$vuetify.goTo(0)"
                 >
@@ -22,42 +22,107 @@
                     src="/logo_white.png"
                     contain
                     width="200"
-                    class="my-6"
+                    class="my-6 ml-n2 ml-md-n4"
                   ></v-img>
                 </nuxt-link>
               </v-col>
-              <v-col cols="12" md="6" class="mt-md-12 pl-6">
-                <div class="uppercase">
+              <v-col cols="12" md="6" class="mt-md-16 pl-4 pl-md-3">
+                <div class="text-uppercase text-caption text-md-button mb-2">
                   {{ $t("subscribe-to-our-newsletter") }}
                 </div>
-                <v-text-field
-                  v-model="email"
-                  :rules="rules"
-                  :label="$t('email')"
-                  variant="outlined"
-                  tile
-                  id="newsletter-email"
-                >
-                </v-text-field>
-                <v-btn block size="large" v-show="false">{{
-                  $t("subscribe")
-                }}</v-btn>
+
+                <!-- Honeypot field -->
+                <input
+                  v-model="honeypot"
+                  type="text"
+                  name="website"
+                  autocomplete="off"
+                  tabindex="-1"
+                  style="
+                    position: absolute;
+                    left: -9999px;
+                    width: 1px;
+                    height: 1px;
+                  "
+                  aria-hidden="true"
+                />
+
+                <v-form ref="formRef" @submit.prevent="onSubmit">
+                  <v-text-field
+                    id="newsletter-email"
+                    v-model="email"
+                    :label="$t('email')"
+                    variant="outlined"
+                    tile
+                    append-icon="mdi-send"
+                    :disabled="isLoading"
+                    :error-messages="errorMessage"
+                    :success-messages="successMessage"
+                    :density="mdAndUp ? 'default' : 'compact'"
+                    @click:append="onSubmit"
+                  >
+                  </v-text-field>
+
+                  <ClientOnly>
+                    <v-expand-transition>
+                      <div v-show="email.length > 1" class="text-caption ml-4">
+                        {{
+                          $t("by-subscribing-you-agree-to-our")
+                        }}&nbsp;<nuxt-link
+                          class="text-light-blue"
+                          :to="$localePath('/terms_of_service')"
+                          >{{ $t("terms-and-conditions") }}</nuxt-link
+                        >
+                      </div>
+                    </v-expand-transition>
+                  </ClientOnly>
+                </v-form>
+
+                <!-- Altcha verification modal -->
+                <ClientOnly>
+                  <v-dialog
+                    v-model="showAltchaDialog"
+                    max-width="400"
+                    persistent
+                    scroll-strategy="none"
+                  >
+                    <v-card>
+                      <v-card-title class="text-h6">
+                        {{
+                          $t("verify-human") || "Let's verify you're a human"
+                        }}
+                      </v-card-title>
+                      <v-card-text>
+                        <div ref="altchaContainer"></div>
+                      </v-card-text>
+                      <v-card-actions>
+                        <v-spacer />
+                        <v-btn variant="text" @click="cancelAltcha">
+                          {{ $t("cancel") || "Cancel" }}
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                  </v-dialog>
+                </ClientOnly>
               </v-col>
             </v-row>
             <v-row justify="center" class="mt-0">
-              <v-col cols="12" md="6" :order="smAndDown ? 'last' : ''">
-                <div class="text-subtitle-2 font-weight-medium mb-6">
-                  <div>{{ config.full_name }}</div>
+              <v-col cols="12" md="6" class="order-last order-md-0">
+                <div class="mb-6">
+                  <NuxtLink
+                    class="text-subtitle-2 font-weight-medium mb-6 text-white"
+                    :to="$localePath('/visit')"
+                  >
+                    <span class="d-block">{{ config.full_name }}</span>
 
-                  <div>{{ config.address }}</div>
+                    <span class="d-block">{{ config.address }}</span>
 
-                  <div>{{ config.postcode_country }}</div>
+                    <span class="d-block">{{ config.postcode_country }}</span>
 
-                  <div>{{ config.phone }}</div>
+                    <span class="d-block">{{ config.phone }}</span>
 
-                  <div>
-                    <a mailto="information@paris-iea.fr">{{ config.email }}</a>
-                  </div>
+                    <span class="d-block">{{ config.email }}</span>
+                  </NuxtLink>
                 </div>
                 <iframe
                   title="openstreetmap"
@@ -93,46 +158,60 @@
               <v-col cols="12" md="6" class="pt-0">
                 <v-row justify="center" no-gutters>
                   <v-col cols="12" sm="6">
-                    <v-list bg-color="transparent">
-                      <v-list-item :to="localePath('/about/institute')" nuxt>
+                    <v-list
+                      bg-color="transparent"
+                      :density="mdAndUp ? 'default' : 'compact'"
+                    >
+                      <v-list-item
+                        :to="$localePath('/about/institute')"
+                        nuxt
+                        class="pl-0"
+                      >
                         <v-list-item-title
-                          class="text-uppercase text-button"
+                          class="text-uppercase text-caption text-md-button"
                           v-text="$t('about-us')"
                         ></v-list-item-title>
                       </v-list-item>
                       <v-list-item
-                        :to="localePath('/contact')"
+                        :to="$localePath('/contact')"
+                        class="pl-0"
                         nuxt
                         @click="open = false"
                       >
                         <v-list-item-title
-                          class="text-uppercase text-button"
+                          class="text-uppercase text-caption text-md-button"
                           v-text="$t('contact')"
                         ></v-list-item-title>
                       </v-list-item>
-                      <v-list-item :to="localePath('/visit')" nuxt>
+                      <v-list-item
+                        :to="$localePath('/visit')"
+                        nuxt
+                        class="pl-0"
+                      >
                         <v-list-item-title
-                          class="text-uppercase text-button"
+                          class="text-uppercase text-caption text-md-button"
                           v-text="$t('visit')"
                         ></v-list-item-title>
                       </v-list-item>
                       <v-list-item
-                        :to="localePath('/pressroom')"
+                        :to="$localePath('/pressroom')"
                         nuxt
+                        class="pl-0"
                         @click="open = false"
                       >
                         <v-list-item-title
-                          class="text-uppercase text-button"
+                          class="text-uppercase text-caption text-md-button"
                           v-text="$t('pressroom')"
                         ></v-list-item-title>
                       </v-list-item>
                       <v-list-item
-                        :to="localePath('/support')"
+                        :to="$localePath('/support')"
+                        class="pl-0"
                         nuxt
                         @click="open = false"
                       >
                         <v-list-item-title
-                          class="text-uppercase text-button"
+                          class="text-uppercase text-caption text-md-button"
                           v-text="$t('support')"
                         ></v-list-item-title>
                       </v-list-item>
@@ -161,7 +240,7 @@
               size="small"
               nuxt
               dark
-              :to="localePath('/support_us')"
+              :to="$localePath('/support_us')"
             >
               <!-- TODO add raw licence file url on github -->
               &copy; {{ new Date().getFullYear() }} {{ $t("paris-ias") }}</v-btn
@@ -171,7 +250,7 @@
               size="small"
               nuxt
               dark
-              :to="localePath('/terms_of_service')"
+              :to="$localePath('/terms_of_service')"
             >
               {{ $t("tos") }}
             </v-btn>
@@ -180,7 +259,7 @@
               size="small"
               nuxt
               dark
-              :to="localePath('/privacy_policy')"
+              :to="$localePath('/privacy_policy')"
             >
               {{ $t("privacy") }}
             </v-btn>
@@ -193,37 +272,209 @@
 <script setup>
 // import socials from "~/assets/data/social"
 // import sitemap from "~/assets/data/sitemap"
-import { useDisplay } from "vuetify"
 import { useI18n } from "vue-i18n"
+import gql from "graphql-tag"
+import { useDisplay } from "vuetify"
 
 const config = useAppConfig()
-const route = useRoute()
 const { t } = useI18n()
-const localePath = useLocalePath()
-const { smAndDown } = useDisplay()
 const { router } = useRouter()
 const nuxtApp = useNuxtApp()
 
 const { $vuetify } = nuxtApp
-const socialsRef = ref(config.socials)
-const panel = reactive([])
-const footer = ref(config.sitemap.footer)
 const email = ref("")
+const isLoading = ref(false)
+const errorMessage = ref("")
+const successMessage = ref("")
+const formRef = ref(null)
+const altchaContainer = ref(null)
+const honeypot = ref("") // Honeypot field - should remain empty
+const formLoadTime = ref(Date.now()) // Track when form loads
+const showAltchaDialog = ref(false)
+const { mdAndUp } = useDisplay()
+
+// Altcha widget DOM element (not reactive to avoid Vue tracking)
+let altchaWidgetEl = null
+let altchaScriptLoaded = false
+
+// Load Altcha script once on mount
+onMounted(() => {
+  const script = document.createElement("script")
+  script.src = "https://cdn.jsdelivr.net/npm/altcha@0.6/dist/altcha.min.js"
+  script.type = "module"
+  script.async = true
+  script.onload = () => {
+    altchaScriptLoaded = true
+  }
+  document.head.appendChild(script)
+})
+
 const props = defineProps({
   isSnapScroll: Boolean,
 })
-const rules = [
-  //TODO internationalzie the error messages
-  (value) => !!value || "Required.",
-  (value) =>
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-      value,
-    ) || t("invalid-e-mail"),
-]
+
+// Step 1: Validate email/honeypot/time, then show Altcha modal
+const onSubmit = async () => {
+  errorMessage.value = ""
+  successMessage.value = ""
+
+  // Manual email validation
+  if (!email.value) {
+    errorMessage.value = t("required") || "Email is required"
+    return
+  }
+
+  const emailRegex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  if (!emailRegex.test(email.value)) {
+    errorMessage.value = t("invalid-e-mail") || "Invalid email address"
+    return
+  }
+
+  // Honeypot check
+  if (honeypot.value) {
+    console.warn("Honeypot triggered")
+    errorMessage.value = t("subscription-error") || "Invalid submission"
+    return
+  }
+
+  // Time-based check
+  const submissionTime = Date.now() - formLoadTime.value
+  if (submissionTime < 3000) {
+    console.warn(`Submission too fast: ${submissionTime}ms`)
+    errorMessage.value =
+      t("submission-too-fast") || "Please wait a moment before submitting"
+    return
+  }
+
+  // Open Altcha modal and create widget inside it
+  showAltchaDialog.value = true
+
+  await nextTick()
+
+  if (altchaContainer.value) {
+    // Clear any previous widget
+    altchaContainer.value.innerHTML = ""
+
+    const createWidget = () => {
+      altchaWidgetEl = document.createElement("altcha-widget")
+      altchaWidgetEl.setAttribute("challengeurl", "/api/newsletter/challenge")
+      altchaWidgetEl.setAttribute("hidelogo", "false")
+      altchaWidgetEl.addEventListener("statechange", (e) => {
+        if (e.detail?.state === "verified") {
+          subscribeToNewsletter()
+        }
+      })
+      altchaContainer.value?.appendChild(altchaWidgetEl)
+    }
+
+    if (altchaScriptLoaded && customElements.get("altcha-widget")) {
+      createWidget()
+    } else {
+      await customElements.whenDefined("altcha-widget")
+      createWidget()
+    }
+  }
+}
+
+const cancelAltcha = () => {
+  showAltchaDialog.value = false
+  if (altchaContainer.value) {
+    altchaContainer.value.innerHTML = ""
+  }
+  altchaWidgetEl = null
+}
+
+// Step 2: Called automatically when Altcha verification completes
+const subscribeToNewsletter = async () => {
+  const altchaPayload = altchaWidgetEl?.value
+  if (!altchaPayload) {
+    errorMessage.value =
+      t("complete-security-check") || "Please complete the security check"
+    showAltchaDialog.value = false
+    return
+  }
+
+  showAltchaDialog.value = false
+  isLoading.value = true
+
+  try {
+    // Verify Altcha with backend
+    const { $apollo } = nuxtApp
+    const verificationResult = await $apollo.defaultClient.query({
+      query: gql`
+        query checkAltcha($payload: String!) {
+          checkAltcha(payload: $payload) {
+            valid
+            verified
+          }
+        }
+      `,
+      variables: {
+        payload: altchaPayload,
+      },
+    })
+
+    if (!verificationResult.data?.checkAltcha?.valid) {
+      errorMessage.value =
+        t("security-verification-failed") ||
+        "Security verification failed. Please try again."
+      return
+    }
+
+    // Subscribe to Mailchimp
+    const response = await $fetch("/api/newsletter/subscribe", {
+      method: "POST",
+      body: {
+        email: email.value,
+      },
+    })
+
+    successMessage.value = t("subscribed-successfully") || "✓ Subscribed!"
+    email.value = ""
+
+    // Clean up Altcha widget
+    if (altchaContainer.value) {
+      altchaContainer.value.innerHTML = ""
+    }
+    altchaWidgetEl = null
+
+    // Reset form load time for next submission
+    formLoadTime.value = Date.now()
+
+    // Reset success message after 5 seconds
+    setTimeout(() => {
+      successMessage.value = ""
+    }, 5000)
+  } catch (error) {
+    console.error("Newsletter subscription error:", error)
+
+    if (error.statusCode === 409) {
+      errorMessage.value =
+        t("already-subscribed") || "This email is already subscribed"
+    } else {
+      errorMessage.value =
+        error.data?.message ||
+        t("subscription-error") ||
+        "Failed to subscribe. Please try again."
+    }
+
+    // Clear error after 5 seconds
+    setTimeout(() => {
+      errorMessage.value = ""
+    }, 5000)
+  } finally {
+    isLoading.value = false
+  }
+}
 </script>
 <style lang="scss">
-.v-footer.fill-height {
+.v-footer.snap-fill-height {
   height: calc(100vh - 64px);
+
+  @media (max-width: 959px) {
+    height: auto;
+  }
   /* scroll-snap-stop: normal; */
 }
 

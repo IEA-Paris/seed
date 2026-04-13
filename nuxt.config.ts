@@ -86,7 +86,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      /*  crawlLinks: true, */
+      crawlLinks: true,
       failOnError: false,
     },
   },
@@ -99,7 +99,6 @@ export default defineNuxtConfig({
     // Cross-Site Request Forgery (CSRF) prevention (https://nuxt.com/modules/csurf).
     /*    "nuxt-csurf", */
     "@nuxt/image",
-    "nuxt-swiper",
     "@nuxtjs/i18n",
     "@nuxtjs/sitemap",
     // https://github.com/nuxt-community/device-module
@@ -118,12 +117,11 @@ export default defineNuxtConfig({
     "@nuxt/test-utils/module",
     /*     "@nuxtjs/html-validator", */
     "@stefanobartoletti/nuxt-social-share",
-    //"./modules/list/src/module",
+    "@nuxt/eslint",
     "@paris-ias/list",
-    //"./modules/list/src/module" /*  "@paris-ias/list" */, // To use to debug list in website context (as opposed to the playground context)
+    // "./modules/list/src/module", // To use to debug list in website context (as opposed to the playground context)
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
-        // @ts-expect-error
         config.plugins.push(vuetify({ autoImport: true }))
       })
     },
@@ -136,7 +134,6 @@ export default defineNuxtConfig({
       "projects",
       "fellowships",
       "publications",
-      // "affiliations",
       // "actions",
       // "disciplines",
       // "files",
@@ -186,24 +183,18 @@ export default defineNuxtConfig({
   image: {
     // https://image.nuxt.com/get-started/configuration
   },
-  swiper: {
-    // Default parameters
-  },
+
   components: {
     global: true,
     dirs: ["~/components"],
   },
   i18n: {
-    bundle: {
-      optimizeTranslationDirective: false,
-    },
     langDir: "../translations/",
     locales: config.lang.locales,
     defaultLocale: config.lang.default,
     baseUrl: config.url,
-    lazy: true,
     detectBrowserLanguage: {
-      alwaysRedirect: true,
+      alwaysRedirect: false,
       redirectOn: "root", // recommended
       fallbackLocale: "en",
       useCookie: true,
@@ -289,6 +280,19 @@ export default defineNuxtConfig({
   },
   devtools: {
     enabled: import.meta.dev,
+  },
+
+  runtimeConfig: {
+    // Server-only config (not exposed to client)
+    mailchimpApiKey: process.env.NUXT_MAILCHIMP_API_KEY,
+    mailchimpServerPrefix: process.env.NUXT_MAILCHIMP_SERVER_PREFIX,
+    mailchimpListId: process.env.NUXT_MAILCHIMP_LIST_ID,
+    altchaHmacKey:
+      process.env.NUXT_ALTCHA_HMAC_KEY ||
+      "secret-hmac-key-change-in-production",
+    graphqlEndpoint: config.graphqlEndpoint,
+    graphqlApiKey: config.graphqlApiKey,
+    public: {},
   },
 
   compatibilityDate: "2024-09-03",

@@ -16,7 +16,7 @@
           class="d-flex align-center justify-center"
           color="red-lighten-3"
           height="400"
-          :to="localePath('/activities/fellowships/help')"
+          :to="$localePath('/activities/fellowships/help')"
           link
         >
           How can my institution join?/help/faq/guidelines</v-card
@@ -27,7 +27,7 @@
           class="d-flex align-center justify-center"
           color="green-lighten-3"
           height="400"
-          :to="localePath('/activities/memberships/hosting')"
+          :to="$localePath('/activities/memberships/hosting')"
           link
         >
           Event hosting overview</v-card
@@ -38,7 +38,7 @@
           class="d-flex align-center justify-center"
           color="pink-lighten-3"
           height="400"
-          :to="localePath('/activities/research')"
+          :to="$localePath('/activities/research')"
           link
         >
           Research support overview</v-card
@@ -51,5 +51,4 @@
 <script setup>
 import { useDisplay } from "vuetify"
 const { smAndUp } = useDisplay()
-const localePath = useLocalePath()
 </script>

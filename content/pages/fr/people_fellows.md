@@ -1,7 +1,7 @@
 ---
 title: Fellows
 ---
-L'Institut d'études avancées de Paris (Paris IAS) invite des chercheurs du monde entier, appelés « Fellows », à mener des recherches de pointe dans diverses disciplines, des sciences humaines aux sciences naturelles. Sélectionnés pour leurs travaux novateurs, les résidents jouissent d'une liberté intellectuelle qui leur permet de mener à bien des projets ambitieux, souvent interdisciplinaires. 
+L'Institut d'études avancées de Paris (IEA de Paris) invite des chercheurs du monde entier, appelés « Fellows », à mener des recherches de pointe dans diverses disciplines, des sciences humaines aux sciences naturelles. Sélectionnés pour leurs travaux novateurs, les résidents jouissent d'une liberté intellectuelle qui leur permet de mener à bien des projets ambitieux, souvent interdisciplinaires. 
 
 L'Institut favorise l'émergence d'une communauté universitaire dynamique, offrant des possibilités de collaboration par le biais de séminaires, d'ateliers et de conférences. Les résidents bénéficient également d'un accès au riche réseau d'universités et de centres de recherche de Paris, ce qui leur permet d'améliorer leurs recherches et de sensibiliser le public. 
 

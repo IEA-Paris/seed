@@ -1,30 +1,22 @@
 <template>
-  <SwiperSlide
-    :key="index + type"
-    :style="'width: ' + computedWidth + 'px'"
-    :width="computedWidth"
-  >
-    <v-sheet
-      class="d-flex sliding-item"
-      :color="dark ? 'transparent' : 'white'"
-    >
-      <div class="d-flex-flex-column flex-grow-1">
-        <MiscAtomsImageContainer
-          cover
-          :ratio="1"
-          :src="item.image"
-          :loading="loading"
-        >
-        </MiscAtomsImageContainer>
-        <div
-          class="mt-6 pl-0 text-h5 text-md-h4 font-weight-medium sliding-item-title"
-          :style="{ color: dark ? 'white' : 'black' }"
-        >
-          {{ item.firstname + " " + item.lastname }}
-        </div>
+  <v-sheet class="d-flex sliding-item" :color="dark ? 'transparent' : 'white'">
+    <div class="d-flex-flex-column flex-grow-1">
+      <MiscAtomsImageContainer
+        cover
+        :ratio="1"
+        :src="
+          item && item.image && item.image.url ? item.image.url : '/default.png'
+        "
+        :loading="loading"
+      />
+      <div
+        class="mt-6 pl-0 text-h5 text-md-h4 font-weight-medium sliding-item-title"
+        :style="{ color: dark ? 'white' : 'black' }"
+      >
+        {{ item.firstname + " " + item.lastname }}
       </div>
-    </v-sheet>
-  </SwiperSlide>
+    </div>
+  </v-sheet>
 </template>
 <script setup>
 // import { useDisplay } from "vuetify"

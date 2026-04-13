@@ -4,14 +4,10 @@
 
 <script setup>
 const { $queries } = useNuxtApp()
-const { fetchItem } = useFetchItem()
-const loading = ref(true)
-// Fetch the item
-const { data: news } = await useAsyncData("item", async () => {
-  return await fetchItem({
-    query: $queries.news.get,
-    key: "getNews",
-  })
+const { resourceItem: news, loading } = useI18nResourceItem({
+  resourceName: "news",
+  documentGql: $queries.news.get,
+  responseKey: "getNews",
+  appId: "iea",
 })
-loading.value = false
 </script>

@@ -10,7 +10,7 @@
       md="4"
       class="d-flex justify-start flex-column cursor-pointer stat-col"
       v-motion-slide-visible-once-bottom
-      @click="router.push(localePath('/people'))"
+      @click="router.push($localePath('/people'))"
       v-ripple
     >
       <div class="text-overline">{{ $t("people") }}</div>

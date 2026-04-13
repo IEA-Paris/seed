@@ -16,7 +16,7 @@
         :key="locale.code"
         @click="
           $i18n.setLocale(locale.code) &&
-          $router.push(localePath($route.fullPath))
+          $router.push($localePath($route.fullPath))
         "
       >
         <v-list-item-title class="text-uppercase text-button">
@@ -28,7 +28,6 @@
 </template>
 <script setup>
 const { locale, locales } = useI18n()
-const localePath = useLocalePath()
 const availableLocales = computed(() => {
   return locales.value.filter((i) => i.code !== locale.value)
 })
