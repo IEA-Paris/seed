@@ -8,12 +8,12 @@ Créé en 2008 à l’initiative de la Fondation Maison des sciences de l'homme,
 
 L’IEA de Paris est une association régie par la loi de 1901, créée le 1er janvier 2011.
 
-<div style="text-align: center;">
+<b style="text-align: center;">
 
-Institut d’études avancées de Paris Association loi 1901
-Siège social : 17, quai d’Anjou, 75004 Paris
-Siret : 530 056 530 000 39
-Téléphone : + 33 (0)1 56 81 00 52
-Mail : contact@paris-iea.fr
+Institut d’études avancées de Paris Association loi 1901 <br>
+Siège social : 17, quai d’Anjou, 75004 Paris <br>
+Siret : 530 056 530 000 39 <br>
+Téléphone : + 33 (0)1 56 81 00 52 <br>
+Mail : contact@paris-iea.fr <br>
 
-</div>
+</b>

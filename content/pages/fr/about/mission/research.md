@@ -1,5 +1,5 @@
 ---
-title: "Décloisonner la recherche "
+title: "Décloisonner la recherche"
 ---
 
 L’Institut œuvre à développer des interactions avec les écosystèmes locaux et internationaux de la recherche, de la société civile et du monde socio-économique, afin d’accroître l’impact des travaux en sciences humaines, au-delà des frontières disciplinaires et sectorielles.

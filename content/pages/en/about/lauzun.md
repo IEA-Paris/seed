@@ -7,3 +7,5 @@ The Hôtel de Lauzun, located at 17 Quai d’Anjou on Île Saint-Louis, is a lit
 Listed as a Historic Monument in 1906, the mansion went through periods of decline, particularly when craftsmen set up their workshops there. In the 19th century, Baron Pichon restored it and hosted famous writers such as Baudelaire and Théophile Gautier, forming the ‘Club des Haschischins’.
 
 Acquired by the City of Paris in 1928, the hotel has since hosted official receptions, concerts, film shoots and conferences. Since 2013, it has also been home to the Paris Institute for Advanced Studies (IEA).
+
+

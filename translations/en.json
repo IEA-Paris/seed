@@ -2,7 +2,7 @@
   "0-1-found-page-2-of-3": "No {1} found. \nPage {2} of {3} | {0} {1} found. \nPage {2} of {3} | {0} {1} found. \nPage {2} of {3} ",
   "about": "About",
   "fellows": "Fellows",
-  "institute": "Institute",
+  "about_": "Institute",
   "network": "Network",
   "fellowships": "Fellowships",
   "tos": "Terms of Service",
@@ -219,7 +219,7 @@
   "home": "Home",
   "vision": "Vision",
   "type-a-search-term-to-find-results-across-all-categories": "Type a search term to find results across all categories",
-  "missions": "Missions",
+  "missions": "Mission",
   "statuts": "Statutes",
   "organisation": "Organisation",
   "partners": "Partners",
@@ -231,5 +231,13 @@
   "collective-intelligence": "Collective Intelligence",
   "initiatives": "Initiatives",
   "platforms": "Platforms",
-  "ethics": "Ethics and Professional Conduct Committee"
+  "ethics": "Ethics and Professional Conduct Committee",
+  "about_institute": {
+    "research": "Breaking down barriers in research",
+    "collective": "Developing collective intelligence",
+    "fellowships": "Welcoming researchers: a long-standing mission",
+    "statutes": "Statutes",
+    "lauzun": "Hôtel de Lauzun"
+  },
+  "download-statutes": "Download the statutes (PDF)"
 }

@@ -8,13 +8,13 @@ Established in 2008 on the initiative of the Fondation Maison des sciences de l'
 
 The IEA de Paris is an association governed by the 1901 Act, established on 1 January 2011.
 
-<div style="text-align: center;">
+<b style="text-align: center;">
 
-Institut d’études avancées de Paris
-Association under the 1901 Act
-Registered office: 17, quai d’Anjou, 75004 Paris
-Siret: 530 056 530 000 39
-Telephone: + 33 (0)1 56 81 00 52
+Institut d’études avancées de Paris<br  >
+Association under the 1901 Act<br   >
+Registered office: 17, quai d’Anjou, 75004 Paris<br >
+Siret: 530 056 530 000 39<br    >
+Telephone: + 33 (0)1 56 81 00 52<br >
 Email: contact@paris-iea.fr
 
-</div>
+</b>

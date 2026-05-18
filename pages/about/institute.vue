@@ -1,77 +1,75 @@
 <template>
-  <div class="scroller">
+  <div>
     <!-- 1. Presentation -->
-    <section class="section-light">
+    <section id="missions" class="section-light anchor-offset">
       <v-container>
-        <v-row justify="center">
-          <v-col cols="12" sm="10" md="7" lg="5" xl="4">
-            <p class="overline-label">{{ $t("institute") }}</p>
+        <v-row justify="center" align="center" class="pb-12">
+          <v-col cols="12" sm="10" md="10" lg="8">
+            <p class="overline-label">{{ $t("missions") }}</p>
+            <h2>{{ $t("about_institute.research") }}</h2>
             <div class="typographic-rule" />
-            <ContentDoc :path="presentation" />
+            <ContentDoc :path="research" />
           </v-col>
         </v-row>
-      </v-container>
-    </section>
-
-    <!-- 2. Collective intelligence-->
-    <section class="section-dark section-typographic">
-      <v-container>
-        <v-row justify="center">
-          <v-col cols="12" sm="10" md="7" lg="5" xl="4">
-            <p class="overline-label overline-label--light">
-              {{ $t("institute") }}
-            </p>
-            <div class="typographic-rule typographic-rule--light" />
-            <div class="prose prose--light">
-              <ContentDoc :path="collectiveIntelligence" />
-            </div>
+        <v-row justify="center" align="center" class="py-12">
+          <v-col cols="12" sm="10" md="10" lg="8">
+            <h2>{{ $t("about_institute.fellowships") }}</h2>
+            <div class="typographic-rule" />
+            <ContentDoc :path="fellowships" />
           </v-col>
         </v-row>
+        <v-row justify="center" align="center" class="py-12">
+          <v-col cols="12" sm="10" md="10" lg="8">
+            <h2>{{ $t("about_institute.collective") }}</h2>
+            <div class="typographic-rule" />
+            <ContentDoc :path="collectiveIntelligence" />
+          </v-col>
+        </v-row>
+        <MiscMoleculesAnnualReports />
       </v-container>
     </section>
-
-    <!-- 3. Governance + affiliations marquee -->
-    <section class="section-light">
+    <section id="statuts" class="anchor-offset">
       <v-container>
         <v-row justify="center" align="center">
-          <v-col cols="12" md="5" lg="4">
-            <p class="overline-label">{{ $t("institute") }}</p>
+          <v-col cols="12" sm="10" md="10" lg="8">
+            <h2>{{ $t("about_institute.statutes") }}</h2>
             <div class="typographic-rule" />
-            <ContentDoc :path="governance" />
-          </v-col>
-          <v-col
-            v-if="mdAndUp"
-            cols="12"
-            md="5"
-            lg="4"
-            class="d-flex flex-column align-center"
-          >
-            <MiscMoleculesLogoGallery
-              :loading="pending"
-              :items="allAffiliations"
-              :row-count="6"
-            />
+            <div class="prose">
+              <ContentDoc :path="statutes" />
+            </div>
+            <v-btn
+              variant="outlined"
+              rounded="0"
+              flat
+              class="mt-6"
+              :href="statutes"
+              target="_blank"
+              append-icon="mdi-open-in-new"
+            >
+              {{ $t("download-statutes") }}
+            </v-btn>
           </v-col>
         </v-row>
       </v-container>
     </section>
 
     <!-- 4. History — asymmetric bleed-right image (Option E) -->
-    <section class="section-dark section-split">
-      <v-container class="section-split__text">
+    <section id="location" class="section-split anchor-offset">
+      <v-container class="section-split__text py-12">
         <v-row justify="start" align="center">
           <v-col cols="12" md="6" lg="5">
-            <p class="overline-label overline-label--light">
-              {{ $t("institute") }}
+            <p class="overline-label">
+              {{ $t("location") }}
             </p>
-            <div class="typographic-rule typographic-rule--light" />
-            <div class="prose prose--light">
+            <h2>{{ $t("about_institute.lauzun") }}</h2>
+            <div class="typographic-rule" />
+            <div class="prose">
               <ContentDoc :path="history" />
             </div>
           </v-col>
         </v-row>
       </v-container>
-      <div v-if="lgAndUp" class="section-split__image">
+      <div v-if="lgAndUp" class="section-split__image py-12">
         <v-img
           src="/images/location/3.jpg"
           cover
@@ -80,8 +78,6 @@
         />
       </div>
     </section>
-
-    <NavigationFooter :is-snap-scroll="true" />
   </div>
 </template>
 
@@ -91,21 +87,21 @@ import { useDisplay } from "vuetify"
 const { lgAndUp } = useDisplay()
 const { locale } = useI18n()
 
-const { pending, allAffiliations } = await useAffiliations()
-
-const presentation = ref("/pages/" + locale.value + "/institute_description")
+const research = ref("/pages/" + locale.value + "/about/mission/research")
 const collectiveIntelligence = ref(
-  "/pages/" + locale.value + "/institute_collective",
+  "/pages/" + locale.value + "/about/mission/collective-intelligence",
 )
-const governance = ref("/pages/" + locale.value + "/institute_governance")
-const history = ref(
-  "/pages/" + locale.value + "/institute_location_description",
-)
-
-definePageMeta({ layout: "about" })
+const fellowships = ref("/pages/" + locale.value + "/about/mission/fellowships")
+const history = ref("/pages/" + locale.value + "/about/lauzun")
+const statutes = ref("/pages/" + locale.value + "/about/statutes")
 </script>
 
 <style scoped>
+/* Offset anchor targets below the fixed topbar (64px) */
+.anchor-offset {
+  scroll-margin-top: 64px;
+}
+
 /* ── Split section: text left / image pinned right (Option E) */
 .section-split {
   position: relative;
@@ -134,7 +130,7 @@ definePageMeta({ layout: "about" })
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, #000 0%, transparent 40%);
+  background: linear-gradient(to right, #ffffff 0%, transparent 40%);
   z-index: 1;
 }
 </style>

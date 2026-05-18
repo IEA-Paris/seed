@@ -1,14 +1,10 @@
 <template>
   <section class="section-light">
     <v-container>
-      <p class="overline-label">{{ $t("vision") }}</p>
-      <div class="typographic-rule" />
-      <h2 class="section-heading section-heading--no-mb">
-        <a href="#annual-reports">{{ $t("annual-reports") }}</a>
+      <h2 class="section-heading">
+        {{ $t("annual-reports") }}
       </h2>
-      <p class="text-body-2 mb-6 annual-reports__desc">
-        {{ $t("annual-reports-description") }}
-      </p>
+      <div class="typographic-rule" />
 
       <!-- Current locale reports -->
       <MiscAtomsSlidingCarousel
@@ -16,11 +12,6 @@
         :items="carouselReports"
         :more="false"
       >
-        <span
-          class="text-body-2 font-weight-medium text-uppercase text-grey-darken-1"
-        >
-          {{ locale === "fr" ? $t("french") : $t("english") }}
-        </span>
       </MiscAtomsSlidingCarousel>
 
       <!-- Other language reports -->

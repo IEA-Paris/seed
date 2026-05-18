@@ -235,5 +235,13 @@
   "collective-intelligence": "Intelligence collective",
   "initiatives": "Initiatives",
   "platforms": "Plateformes",
-  "ethics": "Conseil éthique et déontologique"
+  "ethics": "Conseil éthique et déontologique",
+  "about_institute": {
+    "research": "Décloisonner la recherche",
+    "collective": "Développer l'intelligence collective",
+    "fellowships": "L’accueil de chercheurs : une mission historique",
+    "statutes": "Statuts",
+    "lauzun": "Hôtel de Lauzun"
+  },
+  "download-statutes": "Télécharger les statuts (PDF)"
 }
