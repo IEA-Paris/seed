@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="institute-page">
     <!-- 1. Presentation -->
     <section id="missions" class="section-light anchor-offset">
       <v-container>
@@ -97,6 +97,14 @@ const statutes = ref("/pages/" + locale.value + "/about/statutes")
 </script>
 
 <style scoped>
+/* Prevent horizontal overflow from the AnnualReports sliding carousel
+   (its viewport intentionally uses overflow: visible above 960px for the
+   bleed effect, which would otherwise widen the body when the FR locale
+   adds extra slides). */
+.institute-page {
+  overflow-x: clip;
+}
+
 /* Offset anchor targets below the fixed topbar (64px) */
 .anchor-offset {
   scroll-margin-top: 64px;
