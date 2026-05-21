@@ -5,10 +5,12 @@
   "about_": "Institute",
   "network": "Network",
   "fellowships": "Fellowships",
+  "fellowship_conditions": "Fellowship conditions",
+  "fellowship_location": "Fellowship location",
   "tos": "Terms of Service",
   "invalid-e-mail": "Invalid Email",
   "resources": "Resources",
-  "activities": "Activities",
+  "programs": "Programs",
   "check-this-out": "Check this out!",
   "board": "Board of Directors",
   "fundingPeriod": "Funding period",
@@ -158,6 +160,11 @@
   "contact.info.phone": "Phone",
   "contact.info.general": "General enquiries",
   "contact.team.roles.events": "Events Organisation",
+  "contact-or-visit.title": "Contact or visit us",
+  "contact-or-visit.subtitle": "Whether you want to get in touch with our team or come and see us on the Île Saint-Louis, you'll find everything you need here — from direct contacts to directions.",
+  "contact-or-visit.meet-team-cta": "Meet our team",
+  "contact-or-visit.talk-to-us": "Talk to us",
+  "contact-or-visit.our-contacts": "Our contacts",
   "support-us": "Support Us",
   "support.meta.title": "Support Us — Paris IAS",
   "support.meta.description": "Support the Paris Institute for Advanced Study through individual giving, corporate patronage, or foundation partnership.",
@@ -222,6 +229,7 @@
   "missions": "Mission",
   "statuts": "Statutes",
   "organisation": "Organisation",
+  "no-results": "No results",
   "partners": "Partners",
   "members": "Members",
   "networks": "Networks",
@@ -232,12 +240,37 @@
   "initiatives": "Initiatives",
   "platforms": "Platforms",
   "ethics": "Ethics and Professional Conduct Committee",
+  "about_organisation": {
+    "hero": {
+      "title": "Organisation",
+      "subtitle": "Meet the people who make the Institute: our team, board of directors, scientific advisory board and ethics committee."
+    }
+  },
+  "about_partners": {
+    "hero": {
+      "title": "Partners"
+    }
+  },
   "about_institute": {
     "research": "Breaking down barriers in research",
     "collective": "Developing collective intelligence",
     "fellowships": "Welcoming researchers: a long-standing mission",
     "statutes": "Statutes",
-    "lauzun": "Hôtel de Lauzun"
+    "lauzun": "Hôtel de Lauzun",
+    "hero": {
+      "title": "Institute",
+      "subtitle": "A free space for thought on the Île Saint-Louis, where researchers from every discipline come together to push the boundaries of knowledge and reimagine its role in society.",
+      "cta-missions": "Our missions"
+    },
+    "missions": {
+      "overline": "What we do",
+      "title": "Three missions, one ambition",
+      "research-overline": "Research",
+      "fellowships-overline": "Fellowships",
+      "collective-overline": "Collective intelligence"
+    },
+    "statutes-overline": "Governance",
+    "location-overline": "Where we work"
   },
   "download-statutes": "Download the statutes (PDF)"
 }

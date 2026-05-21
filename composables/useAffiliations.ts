@@ -13,7 +13,7 @@ export const useAffiliations = async () => {
       options: {
         skip: 0,
         limit: 100,
-        filters: JSON.stringify({ category: ["MEMBER", "SPONSOR", "PARTNER"] }),
+        filters: JSON.stringify({ category: ["MEMBER", "SUPPORT", "NETWORK"] }),
         sort: "nameasc",
       },
       appId: "iea",
@@ -48,20 +48,47 @@ export const useAffiliations = async () => {
     description: item.description || null,
   })
 
+  const collator = computed(
+    () =>
+      new Intl.Collator(locale.value, { sensitivity: "base", usage: "sort" }),
+  )
+
+  const sortByName = (items: any[]) =>
+    [...items].sort((a, b) =>
+      collator.value.compare(a.name || "", b.name || ""),
+    )
+
   const filterByCategory = (category: string) =>
     computed(() =>
-      (affiliationsData.value?.listAffiliations?.items || [])
-        .filter((item: any) => item.category?.includes(category))
-        .map(mapItem),
+      sortByName(
+        (affiliationsData.value?.listAffiliations?.items || []).filter(
+          (item: any) => item.category?.includes(category),
+        ),
+      ).map(mapItem),
+    )
+
+  const filterRawByCategory = (category: string) =>
+    computed(() =>
+      sortByName(
+        (affiliationsData.value?.listAffiliations?.items || []).filter(
+          (item: any) => item.category?.includes(category),
+        ),
+      ),
     )
 
   const allAffiliations = computed(() =>
-    (affiliationsData.value?.listAffiliations?.items || []).map(mapItem),
+    sortByName(affiliationsData.value?.listAffiliations?.items || []).map(
+      mapItem,
+    ),
   )
 
   const membersData = filterByCategory("MEMBER")
-  const partnersData = filterByCategory("PARTNER")
-  const sponsorsData = filterByCategory("SPONSOR")
+  const networkData = filterByCategory("PARTNER")
+  const supportData = filterByCategory("SPONSOR")
+
+  const membersRaw = filterRawByCategory("MEMBER")
+  const networkRaw = filterRawByCategory("PARTNER")
+  const supportRaw = filterRawByCategory("SPONSOR")
 
   return {
     affiliationsData,
@@ -69,7 +96,10 @@ export const useAffiliations = async () => {
     error,
     allAffiliations,
     membersData,
-    partnersData,
-    sponsorsData,
+    networkData,
+    supportData,
+    membersRaw,
+    networkRaw,
+    supportRaw,
   }
 }

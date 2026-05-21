@@ -1,9 +1,6 @@
 ---
 title: members
-page: "members"
 ---
-
-## Nos membres
 
 Les membres de l'Institut d'études avancées de Paris comprennent des universités, des instituts de recherche et des organisations culturelles de premier plan dans le monde entier, tous engagés à encourager la recherche interdisciplinaire de haut niveau.
 

@@ -111,7 +111,7 @@
                 <div class="mb-6">
                   <NuxtLink
                     class="text-subtitle-2 font-weight-medium mb-6 text-white"
-                    :to="$localePath('/visit')"
+                    :to="$localePath('/contact') + '#map'"
                   >
                     <span class="d-block">{{ config.full_name }}</span>
 
@@ -124,27 +124,44 @@
                     <span class="d-block">{{ config.email }}</span>
                   </NuxtLink>
                 </div>
-                <iframe
-                  title="openstreetmap"
-                  width="100%"
-                  absolute
-                  frameborder="0"
-                  scrolling="no"
-                  marginheight="0"
-                  marginwidth="0"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=2.356580793857575%2C48.850586483414915%2C2.361644804477692%2C48.85278204589751&amp;layer=mapnik&amp;marker=48.851684276691216%2C2.359112799167633"
-                  style="border: 1px solid black; max-width: 400px"
-                  @click="
-                    router.go(
-                      'https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911',
-                    )
-                  "
-                  @keyup.enter="
-                    router.go(
-                      'https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911',
-                    )
-                  "
-                ></iframe>
+                <div
+                  class="footer-map"
+                  style="max-width: 400px; border: 1px solid black"
+                  @mouseenter="loadMap = true"
+                  @focusin="loadMap = true"
+                >
+                  <img
+                    v-if="!loadMap"
+                    src="/map.png"
+                    alt="Map placeholder"
+                    width="100%"
+                    style="display: block; cursor: pointer"
+                    tabindex="0"
+                    @click="loadMap = true"
+                    @keyup.enter="loadMap = true"
+                  />
+                  <iframe
+                    v-else
+                    title="openstreetmap"
+                    width="100%"
+                    frameborder="0"
+                    scrolling="no"
+                    marginheight="0"
+                    marginwidth="0"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=2.356580793857575%2C48.850586483414915%2C2.361644804477692%2C48.85278204589751&amp;layer=mapnik&amp;marker=48.851684276691216%2C2.359112799167633"
+                    style="display: block"
+                    @click="
+                      router.go(
+                        'https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911',
+                      )
+                    "
+                    @keyup.enter="
+                      router.go(
+                        'https://www.openstreetmap.org/?mlat=48.85168&amp;mlon=2.35911#map=19/48.85168/2.35911',
+                      )
+                    "
+                  ></iframe>
+                </div>
                 <br />
                 <small
                   ><a
@@ -181,16 +198,6 @@
                         <v-list-item-title
                           class="text-uppercase text-caption text-md-button"
                           v-text="$t('contact')"
-                        ></v-list-item-title>
-                      </v-list-item>
-                      <v-list-item
-                        :to="$localePath('/visit')"
-                        nuxt
-                        class="pl-0"
-                      >
-                        <v-list-item-title
-                          class="text-uppercase text-caption text-md-button"
-                          v-text="$t('visit')"
                         ></v-list-item-title>
                       </v-list-item>
                       <v-list-item
@@ -291,6 +298,7 @@ const altchaContainer = ref(null)
 const honeypot = ref("") // Honeypot field - should remain empty
 const formLoadTime = ref(Date.now()) // Track when form loads
 const showAltchaDialog = ref(false)
+const loadMap = ref(false)
 const { mdAndUp } = useDisplay()
 
 // Altcha widget DOM element (not reactive to avoid Vue tracking)

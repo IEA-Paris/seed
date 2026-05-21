@@ -233,20 +233,16 @@ onMounted(() => {
 }
 
 .splash-moto--text {
-  font-family: "Roboto", sans-serif !important;
+  font-family: "Bodoni Moda", sans-serif !important;
+  font-weight: 900;
+  line-height: 1.15;
+  font-size: clamp(2.5rem, 6vw, 5rem) !important;
   text-align: center;
-
-  // Mobile: fluid font size, proportioned to screen width
-  @media (max-width: 959px) {
-    font-size: clamp(1.6rem, 7vw, 2.6rem) !important;
-    line-height: 1.25;
-    padding-bottom: 40px;
-  }
+  max-width: 20ch;
+  padding-bottom: 40px;
 
   @media (min-width: 960px) {
     text-align: right;
-    padding-bottom: 40px;
-    max-width: 700px;
   }
 }
 

@@ -5,13 +5,9 @@
     </div>
     <ListOrganismsList
       type="publications"
-      pathPrefix="activities-publications-slug"
+      path-prefix="resources-publications-slug"
     ></ListOrganismsList
   ></v-container>
 </template>
 
-<script setup>
-const { $rootStore } = useNuxtApp()
-
-onBeforeUnmount(() => {})
-</script>
+<script setup></script>

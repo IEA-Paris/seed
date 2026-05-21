@@ -6,12 +6,14 @@
   "institute": "Institut",
   "network": "Réseau",
   "fellowships": "Résidences",
+  "fellowship_conditions": "Conditions d'accueil",
+  "fellowship_location": "Lieux d'accueil",
   "proceedings": "Actes",
   "resources": "Ressources",
   "sab": "Conseil scientifique",
   "scientific_policy": "Politique scientifique",
   "team": "Équipe",
-  "activities": "Activités",
+  "programs": "Programmes",
   "check-this-out": "En voir plus",
   "board": "Conseil d'administration",
   "fundingPeriod": "Période de financement",
@@ -155,6 +157,11 @@
   "contact.info.phone": "Téléphone",
   "contact.info.general": "Renseignements généraux",
   "contact.team.roles.events": "Organisation des événements",
+  "contact-or-visit.title": "Nous contacter ou nous rendre visite",
+  "contact-or-visit.subtitle": "Que vous souhaitiez joindre notre équipe ou venir nous voir sur l'Île Saint-Louis, vous trouverez ici tout le nécessaire — des contacts directs à l'itinéraire pour nous rejoindre.",
+  "contact-or-visit.meet-team-cta": "Rencontrer notre équipe",
+  "contact-or-visit.talk-to-us": "Nous parler",
+  "contact-or-visit.our-contacts": "Nos contacts",
   "support-us": "Nous soutenir",
   "support.meta.title": "Nous soutenir — Paris IAS",
   "support.meta.description": "Soutenez l'Institut d'études avancées de Paris par un don individuel, un mécénat d'entreprise ou un partenariat de fondation.",
@@ -226,6 +233,7 @@
   "missions": "Missions",
   "statuts": "Statuts",
   "organisation": "Organisation",
+  "no-results": "Aucun résultat",
   "partners": "Partenaires",
   "members": "Membres",
   "networks": "Réseaux",
@@ -236,12 +244,37 @@
   "initiatives": "Initiatives",
   "platforms": "Plateformes",
   "ethics": "Conseil éthique et déontologique",
+  "about_organisation": {
+    "hero": {
+      "title": "Organisation",
+      "subtitle": "Rencontrez celles et ceux qui font l'Institut : notre équipe, notre conseil d'administration, notre conseil scientifique et notre conseil éthique et déontologique."
+    }
+  },
+  "about_partners": {
+    "hero": {
+      "title": "Partenaires"
+    }
+  },
   "about_institute": {
     "research": "Décloisonner la recherche",
     "collective": "Développer l'intelligence collective",
     "fellowships": "L’accueil de chercheurs : une mission historique",
     "statutes": "Statuts",
-    "lauzun": "Hôtel de Lauzun"
+    "lauzun": "Hôtel de Lauzun",
+    "hero": {
+      "title": "Institut",
+      "subtitle": "Un espace de pensée libre sur l'Île Saint-Louis, où des chercheurs de toutes disciplines se rassemblent pour repousser les frontières du savoir et repenser sa place dans la société.",
+      "cta-missions": "Nos missions"
+    },
+    "missions": {
+      "overline": "Ce que nous faisons",
+      "title": "Trois missions, une ambition",
+      "research-overline": "Recherche",
+      "fellowships-overline": "Résidences",
+      "collective-overline": "Intelligence collective"
+    },
+    "statutes-overline": "Gouvernance",
+    "location-overline": "Où nous travaillons"
   },
   "download-statutes": "Télécharger les statuts (PDF)"
 }

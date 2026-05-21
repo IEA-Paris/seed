@@ -1,9 +1,6 @@
 ---
-title: partners
-page: "partners"
+title: networks
 ---
-
-## Nos partenaires
 
 L'Institut d'études avancées de Paris s'associe à certaines des institutions universitaires et culturelles les plus prestigieuses, créant ainsi un réseau dynamique qui enrichit la recherche interdisciplinaire.
 

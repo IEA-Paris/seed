@@ -7,7 +7,7 @@
         </div>
         <ListOrganismsList
           type="news"
-          pathPrefix="activities-news-slug"
+          path-prefix="resources-news-slug"
         ></ListOrganismsList> </v-col
     ></v-row>
   </v-container>

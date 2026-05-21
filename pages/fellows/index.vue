@@ -2,12 +2,12 @@
   <v-container style="max-width: 1200px">
     <PeopleListHeader v-if="route.query.groups"></PeopleListHeader>
     <div v-else class="d-flex justify-center">
-      <h2 class="text-center">{{ capitalize($t("items.people", 2)) }}</h2>
+      <h2 class="text-center">{{ capitalize($t("items.fellow", 2)) }}</h2>
     </div>
 
     <ListOrganismsList
       type="people"
-      path-prefix="people-slug"
+      path-prefix="fellows-slug"
     ></ListOrganismsList>
   </v-container>
 </template>
