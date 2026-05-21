@@ -3,7 +3,9 @@
     <div class="d-flex justify-center">
       <h2 class="text-center">{{ capitalize($t("calls")) }}</h2>
     </div>
-    <ContentDoc :path="fellowships_intro" />
+    <div>
+      <ContentDoc :path="fellowships_intro" />
+    </div>
     <ListOrganismsList
       type="fellowships"
       path-prefix="activities-fellowships-slug"
