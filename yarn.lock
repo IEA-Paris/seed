@@ -2288,17 +2288,17 @@
     "@parcel/watcher-win32-ia32" "2.5.6"
     "@parcel/watcher-win32-x64" "2.5.6"
 
-"@paris-ias/list@^1.0.194":
-  version "1.0.194"
-  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.0.194.tgz#c0c0a0a4a8d7af5fdf7b86fd9733f0ed7d4b2e25"
-  integrity sha512-DMopCXg+iVf9rd4sJwW+CIEy7WeXKso2aLehRJ8z9Olv3fp3MIhHhuXVNwFQA5+8DoNVyBTGYC7cSvOxN2MKgQ==
+"@paris-ias/list@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.1.1.tgz#a82e1790472a539b94b8b4b3239fd126bff47539"
+  integrity sha512-rs/GrokvybLufRis8mPL6jirylJJd6BvzdDxHGsnhBZgYezhl5PYurewZdAjl2ma9/lPtC5tgvcM825Oy7gc0A==
   dependencies:
-    "@paris-ias/trees" "^2.0.49"
+    "@paris-ias/trees" "^2.1.0"
 
-"@paris-ias/trees@^2.0.49":
-  version "2.0.49"
-  resolved "https://registry.yarnpkg.com/@paris-ias/trees/-/trees-2.0.49.tgz#9bf11ea6aaaddace0fb949cca73e1c3d387340f5"
-  integrity sha512-crP3XvkdAxkPhDcb1j0WkgSiYdDytE6VnaesMOOLRcQDxnsqDFO51p5fzDCwy28JOIg7ja1Fj9mXQh0h9x/3UQ==
+"@paris-ias/trees@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@paris-ias/trees/-/trees-2.1.0.tgz#b4158dcbea2945706288959716fa1d98f6c43ac4"
+  integrity sha512-gqk5mQpjcBLcIng3Q3LuLDCUJ3I3Q6rMCM10BTIwHKpw/yiVpyoaZbD6BhxvOb/oEnI0B8Zd2zqbxD5//60hoA==
   dependencies:
     "@graphql-tools/load-files" "^7"
     "@graphql-tools/merge" "^8"

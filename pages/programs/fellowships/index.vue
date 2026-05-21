@@ -3,15 +3,15 @@
     <div class="d-flex justify-center">
       <h2 class="text-center">{{ capitalize($t("calls")) }}</h2>
     </div>
-    <ContentDoc :path="intro" />
+    <ContentDoc :path="fellowships_intro" />
     <ListOrganismsList
       type="fellowships"
       path-prefix="activities-fellowships-slug"
-    ></ListOrganismsList
-  ></v-container>
+    ></ListOrganismsList>
+  </v-container>
 </template>
 
 <script setup>
 const { locale } = useI18n()
-const intro = "/pages/" + locale.value + "/fellowships_intro"
+const fellowships_intro = "/pages/" + locale.value + "/fellowships_intro"
 </script>
