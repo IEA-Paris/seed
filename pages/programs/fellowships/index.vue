@@ -3,9 +3,7 @@
     <div class="d-flex justify-center">
       <h2 class="text-center">{{ capitalize($t("calls")) }}</h2>
     </div>
-    <div>
-      <ContentDoc :path="fellowships_intro" />
-    </div>
+    <ContentRenderer v-if="intro" :value="intro" />
     <ListOrganismsList
       type="fellowships"
       path-prefix="activities-fellowships-slug"
@@ -15,5 +13,10 @@
 
 <script setup>
 const { locale } = useI18n()
-const fellowships_intro = "/pages/" + locale.value + "/fellowships_intro"
+const introPath = computed(() => `/pages/${locale.value}/fellowships_intro`)
+const { data: intro } = await useAsyncData(
+  () => `fellowships-intro-${locale.value}`,
+  () => queryContent(introPath.value).findOne(),
+  { watch: [locale] }
+)
 </script>
