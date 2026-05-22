@@ -83,12 +83,12 @@ export const useAffiliations = async () => {
   )
 
   const membersData = filterByCategory("MEMBER")
-  const networkData = filterByCategory("PARTNER")
-  const supportData = filterByCategory("SPONSOR")
+  const networkData = filterByCategory("NETWORK")
+  const supportData = filterByCategory("SUPPORT")
 
   const membersRaw = filterRawByCategory("MEMBER")
-  const networkRaw = filterRawByCategory("PARTNER")
-  const supportRaw = filterRawByCategory("SPONSOR")
+  const networkRaw = filterRawByCategory("NETWORK")
+  const supportRaw = filterRawByCategory("SUPPORT")
 
   return {
     affiliationsData,
