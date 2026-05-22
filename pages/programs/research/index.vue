@@ -1,12 +1,12 @@
 <template>
   <v-container style="max-width: 1200px">
     <div class="d-flex justify-center">
-      <h2 class="text-center">{{ capitalize($t("items.projects", 2)) }}</h2>
+      <h2 class="text-center">{{ capitalize($t("research", 2)) }}</h2>
     </div>
-    <ContentDoc :path="projects" />
+    <ContentDoc :path="research" />
     <ListOrganismsList
       type="projects"
-      path-prefix="activities-projects-slug"
+      path-prefix="activities-research-slug"
       modifier="projects"
     ></ListOrganismsList>
   </v-container>
@@ -14,5 +14,5 @@
 
 <script setup>
 const { locale } = useI18n()
-const projects = "/pages/" + locale.value + "/programs_projects"
+const research = "/pages/" + locale.value + "/programs_projects"
 </script>
