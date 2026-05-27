@@ -1,5 +1,6 @@
 <template>
   <div class="contact-page">
+    <NavigationPageToc :sections="tocSections" :aria-label="$t('on-this-page')" />
     <!-- ─── Hero ─────────────────────────────────────────────────────── -->
     <section class="contact-hero">
       <v-container>
@@ -144,7 +145,7 @@
     </section>
 
     <!-- ─── Transport ──────────────────────────────────────────────────── -->
-    <section class="visit-transport">
+    <section id="transport" class="visit-transport">
       <v-container>
         <v-row>
           <v-col cols="12">
@@ -412,6 +413,12 @@ useHead({
   title: t("contact-or-visit.title"),
   meta: [{ name: "description", content: t("contact-or-visit.subtitle") }],
 })
+
+const tocSections = computed(() => [
+  { id: "team", label: t("contact.nav.team") },
+  { id: "map", label: t("contact.nav.map") },
+  { id: "transport", label: t("contact.nav.transport") },
+])
 
 const team = computed(() => [
   {

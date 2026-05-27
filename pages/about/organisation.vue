@@ -1,5 +1,6 @@
 <template>
   <div class="organisation-page">
+    <NavigationPageToc :sections="tocSections" :aria-label="$t('on-this-page')" />
     <!-- ─── Hero ─────────────────────────────────────────────────────── -->
     <section class="organisation-hero">
       <v-container>
@@ -129,7 +130,14 @@
 <script setup>
 import LIST_PEOPLE from "@paris-ias/trees/dist/graphql/client/people/query.list.people.gql"
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
+
+const tocSections = computed(() => [
+  { id: "team", label: t("team") },
+  { id: "board", label: t("board") },
+  { id: "sab", label: t("sab") },
+  { id: "ethics", label: t("ethics") },
+])
 
 const buildVariables = (group) => ({
   options: {

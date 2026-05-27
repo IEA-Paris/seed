@@ -1,5 +1,6 @@
 <template>
   <div class="partners-page">
+    <NavigationPageToc :sections="tocSections" :aria-label="$t('on-this-page')" />
     <!-- ─── Hero ─────────────────────────────────────────────────────── -->
     <section class="partners-hero">
       <v-container>
@@ -108,7 +109,7 @@
 </template>
 
 <script setup>
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 
 const { pending, membersRaw, networkRaw, supportRaw } = await useAffiliations()
 
@@ -116,6 +117,12 @@ const intro = "/pages/" + locale.value + "/partners"
 const members = "/pages/" + locale.value + "/partners_members"
 const networks = "/pages/" + locale.value + "/partners_networks"
 const supports = "/pages/" + locale.value + "/partners_supports"
+
+const tocSections = computed(() => [
+  { id: "members", label: t("members") },
+  { id: "network", label: t("networks") },
+  { id: "support", label: t("supports") },
+])
 
 definePageMeta({ layout: "default" })
 </script>

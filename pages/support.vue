@@ -1,5 +1,6 @@
 <template>
   <div>
+    <NavigationPageToc :sections="tocSections" :aria-label="$t('on-this-page')" />
     <!-- HERO -->
     <section class="support-hero">
       <v-container>
@@ -41,7 +42,7 @@
     </section>
 
     <!-- WHY SUPPORT — stats grid -->
-    <section class="support-why">
+    <section id="why" class="support-why anchor-offset">
       <v-container>
         <v-row>
           <v-col cols="12" md="5">
@@ -74,7 +75,7 @@
     </section>
 
     <!-- INDIVIDUALS -->
-    <section class="support-section">
+    <section id="individuals" class="support-section anchor-offset">
       <v-container>
         <v-row>
           <v-col cols="12">
@@ -180,7 +181,7 @@
     </section>
 
     <!-- CORPORATE -->
-    <section class="support-section support-section--alt px-6">
+    <section id="corporate" class="support-section support-section--alt px-6 anchor-offset">
       <v-container>
         <v-row>
           <v-col cols="12">
@@ -233,7 +234,7 @@
     </section>
 
     <!-- FOUNDATIONS -->
-    <section class="support-section">
+    <section id="foundations" class="support-section anchor-offset">
       <v-container>
         <v-row>
           <v-col cols="12" md="7">
@@ -253,7 +254,7 @@
     </section>
 
     <!-- CONTACT — dark -->
-    <section class="support-contact px-6">
+    <section id="contact" class="support-contact px-6 anchor-offset">
       <v-container>
         <v-row class="align-center">
           <v-col v-motion-slide-visible-once-bottom cols="12" md="6">
@@ -368,6 +369,14 @@ const benefits = [
   },
 ]
 
+const tocSections = computed(() => [
+  { id: "why", label: t("support.nav.why") },
+  { id: "individuals", label: t("support.nav.individuals") },
+  { id: "corporate", label: t("support.nav.corporate") },
+  { id: "foundations", label: t("support.nav.foundations") },
+  { id: "contact", label: t("support.nav.contact") },
+])
+
 useHead({
   title: t("support.meta.title"),
   meta: [{ name: "description", content: t("support.meta.description") }],
@@ -375,6 +384,11 @@ useHead({
 </script>
 
 <style scoped>
+/* Offset anchor targets below the fixed topbar (64px) */
+.anchor-offset {
+  scroll-margin-top: 64px;
+}
+
 /* ── HERO ────────────────────────────────────────────── */
 .support-hero {
   padding: 4rem 0 3rem;

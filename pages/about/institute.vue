@@ -1,5 +1,6 @@
 <template>
   <div class="institute-page">
+    <NavigationPageToc :sections="tocSections" :aria-label="$t('on-this-page')" />
     <!-- ─── Hero ─────────────────────────────────────────────────────── -->
     <section class="institute-hero">
       <v-container>
@@ -192,7 +193,7 @@
 </template>
 
 <script setup>
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 
 const research = ref("/pages/" + locale.value + "/about/mission/research")
 const collectiveIntelligence = ref(
@@ -201,6 +202,12 @@ const collectiveIntelligence = ref(
 const fellowships = ref("/pages/" + locale.value + "/about/mission/fellowships")
 const history = ref("/pages/" + locale.value + "/about/lauzun")
 const statutes = ref("/pages/" + locale.value + "/about/statutes")
+
+const tocSections = computed(() => [
+  { id: "missions", label: t("missions") },
+  { id: "statuts", label: t("statuts") },
+  { id: "location", label: t("lauzun") },
+])
 </script>
 
 <style scoped>
