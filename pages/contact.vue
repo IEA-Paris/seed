@@ -735,7 +735,7 @@ const team = computed(() => [
 .visit-cta__field-label {
   font-size: 0.6875rem;
   letter-spacing: 0.15em;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.6);
   margin-bottom: 0.25rem;
 }
 

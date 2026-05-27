@@ -232,6 +232,9 @@ export default defineNuxtConfig({
     families: config.modules.fonts.families,
     preconnect: true,
     prefetch: true,
+    // Preload the primary display face (Bodoni Moda) so the splash moto and
+    // hero titles don't FOUT into a fallback before swapping in.
+    preload: true,
     display: "swap",
   },
 

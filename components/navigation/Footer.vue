@@ -54,13 +54,23 @@
                     :label="$t('email')"
                     variant="outlined"
                     tile
-                    append-icon="mdi-send"
                     :disabled="isLoading"
                     :error-messages="errorMessage"
                     :success-messages="successMessage"
                     :density="mdAndUp ? 'default' : 'compact'"
-                    @click:append="onSubmit"
                   >
+                    <template #append-inner>
+                      <v-btn
+                        type="submit"
+                        variant="text"
+                        density="comfortable"
+                        :aria-label="$t('subscribe')"
+                        :disabled="isLoading"
+                        @click="onSubmit"
+                      >
+                        <v-icon>mdi-send</v-icon>
+                      </v-btn>
+                    </template>
                   </v-text-field>
 
                   <ClientOnly>

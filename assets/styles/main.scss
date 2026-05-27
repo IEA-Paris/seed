@@ -399,3 +399,82 @@ pre {
 p img {
   width: 100%;
 }
+
+/* ─── Skip-to-content link ────────────────────────────────────────────
+ * Invisible until keyboard focus reveals it. Lets users bypass the topbar
+ * (megamenu, language switcher, search) and jump straight to page content.
+ */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 9999;
+  padding: 10px 16px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transform: translateY(-200%);
+  transition: transform 0.15s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ─── Focus-visible fallback ─────────────────────────────────────────────
+ * Catch-all keyboard focus ring for any focusable element that doesn't
+ * provide its own. Uses :focus-visible so mouse clicks don't get rings.
+ * Components that style their own focus state (e.g. v-list-item) will
+ * override this naturally because their selector is more specific.
+ */
+:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+/* Anchors styled without text-decoration often lose any focus affordance.
+ * Re-add an underline for keyboard focus to make link focus unmistakable. */
+a:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* ─── Reduced-motion override ────────────────────────────────────────────
+ * Users with prefers-reduced-motion: reduce get a much calmer experience.
+ * This neutralises CSS transitions, animations, and smooth-scroll. It also
+ * cancels the in-flight transforms applied by @vueuse/motion directives
+ * (which set inline `transform` styles via JS — we can't stop the JS, but
+ * we can force the visual outcome to be the rest position).
+ * Specific !important overrides are deliberate: we need to beat both inline
+ * styles set by motion presets and Vuetify's own transitions.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Force @vueuse/motion elements into their rest state regardless of
+   * which preset they use. */
+  [data-motion],
+  [v-motion],
+  [v-motion-slide-visible-once-bottom],
+  [v-motion-slide-visible-once-top],
+  [v-motion-slide-visible-once-left],
+  [v-motion-slide-visible-once-right],
+  [v-motion-fade],
+  [v-motion-fade-visible] {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

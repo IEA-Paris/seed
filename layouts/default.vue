@@ -1,11 +1,12 @@
 <template>
   <v-app>
+    <a href="#main-content" class="skip-link">{{ $t("skip-to-content") }}</a>
     <NuxtLoadingIndicator color="black" />
     <ListOrganismsLoader :active="loading" />
     <NavigationTopBar />
     <v-main>
       <NavigationBreadcrumbs></NavigationBreadcrumbs>
-      <v-container class="main-container">
+      <v-container id="main-content" tabindex="-1" class="main-container">
         <slot />
       </v-container>
       <NavigationFooter />
