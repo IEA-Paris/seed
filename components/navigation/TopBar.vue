@@ -90,18 +90,22 @@
                 }}</v-icon>
               </v-btn>
             </template>
-            <v-list>
-              <v-list-item
-                v-for="(child, index) in link.children"
-                :key="index"
-                :active="$route.fullPath === localePath(child.path)"
-                :to="localePath(child.path)"
-              >
-                <v-list-item-title>{{
-                  capitalize($t(child.text, 2))
-                }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
+            <div class="megamenu megamenu--single">
+              <div class="megamenu__column">
+                <v-list density="compact" class="megamenu__list">
+                  <v-list-item
+                    v-for="(child, index) in link.children"
+                    :key="index"
+                    :active="$route.fullPath === localePath(child.path)"
+                    :to="localePath(child.path)"
+                  >
+                    <v-list-item-title>{{
+                      capitalize($t(child.text, 2))
+                    }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </div>
+            </div>
           </v-menu>
           <v-btn
             v-else
@@ -204,38 +208,91 @@ const isDropdownActive = (link) => {
   display: flex;
   flex-direction: row;
   background: rgb(var(--v-theme-surface));
-  padding: 16px;
-  gap: 8px;
+  padding: 20px 8px;
+  gap: 0;
   min-width: 560px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  max-width: min(880px, 92vw);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  border-top: 2px solid #000;
+}
+
+/* Variant for the simple (non-mega) dropdown: narrower, single column. */
+.megamenu--single {
+  min-width: 240px;
+  max-width: 320px;
 }
 
 .megamenu__column {
-  flex: 1 1 auto;
+  flex: 1 1 0;
   min-width: 0;
+  padding: 0 16px;
+}
+
+.megamenu__column + .megamenu__column {
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .megamenu__column-header {
   display: block;
-  font-size: 0.7rem !important;
+  font-size: 0.78rem !important;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(var(--v-theme-on-surface), 0.6);
-  padding: 4px 16px 4px 16px;
+  color: rgba(0, 0, 0, 0.85);
+  padding: 4px 16px 12px 16px;
   line-height: 1.4;
   white-space: normal;
   overflow: visible;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  margin-bottom: 6px;
 }
 
 .megamenu__column-header--link {
-  color: rgba(var(--v-theme-on-surface), 0.6);
+  color: rgba(0, 0, 0, 0.85);
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.2s;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+  position: relative;
+}
+
+.megamenu__column-header--link::after {
+  content: "›";
+  margin-left: 6px;
+  display: inline-block;
+  transform: translateX(0);
+  transition: transform 0.2s ease;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .megamenu__column-header--link:hover {
-  color: rgba(var(--v-theme-primary), 1);
+  color: #000;
+}
+
+.megamenu__column-header--link:hover::after {
+  transform: translateX(3px);
+  color: #000;
+}
+
+/* Allow long labels (e.g. "Ethics and Professional Conduct Committee") to wrap
+   at word boundaries instead of being truncated with an ellipsis. */
+.megamenu__list :deep(.v-list-item-title) {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  line-height: 1.35;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: manual;
+}
+
+.megamenu__list :deep(.v-list-item--active) {
+  color: #000;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.megamenu__list :deep(.v-list-item--active .v-list-item-title) {
+  font-weight: 600;
 }
 </style>
