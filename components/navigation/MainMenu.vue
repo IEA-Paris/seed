@@ -22,8 +22,34 @@
           </v-btn>
         </div>
 
+        <!--
+          Off-screen flat tab list. Mirrors the desktop topbar: keyboard
+          users tab through every linkable page in the order declared by
+          `order` in static.config.ts (sitemap). The visible collapsible
+          groups below remain for mouse/touch users; their interactive
+          elements are removed from the tab flow.
+        -->
+        <nav
+          :aria-label="$t('main-navigation')"
+          class="main-menu__a11y-nav"
+        >
+          <nuxt-link
+            v-for="link in tabOrderLinks"
+            :key="link.path"
+            :to="$localePath(link.path)"
+            @click="isActive.value = false"
+          >
+            {{ $t(link.text, 2) }}
+          </nuxt-link>
+        </nav>
+
         <v-row class="ml-2 mt-6" :no-gutters="xs">
-          <v-col cols="12" md="4" :order="smAndDown ? 'last' : 'first'">
+          <v-col
+            cols="12"
+            md="4"
+            :order="smAndDown ? 'last' : 'first'"
+            aria-hidden="true"
+          >
             <!-- SMALL PAGES LINKS (FOOTER) -->
             <div :class="{ 'ml-6': mdAndUp }">
               <v-divider style="border-color: white"></v-divider>
@@ -31,9 +57,13 @@
                 <v-list-item
                   v-for="(item, i) in config.sitemap.footer"
                   :key="item.text + i"
+                  tabindex="-1"
                   @click="isActive.value = false"
                 >
-                  <nuxt-link :to="$localePath(item.path)" class="no-decoration"
+                  <nuxt-link
+                    :to="$localePath(item.path)"
+                    tabindex="-1"
+                    class="no-decoration"
                     ><v-list-item-title class="text-uppercase">
                       {{ $t(item.text, 2) }}</v-list-item-title
                     ></nuxt-link
@@ -47,8 +77,13 @@
             </div>
           </v-col>
 
-          <!-- MAIN MENU -->
-          <v-col cols="12" md="4">
+          <!--
+            Visible collapsible groups. aria-hidden so screen readers don't
+            announce the duplicate content, and every focusable descendant
+            gets tabindex=-1 so keyboard focus stays in the off-screen nav
+            above. Mouse / touch users still interact normally.
+          -->
+          <v-col cols="12" md="4" aria-hidden="true">
             <v-divider style="border-color: white"></v-divider>
             <v-list dark bg-color="transparent">
               <template v-for="(item, index) in config.sitemap.main">
@@ -58,7 +93,7 @@
                   :value="$t(item.text, 2)"
                 >
                   <template #activator="{ props }">
-                    <v-list-item v-bind="props" class="">
+                    <v-list-item v-bind="props" tabindex="-1" class="">
                       <v-list-item-title
                         class="text-uppercase text-button font-weight-bold"
                         >{{ $t(item.text, 2) }}</v-list-item-title
@@ -76,10 +111,11 @@
                       :value="$t(child.text)"
                     >
                       <template #activator="{ props }">
-                        <v-list-item v-bind="props">
+                        <v-list-item v-bind="props" tabindex="-1">
                           <nuxt-link
                             v-if="child.path"
                             :to="$localePath(child.path)"
+                            tabindex="-1"
                             class="no-decoration"
                           >
                             <v-list-item-title
@@ -98,10 +134,12 @@
                         v-for="(grandchild, j) in child.children"
                         :key="grandchild.text + j"
                         :value="$t(grandchild.text)"
+                        tabindex="-1"
                         @click="isActive.value = false"
                       >
                         <nuxt-link
                           :to="$localePath(grandchild.path)"
+                          tabindex="-1"
                           class="no-decoration"
                         >
                           <v-list-item-title
@@ -115,10 +153,12 @@
                     <v-list-item
                       v-else
                       :value="$t(child.text)"
+                      tabindex="-1"
                       @click="isActive.value = false"
                     >
                       <nuxt-link
                         :to="$localePath(child.path)"
+                        tabindex="-1"
                         class="no-decoration"
                       >
                         <v-list-item-title class="text-uppercase text-button">{{
@@ -131,9 +171,14 @@
                 <v-list-item
                   v-else
                   :key="item.text + index"
+                  tabindex="-1"
                   @click="isActive.value = false"
                 >
-                  <nuxt-link :to="$localePath(item.path)" class="no-decoration">
+                  <nuxt-link
+                    :to="$localePath(item.path)"
+                    tabindex="-1"
+                    class="no-decoration"
+                  >
                     <v-list-item-title
                       class="text-uppercase text-button font-weight-bold"
                     >
@@ -166,8 +211,46 @@ import { useDisplay } from "vuetify"
 // import socials from "~/assets/data/social"
 const config = useAppConfig()
 const { xs, smAndDown, mdAndUp } = useDisplay()
+
+const tabOrderLinks = useNavTabOrder()
 </script>
 <style scoped>
+/* Off-screen keyboard navigation inside the mobile menu dialog. Focusable
+ * by Tab in the order declared by `order` in static.config.ts. A focused
+ * item becomes visible at the top of the dialog so sighted keyboard users
+ * can see where they are. */
+.main-menu__a11y-nav {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.main-menu__a11y-nav a {
+  display: inline-block;
+}
+
+.main-menu__a11y-nav a:focus-visible {
+  position: fixed;
+  top: 72px;
+  left: 16px;
+  z-index: 9999;
+  width: auto;
+  height: auto;
+  padding: 8px 16px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  clip: auto;
+  clip-path: none;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .no-decoration {
   text-decoration: none;
   color: inherit;

@@ -146,6 +146,11 @@ export default {
   },
 
   sitemap: {
+    // `order` defines the keyboard tab sequence across the topbar and mobile
+    // menu. Items with no `path` (megamenu activators like "about",
+    // "programs", "resources" and the "collective-intelligence" column) are
+    // intentionally omitted from the tab flow — sighted users reach their
+    // children via hover/click, keyboard users tab directly to the children.
     main: [
   {
     text: "about",
@@ -154,59 +159,32 @@ export default {
       {
         text: "institute",
         path: "/about/institute",
+        order: 1,
         children: [
-          {
-            text: "missions",
-            path: "/about/institute#missions",
-          },
-          {
-            text: "statuts",
-            path: "/about/institute#statuts",
-          },
-          {
-            text: "lauzun",
-            path: "/about/institute#location",
-          },
+          { text: "missions", path: "/about/institute#missions", order: 2 },
+          { text: "statuts", path: "/about/institute#statuts", order: 3 },
+          { text: "lauzun", path: "/about/institute#location", order: 4 },
         ],
       },
       {
         text: "organisation",
         path: "/about/organisation",
+        order: 5,
         children: [
-          {
-            text: "team",
-            path: "/about/organisation#team",
-          },
-          {
-            text: "board",
-            path: "/about/organisation#board",
-          },
-          {
-            text: "sab",
-            path: "/about/organisation#sab",
-          },
-          {
-            text: "ethics",
-            path: "/about/organisation#ethics",
-          },
+          { text: "team", path: "/about/organisation#team", order: 6 },
+          { text: "board", path: "/about/organisation#board", order: 7 },
+          { text: "sab", path: "/about/organisation#sab", order: 8 },
+          { text: "ethics", path: "/about/organisation#ethics", order: 9 },
         ],
       },
       {
         text: "partners",
         path: "/about/partners",
+        order: 10,
         children: [
-          {
-            text: "members",
-            path: "/about/partners#members",
-          },
-          {
-            text: "networks",
-            path: "/about/partners#networks",
-          },
-          {
-            text: "supports",
-            path: "/about/partners#supports",
-          },
+          { text: "members", path: "/about/partners#members", order: 11 },
+          { text: "networks", path: "/about/partners#networks", order: 12 },
+          { text: "supports", path: "/about/partners#supports", order: 13 },
         ],
       },
     ],
@@ -218,50 +196,42 @@ export default {
       {
         text: "fellowships",
         path: "/programs/fellowships",
+        order: 14,
         children: [
-          {
-            text: "calls",
-            path: "/programs/fellowships",
-          },
-          { text: "fellowship_conditions", path: "/programs/fellowships/conditions" },
-          { text: "fellowship_location", path: "/programs/fellowships/location" },
+          { text: "calls", path: "/programs/fellowships", order: 15 },
+          { text: "fellowship_conditions", path: "/programs/fellowships/conditions", order: 16 },
+          { text: "fellowship_location", path: "/programs/fellowships/location", order: 17 },
         ],
       },
       {
         text: "collective-intelligence",
         children: [
-          { text: "research", path: "/programs/research" },
-          { text: "initiatives", path: "/programs/initiatives" },
-          { text: "platforms", path: "/programs/platforms" },
+          { text: "research", path: "/programs/research", order: 18 },
+          { text: "initiatives", path: "/programs/initiatives", order: 19 },
+          { text: "platforms", path: "/programs/platforms", order: 20 },
         ],
       },
     ],
   },
-  {
-    text: "fellows",
-    path: "/fellows",
-  },
-  { text: "items.events", path: "/events" },
+  { text: "fellows", path: "/fellows", order: 21 },
+  { text: "items.events", path: "/events", order: 22 },
   {
     text: "resources",
     dropdown: true,
     children: [
-      {
-        text: "items.news",
-        path: "/resources/news",
-      },
-      { text: "items.media", path: "/resources/media?category=[\"VIDEO\"]" },
-      { text: "items.publications", path: "/resources/publications" },
+      { text: "items.news", path: "/resources/news", order: 23 },
+      { text: "items.media", path: "/resources/media?category=[\"VIDEO\"]", order: 24 },
+      { text: "items.publications", path: "/resources/publications", order: 25 },
     ],
   },
 ],
     footer: [
       { text: "about", path: "/about/institute" },
-      { text: "contact", path: "/contact" },
-      { text: "pressroom", path: "/pressroom" },
-      { text: "support", path: "/support" },
-      { text: "tos", path: "/terms_of_service" },
-      { text: "privacy_policy", path: "/privacy_policy" },
+      { text: "contact", path: "/contact", order: 26 },
+      { text: "pressroom", path: "/pressroom", order: 27 },
+      { text: "support", path: "/support", order: 28 },
+      { text: "tos", path: "/terms_of_service", order: 29 },
+      { text: "privacy_policy", path: "/privacy_policy", order: 30 },
     ],
   },
 

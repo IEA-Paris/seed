@@ -21,6 +21,27 @@
       </div>
     </div>
     <template #append>
+      <!--
+        Off-screen keyboard navigation. Lives in the topbar's natural focus
+        position so Tab follows the explicit `order` declared in
+        static.config.ts (sitemap), traversing every linkable destination
+        (main + footer pages with an `order` field) in the same sequence
+        used by the mobile menu. The visible megamenu/dropdown activators
+        below are made `tabindex="-1"` so keyboard focus flows exclusively
+        through this list.
+      -->
+      <nav
+        :aria-label="$t('main-navigation')"
+        class="top-bar__a11y-nav"
+      >
+        <NuxtLink
+          v-for="link in tabOrderLinks"
+          :key="link.path"
+          :to="localePath(link.path)"
+        >
+          {{ capitalize($t(link.text, 2)) }}
+        </NuxtLink>
+      </nav>
       <!--  DESKTOP NAVIGATION — hidden below sm via CSS -->
       <div class="top-bar__desktop-nav">
         <template v-for="(link, index) in config.sitemap.main" :key="index">
@@ -34,6 +55,7 @@
               <v-btn
                 variant="flat"
                 v-bind="props"
+                tabindex="-1"
                 class="h-100"
                 :class="{ 'v-btn--active': isDropdownActive(link) }"
                 >{{ $t(link.text, 2) }}
@@ -54,6 +76,7 @@
                 <component
                   :is="col.path ? 'router-link' : 'span'"
                   :to="col.path ? localePath(col.path) : undefined"
+                  :tabindex="col.path ? -1 : undefined"
                   class="megamenu__column-header text-overline"
                   :class="col.path ? 'megamenu__column-header--link' : ''"
                 >
@@ -63,6 +86,7 @@
                   <v-list-item
                     v-for="(grandchild, gcIndex) in col.children"
                     :key="gcIndex"
+                    tabindex="-1"
                     :active="$route.fullPath === localePath(grandchild.path)"
                     :to="localePath(grandchild.path)"
                   >
@@ -80,6 +104,7 @@
               <v-btn
                 variant="flat"
                 v-bind="props"
+                tabindex="-1"
                 class="h-100"
                 :class="{ 'v-btn--active': isDropdownActive(link) }"
                 >{{ $t(link.text, 2) }}
@@ -96,6 +121,7 @@
                   <v-list-item
                     v-for="(child, index) in link.children"
                     :key="index"
+                    tabindex="-1"
                     :active="$route.fullPath === localePath(child.path)"
                     :to="localePath(child.path)"
                   >
@@ -110,6 +136,7 @@
           <v-btn
             v-else
             variant="flat"
+            tabindex="-1"
             :to="link.path ? localePath(link.path) : false"
             exact
             class="h-100"
@@ -176,6 +203,8 @@ const router = useRouter()
 const route = useRoute()
 
 const isIndex = computed(() => route.name?.toString().startsWith("index"))
+
+const tabOrderLinks = useNavTabOrder()
 
 // Inline expanding search (only used outside the index page; the splash hero
 // already exposes a large search input, so duplicating it in the topbar would
@@ -259,6 +288,41 @@ const isDropdownActive = (link) => {
 .top-bar {
   border-bottom: rgba(0, 0, 0, 0.87) solid 1px;
   border-width: 0 thin 0 0;
+}
+
+/* Off-screen keyboard navigation. Items are focusable and announced by
+ * screen readers but visually hidden. When any item receives focus we reveal
+ * it so sighted keyboard users can see where they are. */
+.top-bar__a11y-nav {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.top-bar__a11y-nav a {
+  display: inline-block;
+}
+
+.top-bar__a11y-nav a:focus-visible {
+  position: fixed;
+  top: 72px;
+  left: 16px;
+  z-index: 9999;
+  width: auto;
+  height: auto;
+  padding: 8px 16px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  clip: auto;
+  clip-path: none;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* Inline expanding search in the topbar (non-splash pages). */
