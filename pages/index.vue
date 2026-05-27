@@ -162,13 +162,6 @@ const main = [
 const { $rootStore } = useNuxtApp()
 /* const goTo = useGoTo() */
 const { locale } = useI18n()
-/* const presentation = ref("/pages/" + locale.value + "/institute_presentation")
-
-const carousel = ref(true)*/
-
-/* const about = ref(null) */
-// const events = ref(null)
-// const numbers = ref(null)
 
 const statsScrollAnchor = ref(null)
 
@@ -180,6 +173,7 @@ const { researchers, nationalities, partnerInstitutions, eventsPerYear } =
   config.institute
 
 const keyFigures = [
+  //!\ TODO:: Bind to SSG content up to date
   {
     label: "key-figures.researchers-welcomed",
     value: researchers,

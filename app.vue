@@ -4,8 +4,6 @@
   </NuxtLayout>
 </template>
 <script setup>
-const config = useAppConfig()
-const route = useRoute()
 const { $i18n } = useNuxtApp()
 useHead({
   // as a string,

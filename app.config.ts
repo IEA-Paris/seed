@@ -11,7 +11,7 @@ export default defineAppConfig({
   list: {
     modules: [
       "events",
-      "news",
+      "news", //!\ TODO remove
       "people",
       "projects",
       "fellowships",
