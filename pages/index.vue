@@ -25,6 +25,8 @@
           icon
           flat
           variant="outlined"
+          :aria-label="$t('scroll-down')"
+          class="splash-chevron__btn"
           @click="scrollToStats"
         >
           <v-icon>mdi-chevron-down</v-icon>
@@ -181,32 +183,32 @@ const keyFigures = [
   {
     label: "key-figures.researchers-welcomed",
     value: researchers,
-    url: "/people?groups=fellows",
+    url: "/fellows",
   },
   {
     label: "key-figures.nationalities",
     value: String(nationalities),
-    url: "/people?groups=fellows",
+    url: "/fellows",
   },
   {
     label: "key-figures.institutions-represented",
     value: partnerInstitutions,
-    url: "/about/network",
+    url: "/about/partners",
   },
   {
     label: "key-figures.publications",
     value: "1000+",
-    url: "/activities/publications",
+    url: "/resources/publications",
   },
   {
     label: "key-figures.scientific-and-public-events-per-year",
     value: eventsPerYear,
-    url: "/activities/events",
+    url: "/events",
   },
   {
     label: "key-figures.academic-partner-institutions",
     value: "25",
-    url: "/about/network#our-partners",
+    url: "/about/partners#supports",
   },
 ]
 
@@ -282,5 +284,26 @@ onMounted(() => {
 
 .key-figures-section {
   color: white;
+}
+
+.splash-chevron__btn {
+  animation: splash-chevron-pulse 2.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes splash-chevron-pulse {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-chevron__btn {
+    animation: none;
+  }
 }
 </style>

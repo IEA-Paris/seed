@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-const ignoredRoutes = ["fr", "about", "programs", "resources"]
+const ignoredRoutes = ["fr"]
 const { locale } = useI18n()
 const route = useRoute()
 
@@ -55,11 +55,15 @@ const crumbs = computed(() => {
     return {
       title: item.replace(/-/g, " "),
       to: "/" + currentPathSegments.join("/") + "/",
-      disabled: false,
+      disabled: ["about", "programs", "resources"].includes(item),
       exact: true,
     }
   })
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+:deep(.v-breadcrumbs-item--disabled) {
+  opacity: 1 !important;
+}
+</style>

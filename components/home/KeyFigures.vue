@@ -1,12 +1,12 @@
 <template>
   <v-container class="key-figures d-flex align-center justify-center" fluid>
-    <div class="key-figures__grid" ref="gridRef" :style="gridStyle">
+    <div ref="gridRef" class="key-figures__grid" :style="gridStyle">
       <NuxtLink
         v-for="(entry, index) in entries"
         :key="entry.label"
+        v-motion-slide-visible-once-bottom
         :to="$localePath(entry.path) + (entry.hash ?? '')"
         class="key-figures__item"
-        v-motion-slide-visible-once-bottom
       >
         <div class="key-figures__value text-h3 text-md-h2 text-lg-h1">
           <template v-if="started">
@@ -15,11 +15,16 @@
           <template v-else>
             <span>0</span>
           </template>
-          <span v-if="entry.suffix" class="key-figures__suffix">{{
-            entry.suffix
-          }}</span>
+          <Transition name="key-figures__suffix-fade">
+            <span
+              v-if="entry.suffix && finished"
+              class="key-figures__suffix"
+              >{{ entry.suffix }}</span
+            >
+          </Transition>
         </div>
-        <div class="key-figures__label">{{ $t(entry.label) }}</div>
+        <span class="key-figures__accent" aria-hidden="true"></span>
+        <div class="key-figures__label">{{ capitalize($t(entry.label)) }}</div>
       </NuxtLink>
     </div>
   </v-container>
@@ -27,6 +32,7 @@
 
 <script setup lang="ts">
 import { useDisplay } from "vuetify"
+import { capitalize } from "../../modules/list/src/runtime/composables/useUtils"
 
 export interface KeyFigure {
   label: string
@@ -100,6 +106,7 @@ const gridStyle = computed(() => {
 // Animation state
 const gridRef = ref<HTMLElement | null>(null)
 const started = ref(false)
+const finished = ref(false)
 const animatedValues = ref<string[]>(entries.value.map(() => "0"))
 
 // Format number with space as thousands separator (French convention)
@@ -107,11 +114,16 @@ const formatNumber = (n: number): string => {
   return n.toLocaleString("fr-FR")
 }
 
-// Eased count-up using requestAnimationFrame
+// Eased count-up using requestAnimationFrame.
+// Entries with a "+" suffix overshoot past their target then settle back,
+// emphasising that the real value is larger than the displayed number.
+const OVERSHOOT_FACTOR = 0.18
+
 const animateCountUp = () => {
   const durationMs = props.duration * 1000
   const startTime = performance.now()
   const targets = entries.value.map((e) => e.numericValue)
+  const overshoots = entries.value.map((e) => e.suffix === "+")
 
   const step = (now: number) => {
     const elapsed = now - startTime
@@ -119,12 +131,23 @@ const animateCountUp = () => {
     // Ease-out cubic for a smooth deceleration
     const eased = 1 - Math.pow(1 - progress, 3)
 
-    animatedValues.value = targets.map((target) =>
-      formatNumber(Math.round(target * eased)),
-    )
+    // Sine bump: 0 at p=0, peaks at 1 around p=0.7, returns to 0 at p=1.
+    const PEAK = 0.7
+    const bump =
+      progress <= PEAK
+        ? Math.sin((Math.PI / 2) * (progress / PEAK))
+        : Math.sin((Math.PI / 2) * ((1 - progress) / (1 - PEAK)))
+
+    animatedValues.value = targets.map((target, i) => {
+      const base = target * eased
+      const value = overshoots[i] ? base + target * OVERSHOOT_FACTOR * bump : base
+      return formatNumber(Math.round(value))
+    })
 
     if (progress < 1) {
       requestAnimationFrame(step)
+    } else {
+      finished.value = true
     }
   }
 
@@ -143,7 +166,13 @@ onMounted(() => {
       const entry = observerEntries[0]
       if (entry?.isIntersecting && !started.value) {
         started.value = true
-        animateCountUp()
+        const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+        if (reduced) {
+          animatedValues.value = entries.value.map((e) => formatNumber(e.numericValue))
+          finished.value = true
+        } else {
+          animateCountUp()
+        }
         observer.disconnect()
       }
     },
@@ -198,13 +227,26 @@ watch(
     &:focus-visible {
       transform: translateY(-4px);
       opacity: 0.9;
+
+      .key-figures__accent {
+        width: 64px;
+      }
     }
+  }
+
+  &__accent {
+    display: block;
+    width: 40px;
+    height: 3px;
+    margin: 0.25rem 0 0.75rem;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: width 0.3s ease;
   }
 
   &__value {
     font-weight: 700;
     line-height: 1.15;
-    margin-bottom: 0.5rem;
     white-space: nowrap;
   }
 
@@ -212,10 +254,25 @@ watch(
     font-size: 0.75em;
     vertical-align: super;
     margin-left: 2px;
+    display: inline-block;
+  }
+
+  &__suffix-fade-enter-active {
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s ease;
+  }
+  &__suffix-fade-enter-from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  &__suffix-fade-enter-to {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   &__label {
-    font-size: 1rem;
+    font-size: 1.5rem;
     opacity: 0.85;
     max-width: 28ch;
     line-height: 1.4;
