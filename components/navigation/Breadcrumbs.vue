@@ -1,7 +1,7 @@
 <template>
   <v-container v-if="crumbs && crumbs.length">
     <v-breadcrumbs :items="crumbs" class="pl-0 w-100" link>
-      <template v-slot:prepend>
+      <template #prepend>
         <v-btn
           :to="$localePath('/')"
           size="small"
@@ -11,7 +11,7 @@
         /
       </template>
 
-      <template v-slot:title="{ item }">
+      <template #title="{ item }">
         {{ $t(item.title).toUpperCase() }}
       </template>
     </v-breadcrumbs>
@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-const ignoredRoutes = ["fr", "about", "activities"]
+const ignoredRoutes = ["fr", "about", "programs", "resources"]
 const { locale } = useI18n()
 const route = useRoute()
 
@@ -29,7 +29,7 @@ const crumbs = computed(() => {
   const segments = fullSegments.filter((item) => !ignoredRoutes.includes(item))
   const baseOffset = locale.value === "en" ? 0 : 1
 
-  const activities = new Set([
+  const programs = new Set([
     "fellowships",
     "projects",
     "events",
@@ -41,12 +41,12 @@ const crumbs = computed(() => {
   let currentPathSegments = fullSegments.slice(0, baseOffset)
 
   return segments.map((item) => {
-    const isActivities =
-      fullSegments[baseOffset] === "activities" && activities.has(item)
+    const isPrograms =
+      fullSegments[baseOffset] === "programs" && programs.has(item)
 
     const isAbout = fullSegments[baseOffset] === "about" && about.has(item)
 
-    if (isActivities || isAbout) {
+    if (isPrograms || isAbout) {
       currentPathSegments = fullSegments.slice(0, baseOffset + 2)
     } else {
       currentPathSegments.push(item)

@@ -1,16 +1,8 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col cols="12">
-        <div class="d-flex justify-center">
-          <h2 class="text-center">{{ capitalize($t("items.news", 2)) }}</h2>
-        </div>
-        <ListOrganismsList
-          type="news"
-          path-prefix="resources-news-slug"
-        ></ListOrganismsList> </v-col
-    ></v-row>
-  </v-container>
+  <MiscMoleculesSection
+    :title="capitalize($t('items.news', 2))"
+    markdown-file="news"
+    type="news"
+    path-prefix="resources-news-slug"
+  />
 </template>
-
-<script setup></script>

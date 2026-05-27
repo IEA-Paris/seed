@@ -242,17 +242,16 @@ export default {
     path: "/fellows",
   },
   { text: "items.events", path: "/events" },
-
   {
     text: "resources",
     dropdown: true,
     children: [
-      { text: "items.publications", path: "/resources/publications" },
       {
         text: "items.news",
         path: "/resources/news",
       },
-      { text: "items.videos", path: "/resources/videos?category=["VIDEO"]" },
+      { text: "items.publications", path: "/resources/publications" },
+      { text: "items.videos", path: "/resources/videos?category=[\"VIDEO\"]" },
     ],
   },
 ],
@@ -285,7 +284,6 @@ export default {
   socials: {
     linkedin: "iea-de-paris",
     youtube: "@IEAPARIS",
-    twitter: "ieadeparis",
     bluesky: "iea-paris",
     github: "iea-paris",
     facebook:
