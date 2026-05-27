@@ -120,14 +120,43 @@
         <!--  LANGUAGE SWITCHER -->
         <NavigationLanguageSwitcher />
         <v-divider vertical></v-divider>
-        <v-btn
-          size="x-large"
-          variant="flat"
-          class="h-100"
-          @click="$router.push(localePath('/search'))"
+        <!--
+          Splash uses a large hero search input, so the topbar search stays a
+          compact icon there to avoid duplication. Other pages get an inline
+          expanding input.
+        -->
+        <div
+          class="top-bar__search"
+          :class="{ 'top-bar__search--expanded': searchExpanded && !isIndex }"
         >
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
+          <v-text-field
+            v-if="searchExpanded && !isIndex"
+            ref="searchInputRef"
+            v-model.trim="searchTerm"
+            :placeholder="$t('search')"
+            single-line
+            hide-details
+            tile
+            variant="outlined"
+            density="compact"
+            class="top-bar__search-input"
+            @keyup.enter="submitSearch"
+            @keyup.escape="collapseSearch"
+            @blur="onSearchBlur"
+          />
+          <v-btn
+            size="x-large"
+            variant="flat"
+            class="h-100"
+            :aria-label="$t('search')"
+            @click="onSearchButton"
+          >
+            <v-icon>mdi-magnify</v-icon>
+            <kbd v-if="!isIndex && !searchExpanded" class="top-bar__kbd">
+              {{ isMac ? "⌘K" : "Ctrl+K" }}
+            </kbd>
+          </v-btn>
+        </div>
       </div>
       <!--  MOBILE HAMBURGER — hidden above sm via CSS -->
       <div class="top-bar__mobile-nav">
@@ -147,6 +176,67 @@ const router = useRouter()
 const route = useRoute()
 
 const isIndex = computed(() => route.name?.toString().startsWith("index"))
+
+// Inline expanding search (only used outside the index page; the splash hero
+// already exposes a large search input, so duplicating it in the topbar would
+// just dilute the primary signal).
+const searchExpanded = ref(false)
+const searchTerm = ref("")
+const searchInputRef = ref(null)
+const isMac = computed(() =>
+  typeof navigator !== "undefined" && /Mac|iPhone|iPad/.test(navigator.platform),
+)
+
+const focusSearch = async () => {
+  await nextTick()
+  const input = searchInputRef.value?.$el?.querySelector?.("input") ?? null
+  input?.focus()
+}
+
+const expandSearch = () => {
+  searchExpanded.value = true
+  focusSearch()
+}
+
+const collapseSearch = () => {
+  searchExpanded.value = false
+  searchTerm.value = ""
+}
+
+const onSearchBlur = () => {
+  // Collapse on blur if the user didn't type anything; otherwise keep the
+  // input visible so they can still hit Enter.
+  if (!searchTerm.value) collapseSearch()
+}
+
+const submitSearch = () => {
+  const term = searchTerm.value.trim()
+  router.push({
+    path: localePath("/search"),
+    query: term ? { search: term } : {},
+  })
+  collapseSearch()
+}
+
+const onSearchButton = () => {
+  // On the splash, the magnifier just navigates to /search (the splash hero
+  // already provides a prominent search input).
+  if (isIndex.value) {
+    router.push(localePath("/search"))
+    return
+  }
+  if (searchExpanded.value) {
+    submitSearch()
+  } else {
+    expandSearch()
+  }
+}
+
+useSearchShortcut(() => {
+  // On any page, the keyboard shortcut takes the user straight to the search
+  // page so they get the full results UI without typing in a cramped topbar.
+  router.push(localePath("/search"))
+})
 
 const isMegamenu = (link) => {
   return link.children?.some((child) => child.children?.length > 0)
@@ -169,6 +259,41 @@ const isDropdownActive = (link) => {
 .top-bar {
   border-bottom: rgba(0, 0, 0, 0.87) solid 1px;
   border-width: 0 thin 0 0;
+}
+
+/* Inline expanding search in the topbar (non-splash pages). */
+.top-bar__search {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.top-bar__search-input {
+  width: 220px;
+  margin-right: 4px;
+}
+
+/* Keyboard hint badge ⌘K / Ctrl+K — only shown when the input is collapsed. */
+.top-bar__kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  padding: 2px 6px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-family: inherit;
+  color: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.02);
+  line-height: 1;
+}
+
+/* Compact the kbd hint away on narrower viewports where horizontal space is tight. */
+@media (max-width: 1199px) {
+  .top-bar__kbd {
+    display: none;
+  }
 }
 
 /* Logo text: hidden on mobile, visible on md+ */
