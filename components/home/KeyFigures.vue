@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import { useDisplay } from "vuetify"
-import { capitalize } from "../../modules/list/src/runtime/composables/useUtils"
+// `capitalize` is auto-imported from @paris-ias/list's runtime/composables/
 
 export interface KeyFigure {
   label: string
