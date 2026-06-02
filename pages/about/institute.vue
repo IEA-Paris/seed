@@ -122,7 +122,9 @@
     </section>
 
     <!-- ─── Annual reports ──────────────────────────────────────────── -->
-    <MiscMoleculesAnnualReports />
+    <div id="annual-reports" class="anchor-offset">
+      <MiscMoleculesAnnualReports />
+    </div>
 
     <!-- ─── Statutes ─────────────────────────────────────────────────── -->
     <section id="statuts" class="institute-statutes anchor-offset">
@@ -205,6 +207,7 @@ const statutes = ref("/pages/" + locale.value + "/about/statutes")
 
 const tocSections = computed(() => [
   { id: "missions", label: t("missions") },
+  { id: "annual-reports", label: t("annual-reports") },
   { id: "statuts", label: t("statuts") },
   { id: "location", label: t("lauzun") },
 ])
