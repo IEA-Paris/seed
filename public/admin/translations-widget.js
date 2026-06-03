@@ -21,13 +21,6 @@
     getValue: function () {
       // value is an Immutable.Map (Decap wraps objects). Normalise to a POJO.
       var v = this.props.value;
-      // TEMP DIAGNOSTIC — remove once widget confirmed working.
-      try {
-        console.log("[key-values] raw value:", v,
-          "| type:", Object.prototype.toString.call(v),
-          "| hasToJS:", v && typeof v.toJS === "function",
-          "| field:", this.props.field && this.props.field.toJS && this.props.field.toJS());
-      } catch (e) { console.log("[key-values] diag error", e); }
       if (!v) return {};
       if (typeof v.toJS === "function") return v.toJS();
       return v;
@@ -43,7 +36,10 @@
     render: function () {
       var self = this;
       var obj = this.getValue();
-      var keys = Object.keys(obj).sort();
+      // Preserve the file's original key order — do NOT sort. Sorting rewrites
+      // the whole file on every save (huge spurious diffs) and destroys the
+      // intentional ordering of the translation file.
+      var keys = Object.keys(obj);
       return h(
         "div",
         { className: this.props.classNameWrapper },

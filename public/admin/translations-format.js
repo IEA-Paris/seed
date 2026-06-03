@@ -17,14 +17,7 @@
 (function () {
   function fromFile(text) {
     var data = text && text.trim() ? JSON.parse(text) : {};
-    var out = { strings: data };
-    // TEMP DIAGNOSTIC
-    try {
-      console.log("[json-flat] fromFile ran. text length:", (text || "").length,
-        "| parsed keys:", Object.keys(data).length,
-        "| returning:", out);
-    } catch (e) {}
-    return out;
+    return { strings: data };
   }
 
   function toFile(value) {
@@ -34,20 +27,15 @@
   }
 
   // window.CMS is provided by the decap-cms CDN bundle.
-  if (typeof window !== "undefined") {
-    // TEMP DIAGNOSTIC — does the API exist and does registration run?
-    console.log("[json-flat] script loaded. window.CMS:", !!window.CMS,
-      "| registerCustomFormat type:",
-      window.CMS && typeof window.CMS.registerCustomFormat);
-    if (window.CMS && typeof window.CMS.registerCustomFormat === "function") {
-      window.CMS.registerCustomFormat("json-flat", "json", {
-        fromFile: fromFile,
-        toFile: toFile,
-      });
-      console.log("[json-flat] registered ✓");
-    } else {
-      console.warn("[json-flat] registerCustomFormat NOT available ✗");
-    }
+  if (
+    typeof window !== "undefined" &&
+    window.CMS &&
+    typeof window.CMS.registerCustomFormat === "function"
+  ) {
+    window.CMS.registerCustomFormat("json-flat", "json", {
+      fromFile: fromFile,
+      toFile: toFile,
+    });
   }
 
   // Export for Node round-trip testing (ignored in the browser).
