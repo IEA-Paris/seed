@@ -197,13 +197,13 @@
 <script setup>
 const { locale, t } = useI18n()
 
-const research = ref("/pages/" + locale.value + "/about/institute/research")
+const research = ref("/pages/" + locale.value + "/about__institute__research")
 const collectiveIntelligence = ref(
-  "/pages/" + locale.value + "/about/institute/collective-intelligence",
+  "/pages/" + locale.value + "/about__institute__collective-intelligence",
 )
-const fellowships = ref("/pages/" + locale.value + "/about/institute/fellowships")
-const history = ref("/pages/" + locale.value + "/about/institute/history")
-const statutes = ref("/pages/" + locale.value + "/about/institute/statutes")
+const fellowships = ref("/pages/" + locale.value + "/about__institute__fellowships")
+const history = ref("/pages/" + locale.value + "/about__institute__history")
+const statutes = ref("/pages/" + locale.value + "/about__institute__statutes")
 
 const tocSections = computed(() => [
   { id: "missions", label: t("missions") },

@@ -25,13 +25,14 @@ collections:
     i18n: true
     folder: "content/pages" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    # NOTE: Decap's `nested` collection mode is incompatible with
-    # `i18n: multiple_folders` (it treats the en/fr locale dir as part of the
-    # slug and the entry list comes back empty). A plain folder collection
-    # already recurses into the route-matching subfolders, so we instead show
-    # the full route path via `summary` so editors can tell which route a file
-    # belongs to.
-    summary: "{{dirname}}/{{filename}}"
+    # Decap folder collections are NOT recursive, and the recursive `nested`
+    # mode is incompatible with `i18n: multiple_folders` (the en/fr locale dir
+    # gets folded into the slug and the list comes back empty). So all docs are
+    # kept flat at content/pages/<locale>/, with the route path encoded in the
+    # filename using `__` as the path separator (e.g.
+    # about__partners__members => route /about/partners#members). The filename
+    # is shown as the entry label so editors can read the route from it.
+    summary: "{{filename}}"
     fields:
       - { label: title, name: title, widget: string, i18n: true }
       - { label: Body, name: body, widget: markdown, i18n: true }
