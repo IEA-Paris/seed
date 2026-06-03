@@ -9,7 +9,7 @@
 
 <script setup>
 const { locale } = useI18n()
-const commitments = "/pages/" + locale.value + "/fellowships_commitments"
+const commitments = "/pages/" + locale.value + "/programs/fellowships/conditions"
 </script>
 
 <style lang="scss" scoped></style>

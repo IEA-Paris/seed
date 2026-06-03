@@ -27,10 +27,10 @@ const props = defineProps({
 
 const { locale } = useI18n()
 const contentPath = computed(
-  () => `/pages/${locale.value}/lists/${props.markdownFile}`,
+  () => `/pages/${locale.value}/${props.markdownFile}`,
 )
 const { data: content } = await useAsyncData(
-  () => `lists-${props.markdownFile}-${locale.value}`,
+  () => `pages-${props.markdownFile}-${locale.value}`,
   () => queryContent(contentPath.value).findOne(),
   { watch: [locale] },
 )

@@ -18,5 +18,5 @@
 import { useDisplay } from "vuetify"
 const { smAndUp } = useDisplay()
 const { locale, locales } = useI18n()
-const content = ref("/pages/" + locale.value + "/tos")
+const content = ref("/pages/" + locale.value + "/terms_of_service")
 </script>

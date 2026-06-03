@@ -113,10 +113,10 @@ const { locale, t } = useI18n()
 
 const { pending, membersRaw, networkRaw, supportRaw } = await useAffiliations()
 
-const intro = "/pages/" + locale.value + "/partners"
-const members = "/pages/" + locale.value + "/partners_members"
-const networks = "/pages/" + locale.value + "/partners_networks"
-const supports = "/pages/" + locale.value + "/partners_supports"
+const intro = "/pages/" + locale.value + "/about/partners/intro"
+const members = "/pages/" + locale.value + "/about/partners/members"
+const networks = "/pages/" + locale.value + "/about/partners/networks"
+const supports = "/pages/" + locale.value + "/about/partners/supports"
 
 const tocSections = computed(() => [
   { id: "members", label: t("members") },

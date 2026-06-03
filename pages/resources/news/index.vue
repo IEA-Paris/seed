@@ -1,7 +1,7 @@
 <template>
   <MiscMoleculesSection
     :title="capitalize($t('items.news', 2))"
-    markdown-file="news"
+    markdown-file="resources/news/news"
     type="publications"
     path-prefix="resources-news-slug"
   />
