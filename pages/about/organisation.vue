@@ -47,6 +47,9 @@
         <p class="overline-label">{{ $t("organisation") }}</p>
         <div class="typographic-rule" />
         <h2 class="section-heading">{{ $t("team") }}</h2>
+        <div class="prose section-intro">
+          <ContentDoc :path="teamIntro" />
+        </div>
         <v-skeleton-loader v-if="loading" type="list-item-avatar-two-line@3" />
         <template v-else>
           <PeopleExpandableDenseItem
@@ -68,6 +71,9 @@
         <p class="overline-label">{{ $t("organisation") }}</p>
         <div class="typographic-rule" />
         <h2 class="section-heading">{{ $t("board") }}</h2>
+        <div class="prose section-intro">
+          <ContentDoc :path="boardIntro" />
+        </div>
         <v-skeleton-loader v-if="loading" type="list-item-avatar-two-line@3" />
         <template v-else>
           <PeopleExpandableDenseItem
@@ -89,6 +95,9 @@
         <p class="overline-label">{{ $t("organisation") }}</p>
         <div class="typographic-rule" />
         <h2 class="section-heading">{{ $t("sab") }}</h2>
+        <div class="prose section-intro">
+          <ContentDoc :path="sabIntro" />
+        </div>
         <v-skeleton-loader v-if="loading" type="list-item-avatar-two-line@3" />
         <template v-else>
           <PeopleExpandableDenseItem
@@ -110,6 +119,9 @@
         <p class="overline-label">{{ $t("organisation") }}</p>
         <div class="typographic-rule" />
         <h2 class="section-heading">{{ $t("ethics") }}</h2>
+        <div class="prose section-intro">
+          <ContentDoc :path="ethicsIntro" />
+        </div>
         <v-skeleton-loader v-if="loading" type="list-item-avatar-two-line@3" />
         <template v-else>
           <PeopleExpandableDenseItem
@@ -131,6 +143,14 @@
 import LIST_PEOPLE from "@paris-ias/trees/dist/graphql/client/people/query.list.people.gql"
 
 const { locale, t } = useI18n()
+
+const teamIntro = "/pages/" + locale.value + "/about__organisation__team"
+const boardIntro =
+  "/pages/" + locale.value + "/about__organisation__board-of-directors"
+const sabIntro =
+  "/pages/" + locale.value + "/about__organisation__scientific-advisory-board"
+const ethicsIntro =
+  "/pages/" + locale.value + "/about__organisation__ethics-committee"
 
 const tocSections = computed(() => [
   { id: "team", label: t("team") },
@@ -204,7 +224,19 @@ definePageMeta({ layout: "default" })
 }
 
 .section-heading {
+  margin-bottom: 1rem;
+}
+
+.section-intro {
   margin-bottom: 2.5rem;
+  max-width: 70ch;
+}
+
+.section-intro :deep(p) {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  opacity: 0.8;
+  margin-bottom: 0.75rem;
 }
 
 /* ── Hero ────────────────────────────────────────────────────────────── */

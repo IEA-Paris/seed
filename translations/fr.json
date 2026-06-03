@@ -267,6 +267,11 @@
   "about_partners": {
     "hero": {
       "title": "Partenaires"
+    },
+    "support_cta": {
+      "title": "Soutenez l'IEA de Paris",
+      "subtitle": "Votre soutien nous aide à accueillir les chercheurs et à préserver la liberté de pensée.",
+      "button": "Soutenez-nous"
     }
   },
   "presentation-0": "présentation",

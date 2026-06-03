@@ -50,7 +50,7 @@ const { name, mdAndUp } = useDisplay()
 import { ref, useI18n } from "#imports"
 
 const { locale } = useI18n()
-const fellows = ref("/pages/" + locale.value + "/about__organisation__fellows")
+const fellows = ref("/pages/" + locale.value + "/about__organisation__ethics-committee")
 const board = ref("/pages/" + locale.value + "/about__organisation__board-of-directors")
 const sab = ref("/pages/" + locale.value + "/about__organisation__scientific-advisory-board")
 const team = ref("/pages/" + locale.value + "/about__organisation__team")

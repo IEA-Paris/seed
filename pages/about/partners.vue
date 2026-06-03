@@ -113,6 +113,32 @@
         </template>
       </v-container>
     </section>
+
+    <!-- 4. Support CTA -->
+    <section id="support-us" class="section-light anchor-offset">
+      <v-container>
+        <p class="overline-label">{{ $t("partners") }}</p>
+        <div class="typographic-rule" />
+        <h2 class="section-heading">
+          {{ $t("about_partners.support_cta.title") }}
+        </h2>
+        <div class="prose section-intro">
+          <p>{{ $t("about_partners.support_cta.subtitle") }}</p>
+        </div>
+        <div class="partners-support-cta__actions">
+          <v-btn
+            :to="$localePath('/support')"
+            variant="outlined"
+            size="large"
+            :rounded="0"
+            class="partners-support-cta__btn"
+          >
+            <v-icon start>mdi-heart</v-icon>
+            {{ $t("about_partners.support_cta.button") }}
+          </v-btn>
+        </div>
+      </v-container>
+    </section>
   </div>
 </template>
 
@@ -121,15 +147,16 @@ const { locale, t } = useI18n()
 
 const { pending, membersRaw, networkRaw, supportRaw } = await useAffiliations()
 
-const intro = "/pages/" + locale.value + "/partners"
-const members = "/pages/" + locale.value + "/partners_members"
-const networks = "/pages/" + locale.value + "/partners_networks"
-const supports = "/pages/" + locale.value + "/partners_supports"
+const intro = "/pages/" + locale.value + "/about__partners__intro"
+const members = "/pages/" + locale.value + "/about__partners__members"
+const networks = "/pages/" + locale.value + "/about__partners__networks"
+const supports = "/pages/" + locale.value + "/about__partners__supports"
 
 const tocSections = computed(() => [
   { id: "members", label: t("members") },
   { id: "network", label: t("networks") },
   { id: "support", label: t("supports") },
+  { id: "support-us", label: t("about_partners.support_cta.button") },
 ])
 
 definePageMeta({ layout: "default" })
@@ -197,5 +224,17 @@ definePageMeta({ layout: "default" })
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+
+/* ── Support CTA ─────────────────────────────────────────────────────── */
+.partners-support-cta__actions {
+  display: flex;
+  justify-content: center;
+}
+
+.partners-support-cta__btn {
+  background-color: #fff;
+  border: 1px solid #000;
+  color: #000;
 }
 </style>

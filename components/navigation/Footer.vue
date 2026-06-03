@@ -190,16 +190,6 @@
                       :density="mdAndUp ? 'default' : 'compact'"
                     >
                       <v-list-item
-                        :to="$localePath('/about/institute')"
-                        nuxt
-                        class="pl-0"
-                      >
-                        <v-list-item-title
-                          class="text-uppercase text-caption text-md-button"
-                          v-text="$t('about-us')"
-                        ></v-list-item-title>
-                      </v-list-item>
-                      <v-list-item
                         :to="$localePath('/contact')"
                         class="pl-0"
                         nuxt
@@ -219,17 +209,6 @@
                         <v-list-item-title
                           class="text-uppercase text-caption text-md-button"
                           v-text="$t('pressroom')"
-                        ></v-list-item-title>
-                      </v-list-item>
-                      <v-list-item
-                        :to="$localePath('/support')"
-                        class="pl-0"
-                        nuxt
-                        @click="open = false"
-                      >
-                        <v-list-item-title
-                          class="text-uppercase text-caption text-md-button"
-                          v-text="$t('support')"
                         ></v-list-item-title>
                       </v-list-item>
                     </v-list>

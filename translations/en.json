@@ -265,6 +265,11 @@
   "about_partners": {
     "hero": {
       "title": "Partners"
+    },
+    "support_cta": {
+      "title": "Support the Paris IAS",
+      "subtitle": "Your support helps us welcome researchers and keep thought free.",
+      "button": "Support us"
     }
   },
   "about_institute": {
