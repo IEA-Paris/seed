@@ -36,3 +36,28 @@ collections:
     fields:
       - { label: title, name: title, widget: string, i18n: true }
       - { label: Body, name: body, widget: markdown, i18n: true }
+  - name: "translations"
+    label: "UI translations"
+    # The translation files (translations/<locale>.json) are bare flat maps
+    # consumed directly by @nuxtjs/i18n, and MUST stay that way on disk. Decap
+    # can only bind widgets to named fields, so two custom pieces bridge the gap
+    # (both registered in public/admin/index.html):
+    #   - format: json-flat  -> on read, wraps the bare map as { strings: {...} }
+    #     for Decap; on write, unwraps and serialises back to the bare map, so
+    #     the committed file is byte-identical in shape (verified round-trip).
+    #   - widget: key-values -> renders the `strings` map as an editable
+    #     key/value table (values editable, keys shown read-only).
+    # `format` is set at the COLLECTION level (Decap resolves format from the
+    # collection, not per-file entry).
+    format: json-flat
+    files:
+      - name: "en"
+        label: "English (en.json)"
+        file: "translations/en.json"
+        fields:
+          - { label: "Strings", name: strings, widget: key-values }
+      - name: "fr"
+        label: "French (fr.json)"
+        file: "translations/fr.json"
+        fields:
+          - { label: "Strings", name: strings, widget: key-values }

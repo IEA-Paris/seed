@@ -9,5 +9,10 @@
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.9/dist/decap-cms.js"></script>
+    <!-- Translation editing: custom format keeps the JSON files bare on disk,
+         custom widget renders them as an editable key/value table.
+         Must load AFTER the decap bundle (they use window.CMS / createClass / h). -->
+    <script src="translations-format.js"></script>
+    <script src="translations-widget.js"></script>
   </body>
 </html>

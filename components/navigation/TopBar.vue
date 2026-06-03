@@ -30,10 +30,7 @@
         below are made `tabindex="-1"` so keyboard focus flows exclusively
         through this list.
       -->
-      <nav
-        :aria-label="$t('main-navigation')"
-        class="top-bar__a11y-nav"
-      >
+      <nav :aria-label="$t('main-navigation')" class="top-bar__a11y-nav">
         <NuxtLink
           v-for="link in tabOrderLinks"
           :key="link.path"
@@ -212,8 +209,10 @@ const tabOrderLinks = useNavTabOrder()
 const searchExpanded = ref(false)
 const searchTerm = ref("")
 const searchInputRef = ref(null)
-const isMac = computed(() =>
-  typeof navigator !== "undefined" && /Mac|iPhone|iPad/.test(navigator.platform),
+const isMac = computed(
+  () =>
+    typeof navigator !== "undefined" &&
+    /Mac|iPhone|iPad/.test(navigator.platform),
 )
 
 const focusSearch = async () => {
