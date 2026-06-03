@@ -25,14 +25,12 @@ collections:
     i18n: true
     folder: "content/pages" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    # Browse documents as a folder tree mirroring the site routes, so editors
-    # can immediately tell which route a Nuxt Content file belongs to.
-    nested:
-      depth: 4 # deepest route is programs/fellowships/<doc>
-      summary: "{{path}}" # show the full route path as the entry index name
-    # Keep new documents in the same nested folder structure as their route.
-    path: "{{dirname}}/{{filename}}"
-    # Display the full route path (not just the title) in the entry list.
+    # NOTE: Decap's `nested` collection mode is incompatible with
+    # `i18n: multiple_folders` (it treats the en/fr locale dir as part of the
+    # slug and the entry list comes back empty). A plain folder collection
+    # already recurses into the route-matching subfolders, so we instead show
+    # the full route path via `summary` so editors can tell which route a file
+    # belongs to.
     summary: "{{dirname}}/{{filename}}"
     fields:
       - { label: title, name: title, widget: string, i18n: true }
