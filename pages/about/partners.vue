@@ -1,6 +1,9 @@
 <template>
   <div class="partners-page">
-    <NavigationPageToc :sections="tocSections" :aria-label="$t('on-this-page')" />
+    <NavigationPageToc
+      :sections="tocSections"
+      :aria-label="$t('on-this-page')"
+    />
     <!-- ─── Hero ─────────────────────────────────────────────────────── -->
     <section class="partners-hero">
       <v-container>
@@ -16,7 +19,12 @@
               <ContentDoc :path="intro" />
             </div>
             <div class="partners-hero__actions">
-              <v-btn variant="outlined" size="large" href="#members" :rounded="0">
+              <v-btn
+                variant="outlined"
+                size="large"
+                href="#members"
+                :rounded="0"
+              >
                 <v-icon start>mdi-domain</v-icon>
                 {{ $t("members") }}
               </v-btn>
@@ -113,10 +121,10 @@ const { locale, t } = useI18n()
 
 const { pending, membersRaw, networkRaw, supportRaw } = await useAffiliations()
 
-const intro = "/pages/" + locale.value + "/about__partners__intro"
-const members = "/pages/" + locale.value + "/about__partners__members"
-const networks = "/pages/" + locale.value + "/about__partners__networks"
-const supports = "/pages/" + locale.value + "/about__partners__supports"
+const intro = "/pages/" + locale.value + "/partners"
+const members = "/pages/" + locale.value + "/partners_members"
+const networks = "/pages/" + locale.value + "/partners_networks"
+const supports = "/pages/" + locale.value + "/partners_supports"
 
 const tocSections = computed(() => [
   { id: "members", label: t("members") },

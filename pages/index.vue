@@ -38,6 +38,42 @@
       <HomeKeyFigures :src="keyFigures" :duration="2.5" />
     </section>
 
+    <section class="ecosystem-section section-light">
+      <v-container fluid>
+        <v-row justify="center">
+          <v-col
+            cols="12"
+            md="10"
+            class="d-flex flex-column align-center text-center"
+          >
+            <p class="overline-label ecosystem-section__overline">
+              {{ $t("partners") }}
+            </p>
+            <div class="typographic-rule ecosystem-section__rule" />
+            <NuxtLink
+              v-motion-slide-visible-once-bottom
+              :to="$localePath('/about/partners')"
+              class="ecosystem-section__link"
+            >
+              <h2 class="section-heading ecosystem-section__title">
+                {{ $t("our-ecosystem") }}
+              </h2>
+            </NuxtLink>
+            <p class="ecosystem-section__subtitle">
+              {{ $t("our-ecosystem-subtitle") }}
+            </p>
+          </v-col>
+        </v-row>
+      </v-container>
+      <div class="ecosystem-section__gallery">
+        <MiscMoleculesLogoGallery
+          :loading="pending"
+          :featured-items="supportData"
+          :items="memberData"
+        />
+      </div>
+    </section>
+
     <div>
       <NavigationFooter is-snap-scroll />
     </div>
@@ -163,6 +199,40 @@ const { $rootStore } = useNuxtApp()
 /* const goTo = useGoTo() */
 const { locale } = useI18n()
 
+// Ecosystem: supports as a featured first row, members in the rows below.
+const { pending, membersRaw, supportRaw } = await useAffiliations()
+
+const normalizeColor = (color) => {
+  const named = { white: "#fff", black: "#000" }
+  if (!color) return "#fff"
+  const lowerColor = color.toLowerCase()
+  return named[lowerColor] || color
+}
+
+const toGalleryItem = (item) => ({
+  name: item.name,
+  url: item.url,
+  picture: item.image?.url,
+  color: normalizeColor(item.image?.backgroundColor),
+  location: item.locations?.[0]
+    ? [item.locations[0].city, item.locations[0].country]
+        .filter(Boolean)
+        .join(", ")
+    : null,
+  category: item.category?.[0] || null,
+  ror: item.ror || null,
+  summary: item.summary || null,
+  description: item.description || null,
+})
+
+const toGallery = (list) =>
+  (list || []).filter((item) => item?.image?.url).map(toGalleryItem)
+
+// Featured first row
+const supportData = computed(() => toGallery(supportRaw.value))
+// Member rows below
+const memberData = computed(() => toGallery(membersRaw.value))
+
 const statsScrollAnchor = ref(null)
 
 function scrollToStats() {
@@ -278,6 +348,73 @@ onMounted(() => {
 
 .key-figures-section {
   color: white;
+}
+
+// The global `.scroller section` rule (assets/styles/main.scss) forces every
+// section to a fixed 100vh with align-items:center, which clips the member
+// rows out of view. This is a tall content section, so let it grow to fit its
+// content while still participating in scroll-snap.
+.scroller .ecosystem-section {
+  height: auto;
+  min-height: calc(100vh - 64px);
+  align-items: stretch;
+}
+
+.ecosystem-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem 0;
+  background: #fff;
+  overflow: hidden;
+
+  &__overline {
+    margin-bottom: 1rem;
+  }
+
+  &__rule {
+    margin: 0 auto 1.75rem;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+  }
+
+  &__title {
+    font-family: "Bodoni Moda", serif !important;
+    font-weight: 500;
+    max-width: none;
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    max-width: 52ch;
+    margin: 0 auto;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    opacity: 0.65;
+  }
+
+  &__gallery {
+    margin-top: 3rem;
+    // Soft fade on the marquee edges for a polished, seamless look
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 8%,
+      #000 92%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 8%,
+      #000 92%,
+      transparent 100%
+    );
+  }
 }
 
 .splash-chevron__btn {
