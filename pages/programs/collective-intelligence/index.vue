@@ -1,0 +1,9 @@
+<template>
+  <MiscMoleculesSection
+    :title="capitalize($t('collective-intelligence'))"
+    markdown-file="programs__collective-intelligence__collective-intelligence"
+    type="projects"
+    path-prefix="programs-collective-intelligence-slug"
+    modifier="collective-intelligence"
+  />
+</template>

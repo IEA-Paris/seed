@@ -429,7 +429,7 @@ const isDropdownActive = (link) => {
   color: rgba(0, 0, 0, 0.85);
   padding: 4px 16px 12px 16px;
   line-height: 1.4;
-  white-space: normal;
+  white-space: nowrap;
   overflow: visible;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   margin-bottom: 6px;
