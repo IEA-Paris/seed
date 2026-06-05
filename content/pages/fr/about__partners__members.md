@@ -2,6 +2,4 @@
 title: members
 ---
 
-Les membres de l'Institut d'études avancées de Paris comprennent des universités, des instituts de recherche et des organisations culturelles de premier plan dans le monde entier, tous engagés à encourager la recherche interdisciplinaire de haut niveau.
-
-Ce réseau réputé renforce les opportunités de collaboration pour les résidents, en les mettant en contact avec des chercheurs pionniers et des ressources dans tous les domaines et toutes les régions.
+L’Institut des études avancées de Paris entretient des relations privilégiées avec 13 institutions de recherche franciliennes, membres de l’IEA de Paris.Ces institutions partagent l’engagement de l’IEA pour l’excellence scientifique interdisciplinaire et contribuent activement à ses programmes. Leur implication garantit un rayonnement élargi des activités menées à l’Hôtel de Lauzun et renforce le tissu académique régional. Chaque année, l’IEA accueille dans ses locaux, situés à l’Hôtel de Lauzun sur l’île Saint-Louis, des manifestations scientifiques organisées par ses membres, offrant ainsi un cadre patrimonial exceptionnel propice au dialogue et à la collaboration académique.

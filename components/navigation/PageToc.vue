@@ -155,9 +155,7 @@ onBeforeUnmount(() => {
 }
 
 .page-toc__label {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-wrap: break-word;
   max-width: 160px;
 }
 

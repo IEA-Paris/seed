@@ -271,7 +271,8 @@
     "support_cta": {
       "title": "Soutenez l'IEA de Paris",
       "subtitle": "Votre soutien nous aide à accueillir les chercheurs et à préserver la liberté de pensée.",
-      "button": "Soutenez-nous"
+      "button": "Soutenez-nous",
+      "toc": "Mécénat"
     }
   },
   "presentation-0": "présentation",

@@ -156,7 +156,7 @@ const tocSections = computed(() => [
   { id: "members", label: t("members") },
   { id: "network", label: t("networks") },
   { id: "support", label: t("supports") },
-  { id: "support-us", label: t("about_partners.support_cta.button") },
+  { id: "support-us", label: t("about_partners.support_cta.toc") },
 ])
 
 definePageMeta({ layout: "default" })

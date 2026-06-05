@@ -269,7 +269,8 @@
     "support_cta": {
       "title": "Support the Paris IAS",
       "subtitle": "Your support helps us welcome researchers and keep thought free.",
-      "button": "Support us"
+      "button": "Support us",
+      "toc": "Patronage"
     }
   },
   "about_institute": {

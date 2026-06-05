@@ -2,6 +2,4 @@
 title: supports
 ---
 
-The Paris Institute for Advanced Study thrives thanks to the generous backing of its supporters, including public institutions, foundations, and individual patrons.
-
-Their commitment enables the IAS to host top scholars, fund innovative research, and foster a vibrant intellectual community, advancing interdisciplinary knowledge for global benefit.
+The Paris Institute for Advanced Studies receives support from a number of public institutions, private partners, and national and European programmes. Their commitment enables the Paris IAS to host leading researchers, fund innovative research and foster a dynamic intellectual community, thereby advancing interdisciplinary knowledge for the benefit of the whole world.

@@ -2,6 +2,4 @@
 title: networks
 ---
 
-The Paris Institute for Advanced Study partners with some of the most prestigious academic and cultural institutions, creating a vibrant network that enriches interdisciplinary research.
-
-These partnerships provide fellows unique access to top-tier resources and collaborative opportunities, fostering innovation and groundbreaking ideas.
+The Paris IAS actively participates in the French Network of Institutes for Advanced Study (RFIEA), which includes seven institutes for advanced study in France: the Collégium de Lyon, the CUT de Rennes, the IMéRA d’Aix-Marseille, the Institute for Advanced Study of Nantes, the Institut MAK’IT de Montpellier, the Studium Loire Valley and the Paris IAS.These affiliations enhance the Institute’s international appeal and facilitate researcher mobility. The Paris IAS is also part of several key networks at European and international level.
