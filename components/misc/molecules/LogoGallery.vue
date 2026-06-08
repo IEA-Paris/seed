@@ -83,7 +83,9 @@ const rowCount = props.rowCount
 const MIN_PER_ROW = 10
 
 // Tile a row's items until it reaches at least MIN_PER_ROW, so short rows
-// still fill the marquee track instead of leaving it ~empty.
+// still fill the marquee track instead of leaving it ~empty. Only kicks in
+// when the pool itself is smaller than MIN_PER_ROW (few members) — at that
+// point in-row repeats are unavoidable.
 function tile(list) {
   if (!list.length) return list
   const out = []
@@ -91,32 +93,48 @@ function tile(list) {
   return out
 }
 
-// Deterministic split of members into `rowCount` rows (same order SSR/client).
-function splitRows(list) {
-  if (!list?.length) return []
-  const size = Math.ceil(list.length / rowCount)
-  return Array.from({ length: rowCount }, (_, i) =>
-    list.slice(i * size, i * size + size),
-  )
-    .filter((row) => row.length > 0)
-    .map((row) => ({ items: tile(row), featured: false }))
-}
-
-// Build the full row list: featured supports row first, then member rows.
-function buildRows(featured, members) {
-  const rows = []
-  if (featured?.length) rows.push({ items: tile(featured), featured: true })
-  rows.push(...splitRows(members))
-  return rows
-}
-
-// Fisher-Yates shuffle (in-place)
-function shuffle(arr) {
+// Fisher-Yates shuffle (returns a new array; never mutates the source).
+function shuffle(list) {
+  const arr = [...list]
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     ;[arr[i], arr[j]] = [arr[j], arr[i]]
   }
   return arr
+}
+
+// Rotate a list left by `n` (mod length): [a,b,c,d] rotated by 1 → [b,c,d,a].
+function rotate(list, n) {
+  if (!list.length) return list
+  const k = ((n % list.length) + list.length) % list.length
+  return list.slice(k).concat(list.slice(0, k))
+}
+
+// Build member rows: each row holds the FULL pool, but in its OWN independent
+// shuffle, then phase-offset so the windows start far apart. This satisfies:
+//  • no duplicate within a row — each logo appears once per loop;
+//  • no fixed set per row — every row is the whole pool, reshuffled;
+//  • different sequence per row — independent shuffles;
+//  • minimal cross-row collisions — distinct orders + a ~len/rowCount phase
+//    offset keep the visible windows from lining up (best-effort: wider
+//    screens show more per row, so some overlap is unavoidable).
+function splitRows(list) {
+  if (!list?.length) return []
+  const pool = tile(list)
+  const stride = Math.max(1, Math.floor(pool.length / rowCount))
+  return Array.from({ length: rowCount }, (_, i) => ({
+    // Independent shuffle per row, then rotate to stagger the start position.
+    items: rotate(shuffle(pool), stride * i),
+    featured: false,
+  }))
+}
+
+// Build the full row list: featured supports row first, then member rows.
+function buildRows(featured, members) {
+  const rows = []
+  if (featured?.length) rows.push({ items: tile(shuffle(featured)), featured: true })
+  rows.push(...splitRows(members))
+  return rows
 }
 
 // Shuffle only on the client, and only after hydration, to avoid an
@@ -126,11 +144,22 @@ onMounted(() => {
   hydrated.value = true
 })
 
-// Derive rows reactively from the props so late-arriving async data (members
-// / supports populate after hydration) is always reflected — no stale snapshot.
+// Derive rows reactively from the props so late-arriving async data (members /
+// supports populate after hydration) is always reflected. Before hydration we
+// emit deterministic source order (single row each) to match the server render;
+// after hydration each row gets its independent shuffled, staggered full pool.
 const rows = computed(() => {
-  const shuf = (l) => (hydrated.value ? shuffle([...l]) : l)
-  return buildRows(shuf(props.featuredItems), shuf(props.items))
+  if (!hydrated.value) {
+    const rows = []
+    if (props.featuredItems?.length) {
+      rows.push({ items: tile(props.featuredItems), featured: true })
+    }
+    if (props.items?.length) {
+      rows.push({ items: tile(props.items), featured: false })
+    }
+    return rows
+  }
+  return buildRows(props.featuredItems, props.items)
 })
 </script>
 
