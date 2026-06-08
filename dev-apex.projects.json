@@ -1,0 +1,349 @@
+[
+  {
+    "_id": {
+      "$oid": "6789213d0a0fac5c0c40651a"
+    },
+    "appId": ["iea"],
+    "url": "https://pias.Science",
+    "subtitle": {
+      "en": "Proceedings of Institutes for Advanced Study",
+      "fr": "Actes des Instituts d'Études Avancées"
+    },
+    "date": {
+      "$date": "2023-02-18T00:00:00.000Z"
+    },
+    "image": {
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/project/pias_logo.svg"
+    },
+    "summary": {
+      "en": "The Proceedings of the Institutes for Advanced Study is a publishing platform tailored to showcase the work of our fellows and the other institutes'. It is built around a Zenodo community and features content generation (authors and media libraries, thumbnails, PDFs, bibliographies...) and dissemination.",
+      "fr": "Les Actes des Instituts d'Études Avancées est une plateforme de publication conçue pour mettre en valeur le travail de nos fellows ainsi que celui des autres instituts. Elle est construite autour d'une communauté Zenodo et comprend des fonctionnalités de génération de contenu (auteurs et bibliothèques multimédias, vignettes, fichiers PDF, bibliographies...) et de diffusion."
+    },
+    "description": {
+      "en": "The Proceedings of the Institutes for Advanced Study is a publishing platform tailored to showcase the work of our fellows and the other institutes'. It is built around a Zenodo community and features content generation (authors and media libraries, thumbnails, PDFs, bibliographies...) and dissemination.",
+      "fr": "Les Actes des Instituts d'Études Avancées est une plateforme de publication conçue pour mettre en valeur le travail de nos fellows ainsi que celui des autres instituts. Elle est construite autour d'une communauté Zenodo et comprend des fonctionnalités de génération de contenu (auteurs et bibliothèques multimédias, vignettes, fichiers PDF, bibliographies...) et de diffusion."
+    },
+    "name": {
+      "en": "Proceedings of Institutes for Advanced Study",
+      "fr": "Actes des Instituts d'Études Avancées"
+    },
+    "related": {},
+    "slug": {
+      "fr": "actes-des-instituts-detudes-avancees",
+      "en": "proceedings-of-institutes-for-advanced-study"
+    },
+    "type": "PROJECT"
+  },
+  {
+    "_id": {
+      "$oid": "67891a920a0fac5c0c406513"
+    },
+    "appId": ["iea"],
+    "subtitle": {
+      "en": "Circle of doctoral students of the city of Paris",
+      "fr": "Cercle des doctorants de la Ville de Paris"
+    },
+    "url": "https://www.cifre-villedeparis.fr/",
+    "date": {
+      "$date": "2019-06-18T00:00:00.000Z"
+    },
+    "image": {
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/project/cercle-doctorants.png"
+    },
+    "summary": {
+      "en": "The CIFRE Program\nThe Industrial Agreements for Training through Research (CIFRE) program, managed by the National Association for Research and Technology (ANRT) on behalf of the Ministry of Higher Education, Research, and Innovation, is a funding mechanism designed to support the recruitment of doctoral students by companies or local authorities during the completion of their doctoral thesis.\n\nThe program has two main objectives:\n\nFacilitate the professional integration of doctoral students by placing them in an employment situation,\nEncourage collaborative projects between research l",
+      "fr": "Le programme CIFRE\nLes Conventions Industrielles de Formation par la Recherche (CIFRE), gérées par l'Association Nationale de la Recherche et de la Technologie (ANRT) pour le compte du Ministère de l'Enseignement Supérieur, de la Recherche et de l'Innovation, constituent un mécanisme de financement visant à soutenir le recrutement de doctorants par des entreprises ou des collectivités locales durant la réalisation de leur thèse.\n\nLe programme a deux objectifs principaux :\n\n- Faciliter l'intégration professionnelle des doctorants en les plaçant en situation d'emploi,\n- Encourager les pr"
+    },
+    "description": {
+      "en": "The CIFRE Program\nThe Industrial Agreements for Training through Research (CIFRE) program, managed by the National Association for Research and Technology (ANRT) on behalf of the Ministry of Higher Education, Research, and Innovation, is a funding mechanism designed to support the recruitment of doctoral students by companies or local authorities during the completion of their doctoral thesis.\n\nThe program has two main objectives:\n\nFacilitate the professional integration of doctoral students by placing them in an employment situation,\nEncourage collaborative projects between research laboratories and companies or local authorities.\n\nThe City of Paris' CIFRE Initiative\nAs part of the CIFRE program, the City of Paris hosts doctoral students within its departments whose thesis topics address the municipality's priority issues.\n\nThe City of Paris launched its first CIFRE contracts in 2009. Since 2018, the selection of doctoral students recruited by the City of Paris through a CIFRE contract has been conducted via an annual call for applications.\n\nIntegrated into a municipal department whose activities directly relate to their research topic, these young researchers gain a unique perspective on the workings of a major local authority. In return, their research provides the City with valuable insights and analyses to support the development of its public policies.\n\nThe Role of the Paris IAS\nAs a partner of the City of Paris and committed to exploring new formats of intersectoral collaboration, the Paris Institute for Advanced Study (IAS) supports the municipality in its ongoing efforts to improve this program, which serves as a key platform for introducing researchers to real-world, non-academic challenges.\n\nA think tank and facilitator of high-level exchanges, the Paris IAS contributes its expertise through the organization of special seminars, training sessions, practical workshops, methodological advice, and opportunities to share experiences. These activities foster networking and promote a culture of collaboration between researchers and municipal services. Additionally, the IAS oversees the scientific evaluation process of applications for CIFRE contracts.",
+      "fr": "Le programme CIFRE\nLes Conventions Industrielles de Formation par la Recherche (CIFRE), gérées par l'Association Nationale de la Recherche et de la Technologie (ANRT) pour le compte du Ministère de l'Enseignement Supérieur, de la Recherche et de l'Innovation, constituent un mécanisme de financement visant à soutenir le recrutement de doctorants par des entreprises ou des collectivités locales durant la réalisation de leur thèse.\n\nLe programme a deux objectifs principaux :\n\n- Faciliter l'intégration professionnelle des doctorants en les plaçant en situation d'emploi,\n- Encourager les projets collaboratifs entre laboratoires de recherche et entreprises ou collectivités locales.\n\nL'initiative CIFRE de la Ville de Paris\nDans le cadre du programme CIFRE, la Ville de Paris accueille des doctorants au sein de ses services dont les sujets de thèse répondent aux enjeux prioritaires de la municipalité.\n\nLa Ville de Paris a lancé ses premiers contrats CIFRE en 2009. Depuis 2018, la sélection des doctorants recrutés par la Ville de Paris dans le cadre d'un contrat CIFRE se fait via un appel à candidatures annuel.\n\nIntégrés dans un service municipal dont les activités sont directement liées à leur sujet de recherche, ces jeunes chercheurs acquièrent une perspective unique sur le fonctionnement d'une grande collectivité locale. En retour, leurs travaux de recherche fournissent à la Ville des analyses et des éclairages précieux pour appuyer l'élaboration de ses politiques publiques.\n\nLe rôle de l'IEA de Paris\nEn tant que partenaire de la Ville de Paris et engagé dans l'exploration de nouveaux formats de collaboration intersectorielle, l'Institut d'Études Avancées (IEA) de Paris soutient la municipalité dans ses efforts continus pour améliorer ce programme, qui constitue une plateforme clé pour introduire les chercheurs à des défis non académiques concrets.\n\nGroupe de réflexion et facilitateur d'échanges de haut niveau, l'IEA de Paris apporte son expertise par l'organisation de séminaires spéciaux, de sessions de formation, d'ateliers pratiques, de conseils méthodologiques et d'opportunités de partage d'expériences. Ces activités favorisent le réseautage et encouragent une culture de collaboration entre chercheurs et services municipaux. De plus, l'IEA supervise le processus d'évaluation scientifique des candidatures aux contrats CIFRE."
+    },
+    "name": {
+      "en": "Circle of doctoral students of the city of Paris",
+      "fr": "Cercle des doctorants de la Ville de Paris"
+    },
+    "related": {},
+    "slug": {
+      "fr": "cercle-des-doctorants-de-la-ville-de-paris",
+      "en": "circle-of-doctoral-students-of-the-city-of-paris"
+    },
+    "type": "INITIATIVE"
+  },
+  {
+    "_id": {
+      "$oid": "678921270a0fac5c0c406517"
+    },
+    "appId": ["iea"],
+    "subtitle": {
+      "en": "Open Mapping Science Initiative",
+      "fr": "Initiative pour la Science de la Cartographie Ouverte"
+    },
+    "date": {
+      "$date": "2024-03-01T00:00:00.000Z"
+    },
+    "image": {
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/project/osmi-logo.png"
+    },
+    "summary": {
+      "en": "The Open Mapping Science Initiative is an ongoing project around multilingual taxonomies based on structured Wikidata. It allows to :\n\n- Choose any label for private taxonomies while attaching it to Wikidata identifiers,\n- Pick any discipline and relate it to the larger discipline it fits into\n- Automatically provide pictures, abstracts and translations for all the taxonomies, either directly from a Wikipedia source or by LLM-based merging of the chosen Wikidata identifiers\n- Change existing OSMI taxonomies seamlessly to make it evolve freely as the published content changes",
+      "fr": "L'Initiative pour la Science de la Cartographie Ouverte (OSMI) est un projet en cours autour des taxonomies multilingues basées sur Wikidata structuré. Elle permet :\n\n- De choisir n'importe quel libellé pour des taxonomies privées tout en le liant à des identifiants Wikidata,\n- De sélectionner une discipline quelconque et de la relier à une discipline plus large à laquelle elle appartient,\n- De fournir automatiquement des images, résumés et traductions pour toutes les taxonomies, soit directement à partir d'une source Wikipedia, soit par une fusion basée sur des modèles linguistiques des"
+    },
+    "description": {
+      "en": "The Open Mapping Science Initiative is an ongoing project around multilingual taxonomies based on structured Wikidata. It allows to :\n\n- Choose any label for private taxonomies while attaching it to Wikidata identifiers,\n- Pick any discipline and relate it to the larger discipline it fits into\n- Automatically provide pictures, abstracts and translations for all the taxonomies, either directly from a Wikipedia source or by LLM-based merging of the chosen Wikidata identifiers\n- Change existing OSMI taxonomies seamlessly to make it evolve freely as the published content changes",
+      "fr": "L'Initiative pour la Science de la Cartographie Ouverte (OSMI) est un projet en cours autour des taxonomies multilingues basées sur Wikidata structuré. Elle permet :\n\n- De choisir n'importe quel libellé pour des taxonomies privées tout en le liant à des identifiants Wikidata,\n- De sélectionner une discipline quelconque et de la relier à une discipline plus large à laquelle elle appartient,\n- De fournir automatiquement des images, résumés et traductions pour toutes les taxonomies, soit directement à partir d'une source Wikipedia, soit par une fusion basée sur des modèles linguistiques des identifiants Wikidata choisis,\n- De modifier sans problème les taxonomies existantes d'OSMI afin de les faire évoluer librement en fonction des changements de contenu publié."
+    },
+    "name": {
+      "en": "Open Mapping Science Initiative",
+      "fr": "Initiative pour la Science de la Cartographie Ouverte"
+    },
+    "related": {},
+    "type": "PROJECT",
+    "slug": {
+      "fr": "initiative-pour-la-science-de-la-cartographie-ouverte",
+      "en": "open-mapping-science-initiative"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6789211f0a0fac5c0c406516"
+    },
+    "appId": ["iea"],
+    "subtitle": {
+      "en": "Intercontinental Academia 4",
+      "fr": "Intercontinental Academia 4"
+    },
+    "url": "https://www.intercontinental-academia.com",
+    "date": {
+      "$date": "2022-03-18T00:00:00.000Z"
+    },
+    "image": {
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/project/ica-logo.png"
+    },
+    "summary": {
+      "en": "This 4th edition of ICA explores fundamental interdisciplinary questions at the intersection of cognitive science, neuroscience, and artificial intelligence. Decisive advances have been made during the past decades in the analysis of brain activity and its behavioral counterparts, as well as in the information processing sciences. Complementarities between neuroscience/cognitive science and artificial intelligence provide grounds for exploring synergies and raising ethical questions between these disciplines that hold tremendous challenges and opportunities for societal progress.\n\nOn the o",
+      "fr": "Cette 4e édition de l'Académie Intercontinentale explore des questions interdisciplinaires fondamentales à l'intersection des sciences cognitives, des neurosciences et de l'intelligence artificielle. Des avancées décisives ont été réalisées ces dernières décennies dans l'analyse de l'activité cérébrale et ses corrélats comportementaux, ainsi que dans les sciences du traitement de l'information. Les complémentarités entre les neurosciences/sciences cognitives et l'intelligence artificielle offrent des opportunités d'explorer des synergies et de soulever des questions éthiques entre ces discip"
+    },
+    "description": {
+      "en": "This 4th edition of ICA explores fundamental interdisciplinary questions at the intersection of cognitive science, neuroscience, and artificial intelligence. Decisive advances have been made during the past decades in the analysis of brain activity and its behavioral counterparts, as well as in the information processing sciences. Complementarities between neuroscience/cognitive science and artificial intelligence provide grounds for exploring synergies and raising ethical questions between these disciplines that hold tremendous challenges and opportunities for societal progress.\n\nOn the occasion of the visit of high-level researchers, the organizing institutions plan in parallel a set of \"side events\" open to all.\n\nConferences and workshops are scheduled at some of the major Parisian university partners of the [IEA de Paris](https://www.paris-iea.fr/en/ \"IEA de Paris\").\n\nA satellite session, Intelligence and Artificial Intelligence (IAI), is programmed to last four days, from June 5 to 8, 2022, in parallel to the ICA4 meeting in Belo Horizonte. The event will consist of lectures and discussion round tables, with the participation of ICA4 mentors and other guests from academia and the productive sector. The activities will take place at the campus of the Federal University of Minas Gerais (UFMG), with live streaming to partner institutions. The themes to be discussed are (i) Foundations and Ethics of Artificial Intelligence, (ii) Intelligence and rationality, (iii) Cognition and Neurosciences, (iv) Interdisciplinary explorations of artificial intelligence, (v) AI in health sciences, among others.",
+      "fr": "Cette 4e édition de l'Académie Intercontinentale explore des questions interdisciplinaires fondamentales à l'intersection des sciences cognitives, des neurosciences et de l'intelligence artificielle. Des avancées décisives ont été réalisées ces dernières décennies dans l'analyse de l'activité cérébrale et ses corrélats comportementaux, ainsi que dans les sciences du traitement de l'information. Les complémentarités entre les neurosciences/sciences cognitives et l'intelligence artificielle offrent des opportunités d'explorer des synergies et de soulever des questions éthiques entre ces disciplines, qui représentent des défis et des opportunités majeures pour le progrès sociétal.\n\nÀ l'occasion de la visite de chercheurs de haut niveau, les institutions organisatrices prévoient en parallèle un ensemble d'événements \"satellites\" ouverts à tous.\n\nDes conférences et des ateliers sont prévus dans certaines grandes universités parisiennes partenaires de l'[IEA de Paris](https://www.paris-iea.fr/fr/ \"IEA de Paris\").\n\nUne session satellite, Intelligence et Intelligence Artificielle (IIA), est programmée pour durer quatre jours, du 5 au 8 juin 2022, en parallèle à la réunion ICA4 à Belo Horizonte. L'événement consistera en des conférences et des tables rondes de discussion, avec la participation des mentors d'ICA4 et d'autres invités du milieu académique et du secteur productif. Les activités se tiendront sur le campus de l'Université Fédérale de Minas Gerais (UFMG), avec une diffusion en direct vers des institutions partenaires. Les thèmes abordés incluront (i) Fondements et éthique de l'intelligence artificielle, (ii) Intelligence et rationalité, (iii) Cognition et neurosciences, (iv) Explorations interdisciplinaires de l'intelligence artificielle, (v) IA dans les sciences de la santé, entre autres."
+    },
+    "name": {
+      "en": "Intercontinental Academia 4",
+      "fr": "Intercontinental Academia 4"
+    },
+    "related": {},
+    "slug": {
+      "fr": "academie-intercontinentale-4",
+      "en": "intercontinental-academia-4"
+    },
+    "type": "INITIATIVE"
+  },
+  {
+    "_id": {
+      "$oid": "67891a9f0a0fac5c0c406515"
+    },
+    "appId": ["iea"],
+    "subtitle": {
+      "en": "APEX",
+      "fr": "APEX"
+    },
+    "date": {
+      "$date": "2025-03-18T00:00:00.000Z"
+    },
+    "image": {
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/project/apex-logo.png"
+    },
+    "summary": {
+      "en": "Apex is the code name of an ongoing project of a micro-services-based infrastructure designed to serve the needs of both institutes for advanced studies and our university and academic members.\n\nThe first micro-services are:\n\n- File Upload (signed URLs, multipart uploads, large files allowed, out of the box AES encryption)\n- Form submission (Contact forms, Forms to spreadsheets for surveys and questionnaires...)\n- Taxonomy (see [OSMI](https://paris-iea.fr/activities/projects/osmi) for more information)\n- Newsletter\n- Event booking\n- Authentication provider (ORCID, ISNI, Github, PARIS",
+      "fr": "Apex est le nom de code d'un projet en cours visant à développer une infrastructure basée sur des micro-services, conçue pour répondre aux besoins des instituts d'études avancées ainsi qu'à ceux de nos membres universitaires et académiques.\n\nLes premiers micro-services incluent :\n\n- Téléchargement de fichiers (URL signées, téléchargements en plusieurs parties, prise en charge de fichiers volumineux, chiffrement AES prêt à l'emploi)\n- Soumission de formulaires (Formulaires de contact, formulaires vers des feuilles de calcul pour enquêtes et questionnaires...)\n-  Taxonomie (voir [OSMI](h"
+    },
+    "description": {
+      "en": "Apex is the code name of an ongoing project of a micro-services-based infrastructure designed to serve the needs of both institutes for advanced studies and our university and academic members.\n\nThe first micro-services are:\n\n- File Upload (signed URLs, multipart uploads, large files allowed, out of the box AES encryption)\n- Form submission (Contact forms, Forms to spreadsheets for surveys and questionnaires...)\n- Taxonomy (see [OSMI](https://paris-iea.fr/activities/projects/osmi) for more information)\n- Newsletter\n- Event booking\n- Authentication provider (ORCID, ISNI, Github, PARIS IAS) for open authorship, reviewing or translation\n- Dissemination service (Zenodo, OpenAire, HAL, goTriple...)",
+      "fr": "Apex est le nom de code d'un projet en cours visant à développer une infrastructure basée sur des micro-services, conçue pour répondre aux besoins des instituts d'études avancées ainsi qu'à ceux de nos membres universitaires et académiques.\n\nLes premiers micro-services incluent :\n\n- Téléchargement de fichiers (URL signées, téléchargements en plusieurs parties, prise en charge de fichiers volumineux, chiffrement AES prêt à l'emploi)\n- Soumission de formulaires (Formulaires de contact, formulaires vers des feuilles de calcul pour enquêtes et questionnaires...)\n- Taxonomie (voir [OSMI](https://paris-iea.fr/activities/projects/osmi) pour plus d'informations)\n- Newsletter\n- Réservation d'événements\n- Fournisseur d'authentification (ORCID, ISNI, Github, PARIS IAS) pour l'autorisation ouverte, la relecture ou la traduction\n- Service de diffusion (Zenodo, OpenAire, HAL, goTriple...)"
+    },
+    "name": {
+      "en": "APEX",
+      "fr": "APEX"
+    },
+    "related": {},
+    "slug": {
+      "fr": "apex",
+      "en": "apex"
+    },
+    "type": "PROJECT"
+  },
+  {
+    "_id": {
+      "$oid": "678921440a0fac5c0c40651b"
+    },
+    "appId": ["iea"],
+    "url": "https://paris.pias.science",
+    "subtitle": {
+      "en": "A transdisciplinary research center that welcomes researchers from all over the world in the fields of humanities and social sciences",
+      "fr": "Un centre de recherche transdisciplinaire accueillant des chercheurs du monde entier dans les domaines des sciences humaines et sociales"
+    },
+    "date": {
+      "$date": "2022-09-18T00:00:00.000Z"
+    },
+    "image": {
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/project/ppias-logo.png"
+    },
+    "summary": {
+      "en": "The [**Paris Institute for Advanced Study**](https://www.paris-iea.fr/en/ \"Paris IAS\") (Paris IAS) is a transdisciplinary research center that welcomes researchers from all over the world in the fields of humanities and social sciences. It is also open to other disciplines, in particular the life sciences, for projects involving the humanities and social sciences.\n\nThe research projects carried out at the Institute, beyond their international aspect, are characterized by an interdisciplinary approach (bringing together science, politics, economy, and society) and the development of new m",
+      "fr": "L'[**Institut d'Études Avancées de Paris**](https://www.paris-iea.fr/fr/ \"IEA de Paris\") (IEA de Paris) est un centre de recherche transdisciplinaire accueillant des chercheurs du monde entier dans les domaines des sciences humaines et sociales. Il est également ouvert à d'autres disciplines, notamment les sciences de la vie, pour des projets impliquant les sciences humaines et sociales.\n\nLes projets de recherche menés à l'Institut, au-delà de leur dimension internationale, se caractérisent par une approche interdisciplinaire (regroupant science, politique, économie et société) et le dév"
+    },
+    "description": {
+      "en": "The [**Paris Institute for Advanced Study**](https://www.paris-iea.fr/en/ \"Paris IAS\") (Paris IAS) is a transdisciplinary research center that welcomes researchers from all over the world in the fields of humanities and social sciences. It is also open to other disciplines, in particular the life sciences, for projects involving the humanities and social sciences.\n\nThe research projects carried out at the Institute, beyond their international aspect, are characterized by an interdisciplinary approach (bringing together science, politics, economy, and society) and the development of new methodologies and perspectives. To meet the challenges of our time and those to come, it encourages collaboration between research, administration, the economic world and citizens.\n\nIt is a partner of the main Parisian higher education and research institutions and is supported by the City of Paris, the Ministry of Higher Education, Research and Innovation through the RFIEA+ Laboratory of Excellence (French Network of Institutes for Advanced Study), and the European Commission as part of the FIAS (French Institutes for Advanced Study) program. The Paris IAS is also a member of NetIAS, a network that promotes dialogue and cooperation between European institutes for advanced study.\n\nEach year, the Institute's research fellows and partner institutions organize about a hundred scientific events on its premises, on fundamental research or in response to major societal problems.\n\nThese proceedings present the conferences, lecture series and other scientific productions of the Paris IAS in the form of indexed and quotable publications, often accompanied by videos or podcasts.",
+      "fr": "L'[**Institut d'Études Avancées de Paris**](https://www.paris-iea.fr/fr/ \"IEA de Paris\") (IEA de Paris) est un centre de recherche transdisciplinaire accueillant des chercheurs du monde entier dans les domaines des sciences humaines et sociales. Il est également ouvert à d'autres disciplines, notamment les sciences de la vie, pour des projets impliquant les sciences humaines et sociales.\n\nLes projets de recherche menés à l'Institut, au-delà de leur dimension internationale, se caractérisent par une approche interdisciplinaire (regroupant science, politique, économie et société) et le développement de nouvelles méthodologies et perspectives. Pour relever les défis de notre époque et de celles à venir, il encourage la collaboration entre recherche, administration, monde économique et citoyens.\n\nL'Institut est partenaire des principales institutions parisiennes d'enseignement supérieur et de recherche et est soutenu par la Ville de Paris, le Ministère de l'Enseignement Supérieur, de la Recherche et de l'Innovation via le Laboratoire d'Excellence RFIEA+ (Réseau Français des Instituts d'Études Avancées) et la Commission Européenne dans le cadre du programme FIAS (French Institutes for Advanced Study). L'IEA de Paris est également membre de NetIAS, un réseau promouvant le dialogue et la coopération entre les instituts européens d'études avancées.\n\nChaque année, les fellows de l'Institut et les institutions partenaires organisent environ une centaine d'événements scientifiques dans ses locaux, portant sur la recherche fondamentale ou répondant à des enjeux sociétaux majeurs.\n\nCes actes présentent les conférences, séries de conférences et autres productions scientifiques de l'IEA de Paris sous forme de publications indexées et citables, souvent accompagnées de vidéos ou de podcasts."
+    },
+    "name": {
+      "en": "Proceedings of Paris Institute for Advanced Study",
+      "fr": "Actes de l'Institut d'Études Avancées de Paris"
+    },
+    "related": {},
+    "slug": {
+      "fr": "actes-de-linstitut-detudes-avancees-de-paris",
+      "en": "proceedings-of-paris-institute-for-advanced-study"
+    },
+    "type": "TOOL"
+  },
+  {
+    "_id": {
+      "$oid": "67891a990a0fac5c0c406514"
+    },
+    "appId": ["iea"],
+    "subtitle": {
+      "en": "ASTR - Advanced Study Transdisciplinary Reviews",
+      "fr": "ASTR - Advanced Study Transdisciplinary Reviews"
+    },
+    "url": "https://www.cifre-villedeparis.fr/",
+    "date": {
+      "$date": "2020-03-18T00:00:00.000Z"
+    },
+    "image": {
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/project/astr-logo.png"
+    },
+    "summary": {
+      "en": "ASTR is a project that led to the Paris IAS Ideas fellowships program. It is also a platform under development where the current editorial fellows will discuss and validate fellowships invitation based on promising projects.",
+      "fr": "ASTR est un projet qui a donné naissance au programme de bourses \"Paris IAS Ideas\". C'est également une plateforme en développement où les actuels membres éditoriaux discuteront et valideront les invitations de bourses basées sur des projets prometteurs."
+    },
+    "description": {
+      "en": "ASTR is a project that led to the Paris IAS Ideas fellowships program. It is also a platform under development where the current editorial fellows will discuss and validate fellowships invitation based on promising projects.",
+      "fr": "ASTR est un projet qui a donné naissance au programme de bourses \"Paris IAS Ideas\". C'est également une plateforme en développement où les actuels membres éditoriaux discuteront et valideront les invitations de bourses basées sur des projets prometteurs."
+    },
+    "name": {
+      "en": "Advanced Study Transdisciplinary Reviews",
+      "fr": "Revues Transdisciplinaires des Études Avancées"
+    },
+    "related": {},
+    "slug": {
+      "fr": "revues-transdisciplinaires-des-etudes-avancees",
+      "en": "advanced-study-transdisciplinary-reviews"
+    },
+    "type": "PROJECT"
+  },
+  {
+    "_id": {
+      "$oid": "6789212d0a0fac5c0c406518"
+    },
+    "appId": ["iea"],
+    "url": "https://www.positive-future.org",
+    "subtitle": {
+      "en": "Stimulating the imagination and promoting a desirable and livable future",
+      "fr": "Stimuler l'imagination et promouvoir un avenir désirable et vivable"
+    },
+    "date": {
+      "$date": "2021-09-01T00:00:00.000Z"
+    },
+    "image": {
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/project/logoPF.png"
+    },
+    "summary": {
+      "en": "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100, aims to make foresight work widely known, to enable everyone to imagine a livable and desirable, yet realistic future, and to share positive and inspiring visions of tomorrow’s world.",
+      "fr": "L'initiative Futur Positif, soutenue par l'Institut d'études avancées de Paris et la Fondation 2100, vise à faire connaître les travaux de prospective, afin de permettre à chacun d'imaginer un avenir vivable et souhaitable, mais réaliste, et de partager des visions positives et inspirantes du monde de demain."
+    },
+    "description": {
+      "en": "The Positive Future initiative, supported by the Institut d'études avancées de Paris and the Fondation 2100, aims to make foresight work widely known, to enable everyone to imagine a livable and desirable, yet realistic future, and to share positive and inspiring visions of tomorrow’s world.",
+      "fr": "L'initiative Futur Positif, soutenue par l'Institut d'études avancées de Paris et la Fondation 2100, vise à faire connaître les travaux de prospective, afin de permettre à chacun d'imaginer un avenir vivable et souhaitable, mais réaliste, et de partager des visions positives et inspirantes du monde de demain."
+    },
+    "name": {
+      "en": "Positive Future",
+      "fr": "Futur Positif"
+    },
+    "slug": {
+      "fr": "futur-positif",
+      "en": "positive-future"
+    },
+    "type": "TOOL"
+  },
+  {
+    "_id": {
+      "$oid": "678921530a0fac5c0c40651d"
+    },
+    "appId": ["iea"],
+    "subtitle": {
+      "en": "Societal impacts and aftermath of Covid-19",
+      "fr": "Impacts sociétaux et conséquences de Covid-19"
+    },
+    "url": "https://wprn.org",
+    "date": {
+      "$date": "2020-03-15T00:00:00.000Z"
+    },
+    "image": {
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/project/wprn_logo.png"
+    },
+    "summary": {
+      "en": "The World Pandemic Research Network (WPRN) is dedicated to facilitating international collaboration in pandemic research. It focuses on generating knowledge, data, and tools that can be shared across nations to better understand and combat pandemics. Through partnerships with institutions like the Institut d'Études Avancées de Paris (Paris IAS), WPRN brings together leading experts to address the complex challenges posed by global health crises.\n\nThe research initiatives span various disciplines including artificial intelligence, neuroscience, and global health strategies. WPRN regularly h",
+      "fr": "Le Réseau Mondial de Recherche sur les Pandémies (WPRN) est dédié à faciliter la collaboration internationale en matière de recherche sur les pandémies. Il se concentre sur la génération de connaissances, de données et d'outils pouvant être partagés entre les nations pour mieux comprendre et combattre les pandémies. Grâce à des partenariats avec des institutions telles que l'Institut d'Études Avancées de Paris (Paris IAS), le WPRN réunit des experts de premier plan pour relever les défis complexes posés par les crises sanitaires mondiales.\n\nLes initiatives de recherche couvrent diverses di"
+    },
+    "description": {
+      "en": "The World Pandemic Research Network (WPRN) is dedicated to facilitating international collaboration in pandemic research. It focuses on generating knowledge, data, and tools that can be shared across nations to better understand and combat pandemics. Through partnerships with institutions like the Institut d'Études Avancées de Paris (Paris IAS), WPRN brings together leading experts to address the complex challenges posed by global health crises.\n\nThe research initiatives span various disciplines including artificial intelligence, neuroscience, and global health strategies. WPRN regularly hosts events that aim to foster dialogue, enhance collaboration, and push forward the boundaries of pandemic research. Through a transdisciplinary approach, the network seeks to develop innovative solutions that can be applied in real-world pandemic preparedness and response efforts.",
+      "fr": "Le Réseau Mondial de Recherche sur les Pandémies (WPRN) est dédié à faciliter la collaboration internationale en matière de recherche sur les pandémies. Il se concentre sur la génération de connaissances, de données et d'outils pouvant être partagés entre les nations pour mieux comprendre et combattre les pandémies. Grâce à des partenariats avec des institutions telles que l'Institut d'Études Avancées de Paris (Paris IAS), le WPRN réunit des experts de premier plan pour relever les défis complexes posés par les crises sanitaires mondiales.\n\nLes initiatives de recherche couvrent diverses disciplines, y compris l'intelligence artificielle, les neurosciences et les stratégies de santé mondiale. Le WPRN organise régulièrement des événements visant à encourager le dialogue, à renforcer la collaboration et à repousser les frontières de la recherche sur les pandémies. Grâce à une approche transdisciplinaire, le réseau cherche à développer des solutions innovantes applicables dans les efforts réels de préparation et de réponse aux pandémies."
+    },
+    "name": {
+      "en": "World Pandemic Research Network",
+      "fr": "Réseau mondial de recherche sur les pandémies"
+    },
+    "related": {},
+    "slug": {
+      "fr": "reseau-mondial-de-recherche-sur-les-pandemies",
+      "en": "world-pandemic-research-network"
+    },
+    "type": "TOOL"
+  },
+  {
+    "_id": {
+      "$oid": "699444c39be6f324b18e3c11"
+    },
+    "appId": ["iea"],
+    "url": "https://thesocioscope.org",
+    "subtitle": {
+      "en": "Seeing How Social Change Takes Shape",
+      "fr": "Voir comment le changement social prend forme"
+    },
+    "date": {
+      "$date": "2022-12-18T00:00:00.000Z"
+    },
+    "image": {
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/project/the_socioscope.svg"
+    },
+    "summary": {
+      "en": "Through large scale data collection around the world and LLM-driven research, the Socioscope analyses how behaviours, norms, and practices evolve within sustainable food transitions.\nWe're building a systemic way to help make complex social patterns measurable, comparable, and understandable.",
+      "fr": "Grâce à la collecte de données à grande échelle dans le monde entier et à la recherche pilotée par LLM, le Socioscope analyse comment les comportements, normes et pratiques évoluent dans les transitions alimentaires durables.\nNous construisons une méthode systématique pour rendre les schémas sociaux complexes mesurables, comparables et compréhensibles."
+    },
+    "description": {
+      "en": "The Socioscope is a transformative qualitative research project that maps how behaviours, norms, and communities influence the transition toward sustainable food systems.\nThe Socioscope serves as a comprehensive observatory of these efforts, making knowledge accessible to researchers, policymakers, and practitioners worldwide. Equally important is shining a light on local initiatives that lead change on the ground and drive the shift toward a more sustainable food system.",
+      "fr": "Le Socioscope est un projet de recherche qualitative transformatif qui cartographie comment les comportements, normes et communautés influencent la transition vers des systèmes alimentaires durables.\nLe Socioscope sert d'observatoire complet de ces efforts, rendant les connaissances accessibles aux chercheurs, décideurs politiques et praticiens du monde entier. Tout aussi important, il met en lumière les initiatives locales qui mènent le changement sur le terrain et conduisent la transition vers un système alimentaire plus durable."
+    },
+    "name": {
+      "en": "The Socioscope",
+      "fr": "Le Socioscope"
+    },
+    "related": {},
+    "slug": {
+      "fr": "le-socioscope",
+      "en": "the-socioscope"
+    },
+    "type": "PROJECT"
+  }
+]

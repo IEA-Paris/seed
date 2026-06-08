@@ -1,6 +1,9 @@
 <template>
   <div class="organisation-page">
-    <NavigationPageToc :sections="tocSections" :aria-label="$t('on-this-page')" />
+    <NavigationPageToc
+      :sections="tocSections"
+      :aria-label="$t('on-this-page')"
+    />
     <!-- ─── Hero ─────────────────────────────────────────────────────── -->
     <section class="organisation-hero">
       <v-container>
@@ -164,7 +167,10 @@ const buildVariables = (group) => ({
     skip: 0,
     limit: 50,
     sort: "nameasc",
-    filters: JSON.stringify({ groups: [group] }),
+    // Server-defined view selector: resolves to `groups.<group>: true`.
+    // Only these grouped members carry the `latest` (current position) field.
+    modifier: group,
+    filters: JSON.stringify({}),
   },
   appId: "iea",
   lang: locale.value,
@@ -185,8 +191,7 @@ for (const res of [teamRes, boardRes, sabRes, ethicsRes]) {
 }
 
 const collator = computed(
-  () =>
-    new Intl.Collator(locale.value, { sensitivity: "base", usage: "sort" }),
+  () => new Intl.Collator(locale.value, { sensitivity: "base", usage: "sort" }),
 )
 
 const sortPeople = (items) =>
@@ -197,10 +202,18 @@ const sortPeople = (items) =>
       : collator.value.compare(a.firstname || "", b.firstname || "")
   })
 
-const team = computed(() => sortPeople(teamRes.data.value?.listPeople?.items ?? []))
-const board = computed(() => sortPeople(boardRes.data.value?.listPeople?.items ?? []))
-const sab = computed(() => sortPeople(sabRes.data.value?.listPeople?.items ?? []))
-const ethics = computed(() => sortPeople(ethicsRes.data.value?.listPeople?.items ?? []))
+const team = computed(() =>
+  sortPeople(teamRes.data.value?.listPeople?.items ?? []),
+)
+const board = computed(() =>
+  sortPeople(boardRes.data.value?.listPeople?.items ?? []),
+)
+const sab = computed(() =>
+  sortPeople(sabRes.data.value?.listPeople?.items ?? []),
+)
+const ethics = computed(() =>
+  sortPeople(ethicsRes.data.value?.listPeople?.items ?? []),
+)
 
 const loading = computed(
   () =>

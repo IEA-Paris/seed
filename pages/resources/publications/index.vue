@@ -4,5 +4,6 @@
     markdown-file="resources__publications__publications"
     type="publications"
     path-prefix="resources-publications-slug"
+    modifier="publications"
   />
 </template>

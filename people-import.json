@@ -43,11 +43,11 @@
       }
     ],
     "image": {
-      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/team/Nadege.jpg"
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/team/nadege-bourgeois.jpg"
     },
     "biography": {
-      "fr": "Après une formation en gestion des entreprises et administrations à l'IUT GEA de Tours, complétée par un certificat professionnel Comptable Unique au CNAM de Paris, Nadège Bourgeois a travaillé en tant qu'assistante comptable, puis responsable comptable dans des entreprises du secteur des nouvelles technologies et des assurances (Prima Solutions, EsearchVision, Assurland). En novembre 2016, elle a intégré l'IEA en tant que comptable unique.\n\nNadège Bourgeois s'occupe de la comptabilité de l'institut dans son ensemble, ce qui implique le suivi de la trésorerie et des budgets annuels, l'élaboration des conventions partenaires, des demandes de subvention et la facturation ainsi que la clôture des comptes annuels. Elle est responsable aussi de la gestion administrative et financière des ressources humaines, avec l'établissement de contrats de travail, de conventions d'allocation, de fiches de paie et de déclarations sociales.\n\nElle est nommée Secrétaire générale de l'Institut en avril 2023 et reprend la gestion des instances statutaires (Bureau, CA, AG).",
-      "en": "After training in business and administration management at IUT GEA Tours, supplemented by a professional certificate as Sole Accountant from CNAM Paris, Nadège Bourgeois worked as an accounting assistant, then as accounting manager in companies in the new technologies and insurance sectors (Prima Solutions, EsearchVision, Assurland). In November 2016, she joined the IAS as sole accountant.\n\nNadège Bourgeois is responsible for the Institute's overall accounting, which involves monitoring cash flow and annual budgets, preparing partner agreements, grant applications and invoicing, as well as closing annual accounts. She is also responsible for the administrative and financial management of human resources, including the preparation of employment contracts, allocation agreements, payslips and social security declarations.\n\nShe was appointed Secretary General of the Institute in April 2023 and took over the management of statutory bodies (Bureau, Board of Directors, General Assembly)."
+      "fr": "Nadège Bourgeois est secrétaire générale de l'Institut. Elle s’occupe de la comptabilité de l’institut dans son ensemble et de la gestion administrative et financière, ce qui implique le suivi de la trésorerie et des budgets annuels, l’élaboration des conventions partenaires, des contrats de travail, fiches de paie et déclarations sociales, des demandes de subvention et la facturation, la clôture des comptes annuels.",
+      "en": "Nadège Bourgeois is the Institute’s Secretary General. She oversees the Institute’s overall accounting and administrative and financial management, which includes monitoring cash flow and annual budgets, drafting partnership agreements, employment contracts, pay stubs, and social security filings, preparing grant applications and invoices, and closing the annual accounts."
     },
     "disciplines": [],
     "tags": [],
@@ -56,8 +56,8 @@
       "publications": []
     },
     "summary": {
-      "fr": "Après une formation en gestion des entreprises et administrations à l'IUT GEA de Tours, complétée par un certificat professionnel Comptable Unique au CNAM de Paris, Nadège Bourgeois a travaillé en tant qu'assistante comptable, puis responsable comptable dans des entreprises du secteur des nouvelles technologies et des assurances (Prima Solutions, EsearchVision, Assurland)...",
-      "en": "After training in business and administration management at IUT GEA Tours, supplemented by a professional certificate as Sole Accountant from CNAM Paris, Nadège Bourgeois worked as an accounting assistant, then as accounting manager in companies in the new technologies and insurance sectors (Prima Solutions, EsearchVision, Assurland). In November 2016, she joined the IAS as sole accountant..."
+      "fr": "Nadège Bourgeois est secrétaire générale de l'Institut. Elle s’occupe de la comptabilité de l’institut dans son ensemble et de la gestion administrative et financière.",
+      "en": "Nadège Bourgeois is the Institute’s Secretary General. She oversees the Institute’s overall accounting as well as its administrative and financial management."
     },
     "consent": {
       "data": true,
@@ -77,7 +77,16 @@
       "vintage": []
     },
     "lang": "en",
-    "slug": "nadege-bourgeois"
+    "slug": "nadege-bourgeois",
+    "latest": {
+      "department": null,
+      "role": {
+        "fr": "Secrétaire générale",
+        "en": "Secretary General"
+      },
+      "start": null,
+      "stop": null
+    }
   },
   {
     "appId": ["iea"],
@@ -122,8 +131,7 @@
       "orcid": "https://orcid.org/0000-0003-1715-2919",
       "linkedin": "https://www.linkedin.com/in/antoine-cordelois",
       "github": "https://github.com/Billybobbonnet",
-      "scholar": "https://scholar.google.com/citations?user=zuKUCXEAAAAJ&hl=fr",
-      "github": "https://github.com/Billybobbonnet"
+      "scholar": "https://scholar.google.com/citations?user=zuKUCXEAAAAJ&hl=fr"
     },
     "groups": {
       "team": true,
@@ -134,14 +142,24 @@
       "ethics": false
     },
     "biography": {
-      "en": "Antoine Cordelois is Head of Digital Projects and oversees the implementation of the institute's digital platforms, such as the World Pandemic Research Network and the Food Socioscope.",
-      "fr": "Antoine Cordelois est responsable des projets numériques et pilote la mise en oeuvre des plateformes numériques de l'institut telles que le World Pandemic Research Network ou le Food Socioscope."
+      "en": "Antoine Cordelois holds a Ph.D. in cognitive science, specializes in human-machine interfaces, and is a software engineer. In April 2020, he joined the Paris Institute for Advanced Studies as head of digital projects, as well as the implementation of infrastructure such as the World Pandemic Research Network, the Food Socioscope, and PPIAS.",
+      "fr": "Antoine Cordelois est docteur en sciences cognitives, spécialiste des interfaces homme-machine et ingénieur logiciel. Il rejoint en avril 2020 l'Institut d'Etudes Avancées de Paris en tant que responsable des projets numériques, ainsi que de la mise en oeuvre d'infrastructures telles que le World Pandemic Research Network, le Food Socioscope, PPIAS."
     },
     "summary": {
-      "en": "Head of Digital Projects at the Paris Institute for Advanced Study",
-      "fr": "Responsable des projets numériques à l'Institut d'études avancées de Paris"
+      "en": "Antoine Cordelois, who holds a Ph.D. in cognitive science and is a software engineer, has been the head of digital projects at the IEA in Paris since 2020 (WPRN, Food Socioscope, PPIAS).",
+      "fr": "Antoine Cordelois, docteur en sciences cognitives et ingénieur logiciel, est responsable des projets numériques à l’IEA de Paris depuis 2020 (WPRN, Food Socioscope, PPIAS)."
     },
-    "slug": "antoine-cordelois"
+    "slug": "antoine-cordelois",
+    "latest": {
+      "role": {
+        "en": "Chief Technical Officer",
+        "fr": "Responsable web et technologies"
+      },
+      "start": {
+        "$date": "2020-06-15T08:00:00.000Z"
+      },
+      "stop": null
+    }
   },
   {
     "appId": ["iea"],
@@ -190,8 +208,8 @@
       "copyright": "huq.png"
     },
     "biography": {
-      "fr": "Samia Huq est professeure d'anthropologie à l'Université de Brac, au Bangladesh. Elle est également chercheuse au Centre pour la paix et la justice (CPJ) de l'Université de Brac où elle a dirigé le projet sur la foi et le développement en collaboration avec le World Faiths Development Dialogue de l'Université de Georgetown.  \n  \nDans le cadre de ce projet, Samia Huq a exploré l'intersection de la foi et du développement, autour des questions de l'éducation, de l'égalité des sexes et des aspirations de la jeunesse, en facilitant le dialogue entre les acteurs du développement inspirés par la foi et les acteurs séculiers sur ces questions.\n\nSamia Huq a participé à des recherches sur l'impact de l'enseignement secondaire laïque et des madrasas sur les normes et les pratiques sexospécifiques, dans le cadre de l'initiative sur l'éducation, le genre et la croissance en Asie ([http://www.integgra.org/index.php](http://www.integgra.org/index.php)), et a participé à l'International Panel on Social Progress ([https://www.ipsp.org/](https://www.ipsp.org/)) et à Musawah ([https://www.musawah.org/](https://www.musawah.org/)). Samia Huq est la responsable académique (CAO) qui représente l'Université de Brac au sein du réseau Open Society University Network (OSUN) [https://opensocietyuniversitynetwork.org/.](https://opensocietyuniversitynetwork.org/.) Elle siège également au conseil d'administration de plusieurs ONG et groupes de réflexion nationaux.\n\nElle rejoint l'IEA en octobre 2024 pour une résidence d'écriture d'un mois.\n\n<span class=\"projet\"></span>**État, mouvements, et périls pour les femmes (musulmanes) au Bangladesh**\n\nLes progrès réalisés en matière de droits des femmes au Bangladesh sont menacés par une réaction de plus en plus véhémente et active, comme en témoigne par exemple l'abaissement à 16 ans de l'âge auquel les filles peuvent légalement se marier. Les notions régressives du rôle et du comportement des femmes sont souvent liées à des positions religieuses, ce qui fait apparaître la \"religion\" comme un obstacle au progrès social vers la parité des sexes et l'inclusion sociale. À l'heure actuelle, il existe des tensions entre la religion et la laïcité, et un État provisoire dont la position laïque est souvent discréditée sur la base d'impulsions majoritaires musulmanes.\n\nCe projet de recherche contribue à un programme de collaboration qui vise à établir un dialogue entre les acteurs religieux, laïques et étatiques afin de réfléchir aux libertés des femmes et à leur prise en compte dans les politiques. S'appuyant sur l'expérience du \"féminisme islamique\" dans de nombreux contextes musulmans et de l'\"islam civil\" en tant que composante des États en voie de démocratisation, le projet explore l'histoire des libertés des femmes au Bangladesh, telles qu'elles ont été défendues par les groupes de femmes et promues par l'État. Il analyse également la résistance des islamistes en la nuançant avec les positions de l'islam sur les libertés des femmes et les différentes traditions d'interprétation religieuse qu'elles mettent en évidence. Grâce à un examen parallèle de ces traditions, le projet retrace les défis du dialogue et de la collaboration, en explorant et en évaluant les cadres d'interprétation et les modèles d'éducation, ainsi que l'espace dont disposent les femmes pour s'exprimer et s'écouter les unes les autres, en tant que catalyseurs possibles d'une entente future.",
-      "en": "Samia Huq is Dean of the School of General Education and Professor of Anthropology at Brac University, Bangladesh. She obtained her PhD from Brandeis University, USA, looking at women’s religious discussion groups in urban Bangladesh. As Dean of the core curriculum, her task in to build and consolidate the Liberal Arts and Sciences and interdisciplinarity in general education and create curricular and co-curricular pathways for civic engagement and leadership as essential ingredients of the Brac U student experience. Dr. Huq is also Research Fellow at the Center for Peace and Justice (CPJ) at Brac University where she has run the project on Faith and Development in collaboration with the World Faiths Development Dialogue at Georgetown University.\n\nAs part of the project, Dr Huq has explored the intersection of faith and development around questions of education, gender equality and aspirations of the youth, facilitating dialogues between faith inspired and secular development actors on these issues. Dr. Huq has been involved in research on the impact of secondary secular and madrasa education on gendered norms and practices, as part of the Initiative on Education, Gender and Growth in Asia [http://www.integgra.org/index.php](http://www.integgra.org/index.php), authored and involved in the International Panel for Social Progress [https://www.ipsp.org/](https://www.ipsp.org/) and Musawah [https://www.musawah.org/.](https://www.musawah.org/.) Dr. Huq is the Chief Academic Officer (CAO) representing Brac University at the Open Society University Network (OSUN) [https://opensocietyuniversitynetwork.org/](https://opensocietyuniversitynetwork.org/), building bridges between various Brac U academic programs and universities within OSUN and overseeing student and faculty mobility and other exchanges between Brac U and OSUN partners. She also sits on the board of several national NGOs and think tanks. She is author of several peer reviewed journal articles, book chapters and currently working on her monograph on women, Islam and modernity in Bangladesh.\n\nIn October 2025 she joins the IAS for a one-month writing residency\n\n<span class=\"projet\"></span>**Is it possible to carve a cohesive women’s agenda? Between state, movements and (Muslim) women’s perils in Bangladesh**\n\nThe rapid development and transformation of Bangladesh's economy and society has necessitated a re examination of the nation's cultural practices and social norms, prompting diverse reflections on questions of values. World Faiths Development Dialogue (WFDD), a nonprofit organization housed at the Berkley Center for Religion, Peace, and World Affairs at Georgetown University, and the Center for Peace and Justice (CPJ) at BRAC University have collaborated for a decade on understanding the historical vicissitudes underlying today's social system. This effort has involved multiple actors, secular and religious, who collaborate and compete for hegemony and constituents, with debates often revolving around the differing visions of various groups for social change. The project has focused on education, gender, media and youth, exploring the question of what religion has to do with each of them and their interlinkage. Gender and religion is a particularly vexed topic both in Bangladesh, as well as Globally.\n\n  \nProgress on women’s rights in Bangladesh is threatened by an increasingly vociferous and active backlash, witnessed for example in lowering the age when girls can legally marry to 16. Tensions include debates on the National Development Policy, which witnessed impediments to proposed changes in family law, and increased reports of domestic violence, assault, and rape. Regressive notions of the propriety of women’s roles and comportment are often entangled with religious positions, making “religion” appear as an impediment to social progress towards gender parity and social inclusion. At present there are tensions across the religious-secular divide, and a tentative state whose secular position is often discredited on the basis of Muslim majoritarian impulses. The project seeks to understand pathways of engagement between different stakeholders in order to build consensus around questions of freedom, personal and community resilience by focusing on histories of women’s movements, their interactions with the state on key issues and the growing trends and voices from Islamic women’s perspectives. All parties are invested in their version of freedom which precludes dialogue. As the agenda for women’s freedoms is held hostage at the intersection of the three quarters, the project focuses on ways beyond impasses to form coalitions, highlighting convergences, engaging in dialogue and prioritizing practice over rhetoric."
+      "fr": "Samia Huq est professeure d'anthropologie à l'Université de Brac, au Bangladesh. Elle est également chercheuse au Centre pour la paix et la justice (CPJ) de l'Université de Brac où elle a dirigé le projet sur la foi et le développement en collaboration avec le World Faiths Development Dialogue de l'Université de Georgetown.  ",
+      "en": "Samia Huq is Dean of the School of General Education and Professor of Anthropology at Brac University, Bangladesh. She obtained her PhD from Brandeis University, USA, looking at women’s religious discussion groups in urban Bangladesh. As Dean of the core curriculum, her task in to build and consolidate the Liberal Arts and Sciences and interdisciplinarity in general education and create curricular and co-curricular pathways for civic engagement and leadership as essential ingredients of the Brac U student experience. Dr. Huq is also Research Fellow at the Center for Peace and Justice (CPJ) at Brac University where she has run the project on Faith and Development in collaboration with the World Faiths Development Dialogue at Georgetown University."
     },
     "disciplines": [
       {
@@ -335,11 +353,11 @@
       "hash": "9303380928d0baf0ae851adc7bec5bb8052509c71eb49d1796d8930dddbb8ef4",
       "path": "images/team/elisa-nau.JPG",
       "copyright": "Droits réservés",
-      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/team/elisa-nau.JPG"
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/team/elisa-nau.jpg"
     },
     "biography": {
-      "fr": "Elisa Nau est assistante logistique et administrative à l'Institut d'études avancées de Paris, où elle joue un rôle clé dans le bon fonctionnement quotidien du site. Autodidacte passionnée, elle est titulaire d'une formation en management et gestion de projet. Avant de rejoindre l'IEA, elle a exercé pendant six ans en tant qu'auto-entrepreneuse dans le conseil en relations publiques et communication, intervenant dans des domaines aussi variés que la politique, la musique ou encore les projets culturels.\n\nAu sein de l'IEA, Elisa assiste le responsable du site sur les besoins logistiques et informatiques, accueille les chercheurs et veille à leur installation dans les meilleures conditions. Elle soutient également la direction et le secrétariat général dans diverses tâches administratives, et contribue activement à la préparation des événements, de l'accueil à la mise en place.",
-      "en": "Elisa Nau is logistics and administrative assistant at the Paris Institute for Advanced Study, where she plays a key role in the smooth daily operation of the site. A passionate self-taught professional, she holds training in management and project management. Before joining the IAS, she worked for six years as a self-employed consultant in public relations and communication, working in fields as varied as politics, music and cultural projects.\n\nAt the IAS, Elisa assists the site manager with logistics and IT needs, welcomes researchers and ensures they are settled in the best conditions. She also supports the management and the general secretariat in various administrative tasks, and actively contributes to event preparation, from reception to set-up."
+      "fr": "Elisa Nau est assistante logistique et administrative à l’IEA de Paris. Elle appuie le responsable du site, la direction et le secrétariat général sur les aspects logistiques, informatiques et administratifs, et participe à l’organisation des événements et à l’accueil des chercheurs.",
+      "en": "Elisa Nau is a logistics and administrative assistant at the IEA in Paris. She supports the site manager, the executive team, and the general secretariat with logistics, IT, and administrative matters, and helps organize events and welcome researchers."
     },
     "disciplines": [],
     "tags": [],
@@ -348,8 +366,8 @@
       "publications": []
     },
     "summary": {
-      "fr": "Elisa Nau est assistante logistique et administrative à l'Institut d'études avancées de Paris, où elle joue un rôle clé dans le bon fonctionnement quotidien du site. Autodidacte passionnée, elle est titulaire d'une formation en management et gestion de projet. Avant de rejoindre l'IEA, elle a exercé pendant six ans en tant qu'auto-entrepreneuse dans le conseil en relations publiques...",
-      "en": "Elisa Nau is logistics and administrative assistant at the Paris Institute for Advanced Study, where she plays a key role in the smooth daily operation of the site. A passionate self-taught professional, she holds training in management and project management. Before joining the IAS, she worked for six years as a self-employed consultant in public relations and communication..."
+      "fr": "Elisa Nau est assistante logistique et administrative à l’IEA de Paris. Elle appuie le responsable du site, la direction et le secrétariat général.",
+      "en": "Elisa Nau is a logistics and administrative assistant at the IEA in Paris. She supports the site manager, the executive team, and the general secretariat."
     },
     "consent": {
       "data": true,
@@ -369,7 +387,16 @@
       "vintage": []
     },
     "lang": "en",
-    "slug": "elisa-nau"
+    "slug": "elisa-nau",
+    "latest": {
+      "department": null,
+      "role": {
+        "fr": "Assistante logistique et administrative",
+        "en": "Logistics and Administrative Assistant"
+      },
+      "start": null,
+      "stop": null
+    }
   },
   {
     "appId": ["iea"],
@@ -424,8 +451,8 @@
       "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/board/olivier-bouin.jpg"
     },
     "biography": {
-      "fr": "Directeur délégué de l'IEA de Paris. Directeur de la Fondation–Laboratoire d'excellence RFIEA (Réseau français des instituts d'études avancées), créée par le ministère de l'Enseignement supérieur, de la Recherche et de l'Innovation en 2007, il est également secrétaire général de NetIAS, réseau européen réunissant 26 instituts d'études avancées dans 16 pays depuis 2009. Il coordonne UBIAS, le réseau mondial des instituts universitaires d'études avancées, qui rassemble 45 institutions à travers le monde, dont il est membre du comité de pilotage depuis 2010 et coordinateur principal depuis 2021. Il assure par ailleurs la coordination des programmes européens COFUND FIAS depuis 2020 et EURIAS de 2010 à 2019. Depuis 2014, il est coordinateur principal de l'International Panel on Social Progress (IPSP) et, depuis 2020, du World Pandemic Research Network (WPRN). Il a également été président élu du conseil d'administration de l'Alliance européenne pour les sciences sociales et humaines (EASSH) entre 2018 et 2021, et responsable des affaires européennes et internationales de l'Alliance Athéna de 2012 à 2021.",
-      "en": "Deputy Director of the IEA in Paris. Director of the RFIEA Foundation-Labex (French Network of Institutes for Advanced Study), created by the Ministry of Higher Education, Research and Innovation in 2007, he is also Secretary General of NetIAS, a European network bringing together 26 institutes for advanced study in 16 countries since 2009. He coordinates UBIAS, the global network of university-based institutes for advanced study, which brings together 45 institutions worldwide, of which he has been a member of the steering committee since 2010 and principal coordinator since 2021. He also coordinates the European COFUND FIAS programs since 2020 and EURIAS from 2010 to 2019. Since 2014, he has been principal coordinator of the International Panel on Social Progress (IPSP) and, since 2020, of the World Pandemic Research Network (WPRN). He was also elected president of the board of directors of the European Alliance for Social Sciences and Humanities (EASSH) between 2018 and 2021, and head of European and international affairs at Alliance Athéna from 2012 to 2021."
+      "fr": "Olivier Bouin est directeur exécutif de l’IEA de Paris, directeur de la Fondation RFIEA depuis 2007, secrétaire général de NetIAS, depuis 2009 et coordinateur principal d’UBIAS depuis 2010. A l’IEA de Paris, il supervise les candidatures, le financement des activités, les liens avec les chercheurs des universités partenaires et les relations avec les partenaires académiques et institutionnels.",
+      "en": "Olivier Bouin is Executive Director of the Paris IAS, Director of the RFIEA Foundation since 2007, Secretary General of NetIAS since 2009, and Principal Coordinator of UBIAS since 2010. At the Paris IAS, he oversees applications, activity funding, connections with researchers at partner universities, and relations with academic and institutional partners."
     },
     "disciplines": [],
     "tags": [],
@@ -434,94 +461,8 @@
       "publications": []
     },
     "summary": {
-      "fr": "Directeur délégué de l'IEA de Paris. Directeur de la Fondation–Laboratoire d'excellence RFIEA (Réseau français des instituts d'études avancées), créée par le ministère de l'Enseignement supérieur, de la Recherche et de l'Innovation en 2007, il est également secrétaire général de NetIAS, réseau européen réunissant 26 instituts d'études avancées dans 16 pays depuis 2009...",
-      "en": "Deputy Director of the IEA in Paris. Director of the RFIEA Foundation-Labex (French Network of Institutes for Advanced Study), created by the Ministry of Higher Education, Research and Innovation in 2007, he is also Secretary General of NetIAS, a European network bringing together 26 institutes for advanced study in 16 countries since 2009..."
-    },
-    "consent": {
-      "data": true,
-      "record": true,
-      "diffusion": true,
-      "publication": true,
-      "email": true,
-      "newsletter": false,
-      "fellowshipnewsletter": false
-    },
-    "groups": {
-      "team": false,
-      "sab": false,
-      "board": true,
-      "fellows": false,
-      "sponsor": false,
-      "vintage": []
-    },
-    "lang": "en",
-    "slug": "olivier-bouin"
-  },
-  {
-    "appId": ["iea"],
-    "firstname": "Paulius",
-    "lastname": "Yamin",
-    "affiliations": [
-      {
-        "affiliation": {
-          "image": {
-            "alt": null,
-            "backgroundColor": null,
-            "caption": null,
-            "copyright": null,
-            "license": null,
-            "licenseUrl": null,
-            "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/logos/logo.png"
-          },
-          "location": {
-            "alt": null,
-            "city": "Paris",
-            "country": "France",
-            "details": null,
-            "geocode": null,
-            "name": "17 Quai d'Anjou, 75004 Paris, France",
-            "street": null,
-            "zip": null
-          },
-          "name": "Paris Institute for Advanced Study",
-          "ror": null,
-          "url": null
-        },
-        "positions": [
-          {
-            "department": null,
-            "role": {
-              "fr": "Responsable scientifique",
-              "en": "Scientific Director"
-            },
-            "start": null,
-            "stop": null
-          }
-        ]
-      }
-    ],
-    "image": {
-      "name": "paulius-yamin.jpg",
-      "size": 998606,
-      "fileType": "image/jpeg",
-      "category": "IMAGE",
-      "hash": "71e00d7dbfcff4e0c275a9348b2e057056c7729e188c10c3fd4a475a4be35f5f",
-      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/team/paulius-yamin.jpg",
-      "copyright": "Florence Brochoire"
-    },
-    "biography": {
-      "fr": "Paulius Yamin est un anthropologue et psychologue social avec plus de dix ans d'expérience dans la conception, la coordination et la mise en œuvre d'initiatives de recherche, politiques, communautaires, et de développement international. Avant rejoindre l'IEA, il a été le directeur général (Managing Director) du Centre pour les normes sociales et les dynamiques comportementales de l'Université de Pennsylvanie (2020-2022), cofondateur et associé directeur du Behavioural Lab Lithuania (2019-2020), et responsable de la stratégie nationale de changement comportemental et culturel pour les fonctionnaires au sein du gouvernement colombien (2015-2016). Paulius a vécu et travaillé dans des institutions de recherche en Colombie, le Royaume-Uni, la Lituanie, les États-Unis et maintenant en France.\n\nIl est titulaire d'un doctorat en sciences psychologiques et comportementales de la London School of Economics (où il est également chercheur invité), d'un MBA avec mention de la Quantic School of Business and Technology, d'un M.A. avec distinction en études culturelles du Goldsmiths College, Université de Londres, et d'un B.A. en anthropologie (diplôme Summa Cum Laude) de l'Universidad de los Andes (Colombie).\n\nA l'IEA de Paris, il est responsable de la mise en œuvre de la stratégie scientifique, de la programmation annuelle des activités scientifiques ainsi que de la supervision des appels à candidatures et du processus de sélection des futurs résidents. Il représente l'Institut auprès de ses partenaires scientifiques.",
-      "en": "Paulius Yamin is an anthropologist and social psychologist with over ten years of experience in designing, coordinating, and implementing research, policy, community, and international development initiatives. Before joining the IAS, he served as Managing Director of the Center for Social Norms and Behavioral Dynamics at the University of Pennsylvania (2020-2022), co-founder and managing partner of the Behavioural Lab Lithuania (2019-2020), and head of the national behavioral and cultural change strategy for civil servants within the Colombian government (2015-2016). Paulius has lived and worked in research institutions in Colombia, the United Kingdom, Lithuania, the United States, and now France.\n\nHe holds a PhD in Psychological and Behavioural Sciences from the London School of Economics (where he is also a visiting researcher), an MBA with distinction from the Quantic School of Business and Technology, an MA with distinction in Cultural Studies from Goldsmiths College, University of London, and a BA in Anthropology (Summa Cum Laude) from Universidad de los Andes (Colombia).\n\nAt the Paris IAS, he is responsible for implementing scientific strategy, annual programming of scientific activities, and overseeing fellowship calls and the selection process for future residents. He represents the Institute to its scientific partners."
-    },
-    "disciplines": [],
-    "tags": [],
-    "related": {
-      "events": [],
-      "publications": []
-    },
-    "summary": {
-      "fr": "Paulius Yamin est un anthropologue et psychologue social avec plus de dix ans d'expérience dans la conception, la coordination et la mise en œuvre d'initiatives de recherche, politiques, communautaires, et de développement international. Avant rejoindre l'IEA, il a été le directeur général (Managing Director) du Centre pour les normes sociales et les dynamiques comportementales de...",
-      "en": "Paulius Yamin is an anthropologist and social psychologist with over ten years of experience in designing, coordinating, and implementing research, policy, community, and international development initiatives. Before joining the IAS, he served as Managing Director of the Center for Social Norms and Behavioral Dynamics at the University of Pennsylvania (2020-2022), co-founder and managing..."
+      "fr": "Olivier Bouin est directeur exécutif de l’IEA de Paris, directeur de la Fondation RFIEA depuis 2007, secrétaire général de NetIAS, depuis 2009 et coordinateur principal d’UBIAS depuis 2010.",
+      "en": "Olivier Bouin is Executive Director of the IEA in Paris, Director of the RFIEA Foundation since 2007, Secretary General of NetIAS since 2009, and Principal Coordinator of UBIAS since 2010."
     },
     "consent": {
       "data": true,
@@ -541,7 +482,16 @@
       "vintage": []
     },
     "lang": "en",
-    "slug": "paulius-yamin"
+    "slug": "olivier-bouin",
+    "latest": {
+      "department": null,
+      "role": {
+        "fr": "Directeur Délégué",
+        "en": "Deputy Director"
+      },
+      "start": null,
+      "stop": null
+    }
   },
   {
     "appId": ["iea"],
@@ -599,8 +549,8 @@
       "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/team/pierre-pezzillo.jpg"
     },
     "biography": {
-      "fr": "Issu d'une formation Hôtellerie Restauration au Puy-en-Velay, amoureux du patrimoine et de gastronomie française, Pierre Pezzillo a longtemps accompagné de grands français et internationaux à Paris et en tournée (Céline Dion, The Rolling Stones, Prince,..) leur faisant découvrir la richesse de nos artisans et producteurs locaux.\n\nIl a rejoint l'IEA en janvier 2025 en tant que Chef cuisinier où il est en charge des repas quotidiens des chercheurs en résidence, de l'équipe, et des repas proposés lors des événements scientifiques de nos partenaires universitaires.",
-      "en": "Coming from a Hospitality and Catering background in Puy-en-Velay, a lover of heritage and French gastronomy, Pierre Pezzillo has long accompanied major French and international artists in Paris and on tour (Céline Dion, The Rolling Stones, Prince...) introducing them to the richness of our local artisans and producers.\n\nHe joined the IAS in January 2025 as Head Chef, where he is in charge of daily meals for researchers in residence, the team, and meals served at scientific events organized by our university partners."
+      "fr": "Issu d'une formation Hôtellerie Restauration au Puy-en-Velay, longtemps accompagné de grands français et internationaux à Paris et en tournée, il rejoint l'IEA en tant que Chef cuisinier en janvier 2025 où il est en charge des repas quotidiens des chercheurs en résidence, de l'équipe, et des repas proposés lors des événements scientifiques de nos partenaires universitaires.",
+      "en": "After completing his training in hospitality and culinary arts in Le Puy-en-Velay and working for many years alongside leading French and international chefs in Paris and on tour, he joined the IAS as Cook Chef in January 2025, where he is responsible for the daily meals for resident researchers and staff, as well as the meals served during scientific events hosted by our university partners."
     },
     "disciplines": [],
     "tags": [],
@@ -609,8 +559,8 @@
       "publications": []
     },
     "summary": {
-      "fr": "Issu d'une formation Hôtellerie Restauration au Puy-en-Velay, amoureux du patrimoine et de gastronomie française, Pierre Pezzillo a longtemps accompagné de grands français et internationaux à Paris et en tournée (Céline Dion, The Rolling Stones, Prince,..) leur faisant découvrir la richesse de nos artisans et producteurs locaux...",
-      "en": "Coming from a Hospitality and Catering background in Puy-en-Velay, a lover of heritage and French gastronomy, Pierre Pezzillo has long accompanied major French and international artists in Paris and on tour (Céline Dion, The Rolling Stones, Prince...) introducing them to the richness of our local artisans and producers..."
+      "fr": "Issu d'une formation Hôtellerie Restauration au Puy-en-Velay, longtemps accompagné de grands français et internationaux à Paris et en tournée, il rejoint l'IEA en tant que Chef cuisinier",
+      "en": "After completing his training in hospitality and culinary arts in Le Puy-en-Velay and spending many years working alongside leading French and international chefs in Paris and on tour, he joined the IAS as Cook Chef."
     },
     "consent": {
       "data": true,
@@ -630,7 +580,18 @@
       "vintage": []
     },
     "lang": "en",
-    "slug": "pierre-pezzillo"
+    "slug": "pierre-pezzillo",
+    "latest": {
+      "department": null,
+      "role": {
+        "fr": "Chef cuisinier",
+        "en": "Head Chef"
+      },
+      "start": {
+        "$date": "2025-01-01T00:00:00.000Z"
+      },
+      "stop": null
+    }
   },
   {
     "appId": ["iea"],
@@ -778,12 +739,12 @@
       "category": "IMAGE",
       "hash": "809e28864bab82b7a80098d1b3b9b213e185f633263f677a08030fc478f550a6",
       "path": "images/team/IRINA-NOSULENKO.jpg",
-      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/team/IRINA-NOSULENKO.jpg",
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/team/irina-nosulenko.jpg",
       "copyright": "Florence Brochoire"
     },
     "biography": {
-      "fr": "Irina Nosulenko a suivi une formation en sciences politiques et en relations publiques à la Haute École d'Économie de Moscou, puis à Sciences Po Paris. Elle a développé sa carrière dans les domaines du marketing et de la gestion de projets.\n\nAprès plusieurs années d'expérience au sein de grandes entreprises internationales telles que L'Oréal et Pernod Ricard, elle s'est orientée vers la gestion de projets dans le secteur de l'éducation privée internationale.\n\nÀ l'IEA de Paris, elle veille à assurer une communication fluide entre les départements et est responsable de la mise en place et de la coordination des différents processus internes de l'Institut : accueil des chercheurs en résidence, gestion des ressources humaines, mise en œuvre de la stratégie institutionnelle, ainsi que gestion et développement des partenariats externes.",
-      "en": "Irina Nosulenko studied political science and public relations at the Higher School of Economics in Moscow, then at Sciences Po Paris. She developed her career in marketing and project management.\n\nAfter several years of experience with major international companies such as L'Oréal and Pernod Ricard, she moved into project management in the international private education sector.\n\nAt the Paris IAS, she ensures smooth communication between departments and is responsible for setting up and coordinating the Institute's various internal processes: welcoming researchers in residence, human resources management, implementation of institutional strategy, and management and development of external partnerships."
+      "fr": "Irina Nosulenko, diplômée de HSE Moscou et Sciences Po, a travaillé chez L’Oréal et Pernod Ricard avant de rejoindre l’enseignement supérieur et la recherche. À l’IEA, elle est, depuis 2024, Directrice des opérations. Elle veille à assurer une communication fluide entre les départements et est responsable de la mise en place et de la coordination des différents processus internes de l’Institut.",
+      "en": "Irina Nosulenko, a graduate of HSE Moscow and Sciences Po, worked at L’Oréal and Pernod Ricard before moving into higher education and research. At the Paris IAS, she has served as Director of Operations since 2024. She ensures smooth communication between departments and is responsible for implementing and coordinating the Institute’s various internal processes."
     },
     "disciplines": [],
     "tags": [],
@@ -792,8 +753,8 @@
       "publications": []
     },
     "summary": {
-      "fr": "Irina Nosulenko a suivi une formation en sciences politiques et en relations publiques à la Haute École d'Économie de Moscou, puis à Sciences Po Paris. Elle a développé sa carrière dans les domaines du marketing et de la gestion de projets.\n\nAprès plusieurs années d'expérience au sein de grandes entreprises internationales telles que L'Oréal et Pernod Ricard, elle s'est orientée vers la...",
-      "en": "Irina Nosulenko studied political science and public relations at the Higher School of Economics in Moscow, then at Sciences Po Paris. She developed her career in marketing and project management.\n\nAfter several years of experience with major international companies such as L'Oréal and Pernod Ricard, she moved into project management in the international private education sector..."
+      "fr": "Irina Nosulenko, diplômée de HSE Moscou et Sciences Po, a travaillé chez L’Oréal et Pernod Ricard. À l’IEA, elle est, depuis 2024, Directrice des opérations.",
+      "en": "Irina Nosulenko, a graduate of HSE Moscow and Sciences Po, has worked at L’Oréal and Pernod Ricard. She has served as Director of Operations at the IAS since 2024."
     },
     "consent": {
       "data": true,
@@ -813,7 +774,16 @@
       "vintage": []
     },
     "lang": "en",
-    "slug": "irina-nosulenko"
+    "slug": "irina-nosulenko",
+    "latest": {
+      "department": null,
+      "role": {
+        "fr": "Responsable des opérations",
+        "en": "Operations Manager"
+      },
+      "start": null,
+      "stop": null
+    }
   },
   {
     "appId": ["iea"],
@@ -871,8 +841,8 @@
       "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/team/sandrine-morvan.jpg"
     },
     "biography": {
-      "fr": "Sandrine Morvan obtient un diplôme d'anglais à Sorbonne Université et passionnée par la création artistique, s'investit dans la coordination et la programmation culturelles. Suite à diverses expériences professionnelles, notamment au Mémorial de la Shoah et chez ECA2 (Agence - événements culturels et institutionnels), elle a intégré l'Institut d'études avancées de Paris en mai 2022.\n\nEn charge de l'accueil et des événements, Sandrine est responsable de la coordination des manifestations scientifiques accueillies et organisées par l'IEA de Paris.",
-      "en": "Sandrine Morvan obtained an English degree from Sorbonne Université and, passionate about artistic creation, became involved in cultural coordination and programming. Following various professional experiences, notably at the Mémorial de la Shoah and at ECA2 (an agency for cultural and institutional events), she joined the Paris Institute for Advanced Study in May 2022.\n\nIn charge of reception and events, Sandrine is responsible for coordinating the scientific events hosted and organized by the Paris IAS."
+      "fr": "Après diverses expériences professionnelles dans la coordination et la programmation culturelle, Sandrine Morvan est responsable des événements de l’IEA de Paris. En charge de l’accueil et de l’organisation des événements, elle assure la coordination des manifestations scientifiques accueillies et organisées par l’Institut.",
+      "en": "After gaining experience in various roles related to cultural coordination and programming, Sandrine Morvan is the events manager at the IEA in Paris. Responsible for hosting and organizing events, she coordinates the scientific events hosted and organized by the Institute."
     },
     "disciplines": [],
     "tags": [],
@@ -881,8 +851,8 @@
       "publications": []
     },
     "summary": {
-      "fr": "Sandrine Morvan obtient un diplôme d'anglais à Sorbonne Université et passionnée par la création artistique, s'investit dans la coordination et la programmation culturelles. Suite à diverses expériences professionnelles, notamment au Mémorial de la Shoah et chez ECA2 (Agence - événements culturels et institutionnels), elle a intégré l'Institut d'études avancées de Paris en mai 2022...",
-      "en": "Sandrine Morvan obtained an English degree from Sorbonne Université and, passionate about artistic creation, became involved in cultural coordination and programming. Following various professional experiences, notably at the Mémorial de la Shoah and at ECA2 (an agency for cultural and institutional events), she joined the Paris Institute for Advanced Study in May 2022..."
+      "fr": "Après diverses expériences professionnelles dans la coordination et la programmation culturelle, Sandrine Morvan est responsable des événements de l’IEA de Paris.",
+      "en": "After gaining experience in various roles related to cultural coordination and programming, Sandrine Morvan is the events manager at the IEA in Paris."
     },
     "consent": {
       "data": true,
@@ -902,7 +872,18 @@
       "vintage": []
     },
     "lang": "en",
-    "slug": "sandrine-morvan"
+    "slug": "sandrine-morvan",
+    "latest": {
+      "department": null,
+      "role": {
+        "fr": "Responsable accueil et événements",
+        "en": "Reception and Events Manager"
+      },
+      "start": {
+        "$date": "2022-05-01T00:00:00.000Z"
+      },
+      "stop": null
+    }
   },
   {
     "appId": ["iea"],
@@ -957,11 +938,11 @@
       "hash": "b2b234e5196d3339fea369990fbeeee7672fb1a15bb486c54dbc59825814862c",
       "path": "images/team/LISETTE-WINKLER.jpg",
       "copyright": "Florence Brochoire",
-      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/team/LISETTE-WINKLER.jpg"
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/team/lisette-winkler.jpg"
     },
     "biography": {
-      "fr": "Lisette Winkler est diplômée en anthropologie sociale de l'Université du Chili et titulaire d'un Master 2 en histoire contemporaine à l'EHESS.\n\nElle a travaillé plusieurs années dans le domaine de l'anthropologie visuelle, notamment dans un projet européen aux Archives audiovisuelles de la recherche de la Fondation Maison des Sciences de l'Homme.\n\nDepuis 2018, elle est responsable des projets audiovisuels de l'IEA de Paris, où elle valorise et documente l'activité scientifique des chercheurs en résidence à travers des productions audiovisuelles et des projets multimédias.",
-      "en": "Lisette Winkler holds a degree in social anthropology from the University of Chile and a Master's degree in contemporary history from EHESS.\n\nShe worked for several years in the field of visual anthropology, notably on a European project at the Audiovisual Archives of Research at the Fondation Maison des Sciences de l'Homme.\n\nSince 2018, she has been in charge of audiovisual projects at the Paris IAS, where she promotes and documents the scientific activities of researchers in residence through audiovisual productions and multimedia projects."
+      "fr": "Diplômée d’anthropologie et d’histoire, Lisette Winkler est, depuis 2018, elle est responsable des projets audiovisuels de l’IEA de Paris, le valorise et documente l’activité scientifique des chercheurs en résidence à travers des productions audiovisuelles et des projets multimédias.",
+      "en": "Holding degrees in Anthropology and History, Lisette Winkler has been Head of Audiovisual Projects at the Paris IAS since 2018. In this role, she promotes and documents the scientific work of the Institute’s resident scholars through audiovisual productions and multimedia projects."
     },
     "disciplines": [],
     "tags": [],
@@ -970,8 +951,8 @@
       "publications": []
     },
     "summary": {
-      "fr": "Lisette Winkler est diplômée en anthropologie sociale de l'Université du Chili et titulaire d'un Master 2 en histoire contemporaine à l'EHESS.\n\nElle a travaillé plusieurs années dans le domaine de l'anthropologie visuelle, notamment dans un projet européen aux Archives audiovisuelles de la recherche de la Fondation Maison des Sciences de l'Homme...",
-      "en": "Lisette Winkler holds a degree in social anthropology from the University of Chile and a Master's degree in contemporary history from EHESS.\n\nShe worked for several years in the field of visual anthropology, notably on a European project at the Audiovisual Archives of Research at the Fondation Maison des Sciences de l'Homme..."
+      "fr": "Diplômée d’anthropologie et d’histoire, Lisette Winkler est, depuis 2018, elle est responsable des projets audiovisuels de l’IEA de Paris.",
+      "en": "Holding degrees in Anthropology and History, Lisette Winkler has been Head of Audiovisual Projects at the Paris IAS since 2018."
     },
     "consent": {
       "data": true,
@@ -991,7 +972,18 @@
       "vintage": []
     },
     "lang": "en",
-    "slug": "lisette-winkler"
+    "slug": "lisette-winkler",
+    "latest": {
+      "department": null,
+      "role": {
+        "fr": "Responsable des projets audiovisuels",
+        "en": "Audiovisual Projects Manager"
+      },
+      "start": {
+        "$date": "2018-01-01T00:00:00.000Z"
+      },
+      "stop": null
+    }
   },
   {
     "appId": ["iea"],
@@ -1010,12 +1002,12 @@
       "ethics": false
     },
     "biography": {
-      "en": "Nathalie Drach-Temam is President of Sorbonne University and Vice-President of the Paris IAS.",
-      "fr": "Nathalie Drach-Temam est présidente de Sorbonne Université et vice-présidente de l'IEA de Paris."
+      "en": "Nathalie Drach-Temam has been a faculty member at Sorbonne University since 2021. With a background in mathematics, she is a professor and has conducted research at several universities and research centers in France. She also served as vice president of Pierre and Marie Curie University and later of Sorbonne University, overseeing education, career development, research, and innovation. She serves on the board of directors of the Paris IAS as vice president.",
+      "fr": "Nathalie Drach-Temam est résidente de Sorbonne Université depuis 2021. De formation en mathématiques, elle est professeure et a mené des recherches dans plusieurs universités et centres de recherche en France. Elle a également été vice-présidente de l’université Pierre-et-Marie-Curie puis de Sorbonne Université, en charge de la formation, de l’insertion professionnelle, de la recherche et de l’innovation. Elle siège au conseil d’administration de l’IEA de Paris en tant que vice-présidente."
     },
     "summary": {
-      "en": "President of Sorbonne University and Vice-President of the Paris IAS",
-      "fr": "Présidente de Sorbonne Université et vice-présidente de l'IEA de Paris"
+      "en": "Nathalie Drach-Temam has been a faculty member at Sorbonne University since 2021 and serves on the board of directors of the Paris IAS as vice president.",
+      "fr": "Nathalie Drach-Temam est résidente de Sorbonne Université depuis 2021 et siège au conseil d’administration de l’IEA de Paris en tant que vice-présidente."
     },
     "slug": "nathalie-drach-temam"
   },
@@ -1036,12 +1028,12 @@
       "ethics": false
     },
     "biography": {
-      "en": "Christine Neau-Leduc is President of the University of Paris 1 Panthéon-Sorbonne.",
-      "fr": "Christine Neau-Leduc est présidente de l'Université Paris 1 Panthéon Sorbonne."
+      "en": "Christine Neau-Leduc has been a professor of private law at Paris 1 Panthéon-Sorbonne since 2012, affiliated with the Sorbonne Law School (EDS) and the Sorbonne Institute for Legal Research (IRJS). Specializing in labor law, collective bargaining, and CSR, she co-directs the Sorbonne Center for Labor Law. Elected president of Paris 1 Panthéon-Sorbonne in 2021, she serves on the Paris IAS Board of Directors as a representative of the College of Scientific Institutions.",
+      "fr": "Christine Neau-Leduc est professeure de droit privé à Paris 1 Panthéon-Sorbonne depuis 2012, rattachée à l'École de droit de la Sorbonne (EDS) et à l'Institut de recherche juridique de la Sorbonne (IRJS). Spécialisée en droit social, négociation collective et RSE, elle co-dirige le centre de droit social de la Sorbonne. Élue présidente de Paris 1 Panthéon Sorbonne depuis 2021, elle siège au Conseil d’administration de l’IEA en tant que représentante du Collège des institutions scientifiques."
     },
     "summary": {
-      "en": "President of the University of Paris 1 Panthéon-Sorbonne",
-      "fr": "Présidente de l'Université Paris 1 Panthéon Sorbonne"
+      "en": "Christine Neau-Leduc, a professor of private law at Paris 1 Panthéon-Sorbonne, has served as its president since 2021 and sits on the Board of Directors as a representative of academic institutions.",
+      "fr": "Professeure de droit privé à Paris 1 Panthéon-Sorbonne, Christine Neau-Leduc en est la présidente depuis 2021 et siège au Conseil d’administration en tant que représentante des institutions scientifiques."
     },
     "slug": "christine-neau-leduc"
   },
@@ -1098,7 +1090,6 @@
       "copyright": "Droits réservés",
       "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/board/marie-eve-perru.jpg"
     },
-
     "biography": {
       "fr": "Marie-Eve Perru est une responsable politique française engagée au sein du Conseil régional d'Île-de-France, élue sur la liste de Valérie Pécresse – Île-de-France Rassemblée pour le département du Val-de-Marne (94), où elle siège comme conseillère régionale et intervient notamment sur des sujets liés à l'environnement et à l'aménagement territorial. Elle est aussi membre de la commission Environnement ainsi que de la commission de l'Enseignement supérieur et de la Recherche au sein de l'assemblée régionale ; par ailleurs, elle a représenté la Région Île-de-France auprès de diverses instances institutionnelles, dont le collège des institutions scientifiques de l'Institut d'études avancées de Paris. Avant et parallèlement à son engagement politique, elle a une formation d'ingénieur de l'École des Ingénieurs de la Ville de Paris et une expérience professionnelle dans l'administration territoriale.",
       "en": "Marie-Eve Perru is a French political leader engaged within the Île-de-France Regional Council, elected on Valérie Pécresse's list – Île-de-France Rassemblée for the Val-de-Marne department (94), where she serves as regional councillor and is particularly involved in issues related to the environment and territorial planning. She is also a member of the Environment Committee and the Higher Education and Research Committee within the regional assembly; furthermore, she has represented the Île-de-France Region to various institutional bodies, including the college of scientific institutions of the Paris Institute for Advanced Study. Before and alongside her political engagement, she holds an engineering degree from the École des Ingénieurs de la Ville de Paris and has professional experience in territorial administration."
@@ -1149,13 +1140,26 @@
       "sponsor": false,
       "ethics": false
     },
+    "latest": {
+      "department": null,
+      "role": {
+        "fr": "Présidente",
+        "en": "President"
+      },
+      "start": {
+        "$date": "2014-02-23T23:00:00.000Z"
+      },
+      "stop": {
+        "$date": "2014-12-23T23:00:00.000Z"
+      }
+    },
     "biography": {
-      "en": "Bettina Laville has been an Honorary Member of the Council of State and President of the IEA in Paris since 2022.",
-      "fr": "Bettina Laville est conseillère d'Etat honoraire et présidente de l'IEA de Paris depuis 2022."
+      "en": "An Honorary State Councilor, she served as chief of staff to Brice Lalonde, then as advisor on environmental issues to Pierre Bérégovoy and on sustainable development and regional planning to Lionel Jospin and President François Mitterrand. As co-founder and honorary president of Comité 21, she has served as president of the Paris Institute for Advanced Studies since 2022.",
+      "fr": "Conseillère d’État honoraire, elle a été directrice de cabinet de Brice Lalonde puis conseillère sur les questions d'environnement de Pierre Bérégovoy et celles du développement durable et aménagement du territoire de Lionel Jospin, et du président de la République François Mitterrand. Co-fondatrice et présidente d’honneur du Comité 21, elle préside l’Institut d’études avancées de Paris depuis 2022."
     },
     "summary": {
-      "en": "President of the Paris IAS, Honorary Member of the Council of State, co-founder and honorary president of Comité 21",
-      "fr": "Présidente de l’IEA de Paris, conseillère d’État honoraire, co-fondatrice et présidente d’honneur du Comité 21"
+      "en": "Bettina Laville is an Honorary State Councilor, co-founder and honorary president of Comité 21, and has served as president of the Paris Institute for Advanced Studies since 2022.",
+      "fr": "Bettina Laville est conseillère d’État honoraire, co-fondatrice et présidente d’honneur du Comité 21, elle préside l’Institut d’études avancées de Paris depuis 2022."
     },
     "slug": "bettina-laville"
   },
@@ -1213,8 +1217,8 @@
       "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/sab/isabelle-strauss-kahn.jpg"
     },
     "biography": {
-      "fr": "Isabelle Strauss-Kahn est une experte internationale en finance et gestion d'actifs, reconnue pour son parcours au sein d'institutions financières majeures. Elle a exercé des responsabilités de haut niveau à la Banque de France, où elle a notamment été directrice des opérations de marché et a supervisé la mise en œuvre de la politique monétaire, avant de rejoindre la Trésorerie de la Banque mondiale comme responsable financière principale, fournissant des services financiers, de l'assistance technique et de la formation à des banques centrales et fonds souverains à travers le monde. Conseillère indépendante en gestion d'actifs, elle siège également au conseil consultatif du World Gold Council et a participé à diverses instances internationales ; elle est par ailleurs trésorière du Paris Institute of Advanced Studies (Institut d'études avancées de Paris). Son expertise couvre la gouvernance, l'allocation stratégique d'actifs, la gestion de portefeuille et les procédures opérationnelles, complétée par une formation en économie (PhD Core) à l'Université de Chicago, en business à HEC Paris et en droit à l'Université Paris I.",
-      "en": "Isabelle Strauss-Kahn is an international expert in finance and asset management, recognized for her career within major financial institutions. She held senior responsibilities at the Banque de France, where she served notably as director of market operations and supervised the implementation of monetary policy, before joining the World Bank Treasury as senior financial officer, providing financial services, technical assistance and training to central banks and sovereign funds around the world. An independent asset management consultant, she also sits on the advisory board of the World Gold Council and has participated in various international bodies; she is also treasurer of the Paris Institute for Advanced Study. Her expertise covers governance, strategic asset allocation, portfolio management and operational procedures, complemented by training in economics (PhD Core) at the University of Chicago, in business at HEC Paris and in law at the University Paris I."
+      "fr": "Isabelle Strauss-Kahn est une financière internationale et consultante spécialisée en gestion d’actifs et politiques financières. Diplômée de l’Université de Chicago et d’un MBA en France, elle a exercé plus de trente ans dans de grandes institutions financières, notamment à la Banque des Règlements Internationaux, à la Banque de France et à la Banque mondiale. Elle est aujourd’hui consultante internationale et elle est trésorière de l’IEA.",
+      "en": "Isabelle Strauss-Kahn is an international finance expert and consultant specializing in asset management and financial policy. A graduate of the University of Chicago with an MBA from a French university, she has worked for over thirty years at major financial institutions, including the Bank for International Settlements, the Banque de France, and the World Bank. She is currently an international consultant and serves as treasurer of the IAS."
     },
     "disciplines": [],
     "tags": [],
@@ -1223,8 +1227,8 @@
       "publications": []
     },
     "summary": {
-      "fr": "Isabelle Strauss-Kahn est une experte internationale en finance et gestion d'actifs, reconnue pour son parcours au sein d'institutions financières majeures. Elle a exercé des responsabilités de haut niveau à la Banque de France, où elle a notamment été directrice des opérations de marché et a supervisé la mise en œuvre de la politique monétaire, avant de rejoindre la Trésorerie de la...",
-      "en": "Isabelle Strauss-Kahn is an international expert in finance and asset management, recognized for her career within major financial institutions. She held senior responsibilities at the Banque de France, where she served notably as director of market operations and supervised the implementation of monetary policy, before joining the World Bank Treasury as senior financial officer..."
+      "fr": "Isabelle Strauss-Kahn a exercé plus de trente ans dans de grandes institutions financières, elle est aujourd’hui consultante internationale et elle est trésorière de l’IEA.",
+      "en": "Isabelle Strauss-Kahn has worked for over thirty years at major financial institutions; she is now an international consultant and serves as treasurer of the IAS."
     },
     "consent": {
       "data": true,
@@ -1382,8 +1386,8 @@
       "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/team/eloise-lehujeur.jpg"
     },
     "biography": {
-      "fr": "Après une formation en sciences politiques, Eloïse a travaillé dans les relations institutionnelles au sein de grands groupes tels qu'Eutelsat et Lagardère, avant de rejoindre Numeum, principal syndicat professionnel du secteur numérique en France.\n\nDepuis avril 2025, Eloïse est en charge de la communication et des relations institutionnelles de l'Institut. Elle valorise les activités et l'actualité à travers l'ensemble des canaux de communication : réseaux sociaux, site web, newsletter et supports de communication. Elle contribue au rayonnement scientifique et institutionnel de l'institut.",
-      "en": "After training in political science, Eloïse worked in institutional relations at major groups such as Eutelsat and Lagardère, before joining Numeum, the main professional union for the digital sector in France.\n\nSince April 2025, Eloïse has been in charge of the Institute's communications and institutional relations. She promotes activities and news through all communication channels: social networks, website, newsletter and communication materials. She contributes to the Institute's scientific and institutional outreach."
+      "fr": "Après un parcours en affaires publiques dans différents secteurs, Eloïse Lehujeur est responsable de la communication et des relations institutionnelles depuis avril 2025. Elle valorise les activités et l'actualité à travers l’ensemble des canaux de communication et supports de communication. Elle contribue au rayonnement scientifique et institutionnel de l’institut.",
+      "en": "After a career in public affairs across various sectors, Eloïse Lehujeur has served as Director of Communications and Institutional Relations since April 2025. She promotes the institute’s activities and news through all communication channels and media. She contributes to the institute’s scientific and institutional reputation."
     },
     "disciplines": [],
     "tags": [],
@@ -1392,8 +1396,8 @@
       "publications": []
     },
     "summary": {
-      "fr": "Après une formation en sciences politiques, Eloïse a travaillé dans les relations institutionnelles au sein de grands groupes tels qu'Eutelsat et Lagardère, avant de rejoindre Numeum, principal syndicat professionnel du secteur numérique en France.\n\nDepuis avril 2025, Eloïse est en charge de la communication et des relations institutionnelles de l'Institut...",
-      "en": "After training in political science, Eloïse worked in institutional relations at major groups such as Eutelsat and Lagardère, before joining Numeum, the main professional union for the digital sector in France.\n\nSince April 2025, Eloïse has been in charge of the Institute's communications and institutional relations..."
+      "fr": "Après un parcours en affaires publiques dans différents secteurs, Eloïse Lehujeur est responsable de la communication et des relations institutionnelles depuis avril 2025.",
+      "en": "After a career in public affairs across various sectors, Eloïse Lehujeur has served as Director of Communications and Institutional Relations since April 2025."
     },
     "consent": {
       "data": true,
@@ -1413,7 +1417,18 @@
       "vintage": []
     },
     "lang": "en",
-    "slug": "eloise-lehujeur"
+    "slug": "eloise-lehujeur",
+    "latest": {
+      "department": null,
+      "role": {
+        "fr": "Responsable communication et relations institutionnelles",
+        "en": "Communications and Institutional Relations Manager"
+      },
+      "start": {
+        "$date": "2025-04-01T00:00:00.000Z"
+      },
+      "stop": null
+    }
   },
   {
     "appId": ["iea"],
@@ -1460,10 +1475,18 @@
         ]
       }
     ],
-    "image": null,
+    "image": {
+      "name": "bertrand-pouvesle.jpg",
+      "size": 1494203,
+      "fileType": "image/jpeg",
+      "category": "IMAGE",
+      "hash": "b2b234e5196d3339fea369990fbeeee7672fb1a15bb486c54dbc59825814862c",
+      "path": "images/team/bertrand-pouvesle.jpg",
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/team/bertrand-pouvesle.jpg"
+    },
     "biography": {
-      "fr": "Bertrand Pouvesle est ingénieur informatique, spécialiste de la virtualisation sous VMware. Il a travaillé de 2004 à 2013 chez EdF comme architecte système pour la modernisation globale des Datacenter de l'entreprise.\n\nIl a intégré l'IEA en juillet 2013 en tant que responsable de site pour l'hôtel de Lauzun. Il s'occupe de la logistique du bâtiment, de l'informatique et des télécommunications de l'IEA.",
-      "en": "Bertrand Pouvesle is a computer engineer specializing in VMware virtualization. He worked from 2004 to 2013 at EDF as a systems architect for the company's global datacenter modernization.\n\nHe joined the IAS in July 2013 as site manager for the Hôtel de Lauzun. He is responsible for building logistics, IT and telecommunications at the IAS."
+      "fr": "Bertrand Pouvesle est ingénieur informatique, il a intégré l’IEA en juillet 2013 en tant que responsable de site et administrateur systèmes, réseaux et supports utilisateurs pour l’hôtel de Lauzun. Il est responsable du bon fonctionnement, de la maintenance et de la sécurité de l’ensemble de l’infrastructure informatique et télécoms de l’Institut.",
+      "en": "Bertrand Pouvesle is a computer engineer. He joined the IEA in July 2013 as site manager and administrator of systems, networks, and user support for the Hôtel de Lauzun. He is responsible for the smooth operation, maintenance, and security of the Institute’s entire IT and telecommunications infrastructure."
     },
     "disciplines": [],
     "tags": [],
@@ -1472,8 +1495,8 @@
       "publications": []
     },
     "summary": {
-      "fr": "Bertrand Pouvesle est ingénieur informatique, spécialiste de la virtualisation sous VMware. Il a travaillé de 2004 à 2013 chez EdF comme architecte système pour la modernisation globale des Datacenter de l'entreprise.\n\nIl a intégré l'IEA en juillet 2013 en tant que responsable de site pour l'hôtel de Lauzun...",
-      "en": "Bertrand Pouvesle is a computer engineer specializing in VMware virtualization. He worked from 2004 to 2013 at EDF as a systems architect for the company's global datacenter modernization.\n\nHe joined the IAS in July 2013 as site manager for the Hôtel de Lauzun..."
+      "fr": "Bertrand Pouvesle est ingénieur informatique, il a intégré l’IEA en juillet 2013 en tant que responsable de site et administrateur systèmes, réseaux et supports utilisateurs pour l’hôtel de Lauzun.",
+      "en": "Bertrand Pouvesle is a computer engineer. He joined the IEA in July 2013 as site manager and systems, network, and user support administrator for the Hôtel de Lauzun."
     },
     "consent": {
       "data": true,
@@ -1493,7 +1516,18 @@
       "vintage": []
     },
     "lang": "en",
-    "slug": "bertrand-pouvesle"
+    "slug": "bertrand-pouvesle",
+    "latest": {
+      "department": null,
+      "role": {
+        "fr": "Responsable de site",
+        "en": "Site Manager"
+      },
+      "start": {
+        "$date": "2013-07-01T00:00:00.000Z"
+      },
+      "stop": null
+    }
   },
   {
     "appId": ["iea"],
@@ -2169,6 +2203,19 @@
         "positions": [
           {
             "department": null,
+            "role": {
+              "fr": "Directeur",
+              "en": "Director"
+            },
+            "start": {
+              "$date": "2014-02-23T23:00:00.000Z"
+            },
+            "stop": {
+              "$date": "2014-12-23T23:00:00.000Z"
+            }
+          },
+          {
+            "department": null,
             "role": "Fellow",
             "start": {
               "$date": "2014-02-23T23:00:00.000Z"
@@ -2473,6 +2520,99 @@
       ]
     },
     "lang": "en",
-    "slug": "saadi-lahlou"
+    "slug": "saadi-lahlou",
+    "latest": {
+      "department": null,
+      "role": {
+        "fr": "Directeur",
+        "en": "Director"  
+      },
+      "start": {
+        "$date": "2014-02-23T23:00:00.000Z"
+      },
+      "stop": {
+        "$date": "2014-12-23T23:00:00.000Z"
+      }
+    }
+  },
+  {
+    "appId": ["iea"],
+    "firstname": "Valentina",
+    "lastname": "Moncada",
+    "affiliations": [
+      {
+        "affiliation": {
+          "image": {
+            "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/logos/logo.png"
+          },
+          "location": {
+            "city": "Paris",
+            "country": "France",
+            "name": "17 Quai d'Anjou, 75004 Paris, France"
+          },
+          "name": "Paris Institute for Advanced Study"
+        },
+        "positions": [
+          {
+            "department": null,
+            "role": {
+              "fr": "Coordinatrice de direction",
+              "en": "Executive Coordinator"
+            },
+            "start": {
+              "$date": "2026-02-01T00:00:00.000Z"
+            },
+            "stop": null
+          }
+        ]
+      }
+    ],
+    "image": {
+      "url": "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/people/tmp/team/valentina-moncada.jpg"
+    },
+    "biography": {
+      "fr": "Après avoir travaillé dans des organisations engagées dans les domaines des droits humains et de genre en France et à l’étranger, Valentina Moncada est coordinatrice de direction depuis février 2026. Elle assiste la direction de l'institut dans la coordination stratégique et opérationnelle de ses activités.",
+      "en": "After working for organizations active in the fields of human rights and gender issues in France and abroad, Valentina Moncada has served as executive coordinator since February 2026. She assists the institute’s leadership with the strategic and operational coordination of its activities."
+    },
+    "disciplines": [],
+    "tags": [],
+    "related": {
+      "events": [],
+      "publications": []
+    },
+    "summary": {
+      "fr": "Après avoir travaillé dans des organisations engagées dans les domaines des droits humains en France et l’étranger, Valentina Moncada est depuis coordinatrice de direction.",
+      "en": "After working for organizations active in the fields of human rights in France and abroad, Valentina Moncada has served as executive coordinator."
+    },
+    "consent": {
+      "data": true,
+      "record": true,
+      "diffusion": true,
+      "publication": true,
+      "email": true,
+      "newsletter": false,
+      "fellowshipnewsletter": false
+    },
+    "groups": {
+      "team": true,
+      "sab": false,
+      "board": false,
+      "fellows": false,
+      "sponsor": false,
+      "vintage": []
+    },
+    "lang": "en",
+    "slug": "valentina-moncada",
+    "latest": {
+      "department": null,
+      "role": {
+        "fr": "Coordinatrice de direction",
+        "en": "Executive Coordinator"
+      },
+      "start": {
+        "$date": "2026-02-01T00:00:00.000Z"
+      },
+      "stop": null
+    }
   }
 ]

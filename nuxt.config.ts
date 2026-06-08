@@ -118,8 +118,8 @@ export default defineNuxtConfig({
     /*     "@nuxtjs/html-validator", */
     "@stefanobartoletti/nuxt-social-share",
     "@nuxt/eslint",
-    "@paris-ias/list",
-    //"./modules/list/src/module", // To use to debug list in website context (as opposed to the playground context)
+    //"@paris-ias/list",
+    "./modules/list/src/module", // To use to debug list in website context (as opposed to the playground context)
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
         config.plugins.push(vuetify({ autoImport: true }))
@@ -246,6 +246,15 @@ export default defineNuxtConfig({
         httpLinkOptions: {
           headers: {
             "x-api-key": config.graphqlApiKey,
+          },
+        },
+        // Union/interface types need possibleTypes so the InMemoryCache can
+        // match inline fragments (e.g. People.latest -> `... on Position`).
+        // Without it Apollo silently drops the fragment fields on cache read,
+        // which is why `latest` arrives from AppSync but is missing in the app.
+        inMemoryCacheOptions: {
+          possibleTypes: {
+            Latest: ["Vintage", "Position"],
           },
         },
       },

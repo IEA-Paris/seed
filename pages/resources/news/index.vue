@@ -4,5 +4,6 @@
     markdown-file="resources__news__news"
     type="publications"
     path-prefix="resources-news-slug"
+    modifier="news"
   />
 </template>
