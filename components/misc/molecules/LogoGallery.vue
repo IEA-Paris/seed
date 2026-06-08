@@ -171,24 +171,63 @@ const rows = computed(() => {
 }
 
 .logo-skeleton {
-  height: 130px;
+  height: 80px;
+
+  @media (min-width: 600px) {
+    height: 104px;
+  }
+
+  @media (min-width: 960px) {
+    height: 130px;
+  }
 }
 
-/* Marquee track */
+/* Marquee track.
+   Logo sizing is mobile-first: the base rules below are the smallest
+   (phone) size, scaled up at the 600px / 960px breakpoints (matching the
+   Vuetify sm/md breakpoints used elsewhere on this page). */
 .marquee-track {
   overflow: hidden;
   width: 100%;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 
-  /* Featured (supports) row: logos twice as large as member rows. */
+  /* Featured (supports) row: logos larger than member rows at every size. */
   &--featured {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 
     .logo-item {
-      width: 400px;
-      height: 260px;
-      padding: 20px;
-      margin: 0 12px;
+      width: 180px;
+      height: 120px;
+      padding: 12px;
+      margin: 0 8px;
+    }
+  }
+
+  @media (min-width: 600px) {
+    margin-bottom: 8px;
+
+    &--featured {
+      margin-bottom: 14px;
+
+      .logo-item {
+        width: 280px;
+        height: 180px;
+        padding: 16px;
+        margin: 0 10px;
+      }
+    }
+  }
+
+  @media (min-width: 960px) {
+    &--featured {
+      margin-bottom: 16px;
+
+      .logo-item {
+        width: 400px;
+        height: 260px;
+        padding: 20px;
+        margin: 0 12px;
+      }
     }
   }
 }
@@ -196,10 +235,20 @@ const rows = computed(() => {
 .marquee-content {
   display: flex;
   width: max-content;
-  animation: marquee 67.5s linear infinite;
+  /* Smaller logos on mobile → shorter track, so scroll a bit faster to keep
+     a comparable perceived speed. */
+  animation: marquee 45s linear infinite;
 
   .marquee-reverse & {
     animation-direction: reverse;
+  }
+
+  @media (min-width: 600px) {
+    animation-duration: 56s;
+  }
+
+  @media (min-width: 960px) {
+    animation-duration: 67.5s;
   }
 }
 
@@ -214,21 +263,38 @@ const rows = computed(() => {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 200px;
-  height: 130px;
-  padding: 10px;
-  margin: 0 6px;
+  width: 120px;
+  height: 80px;
+  padding: 6px;
+  margin: 0 4px;
   background-color: var(--rest-bg, transparent);
   transition:
     transform 0.3s ease,
     background-color 0.3s ease;
 
-  &:hover {
-    transform: scale(1.05);
-    background-color: var(--hover-bg, #fff);
+  @media (min-width: 600px) {
+    width: 160px;
+    height: 104px;
+    padding: 8px;
+    margin: 0 5px;
+  }
 
-    .logo-img {
-      filter: none;
+  @media (min-width: 960px) {
+    width: 200px;
+    height: 130px;
+    padding: 10px;
+    margin: 0 6px;
+  }
+
+  /* Hover is a no-op on touch; only scale up where a real pointer exists. */
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.05);
+      background-color: var(--hover-bg, #fff);
+
+      .logo-img {
+        filter: none;
+      }
     }
   }
 }
