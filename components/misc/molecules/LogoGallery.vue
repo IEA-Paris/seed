@@ -139,7 +139,10 @@ function buildRows(supports, members, funding) {
     rows.push({ items: tile(shuffle(supports)), supports: true })
   }
   rows.push({ items: tile(shuffle(members)), supports: false })
-  rows.push({ items: tile(shuffle(funding)), supports: false })
+  rows.push({
+    items: tile([...funding, ...funding]),
+    supports: false,
+  })
   return rows
 }
 
