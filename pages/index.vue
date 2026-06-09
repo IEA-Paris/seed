@@ -68,8 +68,9 @@
       <div class="ecosystem-section__gallery">
         <MiscMoleculesLogoGallery
           :loading="pending"
-          :featured-items="supportData"
-          :items="memberData"
+          :supports="supportData"
+          :funding="fundingData"
+          :members="memberData"
         />
       </div>
     </section>
@@ -90,7 +91,7 @@ const { $rootStore } = useNuxtApp()
 const { locale } = useI18n()
 
 // Ecosystem: supports as a featured first row, members in the rows below.
-const { pending, membersRaw, supportRaw } = await useAffiliations()
+const { pending, membersRaw, supportRaw, fundingRaw } = await useAffiliations()
 
 const normalizeColor = (color) => {
   const named = { white: "#fff", black: "#000" }
@@ -122,7 +123,7 @@ const toGallery = (list) =>
 const supportData = computed(() => toGallery(supportRaw.value))
 // Member rows below
 const memberData = computed(() => toGallery(membersRaw.value))
-
+const fundingData = computed(() => toGallery(fundingRaw.value))
 const statsScrollAnchor = ref(null)
 
 function scrollToStats() {

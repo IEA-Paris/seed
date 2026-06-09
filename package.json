@@ -28,7 +28,7 @@
     "@mdi/font": "^7.4.47",
     "@nuxt/image": "^1.10.0",
     "@nuxtjs/robots": "^5.7.0",
-    "@paris-ias/list": "^1.1.14",
+    "@paris-ias/list": "^1.1.15",
     "@pinia/nuxt": "^0.5.4",
     "@vue/apollo-composable": "^4.2.2",
     "@vueuse/components": "^13.0.0",
@@ -64,7 +64,7 @@
   },
   "resolutions": {
     "vue-i18n": "^11.0.0",
-    "@paris-ias/trees": "^2.2.1"
+    "@paris-ias/trees": "^2.2.6"
   },
   "license": "AGPL-3.0-only",
   "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"

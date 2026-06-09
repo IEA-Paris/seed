@@ -2,7 +2,7 @@
   <!-- Skeleton loading state -->
   <div v-if="props.loading" class="logo-container">
     <v-row dense>
-      <v-col v-for="n in 6" :key="n" cols="4" sm="3" md="2">
+      <v-col v-for="n in 4" :key="n" cols="4" sm="3" md="2">
         <v-skeleton-loader type="image" class="logo-skeleton" />
       </v-col>
     </v-row>
@@ -16,50 +16,53 @@
       class="marquee-track"
       :class="{
         'marquee-reverse': rowIndex % 2 === 1,
-        'marquee-track--featured': row.featured,
+        'marquee-track--supports': row.supports,
       }"
     >
       <div class="marquee-content">
         <!-- Two identical groups → seamless -50% loop. Each group is tiled
              enough times to overflow the track, so no empty gap appears. -->
-        <div
-          v-for="copy in 2"
-          :key="`copy-${copy}`"
-          class="marquee-group"
-          :aria-hidden="copy === 2 ? 'true' : undefined"
+
+        <v-menu
+          v-for="(item, i) in row.items"
+          :key="`${copy}-${i}`"
+          open-on-hover
+          :open-delay="300"
+          :close-delay="200"
+          location="top"
+          content-class="logo-hover-card"
         >
-          <v-menu
-            v-for="(item, i) in row.items"
-            :key="`${copy}-${i}`"
-            open-on-hover
-            :open-delay="300"
-            :close-delay="200"
-            location="top"
-            content-class="logo-hover-card"
-          >
-            <template #activator="{ props: menu }">
-              <a
-                v-bind="menu"
-                :href="item.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="logo-item"
-                :style="{ '--hover-bg': item.color || '#fff', '--rest-bg': item.color && !['#fff', '#ffffff', 'white'].includes(item.color.toLowerCase()) ? '#e0e0e0' : 'transparent' }"
-              >
-                <v-img
-                  :src="item.picture"
-                  :alt="item.name"
-                  contain
-                  eager
-                  height="100%"
-                  width="100%"
-                  class="logo-img"
-                />
-              </a>
-            </template>
-            <MiscMoleculesLogoHoverCard :item="item" />
-          </v-menu>
-        </div>
+          <template #activator="{ props: menu }">
+            <a
+              v-bind="menu"
+              :href="item.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="logo-item"
+              :style="{
+                '--hover-bg': item.color || '#fff',
+                '--rest-bg':
+                  item.color &&
+                  !['#fff', '#ffffff', 'white'].includes(
+                    item.color.toLowerCase(),
+                  )
+                    ? '#e0e0e0'
+                    : 'transparent',
+              }"
+            >
+              <v-img
+                :src="item.picture"
+                :alt="item.name"
+                contain
+                eager
+                height="100%"
+                width="100%"
+                class="logo-img"
+              />
+            </a>
+          </template>
+          <MiscMoleculesLogoHoverCard :item="item" />
+        </v-menu>
       </div>
     </div>
   </div>
@@ -67,10 +70,11 @@
 
 <script setup>
 const props = defineProps({
-  // Members — split across `rowCount` regular rows below the featured row.
-  items: { type: Array, default: () => [] },
-  // Supports — rendered as a single, larger featured first row.
-  featuredItems: { type: Array, default: () => [] },
+  // Members — split across `rowCount` regular rows below the supports row.
+  members: { type: Array, default: () => [] },
+  // Supports — rendered as a single, larger supports first row.
+  supports: { type: Array, default: () => [] },
+  funding: { type: Array, default: () => [] },
   loading: { type: Boolean, default: false },
   rowCount: { type: Number, default: 3 },
 })
@@ -82,7 +86,7 @@ const rowCount = props.rowCount
 // the duplicated group makes the -50% loop seamless with no empty gap.
 const MIN_PER_ROW = 10
 
-// Tile a row's items until it reaches at least MIN_PER_ROW, so short rows
+// Tile a row's members until it reaches at least MIN_PER_ROW, so short rows
 // still fill the marquee track instead of leaving it ~empty. Only kicks in
 // when the pool itself is smaller than MIN_PER_ROW (few members) — at that
 // point in-row repeats are unavoidable.
@@ -124,16 +128,18 @@ function splitRows(list) {
   const stride = Math.max(1, Math.floor(pool.length / rowCount))
   return Array.from({ length: rowCount }, (_, i) => ({
     // Independent shuffle per row, then rotate to stagger the start position.
-    items: rotate(shuffle(pool), stride * i),
-    featured: false,
+    members: rotate(shuffle(pool), stride * i),
   }))
 }
 
-// Build the full row list: featured supports row first, then member rows.
-function buildRows(featured, members) {
+// Build the full row list: supports supports row first, then member rows.
+function buildRows(supports, members, funding) {
   const rows = []
-  if (featured?.length) rows.push({ items: tile(shuffle(featured)), featured: true })
-  rows.push(...splitRows(members))
+  if (supports?.length) {
+    rows.push({ items: tile(shuffle(supports)), supports: true })
+  }
+  rows.push({ items: tile(shuffle(members)), supports: false })
+  rows.push({ items: tile(shuffle(funding)), supports: false })
   return rows
 }
 
@@ -151,15 +157,18 @@ onMounted(() => {
 const rows = computed(() => {
   if (!hydrated.value) {
     const rows = []
-    if (props.featuredItems?.length) {
-      rows.push({ items: tile(props.featuredItems), featured: true })
+    if (props.supports?.length) {
+      rows.push({ items: tile(props.supports), supports: true })
     }
-    if (props.items?.length) {
-      rows.push({ items: tile(props.items), featured: false })
+    if (props.members?.length) {
+      rows.push({ items: tile(props.members), supports: false })
+    }
+    if (props.funding?.length) {
+      rows.push({ items: tile(props.funding), supports: false })
     }
     return rows
   }
-  return buildRows(props.featuredItems, props.items)
+  return buildRows(props.supports, props.members, props.funding)
 })
 </script>
 
@@ -191,8 +200,8 @@ const rows = computed(() => {
   width: 100%;
   margin-bottom: 6px;
 
-  /* Featured (supports) row: logos larger than member rows at every size. */
-  &--featured {
+  /* supports (supports) row: logos larger than member rows at every size. */
+  &--supports {
     margin-bottom: 10px;
 
     .logo-item {
@@ -206,7 +215,7 @@ const rows = computed(() => {
   @media (min-width: 600px) {
     margin-bottom: 8px;
 
-    &--featured {
+    &--supports {
       margin-bottom: 14px;
 
       .logo-item {
@@ -219,7 +228,7 @@ const rows = computed(() => {
   }
 
   @media (min-width: 960px) {
-    &--featured {
+    &--supports {
       margin-bottom: 16px;
 
       .logo-item {

@@ -13,7 +13,9 @@ export const useAffiliations = async () => {
       options: {
         skip: 0,
         limit: 100,
-        filters: JSON.stringify({ category: ["MEMBER", "SUPPORT", "NETWORK"] }),
+        filters: JSON.stringify({
+          category: ["MEMBER", "SUPPORT", "NETWORK", "FUNDING"],
+        }),
         sort: "nameasc",
       },
       appId: "iea",
@@ -85,10 +87,12 @@ export const useAffiliations = async () => {
   const membersData = filterByCategory("MEMBER")
   const networkData = filterByCategory("NETWORK")
   const supportData = filterByCategory("SUPPORT")
+  const fundingData = filterByCategory("FUNDING")
 
   const membersRaw = filterRawByCategory("MEMBER")
   const networkRaw = filterRawByCategory("NETWORK")
   const supportRaw = filterRawByCategory("SUPPORT")
+  const fundingRaw = filterRawByCategory("FUNDING")
 
   return {
     affiliationsData,
@@ -97,9 +101,11 @@ export const useAffiliations = async () => {
     allAffiliations,
     membersData,
     networkData,
+    fundingData,
     supportData,
     membersRaw,
     networkRaw,
     supportRaw,
+    fundingRaw,
   }
 }

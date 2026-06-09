@@ -113,8 +113,30 @@
         </template>
       </v-container>
     </section>
-
-    <!-- 4. Support CTA -->
+    <!-- 4. Funding -->
+    <section id="funding" class="section-light anchor-offset">
+      <v-container>
+        <p class="overline-label">{{ $t("partners") }}</p>
+        <div class="typographic-rule" />
+        <h2 class="section-heading">{{ $t("funding") }}</h2>
+        <div class="prose section-intro">
+          <ContentDoc :path="funding" />
+        </div>
+        <v-skeleton-loader v-if="pending" type="list-item-avatar-two-line@3" />
+        <template v-else>
+          <AffiliationsExpandableDenseItem
+            v-for="(item, index) in fundingRaw"
+            :key="'funding-' + (item.slug || index)"
+            :item="item"
+            :index="index"
+          />
+          <p v-if="!fundingRaw.length" class="text-body-2 text-medium-emphasis">
+            {{ $t("no-results") }}
+          </p>
+        </template>
+      </v-container>
+    </section>
+    <!-- 5. Support CTA -->
     <section id="support-us" class="section-light anchor-offset">
       <v-container>
         <p class="overline-label">{{ $t("partners") }}</p>
@@ -145,17 +167,20 @@
 <script setup>
 const { locale, t } = useI18n()
 
-const { pending, membersRaw, networkRaw, supportRaw } = await useAffiliations()
+const { pending, membersRaw, networkRaw, supportRaw, fundingRaw } =
+  await useAffiliations()
 
 const intro = "/pages/" + locale.value + "/about__partners__intro"
 const members = "/pages/" + locale.value + "/about__partners__members"
 const networks = "/pages/" + locale.value + "/about__partners__networks"
 const supports = "/pages/" + locale.value + "/about__partners__supports"
+const funding = "/pages/" + locale.value + "/about__partners__funding"
 
 const tocSections = computed(() => [
   { id: "members", label: t("members") },
   { id: "network", label: t("networks") },
   { id: "support", label: t("supports") },
+  { id: "funding", label: t("funding") },
   { id: "support-us", label: t("about_partners.support_cta.toc") },
 ])
 
