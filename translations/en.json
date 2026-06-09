@@ -273,6 +273,7 @@
       "toc": "Patronage"
     }
   },
+  "institute": "Institute",
   "about_institute": {
     "research": "Breaking down barriers in research",
     "collective": "Developing collective intelligence",
@@ -295,5 +296,7 @@
     "location-overline": "Where we work"
   },
   "download-statutes": "Download the statutes (PDF)",
-  "lauzun": "Hôtel de Lauzun"
+  "lauzun": "Hôtel de Lauzun",
+  "privacy_policy": "Privacy Policy",
+  "terms_of_service": "Terms of Service"
 }

@@ -9,6 +9,7 @@
       </v-col>
     </v-row>
     <ListOrganismsList
+      v-if="type"
       :type="type"
       :path-prefix="pathPrefix"
       :modifier="modifier"
@@ -20,7 +21,7 @@
 const props = defineProps({
   title: { type: String, required: true },
   markdownFile: { type: String, required: true },
-  type: { type: String, required: true },
+  type: { type: [String, Boolean], required: true },
   pathPrefix: { type: String, required: true },
   modifier: { type: String, default: undefined },
 })

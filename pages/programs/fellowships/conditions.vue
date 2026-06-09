@@ -1,15 +1,12 @@
 <template>
-  <v-container style="max-width: 1200px">
-    <div class="d-flex justify-center">
-      <h2 class="text-center">{{ $t("fellowship_conditions") }}</h2>
-    </div>
-    <ContentDoc :path="commitments" />
-  </v-container>
+  <MiscMoleculesSection
+    :title="capitalize($t('fellowship_conditions'))"
+    markdown-file="programs__fellowships__conditions"
+    :type="false"
+    path-prefix="programs-fellowships-slug"
+  />
 </template>
 
-<script setup>
-const { locale } = useI18n()
-const commitments = "/pages/" + locale.value + "/programs__fellowships__conditions"
-</script>
+<script setup></script>
 
 <style lang="scss" scoped></style>

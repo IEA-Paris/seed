@@ -6,8 +6,8 @@
 const { $queries } = useNuxtApp()
 const { resourceItem: news, loading } = useI18nResourceItem({
   resourceName: "news",
-  documentGql: $queries.news.get,
-  responseKey: "getNews",
+  documentGql: $queries.publications.get,
+  responseKey: "getPublication",
   appId: "iea",
 })
 </script>
