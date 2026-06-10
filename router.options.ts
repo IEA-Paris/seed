@@ -1,5 +1,18 @@
 import type { RouterConfig } from "@nuxt/schema"
 
+// Snap-scroll pages (e.g. the homepage) wrap their content in a `.scroller`
+// element that is its own scroll container (overflow-y: scroll, fixed height).
+// On those pages the window never scrolls — the `.scroller` does. Vue Router's
+// scrollBehavior only ever touches the window, so navigating between a
+// `.scroller` page and a regular (window-scrolled) page leaves the nested
+// container scrolled where it was. Reset it here too. (Late re-pinning for
+// client-loaded list pages lives in plugins/scroll-restoration.client.ts.)
+function resetScrollContainers() {
+  document.querySelectorAll<HTMLElement>(".scroller").forEach((el) => {
+    el.scrollTop = 0
+  })
+}
+
 export default {
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) return savedPosition
@@ -14,17 +27,26 @@ export default {
     return new Promise((resolve) => {
       const nuxtApp = useNuxtApp()
       nuxtApp.hooks.hookOnce("page:finish", () => {
+        // Two frames: the first lets the out-in page transition swap in the new
+        // DOM, the second lets layout settle before we resolve the scroll target
+        // (needed for hash anchors so the element exists and is positioned).
         requestAnimationFrame(() => {
-          if (to.hash) {
-            const el = document.querySelector(to.hash) as HTMLElement | null
-            resolve(
-              el
-                ? { el: to.hash, behavior: "smooth" }
-                : { top: 0, behavior: "instant" as ScrollBehavior },
-            )
-          } else {
-            resolve({ top: 0, behavior: "instant" as ScrollBehavior })
-          }
+          requestAnimationFrame(() => {
+            // Reset the nested snap-scroll container regardless of where we land,
+            // so leaving/entering a `.scroller` page always starts from the top.
+            resetScrollContainers()
+
+            if (to.hash) {
+              const el = document.querySelector(to.hash) as HTMLElement | null
+              resolve(
+                el
+                  ? { el: to.hash, behavior: "smooth" }
+                  : { top: 0, behavior: "instant" as ScrollBehavior },
+              )
+            } else {
+              resolve({ top: 0, behavior: "instant" as ScrollBehavior })
+            }
+          })
         })
       })
     })

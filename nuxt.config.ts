@@ -126,21 +126,6 @@ export default defineNuxtConfig({
       })
     },
   ],
-  list: {
-    modules: [
-      "events",
-      "news",
-      "people",
-      "projects",
-      "fellowships",
-      "publications",
-      // "actions",
-      // "disciplines",
-      // "files",
-      // "mailing",
-      // "tags",
-    ],
-  },
 
   pinia: {
     autoImports: ["defineStore", ["defineStore", "definePiniaStore"]],

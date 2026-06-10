@@ -25,7 +25,7 @@
 
         <v-menu
           v-for="(item, i) in row.items"
-          :key="`${copy}-${i}`"
+          :key="`item-${i}`"
           open-on-hover
           :open-delay="300"
           :close-delay="200"
@@ -105,31 +105,6 @@ function shuffle(list) {
     ;[arr[i], arr[j]] = [arr[j], arr[i]]
   }
   return arr
-}
-
-// Rotate a list left by `n` (mod length): [a,b,c,d] rotated by 1 → [b,c,d,a].
-function rotate(list, n) {
-  if (!list.length) return list
-  const k = ((n % list.length) + list.length) % list.length
-  return list.slice(k).concat(list.slice(0, k))
-}
-
-// Build member rows: each row holds the FULL pool, but in its OWN independent
-// shuffle, then phase-offset so the windows start far apart. This satisfies:
-//  • no duplicate within a row — each logo appears once per loop;
-//  • no fixed set per row — every row is the whole pool, reshuffled;
-//  • different sequence per row — independent shuffles;
-//  • minimal cross-row collisions — distinct orders + a ~len/rowCount phase
-//    offset keep the visible windows from lining up (best-effort: wider
-//    screens show more per row, so some overlap is unavoidable).
-function splitRows(list) {
-  if (!list?.length) return []
-  const pool = tile(list)
-  const stride = Math.max(1, Math.floor(pool.length / rowCount))
-  return Array.from({ length: rowCount }, (_, i) => ({
-    // Independent shuffle per row, then rotate to stagger the start position.
-    members: rotate(shuffle(pool), stride * i),
-  }))
 }
 
 // Build the full row list: supports supports row first, then member rows.
