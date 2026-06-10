@@ -2288,17 +2288,17 @@
     "@parcel/watcher-win32-ia32" "2.5.6"
     "@parcel/watcher-win32-x64" "2.5.6"
 
-"@paris-ias/list@^1.1.16":
-  version "1.1.16"
-  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.1.16.tgz#c0eded1ef7e54e2c0479efd445234804a2f1e72a"
-  integrity sha512-Vd+F+9KSb1fnoKnde/7d56pxOFRxLf7NbcIp1SNnDjOioxCvcMrVxsvMTstogJ9gbb49kK8isqZv+iaLkSiOYA==
+"@paris-ias/list@^1.1.18":
+  version "1.1.18"
+  resolved "https://registry.yarnpkg.com/@paris-ias/list/-/list-1.1.18.tgz#014522f7cfc1bdc053898b0252ae4a6c4b2a6184"
+  integrity sha512-3Wt0ZM0H89Cmh7ChJzBe0nViqt2HXrBz9KCfamuvqpMlOFQfti3VZ1rceVSAC59eNBPU9EIJ/9oJHnENwMPCvg==
   dependencies:
-    "@paris-ias/trees" "^2.2.7"
+    "@paris-ias/trees" "^2.2.9"
 
-"@paris-ias/trees@^2.2.7":
-  version "2.2.7"
-  resolved "https://registry.yarnpkg.com/@paris-ias/trees/-/trees-2.2.7.tgz#a29ebccf5fd5d358ce1b9168b36fe2495f32d9a3"
-  integrity sha512-E3Oug35Qj7jG0kq81u+ZFnkRSEF+9Y4NvESTbrqRvo+cptV77I+bl07gGi2wGC98hmDxLZLerw52w/nGcawpTQ==
+"@paris-ias/trees@^2.2.9":
+  version "2.2.9"
+  resolved "https://registry.yarnpkg.com/@paris-ias/trees/-/trees-2.2.9.tgz#e699ec143e7acb3cd7fce6fa3523ebb8d91b15c3"
+  integrity sha512-APwXAD4lgi59KXjNCq9DFPPw7j+hqHERx3T4DRHAKXR3titOJUAGK2GcnorxJ6JUPDfNPLlDmWDlAxisI5Onmw==
   dependencies:
     "@graphql-tools/load-files" "^7"
     "@graphql-tools/merge" "^8"
@@ -5599,7 +5599,12 @@ graphql-ws@^6.0.6:
   resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-6.0.7.tgz#140307a513f0ba659ecec618d6cf15354a842f96"
   integrity sha512-yoLRW+KRlDmnnROdAu7sX77VNLC0bsFoZyGQJLy1cF+X/SkLg/fWkRGrEEYQK8o2cafJ2wmEaMqMEZB3U3DYDg==
 
-graphql@^16, graphql@^16.11.0:
+graphql@^16:
+  version "16.14.2"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.14.2.tgz#83faf25869e3df727cc855161db5da85b0e5b2c0"
+  integrity sha512-Chq1s4CY7jmh8gO2qvLIJyfCDIN+EHLFW/9iShnp1z8FjBQMoodWP1kDC36VAMXXIvAjj4ARa7ntfAV2BrjsbA==
+
+graphql@^16.11.0:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.12.0.tgz#28cc2462435b1ac3fdc6976d030cef83a0c13ac7"
   integrity sha512-DKKrynuQRne0PNpEbzuEdHlYOMksHSUI8Zc9Unei5gTsMNA2/vMpoMz/yKba50pejK56qj98qM0SjYxAKi13gQ==
@@ -7885,10 +7890,15 @@ picocolors@^1.0.0, picocolors@^1.1.1:
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.1.1.tgz#3d321af3eab939b083c8f929a1d12cda81c26b6b"
   integrity sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==
 
-picomatch@^2.0.4, picomatch@^2.3.1:
+picomatch@^2.0.4:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
+
+picomatch@^2.3.1:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.2.tgz#5a942915e26b372dc0f0e6753149a16e6b1c5601"
+  integrity sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA==
 
 picomatch@^4.0.2, picomatch@^4.0.3:
   version "4.0.3"
