@@ -7,6 +7,38 @@
     <title>Content Manager</title>
   </head>
   <body>
+    <!-- Polyfill crypto.randomUUID for insecure contexts (http:// over a LAN IP
+         or a non-TLS domain). The Web Crypto API only exposes randomUUID in a
+         secure context, and Decap calls it at startup, so without this the panel
+         dies with "TypeError: crypto.randomUUID is not a function".
+         Must run BEFORE the Decap bundle. -->
+    <script>
+      (function () {
+        var c = window.crypto || (window.crypto = {});
+        if (typeof c.randomUUID === "function") return;
+        c.randomUUID = function randomUUID() {
+          // RFC 4122 v4. Uses getRandomValues if available, else Math.random.
+          var bytes = new Uint8Array(16);
+          if (c.getRandomValues) {
+            c.getRandomValues(bytes);
+          } else {
+            for (var i = 0; i < 16; i++) bytes[i] = Math.floor(Math.random() * 256);
+          }
+          bytes[6] = (bytes[6] & 0x0f) | 0x40; // version 4
+          bytes[8] = (bytes[8] & 0x3f) | 0x80; // variant 10
+          var hex = [];
+          for (var j = 0; j < 256; j++) hex[j] = (j + 0x100).toString(16).slice(1);
+          var b = bytes;
+          return (
+            hex[b[0]] + hex[b[1]] + hex[b[2]] + hex[b[3]] + "-" +
+            hex[b[4]] + hex[b[5]] + "-" +
+            hex[b[6]] + hex[b[7]] + "-" +
+            hex[b[8]] + hex[b[9]] + "-" +
+            hex[b[10]] + hex[b[11]] + hex[b[12]] + hex[b[13]] + hex[b[14]] + hex[b[15]]
+          );
+        };
+      })();
+    </script>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.9/dist/decap-cms.js"></script>
     <!-- Translation editing: custom format keeps the JSON files bare on disk,
