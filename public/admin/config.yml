@@ -49,7 +49,7 @@ collections:
     #     key/value table (values editable, keys shown read-only).
     # `format` is set at the COLLECTION level (Decap resolves format from the
     # collection, not per-file entry).
-    format: json-flat
+    format: json
     files:
       - name: "en"
         label: "English (en.json)"
