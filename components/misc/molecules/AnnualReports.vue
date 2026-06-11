@@ -75,6 +75,12 @@ const allReports = [
     thumbnail: "/images/reports/2023-en.jpg",
   },
   {
+    year: 2025,
+    href: "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/publications/tmp/pdf/fr/MAQ_IEA_RA_2025__10_25_FR_BAT-avec_compression.pdf",
+    lang: "fr",
+    thumbnail: "/images/reports/2025-fr.png",
+  },
+  {
     year: 2024,
     href: "https://cdn-yggdrasil-dev.s3.eu-west-2.amazonaws.com/iea/publications/tmp/pdf/fr/MAQ_IEA_RA_2024__10_25_FR_BAT-avec_compression.pdf",
     lang: "fr",
