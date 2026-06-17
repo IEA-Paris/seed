@@ -9,6 +9,9 @@ export default defineAppConfig({
     default: "en",
   },
   list: {
+    // Consuming app id, used to scope which filters render on this consumer
+    // (filters may declare an `appId` allow-list; "all" is a wildcard).
+    appId: "iea",
     modules: [
       "events",
       "people",
