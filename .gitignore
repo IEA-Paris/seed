@@ -110,3 +110,5 @@ assets/generated
 static.config.ts
 
 modules/list
+
+.claude
