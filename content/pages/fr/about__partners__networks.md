@@ -1,9 +1,9 @@
 ---
-title: networks
+title: Networks
 ---
 L’IEA participe activement au Réseau français des instituts d’études avancées (RFIEA), qui regroupe notamment 7 instituts d’études avancées en France / le Collégium de Lyon, le CUT de Rennes, l’IMéRA d’Aix-Marseille, l’IEA de Nantes, l’Institut MAK’IT de Montpellier, le Studium Loire Valley et l’IEA de Paris. Ces appartenances renforcent l’attractivité internationale de l’Institut et facilitent la mobilité des chercheurs.
 
-L’IEA de Pariss’inscrit également dans plusieurs réseaux structurants à l’échelle européenneet internationale.
+L’IEA de Pariss’inscrit également dans plusieurs réseaux structurants à l’échelle européenne et internationale.
 
 **NETIAS** : Le Network of European Institutes for Advanced Study (NetIAS) rassemble 28 instituts européens qui sont engagés dans la promotion de la recherche fondamentale et des collaborations interdisciplinaires.
 
