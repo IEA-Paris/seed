@@ -1,10 +1,7 @@
 ---
 title: Terms of service
-page: "tos"
+page: tos
 ---
-
-_Last updated: February 2026_
-
 Please read these Terms of Service carefully before using the Paris Institute for Advanced Study website. By accessing or using this website, you agree to be bound by these terms.
 
 ### 1. About Us
@@ -19,10 +16,10 @@ By accessing this website, you confirm that you are at least 16 years of age and
 
 You agree to use this website only for lawful purposes and in a manner that does not infringe the rights of others. You must not:
 
-- Use the site in any way that disrupts, damages, or impairs its functionality
-- Attempt to gain unauthorised access to any part of the website or its underlying systems
-- Transmit any unsolicited or unauthorised advertising material
-- Reproduce, redistribute, or republish content from this site without prior written permission, except where explicitly permitted
+* Use the site in any way that disrupts, damages, or impairs its functionality
+* Attempt to gain unauthorised access to any part of the website or its underlying systems
+* Transmit any unsolicited or unauthorised advertising material
+* Reproduce, redistribute, or republish content from this site without prior written permission, except where explicitly permitted
 
 ### 4. Intellectual Property
 
