@@ -1,5 +1,4 @@
 ---
-title: Fellows introduction
+title: Fellows at the Paris IAS
 ---
-
-Placeholder text for the fellows page. To be updated with the content of the page.
+See the list of fellows – both long-term and short-term – hosted by the Paris IAS.
