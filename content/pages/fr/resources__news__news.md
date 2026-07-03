@@ -1,5 +1,4 @@
 ---
 title: Actualités
 ---
-
-Texte temporaire pour la page des actualités. À mettre à jour avec le contenu de la page.
+Découvrez les actualités marquantes de la communauté de l'IEA de Paris. Nominations, prix, distinctions ou hommages, ces informations témoignent du dynamisme et du rayonnement de l'Institut.
