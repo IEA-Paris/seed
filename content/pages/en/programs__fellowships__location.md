@@ -1,6 +1,6 @@
 ---
-title: Fellowship accommodations
-page: "home"
+title: Location
+page: home
 ---
 
 Whether they are staying for ten months or just a few weeks, researchers in residence at the IEA in Paris enjoy excellent facilities and a great deal of freedom in their work.
