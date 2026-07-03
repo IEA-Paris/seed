@@ -1,5 +1,4 @@
 ---
 title: News
 ---
-
-This is the placeholder text for news. We will update this page with the content of the page.
+Discover the latest highlights from the Paris IAS community. Appointments, awards, distinctions, and tributes reflect the excellence, vitality, and international reach of the Institute and its researchers.
