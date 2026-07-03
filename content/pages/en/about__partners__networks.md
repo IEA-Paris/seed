@@ -5,6 +5,6 @@ The Paris IAS actively participates in the French Network of Institutes for Adva
 
 The Paris IAS is also part of several key networks atEuropean and international level.
 
-**NETIAS**: The Network of European Institutes for Advanced Study (NetIAS) brings together28 European institutes committed to promoting fundamental research andinterdisciplinary collaboration.
+**NETIAS**: The Network of European Institutes for Advanced Study (NetIAS) brings together 28 European institutes committed to promoting fundamental research and interdisciplinary collaboration.
 
-**UBIAS**: Globally, the Institute is a member of the University-Based Institutes forAdvanced Study (UBIAS), which unites some fifty university-affiliatedinstitutions and fosters global scientific dialogue.
+**UBIAS**: Globally, the Institute is a member of the University-Based Institutes for Advanced Study (UBIAS), which unites some fifty university-affiliated institutions and fosters global scientific dialogue.
