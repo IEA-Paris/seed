@@ -1,5 +1,6 @@
 ---
-title: Évènements
+title: Événements
 ---
+Conférences, cycles de rencontres, tables rondes et échanges interdisciplinaires rythment ainsi une programmation pensée pour faire dialoguer la recherche avec les grandes questions contemporaines et offrir des espaces de discussion ouverts, en prise directe avec les préoccupations de la société.
 
-Texte temporaire pour la page des évènements.
+Retrouvez les événements organisés ou accueillis à l'IEA de Paris.
