@@ -1,6 +1,6 @@
 ---
-title: Fellowship accommodations
-page: "home"
+title: "Accueil "
+page: home
 ---
 
 Qu’ils participent à un séjour de dix mois ou de quelques semaines, les chercheurs en résidence à l’IEA de Paris bénéficient de conditions matérielles privilégiées et d’une grande liberté de travail.
