@@ -1,10 +1,7 @@
 ---
 title: Conditions d'utilisation
-page: "tos"
+page: tos
 ---
-
-_Dernière mise à jour : février 2026_
-
 Veuillez lire attentivement ces conditions d'utilisation avant d'utiliser le site de l'Institut d'études avancées de Paris. En accédant à ce site ou en l'utilisant, vous acceptez d'être lié par ces conditions.
 
 ### 1. À propos de nous
@@ -19,10 +16,10 @@ En accédant à ce site, vous confirmez avoir au moins 16 ans et vous engagez à
 
 Vous vous engagez à utiliser ce site uniquement à des fins légales et d'une manière qui ne porte pas atteinte aux droits d'autrui. Vous ne devez pas :
 
-- Utiliser le site de façon à perturber, endommager ou altérer son fonctionnement
-- Tenter d'accéder sans autorisation à toute partie du site ou à ses systèmes sous-jacents
-- Transmettre tout message publicitaire non sollicité ou non autorisé
-- Reproduire, redistribuer ou republier des contenus de ce site sans autorisation écrite préalable, sauf dans les cas expressément autorisés
+* Utiliser le site de façon à perturber, endommager ou altérer son fonctionnement
+* Tenter d'accéder sans autorisation à toute partie du site ou à ses systèmes sous-jacents
+* Transmettre tout message publicitaire non sollicité ou non autorisé
+* Reproduire, redistribuer ou republier des contenus de ce site sans autorisation écrite préalable, sauf dans les cas expressément autorisés
 
 ### 4. Propriété intellectuelle
 
